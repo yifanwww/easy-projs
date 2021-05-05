@@ -1,4 +1,8 @@
 {
+    "editor.insertSpaces": true,
+    "editor.rulers": [120],
+    "editor.tabSize": 4,
+
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -6,5 +10,14 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "projects": true
+    },
+
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
     }
 }
