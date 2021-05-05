@@ -1,6 +1,11 @@
 {
     "folders": [
         {
+            "name": "Carousel",
+            "path": "projects\\Carousel"
+        },
+        {
+            "name": "easy-projs",
             "path": "."
         }
     ],
