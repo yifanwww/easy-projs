@@ -12,6 +12,10 @@
         "projects": true
     },
 
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.suggest.insertMode": "replace"
