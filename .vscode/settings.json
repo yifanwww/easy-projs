@@ -9,9 +9,14 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
+        "node_modules": true,
         "projects": true
     },
 
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.suggest.insertMode": "replace"
