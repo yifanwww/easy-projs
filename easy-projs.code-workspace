@@ -5,6 +5,10 @@
             "path": "projects\\Carousel"
         },
         {
+            "name": "Memorize",
+            "path": "projects\\Memorize"
+        },
+        {
             "name": "easy-projs",
             "path": "."
         }
