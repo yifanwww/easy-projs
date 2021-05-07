@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "description": "",
     "main": "app.js",
+    "type": "module",
     "homepage": "https://github.com/YF1999/easy-projs#readme",
     "license": "ISC",
     "author": {
@@ -31,7 +32,9 @@
         ]
     },
     "scripts": {
-        "app": "node app.js"
+        "app": "node app.js",
+        "build:memorize": "tsc -p projects/Memorize",
+        "run:memorize": "node projects/Memorize/build/main.js"
     },
     "dependencies": {},
     "devDependencies": {
