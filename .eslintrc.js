@@ -9,7 +9,7 @@ module.exports = {
     extends: ['airbnb-typescript/base', 'prettier', 'prettier/prettier'],
     ignorePatterns: ['*.cjs', '*.js', '*.mjs', '*.d.ts'],
     parserOptions: {
-        project: 'tsconfig.base.json',
+        project: 'tsconfig.json',
     },
     plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
     rules: {
