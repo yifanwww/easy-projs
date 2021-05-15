@@ -1,4 +1,4 @@
-import { memorize } from './memorize.js';
+import { memorize } from './memorize';
 
 const test = memorize(function test(a: number, b: number) {
     return `${a} + ${b} = ${a + b}`;
