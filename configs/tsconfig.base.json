@@ -2,21 +2,21 @@
     "compilerOptions": {
         "allowJs": false,
         "allowSyntheticDefaultImports": true,
-        "alwaysStrict": true,
+        "baseUrl": "..",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,
         "jsx": "react-jsx",
-        "lib": ["dom", "dom.iterable", "ES2018"],
-        "module": "CommonJS",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "listEmittedFiles": true,
+        "module": "esnext",
         "moduleResolution": "node",
         "noImplicitAny": true,
-        "noErrorTruncation": true,
         "resolveJsonModule": true,
         "skipLibCheck": true,
         "sourceMap": true,
         "strict": true,
-        "strictPropertyInitialization": true,
+        "strictPropertyInitialization": false,
         "target": "ES2018"
     }
 }
