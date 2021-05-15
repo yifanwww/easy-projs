@@ -34,7 +34,7 @@
     "scripts": {
         "app": "node app.js",
         "build:memorize": "tsc -p projects/Memorize",
-        "run:memorize": "node projects/Memorize/build/main.js"
+        "run:memorize": "node projects/Memorize/build/memorize.test.js"
     },
     "dependencies": {},
     "devDependencies": {
