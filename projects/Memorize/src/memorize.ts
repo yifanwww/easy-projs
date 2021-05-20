@@ -26,5 +26,7 @@ export function memorize<Args extends any[], ReturnType extends any>(
             prev = curr;
             return func(...curr);
         }
+
+        return undefined;
     };
 }

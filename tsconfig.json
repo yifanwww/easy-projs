@@ -5,6 +5,6 @@
         "noEmit": true,
         "rootDir": "."
     },
-    "include": ["scripts", "src"],
+    "include": ["scripts"],
     "exclude": ["build", "node_modules"]
 }

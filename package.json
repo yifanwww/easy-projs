@@ -31,8 +31,9 @@
         ]
     },
     "scripts": {
-        "app": "node app.js",
-        "build:memorize": "tsc -p projects/Memorize",
+        "build:all": "tsc --build configs/tsconfig.nodejs.json",
+        "build:memorize": "tsc --project projects/Memorize",
+        "build:scripts": "tsc --build configs/tsconfig.scripts.json",
         "run:memorize": "node projects/Memorize/build/memorize.test.js"
     },
     "dependencies": {},
