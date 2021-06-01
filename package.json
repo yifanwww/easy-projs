@@ -38,6 +38,8 @@
         "clean:all": "node scripts/clean.js --all",
         "clean:helloworld-nodejs": "node scripts/clean.js --name helloworld-nodejs",
         "clean:memorize": "node scripts/clean.js --name memorize",
+        "lint": "eslint .",
+        "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx}\"",
         "run:helloworld-nodejs": "node scripts/run.js --name helloworld-nodejs",
         "run:memorize": "node scripts/run.js --name memorize"
     },
