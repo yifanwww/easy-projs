@@ -16,10 +16,6 @@
         "**/scripts/*.map": true
     },
 
-    // "[css]": {
-    //     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    //     "editor.suggest.insertMode": "replace"
-    // },
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.suggest.insertMode": "replace"
@@ -32,20 +28,14 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.suggest.insertMode": "replace"
     },
-    // "[html]": {
-    //     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    //     "editor.suggest.insertMode": "replace"
-    // },
-    // "[scss]": {
-    //     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    //     "editor.suggest.insertMode": "replace"
-    // },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.suggest.insertMode": "replace"
+    },
+    "[yaml]": {
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
     }
-    // "[typescriptreact]": {
-    //     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    //     "editor.suggest.insertMode": "replace"
-    // }
 }
