@@ -10,11 +10,6 @@ export interface BrowserReactProjectInfo extends CommonProjectInfo {
     mode: 'browser-react';
 }
 
-export interface BrowserTscProjectInfo extends CommonProjectInfo {
-    mode: 'browser-tsc';
-    startup: string;
-}
-
 export interface BrowserVueProjectInfo extends CommonProjectInfo {
     mode: 'browser-vue';
 }
@@ -30,7 +25,6 @@ export interface NodejsProjectInfo extends CommonProjectInfo {
 
 export type ProjectInfo =
     | BrowserReactProjectInfo
-    | BrowserTscProjectInfo
     | BrowserVueProjectInfo
     | BrowserWebpackProjectInfo
     | NodejsProjectInfo;
@@ -61,16 +55,6 @@ function genBrowserReactProjectInfo(info: BrowserReactProjectInfo): Required<Bro
     return {
         ...genCommonProjectInfo(info),
         mode: 'browser-react',
-    };
-}
-
-function genBrowserTscProjectInfo(info: BrowserTscProjectInfo): Required<BrowserTscProjectInfo> {
-    const common = genCommonProjectInfo(info);
-
-    return {
-        ...common,
-        mode: 'browser-tsc',
-        startup: _path.resolve(common.path, info.startup),
     };
 }
 
@@ -108,9 +92,6 @@ function genProjectInfos(infos: PartialProjectInfos): ProjectInfos {
         switch (projectInfo.mode) {
             case 'browser-react':
                 _projectInfos[projectName] = genBrowserReactProjectInfo(projectInfo);
-                break;
-            case 'browser-tsc':
-                _projectInfos[projectName] = genBrowserTscProjectInfo(projectInfo);
                 break;
             case 'browser-vue':
                 _projectInfos[projectName] = genBrowserVueProjectInfo(projectInfo);

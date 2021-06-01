@@ -5,7 +5,6 @@ import yargs from 'yargs';
 import { executeCommand } from './execute-command';
 import {
     BrowserReactProjectInfo,
-    BrowserTscProjectInfo,
     BrowserVueProjectInfo,
     BrowserWebpackProjectInfo,
     NodejsProjectInfo,
@@ -39,10 +38,6 @@ async function buildBrowserReactProject(info: Required<BrowserReactProjectInfo>)
     console.log(info);
 }
 
-async function buildBrowserTscProject(info: Required<BrowserTscProjectInfo>): Promise<void> {
-    console.log(info);
-}
-
 async function buildBrowserVueProject(info: Required<BrowserVueProjectInfo>): Promise<void> {
     console.log(info);
 }
@@ -66,9 +61,6 @@ async function _build(name: string): Promise<void> {
     switch (info.mode) {
         case 'browser-react':
             await buildBrowserReactProject(info);
-            break;
-        case 'browser-tsc':
-            await buildBrowserTscProject(info);
             break;
         case 'browser-vue':
             await buildBrowserVueProject(info);

@@ -13,10 +13,6 @@
             "path": "projects\\Helloworld [browser-react]"
         },
         {
-            "name": "Helloworld [browser-tsc]",
-            "path": "projects\\Helloworld [browser-tsc]"
-        },
-        {
             "name": "Helloworld [browser-vue]",
             "path": "projects\\Helloworld [browser-vue]"
         },
