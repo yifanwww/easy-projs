@@ -30,6 +30,7 @@
             "last 1 safari version"
         ]
     },
+    "config-overrides-path": "configs/webpack.react.config.js",
     "scripts": {
         "build:all": "npm run build:scripts && node scripts/build.js --all",
         "build:helloworld-nodejs": "npm run build:scripts && node scripts/build.js --name helloworld-nodejs",
