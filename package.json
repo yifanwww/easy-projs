@@ -32,8 +32,10 @@
     },
     "scripts": {
         "build:all": "npm run build:scripts && node scripts/build.js --all",
+        "build:helloworld-nodejs": "npm run build:scripts && node scripts/build.js --name helloworld-nodejs",
         "build:memorize": "npm run build:scripts && node scripts/build.js --name memorize",
         "build:scripts": "tsc --build configs/tsconfig.scripts.json",
+        "run:helloworld-nodejs": "node scripts/run.js --name helloworld-nodejs",
         "run:memorize": "node scripts/run.js --name memorize"
     },
     "dependencies": {},

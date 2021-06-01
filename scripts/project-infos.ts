@@ -126,6 +126,11 @@ function genProjectInfos(infos: PartialProjectInfos): ProjectInfos {
 }
 
 export const projectInfos = genProjectInfos({
+    'helloworld-nodejs': {
+        mode: 'nodejs',
+        name: 'Helloworld [nodejs]',
+        startup: 'build/helloworld.js',
+    },
     memorize: {
         mode: 'nodejs',
         name: 'Memorize',
