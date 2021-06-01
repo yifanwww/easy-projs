@@ -4,6 +4,7 @@ import yargs from 'yargs';
 import { executeCommand } from './execute-command';
 import {
     BrowserReactProjectInfo,
+    BrowserTscProjectInfo,
     BrowserVueProjectInfo,
     BrowserWebpackProjectInfo,
     NodejsProjectInfo,
@@ -26,6 +27,10 @@ function parseArgs(): YargsRunArgv {
 }
 
 async function runBrowserReactProject(info: BrowserReactProjectInfo): Promise<void> {
+    console.log(info);
+}
+
+async function runBrowserTscProject(info: BrowserTscProjectInfo): Promise<void> {
     console.log(info);
 }
 
@@ -54,6 +59,9 @@ async function run(): Promise<void> {
     switch (info.mode) {
         case 'browser-react':
             await runBrowserReactProject(info);
+            break;
+        case 'browser-tsc':
+            await runBrowserTscProject(info);
             break;
         case 'browser-vue':
             await runBrowserVueProject(info);
