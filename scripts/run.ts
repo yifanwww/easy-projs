@@ -3,7 +3,12 @@ import yargs from 'yargs';
 
 import { executeCommand } from './execute-command';
 import { projectInfos } from './project-infos';
-import { YargsRunArgv } from './types';
+
+interface YargsRunArgv {
+    _: (string | number)[];
+    $0: string;
+    name: string;
+}
 
 function parseArgs(): YargsRunArgv {
     return yargs.option('name', {

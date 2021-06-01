@@ -1,14 +1,32 @@
 import _path from 'path';
 
-import {
-    BrowserProjectInfo,
-    CommonProjectInfo,
-    NodejsProjectInfo,
-    PartialProjectInfos,
-    ProjectInfo,
-    ProjectInfos,
-    ReactProjectInfo,
-} from './types';
+export interface CommonProjectInfo {
+    name: string;
+    path?: string;
+}
+
+export interface BrowserProjectInfo extends CommonProjectInfo {
+    mode: 'browser';
+}
+
+export interface NodejsProjectInfo extends CommonProjectInfo {
+    mode: 'nodejs';
+    startup: string;
+}
+
+export interface ReactProjectInfo extends CommonProjectInfo {
+    mode: 'react';
+}
+
+export type ProjectInfo = BrowserProjectInfo | NodejsProjectInfo | ReactProjectInfo;
+
+export interface PartialProjectInfos {
+    [name: string]: ProjectInfo;
+}
+
+export interface ProjectInfos {
+    [name: string]: Required<ProjectInfo>;
+}
 
 const projectsDir = _path.resolve(__dirname, '../projects');
 

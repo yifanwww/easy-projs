@@ -4,9 +4,15 @@ import yargs from 'yargs';
 
 import { executeCommand } from './execute-command';
 import { projectInfos } from './project-infos';
-import { YargsBuildArgv } from './types';
 
 const tsc = path.resolve(__dirname, '../node_modules/.bin/tsc.cmd');
+
+interface YargsBuildArgv {
+    _: (string | number)[];
+    $0: string;
+    all: boolean | undefined;
+    name: string | undefined;
+}
 
 function parseArgs(): YargsBuildArgv {
     return yargs
