@@ -1,16 +1,36 @@
 {
     "folders": [
         {
+            "name": "easy-projs",
+            "path": "."
+        },
+        {
             "name": "Carousel",
             "path": "projects\\Carousel"
         },
         {
-            "name": "Memorize",
-            "path": "projects\\Memorize"
+            "name": "Helloworld [browser-react]",
+            "path": "projects\\Helloworld [browser-react]"
         },
         {
-            "name": "easy-projs",
-            "path": "."
+            "name": "Helloworld [browser-tsc]",
+            "path": "projects\\Helloworld [browser-tsc]"
+        },
+        {
+            "name": "Helloworld [browser-vue]",
+            "path": "projects\\Helloworld [browser-vue]"
+        },
+        {
+            "name": "Helloworld [browser-webpack]",
+            "path": "projects\\Helloworld [browser-webpack]"
+        },
+        {
+            "name": "Helloworld [nodejs]",
+            "path": "projects\\Helloworld [nodejs]"
+        },
+        {
+            "name": "Memorize",
+            "path": "projects\\Memorize"
         }
     ],
     "settings": {

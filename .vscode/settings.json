@@ -4,13 +4,14 @@
     "editor.tabSize": 4,
 
     "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
-        "node_modules": true,
-        "projects": true
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/*.tsbuildinfo": true,
+        "**/CVS": true,
+        "**/node_modules": true,
+        "**/projects": true
     },
 
     // "[css]": {
