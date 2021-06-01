@@ -2,6 +2,7 @@ import _path from 'path';
 
 export interface CommonProjectInfo {
     name: string;
+    output: string | string[];
     path?: string;
 }
 
@@ -45,9 +46,14 @@ export interface ProjectInfos {
 const projectsDir = _path.resolve(__dirname, '../projects');
 
 function genCommonProjectInfo(info: CommonProjectInfo): Required<CommonProjectInfo> {
+    const path = _path.resolve(projectsDir, info.name);
+
     return {
         name: info.name,
-        path: _path.resolve(projectsDir, info.name),
+        output: Array.isArray(info.output)
+            ? info.output.map((p) => _path.resolve(path, p))
+            : _path.resolve(path, info.output),
+        path,
     };
 }
 
@@ -129,11 +135,13 @@ export const projectInfos = genProjectInfos({
     'helloworld-nodejs': {
         mode: 'nodejs',
         name: 'Helloworld [nodejs]',
+        output: ['build', 'tsconfig.tsbuildinfo'],
         startup: 'build/helloworld.js',
     },
     memorize: {
         mode: 'nodejs',
         name: 'Memorize',
+        output: ['build', 'tsconfig.tsbuildinfo'],
         startup: 'build/memorize.test.js',
     },
 });

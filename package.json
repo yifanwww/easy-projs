@@ -35,6 +35,9 @@
         "build:helloworld-nodejs": "npm run build:scripts && node scripts/build.js --name helloworld-nodejs",
         "build:memorize": "npm run build:scripts && node scripts/build.js --name memorize",
         "build:scripts": "tsc --build configs/tsconfig.scripts.json",
+        "clean:all": "node scripts/clean.js --all",
+        "clean:helloworld-nodejs": "node scripts/clean.js --name helloworld-nodejs",
+        "clean:memorize": "node scripts/clean.js --name memorize",
         "run:helloworld-nodejs": "node scripts/run.js --name helloworld-nodejs",
         "run:memorize": "node scripts/run.js --name memorize"
     },
