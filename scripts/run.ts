@@ -1,54 +1,55 @@
+import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { executeCommand } from './execute-command';
-import { YargsArgv } from './types';
+import { projectInfos } from './project-infos';
+import { YargsRunArgv } from './types';
 
-function parseArgs(): YargsArgv {
-    return yargs
-        .option('mode', {
-            alias: 'm',
-            demandOption: true,
-            describe: 'Specifies how to execute the specified project.',
-            string: true,
-        })
-        .option('path', {
-            alias: 'p',
-            demandOption: true,
-            describe: 'Specifies the path to the project or the startup file.',
-            string: true,
-        }).argv as YargsArgv;
+function parseArgs(): YargsRunArgv {
+    return yargs.option('name', {
+        alias: 'n',
+        demandOption: true,
+        describe: 'Specifies the name of the specified project.',
+        string: true,
+    }).argv as YargsRunArgv;
 }
 
-export function runBrowserProject(projectPath: string): void {
+async function runBrowserProject(projectPath: string): Promise<void> {
     console.log(projectPath);
 }
 
-export function runNodejsProject(projectPath: string): void {
-    executeCommand('node', projectPath);
+async function runNodejsProject(projectPath: string): Promise<void> {
+    await executeCommand('node', projectPath);
 }
 
-export function runReactProject(projectPath: string): void {
+async function runReactProject(projectPath: string): Promise<void> {
     console.log(projectPath);
 }
 
-export function run(): void {
-    const args = parseArgs();
+async function run(): Promise<void> {
+    const { name } = parseArgs();
+
+    if (!(name in projectInfos)) {
+        console.error(chalk.whiteBright(`Unknown project name: ${name}`));
+    }
+
+    const projectInfo = projectInfos[name];
 
     let never: never;
-    switch (args.mode) {
+    switch (projectInfo.mode) {
         case 'browser':
-            runBrowserProject(args.path);
+            await runBrowserProject(projectInfo.path);
             break;
         case 'nodejs':
-            runNodejsProject(args.path);
+            await runNodejsProject(projectInfo.startup);
             break;
         case 'react':
-            runReactProject(args.path);
+            await runReactProject(projectInfo.path);
             break;
 
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = args.mode;
+            never = projectInfo;
     }
 }
 

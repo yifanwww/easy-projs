@@ -1,57 +1,76 @@
+import chalk from 'chalk';
 import path from 'path';
 import yargs from 'yargs';
 
 import { executeCommand } from './execute-command';
-import { YargsArgv } from './types';
+import { projectInfos } from './project-infos';
+import { YargsBuildArgv } from './types';
 
 const tsc = path.resolve(__dirname, '../node_modules/.bin/tsc.cmd');
 
-function parseArgs(): YargsArgv {
+function parseArgs(): YargsBuildArgv {
     return yargs
-        .option('mode', {
-            alias: 'm',
-            demandOption: true,
-            describe: 'Specifies how to compile the specified project.',
-            string: true,
+        .option('all', {
+            alias: 'a',
+            boolean: true,
+            describe: 'Compiles all the projects.',
         })
-        .option('path', {
-            alias: 'p',
-            demandOption: true,
-            describe: 'Specifies the path to the project.',
+        .option('name', {
+            alias: 'n',
+            describe: 'Specifies the name of the specified project.',
             string: true,
-        }).argv as YargsArgv;
+        }).argv as YargsBuildArgv;
 }
 
-export function buildBrowserProject(projectPath: string): void {
+async function buildBrowserProject(projectPath: string): Promise<void> {
     console.log(projectPath);
 }
 
-export function buildNodejsProject(projectPath: string): void {
-    executeCommand(tsc, `--build ${projectPath}`);
+async function buildNodejsProject(projectPath: string): Promise<void> {
+    await executeCommand(tsc, `--build ${projectPath}`);
 }
 
-export function buildReactProject(projectPath: string): void {
+async function buildReactProject(projectPath: string): Promise<void> {
     console.log(projectPath);
 }
 
-function build(): void {
-    const args = parseArgs();
+async function _build(name: string): Promise<void> {
+    if (!(name in projectInfos)) {
+        console.error(chalk.red(`Unknown project name: ${name}`));
+    }
+
+    const projectInfo = projectInfos[name];
 
     let never: never;
-    switch (args.mode) {
+    switch (projectInfo.mode) {
         case 'browser':
-            buildBrowserProject(args.path);
+            await buildBrowserProject(projectInfo.path);
             break;
         case 'nodejs':
-            buildNodejsProject(args.path);
+            await buildNodejsProject(projectInfo.path);
             break;
         case 'react':
-            buildReactProject(args.path);
+            await buildReactProject(projectInfo.path);
             break;
 
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = args.mode;
+            never = projectInfo;
+    }
+}
+
+async function build(): Promise<void> {
+    const { all, name } = parseArgs();
+
+    if (!all && !name) {
+        console.info(chalk.yellow('Specifies no project to compile.'));
+    } else if (all === true) {
+        for (const projectName in projectInfos) {
+            // eslint-disable-next-line no-await-in-loop
+            await _build(projectName);
+        }
+    } else {
+        _build(name!);
     }
 }
 
