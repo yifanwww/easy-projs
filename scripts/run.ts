@@ -2,7 +2,13 @@ import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { executeCommand } from './execute-command';
-import { projectInfos } from './project-infos';
+import {
+    BrowserReactProjectInfo,
+    BrowserVueProjectInfo,
+    BrowserWebpackProjectInfo,
+    NodejsProjectInfo,
+    projectInfos,
+} from './project-infos';
 
 interface YargsRunArgv {
     _: (string | number)[];
@@ -19,16 +25,20 @@ function parseArgs(): YargsRunArgv {
     }).argv as YargsRunArgv;
 }
 
-async function runBrowserProject(projectPath: string): Promise<void> {
-    console.log(projectPath);
+async function runBrowserReactProject(info: BrowserReactProjectInfo): Promise<void> {
+    console.log(info);
 }
 
-async function runNodejsProject(projectPath: string): Promise<void> {
-    await executeCommand('node', projectPath);
+async function runBrowserVueProject(info: BrowserVueProjectInfo): Promise<void> {
+    console.log(info);
 }
 
-async function runReactProject(projectPath: string): Promise<void> {
-    console.log(projectPath);
+async function runBrowserWebpackProject(info: BrowserWebpackProjectInfo): Promise<void> {
+    console.log(info);
+}
+
+async function runNodejsProject(info: NodejsProjectInfo): Promise<void> {
+    await executeCommand('node', info.startup);
 }
 
 async function run(): Promise<void> {
@@ -38,23 +48,26 @@ async function run(): Promise<void> {
         console.error(chalk.whiteBright(`Unknown project name: ${name}`));
     }
 
-    const projectInfo = projectInfos[name];
+    const info = projectInfos[name];
 
     let never: never;
-    switch (projectInfo.mode) {
-        case 'browser':
-            await runBrowserProject(projectInfo.path);
+    switch (info.mode) {
+        case 'browser-react':
+            await runBrowserReactProject(info);
+            break;
+        case 'browser-vue':
+            await runBrowserVueProject(info);
+            break;
+        case 'browser-webpack':
+            await runBrowserWebpackProject(info);
             break;
         case 'nodejs':
-            await runNodejsProject(projectInfo.startup);
-            break;
-        case 'react':
-            await runReactProject(projectInfo.path);
+            await runNodejsProject(info);
             break;
 
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = projectInfo;
+            never = info;
     }
 }
 

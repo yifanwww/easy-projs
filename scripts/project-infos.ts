@@ -5,8 +5,16 @@ export interface CommonProjectInfo {
     path?: string;
 }
 
-export interface BrowserProjectInfo extends CommonProjectInfo {
-    mode: 'browser';
+export interface BrowserReactProjectInfo extends CommonProjectInfo {
+    mode: 'browser-react';
+}
+
+export interface BrowserVueProjectInfo extends CommonProjectInfo {
+    mode: 'browser-vue';
+}
+
+export interface BrowserWebpackProjectInfo extends CommonProjectInfo {
+    mode: 'browser-webpack';
 }
 
 export interface NodejsProjectInfo extends CommonProjectInfo {
@@ -14,11 +22,11 @@ export interface NodejsProjectInfo extends CommonProjectInfo {
     startup: string;
 }
 
-export interface ReactProjectInfo extends CommonProjectInfo {
-    mode: 'react';
-}
-
-export type ProjectInfo = BrowserProjectInfo | NodejsProjectInfo | ReactProjectInfo;
+export type ProjectInfo =
+    | BrowserReactProjectInfo
+    | BrowserVueProjectInfo
+    | BrowserWebpackProjectInfo
+    | NodejsProjectInfo;
 
 export interface PartialProjectInfos {
     [name: string]: ProjectInfo;
@@ -30,53 +38,63 @@ export interface ProjectInfos {
 
 const projectsDir = _path.resolve(__dirname, '../projects');
 
-function genCommonProjectInfo(projectInfo: CommonProjectInfo): Required<CommonProjectInfo> {
+function genCommonProjectInfo(info: CommonProjectInfo): Required<CommonProjectInfo> {
     return {
-        name: projectInfo.name,
-        path: _path.resolve(projectsDir, projectInfo.name),
+        name: info.name,
+        path: _path.resolve(projectsDir, info.name),
     };
 }
 
-function genBrowserProjectInfos(projectInfo: BrowserProjectInfo): Required<BrowserProjectInfo> {
+function genBrowserReactProjectInfo(info: BrowserReactProjectInfo): Required<BrowserReactProjectInfo> {
     return {
-        ...genCommonProjectInfo(projectInfo),
-        mode: 'browser',
+        ...genCommonProjectInfo(info),
+        mode: 'browser-react',
     };
 }
 
-function genNodejsProjectInfos(projectInfo: NodejsProjectInfo): Required<NodejsProjectInfo> {
-    const common = genCommonProjectInfo(projectInfo);
+function genBrowserVueProjectInfo(info: BrowserVueProjectInfo): Required<BrowserVueProjectInfo> {
+    return {
+        ...genCommonProjectInfo(info),
+        mode: 'browser-vue',
+    };
+}
+
+function genBrowserWebpackProjectInfo(info: BrowserWebpackProjectInfo): Required<BrowserWebpackProjectInfo> {
+    return {
+        ...genCommonProjectInfo(info),
+        mode: 'browser-webpack',
+    };
+}
+
+function genNodejsProjectInfo(info: NodejsProjectInfo): Required<NodejsProjectInfo> {
+    const common = genCommonProjectInfo(info);
 
     return {
         ...common,
         mode: 'nodejs',
-        startup: _path.resolve(common.path, projectInfo.startup),
+        startup: _path.resolve(common.path, info.startup),
     };
 }
 
-function genReactProjectInfos(projectInfo: ReactProjectInfo): Required<ReactProjectInfo> {
-    return {
-        ...genCommonProjectInfo(projectInfo),
-        mode: 'react',
-    };
-}
-
-function genProjectInfos(projectInfos: PartialProjectInfos): ProjectInfos {
+function genProjectInfos(infos: PartialProjectInfos): ProjectInfos {
     const _projectInfos: ProjectInfos = {};
 
-    for (const projectName in projectInfos) {
-        const projectInfo = projectInfos[projectName] as ProjectInfo;
+    for (const projectName in infos) {
+        const projectInfo = infos[projectName] as ProjectInfo;
 
         let never: never;
         switch (projectInfo.mode) {
-            case 'browser':
-                _projectInfos[projectName] = genBrowserProjectInfos(projectInfo);
+            case 'browser-react':
+                _projectInfos[projectName] = genBrowserReactProjectInfo(projectInfo);
+                break;
+            case 'browser-vue':
+                _projectInfos[projectName] = genBrowserVueProjectInfo(projectInfo);
+                break;
+            case 'browser-webpack':
+                _projectInfos[projectName] = genBrowserWebpackProjectInfo(projectInfo);
                 break;
             case 'nodejs':
-                _projectInfos[projectName] = genNodejsProjectInfos(projectInfo);
-                break;
-            case 'react':
-                _projectInfos[projectName] = genReactProjectInfos(projectInfo);
+                _projectInfos[projectName] = genNodejsProjectInfo(projectInfo);
                 break;
 
             default:

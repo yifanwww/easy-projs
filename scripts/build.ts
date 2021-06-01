@@ -3,7 +3,13 @@ import path from 'path';
 import yargs from 'yargs';
 
 import { executeCommand } from './execute-command';
-import { projectInfos } from './project-infos';
+import {
+    BrowserReactProjectInfo,
+    BrowserVueProjectInfo,
+    BrowserWebpackProjectInfo,
+    NodejsProjectInfo,
+    projectInfos,
+} from './project-infos';
 
 const tsc = path.resolve(__dirname, '../node_modules/.bin/tsc.cmd');
 
@@ -28,16 +34,20 @@ function parseArgs(): YargsBuildArgv {
         }).argv as YargsBuildArgv;
 }
 
-async function buildBrowserProject(projectPath: string): Promise<void> {
-    console.log(projectPath);
+async function buildBrowserReactProject(info: BrowserReactProjectInfo): Promise<void> {
+    console.log(info);
 }
 
-async function buildNodejsProject(projectPath: string): Promise<void> {
-    await executeCommand(tsc, `--build ${projectPath}`);
+async function buildBrowserVueProject(info: BrowserVueProjectInfo): Promise<void> {
+    console.log(info);
 }
 
-async function buildReactProject(projectPath: string): Promise<void> {
-    console.log(projectPath);
+async function buildBrowserWebpackProject(info: BrowserWebpackProjectInfo): Promise<void> {
+    console.log(info);
+}
+
+async function buildNodejsProject(info: NodejsProjectInfo): Promise<void> {
+    await executeCommand(tsc, `--build ${info.path}`);
 }
 
 async function _build(name: string): Promise<void> {
@@ -45,23 +55,26 @@ async function _build(name: string): Promise<void> {
         console.error(chalk.red(`Unknown project name: ${name}`));
     }
 
-    const projectInfo = projectInfos[name];
+    const info = projectInfos[name];
 
     let never: never;
-    switch (projectInfo.mode) {
-        case 'browser':
-            await buildBrowserProject(projectInfo.path);
+    switch (info.mode) {
+        case 'browser-react':
+            await buildBrowserReactProject(info);
+            break;
+        case 'browser-vue':
+            await buildBrowserVueProject(info);
+            break;
+        case 'browser-webpack':
+            await buildBrowserWebpackProject(info);
             break;
         case 'nodejs':
-            await buildNodejsProject(projectInfo.path);
-            break;
-        case 'react':
-            await buildReactProject(projectInfo.path);
+            await buildNodejsProject(info);
             break;
 
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = projectInfo;
+            never = info;
     }
 }
 
