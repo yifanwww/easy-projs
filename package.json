@@ -31,12 +31,10 @@
         ]
     },
     "scripts": {
-        "b:memorize": "node scripts/build.js --mode nodejs --path projects/Memorize",
-        "build:all": "tsc --build configs/tsconfig.nodejs.json",
-        "build:memorize": "tsc --build projects/Memorize",
+        "build:all": "npm run build:scripts && node scripts/build.js --mode nodejs --path configs/tsconfig.nodejs.json",
+        "build:memorize": "npm run build:scripts && node scripts/build.js --mode nodejs --path projects/Memorize",
         "build:scripts": "tsc --build configs/tsconfig.scripts.json",
-        "run:memorize": "node projects/Memorize/build/memorize.test.js",
-        "debug:build": "node scripts/build.js --mode nodejs --path projects/Memorize"
+        "run:memorize": "node projects/Memorize/build/memorize.test.js"
     },
     "dependencies": {},
     "devDependencies": {
