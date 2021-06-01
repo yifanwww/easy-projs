@@ -32,13 +32,15 @@
     },
     "scripts": {
         "build:all": "tsc --build configs/tsconfig.nodejs.json",
-        "build:memorize": "tsc --project projects/Memorize",
+        "build:memorize": "tsc --build projects/Memorize",
         "build:scripts": "tsc --build configs/tsconfig.scripts.json",
-        "run:memorize": "node projects/Memorize/build/memorize.test.js"
+        "run:memorize": "node projects/Memorize/build/memorize.test.js",
+        "debug:build": "node scripts/build.js --mode nodejs --path projects/Memorize"
     },
     "dependencies": {},
     "devDependencies": {
         "@types/node": "^15.3.0",
+        "@types/yargs": "^17.0.0",
         "@typescript-eslint/eslint-plugin": "^4.22.1",
         "@typescript-eslint/parser": "^4.22.1",
         "eslint": "^7.25.0",
@@ -52,6 +54,7 @@
         "eslint-plugin-react": "^7.23.2",
         "eslint-plugin-react-hooks": "^4.2.0",
         "prettier": "^2.2.1",
-        "typescript": "^4.2.4"
+        "typescript": "^4.2.4",
+        "yargs": "^17.0.1"
     }
 }
