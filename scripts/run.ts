@@ -26,24 +26,24 @@ function parseArgs(): YargsRunArgv {
     }).argv as YargsRunArgv;
 }
 
-async function runBrowserReactProject(info: BrowserReactProjectInfo): Promise<void> {
+async function runBrowserReactProject(info: Required<BrowserReactProjectInfo>): Promise<void> {
     console.log(info);
 }
 
-async function runBrowserTscProject(info: BrowserTscProjectInfo): Promise<void> {
+async function runBrowserTscProject(info: Required<BrowserTscProjectInfo>): Promise<void> {
     console.log(info);
 }
 
-async function runBrowserVueProject(info: BrowserVueProjectInfo): Promise<void> {
+async function runBrowserVueProject(info: Required<BrowserVueProjectInfo>): Promise<void> {
     console.log(info);
 }
 
-async function runBrowserWebpackProject(info: BrowserWebpackProjectInfo): Promise<void> {
+async function runBrowserWebpackProject(info: Required<BrowserWebpackProjectInfo>): Promise<void> {
     console.log(info);
 }
 
-async function runNodejsProject(info: NodejsProjectInfo): Promise<void> {
-    await executeCommand('node', info.startup);
+async function runNodejsProject(info: Required<NodejsProjectInfo>): Promise<void> {
+    await executeCommand('node', [info.startup]);
 }
 
 async function run(): Promise<void> {

@@ -1,10 +1,11 @@
 import chalk from 'chalk';
 import child from 'child_process';
 
-export function executeCommand(executor: string, executorArgs: string): Promise<void> {
-    return new Promise((resolve) => {
-        console.info(chalk.blackBright(`$ execute command: ${executor} ${executorArgs}`));
+export function executeCommand(executor: string, executorArgs: string[]): Promise<void> {
+    const executorArgsStr = executorArgs.map((arg) => (arg.includes(' ') ? `'${arg}'` : arg)).join(' ');
+    console.info(chalk.blackBright(`$ execute command: ${executor} ${executorArgsStr}`));
 
-        child.spawn(executor, executorArgs.split(' '), { stdio: 'inherit' }).on('exit', () => resolve());
+    return new Promise((resolve) => {
+        child.spawn(executor, executorArgs, { stdio: 'inherit' }).on('exit', () => resolve());
     });
 }
