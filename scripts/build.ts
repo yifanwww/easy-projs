@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { executeCommand, Executor } from './execute-command';
+import { execute, Executor } from './execute';
 import {
     BrowserReactProjectInfo,
     BrowserVueProjectInfo,
@@ -32,7 +32,7 @@ function parseArgs(): YargsBuildArgv {
 }
 
 async function buildBrowserReactProject(info: Required<BrowserReactProjectInfo>): Promise<void> {
-    await executeCommand(Executor.ReactAppRewired, ['build', '--config-overrides', 'configs/webpack.react.config.js'], {
+    await execute(Executor.ReactAppRewired, ['build', '--config-overrides', 'configs/webpack.react.config.js'], {
         // eslint-disable-next-line @typescript-eslint/naming-convention
         EasyProjsTargetProjectPath: info.path,
     });
@@ -47,7 +47,7 @@ async function buildBrowserWebpackProject(info: Required<BrowserWebpackProjectIn
 }
 
 async function buildNodejsProject(info: Required<NodejsProjectInfo>): Promise<void> {
-    await executeCommand(Executor.Tsc, ['--build', info.path]);
+    await execute(Executor.Tsc, ['--build', info.path]);
 }
 
 async function _build(name: string): Promise<void> {

@@ -46,6 +46,7 @@
         "lint": "eslint .",
         "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
         "run:helloworld-nodejs": "node scripts/run.js --name helloworld-nodejs",
+        "run:helloworld-browser-react": "node scripts/run.js --name helloworld-browser-react",
         "run:memorize": "node scripts/run.js --name memorize"
     },
     "dependencies": {

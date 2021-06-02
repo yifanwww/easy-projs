@@ -8,6 +8,7 @@ export interface CommonProjectInfo {
 
 export interface BrowserReactProjectInfo extends CommonProjectInfo {
     mode: 'browser-react';
+    startup: string;
 }
 
 export interface BrowserVueProjectInfo extends CommonProjectInfo {
@@ -52,9 +53,12 @@ function genCommonProjectInfo(info: CommonProjectInfo): Required<CommonProjectIn
 }
 
 function genBrowserReactProjectInfo(info: BrowserReactProjectInfo): Required<BrowserReactProjectInfo> {
+    const common = genCommonProjectInfo(info);
+
     return {
-        ...genCommonProjectInfo(info),
+        ...common,
         mode: 'browser-react',
+        startup: `file:${_path.resolve(common.path, info.startup)}`,
     };
 }
 
@@ -117,6 +121,7 @@ export const projectInfos = genProjectInfos({
         mode: 'browser-react',
         name: 'Helloworld [browser-react]',
         output: 'build',
+        startup: 'build/index.html',
     },
     'helloworld-nodejs': {
         mode: 'nodejs',

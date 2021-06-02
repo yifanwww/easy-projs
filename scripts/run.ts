@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { executeCommand, Executor } from './execute-command';
+import { execute, Executor } from './execute';
 import {
     BrowserReactProjectInfo,
     BrowserVueProjectInfo,
@@ -26,7 +26,7 @@ function parseArgs(): YargsRunArgv {
 }
 
 async function runBrowserReactProject(info: Required<BrowserReactProjectInfo>): Promise<void> {
-    console.log(info);
+    await execute(Executor.Browser, [info.startup]);
 }
 
 async function runBrowserVueProject(info: Required<BrowserVueProjectInfo>): Promise<void> {
@@ -38,7 +38,7 @@ async function runBrowserWebpackProject(info: Required<BrowserWebpackProjectInfo
 }
 
 async function runNodejsProject(info: Required<NodejsProjectInfo>): Promise<void> {
-    await executeCommand(Executor.Node, [info.startup]);
+    await execute(Executor.Node, [info.startup]);
 }
 
 async function run(): Promise<void> {

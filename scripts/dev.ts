@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { executeCommand, Executor } from './execute-command';
+import { execute, Executor } from './execute';
 import {
     BrowserReactProjectInfo,
     BrowserVueProjectInfo,
@@ -26,7 +26,7 @@ function parseArgs(): YargsDevArgv {
 }
 
 async function devBrowserReactProject(info: Required<BrowserReactProjectInfo>): Promise<void> {
-    await executeCommand(Executor.ReactAppRewired, ['start', '--config-overrides', 'configs/webpack.react.config.js'], {
+    await execute(Executor.ReactAppRewired, ['start', '--config-overrides', 'configs/webpack.react.config.js'], {
         // eslint-disable-next-line @typescript-eslint/naming-convention
         EasyProjsTargetProjectPath: info.path,
     });
@@ -41,7 +41,7 @@ async function devBrowserWebpackProject(info: Required<BrowserWebpackProjectInfo
 }
 
 async function devNodejsProject(info: Required<NodejsProjectInfo>): Promise<void> {
-    await executeCommand(Executor.Tsc, ['--build', info.path, '--watch']);
+    await execute(Executor.Tsc, ['--build', info.path, '--watch']);
 }
 
 async function dev(): Promise<void> {
