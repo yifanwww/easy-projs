@@ -26,7 +26,10 @@ function parseArgs(): YargsDevArgv {
 }
 
 async function devBrowserReactProject(info: Required<BrowserReactProjectInfo>): Promise<void> {
-    console.log(info);
+    await executeCommand(Executor.ReactAppRewired, ['start', '--config-overrides', 'configs/webpack.react.config.js'], {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        EasyProjsTargetProjectPath: info.path,
+    });
 }
 
 async function devBrowserVueProject(info: Required<BrowserVueProjectInfo>): Promise<void> {

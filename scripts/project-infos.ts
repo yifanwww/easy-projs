@@ -113,6 +113,11 @@ function genProjectInfos(infos: PartialProjectInfos): ProjectInfos {
 }
 
 export const projectInfos = genProjectInfos({
+    'helloworld-browser-react': {
+        mode: 'browser-react',
+        name: 'Helloworld [browser-react]',
+        output: 'build',
+    },
     'helloworld-nodejs': {
         mode: 'nodejs',
         name: 'Helloworld [nodejs]',

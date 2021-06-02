@@ -62,12 +62,14 @@ const executors: { [e in Executor]: string } = {
     [Executor.Webpack]: getExecutorPath(Executor.Webpack),
 };
 
-export function executeCommand(executor: Executor, executorArgs: string[]): Promise<void> {
+export function executeCommand(executor: Executor, executorArgs: string[], env?: NodeJS.Dict<string>): Promise<void> {
     const _executor = executors[executor];
     const executorArgsStr = executorArgs.map((arg) => (arg.includes(' ') ? `'${arg}'` : arg)).join(' ');
     console.info(chalk.blackBright(`$ execute command: ${_executor} ${executorArgsStr}`));
 
     return new Promise((resolve) => {
-        child.spawn(_executor, executorArgs, { stdio: 'inherit' }).on('exit', () => resolve());
+        child
+            .spawn(_executor, executorArgs, { env: env as NodeJS.ProcessEnv, stdio: 'inherit' })
+            .on('exit', () => resolve());
     });
 }
