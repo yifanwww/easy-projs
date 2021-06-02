@@ -49,6 +49,8 @@
 
         "git.enabled": true,
 
+        "typescript.tsdk": "easy-projs\\node_modules\\typescript\\lib",
+
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.suggest.insertMode": "replace"
