@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { executeCommand } from './execute-command';
+import { executeCommand, Executor } from './execute-command';
 import {
     BrowserReactProjectInfo,
     BrowserVueProjectInfo,
@@ -44,7 +44,7 @@ async function buildBrowserWebpackProject(info: Required<BrowserWebpackProjectIn
 }
 
 async function buildNodejsProject(info: Required<NodejsProjectInfo>): Promise<void> {
-    await executeCommand('tsc', ['--build', info.path]);
+    await executeCommand(Executor.Tsc, ['--build', info.path]);
 }
 
 async function _build(name: string): Promise<void> {

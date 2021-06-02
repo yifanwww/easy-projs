@@ -27,7 +27,15 @@ function getNodeExecutorPath(): string {
     }
 }
 
-export type Executor = 'node' | 'rimraf' | 'tsc';
+/* eslint-disable @typescript-eslint/naming-convention */
+export enum Executor {
+    Node = 'node',
+    ReactAppRewired = 'react-app-rewired',
+    Rimraf = 'rimraf',
+    Tsc = 'tsc',
+    Webpack = 'webpack',
+}
+/* eslint-enable @typescript-eslint/naming-convention */
 
 function getExecutorPath(executor: Executor): string {
     const platform = os.platform();
@@ -47,9 +55,11 @@ function getExecutorPath(executor: Executor): string {
 }
 
 const executors: { [e in Executor]: string } = {
-    node: getNodeExecutorPath(),
-    rimraf: getExecutorPath('rimraf'),
-    tsc: getExecutorPath('tsc'),
+    [Executor.Node]: getNodeExecutorPath(),
+    [Executor.ReactAppRewired]: getExecutorPath(Executor.ReactAppRewired),
+    [Executor.Rimraf]: getExecutorPath(Executor.Rimraf),
+    [Executor.Tsc]: getExecutorPath(Executor.Tsc),
+    [Executor.Webpack]: getExecutorPath(Executor.Webpack),
 };
 
 export function executeCommand(executor: Executor, executorArgs: string[]): Promise<void> {
