@@ -6,16 +6,22 @@ import path from 'path';
 
 const bin = path.resolve(__dirname, '../node_modules/.bin');
 
-function switchPlatform<T>(darwin: () => T, linux: () => T, win32: () => T): T {
+interface SwitchPlatformCallbacks<T> {
+    darwin: () => T;
+    linux: () => T;
+    win32: () => T;
+}
+
+function switchPlatform<T>(callbacks: SwitchPlatformCallbacks<T>): T {
     const platform = os.platform();
 
     switch (platform) {
         case 'darwin':
-            return darwin();
+            return callbacks.darwin();
         case 'linux':
-            return linux();
+            return callbacks.linux();
         case 'win32':
-            return win32();
+            return callbacks.win32();
 
         default:
             console.error(`Unsupported system: ${platform}`);
@@ -24,34 +30,33 @@ function switchPlatform<T>(darwin: () => T, linux: () => T, win32: () => T): T {
 }
 
 const getBrowserPath = (): string =>
-    switchPlatform(
+    switchPlatform({
         // TODO
-        () => 'chrome',
+        darwin: () => 'chrome',
         // TODO
-        () => 'chrome',
-        () => 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge',
-    );
+        linux: () => 'chrome',
+        win32: () => 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge',
+    });
 
 const getNodePath = (): string =>
-    switchPlatform(
+    switchPlatform({
         // TODO
-        () => 'node',
+        darwin: () => 'node',
         // TODO
-        () => 'node',
-        () => {
+        linux: () => 'node',
+        win32: () => {
             const node = path.resolve(bin, 'node.exe');
             return fs.existsSync(node) ? node : 'node';
         },
-    );
+    });
 
 const getExecutorPath = (executor: Executor): string =>
-    switchPlatform(
-        () => path.resolve(bin, executor),
-        () => path.resolve(bin, executor),
-        () => path.resolve(bin, `${executor}.cmd`),
-    );
+    switchPlatform({
+        darwin: () => path.resolve(bin, executor),
+        linux: () => path.resolve(bin, executor),
+        win32: () => path.resolve(bin, `${executor}.cmd`),
+    });
 
-/* eslint-disable @typescript-eslint/naming-convention */
 export enum Executor {
     Browser = 'browser',
     Node = 'node',
@@ -60,7 +65,6 @@ export enum Executor {
     Tsc = 'tsc',
     Webpack = 'webpack',
 }
-/* eslint-enable @typescript-eslint/naming-convention */
 
 const executors: { [e in Executor]: string } = {
     [Executor.Browser]: getBrowserPath(),

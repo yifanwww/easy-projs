@@ -32,7 +32,12 @@ async function _clean(name: string): Promise<void> {
 
     const info = projectInfos[name];
 
-    await execute(Executor.Rimraf, Array.isArray(info.output) ? info.output : [info.output]);
+    if (!Array.isArray(info.output)) {
+        return execute(Executor.Rimraf, [info.output]);
+    } else {
+        const promises = info.output.map((output) => execute(Executor.Rimraf, [output]));
+        await Promise.all(promises);
+    }
 }
 
 async function clean(): Promise<void> {
@@ -41,7 +46,7 @@ async function clean(): Promise<void> {
     if (!all && !name) {
         console.info(chalk.yellow('Specifies no project to clean.'));
     } else if (name) {
-        _clean(name);
+        return _clean(name);
     } else {
         for (const projectName in projectInfos) {
             // eslint-disable-next-line no-await-in-loop

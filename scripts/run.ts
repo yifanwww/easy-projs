@@ -2,13 +2,7 @@ import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { execute, Executor } from './execute';
-import {
-    BrowserReactProjectInfo,
-    BrowserVueProjectInfo,
-    BrowserWebpackProjectInfo,
-    NodejsProjectInfo,
-    projectInfos,
-} from './project-infos';
+import { projectInfos, ProjectType, switchProjectType } from './project-infos';
 
 interface YargsRunArgv {
     _: (string | number)[];
@@ -25,22 +19,6 @@ function parseArgs(): YargsRunArgv {
     }).argv as YargsRunArgv;
 }
 
-async function runBrowserReactProject(info: Required<BrowserReactProjectInfo>): Promise<void> {
-    await execute(Executor.Browser, [info.startup]);
-}
-
-async function runBrowserVueProject(info: Required<BrowserVueProjectInfo>): Promise<void> {
-    console.log(info);
-}
-
-async function runBrowserWebpackProject(info: Required<BrowserWebpackProjectInfo>): Promise<void> {
-    console.log(info);
-}
-
-async function runNodejsProject(info: Required<NodejsProjectInfo>): Promise<void> {
-    await execute(Executor.Node, [info.startup]);
-}
-
 async function run(): Promise<void> {
     const { name } = parseArgs();
 
@@ -48,27 +26,12 @@ async function run(): Promise<void> {
         console.error(chalk.whiteBright(`Unknown project name: ${name}`));
     }
 
-    const info = projectInfos[name];
-
-    let never: never;
-    switch (info.mode) {
-        case 'browser-react':
-            await runBrowserReactProject(info);
-            break;
-        case 'browser-vue':
-            await runBrowserVueProject(info);
-            break;
-        case 'browser-webpack':
-            await runBrowserWebpackProject(info);
-            break;
-        case 'nodejs':
-            await runNodejsProject(info);
-            break;
-
-        default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = info;
-    }
+    return switchProjectType(projectInfos[name], {
+        [ProjectType.BrowserReact]: async (_info) => execute(Executor.Browser, [_info.startup]),
+        [ProjectType.BrowserVue]: async (_info) => console.log(_info),
+        [ProjectType.BrowserWebpack]: async (_info) => console.log(_info),
+        [ProjectType.Nodejs]: async (_info) => execute(Executor.Node, [_info.startup]),
+    });
 }
 
 run();
