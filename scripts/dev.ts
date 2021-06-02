@@ -1,5 +1,4 @@
 import chalk from 'chalk';
-import path from 'path';
 import yargs from 'yargs';
 
 import { executeCommand } from './execute-command';
@@ -10,8 +9,6 @@ import {
     NodejsProjectInfo,
     projectInfos,
 } from './project-infos';
-
-const tsc = path.resolve(__dirname, '../node_modules/.bin/tsc.cmd');
 
 interface YargsDevArgv {
     _: (string | number)[];
@@ -41,7 +38,7 @@ async function devBrowserWebpackProject(info: Required<BrowserWebpackProjectInfo
 }
 
 async function devNodejsProject(info: Required<NodejsProjectInfo>): Promise<void> {
-    await executeCommand(tsc, ['--build', info.path, '--watch']);
+    await executeCommand('tsc', ['--build', info.path, '--watch']);
 }
 
 async function dev(): Promise<void> {

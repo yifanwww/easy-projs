@@ -1,5 +1,4 @@
 import chalk from 'chalk';
-import path from 'path';
 import yargs from 'yargs';
 
 import { executeCommand } from './execute-command';
@@ -10,8 +9,6 @@ import {
     NodejsProjectInfo,
     projectInfos,
 } from './project-infos';
-
-const tsc = path.resolve(__dirname, '../node_modules/.bin/tsc.cmd');
 
 interface YargsBuildArgv {
     _: (string | number)[];
@@ -47,7 +44,7 @@ async function buildBrowserWebpackProject(info: Required<BrowserWebpackProjectIn
 }
 
 async function buildNodejsProject(info: Required<NodejsProjectInfo>): Promise<void> {
-    await executeCommand(tsc, ['--build', info.path]);
+    await executeCommand('tsc', ['--build', info.path]);
 }
 
 async function _build(name: string): Promise<void> {
@@ -83,13 +80,13 @@ async function build(): Promise<void> {
 
     if (!all && !name) {
         console.info(chalk.yellow('Specifies no project to compile.'));
-    } else if (all === true) {
+    } else if (name) {
+        _build(name);
+    } else {
         for (const projectName in projectInfos) {
             // eslint-disable-next-line no-await-in-loop
             await _build(projectName);
         }
-    } else {
-        _build(name!);
     }
 }
 
