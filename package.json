@@ -30,15 +30,17 @@
             "last 1 safari version"
         ]
     },
-    "config-overrides-path": "configs/webpack.react.config.js",
     "scripts": {
         "build:all": "npm run build:scripts && node scripts/build.js --all",
+        "build:helloworld-browser-react": "npm run build:scripts && node scripts/build.js -n helloworld-browser-react",
         "build:helloworld-nodejs": "npm run build:scripts && node scripts/build.js --name helloworld-nodejs",
         "build:memorize": "npm run build:scripts && node scripts/build.js --name memorize",
         "build:scripts": "tsc --build configs/tsconfig.scripts.json",
         "clean:all": "node scripts/clean.js --all",
+        "clean:helloworld-browser-react": "node scripts/clean.js --name helloworld-browser-react",
         "clean:helloworld-nodejs": "node scripts/clean.js --name helloworld-nodejs",
         "clean:memorize": "node scripts/clean.js --name memorize",
+        "dev:helloworld-browser-react": "npm run build:scripts && node scripts/dev.js --name helloworld-browser-react",
         "dev:helloworld-nodejs": "npm run build:scripts && node scripts/dev.js --name helloworld-nodejs",
         "dev:memorize": "npm run build:scripts && node scripts/dev.js --name memorize",
         "lint": "eslint .",
