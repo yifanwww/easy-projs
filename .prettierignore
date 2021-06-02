@@ -2,9 +2,9 @@
 
 /**/build
 
-# Configurations
+# Scripts
 
-/configs/tsconfig.renderer.json
+scripts/*.js
 
 # Running and Testing
 
