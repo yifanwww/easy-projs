@@ -37,7 +37,7 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 function OverrideWebpackConfigs(webpack, env) {
     const isEnvProduction = webpack.mode === 'production';
 
-    return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'humanVerbose' }).wrap(webpack) : webpack;
+    return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'human' }).wrap(webpack) : webpack;
 }
 
 // Override paths configurations.
