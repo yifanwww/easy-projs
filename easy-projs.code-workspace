@@ -9,20 +9,20 @@
             "path": "projects\\Carousel"
         },
         {
-            "name": "Helloworld [browser-react]",
-            "path": "projects\\Helloworld [browser-react]"
+            "name": "Example [browser-react]",
+            "path": "projects\\Example [browser-react]"
         },
         {
-            "name": "Helloworld [browser-vue]",
-            "path": "projects\\Helloworld [browser-vue]"
+            "name": "Example [browser-vue]",
+            "path": "projects\\Example [browser-vue]"
         },
         {
-            "name": "Helloworld [browser-webpack]",
-            "path": "projects\\Helloworld [browser-webpack]"
+            "name": "Example [browser-webpack]",
+            "path": "projects\\Example [browser-webpack]"
         },
         {
-            "name": "Helloworld [nodejs]",
-            "path": "projects\\Helloworld [nodejs]"
+            "name": "Example [nodejs]",
+            "path": "projects\\Example [nodejs]"
         },
         {
             "name": "Memorize",

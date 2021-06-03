@@ -124,17 +124,17 @@ function genProjectInfos(infos: PartialProjectInfos): ProjectInfos {
 }
 
 export const projectInfos = genProjectInfos({
-    'helloworld-browser-react': {
+    'example-browser-react': {
         mode: ProjectType.BrowserReact,
-        name: 'Helloworld [browser-react]',
+        name: 'Example [browser-react]',
         output: 'build',
         startup: 'build/index.html',
     },
-    'helloworld-nodejs': {
+    'example-nodejs': {
         mode: ProjectType.Nodejs,
-        name: 'Helloworld [nodejs]',
+        name: 'Example [nodejs]',
         output: ['build', 'tsconfig.tsbuildinfo'],
-        startup: 'build/helloworld.js',
+        startup: 'build/index.js',
     },
     memorize: {
         mode: ProjectType.Nodejs,
