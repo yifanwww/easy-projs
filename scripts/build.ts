@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
+import { setProjectDirIntoEnv } from './env';
 import { execute, Executor } from './execute';
 import { projectInfos, ProjectType, switchProjectType } from './project-infos';
 
@@ -32,14 +33,20 @@ async function _build(name: string): Promise<void> {
     }
 
     return switchProjectType(projectInfos[name], {
-        [ProjectType.BrowserReact]: async (_info) =>
-            execute(Executor.ReactAppRewired, ['build', '--config-overrides', 'configs/webpack.react.config.js'], {
-                // eslint-disable-next-line @typescript-eslint/naming-convention
-                EasyProjsTargetProjectPath: _info.path,
-            }),
-        [ProjectType.BrowserVue]: async (_info) => console.log(_info),
-        [ProjectType.BrowserWebpack]: async (_info) => console.log(_info),
-        [ProjectType.Nodejs]: async (_info) => execute(Executor.Tsc, ['--build', _info.path]),
+        [ProjectType.BrowserReact]: async (dinfo) =>
+            execute(
+                Executor.ReactAppRewired,
+                ['build', '--config-overrides', 'configs/webpack.react.config.js'],
+                setProjectDirIntoEnv({}, dinfo.path),
+            ),
+        [ProjectType.BrowserVue]: async (dinfo) => console.log(dinfo),
+        [ProjectType.BrowserWebpack]: async (dinfo) =>
+            execute(
+                Executor.Webpack,
+                ['--config', 'configs/webpack.custom.config.js', '--mode', 'production'],
+                setProjectDirIntoEnv({}, dinfo.path),
+            ),
+        [ProjectType.Nodejs]: async (dinfo) => execute(Executor.Tsc, ['--build', dinfo.path]),
     });
 }
 

@@ -2,17 +2,19 @@ const path = require('path');
 
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
-const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const postcssNormalize = require('postcss-normalize');
 const postcssSafeParser = require('postcss-safe-parser');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
+const ManifestPlugin = require('webpack-manifest-plugin');
+
+const { getProjectDirFromEnv } = require('../scripts/env');
 
 // style files regexes
 const cssRegex = /\.css$/;
@@ -36,7 +38,8 @@ const appPackageJson = require(staticPaths.appPackageJson);
 /**
  * @param {boolean} isEnvDevelopment
  */
-function getPaths(isEnvDevelopment, projectDir) {
+function getPaths(isEnvDevelopment) {
+    const projectDir = getProjectDirFromEnv();
     const resolveProject = (relativePath) => path.resolve(projectDir, relativePath);
 
     return {
@@ -54,15 +57,11 @@ module.exports = (env, argv) => {
     const isEnvDevelopment = argv.mode === 'development';
     const isEnvProduction = argv.mode === 'production';
 
-    // TODO: Pass projectDir
-    const paths = getPaths(isEnvDevelopment);
-
-    console.log(env);
-    console.log(argv);
-
     // Variable used for enabling profiling in Production.
     // Uses a flag if passed into the build command.
-    const isEnvProductionProfile = isEnvProduction && env && 'profile' in env;
+    const isEnvProductionProfile = isEnvProduction && env?.profile === true;
+
+    const paths = getPaths(isEnvDevelopment);
 
     /**
      * common function to get style loaders
@@ -248,7 +247,6 @@ module.exports = (env, argv) => {
     };
 
     const resolve = {
-        // XXX: Add .json?
         extensions: ['.js', '.mjs', '.ts'],
         plugins: [new TsconfigPathsPlugin({ configFile: paths.appTsConfig })],
     };
@@ -425,7 +423,7 @@ module.exports = (env, argv) => {
 
     const devServer = {
         contentBase: paths.devServerContentBase,
-        port: 3888,
+        port: 4321,
     };
 
     const webpack = {
@@ -442,8 +440,6 @@ module.exports = (env, argv) => {
         resolve,
         stats: 'errors-warnings',
     };
-
-    process.exit();
 
     return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'human' }).wrap(webpack) : webpack;
 };

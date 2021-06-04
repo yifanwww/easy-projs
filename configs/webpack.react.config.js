@@ -8,10 +8,13 @@
 //   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
 
 const _path = require('path');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+
+const { getProjectDirFromEnv } = require('../scripts/env');
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 17-18
-const projectDir = process.env.EasyProjsTargetProjectPath;
+const projectDir = getProjectDirFromEnv();
 const resolveProject = (relativePath) => _path.resolve(projectDir, relativePath);
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
@@ -29,8 +32,6 @@ const _paths = {
     swSrc: resolveProject('src/service-worker.js'),
     testsSetup: resolveProject('src/setupTests.ts'),
 };
-
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 // Override webpack configurations.
 // The Webpack config to use when compiling your react app for development or production.

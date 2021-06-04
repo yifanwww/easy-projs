@@ -11,23 +11,27 @@ export interface CommonProjectInfo {
     name: string;
     output: string | string[];
     path?: string;
-    startup: string;
 }
 
 export interface BrowserReactProjectInfo extends CommonProjectInfo {
     mode: ProjectType.BrowserReact;
+    startup: string;
 }
 
 export interface BrowserVueProjectInfo extends CommonProjectInfo {
     mode: ProjectType.BrowserVue;
+    startup: string;
 }
 
 export interface BrowserWebpackProjectInfo extends CommonProjectInfo {
     mode: ProjectType.BrowserWebpack;
+    startupDevelopment: string;
+    startupProduction: string;
 }
 
 export interface NodejsProjectInfo extends CommonProjectInfo {
     mode: ProjectType.Nodejs;
+    startup: string;
 }
 
 export type ProjectInfo =
@@ -83,35 +87,50 @@ function genCommonProjectInfo(info: CommonProjectInfo): Required<CommonProjectIn
             ? info.output.map((p) => _path.resolve(path, p))
             : _path.resolve(path, info.output),
         path,
-        startup: `file:${_path.resolve(path, info.startup)}`,
     };
 }
 
+const genStartup = (path: string, startup: string, isBrowser: boolean): string =>
+    isBrowser ? `file:${_path.resolve(path, startup)}` : _path.resolve(path, startup);
+
 function genBrowserReactProjectInfo(info: BrowserReactProjectInfo): Required<BrowserReactProjectInfo> {
+    const common = genCommonProjectInfo(info);
+
     return {
-        ...genCommonProjectInfo(info),
+        ...common,
         mode: info.mode,
+        startup: genStartup(common.path, info.startup, true),
     };
 }
 
 function genBrowserVueProjectInfo(info: BrowserVueProjectInfo): Required<BrowserVueProjectInfo> {
+    const common = genCommonProjectInfo(info);
+
     return {
-        ...genCommonProjectInfo(info),
+        ...common,
         mode: info.mode,
+        startup: genStartup(common.path, info.startup, true),
     };
 }
 
 function genBrowserWebpackProjectInfo(info: BrowserWebpackProjectInfo): Required<BrowserWebpackProjectInfo> {
+    const common = genCommonProjectInfo(info);
+
     return {
-        ...genCommonProjectInfo(info),
+        ...common,
         mode: info.mode,
+        startupDevelopment: info.startupDevelopment,
+        startupProduction: genStartup(common.path, info.startupProduction, true),
     };
 }
 
 function genNodejsProjectInfo(info: NodejsProjectInfo): Required<NodejsProjectInfo> {
+    const common = genCommonProjectInfo(info);
+
     return {
-        ...genCommonProjectInfo(info),
+        ...common,
         mode: info.mode,
+        startup: genStartup(common.path, info.startup, false),
     };
 }
 
@@ -156,7 +175,8 @@ export const projectInfos = genProjectInfos({
         mode: ProjectType.BrowserWebpack,
         name: 'Example [browser-webpack]',
         output: 'build',
-        startup: 'build/index.html',
+        startupDevelopment: 'http://localhost:4321',
+        startupProduction: 'build/index.html',
     },
     'example-nodejs': {
         mode: ProjectType.Nodejs,

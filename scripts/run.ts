@@ -28,10 +28,10 @@ async function run(): Promise<void> {
     }
 
     return switchProjectType(projectInfos[name], {
-        [ProjectType.BrowserReact]: async (_info) => execute(Executor.Browser, [_info.startup]),
-        [ProjectType.BrowserVue]: async (_info) => console.log(_info),
-        [ProjectType.BrowserWebpack]: async (_info) => console.log(_info),
-        [ProjectType.Nodejs]: async (_info) => execute(Executor.Node, [_info.startup]),
+        [ProjectType.BrowserReact]: async (info) => execute(Executor.Browser, [info.startup]),
+        [ProjectType.BrowserVue]: async (info) => console.log(info),
+        [ProjectType.BrowserWebpack]: async (info) => execute(Executor.Browser, [info.startupProduction]),
+        [ProjectType.Nodejs]: async (info) => execute(Executor.Node, [info.startup]),
     });
 }
 
