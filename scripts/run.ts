@@ -23,7 +23,8 @@ async function run(): Promise<void> {
     const { name } = parseArgs();
 
     if (!(name in projectInfos)) {
-        console.error(chalk.whiteBright(`Unknown project name: ${name}`));
+        console.error(chalk.red(`[run] Unknown project name: ${name}`));
+        return;
     }
 
     return switchProjectType(projectInfos[name], {

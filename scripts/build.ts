@@ -27,7 +27,8 @@ function parseArgs(): YargsBuildArgv {
 
 async function _build(name: string): Promise<void> {
     if (!(name in projectInfos)) {
-        console.error(chalk.red(`Unknown project name: ${name}`));
+        console.error(chalk.red(`[build] Unknown project name: ${name}`));
+        return;
     }
 
     return switchProjectType(projectInfos[name], {
