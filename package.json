@@ -49,6 +49,9 @@
         "run:example-browser-react": "node scripts/run.js --name example-browser-react",
         "run:memorize": "node scripts/run.js --name memorize"
     },
+    "engines": {
+        "node": ">=14 <15"
+    },
     "dependencies": {
         "@reduxjs/toolkit": "^1.5.1",
         "react": "^17.0.2",
