@@ -1,17 +1,24 @@
-// Get all the carousels on the page
-const allCarousels = document.getElementsByClassName('carousel-container');
+export {};
+
+interface Carousel {
+    currentItem: number;
+    figureCont: HTMLUListElement;
+    interval?: ReturnType<typeof setTimeout>;
+    items: HTMLCollection;
+}
 
 /**
  * startCarouselTimeout
  * @param carousel Object The carousel object to use for automatically cycling
  */
-function startCarouselTimeout(carousel) {
+function startCarouselTimeout(carousel: Carousel) {
     // Cancel the last automatic timer
-    clearTimeout(carousel.interval);
+    if (carousel.interval) clearTimeout(carousel.interval);
     // Create a new automatic timer
     // that will run carouselNext()
     // every 3 seconds
-    carousel.interval = setTimeout(function () {
+    carousel.interval = setTimeout(() => {
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         carouselNext(carousel);
     }, 3000);
 }
@@ -20,18 +27,18 @@ function startCarouselTimeout(carousel) {
  * displayCarouselItem
  * @param carousel Object The carousel object to use for updating the carousel
  */
-function displayCarouselItem(carousel) {
+function displayCarouselItem(carousel: Carousel) {
     // Reset the automatic timer
     startCarouselTimeout(carousel);
     // Set our new margin-left CSS property
-    carousel.figureCont.style.marginLeft = -1 * (carousel.currentItem * 256);
+    carousel.figureCont.style.marginLeft = (-1 * (carousel.currentItem * 256)).toString();
 }
 
 /**
  * carouselNext
  * @param carousel Object The carousel object to use for cycling next
  */
-function carouselNext(carousel) {
+function carouselNext(carousel: Carousel) {
     // Increase the index of the current item
     carousel.currentItem++;
     // If we increased it too much
@@ -49,7 +56,7 @@ function carouselNext(carousel) {
  * carouselPrev
  * @param carousel Object The carousel object to use for cycling prev
  */
-function carouselPrev(carousel) {
+function carouselPrev(carousel: Carousel) {
     // Decrease the index of the current item
     carousel.currentItem--;
     // If we're below zero, we've gone too far
@@ -63,40 +70,37 @@ function carouselPrev(carousel) {
     displayCarouselItem(carousel);
 }
 
+// Get all the carousels on the page
+const allCarousels = document.getElementsByClassName('carousel-container');
+
 // Iterate over all of the carousels using a FOR-loop
 for (let i = 0; i < allCarousels.length; i++) {
     // Create a JSON object to keep track of each carousel
-    const carousel = { container: allCarousels[i] };
-
+    const carouselElement = allCarousels[i];
     // Get the <figure> element inside of this particular carousel
-    carousel.figure = carousel.container.querySelector('figure');
+    const figure = carouselElement.querySelector('figure')!;
     // Grab the UL element inside of that
-    carousel.figureCont = carousel.figure.querySelector('ul');
-    // Get all the list items inside of the UL
-    carousel.items = carousel.figureCont.children;
+    const figureCont = figure.querySelector('ul')!;
 
-    // Get the buttons, which will be used for manually changing the carousel
-    carousel.buttons = {
-        prev: carousel.container.querySelector('button.carousel-previous'),
-        next: carousel.container.querySelector('button.carousel-advance'),
+    const carousel: Carousel = {
+        // Set the default item to the first item; we'll start there
+        currentItem: 0,
+        figureCont,
+        // Get all the list items inside of the UL
+        items: figureCont.children,
     };
 
-    // Set the default item to the first item; we'll start there
-    carousel.currentItem = 0;
+    // Get the buttons, which will be used for manually changing the carousel
+    const buttons = {
+        prev: carouselElement.querySelector('button.carousel-previous')!,
+        next: carouselElement.querySelector('button.carousel-advance')!,
+    };
 
-    // This is a CLOSURE function
-    // We do this so that our carousel var stays the same
-    (function (carousel) {
-        // Add an event listener to the previous button
-        carousel.buttons.prev.addEventListener('click', function (e) {
-            carouselPrev(carousel);
-        });
-        // Add an event listener to the next button
-        carousel.buttons.next.addEventListener('click', function (e) {
-            carouselNext(carousel);
-        });
+    // Add an event listener to the previous button
+    buttons.prev.addEventListener('click', () => carouselPrev(carousel));
+    // Add an event listener to the next button
+    buttons.next.addEventListener('click', () => carouselNext(carousel));
 
-        // Start the automatic timer to cycle the carousel automatically
-        startCarouselTimeout(carousel);
-    })(carousel);
+    // Start the automatic timer to cycle the carousel automatically
+    startCarouselTimeout(carousel);
 }
