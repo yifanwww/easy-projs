@@ -14,7 +14,7 @@ export function memorize<Args extends any[], ReturnType extends any>(
     func: (...args: Args) => ReturnType,
     diff?: (prev: Args, curr: Args) => boolean,
 ): (...args: Args) => ReturnType | undefined {
-    let prev: Args = ([] as unknown) as Args;
+    let prev: Args = [] as unknown as Args;
 
     return function _wrapper(...curr: Args) {
         if (diff) {

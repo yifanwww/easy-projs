@@ -30,6 +30,8 @@
         }
     ],
     "settings": {
+        // vscode settings
+
         "editor.insertSpaces": true,
         "editor.rulers": [120],
         "editor.tabSize": 4,
@@ -48,8 +50,6 @@
         },
 
         "git.enabled": true,
-
-        "typescript.tsdk": "easy-projs\\node_modules\\typescript\\lib",
 
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -88,6 +88,12 @@
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.insertSpaces": true,
             "editor.tabSize": 4
-        }
+        },
+
+        // extension settings
+
+        "prettier.prettierPath": "easy-projs\\node_modules\\prettier",
+
+        "typescript.tsdk": "easy-projs\\node_modules\\typescript\\lib"
     }
 }
