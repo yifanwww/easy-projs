@@ -11,7 +11,6 @@ const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeM
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 const { getEnv, EnvKeys } = require('../scripts/env');
@@ -367,9 +366,6 @@ module.exports = (env, argv) => {
                 },
             ),
         ),
-
-        // HACK: This is necessary to emit hot updates (CSS and Fast Refresh):
-        // isEnvDevelopment && new webpack.HotModuleReplacementPlugin(),
 
         // Watcher doesn't work well if you mistype casing in a path so we use a plugin that prints an error when you
         // attempt to do this.
