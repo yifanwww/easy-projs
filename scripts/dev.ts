@@ -1,8 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { createEnv, EnvKeys } from './env';
-import { execute, Executor } from './execute';
+import { executeReactAppRewired, executeTsc, executeWebpack } from './execute';
 import { projectInfos, ProjectType, switchProjectType } from './project-infos';
 
 interface YargsDevArgv {
@@ -29,23 +28,10 @@ async function dev(): Promise<void> {
     }
 
     return switchProjectType(projectInfos[name], {
-        [ProjectType.BrowserReact]: async (info) =>
-            execute(
-                Executor.ReactAppRewired,
-                ['start', '--config-overrides', 'configs/webpack.react.config.js'],
-                createEnv().setEnv(EnvKeys.ProjectDir, info.path).env,
-            ),
+        [ProjectType.BrowserReact]: async (info) => executeReactAppRewired(false, info.path),
         [ProjectType.BrowserVue]: async (info) => console.log(info),
-        [ProjectType.BrowserWebpack]: async (info) => {
-            await execute(
-                Executor.Webpack,
-                ['server', '--config', 'configs/webpack.custom.config.js', '--mode', 'development'],
-                createEnv().setEnv(EnvKeys.ProjectDir, info.path).setEnv(EnvKeys.Localhost, info.startupDevelopment)
-                    .env,
-            );
-            return execute(Executor.Browser, [info.startupDevelopment]);
-        },
-        [ProjectType.Nodejs]: async (info) => execute(Executor.Tsc, ['--build', info.path, '--watch']),
+        [ProjectType.BrowserWebpack]: async (info) => executeWebpack(false, info.path, info.startupDevelopment),
+        [ProjectType.Nodejs]: async (info) => executeTsc(info.path, true),
     });
 }
 

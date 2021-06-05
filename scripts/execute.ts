@@ -2,9 +2,12 @@ import chalk from 'chalk';
 import child from 'child_process';
 import fs from 'fs';
 import os from 'os';
-import path from 'path';
+import _path from 'path';
 
-const bin = path.resolve(__dirname, '../node_modules/.bin');
+import { createEnv, EnvKeys } from './env';
+
+const bin = _path.resolve(__dirname, '../node_modules/.bin');
+const resolveBin = (relativePath: string) => _path.resolve(bin, relativePath);
 
 interface SwitchPlatformCallbacks<T> {
     darwin: () => T;
@@ -45,16 +48,16 @@ const getNodePath = (): string =>
         // TODO
         linux: () => 'node',
         win32: () => {
-            const node = path.resolve(bin, 'node.exe');
+            const node = resolveBin('node.exe');
             return fs.existsSync(node) ? node : 'node';
         },
     });
 
 const getExecutorPath = (executor: Executor): string =>
     switchPlatform({
-        darwin: () => path.resolve(bin, executor),
-        linux: () => path.resolve(bin, executor),
-        win32: () => path.resolve(bin, `${executor}.cmd`),
+        darwin: () => resolveBin(executor),
+        linux: () => resolveBin(executor),
+        win32: () => resolveBin(`${executor}.cmd`),
     });
 
 export enum Executor {
@@ -86,3 +89,35 @@ export function execute(executor: Executor, executorArgs: string[], env?: NodeJS
             .on('exit', () => resolve());
     });
 }
+
+export const executeBrowser = (path: string) => execute(Executor.Browser, [path]);
+
+export const executeNode = (path: string) => execute(Executor.Node, [path]);
+
+export const executeReactAppRewired = (production: boolean, projectDir: string) =>
+    execute(
+        Executor.ReactAppRewired,
+        [production ? 'build' : 'start', '--config-overrides', 'configs/webpack.react.config.js'],
+        createEnv().setEnv(EnvKeys.ProjectDir, projectDir).env,
+    );
+
+export const executeRimraf = (path: string | string[]) =>
+    typeof path === 'string' ? execute(Executor.Rimraf, [path]) : execute(Executor.Rimraf, path);
+
+export const executeTsc = (path: string, watch: boolean) =>
+    execute(Executor.Tsc, ['--build', path, watch && '--watch'].filter(Boolean) as string[]);
+
+export const executeWebpack = (production: boolean, path: string, startupDevelopment?: string) =>
+    execute(
+        Executor.Webpack,
+        [
+            !production && 'server',
+            '--config',
+            'configs/webpack.custom.config.js',
+            '--mode',
+            production ? 'production' : 'development',
+        ].filter(Boolean) as string[],
+        !startupDevelopment
+            ? createEnv().setEnv(EnvKeys.ProjectDir, path).env
+            : createEnv().setEnv(EnvKeys.ProjectDir, path).setEnv(EnvKeys.Localhost, startupDevelopment).env,
+    );

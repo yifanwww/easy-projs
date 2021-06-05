@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { execute, Executor } from './execute';
+import { executeRimraf } from './execute';
 import { projectInfos } from './project-infos';
 
 interface YargsCleanArgv {
@@ -34,9 +34,9 @@ async function _clean(name: string): Promise<void> {
     const info = projectInfos[name];
 
     if (!Array.isArray(info.output)) {
-        return execute(Executor.Rimraf, [info.output]);
+        return executeRimraf(info.output);
     } else {
-        const promises = info.output.map((output) => execute(Executor.Rimraf, [output]));
+        const promises = info.output.map(executeRimraf);
         await Promise.all(promises);
     }
 }

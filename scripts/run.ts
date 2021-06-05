@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { execute, Executor } from './execute';
+import { executeBrowser, executeNode } from './execute';
 import { projectInfos, ProjectType, switchProjectType } from './project-infos';
 
 interface YargsRunArgv {
@@ -28,10 +28,10 @@ async function run(): Promise<void> {
     }
 
     return switchProjectType(projectInfos[name], {
-        [ProjectType.BrowserReact]: async (info) => execute(Executor.Browser, [info.startup]),
+        [ProjectType.BrowserReact]: async (info) => executeBrowser(info.startup),
         [ProjectType.BrowserVue]: async (info) => console.log(info),
-        [ProjectType.BrowserWebpack]: async (info) => execute(Executor.Browser, [info.startupProduction]),
-        [ProjectType.Nodejs]: async (info) => execute(Executor.Node, [info.startup]),
+        [ProjectType.BrowserWebpack]: async (info) => executeBrowser(info.startupProduction),
+        [ProjectType.Nodejs]: async (info) => executeNode(info.startup),
     });
 }
 
