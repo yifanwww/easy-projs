@@ -1,5 +1,5 @@
 {
-    "name": "@easy-projs/main",
+    "name": "@easy-projs/easy-projs",
     "version": "0.0.0",
     "description": "",
     "main": "app.js",
@@ -33,20 +33,24 @@
     "scripts": {
         "build:all": "npm run build:scripts && node scripts/build.js --all",
         "build:example-browser-react": "npm run build:scripts && node scripts/build.js --name example-browser-react",
+        "build:example-browser-webpack": "npm run build:scripts && node scripts/build.js -n example-browser-webpack",
         "build:example-nodejs": "npm run build:scripts && node scripts/build.js --name example-nodejs",
         "build:memorize": "npm run build:scripts && node scripts/build.js --name memorize",
         "build:scripts": "tsc --build configs/tsconfig.scripts.json",
         "clean:all": "node scripts/clean.js --all",
         "clean:example-browser-react": "node scripts/clean.js --name example-browser-react",
+        "clean:example-browser-webpack": "node scripts/clean.js --name example-browser-webpack",
         "clean:example-nodejs": "node scripts/clean.js --name example-nodejs",
         "clean:memorize": "node scripts/clean.js --name memorize",
         "dev:example-browser-react": "npm run build:scripts && node scripts/dev.js --name example-browser-react",
+        "dev:example-browser-webpack": "npm run build:scripts && node scripts/dev.js --name example-browser-webpack",
         "dev:example-nodejs": "npm run build:scripts && node scripts/dev.js --name example-nodejs",
         "dev:memorize": "npm run build:scripts && node scripts/dev.js --name memorize",
         "lint": "eslint .",
         "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
         "run:example-nodejs": "node scripts/run.js --name example-nodejs",
         "run:example-browser-react": "node scripts/run.js --name example-browser-react",
+        "run:example-browser-webpack": "node scripts/run.js --name example-browser-webpack",
         "run:memorize": "node scripts/run.js --name memorize"
     },
     "engines": {
@@ -90,7 +94,11 @@
         "rimraf": "^3.0.2",
         "sass": "^1.34.0",
         "speed-measure-webpack-plugin": "^1.5.0",
+        "ts-loader": "^8.3.0",
+        "tsconfig-paths-webpack-plugin": "^3.5.1",
         "typescript": "^4.2.4",
+        "webpack": "4.44.2",
+        "webpack-cli": "^4.7.0",
         "yargs": "^17.0.1"
     }
 }

@@ -20,10 +20,13 @@ export interface BrowserReactProjectInfo extends CommonProjectInfo {
 
 export interface BrowserVueProjectInfo extends CommonProjectInfo {
     mode: ProjectType.BrowserVue;
+    startup: string;
 }
 
 export interface BrowserWebpackProjectInfo extends CommonProjectInfo {
     mode: ProjectType.BrowserWebpack;
+    startupDevelopment: string;
+    startupProduction: string;
 }
 
 export interface NodejsProjectInfo extends CommonProjectInfo {
@@ -45,6 +48,34 @@ export interface ProjectInfos {
     [name: string]: Required<ProjectInfo>;
 }
 
+export type SwitchProjectTypeCallbacks = {
+    [ProjectType.BrowserReact]: (info: Required<BrowserReactProjectInfo>) => Promise<void>;
+    [ProjectType.BrowserVue]: (info: Required<BrowserVueProjectInfo>) => Promise<void>;
+    [ProjectType.BrowserWebpack]: (info: Required<BrowserWebpackProjectInfo>) => Promise<void>;
+    [ProjectType.Nodejs]: (info: Required<NodejsProjectInfo>) => Promise<void>;
+};
+
+export function switchProjectType(info: Required<ProjectInfo>, callbacks: SwitchProjectTypeCallbacks): Promise<void> {
+    let never: never;
+    switch (info.mode) {
+        case ProjectType.BrowserReact:
+            return callbacks[ProjectType.BrowserReact](info);
+
+        case ProjectType.BrowserVue:
+            return callbacks[ProjectType.BrowserVue](info);
+
+        case ProjectType.BrowserWebpack:
+            return callbacks[ProjectType.BrowserWebpack](info);
+
+        case ProjectType.Nodejs:
+            return callbacks[ProjectType.Nodejs](info);
+
+        default:
+            never = info;
+            return never;
+    }
+}
+
 const projectsDir = _path.resolve(__dirname, '../projects');
 
 function genCommonProjectInfo(info: CommonProjectInfo): Required<CommonProjectInfo> {
@@ -59,27 +90,37 @@ function genCommonProjectInfo(info: CommonProjectInfo): Required<CommonProjectIn
     };
 }
 
+const genStartup = (path: string, startup: string, isBrowser: boolean): string =>
+    isBrowser ? `file:${_path.resolve(path, startup)}` : _path.resolve(path, startup);
+
 function genBrowserReactProjectInfo(info: BrowserReactProjectInfo): Required<BrowserReactProjectInfo> {
     const common = genCommonProjectInfo(info);
 
     return {
         ...common,
         mode: info.mode,
-        startup: `file:${_path.resolve(common.path, info.startup)}`,
+        startup: genStartup(common.path, info.startup, true),
     };
 }
 
 function genBrowserVueProjectInfo(info: BrowserVueProjectInfo): Required<BrowserVueProjectInfo> {
+    const common = genCommonProjectInfo(info);
+
     return {
-        ...genCommonProjectInfo(info),
+        ...common,
         mode: info.mode,
+        startup: genStartup(common.path, info.startup, true),
     };
 }
 
 function genBrowserWebpackProjectInfo(info: BrowserWebpackProjectInfo): Required<BrowserWebpackProjectInfo> {
+    const common = genCommonProjectInfo(info);
+
     return {
-        ...genCommonProjectInfo(info),
+        ...common,
         mode: info.mode,
+        startupDevelopment: info.startupDevelopment,
+        startupProduction: genStartup(common.path, info.startupProduction, true),
     };
 }
 
@@ -89,7 +130,7 @@ function genNodejsProjectInfo(info: NodejsProjectInfo): Required<NodejsProjectIn
     return {
         ...common,
         mode: info.mode,
-        startup: _path.resolve(common.path, info.startup),
+        startup: genStartup(common.path, info.startup, false),
     };
 }
 
@@ -130,6 +171,13 @@ export const projectInfos = genProjectInfos({
         output: 'build',
         startup: 'build/index.html',
     },
+    'example-browser-webpack': {
+        mode: ProjectType.BrowserWebpack,
+        name: 'Example [browser-webpack]',
+        output: 'build',
+        startupDevelopment: 'http://localhost:4321',
+        startupProduction: 'build/index.html',
+    },
     'example-nodejs': {
         mode: ProjectType.Nodejs,
         name: 'Example [nodejs]',
@@ -143,31 +191,3 @@ export const projectInfos = genProjectInfos({
         startup: 'build/memorize.test.js',
     },
 });
-
-export type SwitchProjectTypeCallbacks = {
-    [ProjectType.BrowserReact]: (info: Required<BrowserReactProjectInfo>) => Promise<void>;
-    [ProjectType.BrowserVue]: (info: Required<BrowserVueProjectInfo>) => Promise<void>;
-    [ProjectType.BrowserWebpack]: (info: Required<BrowserWebpackProjectInfo>) => Promise<void>;
-    [ProjectType.Nodejs]: (info: Required<NodejsProjectInfo>) => Promise<void>;
-};
-
-export function switchProjectType(info: Required<ProjectInfo>, callbacks: SwitchProjectTypeCallbacks): Promise<void> {
-    let never: never;
-    switch (info.mode) {
-        case ProjectType.BrowserReact:
-            return callbacks[ProjectType.BrowserReact](info);
-
-        case ProjectType.BrowserVue:
-            return callbacks[ProjectType.BrowserVue](info);
-
-        case ProjectType.BrowserWebpack:
-            return callbacks[ProjectType.BrowserWebpack](info);
-
-        case ProjectType.Nodejs:
-            return callbacks[ProjectType.Nodejs](info);
-
-        default:
-            never = info;
-            return never;
-    }
-}

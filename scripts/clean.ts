@@ -27,7 +27,8 @@ function parseArgs(): YargsCleanArgv {
 
 async function _clean(name: string): Promise<void> {
     if (!(name in projectInfos)) {
-        console.error(chalk.red(`Unknown project name: ${name}`));
+        console.error(chalk.red(`[clean] Unknown project name: ${name}`));
+        return;
     }
 
     const info = projectInfos[name];

@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
+import { createEnv, EnvKeys } from './env';
 import { execute, Executor } from './execute';
 import { projectInfos, ProjectType, switchProjectType } from './project-infos';
 
@@ -23,18 +24,28 @@ async function dev(): Promise<void> {
     const { name } = parseArgs();
 
     if (!(name in projectInfos)) {
-        console.error(chalk.red(`Unknown project name: ${name}`));
+        console.error(chalk.red(`[dev] Unknown project name: ${name}`));
+        return;
     }
 
     return switchProjectType(projectInfos[name], {
-        [ProjectType.BrowserReact]: async (_info) =>
-            execute(Executor.ReactAppRewired, ['start', '--config-overrides', 'configs/webpack.react.config.js'], {
-                // eslint-disable-next-line @typescript-eslint/naming-convention
-                EasyProjsTargetProjectPath: _info.path,
-            }),
-        [ProjectType.BrowserVue]: async (_info) => console.log(_info),
-        [ProjectType.BrowserWebpack]: async (_info) => console.log(_info),
-        [ProjectType.Nodejs]: async (_info) => execute(Executor.Tsc, ['--build', _info.path, '--watch']),
+        [ProjectType.BrowserReact]: async (info) =>
+            execute(
+                Executor.ReactAppRewired,
+                ['start', '--config-overrides', 'configs/webpack.react.config.js'],
+                createEnv().setEnv(EnvKeys.ProjectDir, info.path).env,
+            ),
+        [ProjectType.BrowserVue]: async (info) => console.log(info),
+        [ProjectType.BrowserWebpack]: async (info) => {
+            await execute(
+                Executor.Webpack,
+                ['server', '--config', 'configs/webpack.custom.config.js', '--mode', 'development'],
+                createEnv().setEnv(EnvKeys.ProjectDir, info.path).setEnv(EnvKeys.Localhost, info.startupDevelopment)
+                    .env,
+            );
+            return execute(Executor.Browser, [info.startupDevelopment]);
+        },
+        [ProjectType.Nodejs]: async (info) => execute(Executor.Tsc, ['--build', info.path, '--watch']),
     });
 }
 
