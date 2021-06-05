@@ -1,8 +1,7 @@
-import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { executeBrowser, executeNode } from './execute';
-import { projectInfos, ProjectType, switchProjectType } from './project-infos';
+import { ProjectType, switchProject } from './project-infos';
 
 interface YargsRunArgv {
     _: (string | number)[];
@@ -19,20 +18,12 @@ function parseArgs(): YargsRunArgv {
     }).argv as YargsRunArgv;
 }
 
-async function run(): Promise<void> {
-    const { name } = parseArgs();
-
-    if (!(name in projectInfos)) {
-        console.error(chalk.red(`[run] Unknown project name: ${name}`));
-        return;
-    }
-
-    return switchProjectType(projectInfos[name], {
+const run = (): Promise<void> =>
+    switchProject(parseArgs().name, {
         [ProjectType.BrowserReact]: async (info) => executeBrowser(info.startup),
         [ProjectType.BrowserVue]: async (info) => console.log(info),
         [ProjectType.BrowserWebpack]: async (info) => executeBrowser(info.startupProduction),
         [ProjectType.Nodejs]: async (info) => executeNode(info.startup),
     });
-}
 
 run();

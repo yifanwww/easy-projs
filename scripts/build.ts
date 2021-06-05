@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { executeReactAppRewired, executeTsc, executeWebpack } from './execute';
-import { projectInfos, ProjectType, switchProjectType } from './project-infos';
+import { projectInfos, ProjectType, switchProject } from './project-infos';
 
 interface YargsBuildArgv {
     _: (string | number)[];
@@ -25,19 +25,13 @@ function parseArgs(): YargsBuildArgv {
         }).argv as YargsBuildArgv;
 }
 
-async function _build(name: string): Promise<void> {
-    if (!(name in projectInfos)) {
-        console.error(chalk.red(`[build] Unknown project name: ${name}`));
-        return;
-    }
-
-    return switchProjectType(projectInfos[name], {
+const _build = (name: string): Promise<void> =>
+    switchProject(name, {
         [ProjectType.BrowserReact]: async (info) => executeReactAppRewired(true, info.path),
         [ProjectType.BrowserVue]: async (info) => console.log(info),
         [ProjectType.BrowserWebpack]: async (info) => executeWebpack(true, info.path),
         [ProjectType.Nodejs]: async (info) => executeTsc(info.path, false),
     });
-}
 
 async function build(): Promise<void> {
     const { all, name } = parseArgs();
