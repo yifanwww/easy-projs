@@ -175,15 +175,11 @@ module.exports = (env, argv) => {
                     compress: {
                         ecma: 5,
                         warnings: false,
-                        // Disabled because of an issue with Uglify breaking seemingly valid code:
-                        // https://github.com/facebook/create-react-app/issues/2376
-                        // Pending further investigation:
-                        // https://github.com/mishoo/UglifyJS2/issues/2011
+                        // Disabled because of an issue with Uglify breaking seemingly valid code: https://github.com/facebook/create-react-app/issues/2376
+                        // Pending further investigation: https://github.com/mishoo/UglifyJS2/issues/2011
                         comparisons: false,
-                        // Disabled because of an issue with Terser breaking valid code:
-                        // https://github.com/facebook/create-react-app/issues/5250
-                        // Pending further investigation:
-                        // https://github.com/terser-js/terser/issues/120
+                        // Disabled because of an issue with Terser breaking valid code: https://github.com/facebook/create-react-app/issues/5250
+                        // Pending further investigation: https://github.com/terser-js/terser/issues/120
                         inline: 2,
                     },
                     mangle: {
@@ -235,6 +231,100 @@ module.exports = (env, argv) => {
         },
     };
 
+    const moduleOneOf = [
+        // `url loader` works like `file loader` except that it embeds assets smaller than specified limit in bytes as
+        // data URLs to avoid requests.
+        {
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            loader: require.resolve('url-loader'),
+            options: {
+                limit: 10_000,
+                name: 'static/media/[name].[hash:8].[ext]',
+            },
+        },
+
+        // Compile typescript code.
+        {
+            test: /\.ts$/i,
+            loader: require.resolve('ts-loader'),
+            include: [paths.appSrc],
+            options: { configFile: paths.appTsConfig },
+        },
+
+        // `postcss loader` applies autoprefixer to our CSS.
+        // `css loader` resolves paths in CSS and adds assets as dependencies.
+        // `style loader` turns CSS into JS modules that inject <style> tags.
+        // In production, we use MiniCSSExtractPlugin to extract that CSS to a file, but in development
+        // `style loader` enables hot editing of CSS.
+        // By default we support CSS Modules with the extension .module.css
+        {
+            test: cssRegex,
+            exclude: cssModuleRegex,
+            use: getStyleLoaders({
+                importLoaders: 1,
+                sourceMap: isEnvProduction || isEnvDevelopment,
+            }),
+            // Don't consider CSS imports dead code even if the containing package claims to have no side effects.
+            // Remove this when webpack adds a warning or an error for this.
+            // See https://github.com/webpack/webpack/issues/6571
+            sideEffects: true,
+        },
+
+        // Adds support for CSS Modules (https://github.com/css-modules/css-modules) using the extension .module.css
+        {
+            test: cssModuleRegex,
+            use: getStyleLoaders({
+                importLoaders: 1,
+                sourceMap: isEnvProduction || isEnvDevelopment,
+                modules: { getLocalIdent: getCSSModuleLocalIdent },
+            }),
+        },
+
+        // Opt-in support for SASS (using .scss or .sass extensions).
+        // By default we support SASS Modules with the extensions .module.scss or .module.sass
+        {
+            test: sassRegex,
+            exclude: sassModuleRegex,
+            use: getStyleLoaders(
+                {
+                    importLoaders: 3,
+                    sourceMap: isEnvProduction || isEnvDevelopment,
+                },
+                'sass-loader',
+            ),
+            // Don't consider CSS imports dead code even if the containing package claims to have no side effects.
+            // Remove this when webpack adds a warning or an error for this.
+            // See https://github.com/webpack/webpack/issues/6571
+            sideEffects: true,
+        },
+
+        // Adds support for CSS Modules by SASS, using the extension .module.scss or .module.sass
+        {
+            test: sassModuleRegex,
+            use: getStyleLoaders(
+                {
+                    importLoaders: 3,
+                    sourceMap: isEnvProduction || isEnvDevelopment,
+                    modules: { getLocalIdent: getCSSModuleLocalIdent },
+                },
+                'sass-loader',
+            ),
+        },
+
+        // `file loader` makes sure those assets get served by WebpackDevServer.
+        // When you `import` an asset, you get its (virtual) filename.
+        // In production, they would get copied to the `build` folder.
+        // This loader doesn't use `test` so it will catch all modules that fall through the other loaders.
+        {
+            loader: require.resolve('file-loader'),
+            exclude: [/\.(js|mjs|ts)$/, /\.html$/, /\.json$/],
+            options: { name: 'static/media/[name].[hash:8].[ext]' },
+        },
+
+        // ** STOP ** Are you adding a new loader?
+        // Make sure to add the new loader(s) before the `file loader`.
+    ];
+
     const module = {
         strictExportPresence: true,
         rules: [
@@ -243,102 +333,7 @@ module.exports = (env, argv) => {
             {
                 // "oneOf" will traverse all following loaders until one will match the requirements. When no loader
                 // matches it will fall back to the "file" loader at the end of the loader list.
-                oneOf: [
-                    // "url" loader works like "file" loader except that it embeds assets smaller than specified limit
-                    // in bytes as data URLs to avoid requests.
-                    {
-                        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-                        loader: require.resolve('url-loader'),
-                        options: {
-                            limit: 10_000,
-                            name: 'static/media/[name].[hash:8].[ext]',
-                        },
-                    },
-
-                    // Compile typescript code.
-                    {
-                        test: /\.ts$/i,
-                        loader: require.resolve('ts-loader'),
-                        include: [paths.appSrc],
-                        options: { configFile: paths.appTsConfig },
-                    },
-
-                    // "postcss" loader applies autoprefixer to our CSS.
-                    // "css" loader resolves paths in CSS and adds assets as dependencies.
-                    // "style" loader turns CSS into JS modules that inject <style> tags.
-                    // In production, we use MiniCSSExtractPlugin to extract that CSS to a file, but in development
-                    // "style" loader enables hot editing of CSS.
-                    // By default we support CSS Modules with the extension .module.css
-                    {
-                        test: cssRegex,
-                        exclude: cssModuleRegex,
-                        use: getStyleLoaders({
-                            importLoaders: 1,
-                            sourceMap: isEnvProduction || isEnvDevelopment,
-                        }),
-                        // Don't consider CSS imports dead code even if the containing package claims to have no side
-                        // effects.
-                        // Remove this when webpack adds a warning or an error for this.
-                        // See https://github.com/webpack/webpack/issues/6571
-                        sideEffects: true,
-                    },
-
-                    // Adds support for CSS Modules (https://github.com/css-modules/css-modules).
-                    // using the extension .module.css
-                    {
-                        test: cssModuleRegex,
-                        use: getStyleLoaders({
-                            importLoaders: 1,
-                            sourceMap: isEnvProduction || isEnvDevelopment,
-                            modules: { getLocalIdent: getCSSModuleLocalIdent },
-                        }),
-                    },
-
-                    // Opt-in support for SASS (using .scss or .sass extensions).
-                    // By default we support SASS Modules with the extensions .module.scss or .module.sass
-                    {
-                        test: sassRegex,
-                        exclude: sassModuleRegex,
-                        use: getStyleLoaders(
-                            {
-                                importLoaders: 3,
-                                sourceMap: isEnvProduction || isEnvDevelopment,
-                            },
-                            'sass-loader',
-                        ),
-                        // Don't consider CSS imports dead code even if the containing package claims to have no side
-                        // effects.
-                        // Remove this when webpack adds a warning or an error for this.
-                        // See https://github.com/webpack/webpack/issues/6571
-                        sideEffects: true,
-                    },
-
-                    // Adds support for CSS Modules by SASS, using the extension .module.scss or .module.sass
-                    {
-                        test: sassModuleRegex,
-                        use: getStyleLoaders(
-                            {
-                                importLoaders: 3,
-                                sourceMap: isEnvProduction || isEnvDevelopment,
-                                modules: { getLocalIdent: getCSSModuleLocalIdent },
-                            },
-                            'sass-loader',
-                        ),
-                    },
-
-                    // `file loader` makes sure those assets get served by WebpackDevServer.
-                    // When you `import` an asset, you get its (virtual) filename.
-                    // In production, they would get copied to the `build` folder.
-                    // This loader doesn't use `test` so it will catch all modules that fall through the other loaders.
-                    {
-                        loader: require.resolve('file-loader'),
-                        exclude: [/\.(js|mjs|ts)$/, /\.html$/, /\.json$/],
-                        options: { name: 'static/media/[name].[hash:8].[ext]' },
-                    },
-
-                    // ** STOP ** Are you adding a new loader?
-                    // Make sure to add the new loader(s) before the `file loader`.
-                ],
+                oneOf: moduleOneOf,
             },
         ],
     };
@@ -412,8 +407,6 @@ module.exports = (env, argv) => {
             port: 4321,
         },
         devtool: isEnvProduction ? 'source-map' : isEnvDevelopment && 'cheap-module-source-map',
-        // These are the "entry points" to our application.
-        // This means they will be the "root" imports that are included in JS bundle.
         entry: paths.appIndexTs,
         mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
         module,
