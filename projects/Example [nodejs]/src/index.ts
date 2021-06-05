@@ -1,18 +1,20 @@
 import chalk from 'chalk';
 
-console.log(chalk.black('Hello world!'));
-console.log(chalk.blackBright('Hello world!'));
-console.log(chalk.red('Hello world!'));
-console.log(chalk.redBright('Hello world!'));
-console.log(chalk.green('Hello world!'));
-console.log(chalk.greenBright('Hello world!'));
-console.log(chalk.yellow('Hello world!'));
-console.log(chalk.yellowBright('Hello world!'));
-console.log(chalk.blue('Hello world!'));
-console.log(chalk.blueBright('Hello world!'));
-console.log(chalk.cyan('Hello world!'));
-console.log(chalk.cyanBright('Hello world!'));
-console.log(chalk.magenta('Hello world!'));
-console.log(chalk.magentaBright('Hello world!'));
-console.log(chalk.white('Hello world!'));
-console.log(chalk.whiteBright('Hello world!'));
+const str = 'Example [nodejs]';
+
+console.log(chalk.black(str));
+console.log(chalk.blackBright(str));
+console.log(chalk.red(str));
+console.log(chalk.redBright(str));
+console.log(chalk.green(str));
+console.log(chalk.greenBright(str));
+console.log(chalk.yellow(str));
+console.log(chalk.yellowBright(str));
+console.log(chalk.blue(str));
+console.log(chalk.blueBright(str));
+console.log(chalk.cyan(str));
+console.log(chalk.cyanBright(str));
+console.log(chalk.magenta(str));
+console.log(chalk.magentaBright(str));
+console.log(chalk.white(str));
+console.log(chalk.whiteBright(str));
