@@ -42,6 +42,7 @@
         "clean:example-browser-webpack": "node scripts/clean.js --name example-browser-webpack",
         "clean:example-nodejs": "node scripts/clean.js --name example-nodejs",
         "clean:memorize": "node scripts/clean.js --name memorize",
+        "clean:scripts": "rimraf scripts/**/*.js scripts/**/*.map",
         "dev:example-browser-react": "npm run build:scripts && node scripts/dev.js --name example-browser-react",
         "dev:example-browser-webpack": "npm run build:scripts && node scripts/dev.js --name example-browser-webpack",
         "dev:example-nodejs": "npm run build:scripts && node scripts/dev.js --name example-nodejs",
