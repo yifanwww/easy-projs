@@ -14,7 +14,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
-const { getProjectDirFromEnv } = require('../scripts/env');
+const { getEnv, EnvKeys } = require('../scripts/env');
+const OpenBrowserWebpackPlugin = require('../scripts/open-browser-webpack-plugin');
 
 // style files regexes
 const cssRegex = /\.css$/;
@@ -39,7 +40,7 @@ const appPackageJson = require(staticPaths.appPackageJson);
  * @param {boolean} isEnvDevelopment
  */
 function getPaths(isEnvDevelopment) {
-    const projectDir = getProjectDirFromEnv();
+    const projectDir = getEnv(EnvKeys.ProjectDir);
     const resolveProject = (relativePath) => path.resolve(projectDir, relativePath);
 
     return {
@@ -117,17 +118,6 @@ module.exports = (env, argv) => {
             },
         ].filter(Boolean);
     }
-
-    const mode = isEnvProduction ? 'production' : isEnvDevelopment && 'development';
-
-    // Stop compilation early in production
-    const bail = isEnvProduction;
-
-    const devtool = isEnvProduction ? 'source-map' : isEnvDevelopment && 'cheap-module-source-map';
-
-    // These are the "entry points" to our application.
-    // This means they will be the "root" imports that are included in JS bundle.
-    const entry = paths.appIndexTs;
 
     // Some libraries import Node modules but don't use them in the browser.
     // Tell webpack to provide empty mocks for them so importing them works.
@@ -246,11 +236,6 @@ module.exports = (env, argv) => {
         },
     };
 
-    const resolve = {
-        extensions: ['.js', '.mjs', '.ts'],
-        plugins: [new TsconfigPathsPlugin({ configFile: paths.appTsConfig })],
-    };
-
     const module = {
         strictExportPresence: true,
         rules: [
@@ -360,6 +345,8 @@ module.exports = (env, argv) => {
     };
 
     const plugins = [
+        new OpenBrowserWebpackPlugin(getEnv(EnvKeys.Localhost)),
+
         // Generates an `index.html` file with the <script> injected.
         new HtmlWebpackPlugin(
             Object.assign(
@@ -421,24 +408,31 @@ module.exports = (env, argv) => {
         }),
     ].filter(Boolean);
 
-    const devServer = {
-        contentBase: paths.devServerContentBase,
-        port: 4321,
-    };
-
     const webpack = {
-        bail,
-        devServer,
-        devtool,
-        entry,
-        mode,
+        // Stop compilation early in production
+        bail: isEnvProduction,
+        devServer: {
+            contentBase: paths.devServerContentBase,
+            port: 4321,
+        },
+        devtool: isEnvProduction ? 'source-map' : isEnvDevelopment && 'cheap-module-source-map',
+        // These are the "entry points" to our application.
+        // This means they will be the "root" imports that are included in JS bundle.
+        entry: paths.appIndexTs,
+        mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
         module,
         node,
         optimization,
         output,
         plugins,
-        resolve,
-        stats: 'errors-warnings',
+        resolve: {
+            extensions: ['.js', '.mjs', '.ts'],
+            plugins: [new TsconfigPathsPlugin({ configFile: paths.appTsConfig })],
+        },
+        watchOptions: {
+            aggregateTimeout: 500,
+            // poll: 10_000,
+        },
     };
 
     return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'human' }).wrap(webpack) : webpack;

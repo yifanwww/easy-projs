@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { setProjectDirIntoEnv } from './env';
+import { createEnv, EnvKeys } from './env';
 import { execute, Executor } from './execute';
 import { projectInfos, ProjectType, switchProjectType } from './project-infos';
 
@@ -33,14 +33,15 @@ async function dev(): Promise<void> {
             execute(
                 Executor.ReactAppRewired,
                 ['start', '--config-overrides', 'configs/webpack.react.config.js'],
-                setProjectDirIntoEnv({}, info.path),
+                createEnv().setEnv(EnvKeys.ProjectDir, info.path).env,
             ),
         [ProjectType.BrowserVue]: async (info) => console.log(info),
         [ProjectType.BrowserWebpack]: async (info) => {
             await execute(
                 Executor.Webpack,
-                ['server', '--config', 'configs/webpack.custom.config.js', '--mode', 'production'],
-                setProjectDirIntoEnv({}, info.path),
+                ['server', '--config', 'configs/webpack.custom.config.js', '--mode', 'development'],
+                createEnv().setEnv(EnvKeys.ProjectDir, info.path).setEnv(EnvKeys.Localhost, info.startupDevelopment)
+                    .env,
             );
             return execute(Executor.Browser, [info.startupDevelopment]);
         },

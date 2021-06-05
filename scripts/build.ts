@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs';
 
-import { setProjectDirIntoEnv } from './env';
+import { createEnv, EnvKeys } from './env';
 import { execute, Executor } from './execute';
 import { projectInfos, ProjectType, switchProjectType } from './project-infos';
 
@@ -33,20 +33,20 @@ async function _build(name: string): Promise<void> {
     }
 
     return switchProjectType(projectInfos[name], {
-        [ProjectType.BrowserReact]: async (dinfo) =>
+        [ProjectType.BrowserReact]: async (info) =>
             execute(
                 Executor.ReactAppRewired,
                 ['build', '--config-overrides', 'configs/webpack.react.config.js'],
-                setProjectDirIntoEnv({}, dinfo.path),
+                createEnv().setEnv(EnvKeys.ProjectDir, info.path).env,
             ),
-        [ProjectType.BrowserVue]: async (dinfo) => console.log(dinfo),
-        [ProjectType.BrowserWebpack]: async (dinfo) =>
+        [ProjectType.BrowserVue]: async (info) => console.log(info),
+        [ProjectType.BrowserWebpack]: async (info) =>
             execute(
                 Executor.Webpack,
                 ['--config', 'configs/webpack.custom.config.js', '--mode', 'production'],
-                setProjectDirIntoEnv({}, dinfo.path),
+                createEnv().setEnv(EnvKeys.ProjectDir, info.path).env,
             ),
-        [ProjectType.Nodejs]: async (dinfo) => execute(Executor.Tsc, ['--build', dinfo.path]),
+        [ProjectType.Nodejs]: async (info) => execute(Executor.Tsc, ['--build', info.path]),
     });
 }
 

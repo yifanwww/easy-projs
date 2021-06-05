@@ -1,16 +1,25 @@
-const keys = {
-    projectDir: 'EasyProjsTargetProjectDir',
-};
+export enum EnvKeys {
+    Localhost = 'EasyProjs_Localhost',
+    ProjectDir = 'EasyProjs_ProjectDir',
+}
 
 export type NodeEnv = NodeJS.Dict<string>;
 
-function setEnv(env: NodeEnv, key: string, value: string): NodeEnv {
-    env[key] = value;
-    return env;
+export interface NodeEnvWrapper {
+    env: NodeEnv;
+    setEnv(key: EnvKeys, value: string): NodeEnvWrapper;
 }
 
-const getEnv = (key: string): string => process.env[key]!;
+export function createEnv(): NodeEnvWrapper {
+    const env: NodeEnv = {};
 
-export const setProjectDirIntoEnv = (env: NodeEnv, path: string) => setEnv(env, keys.projectDir, path);
+    function setEnv(key: EnvKeys, value: string): NodeEnvWrapper {
+        env[key] = value;
 
-export const getProjectDirFromEnv = () => getEnv(keys.projectDir);
+        return { env, setEnv };
+    }
+
+    return { env, setEnv };
+}
+
+export const getEnv = (key: EnvKeys) => process.env[key];
