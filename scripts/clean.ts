@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { executeRimraf } from './execute';
-import { projectInfos } from './project-infos';
+import { projsInfo } from './projs-info';
 
 interface YargsCleanArgv {
     _: (string | number)[];
@@ -26,12 +26,12 @@ function parseArgs(): YargsCleanArgv {
 }
 
 async function _clean(name: string): Promise<void> {
-    if (!(name in projectInfos)) {
+    if (!(name in projsInfo)) {
         console.error(chalk.red(`[easy-projs] Unknown project name: ${name}`));
         return;
     }
 
-    const info = projectInfos[name];
+    const info = projsInfo[name];
 
     if (!Array.isArray(info.output)) {
         return executeRimraf(info.output);
@@ -49,9 +49,9 @@ async function clean(): Promise<void> {
     } else if (name) {
         return _clean(name);
     } else {
-        for (const projectName in projectInfos) {
+        for (const projName in projsInfo) {
             // eslint-disable-next-line no-await-in-loop
-            await _clean(projectName);
+            await _clean(projName);
         }
     }
 }

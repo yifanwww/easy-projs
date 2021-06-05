@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { executeReactAppRewired, executeTsc, executeWebpack } from './execute';
-import { projectInfos, ProjectType, switchProject } from './project-infos';
+import { projsInfo, ProjType, switchProj } from './projs-info';
 
 interface YargsBuildArgv {
     _: (string | number)[];
@@ -26,11 +26,11 @@ function parseArgs(): YargsBuildArgv {
 }
 
 const _build = (name: string): Promise<void> =>
-    switchProject(name, {
-        [ProjectType.BrowserReact]: async (info) => executeReactAppRewired(true, info.path),
-        [ProjectType.BrowserVue]: async (info) => console.log(info),
-        [ProjectType.BrowserWebpack]: async (info) => executeWebpack(true, info.path),
-        [ProjectType.Nodejs]: async (info) => executeTsc(info.path, false),
+    switchProj(name, {
+        [ProjType.BrowserReact]: async (info) => executeReactAppRewired(true, info.path),
+        [ProjType.BrowserVue]: async (info) => console.log(info),
+        [ProjType.BrowserWebpack]: async (info) => executeWebpack(true, info.path),
+        [ProjType.Nodejs]: async (info) => executeTsc(info.path, false),
     });
 
 async function build(): Promise<void> {
@@ -41,9 +41,9 @@ async function build(): Promise<void> {
     } else if (name) {
         return _build(name);
     } else {
-        for (const projectName in projectInfos) {
+        for (const projName in projsInfo) {
             // eslint-disable-next-line no-await-in-loop
-            await _build(projectName);
+            await _build(projName);
         }
     }
 }

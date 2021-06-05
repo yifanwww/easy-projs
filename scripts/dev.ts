@@ -1,7 +1,7 @@
 import yargs from 'yargs';
 
 import { executeReactAppRewired, executeTsc, executeWebpack } from './execute';
-import { ProjectType, switchProject } from './project-infos';
+import { ProjType, switchProj } from './projs-info';
 
 interface YargsDevArgv {
     _: (string | number)[];
@@ -19,11 +19,11 @@ function parseArgs(): YargsDevArgv {
 }
 
 const dev = (): Promise<void> =>
-    switchProject(parseArgs().name, {
-        [ProjectType.BrowserReact]: async (info) => executeReactAppRewired(false, info.path),
-        [ProjectType.BrowserVue]: async (info) => console.log(info),
-        [ProjectType.BrowserWebpack]: async (info) => executeWebpack(false, info.path, info.startupDevelopment),
-        [ProjectType.Nodejs]: async (info) => executeTsc(info.path, true),
+    switchProj(parseArgs().name, {
+        [ProjType.BrowserReact]: async (info) => executeReactAppRewired(false, info.path),
+        [ProjType.BrowserVue]: async (info) => console.log(info),
+        [ProjType.BrowserWebpack]: async (info) => executeWebpack(false, info.path, info.startupDevelopment),
+        [ProjType.Nodejs]: async (info) => executeTsc(info.path, true),
     });
 
 dev();
