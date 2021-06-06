@@ -1,0 +1,8 @@
+{
+    "projInfo": {
+        "name": "example-nodejs",
+        "output": "build",
+        "startup": "build/index.js",
+        "type": "nodejs"
+    }
+}

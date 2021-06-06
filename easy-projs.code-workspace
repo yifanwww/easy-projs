@@ -51,6 +51,13 @@
 
         "git.enabled": true,
 
+        "json.schemas": [
+            {
+                "fileMatch": ["proj-info.json"],
+                "url": "../../configs/proj-info.schema.json"
+            }
+        ],
+
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.suggest.insertMode": "replace"
