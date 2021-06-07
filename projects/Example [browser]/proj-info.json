@@ -1,9 +1,7 @@
 {
-    "projInfo": {
-        "clean": ["build"],
-        "name": "example-browser",
-        "output": "build",
-        "startup": "build/index.html",
-        "type": "browser"
-    }
+    "clean": ["build"],
+    "name": "example-browser",
+    "output": "build",
+    "startup": "build/index.html",
+    "type": "browser"
 }

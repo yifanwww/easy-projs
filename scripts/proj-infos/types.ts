@@ -10,22 +10,18 @@ export enum ProjType {
 }
 
 export interface ProjInfoJson {
-    projInfo: {
-        clean: string[];
-        name: string;
-        output: string;
-        /**
-         * @default 4321
-         */
-        port?: number;
-        startup: string;
-        type: ProjType;
-    };
+    clean: string[];
+    name: string;
+    output: string;
+    /**
+     * @default 4321
+     */
+    port?: number;
+    startup: string;
+    type: ProjType;
 }
 
-export interface FinalProjInfoJson {
-    projInfo: Required<ProjInfoJson['projInfo']>;
-}
+export type FinalProjInfoJson = Required<ProjInfoJson>;
 
 export interface ProjInfo {
     clean: string[];

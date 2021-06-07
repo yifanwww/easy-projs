@@ -12,25 +12,18 @@ const validatePropPort = (port: number): boolean => port >= 1024 && port <= 6553
 
 const validatePropType = (type: string): type is ProjType => match(type, Object.values(ProjType));
 
-function validatePropProjInfo(info: {}): info is ProjInfoJson['projInfo'] {
-    if (!isNormalObject(info) || !isPropertiesCount(info, [5, 6])) return false;
-    if (!hasProperties(info, ['name', 'output', 'startup', 'type'] as const, 'string')) return false;
-    if (!hasProperty(info, 'clean', 'array')) return false;
+export function validateProjInfoJson(json: any): json is ProjInfoJson {
+    if (!isNormalObject(json) || !isPropertiesCount(json, [5, 6])) return false;
+    if (!hasProperties(json, ['name', 'output', 'startup', 'type'] as const, 'string')) return false;
+    if (!hasProperty(json, 'clean', 'array')) return false;
 
-    if (!validatePropClean(info.clean)) return false;
-    if (!validatePropType(info.type)) return false;
+    if (!validatePropClean(json.clean)) return false;
+    if (!validatePropType(json.type)) return false;
 
-    if (isPropertiesCount(info, 6)) {
-        if (!hasProperty(info, 'port', 'number')) return false;
-        if (!validatePropPort(info.port)) return false;
+    if (isPropertiesCount(json, 6)) {
+        if (!hasProperty(json, 'port', 'number')) return false;
+        if (!validatePropPort(json.port)) return false;
     }
 
     return true;
-}
-
-export function validateProjInfoJson(json: any): json is ProjInfoJson {
-    if (!isNormalObject(json) || !isPropertiesCount(json, 1)) return false;
-    if (!hasProperty(json, 'projInfo', '{}')) return false;
-
-    return validatePropProjInfo(json.projInfo);
 }

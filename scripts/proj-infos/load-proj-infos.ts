@@ -34,25 +34,21 @@ async function findProjInfo(file: string): Promise<boolean> {
 }
 
 function mergeDefaultProjInfoJson(json: ProjInfoJson): FinalProjInfoJson {
-    const info = json.projInfo;
-
-    if (info.port === undefined) info.port = 4321;
+    if (json.port === undefined) json.port = 4321;
 
     return json as FinalProjInfoJson;
 }
 
 function convertJsonToProjInfo(folder: string, projPath: string, json: FinalProjInfoJson): ProjInfo {
-    const info = json.projInfo;
-
     return {
-        clean: info.clean.map((_path) => path.resolve(projPath, _path)),
+        clean: json.clean.map((_path) => path.resolve(projPath, _path)),
         folder,
-        localhost: `http://localhost:${info.port}`,
-        name: info.name,
-        output: path.resolve(projPath, info.output),
+        localhost: `http://localhost:${json.port}`,
+        name: json.name,
+        output: path.resolve(projPath, json.output),
         path: projPath,
-        startup: path.resolve(projPath, info.startup),
-        type: info.type,
+        startup: path.resolve(projPath, json.startup),
+        type: json.type,
     };
 }
 
