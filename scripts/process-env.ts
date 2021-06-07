@@ -1,5 +1,6 @@
 export enum ProcessEnvKeys {
     Localhost = 'EasyProjs_Localhost',
+    OutputDir = 'EasyProjs_OutputDir',
     ProjectDir = 'EasyProjs_ProjectDir',
 }
 

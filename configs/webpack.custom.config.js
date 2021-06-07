@@ -43,7 +43,7 @@ function getPaths(isEnvDevelopment) {
     const resolveProject = (relativePath) => path.resolve(projectDir, relativePath);
 
     return {
-        appBuild: resolveProject('build'),
+        appBuild: getEnv(ProcessEnvKeys.OutputDir),
         appHtml: resolveProject('src/index.html'),
         appIndexTs: resolveProject('src/index.ts'),
         appSrc: resolveProject('src'),
