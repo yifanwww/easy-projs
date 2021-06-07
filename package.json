@@ -31,28 +31,13 @@
         ]
     },
     "scripts": {
-        "build:all": "npm run build:scripts && node scripts/build.js --all",
-        "build:example-browser": "npm run build:scripts && node scripts/build.js -n example-browser",
-        "build:example-browser-react": "npm run build:scripts && node scripts/build.js --name example-browser-react",
-        "build:example-nodejs": "npm run build:scripts && node scripts/build.js --name example-nodejs",
-        "build:memorize": "npm run build:scripts && node scripts/build.js --name memorize",
+        "build": "node scripts/cli.js build",
         "build:scripts": "tsc --build configs/tsconfig.scripts.json",
-        "clean:all": "node scripts/clean.js --all",
-        "clean:example-browser": "node scripts/clean.js --name example-browser",
-        "clean:example-browser-react": "node scripts/clean.js --name example-browser-react",
-        "clean:example-nodejs": "node scripts/clean.js --name example-nodejs",
-        "clean:memorize": "node scripts/clean.js --name memorize",
-        "clean:scripts": "rimraf configs/tsconfig.scripts.tsbuildinfo scripts/**/*.js scripts/**/*.map",
-        "dev:example-browser": "npm run build:scripts && node scripts/dev.js --name example-browser",
-        "dev:example-browser-react": "npm run build:scripts && node scripts/dev.js --name example-browser-react",
-        "dev:example-nodejs": "npm run build:scripts && node scripts/dev.js --name example-nodejs",
-        "dev:memorize": "npm run build:scripts && node scripts/dev.js --name memorize",
+        "clean": "node scripts/cli.js clean",
+        "dev": "node scripts/cli.js dev",
         "lint": "eslint .",
         "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
-        "run:example-browser": "node scripts/run.js --name example-browser",
-        "run:example-browser-react": "node scripts/run.js --name example-browser-react",
-        "run:example-nodejs": "node scripts/run.js --name example-nodejs",
-        "run:memorize": "node scripts/run.js --name memorize"
+        "run": "node scripts/cli.js run"
     },
     "engines": {
         "node": ">=14 <15"
