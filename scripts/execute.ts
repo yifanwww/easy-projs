@@ -4,8 +4,6 @@ import fs from 'fs';
 import os from 'os';
 import _path from 'path';
 
-import { ProcessEnvKeys, ProcessEnvManager } from './process-env';
-
 const bin = _path.resolve(__dirname, '../node_modules/.bin');
 const resolveBin = (relativePath: string) => _path.resolve(bin, relativePath);
 
@@ -89,35 +87,3 @@ export function execute(executor: Executor, executorArgs: string[], env?: NodeJS
             .on('exit', () => resolve());
     });
 }
-
-export const executeBrowser = (path: string) => execute(Executor.Browser, [path]);
-
-export const executeNode = (path: string) => execute(Executor.Node, [path]);
-
-export const executeReactAppRewired = (production: boolean, path: string) =>
-    execute(
-        Executor.ReactAppRewired,
-        [production ? 'build' : 'start', '--config-overrides', 'configs/webpack.react.config.js'],
-        new ProcessEnvManager().setEnv(ProcessEnvKeys.ProjectDir, path).env,
-    );
-
-export const executeRimraf = (path: string | string[]) =>
-    typeof path === 'string' ? execute(Executor.Rimraf, [path]) : execute(Executor.Rimraf, path);
-
-export const executeTsc = (path: string, watch: boolean) =>
-    execute(Executor.Tsc, ['--build', path, watch && '--watch'].filter(Boolean) as string[]);
-
-export const executeWebpack = (production: boolean, path: string, startupDevelopment?: string) =>
-    execute(
-        Executor.Webpack,
-        [
-            !production && 'server',
-            '--config',
-            'configs/webpack.custom.config.js',
-            '--mode',
-            production ? 'production' : 'development',
-        ].filter(Boolean) as string[],
-        new ProcessEnvManager()
-            .setEnv(ProcessEnvKeys.ProjectDir, path)
-            .setEnv(ProcessEnvKeys.Localhost, startupDevelopment).env,
-    );

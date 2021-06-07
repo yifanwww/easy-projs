@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 
-import { executeReactAppRewired, executeTsc, executeWebpack } from '../execute';
 import { getProjInfos, ProjType, switchProj } from '../proj-infos';
+import { executeReactAppRewired, executeTsc, executeWebpack } from './execute-wrapper';
 
 const _build = (name: string): Promise<void> =>
     switchProj(name, {

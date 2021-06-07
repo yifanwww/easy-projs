@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 
-import { executeReactAppRewired, executeTsc, executeWebpack } from '../execute';
 import { ProjType, switchProj } from '../proj-infos';
+import { executeReactAppRewired, executeTsc, executeWebpack } from './execute-wrapper';
 
 export async function dev(name: string): Promise<void> {
     if (!name) {

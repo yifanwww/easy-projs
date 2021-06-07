@@ -1,7 +1,11 @@
 import chalk from 'chalk';
 
-import { executeBrowser, executeNode } from '../execute';
+import { execute, Executor } from '../execute';
 import { ProjType, switchProj } from '../proj-infos';
+
+const executeBrowser = (path: string) => execute(Executor.Browser, [path]);
+
+const executeNode = (path: string) => execute(Executor.Node, [path]);
 
 export async function run(name: string): Promise<void> {
     if (!name) {

@@ -1,7 +1,9 @@
 import chalk from 'chalk';
 
-import { executeRimraf } from '../execute';
+import { execute, Executor } from '../execute';
 import { getProjInfos } from '../proj-infos';
+
+const executeRimraf = (path: string) => execute(Executor.Rimraf, [path]);
 
 async function _clean(name: string): Promise<void> {
     const projInfos = await getProjInfos();
