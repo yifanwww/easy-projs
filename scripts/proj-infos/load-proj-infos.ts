@@ -3,8 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { projsDir } from '../constants';
-import { ProjType } from '../projs-info';
-import { ProjInfoJson, ProjInfo, ProjInfos } from './types';
+import { ProjInfoJson, ProjInfo, ProjInfos, ProjType } from './types';
 import { hasProperties, hasProperty, isNormalObject, isPropertiesCount, match } from './validate';
 
 /**
@@ -55,10 +54,10 @@ function convertJsonToProjInfo(folder: string, projPath: string, json: ProjInfoJ
 
     return {
         folder,
+        localhost: info.port ? `http://localhost:${info.port}` : undefined,
         name: info.name,
         output: path.resolve(projPath, info.output),
         path: projPath,
-        port: info.port,
         startup: path.resolve(projPath, info.startup),
         type: info.type,
     };

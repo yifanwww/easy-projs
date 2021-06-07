@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { executeReactAppRewired, executeTsc, executeWebpack } from './execute';
-import { projsInfo, ProjType, switchProj } from './projs-info';
+import { getProjInfos, ProjType, switchProj } from './proj-infos';
 
 interface YargsBuildArgv {
     _: (string | number)[];
@@ -34,6 +34,8 @@ const _build = (name: string): Promise<void> =>
     });
 
 async function build(): Promise<void> {
+    const projInfos = await getProjInfos();
+
     const { all, name } = parseArgs();
 
     if (!all && !name) {
@@ -41,7 +43,7 @@ async function build(): Promise<void> {
     } else if (name) {
         return _build(name);
     } else {
-        for (const projName in projsInfo) {
+        for (const projName in projInfos) {
             // eslint-disable-next-line no-await-in-loop
             await _build(projName);
         }

@@ -21,10 +21,10 @@ export interface ProjInfoJson {
 
 export interface ProjInfo {
     folder: string;
+    localhost: string | undefined;
     name: string;
     output: string;
     path: string;
-    port?: number;
     startup: string;
     type: ProjType;
 }
