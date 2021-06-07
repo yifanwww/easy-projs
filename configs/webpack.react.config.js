@@ -20,7 +20,7 @@ const resolveProject = (relativePath) => _path.resolve(projectDir, relativePath)
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 62-79
 const _paths = {
-    appBuild: resolveProject('build'),
+    appBuild: getEnv(ProcessEnvKeys.outputDir),
     appHtml: resolveProject('public/index.html'),
     appIndexTs: resolveProject('src/index.tsx'),
     appPath: projectDir,
@@ -32,6 +32,9 @@ const _paths = {
     swSrc: resolveProject('src/service-worker.js'),
     testsSetup: resolveProject('src/setupTests.ts'),
 };
+
+// Override localhost port.
+process.env.PORT = getEnv(ProcessEnvKeys.Port);
 
 // Override webpack configurations.
 // The Webpack config to use when compiling your react app for development or production.

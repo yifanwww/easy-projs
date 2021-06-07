@@ -43,7 +43,7 @@ function getPaths(isEnvDevelopment) {
     const resolveProject = (relativePath) => path.resolve(projectDir, relativePath);
 
     return {
-        appBuild: resolveProject('build'),
+        appBuild: getEnv(ProcessEnvKeys.OutputDir),
         appHtml: resolveProject('src/index.html'),
         appIndexTs: resolveProject('src/index.ts'),
         appSrc: resolveProject('src'),
@@ -338,8 +338,10 @@ module.exports = (env, argv) => {
         ],
     };
 
+    const localhost = `http://localhost:${getEnv(ProcessEnvKeys.Port)}`;
+
     const plugins = [
-        new OpenBrowserWebpackPlugin(getEnv(ProcessEnvKeys.Localhost)),
+        new OpenBrowserWebpackPlugin(localhost),
 
         // Generates an `index.html` file with the <script> injected.
         new HtmlWebpackPlugin(

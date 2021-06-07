@@ -1,9 +1,7 @@
 {
-    "projInfo": {
-        "clean": ["build", "tsconfig.tsbuildinfo"],
-        "name": "example-nodejs",
-        "output": "build",
-        "startup": "build/index.js",
-        "type": "nodejs"
-    }
+    "clean": ["build", "tsconfig.tsbuildinfo"],
+    "name": "example-nodejs",
+    "output": "build",
+    "startup": "build/index.js",
+    "type": "nodejs"
 }

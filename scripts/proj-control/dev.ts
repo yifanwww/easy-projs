@@ -10,9 +10,9 @@ export async function dev(name: string): Promise<void> {
     }
 
     return switchProj(name, {
-        [ProjType.BrowserReact]: async (info) => executeReactAppRewired(false, info.path),
+        [ProjType.BrowserReact]: async (info) => executeReactAppRewired(false, info.path, info.output, info.port),
         [ProjType.BrowserVue]: async (info) => console.log(info),
-        [ProjType.BrowserWebpack]: async (info) => executeWebpack(false, info.path, info.localhost!),
-        [ProjType.Nodejs]: async (info) => executeTsc(info.path, true),
+        [ProjType.BrowserWebpack]: async (info) => executeWebpack(false, info.path, info.output, info.port),
+        [ProjType.Nodejs]: async (info) => executeTsc(true, info.path, info.output),
     });
 }

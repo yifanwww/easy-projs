@@ -3,42 +3,40 @@
     "title": "Schema for Projs Info",
     "type": "object",
     "properties": {
-        "projInfo": {
-            "type": "object",
-            "properties": {
-                "clean": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "name": {
-                    "type": "string"
-                },
-                "output": {
-                    "type": "string"
-                },
-                "port": {
-                    "type": "integer",
-                    "default": 4321,
-                    "maximum": 65535,
-                    "minimum": 1024
-                },
-                "startup": {
-                    "type": "string"
-                },
-                "type": {
-                    "description": "Which type this project is.",
-                    "oneOf": [
-                        { "enum": ["browser-react"], "description": "A react browser project, compiled by cra." },
-                        { "enum": ["browser-vue"], "description": "A vue browser project, compiled by vite." },
-                        { "enum": ["browser"], "description": "A browser project, compiled by custom webpack config." },
-                        { "enum": ["nodejs"], "description": "A nodejs project, compiled by tsc." }
-                    ]
-                }
-            },
-            "required": ["clean", "name", "output", "startup", "type"]
+        "clean": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of this project, used in cli."
+        },
+        "output": {
+            "type": "string",
+            "description": "The folder where the compiled files will be put into."
+        },
+        "port": {
+            "type": "integer",
+            "default": 4321,
+            "description": "The port used for devlopmenting browser projects.",
+            "maximum": 65535,
+            "minimum": 1024
+        },
+        "startup": {
+            "type": "string",
+            "description": "The entry of this project."
+        },
+        "type": {
+            "description": "Which type this project is.",
+            "oneOf": [
+                { "enum": ["browser-react"], "description": "A react browser project, compiled by cra." },
+                { "enum": ["browser-vue"], "description": "A vue browser project, compiled by vite." },
+                { "enum": ["browser"], "description": "A browser project, compiled by custom webpack config." },
+                { "enum": ["nodejs"], "description": "A nodejs project, compiled by tsc." }
+            ]
         }
     },
-    "required": ["projInfo"]
+    "required": ["clean", "name", "output", "startup", "type"]
 }
