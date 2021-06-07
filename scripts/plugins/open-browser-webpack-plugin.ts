@@ -2,7 +2,7 @@ import chalk from 'chalk';
 
 import { Compiler } from 'webpack';
 
-import { execute, Executor } from './execute';
+import { execute, Executor } from '../execute';
 
 module.exports = class OpenBrowserWebpackPlugin {
     private _url?: string;

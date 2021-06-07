@@ -14,7 +14,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 const { getEnv, ProcessEnvKeys } = require('../scripts/process-env');
-const OpenBrowserWebpackPlugin = require('../scripts/open-browser-webpack-plugin');
+const OpenBrowserWebpackPlugin = require('../scripts/plugins/open-browser-webpack-plugin');
 
 // style files regexes
 const cssRegex = /\.css$/;
