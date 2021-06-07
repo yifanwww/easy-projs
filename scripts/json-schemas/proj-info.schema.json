@@ -15,7 +15,7 @@
         },
         "output": {
             "type": "string",
-            "description": "The folder where the compiled files will be put into."
+            "description": "The folder where the compiled files will be put into, not working in nodejs projects."
         },
         "port": {
             "type": "integer",

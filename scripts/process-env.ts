@@ -1,6 +1,7 @@
 export enum ProcessEnvKeys {
     OutputDir = 'EasyProjs_OutputDir',
     Port = 'EasyProjs_Port',
+    Profile = 'EasyProjs_Profile',
     ProjectDir = 'EasyProjs_ProjectDir',
 }
 

@@ -1,10 +1,9 @@
 import chalk from 'chalk';
-
 import { Compiler } from 'webpack';
 
 import { execute, Executor } from '../execute';
 
-module.exports = class OpenBrowserWebpackPlugin {
+export class OpenBrowserWebpackPlugin {
     private _url?: string;
 
     constructor(url?: string) {
@@ -36,4 +35,4 @@ module.exports = class OpenBrowserWebpackPlugin {
         this._info('Open browser.');
         execute(Executor.Browser, [this._url!]);
     });
-};
+}

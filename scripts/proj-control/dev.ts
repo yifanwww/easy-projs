@@ -13,6 +13,6 @@ export async function dev(name: string): Promise<void> {
         [ProjType.BrowserReact]: async (info) => executeReactAppRewired(false, info.path, info.output, info.port),
         [ProjType.BrowserVue]: async (info) => console.log(info),
         [ProjType.BrowserWebpack]: async (info) => executeWebpack(false, info.path, info.output, info.port),
-        [ProjType.Nodejs]: async (info) => executeTsc(true, info.path, info.output),
+        [ProjType.Nodejs]: async (info) => executeTsc(true, info.path),
     });
 }

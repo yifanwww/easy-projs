@@ -8,7 +8,7 @@ const _build = (name: string): Promise<void> =>
         [ProjType.BrowserReact]: async (info) => executeReactAppRewired(true, info.path, info.output),
         [ProjType.BrowserVue]: async (info) => console.log(info),
         [ProjType.BrowserWebpack]: async (info) => executeWebpack(true, info.path, info.output),
-        [ProjType.Nodejs]: async (info) => executeTsc(false, info.path, info.output),
+        [ProjType.Nodejs]: async (info) => executeTsc(false, info.path),
     });
 
 export async function build(all: boolean, name: string): Promise<void> {

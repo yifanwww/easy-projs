@@ -54,7 +54,7 @@
         "json.schemas": [
             {
                 "fileMatch": ["proj-info.json"],
-                "url": "../../configs/proj-info.schema.json"
+                "url": "../../scripts/json-schemas/proj-info.schema.json"
             }
         ],
 

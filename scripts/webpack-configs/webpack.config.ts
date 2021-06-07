@@ -1,4 +1,22 @@
-const path = require('path');
+/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/naming-convention */
+
+import path from 'path';
+import {
+    Configuration,
+    ConfigurationFactory,
+    Module,
+    Node,
+    Options,
+    Output,
+    Plugin,
+    RuleSetRule,
+    RuleSetUse,
+} from 'webpack';
+
+import { repoDir } from '../constants';
+import { getEnv, ProcessEnvKeys } from '../process-env';
+import { OpenBrowserWebpackPlugin } from '../webpack-plugins/open-browser-webpack-plugin';
 
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -13,10 +31,6 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
-const { repoDir } = require('../scripts/constants');
-const { getEnv, ProcessEnvKeys } = require('../scripts/process-env');
-const OpenBrowserWebpackPlugin = require('../scripts/plugins/open-browser-webpack-plugin');
-
 // style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
@@ -24,7 +38,7 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 function getStaticPaths() {
-    const resolvePepo = (relativePath) => path.resolve(repoDir, relativePath);
+    const resolvePepo = (relativePath: string) => path.resolve(repoDir, relativePath);
 
     return {
         appNodeModules: resolvePepo('node_modules'),
@@ -33,14 +47,12 @@ function getStaticPaths() {
 }
 
 const staticPaths = getStaticPaths();
+// eslint-disable-next-line import/no-dynamic-require
 const appPackageJson = require(staticPaths.appPackageJson);
 
-/**
- * @param {boolean} isEnvDevelopment
- */
-function getPaths(isEnvDevelopment) {
-    const projectDir = getEnv(ProcessEnvKeys.ProjectDir);
-    const resolveProject = (relativePath) => path.resolve(projectDir, relativePath);
+function getPaths(isEnvDevelopment: boolean) {
+    const projectDir = getEnv(ProcessEnvKeys.ProjectDir)!;
+    const resolveProject = (relativePath: string) => path.resolve(projectDir, relativePath);
 
     return {
         appBuild: getEnv(ProcessEnvKeys.OutputDir),
@@ -53,22 +65,19 @@ function getPaths(isEnvDevelopment) {
     };
 }
 
-module.exports = (env, argv) => {
+const factory: ConfigurationFactory = (env, argv) => {
     const isEnvDevelopment = argv.mode === 'development';
     const isEnvProduction = argv.mode === 'production';
 
-    // Variable used for enabling profiling in Production.
-    // Uses a flag if passed into the build command.
-    const isEnvProductionProfile = isEnvProduction && env?.profile === true;
+    // Variable used for enabling profiling in Production. Uses a flag if passed into the build command.
+    const isEnvProductionProfile = isEnvProduction && getEnv(ProcessEnvKeys.Profile) === 'true';
 
     const paths = getPaths(isEnvDevelopment);
 
     /**
      * common function to get style loaders
-     * @param {object} cssOptions
-     * @param {string} preProcessor
      */
-    function getStyleLoaders(cssOptions, preProcessor) {
+    function getStyleLoaders(cssOptions: {}, preProcessor?: string): RuleSetUse {
         return [
             isEnvDevelopment && require.resolve('style-loader'),
             isEnvProduction && {
@@ -115,12 +124,12 @@ module.exports = (env, argv) => {
                 loader: require.resolve(preProcessor),
                 options: { sourceMap: true },
             },
-        ].filter(Boolean);
+        ].filter(Boolean) as RuleSetUse;
     }
 
     // Some libraries import Node modules but don't use them in the browser.
     // Tell webpack to provide empty mocks for them so importing them works.
-    const node = {
+    const node: Node = {
         module: 'empty',
         dgram: 'empty',
         dns: 'mock',
@@ -131,27 +140,30 @@ module.exports = (env, argv) => {
         child_process: 'empty',
     };
 
-    const output = {
+    const output: Output = {
         // The build folder.
         path: paths.appBuild,
         // Add /* filename */ comments to generated require()s in the output.
         pathinfo: isEnvDevelopment,
         // There will be one main bundle, and one file per asynchronous chunk.
         // In development, it does not produce real files.
-        filename: isEnvProduction ? 'static/js/[name].[contenthash:8].js' : isEnvDevelopment && 'static/js/bundle.js',
+        filename: isEnvProduction
+            ? 'static/js/[name].[contenthash:8].js'
+            : (isEnvDevelopment && 'static/js/bundle.js') || undefined,
         // TODO: remove this when upgrading to webpack 5
         futureEmitAssets: true,
         // There are also additional JS chunk files if you use code splitting.
         chunkFilename: isEnvProduction
             ? 'static/js/[name].[contenthash:8].chunk.js'
-            : isEnvDevelopment && 'static/js/[name].chunk.js',
+            : (isEnvDevelopment && 'static/js/[name].chunk.js') || undefined,
         // webpack uses `publicPath` to determine where the app is being served from.
         // It requires a trailing slash, or the file assets will get an incorrect path.
         publicPath: paths.publicPath,
         // Point sourcemap entries to original disk location (format as URL on Windows).
         devtoolModuleFilenameTemplate: isEnvProduction
             ? (info) => path.relative(paths.appSrc, info.absoluteResourcePath).replace(/\\/g, '/')
-            : isEnvDevelopment && ((info) => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
+            : (isEnvDevelopment && ((info) => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'))) ||
+              undefined,
         //  Prevents conflicts when multiple webpack runtimes (from different apps) are used on the same page.
         jsonpFunction: `webpackJsonp${appPackageJson.name}`,
         // this defaults to 'window', but by setting it to 'this' then module chunks which are built will work in web
@@ -159,7 +171,7 @@ module.exports = (env, argv) => {
         globalObject: 'this',
     };
 
-    const optimization = {
+    const optimization: Options.Optimization = {
         // This is only used in production mode
         minimize: isEnvProduction,
         minimizer: [
@@ -231,7 +243,7 @@ module.exports = (env, argv) => {
         },
     };
 
-    const moduleOneOf = [
+    const moduleOneOf: RuleSetRule[] = [
         // `url loader` works like `file loader` except that it embeds assets smaller than specified limit in bytes as
         // data URLs to avoid requests.
         {
@@ -325,7 +337,7 @@ module.exports = (env, argv) => {
         // Make sure to add the new loader(s) before the `file loader`.
     ];
 
-    const module = {
+    const module: Module = {
         strictExportPresence: true,
         rules: [
             // Disable require.ensure as it's not a standard language feature.
@@ -340,11 +352,12 @@ module.exports = (env, argv) => {
 
     const localhost = `http://localhost:${getEnv(ProcessEnvKeys.Port)}`;
 
-    const plugins = [
+    const plugins: Plugin[] = [
         new OpenBrowserWebpackPlugin(localhost),
 
         // Generates an `index.html` file with the <script> injected.
         new HtmlWebpackPlugin(
+            // eslint-disable-next-line prefer-object-spread
             Object.assign(
                 { inject: true, template: paths.appHtml },
                 isEnvProduction && {
@@ -389,19 +402,19 @@ module.exports = (env, argv) => {
         new ManifestPlugin({
             fileName: 'asset-manifest.json',
             publicPath: paths.publicPath,
-            generate: (seed, files, entrypoints) => {
+            generate: (seed: any, files: any[], entrypoints: any) => {
                 const manifestFiles = files.reduce((manifest, file) => {
                     manifest[file.name] = file.path;
                     return manifest;
                 }, seed);
-                const entrypointFiles = entrypoints.main.filter((fileName) => !fileName.endsWith('.map'));
+                const entrypointFiles = entrypoints.main.filter((fileName: any) => !fileName.endsWith('.map'));
 
                 return { files: manifestFiles, entrypoints: entrypointFiles };
             },
         }),
     ].filter(Boolean);
 
-    const webpack = {
+    const webpack: Configuration & { devServer: any } = {
         // Stop compilation early in production
         bail: isEnvProduction,
         devServer: {
@@ -410,7 +423,7 @@ module.exports = (env, argv) => {
         },
         devtool: isEnvProduction ? 'source-map' : isEnvDevelopment && 'cheap-module-source-map',
         entry: paths.appIndexTs,
-        mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
+        mode: isEnvProduction ? 'production' : (isEnvDevelopment && 'development') || undefined,
         module,
         node,
         optimization,
@@ -428,3 +441,5 @@ module.exports = (env, argv) => {
 
     return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'human' }).wrap(webpack) : webpack;
 };
+
+module.exports = factory;
