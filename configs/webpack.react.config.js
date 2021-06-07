@@ -10,11 +10,11 @@
 const _path = require('path');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
-const { getEnv, EnvKeys } = require('../scripts/env');
+const { getEnv, ProcessEnvKeys } = require('../scripts/process-env');
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 17-18
-const projectDir = getEnv(EnvKeys.ProjectDir);
+const projectDir = getEnv(ProcessEnvKeys.ProjectDir);
 const resolveProject = (relativePath) => _path.resolve(projectDir, relativePath);
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`

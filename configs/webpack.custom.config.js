@@ -13,7 +13,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
-const { getEnv, EnvKeys } = require('../scripts/env');
+const { getEnv, ProcessEnvKeys } = require('../scripts/process-env');
 const OpenBrowserWebpackPlugin = require('../scripts/open-browser-webpack-plugin');
 
 // style files regexes
@@ -39,7 +39,7 @@ const appPackageJson = require(staticPaths.appPackageJson);
  * @param {boolean} isEnvDevelopment
  */
 function getPaths(isEnvDevelopment) {
-    const projectDir = getEnv(EnvKeys.ProjectDir);
+    const projectDir = getEnv(ProcessEnvKeys.ProjectDir);
     const resolveProject = (relativePath) => path.resolve(projectDir, relativePath);
 
     return {
@@ -339,7 +339,7 @@ module.exports = (env, argv) => {
     };
 
     const plugins = [
-        new OpenBrowserWebpackPlugin(getEnv(EnvKeys.Localhost)),
+        new OpenBrowserWebpackPlugin(getEnv(ProcessEnvKeys.Localhost)),
 
         // Generates an `index.html` file with the <script> injected.
         new HtmlWebpackPlugin(

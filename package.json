@@ -34,6 +34,7 @@
         "build": "node scripts/cli.js build",
         "build:scripts": "tsc --build configs/tsconfig.scripts.json",
         "clean": "node scripts/cli.js clean",
+        "clean:scripts": "rimraf configs/tsconfig.scripts.tsbuildinfo scripts/**/*.js scripts/**/*.map",
         "dev": "node scripts/cli.js dev",
         "lint": "eslint .",
         "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
