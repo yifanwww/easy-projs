@@ -24,9 +24,11 @@ type Combine<O extends {}, P extends string | readonly string[], V> = P extends 
     ? O & { [p in P]: V }
     : O & { [p in P[number]]: V };
 
-type PropertyType = 'any' | 'bigint' | 'boolean' | 'null' | 'number' | 'string' | 'undefined' | '{}';
+type PropertyType = 'any' | 'array' | 'bigint' | 'boolean' | 'null' | 'number' | 'string' | 'undefined' | '{}';
 type PropertyTypeToType<T extends PropertyType> = T extends 'any'
     ? any
+    : T extends 'array'
+    ? any[]
     : T extends 'bigint'
     ? bigint
     : T extends 'boolean'
@@ -52,26 +54,34 @@ export function hasProperty<O extends {}, P extends string, T extends PropertyTy
 ): obj is Combine<O, P, PropertyTypeToType<T>> {
     if (!_hasProperty(obj, prop)) return false;
 
-    switch (type) {
+    const test = obj[prop];
+    const _type = (type || 'any') as PropertyType;
+
+    let never: never;
+    switch (_type) {
         case 'any':
             return true;
+        case 'array':
+            return isArray(test);
         case 'bigint':
-            return isBigint(obj[prop]);
+            return isBigint(test);
         case 'boolean':
-            return isBoolean(obj[prop]);
+            return isBoolean(test);
         case 'null':
-            return isNull(obj[prop]);
+            return isNull(test);
         case 'number':
-            return isNumber(obj[prop]);
+            return isNumber(test);
         case 'string':
-            return isString(obj[prop]);
+            return isString(test);
         case 'undefined':
-            return isUndefined(obj[prop]);
+            return isUndefined(test);
         case '{}':
-            return isNormalObject(obj[prop]);
+            return isNormalObject(test);
 
         default:
-            return true;
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            never = _type;
+            return false;
     }
 }
 
@@ -93,4 +103,4 @@ export const hasProperties = <O, P extends readonly string[], T extends Property
     type: T,
 ): obj is Combine<O, P, PropertyTypeToType<T>> => validateProperties(obj, props, type, hasProperty);
 
-export const match = <T extends any[]>(value: any, matches: T): value is T => matches.includes(value);
+export const match = <T extends any>(value: any, matches: T[]): value is T => matches.includes(value);

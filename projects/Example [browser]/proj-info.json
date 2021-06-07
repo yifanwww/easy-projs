@@ -1,5 +1,6 @@
 {
     "projInfo": {
+        "clean": ["build"],
         "name": "example-browser",
         "output": "build",
         "startup": "build/index.html",

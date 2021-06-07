@@ -6,6 +6,12 @@
         "projInfo": {
             "type": "object",
             "properties": {
+                "clean": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "name": {
                     "type": "string"
                 },
@@ -31,7 +37,7 @@
                     ]
                 }
             },
-            "required": ["type", "name", "output", "startup"]
+            "required": ["clean", "name", "output", "startup", "type"]
         }
     },
     "required": ["projInfo"]

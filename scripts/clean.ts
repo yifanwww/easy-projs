@@ -35,10 +35,10 @@ async function _clean(name: string): Promise<void> {
 
     const info = projInfos[name];
 
-    if (!Array.isArray(info.output)) {
-        return executeRimraf(info.output);
+    if (!Array.isArray(info.clean)) {
+        return executeRimraf(info.clean);
     } else {
-        const promises = info.output.map(executeRimraf);
+        const promises = info.clean.map(executeRimraf);
         await Promise.all(promises);
     }
 }

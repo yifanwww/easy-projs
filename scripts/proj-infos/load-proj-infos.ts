@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 
 import { projsDir } from '../constants';
-import { FinalProjInfoJson, ProjInfo, ProjInfoJson, ProjInfos, ProjType } from './types';
-import { hasProperties, hasProperty, isNormalObject, isPropertiesCount, match } from './validate';
+import { FinalProjInfoJson, ProjInfo, ProjInfoJson, ProjInfos } from './types';
+import { validateProjInfoJson } from './validate-proj-infos';
 
 /**
  * @returns The folder' names of projects found.
@@ -33,24 +33,10 @@ async function findProjInfo(file: string): Promise<boolean> {
     return false;
 }
 
-function validateProjInfoJson(json: any): json is ProjInfoJson {
-    if (!isNormalObject(json) || !isPropertiesCount(json, 1)) return false;
-    if (!hasProperty(json, 'projInfo', '{}')) return false;
-
-    const info = json.projInfo;
-    if (!isNormalObject(info) || !isPropertiesCount(info, [4, 5])) return false;
-    if (!hasProperties(info, ['name', 'output', 'startup', 'type'] as const, 'string')) return false;
-    if (!match(info.type, Object.values(ProjType))) return false;
-
-    if (isPropertiesCount(info, 5) && hasProperty(info, 'port', 'number')) {
-        if (info.port < 1024 || info.port > 65535) return false;
-    }
-
-    return true;
-}
-
 function mergeDefaultProjInfoJson(json: ProjInfoJson): FinalProjInfoJson {
-    if (json.projInfo.port === undefined) json.projInfo.port = 4321;
+    const info = json.projInfo;
+
+    if (info.port === undefined) info.port = 4321;
 
     return json as FinalProjInfoJson;
 }
@@ -59,6 +45,7 @@ function convertJsonToProjInfo(folder: string, projPath: string, json: FinalProj
     const info = json.projInfo;
 
     return {
+        clean: info.clean.map((_path) => path.resolve(projPath, _path)),
         folder,
         localhost: `http://localhost:${info.port}`,
         name: info.name,
