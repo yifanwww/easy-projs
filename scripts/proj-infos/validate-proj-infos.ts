@@ -8,7 +8,7 @@ function validatePropClean(clean: any[]): clean is string[] {
     return true;
 }
 
-const validatePropPort = (port: number): boolean => port >= 1024 && port <= 65535;
+const validatePropPort = (port: number): boolean => Number.isInteger(port) && port >= 1024 && port <= 65535;
 
 const validatePropType = (type: string): type is ProjType => match(type, Object.values(ProjType));
 
