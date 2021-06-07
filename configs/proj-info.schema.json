@@ -10,19 +10,23 @@
             }
         },
         "name": {
-            "type": "string"
+            "type": "string",
+            "description": "The name of this project, used in cli."
         },
         "output": {
-            "type": "string"
+            "type": "string",
+            "description": "The folder where the compiled files will be put into."
         },
         "port": {
             "type": "integer",
             "default": 4321,
+            "description": "The port used for devlopmenting browser projects.",
             "maximum": 65535,
             "minimum": 1024
         },
         "startup": {
-            "type": "string"
+            "type": "string",
+            "description": "The entry of this project."
         },
         "type": {
             "description": "Which type this project is.",

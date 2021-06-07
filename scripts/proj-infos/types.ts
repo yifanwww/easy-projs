@@ -26,10 +26,10 @@ export type FinalProjInfoJson = Required<ProjInfoJson>;
 export interface ProjInfo {
     clean: string[];
     folder: string;
-    localhost: string;
     name: string;
     output: string;
     path: string;
+    port: string;
     startup: string;
     type: ProjType;
 }

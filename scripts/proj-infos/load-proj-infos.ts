@@ -43,10 +43,10 @@ function convertJsonToProjInfo(folder: string, projPath: string, json: FinalProj
     return {
         clean: json.clean.map((_path) => path.resolve(projPath, _path)),
         folder,
-        localhost: `http://localhost:${json.port}`,
         name: json.name,
         output: path.resolve(projPath, json.output),
         path: projPath,
+        port: json.port.toString(),
         startup: path.resolve(projPath, json.startup),
         type: json.type,
     };
