@@ -13,6 +13,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
+const { repoDir } = require('../scripts/constants');
 const { getEnv, ProcessEnvKeys } = require('../scripts/process-env');
 const OpenBrowserWebpackPlugin = require('../scripts/plugins/open-browser-webpack-plugin');
 
@@ -23,7 +24,6 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 function getStaticPaths() {
-    const repoDir = path.resolve(__dirname, '..');
     const resolvePepo = (relativePath) => path.resolve(repoDir, relativePath);
 
     return {
