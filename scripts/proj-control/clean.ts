@@ -24,16 +24,18 @@ async function _clean(name: string): Promise<void> {
 }
 
 export async function clean(all: boolean, name: string): Promise<void> {
-    const projInfos = await getProjInfos();
-
     if (!all && !name) {
         console.info(chalk.yellow('[cli] Specifies no project to clean.'));
-    } else if (name) {
-        return _clean(name);
     } else {
-        for (const projName in projInfos) {
-            // eslint-disable-next-line no-await-in-loop
-            await _clean(projName);
+        const projInfos = await getProjInfos();
+
+        if (name) {
+            return _clean(name);
+        } else {
+            for (const projName in projInfos) {
+                // eslint-disable-next-line no-await-in-loop
+                await _clean(projName);
+            }
         }
     }
 }

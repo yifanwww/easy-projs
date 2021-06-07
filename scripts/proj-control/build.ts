@@ -12,16 +12,18 @@ const _build = (name: string): Promise<void> =>
     });
 
 export async function build(all: boolean, name: string): Promise<void> {
-    const projInfos = await getProjInfos();
-
     if (!all && !name) {
         console.info(chalk.yellow('[cli] Specifies no project to compile.'));
-    } else if (name) {
-        return _build(name);
     } else {
-        for (const projName in projInfos) {
-            // eslint-disable-next-line no-await-in-loop
-            await _build(projName);
+        const projInfos = await getProjInfos();
+
+        if (name) {
+            return _build(name);
+        } else {
+            for (const projName in projInfos) {
+                // eslint-disable-next-line no-await-in-loop
+                await _build(projName);
+            }
         }
     }
 }
