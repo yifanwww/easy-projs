@@ -1,0 +1,9 @@
+{
+    "projInfo": {
+        "clean": ["build", "tsconfig.tsbuildinfo"],
+        "name": "memorize",
+        "output": "build",
+        "startup": "build/memorize.test.js",
+        "type": "nodejs"
+    }
+}

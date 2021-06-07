@@ -1,7 +1,7 @@
 import yargs from 'yargs';
 
 import { executeBrowser, executeNode } from './execute';
-import { ProjType, switchProj } from './projs-info';
+import { ProjType, switchProj } from './proj-infos';
 
 interface YargsRunArgv {
     _: (string | number)[];
@@ -22,7 +22,7 @@ const run = (): Promise<void> =>
     switchProj(parseArgs().name, {
         [ProjType.BrowserReact]: async (info) => executeBrowser(info.startup),
         [ProjType.BrowserVue]: async (info) => console.log(info),
-        [ProjType.BrowserWebpack]: async (info) => executeBrowser(info.startupProduction),
+        [ProjType.BrowserWebpack]: async (info) => executeBrowser(info.startup),
         [ProjType.Nodejs]: async (info) => executeNode(info.startup),
     });
 

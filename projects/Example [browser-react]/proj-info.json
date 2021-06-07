@@ -1,0 +1,9 @@
+{
+    "projInfo": {
+        "clean": ["build"],
+        "name": "example-browser-react",
+        "output": "build",
+        "startup": "build/index.html",
+        "type": "browser-react"
+    }
+}

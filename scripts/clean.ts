@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import yargs from 'yargs';
 
 import { executeRimraf } from './execute';
-import { projsInfo } from './projs-info';
+import { getProjInfos } from './proj-infos';
 
 interface YargsCleanArgv {
     _: (string | number)[];
@@ -26,30 +26,33 @@ function parseArgs(): YargsCleanArgv {
 }
 
 async function _clean(name: string): Promise<void> {
-    if (!(name in projsInfo)) {
+    const projInfos = await getProjInfos();
+
+    if (!(name in projInfos)) {
         console.error(chalk.red(`[easy-projs] Unknown project name: ${name}`));
         return;
     }
 
-    const info = projsInfo[name];
+    const info = projInfos[name];
 
-    if (!Array.isArray(info.output)) {
-        return executeRimraf(info.output);
+    if (!Array.isArray(info.clean)) {
+        return executeRimraf(info.clean);
     } else {
-        const promises = info.output.map(executeRimraf);
+        const promises = info.clean.map(executeRimraf);
         await Promise.all(promises);
     }
 }
 
 async function clean(): Promise<void> {
     const { all, name } = parseArgs();
+    const projInfos = await getProjInfos();
 
     if (!all && !name) {
         console.info(chalk.yellow('Specifies no project to clean.'));
     } else if (name) {
         return _clean(name);
     } else {
-        for (const projName in projsInfo) {
+        for (const projName in projInfos) {
             // eslint-disable-next-line no-await-in-loop
             await _clean(projName);
         }

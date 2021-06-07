@@ -9,16 +9,16 @@
             "path": "projects\\Carousel"
         },
         {
+            "name": "Example [browser]",
+            "path": "projects\\Example [browser]"
+        },
+        {
             "name": "Example [browser-react]",
             "path": "projects\\Example [browser-react]"
         },
         {
             "name": "Example [browser-vue]",
             "path": "projects\\Example [browser-vue]"
-        },
-        {
-            "name": "Example [browser-webpack]",
-            "path": "projects\\Example [browser-webpack]"
         },
         {
             "name": "Example [nodejs]",
@@ -50,6 +50,13 @@
         },
 
         "git.enabled": true,
+
+        "json.schemas": [
+            {
+                "fileMatch": ["proj-info.json"],
+                "url": "../../configs/proj-info.schema.json"
+            }
+        ],
 
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",
