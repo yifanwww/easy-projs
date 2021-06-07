@@ -4,7 +4,7 @@ import fs from 'fs';
 import os from 'os';
 import _path from 'path';
 
-import { createEnv, EnvKeys } from './env';
+import { ProcessEnvKeys, ProcessEnvManager } from './process-env';
 
 const bin = _path.resolve(__dirname, '../node_modules/.bin');
 const resolveBin = (relativePath: string) => _path.resolve(bin, relativePath);
@@ -94,11 +94,11 @@ export const executeBrowser = (path: string) => execute(Executor.Browser, [path]
 
 export const executeNode = (path: string) => execute(Executor.Node, [path]);
 
-export const executeReactAppRewired = (production: boolean, projectDir: string) =>
+export const executeReactAppRewired = (production: boolean, path: string) =>
     execute(
         Executor.ReactAppRewired,
         [production ? 'build' : 'start', '--config-overrides', 'configs/webpack.react.config.js'],
-        createEnv().setEnv(EnvKeys.ProjectDir, projectDir).env,
+        new ProcessEnvManager().setEnv(ProcessEnvKeys.ProjectDir, path).env,
     );
 
 export const executeRimraf = (path: string | string[]) =>
@@ -117,7 +117,7 @@ export const executeWebpack = (production: boolean, path: string, startupDevelop
             '--mode',
             production ? 'production' : 'development',
         ].filter(Boolean) as string[],
-        !startupDevelopment
-            ? createEnv().setEnv(EnvKeys.ProjectDir, path).env
-            : createEnv().setEnv(EnvKeys.ProjectDir, path).setEnv(EnvKeys.Localhost, startupDevelopment).env,
+        new ProcessEnvManager()
+            .setEnv(ProcessEnvKeys.ProjectDir, path)
+            .setEnv(ProcessEnvKeys.Localhost, startupDevelopment).env,
     );
