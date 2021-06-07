@@ -4,7 +4,7 @@ export enum ProjType {
     /** A vue browser project, compiled by vite. */
     BrowserVue = 'browser-vue',
     /** A browser project, compiled by custom webpack config. */
-    BrowserWebpack = 'browser-webpack',
+    BrowserWebpack = 'browser',
     /** A nodejs project, compiled by tsc. */
     Nodejs = 'nodejs',
 }
@@ -13,7 +13,20 @@ export interface ProjInfoJson {
     projInfo: {
         name: string;
         output: string;
+        /**
+         * @default 4321
+         */
         port?: number;
+        startup: string;
+        type: ProjType;
+    };
+}
+
+export interface FinalProjInfoJson {
+    projInfo: {
+        name: string;
+        output: string;
+        port: number;
         startup: string;
         type: ProjType;
     };
@@ -21,7 +34,7 @@ export interface ProjInfoJson {
 
 export interface ProjInfo {
     folder: string;
-    localhost: string | undefined;
+    localhost: string;
     name: string;
     output: string;
     path: string;

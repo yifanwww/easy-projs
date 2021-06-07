@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { projsDir } from '../constants';
-import { ProjInfoJson, ProjInfo, ProjInfos, ProjType } from './types';
+import { FinalProjInfoJson, ProjInfo, ProjInfoJson, ProjInfos, ProjType } from './types';
 import { hasProperties, hasProperty, isNormalObject, isPropertiesCount, match } from './validate';
 
 /**
@@ -42,19 +42,25 @@ function validateProjInfoJson(json: any): json is ProjInfoJson {
     if (!hasProperties(info, ['name', 'output', 'startup', 'type'] as const, 'string')) return false;
     if (!match(info.type, Object.values(ProjType))) return false;
 
-    if (isPropertiesCount(info, 4) && hasProperty(info, 'port', 'number')) {
+    if (isPropertiesCount(info, 5) && hasProperty(info, 'port', 'number')) {
         if (info.port < 1024 || info.port > 65535) return false;
     }
 
     return true;
 }
 
-function convertJsonToProjInfo(folder: string, projPath: string, json: ProjInfoJson): ProjInfo {
+function mergeDefaultProjInfoJson(json: ProjInfoJson): FinalProjInfoJson {
+    if (json.projInfo.port === undefined) json.projInfo.port = 4321;
+
+    return json as FinalProjInfoJson;
+}
+
+function convertJsonToProjInfo(folder: string, projPath: string, json: FinalProjInfoJson): ProjInfo {
     const info = json.projInfo;
 
     return {
         folder,
-        localhost: info.port ? `http://localhost:${info.port}` : undefined,
+        localhost: `http://localhost:${info.port}`,
         name: info.name,
         output: path.resolve(projPath, info.output),
         path: projPath,
@@ -83,7 +89,8 @@ async function loadProjInfo(folder: string): Promise<ProjInfo | undefined> {
         return undefined;
     }
 
-    return convertJsonToProjInfo(folder, projPath, json);
+    const finalJson = mergeDefaultProjInfoJson(json);
+    return convertJsonToProjInfo(folder, projPath, finalJson);
 }
 
 export async function loadProjInfos(): Promise<ProjInfos> {
