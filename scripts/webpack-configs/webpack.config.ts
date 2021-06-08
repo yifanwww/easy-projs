@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import path from 'path';
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import {
     Configuration,
     ConfigurationFactory,
@@ -26,7 +27,6 @@ const postcssNormalize = require('postcss-normalize');
 const postcssSafeParser = require('postcss-safe-parser');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');

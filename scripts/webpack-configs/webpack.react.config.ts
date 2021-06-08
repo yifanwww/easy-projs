@@ -8,11 +8,10 @@
 //   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
 
 import _path from 'path';
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Configuration } from 'webpack';
 
 import { getEnv, ProcessEnvKeys } from '../process-env';
-
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 17-18
