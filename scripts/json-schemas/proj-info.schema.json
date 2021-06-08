@@ -28,6 +28,11 @@
             "type": "string",
             "description": "The entry of this project."
         },
+        "template": {
+            "type": "boolean",
+            "default": false,
+            "description": "This project is a template project or not."
+        },
         "type": {
             "description": "Which type this project is.",
             "oneOf": [
