@@ -28,7 +28,7 @@ export async function switchProj(name: string, callbacks: SwitchProjCallbacks): 
     const projInfos = await getProjInfos();
 
     if (!(name in projInfos)) {
-        console.error(chalk.red(`[cli] Unknown project name: ${name}`));
+        console.error(chalk.red(`Unknown project name: ${name}`));
         return;
     }
     return _switchProj(projInfos[name], callbacks);

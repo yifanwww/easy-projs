@@ -9,7 +9,7 @@ const executeNode = (path: string) => execute(Executor.Node, [path]);
 
 export async function exe(name: string): Promise<void> {
     if (!name) {
-        console.info(chalk.yellow('[cli] Specifies no project to run.'));
+        console.info(chalk.yellow('Specifies no project to run.'));
         return;
     }
 

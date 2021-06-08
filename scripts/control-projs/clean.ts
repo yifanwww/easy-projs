@@ -9,7 +9,7 @@ async function _clean(name: string): Promise<void> {
     const projInfos = await getProjInfos();
 
     if (!(name in projInfos)) {
-        console.error(chalk.red(`[cli] Unknown project name: ${name}`));
+        console.error(chalk.red(`Unknown project name: ${name}`));
         return;
     }
 
@@ -25,7 +25,7 @@ async function _clean(name: string): Promise<void> {
 
 export async function clean(all: boolean, name: string): Promise<void> {
     if (!all && !name) {
-        console.info(chalk.yellow('[cli] Specifies no project to clean.'));
+        console.info(chalk.yellow('Specifies no project to clean.'));
     } else {
         const projInfos = await getProjInfos();
 

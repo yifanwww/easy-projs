@@ -13,7 +13,7 @@ const _build = (name: string): Promise<void> =>
 
 export async function build(all: boolean, name: string): Promise<void> {
     if (!all && !name) {
-        console.info(chalk.yellow('[cli] Specifies no project to compile.'));
+        console.info(chalk.yellow('Specifies no project to compile.'));
     } else {
         const projInfos = await getProjInfos();
 

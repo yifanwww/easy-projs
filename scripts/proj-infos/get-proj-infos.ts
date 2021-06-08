@@ -2,13 +2,30 @@ import { findProjInfoFiles, findProjs } from './find';
 import { loadProjInfos } from './load-proj-infos';
 import { ProjInfos } from './types';
 
-let projInfos: ProjInfos | undefined;
+function projInfosFactory() {
+    let projInfos: ProjInfos | undefined;
 
-export async function getProjInfos(): Promise<ProjInfos> {
-    if (projInfos) return projInfos;
+    return async (): Promise<ProjInfos> => {
+        if (projInfos) return projInfos;
 
-    const projs = await findProjs();
-    const projInfoFiles = await findProjInfoFiles(projs);
-    projInfos = await loadProjInfos(projInfoFiles);
-    return projInfos;
+        const projs = await findProjs();
+        const projInfoFiles = await findProjInfoFiles(projs);
+        projInfos = await loadProjInfos(projInfoFiles);
+        return projInfos;
+    };
+}
+
+export const getProjInfos = projInfosFactory();
+
+export async function getTemplateProjInfos(): Promise<ProjInfos> {
+    const projInfos = await getProjInfos();
+
+    const templateProjInfos: ProjInfos = {};
+    for (const name in projInfos) {
+        if (projInfos[name].template) {
+            templateProjInfos[name] = projInfos[name];
+        }
+    }
+
+    return templateProjInfos;
 }

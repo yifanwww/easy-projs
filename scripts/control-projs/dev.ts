@@ -5,7 +5,7 @@ import { executeReactAppRewired, executeTsc, executeWebpack } from './execute-wr
 
 export async function dev(name: string): Promise<void> {
     if (!name) {
-        console.info(chalk.yellow('[cli] Specifies no project to dev.'));
+        console.info(chalk.yellow('Specifies no project to dev.'));
         return;
     }
 

@@ -30,7 +30,7 @@ function convertJsonToProjInfo(projInfoFile: string, json: FinalProjInfoJson): P
 }
 
 async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | undefined> {
-    console.info(chalk.blackBright(`Load '${projInfoFile}'.`));
+    console.info(chalk.black(`Load '${projInfoFile}'.`));
 
     const data = await fs.promises.readFile(projInfoFile, { encoding: 'utf-8' });
     const json = JSON.parse(data);
@@ -48,12 +48,10 @@ async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | undefined>
  * @param infoFiles The folder names of the projects.
  */
 export async function loadProjInfos(infoFiles: string[]): Promise<ProjInfos> {
-    const infosArr = (await Promise.all(infoFiles.map(loadProjInfo))).filter(
-        (info) => info !== undefined,
-    ) as ProjInfo[];
-    console.info(chalk.blackBright(`Load ${infosArr.length} project infos.`));
+    const infos = (await Promise.all(infoFiles.map(loadProjInfo))).filter((info) => info !== undefined) as ProjInfo[];
+    console.info(chalk.blackBright(`Load ${infos.length} project infos.`));
 
-    const infos: ProjInfos = {};
-    for (const info of infosArr) infos[info.name] = info;
-    return infos;
+    const projInfos: ProjInfos = {};
+    for (const info of infos) projInfos[info.name] = info;
+    return projInfos;
 }

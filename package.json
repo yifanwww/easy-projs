@@ -31,6 +31,7 @@
         ]
     },
     "scripts": {
+        "add-proj": "node scripts/cli.js add",
         "build-proj": "node scripts/cli.js build",
         "build:scripts": "tsc --build scripts/tsconfigs/tsconfig.scripts.json",
         "clean-proj": "node scripts/cli.js clean",
