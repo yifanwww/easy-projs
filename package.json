@@ -38,7 +38,8 @@
         "dev": "node scripts/cli.js dev",
         "lint": "eslint .",
         "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
-        "run": "node scripts/cli.js run"
+        "run": "node scripts/cli.js run",
+        "validate": "node scripts/cli.js validate"
     },
     "engines": {
         "node": ">=14 <15"

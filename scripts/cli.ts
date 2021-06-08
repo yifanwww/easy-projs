@@ -1,6 +1,6 @@
 import _yargs from 'yargs';
 
-import { build, clean, dev, run } from './control-projs';
+import { build, clean, validate, dev, run } from './control-projs';
 
 interface BaseYargsArgv {
     _: Array<string | number>;
@@ -54,6 +54,12 @@ async function cli(): Promise<void> {
             'Run a specified project.',
             (yargs) => yargs.positional('name', { type: 'string', default: '', describe: 'The name of a project.' }),
             (argv: RunYargsArgv) => run(argv.name),
+        )
+        .command(
+            'validate',
+            'Validate all the project infos.',
+            () => {},
+            () => validate(),
         )
         .help().argv;
 }
