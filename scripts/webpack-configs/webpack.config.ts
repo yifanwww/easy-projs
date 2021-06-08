@@ -46,10 +46,6 @@ function getStaticPaths() {
     };
 }
 
-const staticPaths = getStaticPaths();
-// eslint-disable-next-line import/no-dynamic-require
-const appPackageJson = require(staticPaths.appPackageJson);
-
 function getPaths(isEnvDevelopment: boolean) {
     const projectDir = getEnv(ProcessEnvKeys.ProjectDir)!;
     const resolveProject = (relativePath: string) => path.resolve(projectDir, relativePath);
@@ -72,6 +68,11 @@ const factory: ConfigurationFactory = (env, argv) => {
     // Variable used for enabling profiling in Production. Uses a flag if passed into the build command.
     const isEnvProductionProfile = isEnvProduction && getEnv(ProcessEnvKeys.Profile) === 'true';
 
+    const port = Number.parseInt(getEnv(ProcessEnvKeys.Port)!, 10);
+
+    const staticPaths = getStaticPaths();
+    // eslint-disable-next-line import/no-dynamic-require
+    const appPackageJson = require(staticPaths.appPackageJson);
     const paths = getPaths(isEnvDevelopment);
 
     /**
@@ -350,10 +351,8 @@ const factory: ConfigurationFactory = (env, argv) => {
         ],
     };
 
-    const localhost = `http://localhost:${getEnv(ProcessEnvKeys.Port)}`;
-
     const plugins: Plugin[] = [
-        new OpenBrowserWebpackPlugin(localhost),
+        new OpenBrowserWebpackPlugin(`http://localhost:${port}`, isEnvDevelopment),
 
         // Generates an `index.html` file with the <script> injected.
         new HtmlWebpackPlugin(
@@ -419,7 +418,7 @@ const factory: ConfigurationFactory = (env, argv) => {
         bail: isEnvProduction,
         devServer: {
             contentBase: paths.devServerContentBase,
-            port: 4321,
+            port,
         },
         devtool: isEnvProduction ? 'source-map' : isEnvDevelopment && 'cheap-module-source-map',
         entry: paths.appIndexTs,

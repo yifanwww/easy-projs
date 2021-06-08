@@ -5,9 +5,9 @@ import { executeReactAppRewired, executeTsc, executeWebpack } from './execute-wr
 
 const _build = (name: string): Promise<void> =>
     switchProj(name, {
-        [ProjType.BrowserReact]: async (info) => executeReactAppRewired(true, info.path, info.output),
+        [ProjType.BrowserReact]: async (info) => executeReactAppRewired(true, info.path, info.output, info.port),
         [ProjType.BrowserVue]: async (info) => console.log(info),
-        [ProjType.BrowserWebpack]: async (info) => executeWebpack(true, info.path, info.output),
+        [ProjType.BrowserWebpack]: async (info) => executeWebpack(true, info.path, info.output, info.port),
         [ProjType.Nodejs]: async (info) => executeTsc(false, info.path),
     });
 

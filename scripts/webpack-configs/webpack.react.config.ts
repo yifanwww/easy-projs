@@ -35,7 +35,7 @@ const _paths = {
 };
 
 // Override localhost port.
-process.env.PORT = getEnv(ProcessEnvKeys.Port);
+process.env.PORT = getEnv(ProcessEnvKeys.Port)!;
 
 // Override webpack configurations.
 // The Webpack config to use when compiling your react app for development or production.

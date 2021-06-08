@@ -5,13 +5,15 @@ import { execute, Executor } from '../execute';
 
 export class OpenBrowserWebpackPlugin {
     private _url?: string;
+    private _open: boolean;
 
-    constructor(url?: string) {
+    constructor(url: string, open: boolean = true) {
+        this._open = open;
         this._url = url;
     }
 
     public apply = (compiler: Compiler) => {
-        if (this._url) {
+        if (this._open) {
             compiler.hooks.done.tap('OpenBrowserWebpackPlugin', () => {
                 this._openBrowser();
             });

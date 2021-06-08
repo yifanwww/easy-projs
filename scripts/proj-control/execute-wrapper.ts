@@ -1,7 +1,7 @@
 import { execute, Executor } from '../execute';
 import { ProcessEnvKeys, ProcessEnvManager } from '../process-env';
 
-export const executeReactAppRewired = (production: boolean, path: string, output: string, port?: string) =>
+export const executeReactAppRewired = (production: boolean, path: string, output: string, port: string) =>
     execute(
         Executor.ReactAppRewired,
         [production ? 'build' : 'start', '--config-overrides', 'scripts/webpack-configs/webpack.react.config.js'],
@@ -14,7 +14,7 @@ export const executeReactAppRewired = (production: boolean, path: string, output
 export const executeTsc = (watch: boolean, path: string) =>
     execute(Executor.Tsc, ['--project', path, watch && '--watch'].filter(Boolean) as string[]);
 
-export const executeWebpack = (production: boolean, path: string, output: string, port?: string) =>
+export const executeWebpack = (production: boolean, path: string, output: string, port: string) =>
     execute(
         Executor.Webpack,
         [
