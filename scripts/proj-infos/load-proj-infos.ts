@@ -35,6 +35,7 @@ async function findProjInfo(file: string): Promise<boolean> {
 
 function mergeDefaultProjInfoJson(json: ProjInfoJson): FinalProjInfoJson {
     if (json.port === undefined) json.port = 4321;
+    if (json.template === undefined) json.template = false;
 
     return json as FinalProjInfoJson;
 }
@@ -48,6 +49,7 @@ function convertJsonToProjInfo(folder: string, projPath: string, json: FinalProj
         path: projPath,
         port: json.port.toString(),
         startup: path.resolve(projPath, json.startup),
+        template: json.template,
         type: json.type,
     };
 }
