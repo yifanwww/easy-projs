@@ -1,6 +1,6 @@
 import _yargs from 'yargs';
 
-import { build, clean, dev, run } from './proj-control';
+import { build, clean, dev, run } from './control-projs';
 
 interface BaseYargsArgv {
     _: Array<string | number>;
