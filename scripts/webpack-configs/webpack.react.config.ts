@@ -21,7 +21,7 @@ const resolveProject = (relativePath: string) => _path.resolve(projectDir, relat
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 62-79
 const _paths = {
-    appBuild: getEnv(ProcessEnvKeys.OutputDir),
+    appBuild: getEnv(ProcessEnvKeys.OutputDir)!,
     appHtml: resolveProject('public/index.html'),
     appIndexTs: resolveProject('src/index.tsx'),
     appPath: projectDir,
@@ -45,8 +45,31 @@ function OverrideWebpackConfigs(webpack: Configuration) {
     return isEnvProduction ? new SpeedMeasurePlugin({ outputFormat: 'human' }).wrap(webpack) : webpack;
 }
 
+interface CRAPaths {
+    dotent: string;
+    appPath: string;
+    appBuild: string;
+    appPublic: string;
+    appHtml: string;
+    appIndexJs: string;
+    appPackageJson: string;
+    appSrc: string;
+    appTsConfig: string;
+    appJsConfig: string;
+    yarnLockFile: string;
+    testsSetup: string;
+    proxySetup: string;
+    appNodeModules: string;
+    swSrc: string;
+    publicUrlOrPath: string;
+    ownPath: string;
+    pwnNodeModules: string;
+    appTypeDeclarations: string;
+    ownTypeDeclarations: string;
+}
+
 // Override paths configurations.
-function OverridePathsConfigs(paths: any) {
+function OverridePathsConfigs(paths: CRAPaths) {
     paths.appBuild = _paths.appBuild;
     paths.appHtml = _paths.appHtml;
     paths.appIndexJs = _paths.appIndexTs;

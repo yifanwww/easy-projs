@@ -1,21 +1,22 @@
-export const isBigint = (value: any): value is bigint => typeof value === 'bigint';
+export const isBigint = (value: unknown): value is bigint => typeof value === 'bigint';
 
-export const isBoolean = (value: any): value is boolean => typeof value === 'boolean';
+export const isBoolean = (value: unknown): value is boolean => typeof value === 'boolean';
 
-export const isNull = (value: any): value is null => value === null;
+export const isNull = (value: unknown): value is null => value === null;
 
-export const isNumber = (value: any): value is Number => typeof value === 'number';
+export const isNumber = (value: unknown): value is Number => typeof value === 'number';
 
-export const isString = (value: any): value is string => typeof value === 'string';
+export const isString = (value: unknown): value is string => typeof value === 'string';
 
-export const isUndefined = (value: any): value is undefined => value === undefined;
+export const isUndefined = (value: unknown): value is undefined => value === undefined;
 
-export const isArray = (value: any): value is any[] => Array.isArray(value);
+export const isArray = (value: unknown): value is unknown[] => Array.isArray(value);
 
-export const isNormalObject = (value: any): value is {} =>
+export const isNormalObject = (value: unknown): value is {} =>
     !isNull(value) && typeof value === 'object' && !isArray(value);
 
-export const isNumberOrUndefined = (value: any): value is number | undefined => isNumber(value) || isUndefined(value);
+export const isNumberOrUndefined = (value: unknown): value is number | undefined =>
+    isNumber(value) || isUndefined(value);
 
 export const isPropertiesCount = (obj: {}, allow: number | number[]): boolean =>
     typeof allow === 'number' ? allow === Object.keys(obj).length : allow.includes(Object.keys(obj).length);
@@ -26,9 +27,10 @@ type Combine<O extends {}, P extends string | readonly string[], V> = P extends 
 
 type PropertyType = 'any' | 'array' | 'bigint' | 'boolean' | 'null' | 'number' | 'string' | 'undefined' | '{}';
 type PropertyTypeToType<T extends PropertyType> = T extends 'any'
-    ? any
+    ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      any
     : T extends 'array'
-    ? any[]
+    ? unknown[]
     : T extends 'bigint'
     ? bigint
     : T extends 'boolean'
@@ -45,7 +47,7 @@ type PropertyTypeToType<T extends PropertyType> = T extends 'any'
     ? {}
     : never;
 
-const _hasProperty = <O extends {}, P extends string>(obj: O, prop: P): obj is Combine<O, P, any> => prop in obj;
+const _hasProperty = <O extends {}, P extends string>(obj: O, prop: P): obj is Combine<O, P, unknown> => prop in obj;
 
 export function hasProperty<O extends {}, P extends string, T extends PropertyType = 'any'>(
     obj: O,
@@ -103,4 +105,5 @@ export const hasProperties = <O, P extends readonly string[], T extends Property
     type: T,
 ): obj is Combine<O, P, PropertyTypeToType<T>> => validateProperties(obj, props, type, hasProperty);
 
-export const match = <T extends any>(value: any, matches: T[]): value is T => matches.includes(value);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const match = <T extends unknown>(value: unknown, matches: T[]): value is T => matches.includes(value as any);

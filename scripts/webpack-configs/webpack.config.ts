@@ -401,11 +401,13 @@ const factory: ConfigurationFactory = (env, argv) => {
         new ManifestPlugin({
             fileName: 'asset-manifest.json',
             publicPath: paths.publicPath,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             generate: (seed: any, files: any[], entrypoints: any) => {
                 const manifestFiles = files.reduce((manifest, file) => {
                     manifest[file.name] = file.path;
                     return manifest;
                 }, seed);
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const entrypointFiles = entrypoints.main.filter((fileName: any) => !fileName.endsWith('.map'));
 
                 return { files: manifestFiles, entrypoints: entrypointFiles };
@@ -413,7 +415,7 @@ const factory: ConfigurationFactory = (env, argv) => {
         }),
     ].filter(Boolean);
 
-    const webpack: Configuration & { devServer: any } = {
+    const webpack: Configuration & { devServer: unknown } = {
         // Stop compilation early in production
         bail: isEnvProduction,
         devServer: {
