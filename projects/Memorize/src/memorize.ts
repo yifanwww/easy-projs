@@ -1,4 +1,4 @@
-function _defaultDiff(prev: any[], curr: any[]): boolean {
+function _defaultDiff(prev: unknown[], curr: unknown[]): boolean {
     if (curr.length !== prev.length) {
         return true;
     } else {
@@ -10,7 +10,7 @@ function _defaultDiff(prev: any[], curr: any[]): boolean {
     return false;
 }
 
-export function memorize<Args extends any[], ReturnType extends any>(
+export function memorize<Args extends unknown[], ReturnType extends unknown>(
     func: (...args: Args) => ReturnType,
     diff?: (prev: Args, curr: Args) => boolean,
 ): (...args: Args) => ReturnType | undefined {
