@@ -4,7 +4,7 @@
 
 # Scripts
 
-scripts/*.js
+scripts/**/*.js
 
 # Running and Testing
 
