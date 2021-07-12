@@ -3,5 +3,6 @@
     "name": "example-browser",
     "output": "build",
     "startup": "build/index.html",
+    "template": true,
     "type": "browser"
 }

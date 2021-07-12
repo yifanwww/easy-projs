@@ -5,12 +5,12 @@ export enum ProcessEnvKeys {
     ProjectDir = 'EasyProjs_ProjectDir',
 }
 
-export type ProcessEnv = NodeJS.Dict<string>;
+export type ProcessEnvs = NodeJS.Dict<string>;
 
-export class ProcessEnvManager {
-    private _env: ProcessEnv = {};
+export class ProcessEnv {
+    private _env: ProcessEnvs = {};
 
-    get env(): ProcessEnv {
+    get env(): ProcessEnvs {
         return this._env;
     }
 

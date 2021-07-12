@@ -13,11 +13,11 @@ export interface ProjInfoJson {
     clean: string[];
     name: string;
     output: string;
-    /**
-     * @default 4321
-     */
+    /** @default 4321 */
     port?: number;
     startup: string;
+    /** @default false */
+    template?: boolean;
     type: ProjType;
 }
 
@@ -31,6 +31,7 @@ export interface ProjInfo {
     path: string;
     port: string;
     startup: string;
+    template: boolean;
     type: ProjType;
 }
 

@@ -1,11 +1,11 @@
 import { execute, Executor } from '../execute';
-import { ProcessEnvKeys, ProcessEnvManager } from '../process-env';
+import { ProcessEnvKeys, ProcessEnv } from '../process-env';
 
 export const executeReactAppRewired = (production: boolean, path: string, output: string, port: string) =>
     execute(
         Executor.ReactAppRewired,
         [production ? 'build' : 'start', '--config-overrides', 'scripts/webpack-configs/webpack.react.config.js'],
-        new ProcessEnvManager()
+        new ProcessEnv()
             .setEnv(ProcessEnvKeys.OutputDir, output)
             .setEnv(ProcessEnvKeys.Port, port)
             .setEnv(ProcessEnvKeys.ProjectDir, path).env,
@@ -24,8 +24,14 @@ export const executeWebpack = (production: boolean, path: string, output: string
             '--mode',
             production ? 'production' : 'development',
         ].filter(Boolean) as string[],
-        new ProcessEnvManager()
+        new ProcessEnv()
             .setEnv(ProcessEnvKeys.OutputDir, output)
             .setEnv(ProcessEnvKeys.Port, port)
             .setEnv(ProcessEnvKeys.ProjectDir, path).env,
     );
+
+export const executeRimraf = (path: string) => execute(Executor.Rimraf, [path]);
+
+export const executeBrowser = (path: string) => execute(Executor.Browser, [path]);
+
+export const executeNode = (path: string) => execute(Executor.Node, [path]);

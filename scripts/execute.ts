@@ -25,7 +25,7 @@ function switchPlatform<T>(callbacks: SwitchPlatformCallbacks<T>): T {
             return callbacks.win32();
 
         default:
-            console.error(`[cli] Unsupported system: ${platform}`);
+            console.error(`Unsupported system: ${platform}`);
             process.exit();
     }
 }
@@ -79,7 +79,7 @@ const executors: { [e in Executor]: string } = {
 export function execute(executor: Executor, executorArgs: string[], env?: NodeJS.Dict<string>): Promise<void> {
     const _executor = executors[executor];
     const executorArgsStr = executorArgs.map((arg) => (arg.includes(' ') ? `'${arg}'` : arg)).join(' ');
-    console.info(chalk.blackBright(`[cli] Execute command: ${_executor} ${executorArgsStr}`));
+    console.info(chalk.blackBright(`Execute command: ${_executor} ${executorArgsStr}`));
 
     return new Promise((resolve) => {
         child

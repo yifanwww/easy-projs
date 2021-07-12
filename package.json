@@ -31,14 +31,17 @@
         ]
     },
     "scripts": {
-        "build": "node scripts/cli.js build",
-        "build:scripts": "tsc --build scripts/tsconfigs/tsconfig.scripts.json",
-        "clean": "node scripts/cli.js clean",
-        "clean:scripts": "rimraf scripts/tsconfigs/tsconfig.scripts.tsbuildinfo scripts/**/*.js scripts/**/*.map",
-        "dev": "node scripts/cli.js dev",
+        "build-scripts": "tsc --build scripts/tsconfigs/tsconfig.scripts.json",
+        "clean-scripts": "rimraf scripts/tsconfigs/tsconfig.scripts.tsbuildinfo scripts/**/*.js scripts/**/*.map",
         "lint": "eslint .",
         "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
-        "run": "node scripts/cli.js run"
+        "proj": "node scripts/control-projs/cli.js",
+        "proj-add": "node scripts/control-projs/cli.js add",
+        "proj-build": "node scripts/control-projs/cli.js build",
+        "proj-clean": "node scripts/control-projs/cli.js clean",
+        "proj-dev": "node scripts/control-projs/cli.js dev",
+        "proj-exec": "node scripts/control-projs/cli.js exec",
+        "proj-validate": "node scripts/control-projs/cli.js validate"
     },
     "engines": {
         "node": ">=14 <15"
