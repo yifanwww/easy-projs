@@ -1,6 +1,8 @@
-import { log } from '../log';
+import { log, LogLevel } from '../log';
 import { getProjInfos } from '../proj-infos';
 import { executeRimraf } from './execute-wrapper';
+import { printProjsProvided } from './help';
+import { CleanYargsArgv } from './types';
 
 async function _clean(name: string): Promise<void> {
     const projInfos = await getProjInfos();
@@ -20,19 +22,24 @@ async function _clean(name: string): Promise<void> {
     }
 }
 
-export async function clean(all: boolean, name: string): Promise<void> {
-    if (!all && !name) {
-        log.warn('Specifies no project to clean.');
-    } else {
-        const projInfos = await getProjInfos();
+export async function clean(argv: CleanYargsArgv): Promise<void> {
+    log.setLogLevel(LogLevel.error);
+    const projInfos = await getProjInfos();
+    log.setLogLevel(LogLevel.info);
 
-        if (name) {
-            return _clean(name);
-        } else {
-            for (const projName in projInfos) {
-                // eslint-disable-next-line no-await-in-loop
-                await _clean(projName);
-            }
+    const { all = false, list = false, name } = argv;
+
+    if (list) {
+        printProjsProvided(projInfos);
+    } else if (!all && !name) {
+        log.warn('Specifies no project to clean.');
+        printProjsProvided(projInfos);
+    } else if (name) {
+        return _clean(name);
+    } else {
+        for (const projName in projInfos) {
+            // eslint-disable-next-line no-await-in-loop
+            await _clean(projName);
         }
     }
 }

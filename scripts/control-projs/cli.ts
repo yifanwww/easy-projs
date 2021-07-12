@@ -5,32 +5,7 @@ import { build } from './build';
 import { clean } from './clean';
 import { validate } from './validate';
 import { dev } from './dev';
-import { exe } from './exec';
-
-interface BaseYargsArgv {
-    _: Array<string | number>;
-    $0: string;
-}
-interface AddYargsArgv extends BaseYargsArgv {
-    folder: string;
-    name: string;
-    template: string;
-}
-interface BuildYargsArgv extends BaseYargsArgv {
-    all: boolean;
-    name?: string;
-}
-interface CleanYargsArgv extends BaseYargsArgv {
-    all: boolean;
-    name?: string;
-}
-interface DevYargsArgv extends BaseYargsArgv {
-    name: string;
-}
-interface ExecYargsArgv extends BaseYargsArgv {
-    name: string;
-}
-interface ValidateYargsArgv extends BaseYargsArgv {}
+import { exec } from './exec';
 
 function withExit<T>(func: (argv: T) => void | Promise<void>): (argv: T) => Promise<void> {
     return async (argv) => {
@@ -49,61 +24,80 @@ async function cli(): Promise<void> {
             (yargs) =>
                 yargs
                     .positional('folder', { type: 'string', describe: 'The folder name of the new project.' })
-                    .option('name', { string: true, alias: 'n', describe: 'The name of the new project.' })
-                    .option('template', {
-                        string: true,
-                        alias: 't',
-                        describe: 'The name of the specified template project.',
+                    .options({
+                        list: { boolean: true, alias: 'l', describe: 'List the template projects you can use.' },
+                        name: { string: true, alias: 'n', describe: 'The name of the new project.' },
+                        template: {
+                            string: true,
+                            alias: 't',
+                            describe: 'The name of the specified template project.',
+                        },
                     })
-                    .demandOption(['folder', 'name', 'template']),
-            withExit((argv: AddYargsArgv) => add(argv.folder, argv.name, argv.template)),
+                    .conflicts('list', ['folder', 'name', 'template']),
+            withExit(add),
         )
         .command(
             'build [name] [options]',
             'Build a specified project, or build all the projects.',
             (yargs) =>
                 yargs
-                    .option('all', { boolean: true, alias: 'a', default: false, describe: 'Build all the projects.' })
-                    .positional('name', { type: 'string', describe: 'The name of a project.' }),
-            withExit((argv: BuildYargsArgv) => build(argv.all, argv.name ?? '')),
+                    .options({
+                        all: { boolean: true, alias: 'a', describe: 'Build all the projects.' },
+                        list: { boolean: true, alias: 'l', describe: 'List the projects you can build.' },
+                    })
+                    .positional('name', { type: 'string', describe: 'The name of a project.' })
+                    .conflicts({
+                        all: ['name', 'list'],
+                        name: ['list'],
+                    }),
+            withExit(build),
         )
         .command(
             'clean [name] [options]',
             'Clean a specified project, or clean all the projects.',
             (yargs) =>
                 yargs
-                    .option('all', { boolean: true, alias: 'a', default: false, describe: 'Clean all the projects.' })
-                    .positional('name', { type: 'string', describe: 'The name of a project.' }),
-            withExit((argv: CleanYargsArgv) => clean(argv.all, argv.name ?? '')),
+                    .options({
+                        all: { boolean: true, alias: 'a', default: false, describe: 'Clean all the projects.' },
+                        list: { boolean: true, alias: 'l', describe: 'List the projects you can clean.' },
+                    })
+                    .positional('name', { type: 'string', describe: 'The name of a project.' })
+                    .conflicts({
+                        all: ['name', 'list'],
+                        name: ['list'],
+                    }),
+            withExit(clean),
         )
         .command(
             'dev [name]',
             'Dev a specified project.',
             (yargs) =>
-                yargs.positional('name', { type: 'string', describe: 'The name of a project.' }).demandOption(['name']),
-            withExit((argv: DevYargsArgv) => dev(argv.name)),
+                yargs
+                    .options({
+                        list: { boolean: true, alias: 'l', describe: 'List the projects you can dev.' },
+                    })
+                    .positional('name', { type: 'string', describe: 'The name of a project.' })
+                    .conflicts('list', ['name']),
+            withExit(dev),
         )
         .command(
             'exec [name]',
             'Execute a specified project.',
             (yargs) =>
-                yargs.positional('name', { type: 'string', describe: 'The name of a project.' }).demandOption(['name']),
-            withExit((argv: ExecYargsArgv) => exe(argv.name)),
+                yargs
+                    .options({
+                        list: { boolean: true, alias: 'l', describe: 'List the projects you can execute.' },
+                    })
+                    .positional('name', { type: 'string', describe: 'The name of a project.' })
+                    .conflicts('list', ['name']),
+            withExit(exec),
         )
-        .command(
-            'validate',
-            'Validate all the project infos.',
-            () => {},
-            withExit<ValidateYargsArgv>(() => validate()),
-        )
+        .command('validate', 'Validate all the project infos.', () => {}, withExit(validate))
         .help();
 
-    const args = await yargv.argv;
+    await yargv.argv;
 
-    if (args.h) {
-        yargv.showHelp();
-        process.exit();
-    }
+    yargv.showHelp();
 }
 
 cli();

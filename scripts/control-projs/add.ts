@@ -1,21 +1,13 @@
-import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 
 import { projInfoFileName, projsDir } from '../constants';
-import { log } from '../log';
-import { getTemplateProjInfos, ProjInfo, ProjInfoJson, ProjInfos } from '../proj-infos';
+import { log, LogLevel } from '../log';
+import { getTemplateProjInfos, ProjInfo, ProjInfoJson } from '../proj-infos';
+import { printProjsProvided } from './help';
+import { AddYargsArgv } from './types';
 
-const undoneTemplate = ['example-browser'];
-
-function printHelpInfo(templates: ProjInfos): void {
-    log.info('You have the following template projects to select:');
-
-    const templateKeys = Object.keys(templates).filter((name) => !undoneTemplate.includes(name));
-    const maxLen = templateKeys.reduce((prev, name) => Math.max(prev, name.length), 0);
-
-    templateKeys.forEach((name) => log.info(`- ${name}`.padEnd(maxLen + 4) + chalk.blackBright(templates[name].path)));
-}
+const undoneTemplates = ['example-browser'];
 
 interface CopyOperation {
     src: string;
@@ -68,12 +60,21 @@ async function copyTemplateProj(info: ProjInfo, dst: string, name: string): Prom
     await copyFolder({ src: info.path, dst }, [...srcProjInfo.clean, projInfoFileName]);
 }
 
-export async function add(folder: string, name: string, template: string): Promise<void> {
+export async function add(argv: AddYargsArgv): Promise<void> {
+    log.setLogLevel(LogLevel.error);
     const templateProjInfos = await getTemplateProjInfos();
+    log.setLogLevel(LogLevel.info);
 
-    if (undoneTemplate.includes(template)) {
+    const { folder, list = false, name, template } = argv;
+
+    if (!folder || !name || !template || list) {
+        printProjsProvided(templateProjInfos, undoneTemplates);
+        return;
+    }
+
+    if (undoneTemplates.includes(template)) {
         log.warn(`This specified template project '${template}' is not finished.`);
-        printHelpInfo(templateProjInfos);
+        printProjsProvided(templateProjInfos, undoneTemplates);
         return;
     }
 
@@ -81,7 +82,7 @@ export async function add(folder: string, name: string, template: string): Promi
 
     if (projInfo === undefined) {
         log.error('Wrong template project name.');
-        printHelpInfo(templateProjInfos);
+        printProjsProvided(templateProjInfos, undoneTemplates);
         return;
     }
 

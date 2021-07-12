@@ -1,4 +1,4 @@
 export * from './find';
-export * from './get-proj-infos';
-export * from './load-proj-infos';
+export * from './get';
+export * from './load';
 export * from './types';

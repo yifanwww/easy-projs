@@ -1,5 +1,5 @@
 import { findProjInfoFiles, findProjs } from './find';
-import { loadProjInfos } from './load-proj-infos';
+import { loadProjInfos } from './load';
 import { ProjInfos } from './types';
 
 function projInfosFactory() {
