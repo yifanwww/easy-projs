@@ -3,19 +3,18 @@ import fs from 'fs';
 import path from 'path';
 
 import { projInfoFileName, projsDir } from '../constants';
+import { log } from '../log';
 import { getTemplateProjInfos, ProjInfo, ProjInfoJson, ProjInfos } from '../proj-infos';
 
 const undoneTemplate = ['example-browser'];
 
-function printHelpInfo(templateProjInfos: ProjInfos): void {
-    console.info('You have the following template projects to select:');
+function printHelpInfo(templates: ProjInfos): void {
+    log.info('You have the following template projects to select:');
 
-    const templates = Object.keys(templateProjInfos).filter((name) => !undoneTemplate.includes(name));
-    const maxLen = templates.reduce((prev, name) => Math.max(prev, name.length), 0);
+    const templateKeys = Object.keys(templates).filter((name) => !undoneTemplate.includes(name));
+    const maxLen = templateKeys.reduce((prev, name) => Math.max(prev, name.length), 0);
 
-    templates.forEach((name) =>
-        console.info(`- ${name}`.padEnd(maxLen + 4) + chalk.blackBright(templateProjInfos[name].path)),
-    );
+    templateKeys.forEach((name) => log.info(`- ${name}`.padEnd(maxLen + 4) + chalk.blackBright(templates[name].path)));
 }
 
 interface CopyOperation {
@@ -73,7 +72,7 @@ export async function add(folder: string, name: string, template: string): Promi
     const templateProjInfos = await getTemplateProjInfos();
 
     if (undoneTemplate.includes(template)) {
-        console.warn(chalk.yellow(`This specified template project '${template}' is not finished.`));
+        log.warn(`This specified template project '${template}' is not finished.`);
         printHelpInfo(templateProjInfos);
         return;
     }
@@ -81,7 +80,7 @@ export async function add(folder: string, name: string, template: string): Promi
     const projInfo = templateProjInfos[template];
 
     if (projInfo === undefined) {
-        console.error(chalk.red('Wrong template project name.'));
+        log.error('Wrong template project name.');
         printHelpInfo(templateProjInfos);
         return;
     }
@@ -89,7 +88,7 @@ export async function add(folder: string, name: string, template: string): Promi
     const dst = path.resolve(projsDir, folder);
     try {
         await fs.promises.access(dst);
-        console.error(chalk.red('Target folder already exists, please select a new folder to place your new project.'));
+        log.error('Target folder already exists, please select a new folder to place your new project.');
         return;
     } catch (err) {
         await fs.promises.mkdir(dst);

@@ -1,7 +1,7 @@
-import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 
+import { log } from '../log';
 import { FinalProjInfoJson, ProjInfo, ProjInfoJson, ProjInfos } from './types';
 import { validateProjInfoJson } from './validate-proj-infos';
 
@@ -30,13 +30,13 @@ function convertJsonToProjInfo(projInfoFile: string, json: FinalProjInfoJson): P
 }
 
 async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | undefined> {
-    console.info(chalk.black(`Load '${projInfoFile}'.`));
+    log.debug(`Load '${projInfoFile}'.`);
 
     const data = await fs.promises.readFile(projInfoFile, { encoding: 'utf-8' });
     const json = JSON.parse(data);
 
     if (!validateProjInfoJson(json)) {
-        console.warn(chalk.yellow(`Error in '${projInfoFile}'`));
+        log.warn(`Error in '${projInfoFile}'`);
         return undefined;
     }
 
@@ -49,7 +49,7 @@ async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | undefined>
  */
 export async function loadProjInfos(infoFiles: string[]): Promise<ProjInfos> {
     const infos = (await Promise.all(infoFiles.map(loadProjInfo))).filter((info) => info !== undefined) as ProjInfo[];
-    console.info(chalk.blackBright(`Load ${infos.length} project infos.`));
+    log.info(`Load ${infos.length} project infos.`);
 
     const projInfos: ProjInfos = {};
     for (const info of infos) projInfos[info.name] = info;

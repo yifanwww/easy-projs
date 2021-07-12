@@ -1,8 +1,8 @@
-import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 
 import { projInfoFileName, projsDir } from '../constants';
+import { log } from '../log';
 
 /**
  * @returns The folder' names of projects found.
@@ -17,7 +17,7 @@ export async function findProjs(): Promise<string[]> {
     const dirs = await fs.promises.readdir(projsDir);
     const projs = (await Promise.all(dirs.map(checkProjFolder))).filter((name) => name) as string[];
 
-    console.info(chalk.blackBright(`Find ${projs.length} projects.`));
+    log.info(`Find ${projs.length} projects.`);
 
     return projs;
 }
@@ -34,7 +34,7 @@ export async function findProjInfoFiles(projs: string[]): Promise<string[]> {
             const stats = await fs.promises.stat(projInfoFile);
             return stats.isFile();
         } catch (err) {
-            console.warn(chalk.yellow(`No proj-info.json found in project '${projPath}'.`));
+            log.warn(`No proj-info.json found in project '${projPath}'.`);
             return false;
         }
     }
@@ -48,7 +48,7 @@ export async function findProjInfoFiles(projs: string[]): Promise<string[]> {
         }
     }
 
-    console.info(chalk.blackBright(`Find ${files.length} project infos.`));
+    log.info(`Find ${files.length} project infos.`);
 
     return files;
 }

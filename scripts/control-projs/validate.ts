@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+import { log } from '../log';
 import { findProjInfoFiles, findProjs, loadProjInfos } from '../proj-infos';
 
 export async function validate(): Promise<void> {
@@ -10,7 +10,7 @@ export async function validate(): Promise<void> {
     const projInfosCount = Object.keys(projInfos).length;
 
     if (projInfoFilesCount !== projInfosCount) {
-        console.error(chalk.red("There are some errors in some projects' proj-info.json."));
+        log.error("There are some errors in some projects' proj-info.json.");
         process.exit(-1);
     }
 }

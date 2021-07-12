@@ -1,15 +1,12 @@
-import chalk from 'chalk';
-
-import { execute, Executor } from '../execute';
+import { log } from '../log';
 import { getProjInfos } from '../proj-infos';
-
-const executeRimraf = (path: string) => execute(Executor.Rimraf, [path]);
+import { executeRimraf } from './execute-wrapper';
 
 async function _clean(name: string): Promise<void> {
     const projInfos = await getProjInfos();
 
     if (!(name in projInfos)) {
-        console.error(chalk.red(`Unknown project name: ${name}`));
+        log.error(`Unknown project name: ${name}`);
         return;
     }
 
@@ -25,7 +22,7 @@ async function _clean(name: string): Promise<void> {
 
 export async function clean(all: boolean, name: string): Promise<void> {
     if (!all && !name) {
-        console.info(chalk.yellow('Specifies no project to clean.'));
+        log.warn('Specifies no project to clean.');
     } else {
         const projInfos = await getProjInfos();
 

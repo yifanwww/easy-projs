@@ -1,6 +1,11 @@
 import _yargs from 'yargs';
 
-import { add, build, clean, validate, dev, exe } from './control-projs';
+import { add } from './add';
+import { build } from './build';
+import { clean } from './clean';
+import { validate } from './validate';
+import { dev } from './dev';
+import { exe } from './exec';
 
 interface BaseYargsArgv {
     _: Array<string | number>;
@@ -22,12 +27,20 @@ interface CleanYargsArgv extends BaseYargsArgv {
 interface DevYargsArgv extends BaseYargsArgv {
     name: string;
 }
-interface ExeYargsArgv extends BaseYargsArgv {
+interface ExecYargsArgv extends BaseYargsArgv {
     name: string;
+}
+interface ValidateYargsArgv extends BaseYargsArgv {}
+
+function withExit<T>(func: (argv: T) => void | Promise<void>): (argv: T) => Promise<void> {
+    return async (argv) => {
+        await func(argv);
+        process.exit(0);
+    };
 }
 
 async function cli(): Promise<void> {
-    await _yargs
+    const yargv = _yargs
         .scriptName('cli')
         .usage('$0 [command] [options]')
         .command(
@@ -43,7 +56,7 @@ async function cli(): Promise<void> {
                         describe: 'The name of the specified template project.',
                     })
                     .demandOption(['folder', 'name', 'template']),
-            (argv: AddYargsArgv) => add(argv.folder, argv.name, argv.template),
+            withExit((argv: AddYargsArgv) => add(argv.folder, argv.name, argv.template)),
         )
         .command(
             'build [name] [options]',
@@ -52,7 +65,7 @@ async function cli(): Promise<void> {
                 yargs
                     .option('all', { boolean: true, alias: 'a', default: false, describe: 'Build all the projects.' })
                     .positional('name', { type: 'string', describe: 'The name of a project.' }),
-            (argv: BuildYargsArgv) => build(argv.all, argv.name ?? ''),
+            withExit((argv: BuildYargsArgv) => build(argv.all, argv.name ?? '')),
         )
         .command(
             'clean [name] [options]',
@@ -61,29 +74,36 @@ async function cli(): Promise<void> {
                 yargs
                     .option('all', { boolean: true, alias: 'a', default: false, describe: 'Clean all the projects.' })
                     .positional('name', { type: 'string', describe: 'The name of a project.' }),
-            (argv: CleanYargsArgv) => clean(argv.all, argv.name ?? ''),
+            withExit((argv: CleanYargsArgv) => clean(argv.all, argv.name ?? '')),
         )
         .command(
             'dev [name]',
             'Dev a specified project.',
             (yargs) =>
                 yargs.positional('name', { type: 'string', describe: 'The name of a project.' }).demandOption(['name']),
-            (argv: DevYargsArgv) => dev(argv.name),
+            withExit((argv: DevYargsArgv) => dev(argv.name)),
         )
         .command(
-            'exe [name]',
+            'exec [name]',
             'Execute a specified project.',
             (yargs) =>
                 yargs.positional('name', { type: 'string', describe: 'The name of a project.' }).demandOption(['name']),
-            (argv: ExeYargsArgv) => exe(argv.name),
+            withExit((argv: ExecYargsArgv) => exe(argv.name)),
         )
         .command(
             'validate',
             'Validate all the project infos.',
             () => {},
-            () => validate(),
+            withExit<ValidateYargsArgv>(() => validate()),
         )
-        .help().argv;
+        .help();
+
+    const args = await yargv.argv;
+
+    if (args.h) {
+        yargv.showHelp();
+        process.exit();
+    }
 }
 
 cli();

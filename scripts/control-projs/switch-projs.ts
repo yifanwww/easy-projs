@@ -1,7 +1,5 @@
-import chalk from 'chalk';
-
-import { getProjInfos } from './get-proj-infos';
-import { ProjInfo, ProjType, SwitchProjCallbacks } from './types';
+import { log } from '../log';
+import { getProjInfos, ProjInfo, ProjType, SwitchProjCallbacks } from '../proj-infos';
 
 function _switchProj(info: ProjInfo, callbacks: SwitchProjCallbacks): Promise<void> {
     let never: never;
@@ -28,8 +26,9 @@ export async function switchProj(name: string, callbacks: SwitchProjCallbacks): 
     const projInfos = await getProjInfos();
 
     if (!(name in projInfos)) {
-        console.error(chalk.red(`Unknown project name: ${name}`));
+        log.error(`Unknown project name: ${name}`);
         return;
     }
+
     return _switchProj(projInfos[name], callbacks);
 }
