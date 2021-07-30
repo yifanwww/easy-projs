@@ -27,6 +27,9 @@
         {
             "name": "Memorize",
             "path": "projects\\Memorize"
+        },
+        {
+            "path": "projects\\Random-String"
         }
     ],
     "settings": {
