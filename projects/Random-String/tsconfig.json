@@ -1,10 +1,10 @@
 {
-    "extends": "../../scripts/tsconfigs/tsconfig.base.json",
+    "extends": "../../scripts/tsconfigs/tsconfig.nodejs.json",
     "compilerOptions": {
         "baseUrl": "src",
         "outDir": "build",
         "rootDir": "src"
     },
     "include": ["src"],
-    "exclude": ["build", "node_modules"]
+    "exclude": ["build", "node_modules", "src/**/__tests__", "src/**/*.spec.ts", "src/**/*.test.ts"]
 }

@@ -18,23 +18,14 @@
         "type": "git",
         "url": "git+https://github.com/YF1999/easy-projs.git"
     },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
+    "browserslist": [
+        "last 9 chrome versions"
+    ],
     "scripts": {
         "build-scripts": "tsc --build scripts/tsconfigs/tsconfig.scripts.json",
         "clean-scripts": "rimraf scripts/tsconfigs/tsconfig.scripts.tsbuildinfo scripts/**/*.js scripts/**/*.map",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
-        "pretty": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
         "proj": "node scripts/control-projs/cli.js",
         "proj-add": "node scripts/control-projs/cli.js add",
         "proj-build": "node scripts/control-projs/cli.js build",
