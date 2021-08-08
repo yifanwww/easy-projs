@@ -1,5 +1,5 @@
-import { log, LogLevel } from '../log';
-import { getProjInfos } from '../proj-infos';
+import { log, LogLevel } from '../../log';
+import { getProjInfos } from '../info';
 import { executeRimraf } from './execute-wrapper';
 import { printProjsProvided } from './help';
 import { CleanYargsArgv } from './types';

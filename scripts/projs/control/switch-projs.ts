@@ -1,5 +1,5 @@
-import { log } from '../log';
-import { ProjInfo, ProjInfos, ProjType, SwitchProjCallbacks } from '../proj-infos';
+import { log } from '../../log';
+import { ProjInfo, ProjInfos, ProjType, SwitchProjCallbacks } from '../info';
 import { printProjsProvided } from './help';
 
 function _switchProj(info: ProjInfo, callbacks: SwitchProjCallbacks): Promise<void> {

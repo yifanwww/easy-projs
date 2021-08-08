@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { log } from '../log';
+import { log } from '../../log';
 import { FinalProjInfoJson, ProjInfo, ProjInfoJson, ProjInfos } from './types';
 import { validateProjInfoJson } from './validate-proj-infos';
 

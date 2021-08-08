@@ -1,5 +1,5 @@
-import { log, LogLevel } from '../log';
-import { getProjInfos, ProjInfos, ProjType } from '../proj-infos';
+import { log, LogLevel } from '../../log';
+import { getProjInfos, ProjInfos, ProjType } from '../info';
 import { executeReactAppRewired, executeTsc, executeWebpack } from './execute-wrapper';
 import { printProjsProvided } from './help';
 import { switchProj } from './switch-projs';

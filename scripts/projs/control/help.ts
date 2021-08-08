@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 
-import { log } from '../log';
-import { ProjInfos } from '../proj-infos';
+import { log } from '../../log';
+import { ProjInfos } from '../info';
 
 export function printProjsProvided(templates: ProjInfos, excludes: string[] = []): void {
     log.info('You have the following projects to select:');

@@ -1,5 +1,5 @@
-import { execute, Executor } from '../execute';
-import { ProcessEnvKeys, ProcessEnv } from '../process-env';
+import { execute, Executor } from '../../execute';
+import { ProcessEnvKeys, ProcessEnv } from '../../process-env';
 
 export const executeReactAppRewired = (production: boolean, path: string, output: string, port: string) =>
     execute(

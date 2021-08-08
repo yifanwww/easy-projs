@@ -1,11 +1,11 @@
 import _yargs from 'yargs';
 
-import { add } from './add';
-import { build } from './build';
-import { clean } from './clean';
-import { validate } from './validate';
-import { dev } from './dev';
-import { exec } from './exec';
+import { add } from './control/add';
+import { build } from './control/build';
+import { clean } from './control/clean';
+import { validate } from './control/validate';
+import { dev } from './control/dev';
+import { exec } from './control/exec';
 
 function withExit<T>(func: (argv: T) => void | Promise<void>): (argv: T) => Promise<void> {
     return async (argv) => {

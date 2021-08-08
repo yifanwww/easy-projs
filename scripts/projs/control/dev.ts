@@ -1,6 +1,6 @@
-import { getProjInfos, ProjType } from '../proj-infos';
+import { log, LogLevel } from '../../log';
+import { getProjInfos, ProjType } from '../info';
 import { executeReactAppRewired, executeTsc, executeWebpack } from './execute-wrapper';
-import { log, LogLevel } from '../log';
 import { switchProj } from './switch-projs';
 import { DevYargsArgv } from './types';
 import { printProjsProvided } from './help';

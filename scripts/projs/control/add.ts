@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import { projInfoFileName, projsDir } from '../constants';
-import { log, LogLevel } from '../log';
-import { getTemplateProjInfos, ProjInfo, ProjInfoJson } from '../proj-infos';
+import { projInfoFileName, projsDir } from '../../constants';
+import { log, LogLevel } from '../../log';
+import { getTemplateProjInfos, ProjInfo, ProjInfoJson } from '../info';
 import { printProjsProvided } from './help';
 import { AddYargsArgv } from './types';
 

@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import { projInfoFileName, projsDir } from '../constants';
-import { log } from '../log';
+import { projInfoFileName, projsDir } from '../../constants';
+import { log } from '../../log';
 
 /**
  * @returns The folder' names of projects found.

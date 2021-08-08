@@ -1,5 +1,5 @@
-import { log, LogLevel } from '../log';
-import { findProjInfoFiles, findProjs, loadProjInfos } from '../proj-infos';
+import { log, LogLevel } from '../../log';
+import { findProjInfoFiles, findProjs, loadProjInfos } from '../info';
 
 export async function validate(): Promise<void> {
     log.setLogLevel(LogLevel.debug);

@@ -1,5 +1,5 @@
-import { log, LogLevel } from '../log';
-import { getProjInfos, ProjType } from '../proj-infos';
+import { log, LogLevel } from '../../log';
+import { getProjInfos, ProjType } from '../info';
 import { executeBrowser, executeNode } from './execute-wrapper';
 import { printProjsProvided } from './help';
 import { switchProj } from './switch-projs';
