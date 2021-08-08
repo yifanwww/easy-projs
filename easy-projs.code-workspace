@@ -5,31 +5,25 @@
             "path": "."
         },
         {
-            "name": "Carousel",
-            "path": "projects\\Carousel"
+            "path": "projects\\carousel"
         },
         {
-            "name": "Example [browser]",
-            "path": "projects\\Example [browser]"
+            "path": "projects\\example-browser"
         },
         {
-            "name": "Example [browser-react]",
-            "path": "projects\\Example [browser-react]"
+            "path": "projects\\example-browser-react"
         },
         {
-            "name": "Example [browser-vue]",
-            "path": "projects\\Example [browser-vue]"
+            "path": "projects\\example-browser-vue"
         },
         {
-            "name": "Example [nodejs]",
-            "path": "projects\\Example [nodejs]"
+            "path": "projects\\example-nodejs"
         },
         {
-            "name": "Memorize",
-            "path": "projects\\Memorize"
+            "path": "projects\\memorize"
         },
         {
-            "path": "projects\\Random-String"
+            "path": "projects\\random-string"
         }
     ],
     "settings": {
