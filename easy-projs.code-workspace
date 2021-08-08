@@ -24,6 +24,9 @@
         },
         {
             "path": "projects\\random-string"
+        },
+        {
+            "path": "projects\\test-nodejs"
         }
     ],
     "settings": {

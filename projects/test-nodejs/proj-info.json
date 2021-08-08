@@ -1,0 +1,7 @@
+{
+    "clean": ["build", "tsconfig.tsbuildinfo"],
+    "name": "test-nodejs",
+    "output": "build",
+    "startup": "build/index.js",
+    "type": "nodejs"
+}
