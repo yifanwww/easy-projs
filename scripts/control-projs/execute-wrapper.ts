@@ -12,7 +12,7 @@ export const executeReactAppRewired = (production: boolean, path: string, output
     );
 
 export const executeTsc = (watch: boolean, path: string) =>
-    execute(Executor.Tsc, ['--project', path, watch && '--watch'].filter(Boolean) as string[]);
+    execute(Executor.Tsc, ['--build', path, watch && '--watch'].filter(Boolean) as string[]);
 
 export const executeWebpack = (production: boolean, path: string, output: string, port: string) =>
     execute(

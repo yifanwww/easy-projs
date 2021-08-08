@@ -44,7 +44,6 @@
             "**/.git": true,
             "**/.hg": true,
             "**/.svn": true,
-            "**/*.tsbuildinfo": true,
             "**/CVS": true,
             "**/node_modules": true,
             "**/projects": true,
@@ -102,8 +101,8 @@
 
         // extension settings
 
-        "prettier.prettierPath": "easy-projs\\node_modules\\prettier",
+        "prettier.prettierPath": "easy-projs/node_modules/prettier",
 
-        "typescript.tsdk": "easy-projs\\node_modules\\typescript\\lib"
+        "typescript.tsdk": "easy-projs/node_modules/typescript/lib"
     }
 }

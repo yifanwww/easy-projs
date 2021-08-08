@@ -2,6 +2,7 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": "../../scripts",
+        "incremental": true,
         "module": "CommonJS",
         "outDir": "../../scripts",
         "rootDir": "../../scripts"
