@@ -28,10 +28,10 @@ const _paths = {
     appPublic: resolveProject('public'),
     appSrc: resolveProject('src'),
     appTsConfig: resolveProject('tsconfig.json'),
-    appTypeDeclarations: resolveProject('src/react-app-env.d.ts'),
+    appTypeDeclarations: resolveProject('src/react-app.d.ts'),
     proxySetup: resolveProject('src/setupProxy.js'),
     swSrc: resolveProject('src/service-worker.js'),
-    testsSetup: resolveProject('src/setupTests.ts'),
+    testsSetup: resolveProject('src/test.setup.ts'),
 };
 
 // Override localhost port.

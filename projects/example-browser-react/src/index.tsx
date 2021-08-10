@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { render } from 'react-dom';
 
 import { App } from './App';
-import { reportWebVitals } from './reportWebVitals';
+import { reportWebVitals } from './report-web-vitals';
 
 import './index.css';
 
