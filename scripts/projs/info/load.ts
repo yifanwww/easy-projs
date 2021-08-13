@@ -29,7 +29,7 @@ function convertJsonToProjInfo(projInfoFile: string, json: FinalProjInfoJson): P
     };
 }
 
-async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | undefined> {
+async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | null> {
     log.debug(`Load '${projInfoFile}'.`);
 
     const data = await fs.promises.readFile(projInfoFile, { encoding: 'utf-8' });
@@ -37,7 +37,7 @@ async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | undefined>
 
     if (!validateProjInfoJson(json)) {
         log.warn(`Error in '${projInfoFile}'`);
-        return undefined;
+        return null;
     }
 
     const finalJson = mergeDefaultProjInfoJson(json);
@@ -48,7 +48,7 @@ async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | undefined>
  * @param infoFiles The folder names of the projects.
  */
 export async function loadProjInfos(infoFiles: string[]): Promise<ProjInfos> {
-    const infos = (await Promise.all(infoFiles.map(loadProjInfo))).filter((info) => info !== undefined) as ProjInfo[];
+    const infos = (await Promise.all(infoFiles.map(loadProjInfo))).filter((info) => info !== null) as ProjInfo[];
     log.info(`Load ${infos.length} project infos.`);
 
     const projInfos: ProjInfos = {};

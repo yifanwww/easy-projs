@@ -16,7 +16,7 @@ import { getEnv, ProcessEnvKeys } from '../process-env';
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 17-18
 const projectDir = getEnv(ProcessEnvKeys.ProjectDir)!;
-const resolveProject = (relativePath: string) => _path.resolve(projectDir, relativePath);
+const resolveProject = (relative: string) => _path.resolve(projectDir, relative);
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 62-79

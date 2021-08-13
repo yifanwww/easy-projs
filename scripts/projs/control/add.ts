@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { projInfoFileName, projsDir } from '../../constants';
+import { paths } from '../../paths';
 import { log, LogLevel } from '../../log';
 import { getTemplateProjInfos, ProjInfo, ProjInfoJson } from '../info';
 import { printProjsProvided } from './help';
@@ -45,7 +45,7 @@ async function copyFolder(opt: CopyOperation, ignores?: string[]): Promise<void>
 }
 
 async function copyTemplateProj(info: ProjInfo, dst: string, name: string): Promise<void> {
-    const srcProjInfoFile = path.resolve(info.path, projInfoFileName);
+    const srcProjInfoFile = path.resolve(info.path, paths.projInfoFileName);
     const srcProjInfoData = await fs.promises.readFile(srcProjInfoFile, { encoding: 'utf-8' });
     const srcProjInfo = JSON.parse(srcProjInfoData);
     const dstProjInfo: ProjInfoJson = {
@@ -55,9 +55,9 @@ async function copyTemplateProj(info: ProjInfo, dst: string, name: string): Prom
         startup: srcProjInfo.startup,
         type: srcProjInfo.type,
     };
-    await fs.promises.writeFile(path.resolve(dst, projInfoFileName), JSON.stringify(dstProjInfo, null, 4));
+    await fs.promises.writeFile(path.resolve(dst, paths.projInfoFileName), JSON.stringify(dstProjInfo, null, 4));
 
-    await copyFolder({ src: info.path, dst }, [...srcProjInfo.clean, projInfoFileName]);
+    await copyFolder({ src: info.path, dst }, [...srcProjInfo.clean, paths.projInfoFileName]);
 }
 
 export async function add(argv: AddYargsArgv): Promise<void> {
@@ -86,7 +86,7 @@ export async function add(argv: AddYargsArgv): Promise<void> {
         return;
     }
 
-    const dst = path.resolve(projsDir, folder);
+    const dst = path.resolve(paths.projects, folder);
     try {
         await fs.promises.access(dst);
         log.error('Target folder already exists, please select a new folder to place your new project.');

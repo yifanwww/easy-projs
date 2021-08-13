@@ -15,7 +15,7 @@ import {
     RuleSetUse,
 } from 'webpack';
 
-import { repoDir } from '../constants';
+import { paths as _paths } from '../paths';
 import { getEnv, ProcessEnvKeys } from '../process-env';
 import { OpenBrowserWebpackPlugin } from '../webpack-plugins/open-browser-webpack-plugin';
 
@@ -38,7 +38,7 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
 function getStaticPaths() {
-    const resolvePepo = (relativePath: string) => path.resolve(repoDir, relativePath);
+    const resolvePepo = (relative: string) => path.resolve(_paths.repository, relative);
 
     return {
         appNodeModules: resolvePepo('node_modules'),
@@ -48,7 +48,7 @@ function getStaticPaths() {
 
 function getPaths(isEnvDevelopment: boolean) {
     const projectDir = getEnv(ProcessEnvKeys.ProjectDir)!;
-    const resolveProject = (relativePath: string) => path.resolve(projectDir, relativePath);
+    const resolveProject = (relative: string) => path.resolve(projectDir, relative);
 
     return {
         appBuild: getEnv(ProcessEnvKeys.OutputDir),

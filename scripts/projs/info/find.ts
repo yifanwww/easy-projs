@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { projInfoFileName, projsDir } from '../../constants';
+import { paths } from '../../paths';
 import { log } from '../../log';
 
 /**
@@ -9,12 +9,12 @@ import { log } from '../../log';
  */
 export async function findProjs(): Promise<string[]> {
     async function checkProjFolder(dir: string): Promise<string | undefined> {
-        const dirPath = path.resolve(projsDir, dir);
+        const dirPath = path.resolve(paths.projects, dir);
         const stats = await fs.promises.stat(dirPath);
         return stats.isDirectory() ? dir : undefined;
     }
 
-    const dirs = await fs.promises.readdir(projsDir);
+    const dirs = await fs.promises.readdir(paths.projects);
     const projs = (await Promise.all(dirs.map(checkProjFolder))).filter((name) => name) as string[];
 
     log.info(`Find ${projs.length} projects.`);
@@ -27,8 +27,8 @@ export async function findProjs(): Promise<string[]> {
  */
 export async function findProjInfoFiles(projs: string[]): Promise<string[]> {
     async function findProjInfo(proj: string): Promise<boolean> {
-        const projPath = path.resolve(projsDir, proj);
-        const projInfoFile = path.resolve(projPath, projInfoFileName);
+        const projPath = path.resolve(paths.projects, proj);
+        const projInfoFile = path.resolve(projPath, paths.projInfoFileName);
 
         try {
             const stats = await fs.promises.stat(projInfoFile);
@@ -44,7 +44,7 @@ export async function findProjInfoFiles(projs: string[]): Promise<string[]> {
     const files: string[] = [];
     for (const index in projs) {
         if (res[index] === true) {
-            files.push(path.resolve(projsDir, projs[index], projInfoFileName));
+            files.push(path.resolve(paths.projects, projs[index], paths.projInfoFileName));
         }
     }
 
