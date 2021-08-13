@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Schema for Projs Info",
+    "title": "Schema for proj-info JSON",
     "type": "object",
     "properties": {
         "clean": {

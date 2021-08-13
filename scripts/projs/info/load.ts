@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
+import { JsonValidator } from '../../json-schemas';
 import { log } from '../../log';
+import { paths } from '../../paths';
 import { FinalProjInfoJson, ProjInfo, ProjInfoJson, ProjInfos } from './types';
-import { validateProjInfoJson } from './validate-proj-infos';
 
 function mergeDefaultProjInfoJson(json: ProjInfoJson): FinalProjInfoJson {
     if (json.port === undefined) json.port = 4321;
@@ -29,13 +30,15 @@ function convertJsonToProjInfo(projInfoFile: string, json: FinalProjInfoJson): P
     };
 }
 
-async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | null> {
+async function loadProjInfo(validator: JsonValidator<ProjInfoJson>, projInfoFile: string): Promise<ProjInfo | null> {
     log.debug(`Load '${projInfoFile}'.`);
 
     const data = await fs.promises.readFile(projInfoFile, { encoding: 'utf-8' });
     const json = JSON.parse(data);
 
-    if (!validateProjInfoJson(json)) {
+    const result = await validator.getResult(json);
+
+    if (!validator.is(json, result)) {
         log.warn(`Error in '${projInfoFile}'`);
         return null;
     }
@@ -48,10 +51,16 @@ async function loadProjInfo(projInfoFile: string): Promise<ProjInfo | null> {
  * @param infoFiles The folder names of the projects.
  */
 export async function loadProjInfos(infoFiles: string[]): Promise<ProjInfos> {
-    const infos = (await Promise.all(infoFiles.map(loadProjInfo))).filter((info) => info !== null) as ProjInfo[];
-    log.info(`Load ${infos.length} project infos.`);
+    const validator = new JsonValidator<ProjInfoJson>(
+        path.join(paths.repository, 'scripts/json-schemas/proj-info.schema.json'),
+    );
+    await validator.initialize();
+
+    const infos = await Promise.all(infoFiles.map((file) => loadProjInfo(validator, file)));
+    const filteredInfos = infos.filter((info) => info !== null) as ProjInfo[];
+    log.info(`Load ${filteredInfos.length} project infos.`);
 
     const projInfos: ProjInfos = {};
-    for (const info of infos) projInfos[info.name] = info;
+    for (const info of filteredInfos) projInfos[info.name] = info;
     return projInfos;
 }
