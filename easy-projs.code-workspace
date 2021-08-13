@@ -4,14 +4,30 @@
             "name": "easy-projs",
             "path": "."
         },
-        { "path": "projects\\carousel" },
-        { "path": "projects\\example-browser" },
-        { "path": "projects\\example-browser-react" },
-        { "path": "projects\\example-browser-vue" },
-        { "path": "projects\\example-nodejs" },
-        { "path": "projects\\memorize" },
-        { "path": "projects\\random-string" },
-        { "path": "projects\\test-nodejs" }
+        {
+            "path": "projects/carousel"
+        },
+        {
+            "path": "projects/example-browser"
+        },
+        {
+            "path": "projects/example-browser-react"
+        },
+        {
+            "path": "projects/example-browser-vue"
+        },
+        {
+            "path": "projects/example-nodejs"
+        },
+        {
+            "path": "projects/memorize"
+        },
+        {
+            "path": "projects/random-string"
+        },
+        {
+            "path": "projects/test-nodejs"
+        }
     ],
     "settings": {
         // vscode settings
