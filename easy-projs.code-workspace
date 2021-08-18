@@ -1,34 +1,42 @@
 {
     "folders": [
         {
-            "name": "easy-projs",
             "path": "."
         },
         {
+            "name": "projects/carousel",
             "path": "projects/carousel"
         },
         {
+            "name": "projects/example-browser",
             "path": "projects/example-browser"
         },
         {
+            "name": "projects/example-browser-react",
             "path": "projects/example-browser-react"
         },
         {
+            "name": "projects/example-browser-vue",
             "path": "projects/example-browser-vue"
         },
         {
+            "name": "projects/example-nodejs",
             "path": "projects/example-nodejs"
         },
         {
+            "name": "projects/memorize",
             "path": "projects/memorize"
         },
         {
+            "name": "projects/test-nodejs",
             "path": "projects/test-nodejs"
         },
         {
+            "name": "packages/template-nodejs",
             "path": "packages/template-nodejs"
         },
         {
+            "name": "packages/random-string",
             "path": "packages/random-string"
         }
     ],
