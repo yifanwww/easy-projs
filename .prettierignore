@@ -1,11 +1,3 @@
-# Production
-
-/**/build
-
-# Scripts
+# Compilation
 
 scripts/**/*.js
-
-# Running and Testing
-
-/**/coverage

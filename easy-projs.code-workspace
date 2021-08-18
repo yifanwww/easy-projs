@@ -27,6 +27,9 @@
         },
         {
             "path": "projects/test-nodejs"
+        },
+        {
+            "path": "packages/template-nodejs"
         }
     ],
     "settings": {
@@ -43,6 +46,7 @@
             "**/.svn": true,
             "**/CVS": true,
             "**/node_modules": true,
+            "**/packages": true,
             "**/projects": true,
             "**/scripts/**/*.js": true,
             "**/scripts/**/*.map": true
