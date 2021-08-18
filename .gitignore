@@ -23,6 +23,8 @@ node_modules
 build
 release
 
+dist
+
 lib
 lib-commonjs
 

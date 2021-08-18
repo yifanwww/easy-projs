@@ -1,7 +1,0 @@
-{
-    "clean": ["build", "tsconfig.tsbuildinfo"],
-    "name": "random-string",
-    "output": "build",
-    "startup": "build/index.js",
-    "type": "nodejs"
-}

@@ -1,10 +1,10 @@
 {
-    "extends": "../scripts/tsconfigs/tsconfig.base.json",
+    "extends": "./scripts/tsconfigs/tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": ".",
         "noEmit": true,
         "rootDir": "."
     },
-    "include": [".", "../scripts/jest/test.d.ts"],
+    "include": ["scripts/jest/test.d.ts", "src"],
     "exclude": []
 }

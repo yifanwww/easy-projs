@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": "../..",
+        "module": "CommonJS",
+        "outDir": "../../dist",
+        "removeComments": true,
+        "rootDir": "../..",
+        "tsBuildInfoFile": "../../dist/tsconfig.dist.tsbuildinfo"
+    },
+    "include": ["../../src", "../../test"],
+    "exclude": []
+}

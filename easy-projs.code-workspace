@@ -23,13 +23,13 @@
             "path": "projects/memorize"
         },
         {
-            "path": "projects/random-string"
-        },
-        {
             "path": "projects/test-nodejs"
         },
         {
             "path": "packages/template-nodejs"
+        },
+        {
+            "path": "packages/random-string"
         }
     ],
     "settings": {
