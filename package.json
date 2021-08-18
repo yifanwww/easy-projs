@@ -1,5 +1,5 @@
 {
-    "name": "@easy-projs/easy-projs",
+    "name": "@easy-projs/root",
     "version": "0.1.0",
     "description": "",
     "main": "app.js",
@@ -22,10 +22,10 @@
         "last 9 chrome versions"
     ],
     "scripts": {
-        "build-scripts": "tsc --build scripts/tsconfigs/tsconfig.scripts.json",
-        "clean-scripts": "rimraf scripts/tsconfigs/tsconfig.scripts.tsbuildinfo scripts/**/*.js scripts/**/*.map",
+        "build-scripts": "tsc --build scripts/tsconfig.json",
+        "clean-scripts": "rimraf scripts/tsconfig.tsbuildinfo scripts/**/*.js scripts/**/*.map",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
-        "lint": "eslint . --parser-options=project:scripts/tsconfigs/tsconfig.eslint.json",
+        "lint": "eslint .",
         "proj": "node scripts/projs/cli.js",
         "proj-add": "node scripts/projs/cli.js add",
         "proj-build": "node scripts/projs/cli.js build",
