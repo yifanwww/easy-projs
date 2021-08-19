@@ -1,5 +1,5 @@
 # CHANGELOG
-## @easy-packages/template-nodejs v1.0.0 (2021-08-18)
+## @packages/template-nodejs v1.0.0 (2021-08-19)
 ### Features
 
 - Provide commonjs, esmodule compiled code
