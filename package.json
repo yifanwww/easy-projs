@@ -38,6 +38,7 @@
         "node": ">=16"
     },
     "workspaces": [
+        "packages/eslint-config",
         "packages/memorize",
         "packages/random-string",
         "packages/template-nodejs",

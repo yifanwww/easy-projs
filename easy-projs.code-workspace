@@ -21,6 +21,10 @@
             "path": "projects/example-browser-vue"
         },
         {
+            "name": "packages/eslint-config",
+            "path": "packages/eslint-config"
+        },
+        {
             "name": "packages/memorize",
             "path": "packages/memorize"
         },
