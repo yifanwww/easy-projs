@@ -1,6 +1,7 @@
 {
     "folders": [
         {
+            "name": "easy-projs",
             "path": "."
         },
         {
@@ -24,8 +25,8 @@
             "path": "projects/example-nodejs"
         },
         {
-            "name": "projects/memorize",
-            "path": "projects/memorize"
+            "name": "packages/memorize",
+            "path": "packages/memorize"
         },
         {
             "name": "packages/template-nodejs",

@@ -38,6 +38,7 @@
         "node": ">=16"
     },
     "workspaces": [
+        "packages/memorize",
         "packages/random-string",
         "packages/template-nodejs",
         "projects/demo-test-nodejs"
