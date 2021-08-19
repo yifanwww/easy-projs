@@ -37,13 +37,6 @@
         "lint:root": "eslint .",
         "lint:workspaces": "npm run lint --workspaces",
         "prevbuild": "npm run build-scripts:root",
-        "proj": "node scripts/projs/cli.js",
-        "proj-add": "node scripts/projs/cli.js add",
-        "proj-build": "node scripts/projs/cli.js build",
-        "proj-clean": "node scripts/projs/cli.js clean",
-        "proj-dev": "node scripts/projs/cli.js dev",
-        "proj-exec": "node scripts/projs/cli.js exec",
-        "proj-validate": "node scripts/projs/cli.js validate",
         "test-coverage": "npm run test-coverage --workspaces"
     },
     "engines": {
