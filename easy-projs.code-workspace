@@ -21,10 +21,6 @@
             "path": "projects/example-browser-vue"
         },
         {
-            "name": "projects/example-nodejs",
-            "path": "projects/example-nodejs"
-        },
-        {
             "name": "packages/memorize",
             "path": "packages/memorize"
         },
@@ -39,6 +35,10 @@
         {
             "name": "projects/demo-test-nodejs",
             "path": "projects/demo-test-nodejs"
+        },
+        {
+            "name": "projects/template-nodejs",
+            "path": "projects/template-nodejs"
         }
     ],
     "settings": {

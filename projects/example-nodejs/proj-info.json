@@ -1,8 +1,0 @@
-{
-    "clean": ["build", "tsconfig.tsbuildinfo"],
-    "name": "example-nodejs",
-    "output": "build",
-    "startup": "build/index.js",
-    "template": true,
-    "type": "nodejs"
-}

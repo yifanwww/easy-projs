@@ -41,7 +41,8 @@
         "packages/memorize",
         "packages/random-string",
         "packages/template-nodejs",
-        "projects/demo-test-nodejs"
+        "projects/demo-test-nodejs",
+        "projects/template-nodejs"
     ],
     "dependencies": {
         "@reduxjs/toolkit": "^1.6.1",
