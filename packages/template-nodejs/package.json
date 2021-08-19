@@ -1,5 +1,5 @@
 {
-    "name": "@easy-packages/template-nodejs",
+    "name": "@packages/template-nodejs",
     "version": "1.0.0",
     "description": "A package used for creating new nodejs packages.",
     "main": "lib-commonjs/index.js",
