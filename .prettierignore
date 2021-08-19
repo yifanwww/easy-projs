@@ -7,7 +7,7 @@ dist
 lib
 lib-commonjs
 
-scripts/**/*.js
+**/scripts/**/*.js
 
 # Running and Testing
 
