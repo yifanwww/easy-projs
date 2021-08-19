@@ -4,7 +4,7 @@
     "description": "Used for doing some small demo test.",
     "main": "build/index.js",
     "homepage": "https://github.com/YF1999/easy-projs#readme",
-    "license": "ISC",
+    "license": "MIT",
     "author": {
         "name": "YF1999",
         "email": "1586939317@qq.com",
