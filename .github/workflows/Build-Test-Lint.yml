@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Build packages and projects
-        run: npm run build --workspaces
+        run: npm run build
 
   lint:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
       - name: Setup node modules
         run: npm ci
 
-      - name: Lint
+      - name: Lint this project
         run: npm run lint
 
   test:
@@ -64,7 +64,7 @@ jobs:
         run: npm ci
 
       - name: Build scripts
-        run: npm run build-scripts --workspaces
+        run: npm run build-scripts
 
-      - name: Coverage test
-        run: npm run test-coverage --workspaces
+      - name: Do coverage test
+        run: npm run test-coverage

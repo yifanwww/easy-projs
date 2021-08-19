@@ -22,19 +22,29 @@
         "last 9 chrome versions"
     ],
     "scripts": {
-        "build-scripts": "tsc --build scripts/tsconfig.json",
-        "clean-scripts": "rimraf scripts/tsconfig.tsbuildinfo scripts/**/*.js scripts/**/*.map",
+        "build": "npm run build --workspaces",
+        "build-scripts": "npm run build-scripts:root && npm run build-scripts:workspaces",
+        "build-scripts:root": "tsc --build scripts/tsconfig.json",
+        "build-scripts:workspaces": "npm run build-scripts --workspaces",
+        "clean": "npm run clean --workspaces",
+        "clean-scripts": "npm run clean-scripts:root && npm run clean-scripts:workspaces",
+        "clean-scripts:root": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
+        "clean-scripts:workspaces": "npm run clean-scripts --workspaces",
         "format": "npm run format:root && npm run format:workspaces",
         "format:root": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
         "format:workspaces": "npm run format --workspaces",
-        "lint": "eslint .",
+        "lint": "npm run lint:root && npm run lint:workspaces",
+        "lint:root": "eslint .",
+        "lint:workspaces": "npm run lint --workspaces",
+        "prevbuild": "npm run build-scripts:root",
         "proj": "node scripts/projs/cli.js",
         "proj-add": "node scripts/projs/cli.js add",
         "proj-build": "node scripts/projs/cli.js build",
         "proj-clean": "node scripts/projs/cli.js clean",
         "proj-dev": "node scripts/projs/cli.js dev",
         "proj-exec": "node scripts/projs/cli.js exec",
-        "proj-validate": "node scripts/projs/cli.js validate"
+        "proj-validate": "node scripts/projs/cli.js validate",
+        "test-coverage": "npm run test-coverage --workspaces"
     },
     "engines": {
         "node": ">=16"
