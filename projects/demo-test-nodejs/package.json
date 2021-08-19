@@ -16,7 +16,8 @@
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YF1999/easy-projs.git"
+        "url": "git+https://github.com/YF1999/easy-projs.git",
+        "directory": "projects/demo-test-nodejs"
     },
     "scripts": {
         "app": "node build/index.js",
