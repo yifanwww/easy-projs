@@ -1,0 +1,33 @@
+{
+    "name": "@projects/demo-test-nodejs",
+    "version": "0.0.0",
+    "description": "Used for doing some small demo test.",
+    "main": "build/index.js",
+    "homepage": "https://github.com/YF1999/easy-projs#readme",
+    "license": "ISC",
+    "author": {
+        "name": "YF1999",
+        "email": "1586939317@qq.com",
+        "url": "https://github.com/YF1999"
+    },
+    "bugs": {
+        "url": "https://github.com/YF1999/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YF1999/easy-projs.git"
+    },
+    "scripts": {
+        "app": "node build/index.js",
+        "build": "tsc --build scripts/tsconfigs/tsconfig.cjs.json",
+        "build-scripts": "tsc --build scripts/tsconfig.json",
+        "clean": "rimraf build",
+        "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
+        "lint": "eslint .",
+        "prebuild": "npm run build-scripts",
+        "test": "jest --config scripts/jest/jest.config.js --coverage --watch",
+        "test-coverage": "jest --config scripts/jest/jest.config.js --coverage"
+    }
+}
