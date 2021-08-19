@@ -13,35 +13,35 @@
             "path": "projects/example-browser"
         },
         {
-            "name": "projects/example-browser-react",
-            "path": "projects/example-browser-react"
-        },
-        {
             "name": "projects/example-browser-vue",
             "path": "projects/example-browser-vue"
         },
         {
-            "name": "packages/eslint-config",
+            "name": "@packages/eslint-config",
             "path": "packages/eslint-config"
         },
         {
-            "name": "packages/memorize",
+            "name": "@packages/memorize",
             "path": "packages/memorize"
         },
         {
-            "name": "packages/template-nodejs",
+            "name": "@packages/template-nodejs",
             "path": "packages/template-nodejs"
         },
         {
-            "name": "packages/random-string",
+            "name": "@packages/random-string",
             "path": "packages/random-string"
         },
         {
-            "name": "projects/demo-test-nodejs",
+            "name": "@projects/demo-test-nodejs",
             "path": "projects/demo-test-nodejs"
         },
         {
-            "name": "projects/template-nodejs",
+            "name": "@projects/template-browser-react",
+            "path": "projects/template-browser-react"
+        },
+        {
+            "name": "@projects/template-nodejs",
             "path": "projects/template-nodejs"
         }
     ],

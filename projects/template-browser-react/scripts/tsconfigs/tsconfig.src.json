@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": "../..",
+        "noEmit": true,
+        "paths": {
+            "#Assets/*": ["src/Assets/*"],
+            "#Utils/*": ["src/Utils/*"]
+        },
+        "rootDir": "../.."
+    },
+    "exclude": ["../**/__tests__", "../**/*.spec.ts", "../**/*.test.ts"]
+}

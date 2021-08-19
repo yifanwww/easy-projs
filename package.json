@@ -24,7 +24,9 @@
     "scripts": {
         "build-scripts": "tsc --build scripts/tsconfig.json",
         "clean-scripts": "rimraf scripts/tsconfig.tsbuildinfo scripts/**/*.js scripts/**/*.map",
-        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
+        "format": "npm run format:root && npm run format:workspaces",
+        "format:root": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
+        "format:workspaces": "npm run format --workspaces",
         "lint": "eslint .",
         "proj": "node scripts/projs/cli.js",
         "proj-add": "node scripts/projs/cli.js add",
@@ -43,6 +45,7 @@
         "packages/random-string",
         "packages/template-nodejs",
         "projects/demo-test-nodejs",
+        "projects/template-browser-react",
         "projects/template-nodejs"
     ],
     "dependencies": {

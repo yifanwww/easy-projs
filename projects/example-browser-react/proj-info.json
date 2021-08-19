@@ -1,8 +1,0 @@
-{
-    "clean": ["build"],
-    "name": "example-browser-react",
-    "output": "build",
-    "startup": "build/index.html",
-    "template": true,
-    "type": "browser-react"
-}

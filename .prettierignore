@@ -1,14 +1,8 @@
 # Compilation
 
-build
+/scripts/**/*.js
 
-dist
+# Packages and Projects
 
-lib
-lib-commonjs
-
-**/scripts/**/*.js
-
-# Running and Testing
-
-coverage
+/packages
+/projects

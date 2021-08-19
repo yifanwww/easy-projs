@@ -1,0 +1,13 @@
+# Compilation
+
+/build
+
+/scripts/**/*.js
+
+# Typescript Configurations
+
+/tsconfig.json
+
+# Running and Testing
+
+/coverage
