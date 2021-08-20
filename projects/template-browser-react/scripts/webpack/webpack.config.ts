@@ -10,7 +10,6 @@
 //   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/scripts/utils/createJestConfig.js
 
 import { Config } from '@jest/types';
-import chalk from 'chalk';
 import _path from 'path';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Configuration } from 'webpack';
@@ -124,19 +123,6 @@ function overrideJestConfigs(config: Config.InitialOptions): Config.InitialOptio
     };
 
     // Finish.
-
-    // HACK: Cannot do test by jest v27 now, error `TypeError: babelJest.createTransformer is not a function` occurs.
-    // Track PR: https://github.com/facebook/create-react-app/pull/10748
-    // Once this PR is done, the test can go on.
-
-    console.warn(
-        chalk.yellow(
-            'Cannot do test by jest v27 now, error `TypeError: babelJest.createTransformer is not a function` occurs.',
-        ),
-    );
-    console.warn(chalk.yellow('Track PR: https://github.com/facebook/create-react-app/pull/10748'));
-    console.warn(chalk.yellow('Once this PR is done, the test can go on.'));
-    process.exit();
 
     return config;
 }

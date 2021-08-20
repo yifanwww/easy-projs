@@ -2,27 +2,27 @@
 
 exports[`Test component \`Introduction\` renders 1`] = `
 <header
-  className="introduction-54"
+  className="introduction"
 >
   <img
     alt="logo"
-    className="logo-56"
+    className="logo"
     src="logo.svg"
   />
   <p>
     Edit 
     <code>
-      src/renderer/MainWindow/App.tsx
+      src/Components/Introduction.tsx
     </code>
      and save to reload.
   </p>
   <a
-    className="link-55"
-    href="https://github.com/YSoftwareRepo/template-electron-cra"
+    className="link"
+    href="https://github.com/YF1999/easy-projs"
     rel="noopener noreferrer"
     target="_blank"
   >
-    Learn @YSoftwareRepo/template-electron-cra
+    Learn easy-projs
   </a>
 </header>
 `;
