@@ -16,7 +16,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/YF1999/easy-projs.git",
-        "directory": "packages/eslint-config-easy-projs"
+        "directory": "packages/eslint-config"
     },
     "scripts": {
         "build": "echo NPM script `build` does nothing in `@packages/eslint-config`",
