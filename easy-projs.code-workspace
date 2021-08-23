@@ -103,8 +103,8 @@
 
         // extension settings
 
-        "prettier.prettierPath": "easy-projs/node_modules/prettier",
+        "prettier.prettierPath": "../../node_modules/prettier",
 
-        "typescript.tsdk": "easy-projs/node_modules/typescript/lib"
+        "typescript.tsdk": "../../node_modules/typescript/lib"
     }
 }
