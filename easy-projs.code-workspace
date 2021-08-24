@@ -5,31 +5,31 @@
             "path": "."
         },
         {
-            "name": "@packages/eslint-config",
+            "name": "@package/eslint-config",
             "path": "packages/eslint-config"
         },
         {
-            "name": "@packages/memorize",
+            "name": "@package/memorize",
             "path": "packages/memorize"
         },
         {
-            "name": "@packages/template-nodejs",
+            "name": "@package/template-nodejs",
             "path": "packages/template-nodejs"
         },
         {
-            "name": "@packages/random-string",
+            "name": "@package/random-string",
             "path": "packages/random-string"
         },
         {
-            "name": "@projects/demo-test-nodejs",
+            "name": "@project/demo-test-nodejs",
             "path": "projects/demo-test-nodejs"
         },
         {
-            "name": "@projects/template-browser-react",
+            "name": "@project/template-browser-react",
             "path": "projects/template-browser-react"
         },
         {
-            "name": "@projects/template-nodejs",
+            "name": "@project/template-nodejs",
             "path": "projects/template-nodejs"
         }
     ],

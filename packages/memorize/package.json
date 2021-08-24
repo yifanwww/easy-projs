@@ -1,5 +1,5 @@
 {
-    "name": "@packages/memorize",
+    "name": "@package/memorize",
     "version": "1.0.0",
     "description": "Memorize functions.",
     "main": "lib-commonjs/index.js",

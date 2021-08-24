@@ -1,5 +1,5 @@
 {
-    "extends": ["@packages/eslint-config"],
+    "extends": ["@package/eslint-config"],
     "ignorePatterns": ["*.cjs", "*.js", "*.mjs", "build"],
     "parserOptions": {
         "project": "scripts/tsconfigs/tsconfig.eslint.json"

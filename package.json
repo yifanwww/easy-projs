@@ -36,7 +36,7 @@
         "lint": "npm run lint:root && npm run lint:workspaces",
         "lint:root": "eslint .",
         "lint:workspaces": "npm run lint --workspaces",
-        "prevbuild": "npm run build-scripts:root",
+        "prebuild": "npm run build-scripts:root",
         "test-coverage": "npm run test-coverage --workspaces"
     },
     "engines": {

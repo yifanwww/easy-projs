@@ -1,5 +1,5 @@
 {
-    "name": "@projects/demo-test-nodejs",
+    "name": "@project/demo-test-nodejs",
     "version": "0.0.0",
     "description": "Used for doing some small demo test.",
     "main": "build/index.js",

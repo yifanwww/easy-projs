@@ -1,3 +1,3 @@
-# @packages/memorize
+# @package/memorize
 
 Memorize functions.
