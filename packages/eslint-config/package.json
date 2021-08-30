@@ -25,6 +25,6 @@
         "clean-scripts": "npm-do-nothing",
         "format": "prettier-format",
         "lint": "npm-do-nothing",
-        "test-coverage": "npm-do-nothing`"
+        "test-coverage": "npm-do-nothing"
     }
 }
