@@ -1,0 +1,37 @@
+{
+    "name": "@package/scripts",
+    "version": "0.0.0",
+    "description": "Scripts for easy-projs.",
+    "homepage": "https://github.com/YF1999/easy-projs#readme",
+    "license": "MIT",
+    "author": {
+        "name": "YF1999",
+        "email": "1586939317@qq.com",
+        "url": "https://github.com/YF1999"
+    },
+    "bugs": {
+        "url": "https://github.com/YF1999/easy-projs/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YF1999/easy-projs.git",
+        "directory": "packages/scripts"
+    },
+    "bin": {
+        "npm-do-nothing": "./bin/npm-do-nothing.js",
+        "prettier-format": "./bin/prettier-format.js"
+    },
+    "scripts": {
+        "_clean": "rimraf **/*.js **/*.map tsconfig.tsbuildinfo",
+        "build": "tsc --build tsconfig.json",
+        "build-scripts": "npm-do-nothing",
+        "clean": "npm-do-nothing",
+        "clean-scripts": "npm-do-nothing",
+        "format": "prettier-format",
+        "lint": "eslint .",
+        "test": "npm run test:npm-do-nothing && npm run test:prettier-format",
+        "test:npm-do-nothing": "node bin/npm-do-nothing.js",
+        "test:prettier-format": "node bin/prettier-format.js",
+        "test-coverage": "npm-do-nothing"
+    }
+}

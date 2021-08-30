@@ -13,12 +13,16 @@
             "path": "packages/memorize"
         },
         {
-            "name": "@package/template-nodejs",
-            "path": "packages/template-nodejs"
-        },
-        {
             "name": "@package/random-string",
             "path": "packages/random-string"
+        },
+        {
+            "name": "@package/scripts",
+            "path": "packages/scripts"
+        },
+        {
+            "name": "@package/template-nodejs",
+            "path": "packages/template-nodejs"
         },
         {
             "name": "@project/demo-test-nodejs",

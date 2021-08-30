@@ -28,8 +28,12 @@ dist
 lib
 lib-commonjs
 
-**/scripts/**/*.js
-**/scripts/**/*.map
+/scripts/**/*.js
+/scripts/**/*.map
+/**/packages/*/scripts/**/*.js
+/**/packages/*/scripts/**/*.map
+/**/projects/*/scripts/**/*.js
+/**/projects/*/scripts/**/*.map
 
 # After Running or Testing
 

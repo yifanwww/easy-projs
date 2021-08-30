@@ -28,7 +28,7 @@
         "clean": "rimraf build",
         "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
         "dev": "npm run _cra-dev",
-        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
+        "format": "prettier-format",
         "lint": "eslint .",
         "prebuild": "npm run build-scripts",
         "predev": "npm run build-scripts",

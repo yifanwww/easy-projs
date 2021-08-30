@@ -19,12 +19,12 @@
         "directory": "packages/eslint-config"
     },
     "scripts": {
-        "build": "echo NPM script `build` does nothing in `@package/eslint-config`",
-        "build-scripts": "echo NPM script `build-scripts` does nothing in `@package/eslint-config`",
-        "clean": "echo NPM script `clean` does nothing in `@package/eslint-config`",
-        "clean-scripts": "echo NPM script `clean-scripts` does nothing in `@package/eslint-config`",
-        "format": "prettier --write **/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}",
-        "lint": "echo NPM script `lint` does nothing in `@package/eslint-config`",
-        "test-coverage": "echo NPM script `test-coverage` does nothing in `@package/eslint-config`"
+        "build": "npm-do-nothing",
+        "build-scripts": "npm-do-nothing",
+        "clean": "npm-do-nothing",
+        "clean-scripts": "npm-do-nothing",
+        "format": "prettier-format",
+        "lint": "npm-do-nothing",
+        "test-coverage": "npm-do-nothing`"
     }
 }
