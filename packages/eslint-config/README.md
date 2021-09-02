@@ -2,12 +2,12 @@
 
 ESLint configurations for easy-projs.
 
-## Setup
+## Usage
 ### 1. Configure ESLint
 
 Add `"extends": "@package/eslint-config"` to your ESLint config file.
 
-An example `.eslintrc.json`:
+For example `.eslintrc.json`:
 ```json
 {
     "extends": ["@package/eslint-config"]

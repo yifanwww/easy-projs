@@ -1,10 +1,10 @@
 {
-    "extends": "./tsconfigs/tsconfig.base.json",
+    "extends": "@package/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "module": "CommonJS",
         "outDir": ".",
-        "rootDir": "."
+        "rootDir": ".",
+        "sourceMap": false
     },
     "include": ["."],
     "exclude": []

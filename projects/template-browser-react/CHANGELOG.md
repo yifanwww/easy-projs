@@ -1,4 +1,9 @@
 # CHANGELOG
+## @project/template-browser-react v0.3.0 (Unreleased)
+### Features
+
+- [TSconfig] Use `@package/tsconfigs` to extend this project Typescript configurations
+
 ## @project/template-browser-react v0.2.0 (2021-08-24)
 ### Bug Fixes
 

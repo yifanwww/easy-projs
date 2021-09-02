@@ -25,6 +25,10 @@
             "path": "packages/template-nodejs"
         },
         {
+            "name": "@package/tsconfigs",
+            "path": "packages/tsconfigs"
+        },
+        {
             "name": "@project/demo-test-nodejs",
             "path": "projects/demo-test-nodejs"
         },
@@ -38,7 +42,7 @@
         }
     ],
     "settings": {
-        // vscode settings
+        // --------------------------------------------------------------------------------- Visual Studio Code Settings
 
         "editor.insertSpaces": true,
         "editor.rulers": [120],
@@ -103,6 +107,10 @@
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.insertSpaces": true,
             "editor.tabSize": 2
-        }
+        },
+
+        // ------------------------------------------------------------------------------------------ Extension Settings
+
+        "typescript.tsdk": "easy-projs/node_modules/typescript/lib"
     }
 }

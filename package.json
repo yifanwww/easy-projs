@@ -48,6 +48,7 @@
         "packages/random-string",
         "packages/scripts",
         "packages/template-nodejs",
+        "packages/tsconfigs",
         "projects/demo-test-nodejs",
         "projects/template-browser-react",
         "projects/template-nodejs"

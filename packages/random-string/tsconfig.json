@@ -1,8 +1,7 @@
 {
-    "extends": "./scripts/tsconfigs/tsconfig.base.json",
+    "extends": "@package/tsconfigs/tsconfig.eslint.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "noEmit": true,
         "rootDir": "."
     },
     "include": ["scripts/jest/test.d.ts", "src", "test"],

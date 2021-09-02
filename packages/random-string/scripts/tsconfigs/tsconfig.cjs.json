@@ -1,9 +1,17 @@
 {
-    "extends": "./tsconfig.base.json",
+    "extends": "@package/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
-        "module": "CommonJS",
+        "baseUrl": "../../src",
         "outDir": "../../lib-commonjs",
-        "removeComments": true,
+        "rootDir": "../../src",
         "tsBuildInfoFile": "./tsconfig.cjs.tsbuildinfo"
-    }
+    },
+    "include": ["../../src"],
+    "exclude": [
+        "../../build",
+        "../../node_modules",
+        "../../src/**/__tests__",
+        "../../src/**/*.spec.ts",
+        "../../src/**/*.test.ts"
+    ]
 }

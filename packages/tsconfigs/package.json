@@ -1,0 +1,30 @@
+{
+    "name": "@package/tsconfigs",
+    "version": "0.0.0",
+    "description": "Typescript configurations for easy-projs.",
+    "homepage": "https://github.com/YF1999/easy-projs#readme",
+    "license": "MIT",
+    "author": {
+        "name": "YF1999",
+        "email": "1586939317@qq.com",
+        "url": "https://github.com/YF1999"
+    },
+    "bugs": {
+        "url": "https://github.com/YF1999/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YF1999/easy-projs.git",
+        "directory": "packages/tsconfigs"
+    },
+    "scripts": {
+        "build": "npm-do-nothing",
+        "build-scripts": "npm-do-nothing",
+        "clean": "npm-do-nothing",
+        "clean-scripts": "npm-do-nothing",
+        "format": "prettier-format",
+        "lint": "npm-do-nothing",
+        "test-coverage": "npm-do-nothing"
+    }
+}

@@ -1,9 +1,7 @@
 {
-    "extends": "./tsconfig.base.json",
+    "extends": "@package/tsconfigs/tsconfig.eslint.json",
     "compilerOptions": {
         "baseUrl": "../..",
-        "jsx": "react-jsx",
-        "noEmit": true,
         "rootDir": "../.."
     },
     "include": ["../../scripts", "../../src"]
