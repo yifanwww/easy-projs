@@ -2,7 +2,7 @@
     "extends": "@config/tsconfigs/tsconfig.eslint.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "rootDir": "."
+        "rootDir": "src"
     },
     "include": ["scripts/jest/test.d.ts", "src"],
     "exclude": []

@@ -4,8 +4,9 @@
         "baseUrl": ".",
         "outDir": ".",
         "rootDir": ".",
-        "sourceMap": false
+        "sourceMap": false,
+        "target": "ES2020"
     },
-    "include": ["."],
+    "include": ["bin"],
     "exclude": []
 }

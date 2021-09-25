@@ -4,19 +4,21 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "incremental": false,
+        "incremental": true,
         "isolatedModules": true,
         "lib": ["ESNext"],
         "listEmittedFiles": true,
         "module": "ESNext",
         "moduleResolution": "Node",
         "newLine": "lf",
+        "noEmit": false,
+        "noEmitOnError": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitOverride": true,
         "noImplicitReturns": true,
         "removeComments": true,
         "resolveJsonModule": true,
-        "skipLibCheck": false,
+        "skipLibCheck": true,
         "sourceMap": true,
         /**
          * The following options will be thruned on if option `--strict` is set:
@@ -30,6 +32,7 @@
          * - useUnknownInCatchVariable
          */
         "strict": true,
-        "target": "ES2018"
+        "target": "ES2018",
+        "useUnknownInCatchVariables": true
     }
 }

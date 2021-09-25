@@ -3,6 +3,7 @@
 ### Features
 
 - [TSconfig] Use `@config/tsconfigs` to extend this project Typescript configurations
+- Change author name and email
 
 ## @project/template-nodejs v0.2.0 (2021-08-24)
 ### Features

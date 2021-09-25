@@ -1,17 +1,10 @@
 {
-    "extends": "@config/tsconfigs/tsconfig.node.json",
+    "extends": "@config/tsconfigs/tsconfig.node.cjs.json",
     "compilerOptions": {
-        "baseUrl": "../../src",
+        "baseUrl": "../..",
         "outDir": "../../lib-commonjs",
-        "rootDir": "../../src",
-        "tsBuildInfoFile": "./tsconfig.cjs.tsbuildinfo"
+        "rootDir": "../../src"
     },
     "include": ["../../src"],
-    "exclude": [
-        "../../build",
-        "../../node_modules",
-        "../../src/**/__tests__",
-        "../../src/**/*.spec.ts",
-        "../../src/**/*.test.ts"
-    ]
+    "exclude": ["../../src/**/__tests__", "../../src/**/*.spec.ts", "../../src/**/*.test.ts"]
 }

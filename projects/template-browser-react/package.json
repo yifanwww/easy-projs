@@ -24,7 +24,7 @@
         "_cra-dev": "react-app-rewired start --config-overrides scripts/webpack/webpack.config.js",
         "_cra-test": "react-app-rewired test --config-overrides scripts/webpack/webpack.config.js",
         "build": "npm run _cra-build",
-        "build-scripts": "tsc --build scripts/tsconfig.json",
+        "build-scripts": "tsc --project scripts/tsconfig.json",
         "clean": "rimraf build",
         "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
         "dev": "npm run _cra-dev",

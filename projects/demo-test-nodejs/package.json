@@ -21,8 +21,8 @@
     },
     "scripts": {
         "app": "node build/index.js",
-        "build": "tsc --build scripts/tsconfigs/tsconfig.cjs.json",
-        "build-scripts": "tsc --build scripts/tsconfig.json",
+        "build": "tsc --project scripts/tsconfigs/tsconfig.cjs.json",
+        "build-scripts": "tsc --project scripts/tsconfig.json",
         "clean": "rimraf build scripts/tsconfigs/*.tsbuildinfo",
         "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
         "format": "prettier-format",

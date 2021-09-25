@@ -3,6 +3,8 @@
 ### Features
 
 - [TSconfig] Use `@config/tsconfigs` to extend this project Typescript configurations
+- Change author name and email
+- [Env] Delete environment variable `PUBLIC_URL`
 
 ## @project/template-browser-react v0.2.0 (2021-08-24)
 ### Bug Fixes

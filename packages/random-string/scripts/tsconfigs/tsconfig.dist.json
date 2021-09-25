@@ -3,9 +3,8 @@
     "compilerOptions": {
         "baseUrl": "../..",
         "outDir": "../../dist",
-        "rootDir": "../..",
-        "tsBuildInfoFile": "../../dist/tsconfig.dist.tsbuildinfo"
+        "rootDir": "../.."
     },
     "include": ["../../src", "../../test"],
-    "exclude": []
+    "exclude": ["../../src/**/__tests__", "../../src/**/*.spec.ts", "../../src/**/*.test.ts"]
 }
