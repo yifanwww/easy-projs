@@ -1,46 +1,4 @@
 {
-    "folders": [
-        {
-            "name": "easy-projs",
-            "path": "."
-        },
-        {
-            "name": "@package/eslint-config",
-            "path": "packages/eslint-config"
-        },
-        {
-            "name": "@package/memorize",
-            "path": "packages/memorize"
-        },
-        {
-            "name": "@package/random-string",
-            "path": "packages/random-string"
-        },
-        {
-            "name": "@package/scripts",
-            "path": "packages/scripts"
-        },
-        {
-            "name": "@package/template-nodejs",
-            "path": "packages/template-nodejs"
-        },
-        {
-            "name": "@package/tsconfigs",
-            "path": "packages/tsconfigs"
-        },
-        {
-            "name": "@project/demo-test-nodejs",
-            "path": "projects/demo-test-nodejs"
-        },
-        {
-            "name": "@project/template-browser-react",
-            "path": "projects/template-browser-react"
-        },
-        {
-            "name": "@project/template-nodejs",
-            "path": "projects/template-nodejs"
-        }
-    ],
     "settings": {
         // --------------------------------------------------------------------------------- Visual Studio Code Settings
 
@@ -69,6 +27,9 @@
                 "url": "../../scripts/json-schemas/proj-info.schema.json"
             }
         ],
+
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        "typescript.tsdk": "easy-projs/node_modules/typescript/lib",
 
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -107,10 +68,48 @@
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.insertSpaces": true,
             "editor.tabSize": 2
+        }
+    },
+    "folders": [
+        {
+            "name": "easy-projs",
+            "path": "."
         },
-
-        // ------------------------------------------------------------------------------------------ Extension Settings
-
-        "typescript.tsdk": "easy-projs/node_modules/typescript/lib"
-    }
+        {
+            "name": "@config/eslint-config",
+            "path": "configs/eslint-config"
+        },
+        {
+            "name": "@config/scripts",
+            "path": "configs/scripts"
+        },
+        {
+            "name": "@config/tsconfigs",
+            "path": "configs/tsconfigs"
+        },
+        {
+            "name": "@package/memorize",
+            "path": "packages/memorize"
+        },
+        {
+            "name": "@package/random-string",
+            "path": "packages/random-string"
+        },
+        {
+            "name": "@package/template-nodejs",
+            "path": "packages/template-nodejs"
+        },
+        {
+            "name": "@project/demo-test-nodejs",
+            "path": "projects/demo-test-nodejs"
+        },
+        {
+            "name": "@project/template-browser-react",
+            "path": "projects/template-browser-react"
+        },
+        {
+            "name": "@project/template-nodejs",
+            "path": "projects/template-nodejs"
+        }
+    ]
 }

@@ -1,12 +1,12 @@
 {
-    "name": "@package/tsconfigs",
+    "name": "@config/eslint-config",
     "version": "0.0.0",
-    "description": "Typescript configurations for easy-projs.",
+    "description": "ESLint configurations for easy-projs.",
     "homepage": "https://github.com/YF1999/easy-projs#readme",
     "license": "MIT",
     "author": {
         "name": "YF1999",
-        "email": "1586939317@qq.com",
+        "email": "yifanw1101@gmail.com",
         "url": "https://github.com/YF1999"
     },
     "bugs": {
@@ -16,7 +16,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/YF1999/easy-projs.git",
-        "directory": "packages/tsconfigs"
+        "directory": "configs/eslint-config"
     },
     "scripts": {
         "build": "npm-do-nothing",

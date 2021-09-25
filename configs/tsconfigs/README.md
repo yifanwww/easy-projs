@@ -1,14 +1,14 @@
-# @package/tsconfigs
+# @config/tsconfigs
 
 Typescript configurations for easy-projs.
 
 ## Usage
 
 Your typescript configurations can be extended from
-- `@package/tsconfigs/tsconfig.base.json`
-- `@package/tsconfigs/tsconfig.eslint.json`
-- `@package/tsconfigs/tsconfig.node.json`
-- `@package/tsconfigs/tsconfig.react.json`
+- `@config/tsconfigs/tsconfig.base.json`
+- `@config/tsconfigs/tsconfig.eslint.json`
+- `@config/tsconfigs/tsconfig.node.json`
+- `@config/tsconfigs/tsconfig.react.json`
 
 Then you need to specify the following options if need
 - `compilerOptions`
@@ -22,7 +22,7 @@ For example:
 
 ```json
 {
-    "extends": "@package/tsconfigs/tsconfig.react.json",
+    "extends": "@config/tsconfigs/tsconfig.react.json",
     "compilerOptions": {
         "baseUrl": "...",
         "rootDir": "..."

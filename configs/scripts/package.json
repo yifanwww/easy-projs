@@ -1,12 +1,12 @@
 {
-    "name": "@package/scripts",
+    "name": "@config/scripts",
     "version": "0.0.0",
     "description": "Scripts for easy-projs.",
     "homepage": "https://github.com/YF1999/easy-projs#readme",
     "license": "MIT",
     "author": {
         "name": "YF1999",
-        "email": "1586939317@qq.com",
+        "email": "yifanw1101@gmail.com",
         "url": "https://github.com/YF1999"
     },
     "bugs": {
@@ -15,7 +15,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/YF1999/easy-projs.git",
-        "directory": "packages/scripts"
+        "directory": "configs/scripts"
     },
     "bin": {
         "npm-do-nothing": "./bin/npm-do-nothing.js",

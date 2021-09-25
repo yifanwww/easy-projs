@@ -1,16 +1,16 @@
-# @package/eslint-config
+# @config/eslint-config
 
 ESLint configurations for easy-projs.
 
 ## Usage
 ### 1. Configure ESLint
 
-Add `"extends": "@package/eslint-config"` to your ESLint config file.
+Add `"extends": "@config/eslint-config"` to your ESLint config file.
 
 For example `.eslintrc.json`:
 ```json
 {
-    "extends": ["@package/eslint-config"]
+    "extends": ["@config/eslint-config"]
 }
 ```
 
@@ -23,7 +23,7 @@ In your ESLint config, set [parserOptions.project] to the path of your `tsconfig
 For example:
 ```json
 {
-    "extends": ["@package/eslint-config"],
+    "extends": ["@config/eslint-config"],
     "parserOptions": {
         "project": "./tsconfig.json"
     }

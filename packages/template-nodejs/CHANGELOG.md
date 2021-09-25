@@ -2,13 +2,13 @@
 ## @package/template-nodejs v1.2.0 (Unreleased)
 ### Features
 
-- [TSconfig] Use `@package/tsconfigs` to extend this project Typescript configurations
+- [TSconfig] Use `@config/tsconfigs` to extend this project Typescript configurations
 
 ## @package/template-nodejs v1.1.0 (2021-08-24)
 ### Features
 
 - Add property `repository.directory` in packages.json
-- [ESLint] Use `@package/eslint-config` to extend this project ESLint configurations
+- [ESLint] Use `@config/eslint-config` to extend this project ESLint configurations
 
 ### Bug Fixes
 

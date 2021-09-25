@@ -1,3 +1,3 @@
-# @package/scripts
+# @config/scripts
 
 Scripts for easy-projs.
