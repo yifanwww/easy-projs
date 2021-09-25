@@ -1,6 +1,5 @@
 # Environment
 
-.DS_Store
 .env.development.local
 .env.local
 .env.production.local
@@ -21,30 +20,31 @@ node_modules
 *.tsbuildinfo
 
 build
-release
-
 dist
-
 lib
 lib-commonjs
+release
 
-/scripts/**/*.js
-/scripts/**/*.map
-/**/packages/*/scripts/**/*.js
-/**/packages/*/scripts/**/*.map
-/**/projects/*/scripts/**/*.js
-/**/projects/*/scripts/**/*.map
+**/*.cjs
+**/*.js
+**/*.map
+**/*.mjs
 
-# After Running or Testing
+!configs/eslint-config/index.js
+!configs/scripts/bin/**/*.js
+!configs/stylelint-config/index.js
+
+# Test
 
 coverage
 
 # Misc
 
+.DS_Store
+
 .eslintcache
 
 debug.log
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
