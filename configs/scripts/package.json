@@ -2,19 +2,19 @@
     "name": "@config/scripts",
     "version": "0.0.0",
     "description": "Scripts for easy-projs.",
-    "homepage": "https://github.com/YF1999/easy-projs#readme",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": {
-        "name": "YF1999",
+        "name": "yifanwww",
         "email": "yifanw1101@gmail.com",
-        "url": "https://github.com/YF1999"
+        "url": "https://github.com/yifanwww"
     },
     "bugs": {
-        "url": "https://github.com/YF1999/easy-projs/issues"
+        "url": "https://github.com/yifanwww/easy-projs/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YF1999/easy-projs.git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
         "directory": "configs/scripts"
     },
     "bin": {

@@ -8,8 +8,8 @@ Thanks for contacting us! We're here to help.
 
 Before you report an issue, check if it's been reported before:
 
-  * Search: https://github.com/YF1999/easy-projs/search?type=Issues
-  * Search by area or component: https://github.com/YF1999/easy-projs/issues/labels
+  * Search: https://github.com/yifanwww/easy-projs/search?type=Issues
+  * Search by area or component: https://github.com/yifanwww/easy-projs/issues/labels
 
 Note that if you do not provide enough information to reproduce the issue, we may not be able to take action on your report.
 -->

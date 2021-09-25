@@ -3,20 +3,20 @@
     "version": "0.0.0",
     "description": "Used for doing some small demo test.",
     "main": "build/index.js",
-    "homepage": "https://github.com/YF1999/easy-projs#readme",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": {
-        "name": "YF1999",
-        "email": "1586939317@qq.com",
-        "url": "https://github.com/YF1999"
+        "name": "yifanwww",
+        "email": "yifanw1101@gmail.com",
+        "url": "https://github.com/yifanwww"
     },
     "bugs": {
-        "url": "https://github.com/YF1999/easy-projs/issues"
+        "url": "https://github.com/yifanwww/easy-projs/issues"
     },
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YF1999/easy-projs.git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
         "directory": "projects/demo-test-nodejs"
     },
     "scripts": {

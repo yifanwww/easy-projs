@@ -12,7 +12,7 @@ export function Introduction(): ReactElement {
             </p>
             <a
                 className={scss.link}
-                href="https://github.com/YF1999/easy-projs"
+                href="https://github.com/yifanwww/easy-projs"
                 target="_blank"
                 rel="noopener noreferrer"
             >
