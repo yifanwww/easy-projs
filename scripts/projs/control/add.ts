@@ -61,9 +61,9 @@ async function copyTemplateProj(info: ProjInfo, dst: string, name: string): Prom
 }
 
 export async function add(argv: AddYargsArgv): Promise<void> {
-    log.setLogLevel(LogLevel.error);
+    log.setLogLevel(LogLevel.Error);
     const templateProjInfos = await getTemplateProjInfos();
-    log.setLogLevel(LogLevel.info);
+    log.setLogLevel(LogLevel.Info);
 
     const { folder, list = false, name, template } = argv;
 

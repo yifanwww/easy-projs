@@ -6,9 +6,9 @@ import { switchProj } from './switch-projs';
 import { ExecYargsArgv } from './types';
 
 export async function exec(argv: ExecYargsArgv): Promise<void> {
-    log.setLogLevel(LogLevel.error);
+    log.setLogLevel(LogLevel.Error);
     const projInfos = await getProjInfos();
-    log.setLogLevel(LogLevel.info);
+    log.setLogLevel(LogLevel.Info);
 
     const { list = false, name } = argv;
 

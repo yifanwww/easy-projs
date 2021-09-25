@@ -2,7 +2,7 @@ import { log, LogLevel } from '../../log';
 import { findProjInfoFiles, findProjs, loadProjInfos } from '../info';
 
 export async function validate(): Promise<void> {
-    log.setLogLevel(LogLevel.debug);
+    log.setLogLevel(LogLevel.Debug);
 
     const projs = await findProjs();
     const projInfoFiles = await findProjInfoFiles(projs);

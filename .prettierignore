@@ -2,7 +2,8 @@
 
 /scripts/**/*.js
 
-# Packages and Projects
+# Configs, Packages and Projects
 
+/configs
 /packages
 /projects

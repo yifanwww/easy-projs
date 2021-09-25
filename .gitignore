@@ -15,7 +15,7 @@
 .pnp.js
 node_modules
 
-# Compilation
+# Compilation & Source
 
 *.tsbuildinfo
 

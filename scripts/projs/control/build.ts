@@ -14,9 +14,9 @@ const _build = (projInfos: ProjInfos, name: string): Promise<void> =>
     });
 
 export async function build(argv: BuildYargsArgv): Promise<void> {
-    log.setLogLevel(LogLevel.error);
+    log.setLogLevel(LogLevel.Error);
     const projInfos = await getProjInfos();
-    log.setLogLevel(LogLevel.info);
+    log.setLogLevel(LogLevel.Info);
 
     const { all = false, list = false, name } = argv;
 
