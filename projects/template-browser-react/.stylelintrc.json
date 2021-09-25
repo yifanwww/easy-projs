@@ -1,0 +1,4 @@
+{
+    "extends": "@config/stylelint-config",
+    "ignoreFiles": ["node_modules", "**/*.{js,jsx,ts,tsx}"]
+}

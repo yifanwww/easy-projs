@@ -1,0 +1,30 @@
+{
+    "name": "@config/stylelint-config",
+    "version": "0.0.0",
+    "description": "Stylelint configurations for easy-projs.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": {
+        "name": "yifanwww",
+        "email": "yifanw1101@gmail.com",
+        "url": "https://github.com/yifanwww"
+    },
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "configs/stylelint-config"
+    },
+    "scripts": {
+        "build": "skip-npm-script",
+        "build-scripts": "skip-npm-script",
+        "clean": "skip-npm-script",
+        "clean-scripts": "skip-npm-script",
+        "format": "format-code",
+        "lint": "skip-npm-script",
+        "test-coverage": "skip-npm-script"
+    }
+}

@@ -85,6 +85,10 @@
             "path": "configs/scripts"
         },
         {
+            "name": "@config/stylelint-config",
+            "path": "configs/stylelint-config"
+        },
+        {
             "name": "@config/tsconfigs",
             "path": "configs/tsconfigs"
         },
