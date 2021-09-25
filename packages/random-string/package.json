@@ -31,7 +31,7 @@
         "clean": "rimraf lib lib-commonjs scripts/tsconfigs/*.tsbuildinfo",
         "clean-dist": "rimraf dist",
         "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
-        "format": "prettier-format",
+        "format": "format-code",
         "lint": "eslint .",
         "prebuild": "npm run build-scripts",
         "test": "jest --config scripts/jest/jest.config.js --coverage --watch",

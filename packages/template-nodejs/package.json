@@ -29,7 +29,7 @@
         "build-scripts": "tsc --project scripts/tsconfig.json",
         "clean": "rimraf lib lib-commonjs scripts/tsconfigs/*.tsbuildinfo",
         "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
-        "format": "prettier-format",
+        "format": "format-code",
         "lint": "eslint .",
         "prebuild": "npm run build-scripts",
         "test": "jest --config scripts/jest/jest.config.js --coverage --watch",

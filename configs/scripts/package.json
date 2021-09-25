@@ -18,20 +18,16 @@
         "directory": "configs/scripts"
     },
     "bin": {
-        "npm-do-nothing": "./bin/npm-do-nothing.js",
-        "prettier-format": "./bin/prettier-format.js"
+        "format-code": "./bin/format-code.js",
+        "skip-npm-script": "./bin/skip-npm-script.js"
     },
     "scripts": {
-        "_clean": "rimraf **/*.js **/*.map tsconfig.tsbuildinfo",
-        "build": "tsc --build tsconfig.json",
-        "build-scripts": "npm-do-nothing",
-        "clean": "npm-do-nothing",
-        "clean-scripts": "npm-do-nothing",
-        "format": "prettier-format",
+        "build": "skip-npm-script",
+        "build-scripts": "tsc --project tsconfig.json",
+        "clean": "skip-npm-script",
+        "clean-scripts": "rimraf {utils}/**/*.js tsconfig.tsbuildinfo",
+        "format": "format-code",
         "lint": "eslint .",
-        "test": "npm run test:npm-do-nothing && npm run test:prettier-format",
-        "test:npm-do-nothing": "node bin/npm-do-nothing.js",
-        "test:prettier-format": "node bin/prettier-format.js",
-        "test-coverage": "npm-do-nothing"
+        "test-coverage": "skip-npm-script"
     }
 }

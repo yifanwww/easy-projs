@@ -19,12 +19,12 @@
         "directory": "configs/tsconfigs"
     },
     "scripts": {
-        "build": "npm-do-nothing",
-        "build-scripts": "npm-do-nothing",
-        "clean": "npm-do-nothing",
-        "clean-scripts": "npm-do-nothing",
-        "format": "prettier-format",
-        "lint": "npm-do-nothing",
-        "test-coverage": "npm-do-nothing"
+        "build": "skip-npm-script",
+        "build-scripts": "skip-npm-script",
+        "clean": "skip-npm-script",
+        "clean-scripts": "skip-npm-script",
+        "format": "format-code",
+        "lint": "skip-npm-script",
+        "test-coverage": "skip-npm-script"
     }
 }

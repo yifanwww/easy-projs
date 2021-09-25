@@ -31,7 +31,7 @@
         "clean-scripts:root": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
         "clean-scripts:workspaces": "npm run clean-scripts --workspaces",
         "format": "npm run format:root && npm run format:workspaces",
-        "format:root": "prettier-format",
+        "format:root": "format-code",
         "format:workspaces": "npm run format --workspaces",
         "lint": "npm run lint:root && npm run lint:workspaces",
         "lint:root": "eslint .",

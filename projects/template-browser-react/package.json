@@ -28,7 +28,7 @@
         "clean": "rimraf build",
         "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
         "dev": "npm run _cra-dev",
-        "format": "prettier-format",
+        "format": "format-code",
         "lint": "eslint .",
         "prebuild": "npm run build-scripts",
         "predev": "npm run build-scripts",
