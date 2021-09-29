@@ -19,19 +19,19 @@
         "url": "git+https://github.com/yifanwww/easy-projs.git"
     },
     "scripts": {
-        "build": "npm run build --workspaces",
+        "build": "build-packages && build-projects",
+        "build-packages": "build-packages",
+        "build-projects": "build-projects",
         "build-scripts": "npm run build-scripts --workspace @config/scripts && npm run build-scripts --workspaces",
         "clean": "npm run clean --workspaces",
         "clean-scripts": "npm run clean-scripts --workspaces",
         "format": "npm run format:root && npm run format:workspaces",
         "format:root": "format-code",
         "format:workspaces": "npm run format --workspaces",
-        "lint": "npm run lint:root && npm run lint:workspaces",
-        "lint:root": "eslint .",
-        "lint:workspaces": "npm run lint --workspaces",
+        "lint": "npm run lint --workspaces",
         "postinstall": "post-install",
         "prebuild": "npm run build-scripts",
-        "pre-commit":"npm run pre-commit --workspaces",
+        "pre-commit": "npm run pre-commit --workspaces",
         "test-coverage": "npm run test-coverage --workspaces"
     },
     "engines": {

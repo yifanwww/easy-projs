@@ -25,13 +25,6 @@
 
         "git.enabled": true,
 
-        "json.schemas": [
-            {
-                "fileMatch": ["proj-info.json"],
-                "url": "../../scripts/json-schemas/proj-info.schema.json"
-            }
-        ],
-
         "search.exclude": {
             "**/bower_components": true,
             "**/node_modules": true,
