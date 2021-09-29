@@ -2,8 +2,6 @@
 
 /build
 
-/scripts/**/*.js
-
 # Typescript Configurations
 
 /tsconfig.json

@@ -1,4 +1,4 @@
-import { useDispatchingActions, useDispatchingThunks } from '#Utils/Redux';
+import { useDispatchingActions, useDispatchingThunks } from 'src/Utils/Redux';
 
 import { actions } from '../Actions';
 import { thunks } from '../Thunks';

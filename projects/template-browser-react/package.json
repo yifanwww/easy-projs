@@ -23,18 +23,13 @@
         "last 9 chrome versions"
     ],
     "scripts": {
-        "_cra-build": "react-app-rewired build --config-overrides scripts/webpack/webpack.config.js",
-        "_cra-dev": "react-app-rewired start --config-overrides scripts/webpack/webpack.config.js",
-        "_cra-test": "react-app-rewired test --config-overrides scripts/webpack/webpack.config.js",
-        "build": "npm run _cra-build",
-        "build-scripts": "tsc --project scripts/tsconfig.json",
+        "build": "react-proj build",
+        "build-profile": "react-proj build-profile",
+        "build-scripts": "skip-npm-script",
         "clean": "rimraf build",
-        "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
-        "dev": "npm run _cra-dev",
+        "dev": "react-proj dev",
         "format": "format-code",
         "lint": "eslint .",
-        "prebuild": "npm run build-scripts",
-        "predev": "npm run build-scripts",
         "pre-commit": "lint-staged",
         "test": "npm run _cra-test -- --coverage",
         "test-coverage": "npm run _cra-test -- --coverage --watchAll=false"

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { omitUnderscorePrefixActions } from '#Utils/Redux';
+import { omitUnderscorePrefixActions } from 'src/Utils/Redux';
 
 import { IStoreState } from '../Types';
 import { _finishPreparing, updateClientAreaSize } from './Reducers.DisplayConfig';

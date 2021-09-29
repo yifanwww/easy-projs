@@ -1,4 +1,4 @@
-import { IReducer } from '#Utils/Redux';
+import { IReducer } from 'src/Utils/Redux';
 
 interface IDisplayConfig {
     clientAreaSize: IClientAreaSize;

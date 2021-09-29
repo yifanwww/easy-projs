@@ -30,7 +30,7 @@ export const paths = {
 
     // compilation
 
-    reactWebpackConfig: path.resolve(scripts, 'webpack/webpack.config.ts'),
+    reactWebpackConfig: path.resolve(scripts, 'webpack/webpack.config.js'),
 
     // test
 };

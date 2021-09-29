@@ -1,4 +1,4 @@
-import { createTypedSelector } from '#Utils/Redux';
+import { createTypedSelector } from 'src/Utils/Redux';
 
 import { IStoreState } from '../Types';
 
