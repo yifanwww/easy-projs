@@ -42,6 +42,7 @@
         "configs/scripts",
         "configs/stylelint-config",
         "configs/tsconfigs",
+        "packages/global-types",
         "packages/memorize",
         "packages/random-string",
         "packages/template-nodejs",

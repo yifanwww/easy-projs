@@ -1,0 +1,4 @@
+{
+    "extends": "@config/tsconfigs/tsconfig.eslint.json",
+    "include": ["lib"]
+}

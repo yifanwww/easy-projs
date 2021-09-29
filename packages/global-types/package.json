@@ -1,8 +1,8 @@
 {
-    "name": "@project/template-browser-react",
-    "version": "0.2.0",
-    "description": "A template project used for creating new react browser projects.",
-    "main": "index.js",
+    "name": "@package/global-types",
+    "version": "0.0.0",
+    "description": "Global type declarations for easy-projs.",
+    "typings": "lib/index.d.ts",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": {
@@ -17,21 +17,16 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "projects/template-browser-react"
+        "directory": "packages/global-types"
     },
-    "browserslist": [
-        "last 9 chrome versions"
-    ],
     "scripts": {
-        "build": "react-proj build",
-        "build-profile": "react-proj build-profile",
+        "build": "skip-npm-script",
         "build-scripts": "skip-npm-script",
-        "clean": "rimraf build",
-        "dev": "react-proj dev",
+        "clean": "skip-npm-script",
+        "clean-scripts": "skip-npm-script",
         "format": "format-code",
-        "lint": "eslint .",
-        "pre-commit": "lint-staged",
-        "test": "skip-npm-script",
+        "lint": "skip-npm-script",
+        "pre-commit": "skip-npm-script",
         "test-coverage": "skip-npm-script"
     }
 }
