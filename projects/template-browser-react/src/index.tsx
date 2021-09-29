@@ -1,12 +1,9 @@
 import { StrictMode } from 'react';
-import { Provider as ReduxProvider } from 'react-redux';
 import { render } from 'react-dom';
+import { Provider as ReduxProvider } from 'react-redux';
 
-// setup.ts adds custom functions into global.
-import './setup';
-
-import { ClientArea } from './Containers/ClientArea';
-import { mainStore } from './Redux';
+import { ClientArea } from './containers/ClientArea';
+import { mainStore } from './redux';
 import { reportWebVitals } from './report-web-vitals';
 
 import './index.css';

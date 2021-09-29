@@ -47,6 +47,7 @@
         "packages/memorize",
         "packages/random-string",
         "packages/template-nodejs",
+        "packages/utils-redux",
         "projects/demo-test-nodejs",
         "projects/template-browser-react",
         "projects/template-nodejs"

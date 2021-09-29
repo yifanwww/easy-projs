@@ -120,6 +120,10 @@
             "path": "packages/template-nodejs"
         },
         {
+            "name": "@package/utils-redux",
+            "path": "packages/utils-redux"
+        },
+        {
             "name": "@project/demo-test-nodejs",
             "path": "projects/demo-test-nodejs"
         },
