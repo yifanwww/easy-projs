@@ -4,7 +4,7 @@ import child from 'child_process';
 import { paths } from './paths';
 
 export function buildPackages(): void {
-    const packagesOrder = ['@package/memorize', '@package/random-string', '@package/template-nodejs'];
+    const packagesOrder = ['@package/hooks', '@package/memorize', '@package/random-string', '@package/template-nodejs'];
 
     for (const name of packagesOrder) {
         const command = `npm run build --workspace ${name}`;

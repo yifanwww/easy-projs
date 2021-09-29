@@ -104,6 +104,10 @@
             "path": "packages/global-types"
         },
         {
+            "name": "@package/hooks",
+            "path": "packages/hooks"
+        },
+        {
             "name": "@package/memorize",
             "path": "packages/memorize"
         },
