@@ -16,16 +16,10 @@ export const paths = {
 
     nodeModules,
 
-    // configs
+    // configs & packages & projects
 
     configs,
-
-    // packages
-
     packages,
-
-    // projects
-
     projects,
 
     // compilation
@@ -33,4 +27,12 @@ export const paths = {
     reactWebpackConfig: path.resolve(scripts, 'webpack/webpack.config.js'),
 
     // test
+
+    jestConfig: path.resolve(scripts, 'jest/jest.config.js'),
+    testSetup: path.resolve(scripts, 'jest/test.setup.ts'),
+    transforms: {
+        babel: path.resolve(scripts, 'jest/transform.babel.js'),
+        css: path.resolve(scripts, 'jest/transform.css.js'),
+        file: path.resolve(scripts, 'jest/transform.file.js'),
+    },
 };

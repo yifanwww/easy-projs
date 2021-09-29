@@ -25,13 +25,11 @@
         "build": "concurrently -n esm,types \"npm run build:esm\" \"npm run build:types\"",
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "build-scripts": "skip-npm-script",
         "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
-        "clean-scripts": "skip-npm-script",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
-        "test": "skip-npm-script",
-        "test-coverage": "skip-npm-script"
+        "test": "unit-test",
+        "test-coverage": "unit-test"
     }
 }

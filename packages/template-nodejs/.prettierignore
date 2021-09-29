@@ -3,8 +3,6 @@
 /lib
 /lib-commonjs
 
-/scripts/**/*.js
-
 # Running and Testing
 
 /coverage

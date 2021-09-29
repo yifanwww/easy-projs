@@ -1,5 +1,6 @@
 # Compilation
 
+/jest/**/*.js
 /utils/**/*.js
 /webpack/**/*.js
 

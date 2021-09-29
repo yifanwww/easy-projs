@@ -4,6 +4,6 @@
         "baseUrl": ".",
         "rootDir": "."
     },
-    "include": ["scripts/jest/test.d.ts", "src", "test"],
+    "include": ["src", "test"],
     "exclude": []
 }

@@ -2,6 +2,6 @@
     "extends": ["@config/eslint-config"],
     "ignorePatterns": ["*.cjs", "*.js", "*.mjs", "lib", "lib-commonjs"],
     "parserOptions": {
-        "project": "./scripts/tsconfigs/tsconfig.eslint.json"
+        "project": "./tsconfig.json"
     }
 }

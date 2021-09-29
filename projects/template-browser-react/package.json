@@ -25,13 +25,12 @@
     "scripts": {
         "build": "react-proj build",
         "build-profile": "react-proj build-profile",
-        "build-scripts": "skip-npm-script",
         "clean": "rimraf build",
         "dev": "react-proj dev",
         "format": "format-code",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
         "pre-commit": "lint-staged",
-        "test": "skip-npm-script",
-        "test-coverage": "skip-npm-script"
+        "test": "unit-test",
+        "test-coverage": "unit-test"
     }
 }

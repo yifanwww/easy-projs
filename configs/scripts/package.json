@@ -23,13 +23,14 @@
         "format-code": "./bin/format-code.js",
         "post-install": "./bin/post-install.js",
         "react-proj": "./bin/react-proj.js",
-        "skip-npm-script": "./bin/skip-npm-script.js"
+        "skip-npm-script": "./bin/skip-npm-script.js",
+        "unit-test": "./bin/unit-test.js"
     },
     "scripts": {
         "build": "skip-npm-script",
         "build-scripts": "tsc --project tsconfig.json",
         "clean": "skip-npm-script",
-        "clean-scripts": "rimraf {utils}/**/*.js tsconfig.tsbuildinfo",
+        "clean-scripts": "rimraf {jest,utils,webpack}/**/*.js tsconfig.tsbuildinfo",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged",

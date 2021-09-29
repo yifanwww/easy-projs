@@ -59,3 +59,17 @@ export function buildReact(): void {
     console.info(chalk.yellow(command));
     child.execSync(command, { stdio: 'inherit' });
 }
+
+export function unitTest(watch: boolean): void {
+    const command = ['jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage'].join(' ');
+
+    const env = {
+        ...process.env,
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        BABEL_ENV: 'test',
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        NODE_ENV: 'test',
+    };
+
+    child.execSync(command, { env, stdio: 'inherit' });
+}

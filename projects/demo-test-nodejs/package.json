@@ -21,15 +21,12 @@
     },
     "scripts": {
         "app": "node build/index.js",
-        "build": "tsc --project scripts/tsconfigs/tsconfig.cjs.json",
-        "build-scripts": "tsc --project scripts/tsconfig.json",
-        "clean": "rimraf build scripts/tsconfigs/*.tsbuildinfo",
-        "clean-scripts": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
+        "build": "tsc --project tsconfig.node.json",
+        "clean": "rimraf build ./*.tsbuildinfo",
         "format": "format-code",
         "lint": "eslint .",
-        "prebuild": "npm run build-scripts",
         "pre-commit": "lint-staged",
-        "test": "jest --config scripts/jest/jest.config.js --coverage --watch",
-        "test-coverage": "jest --config scripts/jest/jest.config.js --coverage"
+        "test": "unit-test",
+        "test-coverage": "unit-test"
     }
 }

@@ -2,8 +2,6 @@
 
 /build
 
-/scripts/**/*.js
-
 # Running and Testing
 
 /coverage
