@@ -20,9 +20,7 @@
             // additional
             "**/configs": true,
             "**/packages": true,
-            "**/projects": true,
-            "**/scripts/**/*.js": true,
-            "**/scripts/**/*.map": true
+            "**/projects": true
         },
 
         "git.enabled": true,

@@ -19,6 +19,9 @@
         "url": "git+https://github.com/yifanwww/easy-projs.git",
         "directory": "projects/template-browser-react"
     },
+    "browserslist": [
+        "last 9 chrome versions"
+    ],
     "scripts": {
         "_cra-build": "react-app-rewired build --config-overrides scripts/webpack/webpack.config.js",
         "_cra-dev": "react-app-rewired start --config-overrides scripts/webpack/webpack.config.js",

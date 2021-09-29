@@ -18,18 +18,11 @@
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git"
     },
-    "browserslist": [
-        "last 9 chrome versions"
-    ],
     "scripts": {
         "build": "npm run build --workspaces",
-        "build-scripts": "npm run build-scripts:root && npm run build-scripts:workspaces",
-        "build-scripts:root": "tsc --build scripts/tsconfig.json",
-        "build-scripts:workspaces": "npm run build-scripts --workspaces",
+        "build-scripts": "npm run build-scripts --workspace @config/scripts && npm run build-scripts --workspaces",
         "clean": "npm run clean --workspaces",
-        "clean-scripts": "npm run clean-scripts:root && npm run clean-scripts:workspaces",
-        "clean-scripts:root": "rimraf scripts/**/*.js scripts/**/*.map scripts/tsconfig.tsbuildinfo",
-        "clean-scripts:workspaces": "npm run clean-scripts --workspaces",
+        "clean-scripts": "npm run clean-scripts --workspaces",
         "format": "npm run format:root && npm run format:workspaces",
         "format:root": "format-code",
         "format:workspaces": "npm run format --workspaces",
@@ -37,7 +30,7 @@
         "lint:root": "eslint .",
         "lint:workspaces": "npm run lint --workspaces",
         "postinstall": "post-install",
-        "prebuild": "npm run build-scripts:root",
+        "prebuild": "npm run build-scripts",
         "pre-commit":"npm run pre-commit --workspaces",
         "test-coverage": "npm run test-coverage --workspaces"
     },
