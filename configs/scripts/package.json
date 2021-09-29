@@ -19,6 +19,7 @@
     },
     "bin": {
         "format-code": "./bin/format-code.js",
+        "post-install": "./bin/post-install.js",
         "skip-npm-script": "./bin/skip-npm-script.js"
     },
     "scripts": {
@@ -28,6 +29,7 @@
         "clean-scripts": "rimraf {utils}/**/*.js tsconfig.tsbuildinfo",
         "format": "format-code",
         "lint": "eslint .",
+        "pre-commit": "lint-staged",
         "test-coverage": "skip-npm-script"
     }
 }

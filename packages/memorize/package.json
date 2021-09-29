@@ -32,6 +32,7 @@
         "format": "format-code",
         "lint": "eslint .",
         "prebuild": "npm run build-scripts",
+        "pre-commit": "lint-staged",
         "test": "jest --config scripts/jest/jest.config.js --coverage --watch",
         "test-coverage": "jest --config scripts/jest/jest.config.js --coverage"
     }

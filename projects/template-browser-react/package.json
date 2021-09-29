@@ -32,6 +32,7 @@
         "lint": "eslint .",
         "prebuild": "npm run build-scripts",
         "predev": "npm run build-scripts",
+        "pre-commit": "lint-staged",
         "test": "npm run _cra-test -- --coverage",
         "test-coverage": "npm run _cra-test -- --coverage --watchAll=false"
     }

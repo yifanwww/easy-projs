@@ -6,14 +6,19 @@
         "editor.rulers": [120],
         "editor.tabSize": 4,
 
+        "files.associations": {
+            ".lintstagedrc": "json",
+            "pre-commit": "javascript"
+        },
         "files.exclude": {
             "**/.DS_Store": true,
             "**/.git": true,
             "**/.hg": true,
             "**/.svn": true,
-            "**/configs": true,
             "**/CVS": true,
             "**/node_modules": true,
+            // additional
+            "**/configs": true,
             "**/packages": true,
             "**/projects": true,
             "**/scripts/**/*.js": true,
@@ -28,6 +33,17 @@
                 "url": "../../scripts/json-schemas/proj-info.schema.json"
             }
         ],
+
+        "search.exclude": {
+            "**/bower_components": true,
+            "**/node_modules": true,
+            "**/*.code-search": true,
+            // additional
+            "**/build": true,
+            "**/lib": true,
+            "**/lib-commonjs": true,
+            "**/*.js": true
+        },
 
         "typescript.enablePromptUseWorkspaceTsdk": true,
         "typescript.tsdk": "easy-projs/node_modules/typescript/lib",

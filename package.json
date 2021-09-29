@@ -36,7 +36,9 @@
         "lint": "npm run lint:root && npm run lint:workspaces",
         "lint:root": "eslint .",
         "lint:workspaces": "npm run lint --workspaces",
+        "postinstall": "post-install",
         "prebuild": "npm run build-scripts:root",
+        "pre-commit":"npm run pre-commit --workspaces",
         "test-coverage": "npm run test-coverage --workspaces"
     },
     "engines": {
@@ -96,6 +98,7 @@
         "eslint-plugin-react": "^7.26.0",
         "eslint-plugin-react-hooks": "^4.2.0",
         "jest-watch-typeahead": "^0.6.4",
+        "lint-staged": "^11.1.2",
         "lodash": "^4.17.21",
         "prettier": "2.3.2",
         "react-app-rewired": "^2.1.8",
