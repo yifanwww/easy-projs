@@ -1,6 +1,6 @@
 {
     "short_name": "template-browser-react",
-    "name": "@projects/template-browser-react",
+    "name": "@project/template-browser-react",
     "icons": [
         {
             "src": "favicon.ico",

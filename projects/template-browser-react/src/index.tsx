@@ -4,7 +4,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 
 import { ClientArea } from './containers/ClientArea';
 import { mainStore } from './redux';
-import { reportWebVitals } from './report-web-vitals';
+import { reportWebVitals } from './reportWebVitals';
 
 import './index.css';
 

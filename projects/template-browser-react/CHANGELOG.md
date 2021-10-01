@@ -9,6 +9,9 @@
 - [Webpack] Delete support for custom path alias
 - [NPM-Scripts] Use NPM binary script `react-proj` to build or dev this project
 - [Code] Delete redux utils, use `@package/utils-redux` instead.
+- Remove `main` property in package.json.
+- [Code] Rename `report-web-vitals.ts` to `reportWebVitals.ts`
+- [Code] Delete `test.setup.ts`
 
 ## @project/template-browser-react v0.2.0 (2021-08-24)
 ### Bug Fixes
