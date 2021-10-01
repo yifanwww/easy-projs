@@ -9,6 +9,7 @@ export function buildPackages(): void {
         '@package/memorize',
         '@package/random-string',
         '@package/template-nodejs',
+        '@package/utils-fluentui',
         '@package/utils-redux',
     ];
 

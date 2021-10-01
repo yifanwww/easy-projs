@@ -120,6 +120,10 @@
             "path": "packages/template-nodejs"
         },
         {
+            "name": "@package/utils-fluentui",
+            "path": "packages/utils-fluentui"
+        },
+        {
             "name": "@package/utils-redux",
             "path": "packages/utils-redux"
         },
