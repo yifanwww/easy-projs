@@ -45,6 +45,7 @@ coverage
 .DS_Store
 
 .eslintcache
+.stylelintcache
 
 debug.log
 npm-debug.log*
