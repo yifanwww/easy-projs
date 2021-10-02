@@ -1,3 +1,4 @@
+import { initializeIcons } from '@fluentui/react';
 import path from 'path';
 import renderer from 'react-test-renderer';
 
@@ -27,6 +28,10 @@ function wrapConsole() {
         return output;
     }
 
+    console.testError = console.error;
+    console.testInfo = console.info;
+    console.testWarn = console.warn;
+
     console.debug = outputFactory(console.debug);
     console.error = outputFactory(console.error);
     console.info = outputFactory(console.info);
@@ -40,6 +45,8 @@ function setupJestGlobalFunctions(): void {
 }
 
 function setupJest(): void {
+    initializeIcons();
+
     wrapConsole();
 
     setupJestGlobalFunctions();
