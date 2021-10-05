@@ -14,12 +14,12 @@ export interface IUseBooleanUpdaters {
 
 /**
  * Hook to store a value and generate actions for setting the value to true or false.
- * The identity of the actions will always stay the same.
+ * The identity of the updater actions will always stay the same.
  *
- * @param initialValue Initial value
+ * @param initialValue Initial value.
  * @returns Array with the current value and an object containing the updater actions.
  */
-export function useBoolean(initialValue: boolean): [boolean, IUseBooleanUpdaters] {
+export function useBoolean(initialValue: boolean = false): [boolean, IUseBooleanUpdaters] {
     const [value, setValue] = useState(initialValue);
 
     const setFalse = useConstFn(() => setValue(false));

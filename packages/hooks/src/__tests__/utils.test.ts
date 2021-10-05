@@ -1,5 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 
+test.skip('file for exports in test', () => {});
+
 /**
  * Validate that value(s) returned by a hook do not change in identity.
  * @param testDescription Custom test description.
@@ -44,5 +46,3 @@ export function validateHookValueNotChanged<TValues extends NonNullable<unknown>
         }
     });
 }
-
-export const wait = (time: number) => new Promise<void>((resolve) => setTimeout(resolve, time));

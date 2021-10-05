@@ -1,7 +1,7 @@
 import { render, RenderResult } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 
-import { usePrevious } from './usePrevious';
+import { usePrevious } from '../usePrevious';
 
 interface IProps {
     value: string;
