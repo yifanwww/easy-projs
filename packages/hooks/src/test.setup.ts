@@ -1,7 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-test.skip('file for exports in test', () => {});
-
 /**
  * Validate that value(s) returned by a hook do not change in identity.
  * @param testDescription Custom test description.
@@ -9,7 +7,7 @@ test.skip('file for exports in test', () => {});
  * @param useHookAgain If you want to verify that the return value doesn't change when hook parameters change,
  * you can pass this second callback which calls the hook differently.
  */
-export function validateHookValueNotChanged<TValues extends NonNullable<unknown>[]>(
+function validateHookValueNotChanged<TValues extends NonNullable<unknown>[]>(
     testDescription: string,
     useHook: () => TValues,
     useHookAgain?: () => TValues,
@@ -46,3 +44,9 @@ export function validateHookValueNotChanged<TValues extends NonNullable<unknown>
         }
     });
 }
+
+function setupTest(): void {
+    global.validateHookValueNotChanged = validateHookValueNotChanged;
+}
+
+setupTest();
