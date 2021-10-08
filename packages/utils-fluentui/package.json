@@ -1,5 +1,5 @@
 {
-    "name": "@package/utils-fluentui",
+    "name": "@easy/utils-fluentui",
     "version": "0.1.0",
     "description": "Fluentui utils for easy-projs.",
     "main": "lib/index.js",

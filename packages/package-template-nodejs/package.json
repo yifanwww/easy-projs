@@ -1,0 +1,36 @@
+{
+    "name": "@easy/package-template-nodejs",
+    "version": "1.1.0",
+    "description": "A package used for creating new nodejs packages.",
+    "main": "lib-commonjs/index.js",
+    "module": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": {
+        "name": "yifanwww",
+        "email": "yifanw1101@gmail.com",
+        "url": "https://github.com/yifanwww"
+    },
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/package-template-nodejs"
+    },
+    "scripts": {
+        "build": "concurrently -n cjs,esm,types \"npm run build:cjs\" \"npm run build:esm\" \"npm run build:types\"",
+        "build:cjs": "tsc --project tsconfigs/tsconfig.cjs.json",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf lib lib-commonjs tsconfigs/*.tsbuildinfo",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-coverage": "unit-test"
+    }
+}

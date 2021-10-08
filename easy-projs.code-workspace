@@ -18,9 +18,7 @@
             "**/CVS": true,
             "**/node_modules": true,
             // additional
-            "**/configs": true,
-            "**/packages": true,
-            "**/projects": true
+            "**/packages": true
         },
 
         "git.enabled": true,
@@ -31,6 +29,7 @@
             "**/*.code-search": true,
             // additional
             "**/build": true,
+            "**/coverage": true,
             "**/lib": true,
             "**/lib-commonjs": true,
             "**/*.js": true
@@ -100,60 +99,60 @@
             "path": "."
         },
         {
-            "name": "@config/eslint-config",
-            "path": "configs/eslint-config"
+            "name": "@easy/demo-test-nodejs",
+            "path": "packages/demo-test-nodejs"
         },
         {
-            "name": "@config/scripts",
-            "path": "configs/scripts"
+            "name": "@easy/eslint-config",
+            "path": "packages/eslint-config"
         },
         {
-            "name": "@config/stylelint-config",
-            "path": "configs/stylelint-config"
-        },
-        {
-            "name": "@config/tsconfigs",
-            "path": "configs/tsconfigs"
-        },
-        {
-            "name": "@package/global-types",
+            "name": "@easy/global-types",
             "path": "packages/global-types"
         },
         {
-            "name": "@package/hooks",
+            "name": "@easy/hooks",
             "path": "packages/hooks"
         },
         {
-            "name": "@package/memorize",
+            "name": "@easy/memorize",
             "path": "packages/memorize"
         },
         {
-            "name": "@package/random-string",
+            "name": "@easy/package-template-nodejs",
+            "path": "packages/package-template-nodejs"
+        },
+        {
+            "name": "@easy/project-template-browser-react",
+            "path": "packages/project-template-browser-react"
+        },
+        {
+            "name": "@easy/project-template-nodejs",
+            "path": "packages/project-template-nodejs"
+        },
+        {
+            "name": "@easy/random-string",
             "path": "packages/random-string"
         },
         {
-            "name": "@package/template-nodejs",
-            "path": "packages/template-nodejs"
+            "name": "@easy/scripts",
+            "path": "packages/scripts"
         },
         {
-            "name": "@package/utils-fluentui",
+            "name": "@easy/stylelint-config",
+            "path": "packages/stylelint-config"
+        },
+        {
+            "name": "@easy/tsconfigs",
+            "path": "packages/tsconfigs"
+        },
+        {
+            "name": "@easy/utils-fluentui",
             "path": "packages/utils-fluentui"
         },
         {
-            "name": "@package/utils-redux",
+            "name": "@easy/utils-redux",
             "path": "packages/utils-redux"
-        },
-        {
-            "name": "@project/demo-test-nodejs",
-            "path": "projects/demo-test-nodejs"
-        },
-        {
-            "name": "@project/template-browser-react",
-            "path": "projects/template-browser-react"
-        },
-        {
-            "name": "@project/template-nodejs",
-            "path": "projects/template-nodejs"
         }
     ]
 }

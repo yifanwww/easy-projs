@@ -1,3 +1,3 @@
-# @package/utils-fluentui
+# @easy/utils-fluentui
 
 Fluentui utils for easy-projs.

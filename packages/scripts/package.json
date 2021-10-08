@@ -1,0 +1,39 @@
+{
+    "name": "@easy/scripts",
+    "version": "0.0.0",
+    "description": "Scripts for easy-projs.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": {
+        "name": "yifanwww",
+        "email": "yifanw1101@gmail.com",
+        "url": "https://github.com/yifanwww"
+    },
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/scripts"
+    },
+    "bin": {
+        "build-packages": "./bin/build-packages.js",
+        "build-projects": "./bin/build-projects.js",
+        "format-code": "./bin/format-code.js",
+        "post-install": "./bin/post-install.js",
+        "react-proj": "./bin/react-proj.js",
+        "skip-npm-script": "./bin/skip-npm-script.js",
+        "unit-test": "./bin/unit-test.js"
+    },
+    "scripts": {
+        "build": "skip-npm-script",
+        "build-scripts": "tsc --project tsconfig.json",
+        "clean": "skip-npm-script",
+        "clean-scripts": "rimraf {jest,utils,webpack}/**/*.js tsconfig.tsbuildinfo",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "test-coverage": "skip-npm-script"
+    }
+}

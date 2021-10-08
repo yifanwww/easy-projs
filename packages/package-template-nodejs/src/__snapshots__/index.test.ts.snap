@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test all exports from this package 1`] = `
+Array [
+  "templateNodejs",
+]
+`;
+
+exports[`Test function \`templateNodejs\` 1`] = `"This package named \`@easy/package-template-nodejs\` is used for creating new nodejs packages."`;

@@ -1,5 +1,5 @@
 {
-    "name": "@package/utils-redux",
+    "name": "@easy/utils-redux",
     "version": "1.0.0",
     "description": "Redux utils for easy-projs.",
     "main": "lib/index.js",

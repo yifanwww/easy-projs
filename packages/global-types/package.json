@@ -1,5 +1,5 @@
 {
-    "name": "@package/global-types",
+    "name": "@easy/global-types",
     "version": "0.0.0",
     "description": "Global type declarations for easy-projs.",
     "typings": "lib/index.d.ts",

@@ -1,5 +1,5 @@
 {
-    "extends": "@config/tsconfigs/tsconfig.node.cjs.json",
+    "extends": "@easy/tsconfigs/tsconfig.node.cjs.json",
     "compilerOptions": {
         "baseUrl": "..",
         "outDir": "../lib-commonjs",

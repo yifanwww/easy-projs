@@ -1,4 +1,4 @@
-# @package/global-types
+# @easy/global-types
 
 Global type declarations for easy-projs.
 
@@ -17,5 +17,5 @@ For example:
 ```ts
 // global.d.ts
 
-/// <reference types="@package/global-types" />
+/// <reference types="@easy/global-types" />
 ```

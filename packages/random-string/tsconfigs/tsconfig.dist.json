@@ -1,5 +1,5 @@
 {
-    "extends": "@config/tsconfigs/tsconfig.node.json",
+    "extends": "@easy/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
         "baseUrl": "..",
         "outDir": "../dist",

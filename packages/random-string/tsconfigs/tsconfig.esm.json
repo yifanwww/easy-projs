@@ -1,5 +1,5 @@
 {
-    "extends": "@config/tsconfigs/tsconfig.node.esm.json",
+    "extends": "@easy/tsconfigs/tsconfig.node.esm.json",
     "compilerOptions": {
         "baseUrl": "..",
         "outDir": "../lib",

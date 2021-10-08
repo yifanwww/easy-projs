@@ -1,5 +1,5 @@
 {
-    "name": "@package/hooks",
+    "name": "@easy/hooks",
     "version": "0.1.0",
     "description": "React hooks for easy-projs.",
     "main": "lib/index.js",

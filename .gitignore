@@ -32,9 +32,9 @@ release
 **/*.map
 **/*.mjs
 
-!configs/eslint-config/index.js
-!configs/scripts/bin/**/*.js
-!configs/stylelint-config/index.js
+!packages/eslint-config/index.js
+!packages/scripts/bin/**/*.js
+!packages/stylelint-config/index.js
 
 # Test
 

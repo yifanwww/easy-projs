@@ -1,5 +1,5 @@
 {
-    "name": "@package/random-string",
+    "name": "@easy/random-string",
     "version": "1.0.0",
     "description": "A package to generate random strings.",
     "main": "lib-commonjs/index.js",

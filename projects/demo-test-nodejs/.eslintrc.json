@@ -1,7 +1,0 @@
-{
-    "extends": ["@config/eslint-config"],
-    "ignorePatterns": ["*.cjs", "*.js", "*.mjs", "build"],
-    "parserOptions": {
-        "project": "./tsconfig.json"
-    }
-}

@@ -1,1 +1,1 @@
-/// <reference types="@package/global-types/lib/test" />
+/// <reference types="@easy/global-types/lib/test" />

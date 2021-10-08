@@ -1,4 +1,4 @@
-# @package/utils-redux
+# @easy/utils-redux
 
 Redux utils for easy-projs.
 
@@ -8,7 +8,7 @@ Redux utils for easy-projs.
 This type is used to create redux reducers in a simpler way.
 
 ```ts
-import { IReducer } from '@package/utils-redux';
+import { IReducer } from '@easy/utils-redux';
 
 export interface IEasyProjsState {
     prepared: boolean;
@@ -32,7 +32,7 @@ There are some reducers which only be used in Redux middlewares, while the other
 This function is used to avoid using the internal reducers in react components.
 
 ```ts
-import { omitUnderscorePrefixActions } from '@package/utils-redux';
+import { omitUnderscorePrefixActions } from '@easy/utils-redux';
 
 const getInitialState = (): IEasyProjsState => ({ prepared: false });
 
@@ -61,7 +61,7 @@ You can use `thunkCreatorFactory` to create asynchronous middlewares if there is
 First, you need to create a creator by using this factory `thunkCreatorFactory`.
 
 ```ts
-import { thunkCreatorFactory } from '@package/utils-redux';
+import { thunkCreatorFactory } from '@easy/utils-redux';
 
 export const createEasyProjsThunk = thunkCreatorFactory<IEasyProjsState>();
 ```
@@ -156,7 +156,7 @@ export const usePrepared = () => useMainSelector((state) => state.prepared);
 
 ## Develop this package
 
-You need to build package `@config/scripts` before building or testing this package.
+You need to build package `@easy/scripts` before building or testing this package.
 
 ### Build this package
 

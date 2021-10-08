@@ -1,3 +1,3 @@
-# @package/memorize
+# @easy/memorize
 
 Memorize functions.

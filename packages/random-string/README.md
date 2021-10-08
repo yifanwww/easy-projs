@@ -1,3 +1,3 @@
-# @package/random-string
+# @easy/random-string
 
 A package to generate random strings.
