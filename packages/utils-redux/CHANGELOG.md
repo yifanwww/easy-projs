@@ -1,5 +1,5 @@
 # CHANGELOG
-## @easy/utils-redux v1.0.0 (Unreleased)
+## @easy/utils-redux v1.0.0 (2021-10-08)
 ### Breaking Changes
 
 - Renamed from `@packages/utils-redux` to `@easy/utils-redux`

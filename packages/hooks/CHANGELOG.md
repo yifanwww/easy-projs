@@ -1,5 +1,5 @@
 # CHANGELOG
-## @easy/hooks v0.2.0 (Unreleased)
+## @easy/hooks v0.2.0 (2021-10-08)
 ### Features
 
 - The parameter `initialValue` of `useBoolean` now is optional

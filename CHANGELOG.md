@@ -1,4 +1,74 @@
 # CHANGELOG
+## easy-projs v0.3.0 (2021-10-08)
+### Features
+
+- [Hooks] The parameter `initialValue` of `useBoolean` now is optional
+- [Lint] Use `stylelint-config-recess-order` to lint css properties order
+- [Test] Add `console.testInfo`, `console.testWarn` and `console.testError`
+
+### Changes
+
+- [Lint] When in stage `pre-commit` only lint changed files
+- [Test] Set jest environment to `jest-environment-jsdom`
+
+### Breaking Changes
+
+- Rename packages names
+
+### Packages & Projects
+
+- New
+  - `@easy/utils-fluentui`   v0.2.0
+- Rename
+  - `@config/eslint-config`             v0.0.0  ->  `@easy/eslint-config`                   v0.0.0
+  - `@config/scripts`                   v0.0.0  ->  `@easy/scripts`                         v0.0.0
+  - `@config/stylelint-config`          v0.0.0  ->  `@easy/stylelint-config`                v0.0.0
+  - `@config/tsconfigs`                 v0.0.0  ->  `@easy/tsconfigs`                       v0.0.0
+  - `@package/global-types`             v0.0.0  ->  `@easy/global-types`                    v0.0.0
+  - `@package/hooks`                    v0.1.0  ->  `@easy/hooks`                           v0.2.0
+  - `@package/memorize`                 v1.0.0  ->  `@easy/memorize`                        v1.0.0
+  - `@package/random-string`            v1.0.0  ->  `@easy/random-string`                   v1.0.0
+  - `@package/template-nodejs`          v1.0.0  ->  `@easy/package-template-nodejs`         v1.0.0
+  - `@package/utils-redux`              v1.0.0  ->  `@easy/utils-redux`                     v1.0.0
+  - `@project/demo-test-nodejs`         v0.0.0  ->  `@easy/demo-test-nodejs`                v0.0.0
+  - `@project/template-browser-react`   v0.2.0  ->  `@easy/project-template-browser-react`  v0.3.0
+  - `@project/template-nodejs`          v0.2.0  ->  `@easy/project-template-nodejs`         v0.3.0
+
+### Dependencies
+
+- New
+  - `@fluentui/react`                           v8.36.0
+  - `@types/react-test-renderer`                v17.0.1
+  - `babel-jest`                                v27.2.4
+  - `browserslist`                              v4.17.1
+  - `jest`                                      v27.2.4
+  - `jest-circus`                               v27.2.4
+- Upgrade
+  - `@testing-library/react`                    v12.0.0   -> v12.1.1
+  - `@testing-library/react-hooks`              v7.0.1    -> v7.0.2
+  - `@types/jest`                               v26.0.24  -> v27.0.2
+  - `@types/lodash`                             v4.14.172 -> v4.14.175
+  - `@types/node`                               v16.6.1   -> v16.10.2
+  - `@types/react`                              v17.0.18  -> v17.0.26
+  - `@typescript/eslint-plugin`                 v4.31.2   -> v4.32.0
+  - `@typescript/experimental-utils`            v4.31.2   -> v4.32.0
+  - `@typescript/parser`                        v4.31.2   -> v4.32.0
+  - `@typescript/scope-manager`                 v4.31.2   -> v4.32.0
+  - `@typescript/types`                         v4.31.2   -> v4.32.0
+  - `@typescript/typescript-estree`             v4.31.2   -> v4.32.0
+  - `@typescript/visitor-keys`                  v4.31.2   -> v4.32.0
+  - `concurrently`                              v6.2.1    -> v6.2.2
+  - `eslint-plugin-jest`                        v24.4.2   -> v24.5.0
+  - `eslint-plugin-react`                       v7.26.0   -> v7.26.1
+  - `jest-watch-typeahead`                      v0.6.4    -> v1.0.0
+  - `prettier`                                  v2.3.2    -> v2.4.1
+  - `react-redux`                               v7.2.4    -> v7.2.5
+  - `sass`                                      v1.38.0   -> v1.42.1
+- Remove
+  - `@types/yargs`                              v17.0.2
+  - `ts-jest`                                   v26.5.6
+  - `yargs`                                     v17.1.1
+
 ## easy-projs v0.2.0 (2021-10-01)
 ### Features
 

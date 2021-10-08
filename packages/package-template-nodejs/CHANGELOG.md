@@ -1,5 +1,5 @@
 # CHANGELOG
-## @easy/package-template-nodejs v1.0.0 (Unreleased)
+## @easy/package-template-nodejs v1.0.0 (2021-10-08)
 ### Features
 
 - [TSconfig] Use `@easy/tsconfigs` to extend this project Typescript configurations

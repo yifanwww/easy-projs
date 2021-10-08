@@ -1,17 +1,17 @@
 # CHANGELOG
-## @easy/project-template-browser-react v0.3.0 (Unreleased)
+## @easy/project-template-browser-react v0.3.0 (2021-10-08)
 ### Features
 
-- [TSconfig] Use `@easy/tsconfigs` to extend this project Typescript configurations
 - Change author name and email
-- [Env] Delete environment variable `PUBLIC_URL`
-- [Webpack] Use webpack configurations from `@easy/scripts`
-- [Webpack] Delete support for custom path alias
-- [NPM-Scripts] Use NPM binary script `react-proj` to build or dev this project
-- [Code] Delete redux utils, use `@package/utils-redux` instead.
 - Remove `main` property in package.json.
+- [Code] Delete redux utils, use `@package/utils-redux` instead.
 - [Code] Rename `report-web-vitals.ts` to `reportWebVitals.ts`
 - [Code] Delete `test.setup.ts`
+- [Env] Delete environment variable `PUBLIC_URL`
+- [NPM-Scripts] Use NPM binary script `react-proj` to build or dev this project
+- [TSconfig] Use `@easy/tsconfigs` to extend this project Typescript configurations
+- [Webpack] Use webpack configurations from `@easy/scripts`
+- [Webpack] Delete support for custom path alias
 
 ### Breaking Changes
 

@@ -1,9 +1,9 @@
 # CHANGELOG
-## @easy/project-template-nodejs v0.3.0 (Unreleased)
+## @easy/project-template-nodejs v0.3.0 (2021-10-08)
 ### Features
 
-- [TSconfig] Use `@easy/tsconfigs` to extend this project Typescript configurations
 - Change author name and email
+- [TSconfig] Use `@easy/tsconfigs` to extend this project Typescript configurations
 
 ### Breaking Changes
 
