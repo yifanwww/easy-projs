@@ -1,9 +1,13 @@
-name: Build-Test-Lint
+name: Build Lint Test
 
 on:
   push:
     branches:
       - '**'
+      - '!changelog'
+      - '!changelog/*'
+      - '!docs'
+      - '!docs/*'
 
 jobs:
   build:
@@ -18,6 +22,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
+          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Setup node modules
@@ -38,6 +43,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
+          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Setup node modules
@@ -49,7 +55,7 @@ jobs:
       - name: Build packages
         run: npm run build-packages
 
-      - name: Lint this project
+      - name: Lint
         run: npm run lint
 
   test:
@@ -64,6 +70,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
+          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Setup node modules
