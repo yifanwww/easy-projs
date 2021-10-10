@@ -1,7 +1,6 @@
 {
     "extends": "@easy/tsconfigs/tsconfig.node.esm.json",
     "compilerOptions": {
-        "baseUrl": "..",
         "outDir": "../lib",
         "rootDir": "../src"
     },

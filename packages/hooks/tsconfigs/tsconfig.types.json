@@ -1,7 +1,6 @@
 {
     "extends": "@easy/tsconfigs/tsconfig.react.types.json",
     "compilerOptions": {
-        "baseUrl": "..",
         "outDir": "../lib",
         "rootDir": "../src"
     },

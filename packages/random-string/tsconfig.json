@@ -1,7 +1,6 @@
 {
     "extends": "@easy/tsconfigs/tsconfig.eslint.json",
     "compilerOptions": {
-        "baseUrl": ".",
         "rootDir": "."
     },
     "include": ["src", "test"],

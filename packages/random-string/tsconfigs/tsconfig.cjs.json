@@ -1,7 +1,6 @@
 {
     "extends": "@easy/tsconfigs/tsconfig.node.cjs.json",
     "compilerOptions": {
-        "baseUrl": "..",
         "outDir": "../lib-commonjs",
         "rootDir": "../src"
     },

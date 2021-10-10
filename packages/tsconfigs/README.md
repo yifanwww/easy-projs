@@ -18,7 +18,7 @@ Your typescript configurations can be extended from
 
 Then you need to specify the following options if need
 - `compilerOptions`
-  - `baseUrl`
+  - `baseUrl` (if you have path aliases setup)
   - `outDir`
   - `rootDir`
 - `include`
@@ -30,7 +30,6 @@ For example:
 {
     "extends": "@easy/tsconfigs/tsconfig.react.json",
     "compilerOptions": {
-        "baseUrl": "...",
         "rootDir": "..."
     },
     "include": [],
