@@ -1,4 +1,9 @@
 # CHANGELOG
+## @easy/utils-redux v1.1.0 (Unreleased)
+### Breaking Changes
+
+- Delete `createTypedSelector`
+
 ## @easy/utils-redux v1.0.0 (2021-10-08)
 ### Breaking Changes
 
