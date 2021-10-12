@@ -19,3 +19,11 @@ For example:
 
 /// <reference types="@easy/global-types" />
 ```
+
+```ts
+// global.d.ts
+
+/// <reference types="@easy/global-types/lib/env" />
+/// <reference types="@easy/global-types/lib/test" />
+/// <reference types="@easy/global-types/lib/utils.type" />
+```
