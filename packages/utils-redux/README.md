@@ -10,17 +10,17 @@ This type is used to create redux reducers in a simpler way.
 ```ts
 import { IReducer } from '@easy/utils-redux';
 
-export interface IEasyProjsState {
+export interface IEasyState {
     prepared: boolean;
 }
 
-type EasyProjsReducer<Payload = undefined> = IReducer<IEasyProjsState, Payload>;
+type EasyReducer<Payload = undefined> = IReducer<IEasyState, Payload>;
 ```
 
-Then you can use `EasyProjsReducer` to create your reducers.
+Then you can use `EasyReducer` to create your reducers.
 
 ```ts
-export const _finishPreparing: EasyProjsReducer = (state) => {
+export const _finishPreparing: EasyReducer = (state) => {
     state.prepared = true;
 };
 ```
@@ -34,7 +34,7 @@ This function is used to avoid using the internal reducers in react components.
 ```ts
 import { omitUnderscorePrefixActions } from '@easy/utils-redux';
 
-const getInitialState = (): IEasyProjsState => ({ prepared: false });
+const getInitialState = (): IEasyState => ({ prepared: false });
 
 const slice = createSlice({
     name: 'easy-projs',
@@ -63,13 +63,13 @@ First, you need to create a creator by using this factory `thunkCreatorFactory`.
 ```ts
 import { thunkCreatorFactory } from '@easy/utils-redux';
 
-export const createEasyProjsThunk = thunkCreatorFactory<IEasyProjsState>();
+export const createEasyThunk = thunkCreatorFactory<IEasyState>();
 ```
 
 Then you can use this creator to create asynchronous middlewares.
 
 ```ts
-export const prepare = createEasyProjsThunk((dispatch) => {
+export const prepare = createEasyThunk((dispatch) => {
     // Do something before users using this application.
 
     dispatch(_actions._finishPreparing());
@@ -111,8 +111,8 @@ This can be simpler, we don't need to use `dispatch` directly.
 First, you need to create two hooks.
 
 ```ts
-export const useEasyProjsDispatchingActions = () => useDispatchingActions(actions);
-export const useEasyProjsDispatchingThunks = () => useDispatchingThunks(thunks);
+export const useEasyDispatchingActions = () => useDispatchingActions(actions);
+export const useEasyDispatchingThunks = () => useDispatchingThunks(thunks);
 ```
 
 Then you can write component `App` in such a way.
@@ -121,8 +121,8 @@ Then you can write component `App` in such a way.
 export function App() {
     const classes = useStyles();
 
-    const { doSomething1 } = useEasyProjsDispatchingActions();
-    const { doSomething2 } = useEasyProjsDispatchingThunks();
+    const { doSomething1 } = useEasyDispatchingActions();
+    const { doSomething2 } = useEasyDispatchingThunks();
 
     useEffect(() => {
         // do something
@@ -138,20 +138,6 @@ export function App() {
 
     return ...;
 }
-```
-
-### `createTypedSelector`
-
-`createTypedSelector` is used to create a generic version of `useSelector`.
-
-```ts
-export const useEasyProjsSelector = createTypedSelector<IEasyProjsState>();
-```
-
-Then you can use `useEasyProjsSelector` to create multiple selectors.
-
-```ts
-export const usePrepared = () => useMainSelector((state) => state.prepared);
 ```
 
 ## Develop this package
