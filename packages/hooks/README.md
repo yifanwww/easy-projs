@@ -2,6 +2,22 @@
 
 React hooks for easy-projs.
 
+## Hooks List
+
+- `useBoolean`
+- `useConst`
+- `useConstFn`
+- `useForceUpdate`
+- `useImmediateFocus`
+- `useIsFocused`
+- `useIsHovered`
+- `useMount`
+- `usePersistFn`
+- `usePrevious`
+- `useToggle`
+- `useUnmount`
+- `useWhyDidYouUpdate`
+
 ## Usage
 
 It's very easy to use these custom React hooks.

@@ -6,6 +6,8 @@ export * from './useImmediateFocus';
 export * from './useIsFocused';
 export * from './useIsHovered';
 export * from './useMount';
+export * from './usePersistFn';
 export * from './usePrevious';
 export * from './useToggle';
 export * from './useUnmount';
+export * from './useWhyDidYouUpdate';
