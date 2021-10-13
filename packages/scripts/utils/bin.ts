@@ -66,7 +66,11 @@ export function buildReact(): void {
 }
 
 export function unitTest(watch: boolean): void {
-    const command = ['jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage'].join(' ');
+    const isVerbose = process.argv.includes('--verbose');
+
+    const command = ['jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage', isVerbose && '--verbose']
+        .filter(Boolean)
+        .join(' ');
 
     const env = {
         ...process.env,
