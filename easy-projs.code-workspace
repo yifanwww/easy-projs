@@ -151,6 +151,10 @@
             "path": "packages/utils-fluentui"
         },
         {
+            "name": "@easy/utils-react",
+            "path": "packages/utils-react"
+        },
+        {
             "name": "@easy/utils-redux",
             "path": "packages/utils-redux"
         }

@@ -10,6 +10,7 @@ export function buildPackages(): void {
         '@easy/package-template-nodejs',
         '@easy/random-string',
         '@easy/utils-fluentui',
+        '@easy/utils-react',
         '@easy/utils-redux',
     ];
 
