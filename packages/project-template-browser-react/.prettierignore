@@ -2,10 +2,6 @@
 
 /build
 
-# Typescript Configurations
-
-/tsconfig.json
-
 # Running and Testing
 
 /coverage
