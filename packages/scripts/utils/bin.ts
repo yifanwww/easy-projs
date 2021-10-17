@@ -5,6 +5,7 @@ import { paths } from './paths';
 
 export function buildPackages(): void {
     const packagesOrder = [
+        '@easy/utils-test',
         '@easy/hooks',
         '@easy/memorize',
         '@easy/package-template-nodejs',
