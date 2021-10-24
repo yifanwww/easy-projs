@@ -58,9 +58,12 @@
     "dependencies": {
         "@fluentui/react": "^8.36.0",
         "@reduxjs/toolkit": "^1.6.1",
+        "antd": "^4.16.13",
+        "history": "^4.10.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-redux": "^7.2.5",
+        "react-router-dom": "^5.3.0",
         "ts-essentials": "^9.0.0",
         "web-vitals": "^2.1.0"
     },
