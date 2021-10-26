@@ -141,6 +141,10 @@
             "path": "packages/random-string"
         },
         {
+            "name": "@easy/react-renderer-test",
+            "path": "packages/react-renderer-test"
+        },
+        {
             "name": "@easy/scripts",
             "path": "packages/scripts"
         },

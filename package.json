@@ -48,6 +48,7 @@
         "packages/project-template-browser-react",
         "packages/project-template-nodejs",
         "packages/random-string",
+        "packages/react-renderer-test",
         "packages/scripts",
         "packages/stylelint-config",
         "packages/tsconfigs",
