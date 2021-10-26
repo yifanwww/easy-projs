@@ -1,0 +1,31 @@
+{
+    "name": "@easy/assets",
+    "version": "0.0.0",
+    "description": "A package that contains assets.",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/assets"
+    },
+    "scripts": {
+        "build": "concurrently -n esm,types \"npm run build:esm\" \"npm run build:types\"",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-coverage": "unit-test"
+    }
+}

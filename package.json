@@ -38,6 +38,7 @@
         "node": ">=16"
     },
     "workspaces": [
+        "packages/assets",
         "packages/demo-test-nodejs",
         "packages/eslint-config",
         "packages/global-types",

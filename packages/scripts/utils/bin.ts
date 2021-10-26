@@ -11,6 +11,7 @@ export function buildPackages(): void {
         '@easy/utils-test',
 
         /* ----- product packages ----- */
+        '@easy/assets',
         '@easy/hooks',
         '@easy/memorize',
         '@easy/package-template-nodejs',

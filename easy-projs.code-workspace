@@ -101,6 +101,10 @@
             "path": "."
         },
         {
+            "name": "@easy/assets",
+            "path": "packages/assets"
+        },
+        {
             "name": "@easy/demo-test-nodejs",
             "path": "packages/demo-test-nodejs"
         },
