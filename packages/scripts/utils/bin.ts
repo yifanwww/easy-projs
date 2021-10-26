@@ -3,9 +3,14 @@ import child from 'child_process';
 
 import { paths } from './paths';
 
+const genCommand = <T extends (string | false | undefined | null)[]>(...params: T) => params.filter(Boolean).join(' ');
+
 export function buildPackages(): void {
     const packagesOrder = [
+        /* ----- may be used by all other packages ----- */
         '@easy/utils-test',
+
+        /* ----- product packages ----- */
         '@easy/hooks',
         '@easy/memorize',
         '@easy/package-template-nodejs',
@@ -53,15 +58,13 @@ export function buildReact(): void {
         process.exit(1);
     }
 
-    const command = [
+    const command = genCommand(
         'react-app-rewired',
         flag === 'dev' ? 'start' : 'build',
         '--config-overrides',
         paths.reactWebpackConfig,
         flag === 'build-profile' && '--profile',
-    ]
-        .filter(Boolean)
-        .join(' ');
+    );
 
     console.info(chalk.yellow(command));
     child.execSync(command, { stdio: 'inherit' });
@@ -70,9 +73,13 @@ export function buildReact(): void {
 export function unitTest(watch: boolean): void {
     const isVerbose = process.argv.includes('--verbose');
 
-    const command = ['jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage', isVerbose && '--verbose']
-        .filter(Boolean)
-        .join(' ');
+    const command = genCommand(
+        'jest',
+        '--config',
+        paths.jestConfig,
+        watch ? '--watch' : '--coverage',
+        isVerbose && '--verbose',
+    );
 
     const env = {
         ...process.env,
