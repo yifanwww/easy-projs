@@ -1,3 +1,5 @@
+import { FluentuiProvider } from '@easy/utils-fluentui';
+import { initializeIcons } from '@fluentui/react';
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 import { Provider as ReduxProvider } from 'react-redux';
@@ -9,11 +11,15 @@ import { reportWebVitals } from './reportWebVitals';
 import './index.css';
 
 function main(): void {
+    initializeIcons();
+
     render(
         <StrictMode>
-            <ReduxProvider store={mainStore}>
-                <ClientArea />
-            </ReduxProvider>
+            <FluentuiProvider>
+                <ReduxProvider store={mainStore}>
+                    <ClientArea />
+                </ReduxProvider>
+            </FluentuiProvider>
         </StrictMode>,
         document.getElementById('root'),
     );

@@ -8,7 +8,7 @@ export function Introduction(): ReactElement {
         <header className={scss.introduction}>
             <img className={scss.logo} src={logo} alt="logo" />
             <p>
-                Edit <code>src/Components/Introduction.tsx</code> and save to reload.
+                Edit <code>src/components/Introduction/Introduction.tsx</code> and save to reload.
             </p>
             <a
                 className={scss.link}
