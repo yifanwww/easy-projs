@@ -1,5 +1,5 @@
 {
-    "extends": "@easy/tsconfigs/tsconfig.node.esm.json",
+    "extends": "@easy/tsconfigs/tsconfig.react.esm.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

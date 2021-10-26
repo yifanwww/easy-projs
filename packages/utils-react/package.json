@@ -1,7 +1,7 @@
 {
     "name": "@easy/utils-react",
     "version": "0.1.0",
-    "description": "React utils for easy-projs.",
+    "description": "A package that contains React utilities.",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "typings": "lib/index.d.ts",

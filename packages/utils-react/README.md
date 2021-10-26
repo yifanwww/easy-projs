@@ -1,15 +1,40 @@
 # @easy/utils-react
 
-React utils for easy-projs.
+A package that contains React utilities.
 
 ## Usage
-### `clns`
+### `renderFactory` && `defaultOnRender`
 
 ```tsx
-import { clns } from '@easy/utils-react';
+import { defaultOnRender, renderFactory, RenderFn } from '@easy/utils-react';
 
-function Component() {
-    return <div classNames={clns('class-a', 'class-b')} />;
+export interface IPageHeaderProps {
+    title: string;
+}
+
+export const PageHeader = (props: Readonly<IPageHeaderProps>) => (
+    <div>
+        {props.title}
+        {/* ... */}
+    </div>
+);
+
+const renderHeader = renderFactory(PageHeader);
+
+export interface IPageProps {
+    onRenderHeader?: RenderFn<IPageHeaderProps>;
+    title: string;
+}
+
+export function Page(props: Readonly<IPageProps>) {
+    const { onRenderHeader = defaultOnRender, title } = props;
+
+    return (
+        <div>
+            {onRenderHeader({ title }, renderHeader)}
+            {/* ... */}
+        </div>
+    );
 }
 ```
 
