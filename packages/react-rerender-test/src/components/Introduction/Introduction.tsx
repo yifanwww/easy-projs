@@ -16,7 +16,7 @@ export function Introduction(): ReactElement {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Learn easy-projs
+                Learn react-rerender-test
             </a>
         </header>
     );
