@@ -1,5 +1,5 @@
 {
-    "name": "@easy/react-renderer-test",
+    "name": "@easy/react-rerender-test",
     "version": "0.0.0",
     "description": "This project is used to test how React components rerender.",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
@@ -16,7 +16,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/project-template-browser-react"
+        "directory": "packages/react-rerender-test"
     },
     "browserslist": [
         "last 9 chrome versions"

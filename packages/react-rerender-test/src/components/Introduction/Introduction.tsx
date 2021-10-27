@@ -1,12 +1,12 @@
+import Assets from '@easy/assets';
 import { ReactElement } from 'react';
 
-import logo from './logo.svg';
 import scss from './Introduction.module.scss';
 
 export function Introduction(): ReactElement {
     return (
         <header className={scss.introduction}>
-            <img className={scss.logo} src={logo} alt="logo" />
+            <img className={scss.logo} src={Assets.logo} alt="logo" />
             <p>
                 Edit <code>src/components/Introduction/Introduction.tsx</code> and save to reload.
             </p>
