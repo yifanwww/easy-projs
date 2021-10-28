@@ -3,10 +3,15 @@ import { IPageComponents, IPageInfo, PageKey } from 'src/common';
 import { ChangeLevelPage } from './ChangeLevelPage';
 import { ChangeMiddleComponentPage } from './ChangeMiddleComponentPage';
 import { ChangeParentPage } from './ChangeParentPage';
-import { MainPage } from './MainPage';
+import { HomePage } from './HomePage';
 import { RouterLikePage } from './RouterLikePage';
 
 export const pages: IPageComponents = {
+    '/home': {
+        component: HomePage,
+        pageKey: '/home',
+        sidebarName: 'Home',
+    },
     '/change-level': {
         component: ChangeLevelPage,
         pageKey: '/change-level',
@@ -22,11 +27,6 @@ export const pages: IPageComponents = {
         pageKey: '/change-parent',
         sidebarName: 'Change Parent',
     },
-    '/main': {
-        component: MainPage,
-        pageKey: '/main',
-        sidebarName: 'Main',
-    },
     '/router-like': {
         component: RouterLikePage,
         pageKey: '/router-like',
@@ -35,5 +35,7 @@ export const pages: IPageComponents = {
 };
 
 export const pageKeys = Object.keys(pages) as PageKey[];
+
+export const HomePageKey: PageKey = '/home';
 
 export const getPageInfo = (key: PageKey): IPageInfo => pages[key];

@@ -7,7 +7,7 @@ import './index.css';
 
 import { PageKey } from './common';
 import { Page } from './components/Page';
-import { getPageInfo, pageKeys } from './containers/configs';
+import { getPageInfo, HomePageKey, pageKeys } from './containers/configs';
 import { PageContextUpdater, PageProvider } from './contexts/PageContext';
 import { history } from './history';
 
@@ -44,7 +44,7 @@ function UnknownPageRoute(): React.ReactElement {
             path="*"
             render={(_props) => {
                 const { pathname } = _props.location;
-                return pageKeys.some((key) => key === pathname) || <Redirect to="/main" />;
+                return pageKeys.some((key) => key === pathname) || <Redirect to={HomePageKey} />;
             }}
         />
     );

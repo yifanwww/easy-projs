@@ -1,4 +1,4 @@
-export type PageKey = '/change-level' | '/change-middle-component' | '/change-parent' | '/main' | '/router-like';
+export type PageKey = '/home' | '/change-level' | '/change-middle-component' | '/change-parent' | '/router-like';
 
 export interface IPageInfo {
     component: React.ComponentType;
