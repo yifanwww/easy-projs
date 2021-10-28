@@ -1,1 +1,2 @@
-export * from './ChangeParentPage';
+export * from './PrcChangeParentPage';
+export * from './PtcChangeParentPage';

@@ -1,1 +1,2 @@
-export * from './RouterLikePage';
+export * from './PrcRouterLikePage';
+export * from './PtcRouterLikePage';

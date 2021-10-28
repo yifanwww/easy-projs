@@ -1,38 +1,57 @@
 import { IPages, IPageInfo, PageURL } from 'src/common';
 
-import { ChangeLevelPage } from './ChangeLevelPage';
-import { ChangeMiddleComponentPage } from './ChangeMiddleComponentPage';
-import { ChangeParentPage } from './ChangeParentPage';
+import { PrcChangeLevelPage, PtcChangeLevelPage } from './ChangeLevelPage';
+import { PrcChangeParentPage, PtcChangeParentPage } from './ChangeParentPage';
 import { HomePage } from './HomePage';
-import { RouterLikePage } from './RouterLikePage';
+import { PrcRouterLikePage, PtcRouterLikePage } from './RouterLikePage';
 
-export const pages: IPages = {
-    '/home': {
+function transform(pages: IPageInfo[]): IPages {
+    const _pages: Partial<IPages> = {};
+
+    for (const page of pages) {
+        _pages[page.url] = page;
+    }
+
+    return _pages as never;
+}
+
+export const pages = transform([
+    {
         component: HomePage,
         url: '/home',
         sidebarName: 'Home',
     },
-    '/change-level': {
-        component: ChangeLevelPage,
-        url: '/change-level',
-        sidebarName: 'Change Level',
+    {
+        component: PrcChangeLevelPage,
+        url: '/prc/change-level',
+        sidebarName: 'PRC Change Level',
     },
-    '/change-middle-component': {
-        component: ChangeMiddleComponentPage,
-        url: '/change-middle-component',
-        sidebarName: 'Change Middle Component',
+    {
+        component: PrcChangeParentPage,
+        url: '/prc/change-parent',
+        sidebarName: 'PRC Change Parent',
     },
-    '/change-parent': {
-        component: ChangeParentPage,
-        url: '/change-parent',
-        sidebarName: 'Change Parent',
+    {
+        component: PrcRouterLikePage,
+        url: '/prc/router-like',
+        sidebarName: 'PRC Router Like',
     },
-    '/router-like': {
-        component: RouterLikePage,
-        url: '/router-like',
-        sidebarName: 'Router Like',
+    {
+        component: PtcChangeLevelPage,
+        url: '/ptc/change-level',
+        sidebarName: 'PTC Change Level',
     },
-};
+    {
+        component: PtcChangeParentPage,
+        url: '/ptc/change-parent',
+        sidebarName: 'PTC Change Parent',
+    },
+    {
+        component: PtcRouterLikePage,
+        url: '/ptc/router-like',
+        sidebarName: 'PTC Router Like',
+    },
+]);
 
 export const pageURLs = Object.keys(pages) as PageURL[];
 
