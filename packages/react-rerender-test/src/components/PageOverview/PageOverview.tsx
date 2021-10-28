@@ -1,7 +1,20 @@
+import { PageOverviewItem } from './PageOverviewItem';
+
+import scss from './PageOverview.module.scss';
+import { IPageOverview } from './types';
+
 export interface IPageOverviewProps {
-    title: string;
+    overviews: IPageOverview[];
 }
 
-export function PageOverview(): React.ReactElement {
-    return <div />;
+export function PageOverview(props: Readonly<IPageOverviewProps>): React.ReactElement {
+    const { overviews } = props;
+
+    return (
+        <div className={scss.root}>
+            {overviews.map((overview) => (
+                <PageOverviewItem key={overview.url} {...overview} />
+            ))}
+        </div>
+    );
 }

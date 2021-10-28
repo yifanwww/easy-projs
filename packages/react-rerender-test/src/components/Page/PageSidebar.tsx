@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { getPageInfo, pageURLs } from 'src/containers/configs';
 import { usePageURL } from 'src/hooks/usePageURL';
 
+import scss from './Page.module.scss';
+
 export function PageSidebar() {
     const pageURL = usePageURL();
 
@@ -18,9 +20,8 @@ export function PageSidebar() {
     });
 
     return (
-        <Layout.Sider>
-            <div className="logo" />
-            <Menu theme="dark" selectedKeys={pageURL ? [pageURL] : undefined} mode="inline">
+        <Layout.Sider className={scss.sider}>
+            <Menu className={scss.siderMenu} mode="inline" selectedKeys={[pageURL]}>
                 {items}
             </Menu>
         </Layout.Sider>

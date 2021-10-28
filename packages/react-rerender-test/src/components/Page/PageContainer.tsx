@@ -1,9 +1,14 @@
 import { Layout } from 'antd';
+import clsx from 'clsx';
 
-export interface IPageContainerProps extends IChildrenProps {}
+import scss from './Page.module.scss';
+
+export interface IPageContainerProps extends IChildrenProps {
+    className?: string;
+}
 
 export function PageContainer(props: Readonly<IPageContainerProps>): React.ReactElement {
-    const { children } = props;
+    const { children, className } = props;
 
-    return <Layout.Content>{children}</Layout.Content>;
+    return <Layout.Content className={clsx(scss.pageContainer, className)}>{children}</Layout.Content>;
 }

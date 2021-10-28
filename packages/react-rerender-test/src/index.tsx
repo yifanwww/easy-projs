@@ -1,3 +1,4 @@
+import { ConfigProvider } from 'antd';
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 import { Redirect, Route, Switch } from 'react-router';
@@ -33,9 +34,11 @@ function ClientArea(): React.ReactElement {
 
 function App(): React.ReactElement {
     return (
-        <BrowserRouter>
-            <ClientArea />
-        </BrowserRouter>
+        <ConfigProvider autoInsertSpaceInButton={false}>
+            <BrowserRouter>
+                <ClientArea />
+            </BrowserRouter>
+        </ConfigProvider>
     );
 }
 
