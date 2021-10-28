@@ -4,11 +4,7 @@
     "description": "Scripts for easy-projs.",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
-    "author": {
-        "name": "yifanwww",
-        "email": "yifanw1101@gmail.com",
-        "url": "https://github.com/yifanwww"
-    },
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
     "bugs": {
         "url": "https://github.com/yifanwww/easy-projs/issues"
     },
