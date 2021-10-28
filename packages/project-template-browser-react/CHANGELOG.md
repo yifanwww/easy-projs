@@ -5,6 +5,10 @@
 - Initialize FluentUI icons
 - Add `test.setup.ts`
 
+### Changes
+
+- Change port from `4321` to `4444`
+
 ## @easy/project-template-browser-react v0.3.0 (2021-10-08)
 ### Features
 
