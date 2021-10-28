@@ -1,11 +1,11 @@
-export type PageKey = '/home' | '/change-level' | '/change-middle-component' | '/change-parent' | '/router-like';
+export type PageURL = '/home' | '/change-level' | '/change-middle-component' | '/change-parent' | '/router-like';
 
 export interface IPageInfo {
     component: React.ComponentType;
-    pageKey: PageKey;
     sidebarName: string;
+    url: PageURL;
 }
 
-export type IPageComponents = {
-    [pageKey in PageKey]: IPageInfo;
+export type IPages = {
+    [URL in PageURL]: IPageInfo;
 };

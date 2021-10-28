@@ -1,4 +1,4 @@
-import { IPageComponents, IPageInfo, PageKey } from 'src/common';
+import { IPages, IPageInfo, PageURL } from 'src/common';
 
 import { ChangeLevelPage } from './ChangeLevelPage';
 import { ChangeMiddleComponentPage } from './ChangeMiddleComponentPage';
@@ -6,36 +6,36 @@ import { ChangeParentPage } from './ChangeParentPage';
 import { HomePage } from './HomePage';
 import { RouterLikePage } from './RouterLikePage';
 
-export const pages: IPageComponents = {
+export const pages: IPages = {
     '/home': {
         component: HomePage,
-        pageKey: '/home',
+        url: '/home',
         sidebarName: 'Home',
     },
     '/change-level': {
         component: ChangeLevelPage,
-        pageKey: '/change-level',
+        url: '/change-level',
         sidebarName: 'Change Level',
     },
     '/change-middle-component': {
         component: ChangeMiddleComponentPage,
-        pageKey: '/change-middle-component',
+        url: '/change-middle-component',
         sidebarName: 'Change Middle Component',
     },
     '/change-parent': {
         component: ChangeParentPage,
-        pageKey: '/change-parent',
+        url: '/change-parent',
         sidebarName: 'Change Parent',
     },
     '/router-like': {
         component: RouterLikePage,
-        pageKey: '/router-like',
+        url: '/router-like',
         sidebarName: 'Router Like',
     },
 };
 
-export const pageKeys = Object.keys(pages) as PageKey[];
+export const pageURLs = Object.keys(pages) as PageURL[];
 
-export const HomePageKey: PageKey = '/home';
+export const homePageURL: PageURL = '/home';
 
-export const getPageInfo = (key: PageKey): IPageInfo => pages[key];
+export const getPageInfo = (url: PageURL): IPageInfo => pages[url];

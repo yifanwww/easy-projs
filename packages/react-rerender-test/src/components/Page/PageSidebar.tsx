@@ -1,19 +1,18 @@
 import { Layout, Menu } from 'antd';
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getPageInfo, pageKeys } from 'src/containers/configs';
-import { PageContext } from 'src/contexts/PageContext';
+import { getPageInfo, pageURLs } from 'src/containers/configs';
+import { usePageURL } from 'src/hooks/usePageURL';
 
 export function PageSidebar() {
-    const { pageKey } = useContext(PageContext);
+    const pageURL = usePageURL();
 
-    const items = pageKeys.map((key) => {
-        const pageInfo = getPageInfo(key);
+    const items = pageURLs.map((url) => {
+        const pageInfo = getPageInfo(url);
 
         return (
-            <Menu.Item key={key}>
-                <Link to={pageInfo.pageKey}>{pageInfo.sidebarName}</Link>
+            <Menu.Item key={url}>
+                <Link to={pageInfo.url}>{pageInfo.sidebarName}</Link>
             </Menu.Item>
         );
     });
@@ -21,7 +20,7 @@ export function PageSidebar() {
     return (
         <Layout.Sider>
             <div className="logo" />
-            <Menu theme="dark" selectedKeys={pageKey ? [pageKey] : undefined} mode="inline">
+            <Menu theme="dark" selectedKeys={pageURL ? [pageURL] : undefined} mode="inline">
                 {items}
             </Menu>
         </Layout.Sider>
