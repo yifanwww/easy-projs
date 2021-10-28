@@ -8,6 +8,7 @@ const genCommand = <T extends (string | false | undefined | null)[]>(...params: 
 export function buildPackages(): void {
     const packagesOrder = [
         /* ----- may be used by all other packages ----- */
+        '@easy/utils-type',
         '@easy/utils-test',
 
         /* ----- product packages ----- */

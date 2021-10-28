@@ -171,6 +171,10 @@
         {
             "name": "@easy/utils-test",
             "path": "packages/utils-test"
+        },
+        {
+            "name": "@easy/utils-type",
+            "path": "packages/utils-type"
         }
     ]
 }
