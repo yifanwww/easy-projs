@@ -1,21 +1,21 @@
 {
-    "name": "@easy/utils-test",
-    "version": "0.1.0",
-    "description": "Test utils used for easy-projs.",
+    "name": "@easy/utils-type",
+    "version": "0.0.0",
+    "description": "Type utilities.",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "typings": "lib/index.d.ts",
-    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
     "bugs": {
-        "url": "https://github.com/yifanwww/easy-projs/issues"
+        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
     },
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/utils-test"
+        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
+        "directory": "packages/utils-type"
     },
     "scripts": {
         "build": "concurrently -n esm,types \"npm run build:esm\" \"npm run build:types\"",
