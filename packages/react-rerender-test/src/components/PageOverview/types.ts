@@ -1,7 +1,10 @@
 import { PageURL } from 'src/common';
 
+export type PageType = 'none' | 'prc' | 'ptc';
+
 export interface IPageOverview {
-    title: string;
-    url: PageURL;
     desc?: string;
+    title: string;
+    type: PageType;
+    url: PageURL;
 }

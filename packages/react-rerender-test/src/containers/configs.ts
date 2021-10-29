@@ -3,6 +3,8 @@ import { IPages, IPageInfo, PageURL } from 'src/common';
 import { PrcChangeLevelPage, PtcChangeLevelPage } from './ChangeLevelPage';
 import { PrcChangeParentPage, PtcChangeParentPage } from './ChangeParentPage';
 import { HomePage } from './HomePage';
+import { NestedFCPage } from './NestedFCPage';
+import { PrcRerenderParentPage, PtcRerenderParentPage } from './RerenderParent';
 import { PrcRouterLikePage, PtcRouterLikePage } from './RouterLikePage';
 
 function transform(pages: IPageInfo[]): IPages {
@@ -19,37 +21,52 @@ export const pages = transform([
     {
         component: HomePage,
         url: '/home',
-        sidebarName: 'Home',
+        siderName: 'Home',
     },
     {
         component: PrcChangeLevelPage,
         url: '/prc/change-level',
-        sidebarName: 'PRC Change Level',
-    },
-    {
-        component: PrcChangeParentPage,
-        url: '/prc/change-parent',
-        sidebarName: 'PRC Change Parent',
-    },
-    {
-        component: PrcRouterLikePage,
-        url: '/prc/router-like',
-        sidebarName: 'PRC Router Like',
+        siderName: 'Change Level (PRC)',
     },
     {
         component: PtcChangeLevelPage,
         url: '/ptc/change-level',
-        sidebarName: 'PTC Change Level',
+        siderName: 'Change Level (PTC)',
+    },
+    {
+        component: PrcChangeParentPage,
+        url: '/prc/change-parent',
+        siderName: 'Change Parent (PRC)',
     },
     {
         component: PtcChangeParentPage,
         url: '/ptc/change-parent',
-        sidebarName: 'PTC Change Parent',
+        siderName: 'Change Parent (PTC)',
+    },
+    {
+        component: NestedFCPage,
+        url: '/nested-fc',
+        siderName: 'Nested FC',
+    },
+    {
+        component: PrcRerenderParentPage,
+        url: '/prc/rerender-parent',
+        siderName: 'Rerender Parent (PRC)',
+    },
+    {
+        component: PtcRerenderParentPage,
+        url: '/ptc/rerender-parent',
+        siderName: 'Rerender Parent (PTC)',
+    },
+    {
+        component: PrcRouterLikePage,
+        url: '/prc/router-like',
+        siderName: 'Router Like (PRC)',
     },
     {
         component: PtcRouterLikePage,
         url: '/ptc/router-like',
-        sidebarName: 'PTC Router Like',
+        siderName: 'Router Like (PTC)',
     },
 ]);
 

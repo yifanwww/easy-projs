@@ -14,7 +14,7 @@ export function PageSidebar() {
 
         return (
             <Menu.Item key={url}>
-                <Link to={pageInfo.url}>{pageInfo.sidebarName}</Link>
+                <Link to={pageInfo.url}>{pageInfo.siderName}</Link>
             </Menu.Item>
         );
     });

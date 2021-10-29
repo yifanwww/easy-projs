@@ -1,20 +1,54 @@
-import { Button } from 'antd';
+import { Button, Tag } from 'antd';
 import { useHistory } from 'react-router';
 
-import { IPageOverview } from './types';
+import { IPageOverview, PageType } from './types';
 
 import scss from './PageOverview.module.scss';
+
+interface IPageTagProps {
+    type: PageType;
+}
+
+function PageTag(props: Readonly<IPageTagProps>): Optional<React.ReactElement> {
+    const { type } = props;
+
+    let never: never;
+    switch (type) {
+        case 'none':
+            return null;
+        case 'prc':
+            return (
+                <Tag className={scss.tag} color="green">
+                    prc
+                </Tag>
+            );
+        case 'ptc':
+            return (
+                <Tag className={scss.tag} color="blue">
+                    ptc
+                </Tag>
+            );
+
+        default:
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            never = type;
+            return null;
+    }
+}
 
 export interface IPageOverviewItemProps extends IPageOverview {}
 
 export function PageOverviewItem(props: Readonly<IPageOverviewItemProps>): React.ReactElement {
-    const { title, url } = props;
+    const { title, type, url } = props;
 
     const history = useHistory();
 
     return (
         <Button className={scss.item} onClick={() => history.push(url)}>
-            <span className={scss.title}>{title}</span>
+            <div className={scss.titleContainer}>
+                <span className={scss.title}>{title}</span>
+                <PageTag type={type} />
+            </div>
             <code className={scss.url}>{url}</code>
         </Button>
     );
@@ -27,11 +61,7 @@ export interface IPageOverviewProps {
 export function PageOverview(props: Readonly<IPageOverviewProps>): React.ReactElement {
     const { overviews } = props;
 
-    return (
-        <div className={scss.root}>
-            {overviews.map((overview) => (
-                <PageOverviewItem key={overview.url} {...overview} />
-            ))}
-        </div>
-    );
+    const elements = overviews.map((overview) => <PageOverviewItem key={overview.url} {...overview} />);
+
+    return <div className={scss.root}>{elements}</div>;
 }
