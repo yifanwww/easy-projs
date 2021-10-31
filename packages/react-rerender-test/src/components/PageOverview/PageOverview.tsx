@@ -9,7 +9,7 @@ interface IPageTagProps {
     type: PageType;
 }
 
-function PageTag(props: Readonly<IPageTagProps>): Optional<React.ReactElement> {
+function PageTag(props: IPageTagProps): Optional<React.ReactElement> {
     const { type } = props;
 
     let never: never;
@@ -38,7 +38,7 @@ function PageTag(props: Readonly<IPageTagProps>): Optional<React.ReactElement> {
 
 export interface IPageOverviewItemProps extends IPageOverview {}
 
-export function PageOverviewItem(props: Readonly<IPageOverviewItemProps>): React.ReactElement {
+export function PageOverviewItem(props: IPageOverviewItemProps): React.ReactElement {
     const { title, type, url } = props;
 
     const history = useHistory();
@@ -58,7 +58,7 @@ export interface IPageOverviewProps {
     overviews: IPageOverview[];
 }
 
-export function PageOverview(props: Readonly<IPageOverviewProps>): React.ReactElement {
+export function PageOverview(props: IPageOverviewProps): React.ReactElement {
     const { overviews } = props;
 
     const elements = overviews.map((overview) => <PageOverviewItem key={overview.url} {...overview} />);

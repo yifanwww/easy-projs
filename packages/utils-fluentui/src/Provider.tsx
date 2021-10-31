@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 
 export interface IFluentuiProviderProps extends IChildrenProps {}
 
-export function FluentuiProvider(props: Readonly<IFluentuiProviderProps>) {
+export function FluentuiProvider(props: IFluentuiProviderProps): React.ReactElement {
     const classes = useStyles();
 
     return (

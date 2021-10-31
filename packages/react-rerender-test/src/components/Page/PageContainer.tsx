@@ -7,7 +7,7 @@ export interface IPageContainerProps extends IChildrenProps {
     className?: string;
 }
 
-export function PageContainer(props: Readonly<IPageContainerProps>): React.ReactElement {
+export function PageContainer(props: IPageContainerProps): React.ReactElement {
     const { children, className } = props;
 
     return <Layout.Content className={clsx(scss.pageContainer, className)}>{children}</Layout.Content>;
