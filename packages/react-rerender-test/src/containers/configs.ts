@@ -4,7 +4,7 @@ import { PrcChangeLevelPage, PtcChangeLevelPage } from './ChangeLevelPage';
 import { PrcChangeParentPage, PtcChangeParentPage } from './ChangeParentPage';
 import { HomePage } from './HomePage';
 import { NestedFCPage } from './NestedFCPage';
-import { PrcRerenderParentPage, PtcRerenderParentPage } from './RerenderParent';
+import { PrcRerenderParentPage, PtcRerenderParentPage } from './RerenderParentPage';
 import { PrcRouterLikePage, PtcRouterLikePage } from './RouterLikePage';
 
 function transform(pages: IPageInfo[]): IPages {
