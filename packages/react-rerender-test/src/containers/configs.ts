@@ -1,4 +1,4 @@
-import { IPages, IPageInfo, PageURL } from 'src/common';
+import { IPages, IPageInfo, PageURL } from 'src/common/page';
 
 import { PrcChangeLevelPage, PtcChangeLevelPage } from './ChangeLevelPage';
 import { PrcChangeParentPage, PtcChangeParentPage } from './ChangeParentPage';

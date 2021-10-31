@@ -1,4 +1,4 @@
-import { PageURL } from 'src/common';
+import { PageURL } from 'src/common/page';
 
 export type PageType = 'none' | 'prc' | 'ptc';
 

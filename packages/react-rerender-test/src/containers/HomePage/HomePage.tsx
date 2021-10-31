@@ -1,5 +1,4 @@
 import { Note } from 'src/components/Note';
-import { PageContainer } from 'src/components/Page';
 import { IPageOverview, PageOverview } from 'src/components/PageOverview';
 
 import scss from './HomePage.module.scss';
@@ -18,10 +17,10 @@ const overviews: IPageOverview[] = [
 
 export function HomePage(): React.ReactElement {
     return (
-        <PageContainer className={scss.pageContainer}>
+        <div className={scss.root}>
             <div className={scss.title}>React Rerender Test</div>
             <PageOverview overviews={overviews} />
             <Note />
-        </PageContainer>
+        </div>
     );
 }

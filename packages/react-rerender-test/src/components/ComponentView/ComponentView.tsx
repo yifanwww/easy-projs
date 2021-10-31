@@ -8,21 +8,20 @@ export interface IComponentViewProps extends IChildrenProps {
      */
     color: string;
     name: string;
-    onRenderChildren?: () => React.ReactNode;
 }
 
 export function ComponentView(props: Readonly<IComponentViewProps>): React.ReactElement {
-    const { children, color, name, onRenderChildren } = props;
+    const { children, color, name } = props;
 
     const renderCount = useRenderCount();
 
     return (
         <div className={scss.root} style={{ background: color }}>
             <div className={scss.info}>
-                <span>{name}</span>
+                <span className={scss.name}>{name}</span>
                 <span>render count: {renderCount}</span>
             </div>
-            {onRenderChildren ? onRenderChildren() : children}
+            {children}
         </div>
     );
 }

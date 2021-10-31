@@ -1,21 +1,28 @@
 import { Button } from 'antd';
-import { useContext } from 'react';
-import { ComponentView } from 'src/components/ComponentView';
-import { PageContainer } from 'src/components/Page';
+import { useContext, useEffect } from 'react';
+
+import { createInspectedFC, Inspector } from 'src/components/Inspector';
+import { TestPage } from 'src/components/TestPage/TestPage';
 import { Color } from 'src/constants';
-import { RecordProvider } from 'src/contexts/RecordContext';
+import { InspectContextUpdater, InspectProvider } from 'src/contexts/InspectContext';
+import { RenderContext, RenderContextUpdater, RenderProvider } from 'src/contexts/RenderContext';
 
-import { RenderContext, RenderContextUpdater, RenderProvider } from './Context';
+const Child = createInspectedFC(() => <div />, { color: Color.Green, name: 'Child' });
 
-function Child(): React.ReactElement {
-    return <ComponentView color={Color.Green} name="Child" />;
-}
+const Parent = createInspectedFC(
+    () => {
+        const { forceUpdate } = useContext(InspectContextUpdater);
 
-function Parent(): React.ReactElement {
-    useContext(RenderContext);
+        useEffect(() => {
+            forceUpdate();
+        }, [forceUpdate]);
 
-    return <ComponentView color={Color.Lime} name="Parent" onRenderChildren={() => <Child />} />;
-}
+        useContext(RenderContext);
+
+        return <Child />;
+    },
+    { color: Color.Lime, name: 'Parent' },
+);
 
 function ControlButton(): React.ReactElement {
     const { forceUpdate } = useContext(RenderContextUpdater);
@@ -29,13 +36,15 @@ function ControlButton(): React.ReactElement {
 
 export function PrcRerenderParentPage(): React.ReactElement {
     return (
-        <RecordProvider>
-            <RenderProvider>
-                <PageContainer center gap={24}>
-                    <Parent />
+        <InspectProvider>
+            <TestPage>
+                <RenderProvider>
+                    <Inspector>
+                        <Parent />
+                    </Inspector>
                     <ControlButton />
-                </PageContainer>
-            </RenderProvider>
-        </RecordProvider>
+                </RenderProvider>
+            </TestPage>
+        </InspectProvider>
     );
 }
