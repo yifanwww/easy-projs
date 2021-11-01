@@ -4,18 +4,16 @@ import { useContext, useEffect } from 'react';
 import { createInspectedFC, Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage/TestPage';
 import { Color } from 'src/constants';
-import { InspectContextUpdater, InspectProvider } from 'src/contexts/InspectContext';
+import { InspectionContextUpdater, InspectionProvider } from 'src/contexts/InspectionContext';
 import { RenderContext, RenderContextUpdater, RenderProvider } from 'src/contexts/RenderContext';
 
 const Child = createInspectedFC(() => <div />, { color: Color.Green, name: 'Child' });
 
 const Parent = createInspectedFC(
     () => {
-        const { forceUpdate } = useContext(InspectContextUpdater);
+        const { forceUpdate } = useContext(InspectionContextUpdater);
 
-        useEffect(() => {
-            forceUpdate();
-        }, [forceUpdate]);
+        useEffect(() => forceUpdate());
 
         useContext(RenderContext);
 
@@ -34,9 +32,9 @@ function ControlButton(): React.ReactElement {
     );
 }
 
-export function PrcRerenderParentPage(): React.ReactElement {
+export function RerenderParentPage(): React.ReactElement {
     return (
-        <InspectProvider>
+        <InspectionProvider>
             <TestPage>
                 <RenderProvider>
                     <Inspector>
@@ -45,6 +43,6 @@ export function PrcRerenderParentPage(): React.ReactElement {
                     <ControlButton />
                 </RenderProvider>
             </TestPage>
-        </InspectProvider>
+        </InspectionProvider>
     );
 }

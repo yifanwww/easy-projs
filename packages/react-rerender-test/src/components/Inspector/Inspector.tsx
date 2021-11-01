@@ -1,4 +1,4 @@
-export const inspectorDisplayName = 'Inspector';
+import { inspectorName } from 'src/common/inspection';
 
 export const Inspector: React.FC = (props) => <>{props.children}</>;
-Inspector.displayName = inspectorDisplayName;
+Inspector.displayName = inspectorName;

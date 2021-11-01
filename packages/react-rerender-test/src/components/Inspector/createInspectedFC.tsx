@@ -1,21 +1,24 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 
-import { IInspectedNode } from 'src/common/inspect';
+import { IInspectionRecord, inspectorName } from 'src/common/inspection';
+import { InspectionContextUpdater } from 'src/contexts/InspectionContext';
+import { useFnCallInStrictMode } from 'src/hooks/useFnCallInStrictMode';
 
 import { ComponentView, IComponentViewProps } from '../ComponentView';
 import { Fiber } from '../utils/fiber';
-import { inspectorDisplayName } from './Inspector';
 
 type InspectedFC<P = {}> = React.FC<P> & { inspected?: string };
 
-function useInspectedParents(): IInspectedNode[] {
-    const ref = useRef<IInspectedNode[]>();
+// @ts-ignore
+const getOwner = () => (<div />)._owner as Fiber;
+
+function useInspectedParents(): IInspectionRecord[] {
+    const ref = useRef<IInspectionRecord[]>();
 
     if (ref.current === undefined) {
         ref.current = [];
 
-        // @ts-ignore
-        const owner: Fiber = (<div />)._owner;
+        const owner = getOwner();
 
         let node = owner.return;
         while (node !== null) {
@@ -29,11 +32,11 @@ function useInspectedParents(): IInspectedNode[] {
                         key: node.key,
                         name: fc.displayName ?? fc.inspected,
                     });
-                } else if (fc.displayName === inspectorDisplayName) {
+                } else if (fc.displayName === inspectorName) {
                     ref.current.push({
                         index: node.index,
                         key: node.key,
-                        name: inspectorDisplayName,
+                        name: inspectorName,
                     });
 
                     // All inspected components should be placed in `Inspector`.
@@ -51,11 +54,32 @@ function useInspectedParents(): IInspectedNode[] {
     return ref.current;
 }
 
+function useCurrentInpectedData(): IInspectionRecord {
+    const ref = useRef<IInspectionRecord>();
+
+    if (ref.current === undefined) {
+        const owner = getOwner();
+        const fc = owner.elementType as InspectedFC;
+
+        ref.current = {
+            index: owner.index,
+            key: owner.key,
+            name: fc.displayName ?? fc.inspected!,
+        };
+    }
+
+    return ref.current;
+}
+
 export function createInspectedFC<P = {}>(fc: React.FC<P>, viewProps: IComponentViewProps): React.FC<P> {
     const _fc: InspectedFC<P> = (props) => {
-        const parents = useInspectedParents();
+        const { addRecord } = useContext(InspectionContextUpdater);
 
-        console.log(viewProps.name, parents);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const parents = useInspectedParents();
+        const data = useCurrentInpectedData();
+
+        useFnCallInStrictMode(() => addRecord(data));
 
         return <ComponentView {...viewProps}>{fc(props)}</ComponentView>;
     };

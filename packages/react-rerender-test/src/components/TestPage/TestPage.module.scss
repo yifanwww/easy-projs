@@ -1,9 +1,15 @@
 .root {
     display: flex;
     flex: auto;
+    flex-direction: row;
+    background: #fff;
+}
+
+.view {
+    display: flex;
+    flex: auto;
     flex-direction: column;
     gap: 24px;
     align-items: center;
     justify-content: center;
-    background: #fff;
 }
