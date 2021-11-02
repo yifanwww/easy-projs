@@ -3,9 +3,8 @@ import _produce from 'immer';
 import { createContext, useRef } from 'react';
 import { noop } from 'ts-essentials';
 
-import { IInspectionRecord } from 'src/common/inspection';
-
-import { ContextReducer } from './types';
+import { ContextReducer } from 'src/contexts/types';
+import { IInspectionRecord } from 'src/utils/inspection';
 
 export interface IInspectionContext {
     records: IInspectionRecord[];

@@ -1,11 +1,10 @@
 import { Button } from 'antd';
 import { useContext, useEffect } from 'react';
 
-import { createInspectedFC, Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage/TestPage';
 import { Color } from 'src/constants';
-import { InspectionContextUpdater, InspectionProvider } from 'src/contexts/InspectionContext';
 import { RenderContext, RenderContextUpdater, RenderProvider } from 'src/contexts/RenderContext';
+import { createInspectedFC, InspectionContextUpdater, InspectionProvider, Inspector } from 'src/utils/inspection';
 
 const Child = createInspectedFC(() => <div />, { color: Color.Green, name: 'Child' });
 
