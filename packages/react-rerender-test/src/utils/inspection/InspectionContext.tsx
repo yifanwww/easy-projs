@@ -43,8 +43,29 @@ export const InspectionContextUpdater = createContext<IInspectionContextUpdater>
     forceUpdate: noop,
 });
 
+export function useDoubleRenderSign() {
+    const dbRef = useRef<Record<string, boolean>>({});
+
+    const sign = useConstFn((record: IInspectionRecord): boolean => {
+        const key = JSON.stringify(record);
+
+        if (dbRef.current[key] === undefined) {
+            dbRef.current[key] = false;
+        } else {
+            dbRef.current[key] = !dbRef.current[key];
+        }
+
+        return dbRef.current[key];
+    });
+
+    return { sign };
+}
+
 export const InspectionProvider: React.FC = (props) => {
     const context = useRef(initialContext);
+
+    // As `StrictMode` is set, use this hook to check double-render in development mode.
+    const { sign } = useDoubleRenderSign();
 
     const forceUpdate = useForceUpdate();
 
@@ -53,7 +74,18 @@ export const InspectionProvider: React.FC = (props) => {
     });
 
     const updaters = useConst<IInspectionContextUpdater>(() => ({
-        addRecord: (record) => dispatch({ type: 'addRecord', record }),
+        addRecord: (record) => {
+            let signRes = true;
+
+            // Check double-render in development mode.
+            if (process.env.NODE_ENV === 'development') {
+                signRes = sign(record);
+            }
+
+            if (signRes) {
+                dispatch({ type: 'addRecord', record });
+            }
+        },
         forceUpdate,
     }));
 

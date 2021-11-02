@@ -1,28 +1,29 @@
 import { useContext, useRef } from 'react';
 
 import { ComponentView, IComponentViewProps } from 'src/components/ComponentView';
-import { Fiber } from 'src/utils/fiber';
-import { IInspectionRecord, InspectionContextUpdater, inspectorName } from 'src/utils/inspection';
+
+import { InspectionContextUpdater } from './InspectionContext';
+import { inspectorName } from './Inspector';
+import { IInspectionRecord } from './types';
 
 type InspectedFC<P = {}> = React.FC<P> & { inspected?: string };
 
 // @ts-ignore
 const getOwner = () => (<div />)._owner as Fiber;
 
-function useCurrentInpectedData(): IInspectionRecord[] {
-    const ref = useRef<IInspectionRecord[]>();
+function useCurrentInpectedData(): IInspectionRecord {
+    const ref = useRef<IInspectionRecord>();
 
     if (ref.current === undefined) {
         const owner = getOwner();
         let fc = owner.elementType as InspectedFC;
 
-        ref.current = [
-            {
-                index: owner.index,
-                key: owner.key,
-                name: fc.displayName ?? fc.inspected!,
-            },
-        ];
+        const record: IInspectionRecord = {
+            index: owner.index,
+            key: owner.key,
+            name: fc.displayName ?? fc.inspected!,
+            parents: [],
+        };
 
         // Find all inspected parents.
         let node = owner.return;
@@ -32,13 +33,13 @@ function useCurrentInpectedData(): IInspectionRecord[] {
             if (typeof type === 'function') {
                 fc = type as InspectedFC;
                 if (fc.inspected) {
-                    ref.current.push({
+                    record.parents.push({
                         index: node.index,
                         key: node.key,
                         name: fc.displayName ?? fc.inspected,
                     });
                 } else if (fc.displayName === inspectorName) {
-                    ref.current.push({
+                    record.parents.push({
                         index: node.index,
                         key: node.key,
                         name: inspectorName,
@@ -52,8 +53,9 @@ function useCurrentInpectedData(): IInspectionRecord[] {
 
             node = node.return;
         }
+        record.parents.reverse();
 
-        ref.current.reverse();
+        ref.current = record;
     }
 
     return ref.current;
@@ -65,7 +67,7 @@ export function createInspectedFC<P = {}>(fc: React.FC<P>, viewProps: IComponent
 
         const data = useCurrentInpectedData();
 
-        addRecord(data[data.length - 1]);
+        addRecord(data);
 
         return <ComponentView {...viewProps}>{fc(props)}</ComponentView>;
     };

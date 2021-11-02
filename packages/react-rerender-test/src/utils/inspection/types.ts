@@ -1,6 +1,6 @@
-export type IInspectionNodeChildren = Record<number, IInspectionTreeNode>;
+export type IInspectionNodeChildren = Record<number, IInspectionNode>;
 
-export interface IInspectionTreeNode {
+export interface IInspectionNode {
     index: number;
     children?: IInspectionNodeChildren;
     key: Optional<string>;
@@ -12,10 +12,15 @@ export interface IInspectionTree {
     children?: IInspectionNodeChildren;
 }
 
-export const inspectorName = 'Inspector';
+export interface IInspectionParent {
+    index: number;
+    key: Optional<string>;
+    name: string;
+}
 
 export interface IInspectionRecord {
     index: number;
     key: Optional<string>;
     name: string;
+    parents: IInspectionParent[];
 }
