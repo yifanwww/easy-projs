@@ -2,7 +2,7 @@ import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 
 import { getPageInfo, pageURLs } from 'src/containers/configs';
-import { usePageURL } from 'src/hooks/usePageURL';
+import { usePageURL } from 'src/hooks';
 
 import scss from './Page.module.scss';
 

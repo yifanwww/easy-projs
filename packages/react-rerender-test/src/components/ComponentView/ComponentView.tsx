@@ -1,4 +1,4 @@
-import { useRenderCount } from 'src/hooks/useRenderCount';
+import { useRenderCount } from 'src/hooks';
 
 import scss from './ComponentView.module.scss';
 

@@ -2,7 +2,7 @@ import { useContext, useRef } from 'react';
 
 import { IInspectionRecord, inspectorName } from 'src/common/inspection';
 import { InspectionContextUpdater } from 'src/contexts/InspectionContext';
-import { useFnCallInStrictMode } from 'src/hooks/useFnCallInStrictMode';
+import { useFnCallInStrictMode } from 'src/hooks';
 
 import { ComponentView, IComponentViewProps } from '../ComponentView';
 import { Fiber } from '../utils/fiber';
