@@ -3,3 +3,4 @@
 ### Features
 
 - Add utils for callback prop `onRenderXXX`: `defaultOnRender` and `renderFactory`
+- Add type `ReactImmerReducer`

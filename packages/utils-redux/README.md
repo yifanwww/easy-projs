@@ -3,18 +3,18 @@
 Redux utils for easy-projs.
 
 ## Usage
-### `IReducer`
+### `ReduxReducer`
 
 This type is used to create redux reducers in a simpler way.
 
 ```ts
-import { IReducer } from '@easy/utils-redux';
+import { ReduxReducer } from '@easy/utils-redux';
 
 export interface IEasyState {
     prepared: boolean;
 }
 
-type EasyReducer<Payload = undefined> = IReducer<IEasyState, Payload>;
+type EasyReducer<Payload = undefined> = ReduxReducer<IEasyState, Payload>;
 ```
 
 Then you can use `EasyReducer` to create your reducers.
