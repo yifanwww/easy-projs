@@ -1,9 +1,9 @@
 import { useConst, useConstFn, useForceUpdate } from '@easy/hooks';
+import { ReactImmerReducer } from '@easy/utils-react';
 import _produce from 'immer';
 import { createContext, useRef } from 'react';
 import { noop } from 'ts-essentials';
 
-import { ContextReducer } from 'src/contexts/types';
 import { IInspectionData } from 'src/utils/inspection';
 
 export interface IInspectionContext {
@@ -19,9 +19,9 @@ const initialContext: IInspectionContext = {
     records: [],
 };
 
-type IReducerAction = { type: 'addRecord'; record: IInspectionData };
+type IInspectionAction = { type: 'addRecord'; record: IInspectionData };
 
-const reducer: ContextReducer<IInspectionContext, IReducerAction> = (state, action) => {
+const reducer: ReactImmerReducer<IInspectionContext, IInspectionAction> = (state, action) => {
     let never: never;
     switch (action.type) {
         case 'addRecord':
@@ -43,7 +43,7 @@ export const InspectionContextUpdater = createContext<IInspectionContextUpdater>
     forceUpdate: noop,
 });
 
-export function useDoubleRenderSign() {
+function useDoubleRenderSign() {
     const dbRef = useRef<Record<string, boolean>>({});
 
     const sign = useConstFn((record: IInspectionData): boolean => {
@@ -69,7 +69,7 @@ export const InspectionProvider: React.FC = (props) => {
 
     const forceUpdate = useForceUpdate();
 
-    const dispatch = useConstFn((action: IReducerAction) => {
+    const dispatch = useConstFn((action: IInspectionAction) => {
         context.current = produce(context.current, action);
     });
 
