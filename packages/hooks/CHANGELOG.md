@@ -1,9 +1,14 @@
 # CHANGELOG
-## @easy/hooks v0.3.0 (Unreleased)
+## @easy/hooks v0.3.0 (2021-11-03)
 ### Features
 
 - Add hook `usePersistFn`
 - Improve `usePrevious`, only re-run effect when value changes
+- Simplify `useConstFn`
+
+### Breaking Changes
+
+- Rename interface `IUseBooleanUpdaters` to `IUseBooleanActions`
 
 ## @easy/hooks v0.2.0 (2021-10-08)
 ### Features

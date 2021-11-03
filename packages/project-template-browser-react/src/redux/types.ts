@@ -1,4 +1,4 @@
-import { IReducer } from '@easy/utils-redux';
+import { ReduxReducer } from '@easy/utils-redux';
 
 interface IDisplayConfig {
     clientAreaSize: IClientAreaSize;
@@ -9,4 +9,4 @@ export interface IStoreState {
     displayConfig: IDisplayConfig;
 }
 
-export type MainReducer<Payload = undefined> = IReducer<IStoreState, Payload>;
+export type MainReducer<Payload = undefined> = ReduxReducer<IStoreState, Payload>;

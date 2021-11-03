@@ -1,8 +1,14 @@
 # CHANGELOG
-## @easy/utils-redux v1.1.0 (Unreleased)
+## @easy/utils-redux v2.0.0 (Unreleased)
 ### Breaking Changes
 
-- Delete `createTypedSelector`
+- `createTypedSelector` is no longer supported, use `react-redux` `TypedUseSelectorHook` instead.
+- `WritableDraft` won't be re-exported from `immer`
+- Rename types
+  - `IReducer`              -> `ReduxReducer`
+  - `IThunkAction`          -> `ThunkAction`
+  - `IThunk`                -> `ThunkFn`
+  - `IThunkActionWithArgs`  -> `ThunkArgsAction`
 
 ## @easy/utils-redux v1.0.0 (2021-10-08)
 ### Breaking Changes
