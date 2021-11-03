@@ -4,14 +4,14 @@ import { createContext, useRef } from 'react';
 import { noop } from 'ts-essentials';
 
 import { ContextReducer } from 'src/contexts/types';
-import { IInspectionRecord } from 'src/utils/inspection';
+import { IInspectionData } from 'src/utils/inspection';
 
 export interface IInspectionContext {
-    records: IInspectionRecord[];
+    records: IInspectionData[];
 }
 
 export interface IInspectionContextUpdater {
-    addRecord: (record: IInspectionRecord) => void;
+    addRecord: (record: IInspectionData) => void;
     forceUpdate: () => void;
 }
 
@@ -19,7 +19,7 @@ const initialContext: IInspectionContext = {
     records: [],
 };
 
-type IReducerAction = { type: 'addRecord'; record: IInspectionRecord };
+type IReducerAction = { type: 'addRecord'; record: IInspectionData };
 
 const reducer: ContextReducer<IInspectionContext, IReducerAction> = (state, action) => {
     let never: never;
@@ -46,7 +46,7 @@ export const InspectionContextUpdater = createContext<IInspectionContextUpdater>
 export function useDoubleRenderSign() {
     const dbRef = useRef<Record<string, boolean>>({});
 
-    const sign = useConstFn((record: IInspectionRecord): boolean => {
+    const sign = useConstFn((record: IInspectionData): boolean => {
         const key = JSON.stringify(record);
 
         if (dbRef.current[key] === undefined) {

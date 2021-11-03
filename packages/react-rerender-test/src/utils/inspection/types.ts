@@ -18,9 +18,11 @@ export interface IInspectionParent {
     name: string;
 }
 
-export interface IInspectionRecord {
+export interface IInspectionData {
     index: number;
     key: Optional<string>;
     name: string;
     parents: IInspectionParent[];
 }
+
+export type InspectedFC<P = {}> = React.FC<P> & { inspected?: string };

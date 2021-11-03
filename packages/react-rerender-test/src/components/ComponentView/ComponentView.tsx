@@ -6,7 +6,7 @@ export interface IComponentViewProps extends IChildrenProps {
     /**
      * Background color.
      */
-    color: string;
+    color?: string;
     name: string;
 }
 

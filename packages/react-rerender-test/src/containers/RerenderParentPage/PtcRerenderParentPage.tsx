@@ -1,25 +1,19 @@
 import { Button } from 'antd';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 
-import { TestPage } from 'src/components/TestPage/TestPage';
-import { Color } from 'src/constants';
+import { TestPage } from 'src/components/TestPage';
 import { RenderContext, RenderContextUpdater, RenderProvider } from 'src/contexts/RenderContext';
-import { createInspectedFC, InspectionContextUpdater, InspectionProvider, Inspector } from 'src/utils/inspection';
+import { InspectionProvider, Inspector } from 'src/utils/inspection';
 
-const Child = createInspectedFC(() => <div />, { color: Color.Green, name: 'Child' });
+import { makeInspectedFC } from '../makeInspectedFC';
 
-const Parent = createInspectedFC(
-    (props) => {
-        const { forceUpdate } = useContext(InspectionContextUpdater);
+const Child = makeInspectedFC('Child', () => <div />);
 
-        useEffect(() => forceUpdate());
+const Parent = makeInspectedFC('Parent', (props) => {
+    useContext(RenderContext);
 
-        useContext(RenderContext);
-
-        return <>{props.children}</>;
-    },
-    { color: Color.Lime, name: 'Parent' },
-);
+    return <>{props.children}</>;
+});
 
 function ControlButton(): React.ReactElement {
     const { forceUpdate } = useContext(RenderContextUpdater);

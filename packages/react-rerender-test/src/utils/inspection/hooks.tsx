@@ -1,24 +1,19 @@
-import { useContext, useRef } from 'react';
-
-import { ComponentView, IComponentViewProps } from 'src/components/ComponentView';
-
-import { InspectionContextUpdater } from './InspectionContext';
+import { useRef } from 'react';
 import { inspectorName } from './Inspector';
-import { IInspectionRecord } from './types';
 
-type InspectedFC<P = {}> = React.FC<P> & { inspected?: string };
+import { IInspectionData, InspectedFC } from './types';
 
 // @ts-ignore
 const getOwner = () => (<div />)._owner as Fiber;
 
-function useCurrentInpectedData(): IInspectionRecord {
-    const ref = useRef<IInspectionRecord>();
+export function useInpectedComponentData(): IInspectionData {
+    const ref = useRef<IInspectionData>();
 
     if (ref.current === undefined) {
         const owner = getOwner();
         let fc = owner.elementType as InspectedFC;
 
-        const record: IInspectionRecord = {
+        const record: IInspectionData = {
             index: owner.index,
             key: owner.key,
             name: fc.displayName ?? fc.inspected!,
@@ -59,20 +54,4 @@ function useCurrentInpectedData(): IInspectionRecord {
     }
 
     return ref.current;
-}
-
-export function createInspectedFC<P = {}>(fc: React.FC<P>, viewProps: IComponentViewProps): React.FC<P> {
-    const _fc: InspectedFC<P> = (props) => {
-        const { addRecord } = useContext(InspectionContextUpdater);
-
-        const data = useCurrentInpectedData();
-
-        addRecord(data);
-
-        return <ComponentView {...viewProps}>{fc(props)}</ComponentView>;
-    };
-    _fc.displayName = viewProps.name;
-    _fc.inspected = viewProps.name;
-
-    return _fc;
 }
