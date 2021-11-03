@@ -1,11 +1,10 @@
-import { Button } from 'antd';
 import { useContext } from 'react';
 
 import { TestPage } from 'src/components/TestPage';
-import { RenderContext, RenderContextUpdater, RenderProvider } from 'src/contexts/RenderContext';
-import { InspectionProvider, Inspector } from 'src/utils/inspection';
+import { RenderContext } from 'src/contexts/RenderContext';
 
 import { makeInspectedFC } from '../makeInspectedFC';
+import { Controller } from './Controller';
 
 const Child = makeInspectedFC('Child', () => <div />);
 
@@ -24,28 +23,10 @@ function ParentSelector() {
     );
 }
 
-function ControlButton(): React.ReactElement {
-    const { selected } = useContext(RenderContext);
-    const { select } = useContext(RenderContextUpdater);
-
-    return (
-        <Button onClick={() => select(selected === 0 ? 1 : 0)} type="primary">
-            Change Parent
-        </Button>
-    );
-}
-
 export function ChangeParentPage(): React.ReactElement {
     return (
-        <InspectionProvider>
-            <TestPage>
-                <RenderProvider>
-                    <Inspector>
-                        <ParentSelector />
-                    </Inspector>
-                    <ControlButton />
-                </RenderProvider>
-            </TestPage>
-        </InspectionProvider>
+        <TestPage onRenderController={() => <Controller />}>
+            <ParentSelector />
+        </TestPage>
     );
 }
