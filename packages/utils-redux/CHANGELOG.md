@@ -1,5 +1,5 @@
 # CHANGELOG
-## @easy/utils-redux v1.1.0 (Unreleased)
+## @easy/utils-redux v2.0.0 (Unreleased)
 ### Breaking Changes
 
 - `createTypedSelector` is no longer supported, use `react-redux` `TypedUseSelectorHook` instead.
