@@ -1,0 +1,32 @@
+.root {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    min-width: 150px;
+    min-height: 200px;
+    padding: 16px;
+    border: 1px solid #c0c0c0;
+    border-radius: 20px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.tag {
+    padding: 0 4px;
+    margin: 0 8px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.tag > span {
+    position: relative;
+    top: -2px;
+}

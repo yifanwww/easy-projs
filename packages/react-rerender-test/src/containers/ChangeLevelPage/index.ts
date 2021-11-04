@@ -1,2 +1,1 @@
-export * from './PrcChangeLevelPage';
-export * from './PtcChangeLevelPage';
+export * from './ChangeLevelPage';
