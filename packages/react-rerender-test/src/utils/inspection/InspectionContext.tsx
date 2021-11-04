@@ -1,6 +1,5 @@
 import { useConst, useConstFn, useForceUpdate } from '@easy/hooks';
-import { ReactImmerReducer } from '@easy/utils-react';
-import _produce from 'immer';
+import produce from 'immer';
 import { createContext, useRef } from 'react';
 import { noop } from 'ts-essentials';
 
@@ -21,7 +20,7 @@ const initialContext: IInspectionContext = {
 
 type IInspectionAction = { type: 'addRecord'; record: IInspectionData };
 
-const reducer: ReactImmerReducer<IInspectionContext, IInspectionAction> = (state, action) => {
+const reduce = produce((state: IInspectionContext, action: IInspectionAction) => {
     let never: never;
     switch (action.type) {
         case 'addRecord':
@@ -31,10 +30,8 @@ const reducer: ReactImmerReducer<IInspectionContext, IInspectionAction> = (state
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = action.type;
-            break;
     }
-};
-const produce = _produce(reducer);
+});
 
 export const InspectionContext = createContext<IInspectionContext>(initialContext);
 
@@ -70,7 +67,7 @@ export const InspectionProvider: React.FC = (props) => {
     const forceUpdate = useForceUpdate();
 
     const dispatch = useConstFn((action: IInspectionAction) => {
-        context.current = produce(context.current, action);
+        context.current = reduce(context.current, action);
     });
 
     const updaters = useConst<IInspectionContextUpdater>(() => ({

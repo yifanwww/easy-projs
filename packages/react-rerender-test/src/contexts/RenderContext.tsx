@@ -1,8 +1,8 @@
 import { useConst } from '@easy/hooks';
 import { ReactImmerReducer } from '@easy/utils-react';
-import produce from 'immer';
-import { createContext, useReducer } from 'react';
+import { createContext } from 'react';
 import { noop } from 'ts-essentials';
+import { useImmerReducer } from 'use-immer';
 
 export interface IRenderContext {
     forceUpdateNumber: Integer;
@@ -30,7 +30,6 @@ const reducer: ReactImmerReducer<IRenderContext, IRenderAction> = (state, action
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = action;
-            break;
     }
 };
 
@@ -43,7 +42,7 @@ export const RenderContext = createContext<IRenderContext>(initialContext);
 export const RenderContextUpdater = createContext<IRenderContextUpdater>({ forceUpdate: noop, select: noop });
 
 export const RenderProvider: React.FC = (props) => {
-    const [context, dispatch] = useReducer(produce(reducer), initialContext);
+    const [context, dispatch] = useImmerReducer(reducer, initialContext);
 
     const updaters = useConst<IRenderContextUpdater>(() => ({
         forceUpdate: () => dispatch({ type: 'forceUpdate' }),

@@ -1,77 +1,62 @@
-import { IPages, IPageInfo, PageURL } from 'src/common/page';
+import { genRouteInfos, RoutePath } from 'src/common/route';
 
 import { PrcChangeLevelPage, PtcChangeLevelPage } from './ChangeLevelPage';
 import { PrcChangeParentPage, PtcChangeParentPage } from './ChangeParentPage';
 import { HomePage } from './HomePage';
 import { NestedFCPage } from './NestedFCPage';
 import { PrcRerenderParentPage, PtcRerenderParentPage } from './RerenderParentPage';
-import { PrcRouterLikePage, PtcRouterLikePage } from './RouterLikePage';
+import { PrcRouterPage, PtcRouterPage } from './RouterPage';
 
-function transform(pages: IPageInfo[]): IPages {
-    const _pages: Partial<IPages> = {};
-
-    for (const page of pages) {
-        _pages[page.url] = page;
-    }
-
-    return _pages as never;
-}
-
-export const pages = transform([
-    {
+export const pages = genRouteInfos({
+    [RoutePath.HomePage]: {
         component: HomePage,
-        url: '/home',
-        siderName: 'Home',
+        sider: 'Home',
     },
-    {
+    [RoutePath.PrcChangeLevelPage]: {
         component: PrcChangeLevelPage,
-        url: '/prc/change-level',
-        siderName: 'Change Level (PRC)',
+        exact: true,
+        sider: 'Change Level (PRC)',
     },
-    {
+    [RoutePath.PtcChangeLevelPage]: {
         component: PtcChangeLevelPage,
-        url: '/ptc/change-level',
-        siderName: 'Change Level (PTC)',
+        exact: true,
+        sider: 'Change Level (PTC)',
     },
-    {
+    [RoutePath.PrcChangeParentPage]: {
         component: PrcChangeParentPage,
-        url: '/prc/change-parent',
-        siderName: 'Change Parent (PRC)',
+        exact: true,
+        sider: 'Change Parent (PRC)',
     },
-    {
+    [RoutePath.PtcChangeParentPage]: {
         component: PtcChangeParentPage,
-        url: '/ptc/change-parent',
-        siderName: 'Change Parent (PTC)',
+        exact: true,
+        sider: 'Change Parent (PTC)',
     },
-    {
+    [RoutePath.NestedFCPage]: {
         component: NestedFCPage,
-        url: '/nested-fc',
-        siderName: 'Nested FC',
+        exact: true,
+        sider: 'Nested FC',
     },
-    {
+    [RoutePath.PrcRerenderParentPage]: {
         component: PrcRerenderParentPage,
-        url: '/prc/rerender-parent',
-        siderName: 'Rerender Parent (PRC)',
+        exact: true,
+        sider: 'Rerender Parent (PRC)',
     },
-    {
+    [RoutePath.PtcRerenderParentPage]: {
         component: PtcRerenderParentPage,
-        url: '/ptc/rerender-parent',
-        siderName: 'Rerender Parent (PTC)',
+        exact: true,
+        sider: 'Rerender Parent (PTC)',
     },
-    {
-        component: PrcRouterLikePage,
-        url: '/prc/router-like',
-        siderName: 'Router Like (PRC)',
+    [RoutePath.PrcRoutePage]: {
+        component: PrcRouterPage,
+        sider: 'Router (PRC)',
     },
-    {
-        component: PtcRouterLikePage,
-        url: '/ptc/router-like',
-        siderName: 'Router Like (PTC)',
+    [RoutePath.PtcRoutePage]: {
+        component: PtcRouterPage,
+        sider: 'Router (PTC)',
     },
-]);
+});
 
-export const pageURLs = Object.keys(pages) as PageURL[];
+export const pageRoutePaths = Object.keys(pages) as RoutePath[];
 
-export const homePageURL: PageURL = '/home';
-
-export const getPageInfo = (url: PageURL): IPageInfo => pages[url];
+export const getPageInfo = (path: RoutePath) => pages[path];

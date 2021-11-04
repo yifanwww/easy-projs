@@ -1,18 +1,19 @@
+import { RoutePath } from 'src/common/route';
 import { Note } from 'src/components/Note';
 import { IPageOverview, PageOverview } from 'src/components/PageOverview';
 
 import scss from './HomePage.module.scss';
 
 const overviews: IPageOverview[] = [
-    { title: 'Change Level', type: 'prc', url: '/prc/change-level' },
-    { title: 'Change Level', type: 'ptc', url: '/ptc/change-level' },
-    { title: 'Change Parent', type: 'prc', url: '/prc/change-parent' },
-    { title: 'Change Parent', type: 'ptc', url: '/ptc/change-parent' },
-    { title: 'Nested FC', type: 'none', url: '/nested-fc' },
-    { title: 'Rerender Parent', type: 'prc', url: '/prc/rerender-parent' },
-    { title: 'Rerender Parent', type: 'ptc', url: '/ptc/rerender-parent' },
-    { title: 'Router Like', type: 'prc', url: '/prc/router-like' },
-    { title: 'Router Like', type: 'ptc', url: '/ptc/router-like' },
+    { title: 'Change Level', /*   */ type: 'prc', url: RoutePath.PrcChangeLevelPage },
+    { title: 'Change Level', /*   */ type: 'ptc', url: RoutePath.PtcChangeLevelPage },
+    { title: 'Change Parent', /*  */ type: 'prc', url: RoutePath.PrcChangeParentPage },
+    { title: 'Change Parent', /*  */ type: 'ptc', url: RoutePath.PtcChangeParentPage },
+    { title: 'Nested FC', /*      */ type: 'nil', url: RoutePath.NestedFCPage },
+    { title: 'Rerender Parent', /**/ type: 'prc', url: RoutePath.PrcRerenderParentPage },
+    { title: 'Rerender Parent', /**/ type: 'ptc', url: RoutePath.PtcRerenderParentPage },
+    { title: 'Router', /*         */ type: 'prc', url: RoutePath.PrcRoutePage },
+    { title: 'Router', /*         */ type: 'ptc', url: RoutePath.PtcRoutePage },
 ];
 
 export function HomePage(): React.ReactElement {

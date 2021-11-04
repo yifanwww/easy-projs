@@ -8,8 +8,8 @@ import { Controller } from './Controller';
 
 const Child = makeInspectedFC('Child', () => <div />);
 
-const Parent1 = makeInspectedFC('Parent 1', (props) => <>{props.children}</>);
-const Parent2 = makeInspectedFC('Parent 2', (props) => <>{props.children}</>);
+const Parent1 = makeInspectedFC('Parent 1');
+const Parent2 = makeInspectedFC('Parent 2');
 
 function ParentSelector() {
     const { selected } = useContext(RenderContext);

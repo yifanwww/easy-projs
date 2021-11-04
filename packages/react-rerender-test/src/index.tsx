@@ -7,14 +7,15 @@ import { BrowserRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 
+import { RoutePath } from './common/route';
 import { Page } from './components/Page';
-import { getPageInfo, homePageURL, pageURLs } from './containers/configs';
+import { getPageInfo, pageRoutePaths } from './containers/configs';
 
 function ClientArea(): React.ReactElement {
-    const pageRoutes = pageURLs.map((pageURL) => {
-        const pageInfo = getPageInfo(pageURL);
+    const pageRoutes = pageRoutePaths.map((path) => {
+        const pageInfo = getPageInfo(path)!;
         return (
-            <Route key={pageURL} exact path={pageURL}>
+            <Route key={path} exact={pageInfo.exact} path={path}>
                 <pageInfo.component />
             </Route>
         );
@@ -25,7 +26,7 @@ function ClientArea(): React.ReactElement {
             <Switch>
                 {pageRoutes}
                 <Route key="/" path="/">
-                    <Redirect to={homePageURL} />
+                    <Redirect to={RoutePath.HomePage} />
                 </Route>
             </Switch>
         </Page>

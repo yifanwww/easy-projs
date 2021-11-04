@@ -14,7 +14,7 @@ function PageTag(props: IPageTagProps): Optional<React.ReactElement> {
 
     let never: never;
     switch (type) {
-        case 'none':
+        case 'nil':
             return null;
         case 'prc':
             return (

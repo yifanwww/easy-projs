@@ -22,8 +22,10 @@ export interface IMakeInspectedFCOptions {
     srcOfChange: boolean;
 }
 
-export function makeInspectedFC<P = {}>(name: string, fc: React.FC<P>): React.FC<P> {
-    const _fc: InspectedFC<P> = (props) => {
+export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): React.FC<P> {
+    const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
+
+    const _inspectedFC: InspectedFC<P> = (props) => {
         const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);
 
         const data = useInpectedComponentData();
@@ -37,12 +39,12 @@ export function makeInspectedFC<P = {}>(name: string, fc: React.FC<P>): React.FC
 
         return (
             <ComponentView color={colors[level]} name={name}>
-                {fc(props)}
+                {_fc(props)}
             </ComponentView>
         );
     };
-    _fc.displayName = name;
-    _fc.inspected = name;
+    _inspectedFC.displayName = name;
+    _inspectedFC.inspected = name;
 
-    return _fc;
+    return _inspectedFC;
 }
