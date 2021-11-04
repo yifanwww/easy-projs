@@ -42,14 +42,9 @@ export function Page(props: IPageProps): React.ReactElement {
 
 ```tsx
 import { ReactImmerReducer } from '@easy/utils-react';
-import produce from 'immer';
-import { useReducer } from 'react';
+import { useImmerReducer } from 'use-immer';
 
-export interface IEasyContext {
-    value1: number;
-    value2: string;
-}
-
+type IEasyContext = { value1: number; value2: string };
 type IEasyAction = { type: 'value1' } | { type: 'value2'; payload: string };
 
 const reducer: ReactImmerReducer<IEasyContext, IEasyAction> = (state, action) => {
@@ -66,19 +61,17 @@ const reducer: ReactImmerReducer<IEasyContext, IEasyAction> = (state, action) =>
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = action;
-            break;
     }
 };
 
 export function Component(): React.ReactElement {
-    const [context, dispatch] = useReducer(produce(reducer), { value1: 0, value2: '' });
+    const [context, dispatch] = useImmerReducer(reducer, { value1: 0, value2: '' });
 
     // do something
 
     return /* something */;
 }
 ```
-
 
 ## Develop this package
 
