@@ -12,9 +12,21 @@
 .info {
     display: flex;
     flex-direction: column;
-    width: 100px;
+    width: 120px;
 }
 
-.name {
+.title {
     font-weight: 500;
+}
+
+.tag {
+    padding: 0 4px;
+    margin: 0 8px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.tag > span {
+    position: relative;
+    top: -2px;
 }

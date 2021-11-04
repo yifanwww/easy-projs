@@ -6,10 +6,10 @@ import { RenderContext, RenderContextUpdater } from 'src/contexts/RenderContext'
 
 import { makeInspectedFC } from '../makeInspectedFC';
 
-const Parent = makeInspectedFC('Parent', () => {
+const Parent = makeInspectedFC('Parent')(() => {
     useContext(RenderContext);
 
-    const Child = makeInspectedFC('Child', () => <div />);
+    const Child = makeInspectedFC('Child')(() => <div />);
 
     return <Child />;
 });

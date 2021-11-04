@@ -6,27 +6,40 @@ import { TestPage } from 'src/components/TestPage';
 import { makeInspectedFC } from '../makeInspectedFC';
 import { Controller } from './Controller';
 
-const routes: string[] = [1, 2, 3, 4, 5].map((num) => generatePath(RoutePath.PrcRoutePageDetail, { num }));
+const routes: string[] = [1, 2, 3, 4, 5].map((num) => generatePath(RoutePath.RoutePageDetail, { num }));
 
-const Child = makeInspectedFC('Child', () => <div />);
+const Child = makeInspectedFC('Child')(() => <div />);
 
-const Router = makeInspectedFC('Router', () => {
+const RouterPrc = makeInspectedFC('Router')(() => {
     return (
         <Switch>
             {routes.map((route) => (
                 <Route key={route} exact path={route} render={() => <Child />} />
             ))}
-            <Route key={RoutePath.PrcRoutePage} path={RoutePath.PrcRoutePage}>
-                <Redirect to={generatePath(RoutePath.PrcRoutePageDetail, { num: 1 })} />
-            </Route>
+        </Switch>
+    );
+});
+
+const RouterPtc = makeInspectedFC('Router')(() => {
+    return (
+        <Switch>
+            {routes.map((route) => (
+                <Route key={route} exact path={route}>
+                    <Child />
+                </Route>
+            ))}
         </Switch>
     );
 });
 
 export function RouterPage(): React.ReactElement {
     return (
-        <TestPage onRenderController={() => <Controller type="prc" />}>
-            <Router />
+        <TestPage onRenderController={() => <Controller />}>
+            <RouterPrc />
+            <RouterPtc />
+            <Route key={RoutePath.RoutePage} path={RoutePath.RoutePage}>
+                <Redirect to={generatePath(RoutePath.RoutePageDetail, { num: 1 })} />
+            </Route>
         </TestPage>
     );
 }

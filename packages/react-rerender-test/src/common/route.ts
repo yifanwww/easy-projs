@@ -1,16 +1,12 @@
 export enum RoutePath {
     HomePage = '/home',
+
+    ChangeLevelPage = '/change-level',
+    ChangeParentPage = '/change-parent',
     NestedFCPage = '/nested-fc',
-    PrcChangeLevelPage = '/prc/change-level',
-    PrcChangeParentPage = '/prc/change-parent',
-    PrcRerenderParentPage = '/prc/rerender-parent',
-    PrcRoutePage = '/prc/router',
-    PrcRoutePageDetail = '/prc/router/:num',
-    PtcChangeLevelPage = '/ptc/change-level',
-    PtcChangeParentPage = '/ptc/change-parent',
-    PtcRerenderParentPage = '/ptc/rerender-parent',
-    PtcRoutePage = '/ptc/router',
-    PtcRoutePageDetail = '/ptc/router/:num',
+    RerenderParentPage = '/rerender-parent',
+    RoutePage = '/router',
+    RoutePageDetail = '/router/:num',
 }
 
 export interface IRouteInfo {

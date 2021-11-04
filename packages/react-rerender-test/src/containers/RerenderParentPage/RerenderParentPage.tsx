@@ -6,18 +6,27 @@ import { RenderContext } from 'src/contexts/RenderContext';
 import { makeInspectedFC } from '../makeInspectedFC';
 import { Controller } from './Controller';
 
-const Child = makeInspectedFC('Child', () => <div />);
+const Child = makeInspectedFC('Child')(() => <div />);
 
-const Parent = makeInspectedFC('Parent', () => {
+const ParentPrc = makeInspectedFC({ name: 'Parent', type: 'prc' })(() => {
     useContext(RenderContext);
 
     return <Child />;
 });
 
+const ParentPtc = makeInspectedFC({ name: 'Parent', type: 'ptc' })((props) => {
+    useContext(RenderContext);
+
+    return <>{props.children}</>;
+});
+
 export function RerenderParentPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <Parent />
+            <ParentPrc />
+            <ParentPtc>
+                <Child />
+            </ParentPtc>
         </TestPage>
     );
 }

@@ -19,8 +19,7 @@ export function PageSidebar() {
     });
 
     let pagePath = useLocation().pathname;
-    if (pagePath.startsWith(RoutePath.PrcRoutePage)) pagePath = RoutePath.PrcRoutePage;
-    else if (pagePath.startsWith(RoutePath.PtcRoutePage)) pagePath = RoutePath.PtcRoutePage;
+    if (pagePath.startsWith(RoutePath.RoutePage)) pagePath = RoutePath.RoutePage;
 
     return (
         <Layout.Sider className={scss.sider}>

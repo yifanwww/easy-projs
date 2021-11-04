@@ -1,5 +1,6 @@
 import { useContext, useEffect } from 'react';
 
+import { ComponentType } from 'src/common/types';
 import { ComponentView } from 'src/components/ComponentView';
 import { InspectedFC, InspectionContextUpdater, useInpectedComponentData } from 'src/utils/inspection';
 
@@ -17,34 +18,45 @@ const colors = [
     '#f9f0ff',
 ];
 
-export interface IMakeInspectedFCOptions {
+export interface IInspectedOptions {
+    color?: string;
+    desc?: string;
     name: string;
-    srcOfChange: boolean;
+    type?: ComponentType;
 }
 
-export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): React.FC<P> {
-    const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
+export function makeInspectedFC(name: string): <P = {}>(fc?: React.FC<P>) => InspectedFC<P>;
+export function makeInspectedFC(options: IInspectedOptions): <P = {}>(fc?: React.FC<P>) => InspectedFC<P>;
 
-    const _inspectedFC: InspectedFC<P> = (props) => {
-        const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);
+export function makeInspectedFC(options: string | IInspectedOptions) {
+    const isObj = typeof options === 'object';
+    const name = isObj ? options.name : options;
+    const { color, desc, type } = isObj ? options : { color: undefined, desc: undefined, type: undefined };
 
-        const data = useInpectedComponentData();
-        const level = data.parents.length - 1;
+    return function wrapFC<P = {}>(fc?: React.FC<P>) {
+        const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
 
-        addRecord(data);
+        const _inspectedFC: InspectedFC<P> = (props) => {
+            const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);
 
-        useEffect(() => {
-            forceUpdate();
-        });
+            const data = useInpectedComponentData();
+            const level = data.parents.length - 1;
 
-        return (
-            <ComponentView color={colors[level]} name={name}>
-                {_fc(props)}
-            </ComponentView>
-        );
+            addRecord(data);
+
+            useEffect(() => {
+                forceUpdate();
+            });
+
+            return (
+                <ComponentView color={color ?? colors[level]} desc={desc} name={name} type={type}>
+                    {_fc(props)}
+                </ComponentView>
+            );
+        };
+        _inspectedFC.displayName = name;
+        _inspectedFC.inspected = name;
+
+        return _inspectedFC;
     };
-    _inspectedFC.displayName = name;
-    _inspectedFC.inspected = name;
-
-    return _inspectedFC;
 }

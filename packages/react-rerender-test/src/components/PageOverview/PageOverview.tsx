@@ -1,45 +1,14 @@
-import { Button, Tag } from 'antd';
+import { Button } from 'antd';
 import { useHistory } from 'react-router';
 
-import { IPageOverview, PageType } from './types';
+import { IPageOverview } from './types';
 
 import scss from './PageOverview.module.scss';
-
-interface IPageTagProps {
-    type: PageType;
-}
-
-function PageTag(props: IPageTagProps): Optional<React.ReactElement> {
-    const { type } = props;
-
-    let never: never;
-    switch (type) {
-        case 'nil':
-            return null;
-        case 'prc':
-            return (
-                <Tag className={scss.tag} color="green">
-                    prc
-                </Tag>
-            );
-        case 'ptc':
-            return (
-                <Tag className={scss.tag} color="blue">
-                    ptc
-                </Tag>
-            );
-
-        default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = type;
-            return null;
-    }
-}
 
 export interface IPageOverviewItemProps extends IPageOverview {}
 
 export function PageOverviewItem(props: IPageOverviewItemProps): React.ReactElement {
-    const { title, type, url } = props;
+    const { title, url } = props;
 
     const history = useHistory();
 
@@ -47,7 +16,6 @@ export function PageOverviewItem(props: IPageOverviewItemProps): React.ReactElem
         <Button className={scss.item} onClick={() => history.push(url)}>
             <div className={scss.titleContainer}>
                 <span className={scss.title}>{title}</span>
-                <PageTag type={type} />
             </div>
             <code className={scss.url}>{url}</code>
         </Button>

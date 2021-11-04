@@ -36,7 +36,7 @@ function ClientArea(): React.ReactElement {
 function App(): React.ReactElement {
     return (
         <ConfigProvider autoInsertSpaceInButton={false}>
-            <BrowserRouter>
+            <BrowserRouter basename="/react-rerender-test">
                 <ClientArea />
             </BrowserRouter>
         </ConfigProvider>

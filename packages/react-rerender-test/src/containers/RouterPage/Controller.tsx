@@ -2,12 +2,8 @@ import { Button } from 'antd';
 import { generatePath, useHistory, useRouteMatch } from 'react-router';
 import { RoutePath } from 'src/common/route';
 
-export interface IControllerProps {
-    type: 'prc' | 'ptc';
-}
-
-export function Controller(props: IControllerProps): React.ReactElement {
-    const path = props.type === 'prc' ? RoutePath.PrcRoutePageDetail : RoutePath.PtcRoutePageDetail;
+export function Controller(): React.ReactElement {
+    const path = RoutePath.RoutePageDetail;
 
     const history = useHistory();
     const match = useRouteMatch<{ num: string }>(path);

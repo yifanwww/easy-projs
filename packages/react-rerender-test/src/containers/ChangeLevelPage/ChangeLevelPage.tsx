@@ -6,12 +6,12 @@ import { RenderContext } from 'src/contexts/RenderContext';
 import { makeInspectedFC } from '../makeInspectedFC';
 import { Controller } from './Controller';
 
-const Child = makeInspectedFC('Child', () => <div />);
+const Child = makeInspectedFC('Child')(() => <div />);
 
-const Sub1 = makeInspectedFC('Sub 1');
-const Sub2 = makeInspectedFC('Sub 2');
+const Sub1 = makeInspectedFC('Sub 1')();
+const Sub2 = makeInspectedFC('Sub 2')();
 
-const Parent = makeInspectedFC('Parent', () => {
+const ParentPrc = makeInspectedFC({ name: 'Parent', type: 'prc' })(() => {
     const { selected } = useContext(RenderContext);
 
     return selected === 0 ? (
@@ -25,10 +25,25 @@ const Parent = makeInspectedFC('Parent', () => {
     );
 });
 
+const ParentPtc = makeInspectedFC({ name: 'Parent', type: 'ptc' })((props) => {
+    const { selected } = useContext(RenderContext);
+
+    return selected === 0 ? (
+        <>{props.children}</>
+    ) : (
+        <Sub1>
+            <Sub2>{props.children}</Sub2>
+        </Sub1>
+    );
+});
+
 export function ChangeLevelPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <Parent />
+            <ParentPrc />
+            <ParentPtc>
+                <Child />
+            </ParentPtc>
         </TestPage>
     );
 }
