@@ -1,10 +1,10 @@
 /*
- * https://github.com/facebook/react/blob/v17.0.2/packages/react-reconciler/src/ReactInternalTypes.js#L45
+ * https://github.com/facebook/react/blob/v17.0.2/packages/react-reconciler/src/ReactInternalTypes.js#L47
  */
 
 // A Fiber is work on a Component that needs to be done or was done. There can
 // be more than one per component.
-export type FiberNode = {
+export type Fiber = {
     // These first fields are conceptually members of an Instance. This used to
     // be split into a separate type and intersected with the other Fiber fields,
     // but until Flow fixes its intersection bugs, we've merged them into a
@@ -23,7 +23,7 @@ export type FiberNode = {
 
     // The value of element.type which is used to preserve the identity during
     // reconciliation of this child.
-    elementType: unknown;
+    // elementType: unknown;
 
     // The resolved function/class/ associated with this fiber.
     type: unknown;
@@ -41,7 +41,7 @@ export type FiberNode = {
     // This is effectively the parent, but there can be multiple parents (two)
     // so this is only the parent of the thing we're currently processing.
     // It is conceptually the same as the return address of a stack frame.
-    return: FiberNode | null;
+    return: Fiber | null;
 
     // Singly Linked List Tree Structure.
     // child: Fiber | null;

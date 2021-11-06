@@ -10,7 +10,7 @@ const routes: string[] = [1, 2, 3, 4, 5].map((num) => generatePath(RoutePath.Rou
 
 const Child = makeInspectedFC('Child')(() => <div />);
 
-const RouterPrc = makeInspectedFC('Router')(() => {
+const RouterPrc = makeInspectedFC({ name: 'Router', type: 'prc' })(() => {
     return (
         <Switch>
             {routes.map((route) => (
@@ -20,7 +20,7 @@ const RouterPrc = makeInspectedFC('Router')(() => {
     );
 });
 
-const RouterPtc = makeInspectedFC('Router')(() => {
+const RouterPtc = makeInspectedFC({ name: 'Router', type: 'ptc' })(() => {
     return (
         <Switch>
             {routes.map((route) => (

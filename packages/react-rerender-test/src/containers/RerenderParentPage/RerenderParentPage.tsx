@@ -8,13 +8,13 @@ import { Controller } from './Controller';
 
 const Child = makeInspectedFC('Child')(() => <div />);
 
-const ParentPrc = makeInspectedFC({ name: 'Parent', type: 'prc' })(() => {
+const ParentPrc = makeInspectedFC('Parent')(() => {
     useContext(RenderContext);
 
     return <Child />;
 });
 
-const ParentPtc = makeInspectedFC({ name: 'Parent', type: 'ptc' })((props) => {
+const ParentPtc = makeInspectedFC('Parent')((props) => {
     useContext(RenderContext);
 
     return <>{props.children}</>;

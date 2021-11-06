@@ -11,7 +11,7 @@ const Child = makeInspectedFC('Child')(() => <div />);
 const Sub1 = makeInspectedFC('Sub 1')();
 const Sub2 = makeInspectedFC('Sub 2')();
 
-const ParentPrc = makeInspectedFC({ name: 'Parent', type: 'prc' })(() => {
+const ParentPrc = makeInspectedFC('Parent')(() => {
     const { selected } = useContext(RenderContext);
 
     return selected === 0 ? (
@@ -25,7 +25,7 @@ const ParentPrc = makeInspectedFC({ name: 'Parent', type: 'prc' })(() => {
     );
 });
 
-const ParentPtc = makeInspectedFC({ name: 'Parent', type: 'ptc' })((props) => {
+const ParentPtc = makeInspectedFC('Parent')((props) => {
     const { selected } = useContext(RenderContext);
 
     return selected === 0 ? (

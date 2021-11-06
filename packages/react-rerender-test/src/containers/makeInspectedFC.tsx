@@ -1,9 +1,10 @@
 import { useContext, useEffect } from 'react';
 
-import { ComponentType, InspectedFC } from 'src/common/inspection';
+import { InspectedFC, InspectedFCType } from 'src/common/inspection';
 import { ComponentView } from 'src/components/ComponentView';
 import { InspectionContextUpdater } from 'src/contexts/InspectionContext';
 import { useInpectedComponentData } from 'src/hooks/useInpectedComponentData';
+import { useInspectedFCType } from 'src/hooks/useInspectedFCType';
 
 const colors = [
     '#fff0f6',
@@ -20,19 +21,25 @@ const colors = [
 ];
 
 export interface IInspectedOptions {
+    /**
+     * Background color.
+     */
     color?: string;
     desc?: string;
     name: string;
-    type?: ComponentType;
+    /**
+     * The type of inspected function component.
+     * It can be automatically detected, but may be wrong is some special situation (such as `Route`).
+     */
+    type?: InspectedFCType;
 }
 
 export function makeInspectedFC(name: string): <P = {}>(fc?: React.FC<P>) => InspectedFC<P>;
 export function makeInspectedFC(options: IInspectedOptions): <P = {}>(fc?: React.FC<P>) => InspectedFC<P>;
 
 export function makeInspectedFC(options: string | IInspectedOptions) {
-    const isObj = typeof options === 'object';
-    const name = isObj ? options.name : options;
-    const { color, desc, type } = isObj ? options : { color: undefined, desc: undefined, type: undefined };
+    const _options = typeof options === 'string' ? { name: options } : options;
+    const { color, desc, name, type } = _options;
 
     return function wrapFC<P = {}>(fc?: React.FC<P>) {
         const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
@@ -43,6 +50,9 @@ export function makeInspectedFC(options: string | IInspectedOptions) {
             const data = useInpectedComponentData();
             const level = data.parents.length - 1;
 
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            const _type = type ?? useInspectedFCType(_fc, props);
+
             addRecord(data);
 
             useEffect(() => {
@@ -50,7 +60,7 @@ export function makeInspectedFC(options: string | IInspectedOptions) {
             });
 
             return (
-                <ComponentView color={color ?? colors[level]} desc={desc} name={name} type={type}>
+                <ComponentView color={color ?? colors[level]} desc={desc} name={name} type={_type}>
                     {_fc(props)}
                 </ComponentView>
             );

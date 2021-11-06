@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import { InspectionProvider } from 'src/contexts/InspectionContext';
 import { RenderProvider } from 'src/contexts/RenderContext';
 
-import { Inspector } from '../Inspection';
+import { Inspector } from '../Inspector';
 import { Note } from '../Note';
 import { RenderList } from '../RenderList';
 

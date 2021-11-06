@@ -1,27 +1,27 @@
 import { useRef } from 'react';
 
 import { IInspectionData, InspectedFC } from 'src/common/inspection';
-import { inspectorName } from 'src/components/Inspection';
-import { getOwnerFiberNode } from 'src/utils/getOwnerFiberNode';
+import { inspectorName } from 'src/components/Inspector';
+import { getElementOwner } from 'src/utils/getElementOwner';
 
 export function useInpectedComponentData(): IInspectionData {
     const ref = useRef<IInspectionData>();
 
     if (ref.current === undefined) {
-        const owner = getOwnerFiberNode();
-        let fc = owner.elementType as InspectedFC;
+        const owner = getElementOwner();
+        let fc = owner.type as InspectedFC;
 
         const record: IInspectionData = {
             index: owner.index,
             key: owner.key,
-            name: fc.displayName ?? fc.inspected!,
+            name: fc.inspected ?? fc.displayName ?? fc.name,
             parents: [],
         };
 
         // Find all inspected parents.
         let node = owner.return;
         while (node !== null) {
-            const type = node.elementType ?? node.type;
+            const { type } = node;
 
             if (typeof type === 'function') {
                 fc = type as InspectedFC;
@@ -29,18 +29,14 @@ export function useInpectedComponentData(): IInspectionData {
                     record.parents.push({
                         index: node.index,
                         key: node.key,
-                        name: fc.displayName ?? fc.inspected,
-                    });
-                } else if (fc.displayName === inspectorName) {
-                    record.parents.push({
-                        index: node.index,
-                        key: node.key,
-                        name: inspectorName,
+                        name: fc.inspected,
                     });
 
-                    // All inspected components should be placed in `Inspector`.
-                    // So here we find `Inspector`, then we can break loop.
-                    break;
+                    if (fc.displayName === inspectorName) {
+                        // All inspected components should be placed in `Inspector`.
+                        // So here we find `Inspector`, then we can break loop.
+                        break;
+                    }
                 }
             }
 

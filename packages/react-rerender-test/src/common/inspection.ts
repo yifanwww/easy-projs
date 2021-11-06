@@ -1,5 +1,3 @@
-export type ComponentType = 'nil' | 'prc' | 'ptc';
-
 export type IInspectionNodeChildren = Record<number, IInspectionNode>;
 
 export interface IInspectionNode {
@@ -28,3 +26,5 @@ export interface IInspectionData {
 }
 
 export type InspectedFC<P = {}> = React.FC<P> & { inspected?: string };
+
+export type InspectedFCType = 'nil' | 'prc' | 'ptc';

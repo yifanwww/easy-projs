@@ -8,11 +8,11 @@ import { Controller } from './Controller';
 
 const Child = makeInspectedFC('Child')(() => <div />);
 
-const ParentPrc1 = makeInspectedFC({ name: 'Parent 1', type: 'prc' })(() => <Child />);
-const ParentPrc2 = makeInspectedFC({ name: 'Parent 2', type: 'prc' })(() => <Child />);
+const ParentPrc1 = makeInspectedFC('Parent 1')(() => <Child />);
+const ParentPrc2 = makeInspectedFC('Parent 2')(() => <Child />);
 
-const ParentPtc1 = makeInspectedFC({ name: 'Parent 1', type: 'ptc' })(() => <Child />);
-const ParentPtc2 = makeInspectedFC({ name: 'Parent 2', type: 'ptc' })(() => <Child />);
+const ParentPtc1 = makeInspectedFC('Parent 1')();
+const ParentPtc2 = makeInspectedFC('Parent 2')();
 
 function ParentSelectorPrc() {
     const { selected } = useContext(RenderContext);

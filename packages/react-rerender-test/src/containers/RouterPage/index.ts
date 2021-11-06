@@ -1,1 +1,1 @@
-export * from './PrcRouterPage';
+export * from './RouterPage';

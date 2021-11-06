@@ -1,12 +1,12 @@
 import { Tag } from 'antd';
 
-import { ComponentType } from 'src/common/inspection';
+import { InspectedFCType } from 'src/common/inspection';
 import { useRenderCount } from 'src/hooks';
 
 import scss from './ComponentView.module.scss';
 
 interface IComponentTagProps {
-    type: ComponentType;
+    type: InspectedFCType;
 }
 
 function ComponentTag(props: IComponentTagProps): Optional<React.ReactElement> {
@@ -43,7 +43,7 @@ export interface IComponentViewProps extends IChildrenProps {
     color?: string;
     desc?: string;
     name: string;
-    type?: ComponentType;
+    type?: InspectedFCType;
 }
 
 export function ComponentView(props: Readonly<IComponentViewProps>): React.ReactElement {
