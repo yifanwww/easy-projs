@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 
 import { InspectedFC, InspectedFCType } from 'src/common/inspection';
+import { withMockedHooks } from 'src/utils/withMockedHooks';
 
 const inspectionTestName = 'InspectionTest';
 
@@ -55,7 +56,7 @@ export function useInspectedFCType<P = {}>(fc: React.FC<P>, props: React.PropsWi
     const ref = useRef<InspectedFCType>();
 
     if (ref.current === undefined) {
-        const element = fc({ ...props, children: <InspectionTest /> });
+        const element = withMockedHooks(fc)({ ...props, children: <InspectionTest /> });
         if (element === null) {
             ref.current = 'nil';
         } else {
