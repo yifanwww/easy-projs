@@ -1,7 +1,8 @@
 import { List, ListProps } from 'antd';
 import { useContext } from 'react';
 
-import { IInspectionData, InspectionContext } from 'src/utils/inspection';
+import { IInspectionData } from 'src/common/inspection';
+import { InspectionContext } from 'src/contexts/InspectionContext';
 
 import scss from './RenderList.module.scss';
 

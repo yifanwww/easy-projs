@@ -1,16 +1,14 @@
 import { useRef } from 'react';
-import { inspectorName } from './Inspector';
 
-import { IInspectionData, InspectedFC } from './types';
-
-// @ts-ignore
-const getOwner = () => (<div />)._owner as Fiber;
+import { IInspectionData, InspectedFC } from 'src/common/inspection';
+import { inspectorName } from 'src/components/Inspection';
+import { getOwnerFiberNode } from 'src/utils/getOwnerFiberNode';
 
 export function useInpectedComponentData(): IInspectionData {
     const ref = useRef<IInspectionData>();
 
     if (ref.current === undefined) {
-        const owner = getOwner();
+        const owner = getOwnerFiberNode();
         let fc = owner.elementType as InspectedFC;
 
         const record: IInspectionData = {

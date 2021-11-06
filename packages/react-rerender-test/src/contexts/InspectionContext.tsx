@@ -3,7 +3,7 @@ import produce from 'immer';
 import { createContext, useRef } from 'react';
 import { noop } from 'ts-essentials';
 
-import { IInspectionData } from 'src/utils/inspection';
+import { IInspectionData } from 'src/common/inspection';
 
 export interface IInspectionContext {
     records: IInspectionData[];

@@ -1,3 +1,5 @@
+export type ComponentType = 'nil' | 'prc' | 'ptc';
+
 export type IInspectionNodeChildren = Record<number, IInspectionNode>;
 
 export interface IInspectionNode {

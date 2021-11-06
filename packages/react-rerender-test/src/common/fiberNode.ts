@@ -4,7 +4,7 @@
 
 // A Fiber is work on a Component that needs to be done or was done. There can
 // be more than one per component.
-export type Fiber = {
+export type FiberNode = {
     // These first fields are conceptually members of an Instance. This used to
     // be split into a separate type and intersected with the other Fiber fields,
     // but until Flow fixes its intersection bugs, we've merged them into a
@@ -41,7 +41,7 @@ export type Fiber = {
     // This is effectively the parent, but there can be multiple parents (two)
     // so this is only the parent of the thing we're currently processing.
     // It is conceptually the same as the return address of a stack frame.
-    return: Fiber | null;
+    return: FiberNode | null;
 
     // Singly Linked List Tree Structure.
     // child: Fiber | null;

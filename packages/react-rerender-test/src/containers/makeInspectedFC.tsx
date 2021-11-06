@@ -1,8 +1,9 @@
 import { useContext, useEffect } from 'react';
 
-import { ComponentType } from 'src/common/types';
+import { ComponentType, InspectedFC } from 'src/common/inspection';
 import { ComponentView } from 'src/components/ComponentView';
-import { InspectedFC, InspectionContextUpdater, useInpectedComponentData } from 'src/utils/inspection';
+import { InspectionContextUpdater } from 'src/contexts/InspectionContext';
+import { useInpectedComponentData } from 'src/hooks/useInpectedComponentData';
 
 const colors = [
     '#fff0f6',

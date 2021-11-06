@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
 
-import { ComponentType } from 'src/common/types';
+import { ComponentType } from 'src/common/inspection';
 import { useRenderCount } from 'src/hooks';
 
 import scss from './ComponentView.module.scss';
