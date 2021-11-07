@@ -1,5 +1,5 @@
 /*
- * https://github.com/facebook/react/blob/v17.0.2/packages/react-reconciler/src/ReactInternalTypes.js#L45
+ * https://github.com/facebook/react/blob/v17.0.2/packages/react-reconciler/src/ReactInternalTypes.js#L47
  */
 
 // A Fiber is work on a Component that needs to be done or was done. There can
@@ -23,7 +23,7 @@ export type Fiber = {
 
     // The value of element.type which is used to preserve the identity during
     // reconciliation of this child.
-    elementType: unknown;
+    // elementType: unknown;
 
     // The resolved function/class/ associated with this fiber.
     type: unknown;

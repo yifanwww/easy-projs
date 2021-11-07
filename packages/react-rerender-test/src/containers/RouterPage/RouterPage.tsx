@@ -1,6 +1,7 @@
 import { generatePath, Redirect, Route, Switch } from 'react-router';
 
 import { RoutePath } from 'src/common/route';
+import { Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage';
 
 import { makeInspectedFC } from '../makeInspectedFC';
@@ -8,9 +9,9 @@ import { Controller } from './Controller';
 
 const routes: string[] = [1, 2, 3, 4, 5].map((num) => generatePath(RoutePath.RoutePageDetail, { num }));
 
-const Child = makeInspectedFC('Child')(() => <div />);
+const Child = makeInspectedFC('Child', () => <div />);
 
-const RouterPrc = makeInspectedFC('Router')(() => {
+const RouterPrc = makeInspectedFC('Router', () => {
     return (
         <Switch>
             {routes.map((route) => (
@@ -18,9 +19,9 @@ const RouterPrc = makeInspectedFC('Router')(() => {
             ))}
         </Switch>
     );
-});
+}).type('prc');
 
-const RouterPtc = makeInspectedFC('Router')(() => {
+const RouterPtc = makeInspectedFC('Router', () => {
     return (
         <Switch>
             {routes.map((route) => (
@@ -30,13 +31,17 @@ const RouterPtc = makeInspectedFC('Router')(() => {
             ))}
         </Switch>
     );
-});
+}).type('ptc');
 
 export function RouterPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <RouterPrc />
-            <RouterPtc />
+            <Inspector group="PRC">
+                <RouterPrc />
+            </Inspector>
+            <Inspector group="PTC">
+                <RouterPtc />
+            </Inspector>
             <Route key={RoutePath.RoutePage} path={RoutePath.RoutePage}>
                 <Redirect to={generatePath(RoutePath.RoutePageDetail, { num: 1 })} />
             </Route>

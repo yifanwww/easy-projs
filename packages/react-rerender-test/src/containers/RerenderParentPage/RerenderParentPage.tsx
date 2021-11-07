@@ -1,20 +1,21 @@
 import { useContext } from 'react';
 
+import { Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage';
 import { RenderContext } from 'src/contexts/RenderContext';
 
 import { makeInspectedFC } from '../makeInspectedFC';
 import { Controller } from './Controller';
 
-const Child = makeInspectedFC('Child')(() => <div />);
+const Child = makeInspectedFC('Child', () => <div />);
 
-const ParentPrc = makeInspectedFC({ name: 'Parent', type: 'prc' })(() => {
+const ParentPrc = makeInspectedFC('Parent', () => {
     useContext(RenderContext);
 
     return <Child />;
 });
 
-const ParentPtc = makeInspectedFC({ name: 'Parent', type: 'ptc' })((props) => {
+const ParentPtc = makeInspectedFC('Parent', (props) => {
     useContext(RenderContext);
 
     return <>{props.children}</>;
@@ -23,10 +24,14 @@ const ParentPtc = makeInspectedFC({ name: 'Parent', type: 'ptc' })((props) => {
 export function RerenderParentPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <ParentPrc />
-            <ParentPtc>
-                <Child />
-            </ParentPtc>
+            <Inspector group="PRC">
+                <ParentPrc />
+            </Inspector>
+            <Inspector group="PTC">
+                <ParentPtc>
+                    <Child />
+                </ParentPtc>
+            </Inspector>
         </TestPage>
     );
 }

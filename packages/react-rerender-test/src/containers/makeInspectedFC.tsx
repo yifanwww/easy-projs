@@ -1,8 +1,11 @@
 import { useContext, useEffect } from 'react';
 
-import { ComponentType } from 'src/common/types';
+import { InspectedFCMaker, InspectedFCType } from 'src/common/inspection';
 import { ComponentView } from 'src/components/ComponentView';
-import { InspectedFC, InspectionContextUpdater, useInpectedComponentData } from 'src/utils/inspection';
+import { InspectionContextUpdater } from 'src/contexts/InspectionContext';
+import { useInspectedFCData } from 'src/hooks/useInspectedFCData';
+import { useInspectedFCType } from 'src/hooks/useInspectedFCType';
+import { useInspectorPosition } from 'src/hooks/useInspectorPosition';
 
 const colors = [
     '#fff0f6',
@@ -19,44 +22,74 @@ const colors = [
 ];
 
 export interface IInspectedOptions {
+    /**
+     * Background color.
+     */
     color?: string;
     desc?: string;
     name: string;
-    type?: ComponentType;
+    /**
+     * The type of inspected function component.
+     * It can be automatically detected, but may be wrong is some special situation (such as `Route`).
+     */
+    type?: InspectedFCType;
 }
 
-export function makeInspectedFC(name: string): <P = {}>(fc?: React.FC<P>) => InspectedFC<P>;
-export function makeInspectedFC(options: IInspectedOptions): <P = {}>(fc?: React.FC<P>) => InspectedFC<P>;
+interface _InspectedFCMaker<P = {}> extends InspectedFCMaker<P> {
+    _inspectedColor?: string;
+    _inspectedDesc?: string;
+    _inspectedType?: InspectedFCType;
+}
 
-export function makeInspectedFC(options: string | IInspectedOptions) {
-    const isObj = typeof options === 'object';
-    const name = isObj ? options.name : options;
-    const { color, desc, type } = isObj ? options : { color: undefined, desc: undefined, type: undefined };
+/**
+ * @param name The name of this function component.
+ * @param fc The function component itself, default is `(props) => <>{props.children}</>`.
+ */
+export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
+    const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
 
-    return function wrapFC<P = {}>(fc?: React.FC<P>) {
-        const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
+    const _inspectedFC: _InspectedFCMaker<P> = (props) => {
+        const { _inspectedColor, _inspectedDesc, _inspectedType } = _inspectedFC;
 
-        const _inspectedFC: InspectedFC<P> = (props) => {
-            const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);
+        const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);
 
-            const data = useInpectedComponentData();
-            const level = data.parents.length - 1;
+        const data = useInspectedFCData();
+        const level = data.parents.length;
 
-            addRecord(data);
+        const groupIndex = useInspectorPosition();
 
-            useEffect(() => {
-                forceUpdate();
-            });
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const _type = _inspectedType ?? useInspectedFCType(_fc, props);
 
-            return (
-                <ComponentView color={color ?? colors[level]} desc={desc} name={name} type={type}>
-                    {_fc(props)}
-                </ComponentView>
-            );
-        };
-        _inspectedFC.displayName = name;
-        _inspectedFC.inspected = name;
+        addRecord(data, groupIndex);
 
+        useEffect(() => {
+            forceUpdate();
+        });
+
+        return (
+            <ComponentView color={_inspectedColor ?? colors[level]} desc={_inspectedDesc} name={name} type={_type}>
+                {_fc(props)}
+            </ComponentView>
+        );
+    };
+    _inspectedFC.displayName = name;
+    _inspectedFC.inspected = name;
+
+    _inspectedFC.color = (color) => {
+        _inspectedFC._inspectedColor = color;
         return _inspectedFC;
     };
+
+    _inspectedFC.desc = (desc) => {
+        _inspectedFC._inspectedDesc = desc;
+        return _inspectedFC;
+    };
+
+    _inspectedFC.type = (type) => {
+        _inspectedFC._inspectedType = type;
+        return _inspectedFC;
+    };
+
+    return _inspectedFC;
 }
