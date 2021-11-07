@@ -36,10 +36,10 @@ const RouterPtc = makeInspectedFC('Router', () => {
 export function RouterPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <Inspector group="prc">
+            <Inspector group="PRC">
                 <RouterPrc />
             </Inspector>
-            <Inspector group="ptc">
+            <Inspector group="PTC">
                 <RouterPtc />
             </Inspector>
             <Route key={RoutePath.RoutePage} path={RoutePath.RoutePage}>

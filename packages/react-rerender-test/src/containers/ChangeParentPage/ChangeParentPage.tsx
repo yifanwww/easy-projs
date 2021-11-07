@@ -38,10 +38,10 @@ function ParentSelectorPtc() {
 export function ChangeParentPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <Inspector group="prc">
+            <Inspector group="PRC">
                 <ParentSelectorPrc />
             </Inspector>
-            <Inspector group="ptc">
+            <Inspector group="PTC">
                 <ParentSelectorPtc />
             </Inspector>
         </TestPage>

@@ -41,10 +41,10 @@ const ParentPtc = makeInspectedFC('Parent', (props) => {
 export function ChangeLevelPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <Inspector group="prc">
+            <Inspector group="PRC">
                 <ParentPrc />
             </Inspector>
-            <Inspector group="ptc">
+            <Inspector group="PTC">
                 <ParentPtc>
                     <Child />
                 </ParentPtc>
