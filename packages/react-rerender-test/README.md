@@ -10,13 +10,13 @@ This project is used to test how React components rerender.
 ## `makeInspectedFC`
 
 ```tsx
-const Child = makeInspectedFC('Child')(() => <div />);
-```
+const Child = makeInspectedFC('Child', () => <div />);
 
-```tsx
-const Middle = makeInspectedFC({ name: 'Middle', type: 'ptc' })();
-// ot
-const Middle = makeInspectedFC({ name: 'Middle', type: 'ptc' })((props) => <>{props.children}</>);
+const Middle = makeInspectedFC('Middle').type('ptc');
+// or
+const Middle = makeInspectedFC('Middle', (props) => <>{props.children}</>).type('ptc');
+
+const Parent = makeInspectedFC('Parent', () => <Child />);
 ```
 
 You can pass no function component, as the default function component is `(props) => <>{props.children}</>`.

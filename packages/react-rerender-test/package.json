@@ -1,6 +1,6 @@
 {
     "name": "@easy/react-rerender-test",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "This project is used to test how React components rerender.",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",

@@ -1,4 +1,10 @@
 # CHANGELOG
+## @easy/react-renderer-test v0.2.0 (2021-11-07)
+### Features
+
+- Support to display multi group render order list
+- Support to display group name and highlight group UI when multiple groups are shown
+
 ## @easy/react-renderer-test v0.1.0 (2021-11-06)
 ### Features
 
