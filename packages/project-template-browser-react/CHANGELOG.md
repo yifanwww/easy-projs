@@ -1,5 +1,5 @@
 # CHANGELOG
-## @easy/project-template-browser-react v0.4.0 (Unreleased)
+## @easy/project-template-browser-react v0.4.0 (2021-11-07)
 ### Features
 
 - Initialize FluentUI icons

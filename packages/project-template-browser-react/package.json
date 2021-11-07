@@ -1,6 +1,6 @@
 {
     "name": "@easy/project-template-browser-react",
-    "version": "0.2.0",
+    "version": "0.4.0",
     "description": "A template project used for creating new react browser projects.",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
