@@ -6,12 +6,12 @@ import { RenderContext } from 'src/contexts/RenderContext';
 import { makeInspectedFC } from '../makeInspectedFC';
 import { Controller } from './Controller';
 
-const Child = makeInspectedFC('Child')(() => <div />);
+const Child = makeInspectedFC('Child', () => <div />);
 
-const Sub1 = makeInspectedFC('Sub 1')();
-const Sub2 = makeInspectedFC('Sub 2')();
+const Sub1 = makeInspectedFC('Sub 1');
+const Sub2 = makeInspectedFC('Sub 2');
 
-const ParentPrc = makeInspectedFC('Parent')(() => {
+const ParentPrc = makeInspectedFC('Parent', () => {
     const { selected } = useContext(RenderContext);
 
     return selected === 0 ? (
@@ -25,7 +25,7 @@ const ParentPrc = makeInspectedFC('Parent')(() => {
     );
 });
 
-const ParentPtc = makeInspectedFC('Parent')((props) => {
+const ParentPtc = makeInspectedFC('Parent', (props) => {
     const { selected } = useContext(RenderContext);
 
     return selected === 0 ? (

@@ -6,13 +6,13 @@ import { RenderContext } from 'src/contexts/RenderContext';
 import { makeInspectedFC } from '../makeInspectedFC';
 import { Controller } from './Controller';
 
-const Child = makeInspectedFC('Child')(() => <div />);
+const Child = makeInspectedFC('Child', () => <div />);
 
-const ParentPrc1 = makeInspectedFC('Parent 1')(() => <Child />);
-const ParentPrc2 = makeInspectedFC('Parent 2')(() => <Child />);
+const ParentPrc1 = makeInspectedFC('Parent 1', () => <Child />);
+const ParentPrc2 = makeInspectedFC('Parent 2', () => <Child />);
 
-const ParentPtc1 = makeInspectedFC('Parent 1')();
-const ParentPtc2 = makeInspectedFC('Parent 2')();
+const ParentPtc1 = makeInspectedFC('Parent 1');
+const ParentPtc2 = makeInspectedFC('Parent 2');
 
 function ParentSelectorPrc() {
     const { selected } = useContext(RenderContext);

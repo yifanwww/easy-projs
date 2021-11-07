@@ -8,9 +8,9 @@ import { Controller } from './Controller';
 
 const routes: string[] = [1, 2, 3, 4, 5].map((num) => generatePath(RoutePath.RoutePageDetail, { num }));
 
-const Child = makeInspectedFC('Child')(() => <div />);
+const Child = makeInspectedFC('Child', () => <div />);
 
-const RouterPrc = makeInspectedFC({ name: 'Router', type: 'prc' })(() => {
+const RouterPrc = makeInspectedFC('Router', () => {
     return (
         <Switch>
             {routes.map((route) => (
@@ -18,9 +18,9 @@ const RouterPrc = makeInspectedFC({ name: 'Router', type: 'prc' })(() => {
             ))}
         </Switch>
     );
-});
+}).type('prc');
 
-const RouterPtc = makeInspectedFC({ name: 'Router', type: 'ptc' })(() => {
+const RouterPtc = makeInspectedFC('Router', () => {
     return (
         <Switch>
             {routes.map((route) => (
@@ -30,7 +30,7 @@ const RouterPtc = makeInspectedFC({ name: 'Router', type: 'ptc' })(() => {
             ))}
         </Switch>
     );
-});
+}).type('ptc');
 
 export function RouterPage(): React.ReactElement {
     return (

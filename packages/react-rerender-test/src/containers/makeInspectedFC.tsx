@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 
-import { InspectedFC, InspectedFCType } from 'src/common/inspection';
+import { InspectedFCMaker, InspectedFCType } from 'src/common/inspection';
 import { ComponentView } from 'src/components/ComponentView';
 import { InspectionContextUpdater } from 'src/contexts/InspectionContext';
 import { useInpectedComponentData } from 'src/hooks/useInpectedComponentData';
@@ -34,40 +34,65 @@ export interface IInspectedOptions {
     type?: InspectedFCType;
 }
 
-export function makeInspectedFC(name: string): <P = {}>(fc?: React.FC<P>) => InspectedFC<P>;
-export function makeInspectedFC(options: IInspectedOptions): <P = {}>(fc?: React.FC<P>) => InspectedFC<P>;
+interface _InspectedFCMaker<P = {}> extends InspectedFCMaker<P> {
+    _inspectedColor?: string;
+    _inspectedDesc?: string;
+    _inspectedGroup?: string;
+    _inspectedType?: InspectedFCType;
+}
 
-export function makeInspectedFC(options: string | IInspectedOptions) {
-    const _options = typeof options === 'string' ? { name: options } : options;
-    const { color, desc, name, type } = _options;
+/**
+ * @param name The name of this function component.
+ * @param fc The function component itself, default is `(props) => <>{props.children}</>`.
+ */
+export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
+    const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
 
-    return function wrapFC<P = {}>(fc?: React.FC<P>) {
-        const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
+    const _inspectedFC: _InspectedFCMaker<P> = (props) => {
+        const { _inspectedColor, _inspectedDesc, _inspectedType } = _inspectedFC;
 
-        const _inspectedFC: InspectedFC<P> = (props) => {
-            const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);
+        const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);
 
-            const data = useInpectedComponentData();
-            const level = data.parents.length - 1;
+        const data = useInpectedComponentData();
+        const level = data.parents.length - 1;
 
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            const _type = type ?? useInspectedFCType(_fc, props);
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const _type = _inspectedType ?? useInspectedFCType(_fc, props);
 
-            addRecord(data);
+        addRecord(data);
 
-            useEffect(() => {
-                forceUpdate();
-            });
+        useEffect(() => {
+            forceUpdate();
+        });
 
-            return (
-                <ComponentView color={color ?? colors[level]} desc={desc} name={name} type={_type}>
-                    {_fc(props)}
-                </ComponentView>
-            );
-        };
-        _inspectedFC.displayName = name;
-        _inspectedFC.inspected = name;
+        return (
+            <ComponentView color={_inspectedColor ?? colors[level]} desc={_inspectedDesc} name={name} type={_type}>
+                {_fc(props)}
+            </ComponentView>
+        );
+    };
+    _inspectedFC.displayName = name;
+    _inspectedFC.inspected = name;
 
+    _inspectedFC.color = (color) => {
+        _inspectedFC._inspectedColor = color;
         return _inspectedFC;
     };
+
+    _inspectedFC.desc = (desc) => {
+        _inspectedFC._inspectedDesc = desc;
+        return _inspectedFC;
+    };
+
+    _inspectedFC.group = (groupName) => {
+        _inspectedFC._inspectedGroup = groupName;
+        return _inspectedFC;
+    };
+
+    _inspectedFC.type = (type) => {
+        _inspectedFC._inspectedType = type;
+        return _inspectedFC;
+    };
+
+    return _inspectedFC;
 }

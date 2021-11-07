@@ -96,11 +96,11 @@ module.exports = {
                 format: ['camelCase', 'PascalCase'],
                 leadingUnderscore: 'allow',
             },
-            { selector: 'interface', format: ['PascalCase'] },
+            { selector: 'interface', format: ['PascalCase'], leadingUnderscore: 'allow' },
             { selector: 'method', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'property', format: ['camelCase'], leadingUnderscore: 'allow' },
-            { selector: 'typeAlias', format: ['PascalCase'] },
+            { selector: 'typeAlias', format: ['PascalCase'], leadingUnderscore: 'allow' },
             { selector: 'typeParameter', format: ['PascalCase'] },
             {
                 selector: 'variable',

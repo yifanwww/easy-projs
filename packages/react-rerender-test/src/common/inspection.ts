@@ -25,6 +25,15 @@ export interface IInspectionData {
     parents: IInspectionParent[];
 }
 
-export type InspectedFC<P = {}> = React.FC<P> & { inspected?: string };
-
 export type InspectedFCType = 'nil' | 'prc' | 'ptc';
+
+export interface InspectedFC<P = {}> extends React.FC<P> {
+    inspected?: string;
+}
+
+export interface InspectedFCMaker<P = {}> extends InspectedFC<P> {
+    color: (color: string) => this;
+    desc: (desc: string) => this;
+    group: (groupName: string) => this;
+    type: (type: InspectedFCType) => this;
+}
