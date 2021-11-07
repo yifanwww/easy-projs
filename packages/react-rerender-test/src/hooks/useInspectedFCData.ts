@@ -4,7 +4,7 @@ import { IInspectionData, InspectedFC } from 'src/common/inspection';
 import { inspectorName } from 'src/components/Inspector';
 import { getElementOwner } from 'src/utils/getElementOwner';
 
-export function useInpectedComponentData(): IInspectionData {
+export function useInspectedFCData(): IInspectionData {
     const ref = useRef<IInspectionData>();
 
     if (ref.current === undefined) {
@@ -19,31 +19,28 @@ export function useInpectedComponentData(): IInspectionData {
         };
 
         // Find all inspected parents.
-        let node = owner.return;
-        while (node !== null) {
+        for (let node = owner.return; node !== null; node = node.return) {
             const { type } = node;
 
             if (typeof type === 'function') {
                 fc = type as InspectedFC;
                 if (fc.inspected) {
-                    record.parents.push({
-                        index: node.index,
-                        key: node.key,
-                        name: fc.inspected,
-                    });
-
-                    if (fc.displayName === inspectorName) {
+                    if (fc.inspected === inspectorName) {
                         // All inspected components should be placed in `Inspector`.
                         // So here we find `Inspector`, then we can break loop.
                         break;
                     }
+
+                    record.parents.push({
+                        index: node.index,
+                        // key: node.key,
+                        // name: fc.inspected,
+                    });
                 }
             }
-
-            node = node.return;
         }
-        record.parents.reverse();
 
+        record.parents.reverse();
         ref.current = record;
     }
 

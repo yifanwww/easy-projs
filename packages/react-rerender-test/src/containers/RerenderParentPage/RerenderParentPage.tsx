@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 
+import { Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage';
 import { RenderContext } from 'src/contexts/RenderContext';
 
@@ -23,10 +24,14 @@ const ParentPtc = makeInspectedFC('Parent', (props) => {
 export function RerenderParentPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <ParentPrc />
-            <ParentPtc>
-                <Child />
-            </ParentPtc>
+            <Inspector group="prc">
+                <ParentPrc />
+            </Inspector>
+            <Inspector group="ptc">
+                <ParentPtc>
+                    <Child />
+                </ParentPtc>
+            </Inspector>
         </TestPage>
     );
 }

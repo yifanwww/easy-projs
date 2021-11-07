@@ -1,6 +1,7 @@
 import { generatePath, Redirect, Route, Switch } from 'react-router';
 
 import { RoutePath } from 'src/common/route';
+import { Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage';
 
 import { makeInspectedFC } from '../makeInspectedFC';
@@ -35,8 +36,12 @@ const RouterPtc = makeInspectedFC('Router', () => {
 export function RouterPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <RouterPrc />
-            <RouterPtc />
+            <Inspector group="prc">
+                <RouterPrc />
+            </Inspector>
+            <Inspector group="ptc">
+                <RouterPtc />
+            </Inspector>
             <Route key={RoutePath.RoutePage} path={RoutePath.RoutePage}>
                 <Redirect to={generatePath(RoutePath.RoutePageDetail, { num: 1 })} />
             </Route>

@@ -1,35 +1,61 @@
 import { useConst, useConstFn, useForceUpdate } from '@easy/hooks';
+import { ReactImmerReducer } from '@easy/utils-react';
 import produce from 'immer';
 import { createContext, useRef } from 'react';
 import { noop } from 'ts-essentials';
 
-import { IInspectionData } from 'src/common/inspection';
+import { IInspectionData, IInspectionTree } from 'src/common/inspection';
+import { useDoubleRenderSign } from 'src/hooks/useDoubleRenderSign';
 
 export interface IInspectionContext {
-    records: IInspectionData[];
+    data: {
+        [Group: string]: {
+            records: IInspectionData[];
+            tree: IInspectionTree;
+        };
+    };
+    groups: string[];
 }
 
 export interface IInspectionContextUpdater {
-    addRecord: (record: IInspectionData) => void;
+    addRecord: (record: IInspectionData, groupIndex: number) => void;
     forceUpdate: () => void;
+    registerGroup: (group: string, index: number) => void;
 }
 
 const initialContext: IInspectionContext = {
-    records: [],
+    data: {},
+    groups: [],
 };
 
-type IInspectionAction = { type: 'addRecord'; record: IInspectionData };
+type IInspectionAction =
+    | { type: 'add-record'; groupIndex: number; record: IInspectionData }
+    | { type: 'register-group'; index: number; group: string };
 
-const reduce = produce((state: IInspectionContext, action: IInspectionAction) => {
+const reduce = produce<ReactImmerReducer<IInspectionContext, IInspectionAction>>((state, action) => {
     let never: never;
     switch (action.type) {
-        case 'addRecord':
-            state.records.push(action.record);
+        case 'add-record': {
+            const { groupIndex, record } = action;
+            state.data[state.groups[groupIndex]].records.push(record);
             break;
+        }
+
+        case 'register-group': {
+            const { group, index } = action;
+            if (state.data[group] === undefined) {
+                state.groups.push(group);
+                state.data[group] = {
+                    records: [],
+                    tree: { group, index, children: [] },
+                };
+            }
+            break;
+        }
 
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = action.type;
+            never = action;
     }
 });
 
@@ -38,57 +64,32 @@ export const InspectionContext = createContext<IInspectionContext>(initialContex
 export const InspectionContextUpdater = createContext<IInspectionContextUpdater>({
     addRecord: noop,
     forceUpdate: noop,
+    registerGroup: noop,
 });
 
-function useDoubleRenderSign() {
-    const dbRef = useRef<Record<string, boolean>>({});
-
-    const sign = useConstFn((record: IInspectionData): boolean => {
-        const key = JSON.stringify(record);
-
-        if (dbRef.current[key] === undefined) {
-            dbRef.current[key] = false;
-        } else {
-            dbRef.current[key] = !dbRef.current[key];
-        }
-
-        return dbRef.current[key];
-    });
-
-    return { sign };
-}
-
 export const InspectionProvider: React.FC = (props) => {
-    const context = useRef(initialContext);
+    const ref = useRef(initialContext);
 
-    // As `StrictMode` is set, use this hook to check double-render in development mode.
     const { sign } = useDoubleRenderSign();
-
     const forceUpdate = useForceUpdate();
 
-    const dispatch = useConstFn((action: IInspectionAction) => {
-        context.current = reduce(context.current, action);
+    const dispatch = useConstFn<React.Dispatch<IInspectionAction>>((action) => {
+        ref.current = reduce(ref.current, action);
     });
 
     const updaters = useConst<IInspectionContextUpdater>(() => ({
-        addRecord: (record) => {
-            let signRes = true;
-
-            // Check double-render in development mode.
-            if (process.env.NODE_ENV === 'development') {
-                signRes = sign(record);
-            }
-
-            if (signRes) {
-                dispatch({ type: 'addRecord', record });
+        addRecord: (record, groupIndex) => {
+            if (sign(record)) {
+                dispatch({ type: 'add-record', groupIndex, record });
             }
         },
         forceUpdate,
+        registerGroup: (group, index) => dispatch({ type: 'register-group', group, index }),
     }));
 
     return (
         <InspectionContextUpdater.Provider value={updaters}>
-            <InspectionContext.Provider value={context.current}>{props.children}</InspectionContext.Provider>
+            <InspectionContext.Provider value={ref.current}>{props.children}</InspectionContext.Provider>
         </InspectionContextUpdater.Provider>
     );
 };

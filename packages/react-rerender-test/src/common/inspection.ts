@@ -1,21 +1,21 @@
-export type IInspectionNodeChildren = Record<number, IInspectionNode>;
-
 export interface IInspectionNode {
     index: number;
-    children?: IInspectionNodeChildren;
+    children?: IInspectionNode[];
     key: Optional<string>;
     name: string;
 }
 
 export interface IInspectionTree {
-    name: string;
-    children?: IInspectionNodeChildren;
+    group: string;
+    index: number;
+    // name: string;
+    children?: IInspectionNode[];
 }
 
 export interface IInspectionParent {
     index: number;
-    key: Optional<string>;
-    name: string;
+    // key: Optional<string>;
+    // name: string;
 }
 
 export interface IInspectionData {
@@ -34,6 +34,5 @@ export interface InspectedFC<P = {}> extends React.FC<P> {
 export interface InspectedFCMaker<P = {}> extends InspectedFC<P> {
     color: (color: string) => this;
     desc: (desc: string) => this;
-    group: (groupName: string) => this;
     type: (type: InspectedFCType) => this;
 }

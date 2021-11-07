@@ -1,6 +1,7 @@
 import { Button } from 'antd';
 import { useContext } from 'react';
 
+import { Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage';
 import { RenderContext, RenderContextUpdater } from 'src/contexts/RenderContext';
 
@@ -27,7 +28,9 @@ function Controller(): React.ReactElement {
 export function NestedFCPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <Parent />
+            <Inspector>
+                <Parent />
+            </Inspector>
         </TestPage>
     );
 }

@@ -3,9 +3,8 @@ import { Layout } from 'antd';
 import { InspectionProvider } from 'src/contexts/InspectionContext';
 import { RenderProvider } from 'src/contexts/RenderContext';
 
-import { Inspector } from '../Inspector';
 import { Note } from '../Note';
-import { RenderList } from '../RenderList';
+import { RenderList } from '../RenderOrderList';
 
 import scss from './TestPage.module.scss';
 
@@ -22,7 +21,7 @@ export function TestPage(props: IPageContainerProps): React.ReactElement {
                 <div className={scss.view}>
                     <div className={scss.components}>
                         <RenderProvider>
-                            <Inspector>{children}</Inspector>
+                            {children}
                             {onRenderController?.()}
                         </RenderProvider>
                     </div>

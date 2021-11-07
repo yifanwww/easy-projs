@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 
+import { Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage';
 import { RenderContext } from 'src/contexts/RenderContext';
 
@@ -37,8 +38,12 @@ function ParentSelectorPtc() {
 export function ChangeParentPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <ParentSelectorPrc />
-            <ParentSelectorPtc />
+            <Inspector group="prc">
+                <ParentSelectorPrc />
+            </Inspector>
+            <Inspector group="ptc">
+                <ParentSelectorPtc />
+            </Inspector>
         </TestPage>
     );
 }

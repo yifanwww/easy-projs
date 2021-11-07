@@ -3,8 +3,9 @@ import { useContext, useEffect } from 'react';
 import { InspectedFCMaker, InspectedFCType } from 'src/common/inspection';
 import { ComponentView } from 'src/components/ComponentView';
 import { InspectionContextUpdater } from 'src/contexts/InspectionContext';
-import { useInpectedComponentData } from 'src/hooks/useInpectedComponentData';
+import { useInspectedFCData } from 'src/hooks/useInspectedFCData';
 import { useInspectedFCType } from 'src/hooks/useInspectedFCType';
+import { useInspectorPosition } from 'src/hooks/useInspectorPosition';
 
 const colors = [
     '#fff0f6',
@@ -37,7 +38,6 @@ export interface IInspectedOptions {
 interface _InspectedFCMaker<P = {}> extends InspectedFCMaker<P> {
     _inspectedColor?: string;
     _inspectedDesc?: string;
-    _inspectedGroup?: string;
     _inspectedType?: InspectedFCType;
 }
 
@@ -53,13 +53,15 @@ export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): Inspect
 
         const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);
 
-        const data = useInpectedComponentData();
-        const level = data.parents.length - 1;
+        const data = useInspectedFCData();
+        const level = data.parents.length;
+
+        const groupIndex = useInspectorPosition();
 
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const _type = _inspectedType ?? useInspectedFCType(_fc, props);
 
-        addRecord(data);
+        addRecord(data, groupIndex);
 
         useEffect(() => {
             forceUpdate();
@@ -81,11 +83,6 @@ export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): Inspect
 
     _inspectedFC.desc = (desc) => {
         _inspectedFC._inspectedDesc = desc;
-        return _inspectedFC;
-    };
-
-    _inspectedFC.group = (groupName) => {
-        _inspectedFC._inspectedGroup = groupName;
         return _inspectedFC;
     };
 
