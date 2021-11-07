@@ -14,26 +14,23 @@ export const pages = genRouteInfos({
     },
     [RoutePath.ChangeLevelPage]: {
         component: ChangeLevelPage,
-        exact: true,
         sider: 'Change Level',
     },
     [RoutePath.ChangeParentPage]: {
         component: ChangeParentPage,
-        exact: true,
         sider: 'Change Parent',
     },
     [RoutePath.NestedFCPage]: {
         component: NestedFCPage,
-        exact: true,
         sider: 'Nested FC',
     },
     [RoutePath.RerenderParentPage]: {
         component: RerenderParentPage,
-        exact: true,
         sider: 'Rerender Parent',
     },
     [RoutePath.RoutePage]: {
         component: RouterPage,
+        deepMatch: true,
         sider: 'Router',
     },
 });

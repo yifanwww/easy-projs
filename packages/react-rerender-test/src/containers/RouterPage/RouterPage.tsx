@@ -1,4 +1,5 @@
-import { generatePath, Redirect, Route, Switch } from 'react-router';
+import { useEffect } from 'react';
+import { generatePath, Route, Routes, useNavigate } from 'react-router';
 
 import { RoutePath } from 'src/common/route';
 import { Inspector } from 'src/components/Inspector';
@@ -6,45 +7,42 @@ import { TestPage } from 'src/components/TestPage';
 
 import { makeInspectedFC } from '../makeInspectedFC';
 import { Controller } from './Controller';
+import { useRouterNum } from './useRouterNum';
 
-const routes: string[] = [1, 2, 3, 4, 5].map((num) => generatePath(RoutePath.RoutePageDetail, { num }));
+const routes: string[] = [1, 2, 3, 4, 5].map((num) => num.toString());
 
 const Child = makeInspectedFC('Child', () => <div />);
 
-const RouterPrc = makeInspectedFC('Router', () => {
-    return (
-        <Switch>
-            {routes.map((route) => (
-                <Route key={route} exact path={route} render={() => <Child />} />
-            ))}
-        </Switch>
-    );
-}).type('prc');
-
 const RouterPtc = makeInspectedFC('Router', () => {
     return (
-        <Switch>
+        <Routes>
             {routes.map((route) => (
-                <Route key={route} exact path={route}>
-                    <Child />
-                </Route>
+                <Route key={route} path={route} element={<Child />} />
             ))}
-        </Switch>
+        </Routes>
     );
 }).type('ptc');
+
+function CorrectRoute() {
+    const num = useRouterNum();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (num === null) {
+            navigate(generatePath(RoutePath.RoutePageDetail, { num: '1' }), { replace: true });
+        }
+    }, [navigate, num]);
+
+    return null;
+}
 
 export function RouterPage(): React.ReactElement {
     return (
         <TestPage onRenderController={() => <Controller />}>
-            <Inspector group="PRC">
-                <RouterPrc />
-            </Inspector>
             <Inspector group="PTC">
                 <RouterPtc />
             </Inspector>
-            <Route key={RoutePath.RoutePage} path={RoutePath.RoutePage}>
-                <Redirect to={generatePath(RoutePath.RoutePageDetail, { num: 1 })} />
-            </Route>
+            <CorrectRoute />
         </TestPage>
     );
 }

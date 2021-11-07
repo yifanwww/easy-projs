@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 
 import { IPageOverview } from './types';
 
@@ -10,10 +10,10 @@ export interface IPageOverviewItemProps extends IPageOverview {}
 export function PageOverviewItem(props: IPageOverviewItemProps): React.ReactElement {
     const { title, url } = props;
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     return (
-        <Button className={scss.item} onClick={() => history.push(url)}>
+        <Button className={scss.item} onClick={() => navigate(url)}>
             <div className={scss.titleContainer}>
                 <span className={scss.title}>{title}</span>
             </div>

@@ -11,7 +11,7 @@ export enum RoutePath {
 
 export interface IRouteInfo {
     component: React.ComponentType;
-    exact?: boolean;
+    deepMatch?: boolean;
     path: RoutePath;
     sider: string;
 }
