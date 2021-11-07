@@ -4,6 +4,7 @@
 
 - Initialize FluentUI icons
 - Add `test.setup.ts`
+- Use `react-router` to route urls
 
 ### Changes
 
