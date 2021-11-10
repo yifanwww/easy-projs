@@ -140,6 +140,10 @@
             "path": "packages/random-string"
         },
         {
+            "name": "@easy/react-performance",
+            "path": "packages/react-performance"
+        },
+        {
             "name": "@easy/react-rerender-test",
             "path": "packages/react-rerender-test"
         },

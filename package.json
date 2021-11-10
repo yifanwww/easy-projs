@@ -115,6 +115,7 @@
         "packages/project-template-browser-react",
         "packages/project-template-nodejs",
         "packages/random-string",
+        "packages/react-performance",
         "packages/react-rerender-test",
         "packages/scripts",
         "packages/stylelint-config",

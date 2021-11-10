@@ -1,0 +1,9 @@
+{
+    "short_name": "react-performance",
+    "name": "@easy/react-performance",
+    "icons": [],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+}

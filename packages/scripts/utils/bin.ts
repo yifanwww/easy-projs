@@ -33,6 +33,7 @@ export function buildProjects(): void {
         '@easy/demo-test-nodejs',
         '@easy/project-template-browser-react',
         '@easy/project-template-nodejs',
+        '@easy/react-performance',
         '@easy/react-rerender-test',
     ];
 
