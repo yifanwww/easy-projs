@@ -17,7 +17,6 @@
         "build-packages": "./bin/build-packages.js",
         "build-projects": "./bin/build-projects.js",
         "format-code": "./bin/format-code.js",
-        "post-install": "./bin/post-install.js",
         "react-proj": "./bin/react-proj.js",
         "skip-npm-script": "./bin/skip-npm-script.js",
         "unit-test": "./bin/unit-test.js"
