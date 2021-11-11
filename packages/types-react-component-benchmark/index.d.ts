@@ -1,3 +1,5 @@
+import { ComponentType, ForwardRefExoticComponent, RefAttributes } from 'react';
+
 export const BenchmarkType: {
     MOUNT: 'mount';
     UPDATE: 'update';
@@ -26,15 +28,13 @@ export interface IBenchResults extends IComputedResult {
     startTime: number;
     endTime: number;
     runTime: number;
-
     sampleCount: number;
     samples: ISample[];
-
     layout?: IComputedResult;
 }
 
 export interface IBenchmarkProps {
-    component: React.ComponentType;
+    component: ComponentType;
     componentProps?: {};
     includeLayout?: boolean;
     onComplete: (res: IBenchResults) => void;
@@ -47,7 +47,7 @@ export interface IBenchmarkRef {
     start: () => void;
 }
 
-const Benchmark: React.ForwardRefExoticComponent<PropsWithoutRef<IBenchmarkProps> & RefAttributes<IBenchmarkRef>>;
+declare const Benchmark: ForwardRefExoticComponent<IBenchmarkProps & RefAttributes<IBenchmarkRef>>;
 
 // eslint-disable-next-line import/no-default-export
 export default Benchmark;
