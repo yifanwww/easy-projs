@@ -160,6 +160,10 @@
             "path": "packages/tsconfigs"
         },
         {
+            "name": "@types/react-component-benchmark",
+            "path": "packages/types-react-component-benchmark"
+        },
+        {
             "name": "@easy/utils-fluentui",
             "path": "packages/utils-fluentui"
         },

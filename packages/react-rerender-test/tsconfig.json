@@ -2,7 +2,6 @@
     "extends": "@easy/tsconfigs/tsconfig.react.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "experimentalDecorators": true,
         "rootDir": "src",
         "noEmit": true
     },
