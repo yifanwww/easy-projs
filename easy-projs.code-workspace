@@ -104,6 +104,10 @@
             "path": "packages/assets"
         },
         {
+            "name": "@easy/benchmark-javascript",
+            "path": "packages/benchmark-javascript"
+        },
+        {
             "name": "@easy/demo-test-nodejs",
             "path": "packages/demo-test-nodejs"
         },

@@ -1,0 +1,32 @@
+{
+    "name": "@easy/benchmark-javascript",
+    "version": "0.0.0",
+    "description": "A benchmark tool to test javascript performance.",
+    "main": "lib-commonjs/index.js",
+    "module": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/benchmark-javascript"
+    },
+    "scripts": {
+        "build": "concurrently -n cjs,esm,types \"npm run build:cjs\" \"npm run build:esm\" \"npm run build:types\"",
+        "build:cjs": "tsc --project tsconfigs/tsconfig.cjs.json",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf lib lib-commonjs tsconfigs/*.tsbuildinfo",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "test": "skip-npm-script",
+        "test-coverage": "skip-npm-script"
+    }
+}

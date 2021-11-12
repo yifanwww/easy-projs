@@ -109,6 +109,7 @@
     },
     "workspaces": [
         "packages/assets",
+        "packages/benchmark-javascript",
         "packages/demo-test-nodejs",
         "packages/eslint-config",
         "packages/global-types",
