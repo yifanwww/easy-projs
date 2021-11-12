@@ -1,0 +1,30 @@
+{
+    "name": "@easy/performance-react",
+    "version": "0.0.0",
+    "description": "This project is used to test the performance of React.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/performance-react"
+    },
+    "browserslist": [
+        "last 9 chrome versions"
+    ],
+    "scripts": {
+        "build": "skip-npm-script",
+        "clean": "rimraf build",
+        "dev": "skip-npm-script",
+        "format": "format-code",
+        "lint": "skip-npm-script",
+        "pre-commit": "lint-staged",
+        "test": "skip-npm-script",
+        "test-coverage": "skip-npm-script"
+    }
+}

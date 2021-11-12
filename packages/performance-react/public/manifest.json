@@ -1,6 +1,6 @@
 {
-    "short_name": "react-performance",
-    "name": "@easy/react-performance",
+    "short_name": "performance-react",
+    "name": "@easy/performance-react",
     "icons": [],
     "start_url": ".",
     "display": "standalone",

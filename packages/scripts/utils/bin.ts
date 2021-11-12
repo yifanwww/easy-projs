@@ -8,7 +8,6 @@ const genCommand = <T extends (string | false | undefined | null)[]>(...params: 
 export function buildPackages(): void {
     const packagesOrder = [
         /* ----- may be used by all other packages ----- */
-        '@types/react-component-benchmark',
         '@easy/utils-type',
         '@easy/utils-test',
 
@@ -32,9 +31,10 @@ export function buildPackages(): void {
 export function buildProjects(): void {
     const packagesOrder = [
         '@easy/demo-test-nodejs',
+        '@easy/performance-javascript',
+        '@easy/performance-react',
         '@easy/project-template-browser-react',
         '@easy/project-template-nodejs',
-        '@easy/react-performance',
         '@easy/react-rerender-test',
     ];
 

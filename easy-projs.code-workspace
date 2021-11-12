@@ -132,16 +132,20 @@
             "path": "packages/project-template-browser-react"
         },
         {
+            "name": "@easy/performance-javascript",
+            "path": "packages/performance-javascript"
+        },
+        {
+            "name": "@easy/performance-react",
+            "path": "packages/performance-react"
+        },
+        {
             "name": "@easy/project-template-nodejs",
             "path": "packages/project-template-nodejs"
         },
         {
             "name": "@easy/random-string",
             "path": "packages/random-string"
-        },
-        {
-            "name": "@easy/react-performance",
-            "path": "packages/react-performance"
         },
         {
             "name": "@easy/react-rerender-test",
@@ -158,10 +162,6 @@
         {
             "name": "@easy/tsconfigs",
             "path": "packages/tsconfigs"
-        },
-        {
-            "name": "@types/react-component-benchmark",
-            "path": "packages/types-react-component-benchmark"
         },
         {
             "name": "@easy/utils-fluentui",
@@ -182,6 +182,10 @@
         {
             "name": "@easy/utils-type",
             "path": "packages/utils-type"
+        },
+        {
+            "name": "@types/react-component-benchmark",
+            "path": "packages/types-react-component-benchmark"
         }
     ]
 }
