@@ -1,4 +1,9 @@
 # CHANGELOG
+## @easy/react-renderer-test v0.3.0 (Unreleased)
+### Features
+
+- Test memorized nested function component
+
 ## @easy/react-renderer-test v0.2.0 (2021-11-07)
 ### Features
 

@@ -1,3 +1,4 @@
+import { usePersistFn } from '@easy/hooks';
 import { useContext, useEffect } from 'react';
 
 import { InspectedFCMaker, InspectedFCType } from 'src/common/inspection';
@@ -92,4 +93,14 @@ export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): Inspect
     };
 
     return _inspectedFC;
+}
+
+export function usePersistInspectedFC<P = {}>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
+    const inspectedFC = makeInspectedFC(name, fc);
+
+    const persistFC = usePersistFn(inspectedFC);
+    persistFC.displayName = name;
+    persistFC.inspected = name;
+
+    return persistFC;
 }
