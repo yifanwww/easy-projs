@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { Introduction } from './Introduction';
 
 describe('Test component `Introduction`', () => {
-    test('renders', () => {
+    it('renders', () => {
         const reactElement = <Introduction />;
 
         const component = renderer.create(reactElement);

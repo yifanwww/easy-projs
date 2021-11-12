@@ -1,9 +1,9 @@
 import * as package_exports from './index';
 
-test('Test all exports from this package', () => expectSnapshot(Object.keys(package_exports)));
+it('exports from this package', () => expectSnapshot(Object.keys(package_exports)));
 
 describe('Test function `memorize`', () => {
-    test('test default diff', () => {
+    it('works with default diff', () => {
         const test = jest.fn((...args: unknown[]) => args);
 
         const memoTest = package_exports.memorize(test);
@@ -23,7 +23,7 @@ describe('Test function `memorize`', () => {
         expect(res1).toBe(res2);
     });
 
-    test('test custom diff', () => {
+    it('works with custom diff', () => {
         const test = jest.fn((...args: unknown[]) => args);
 
         const memoTest = package_exports.memorize(test, (prev, curr) => prev.length !== curr.length);
