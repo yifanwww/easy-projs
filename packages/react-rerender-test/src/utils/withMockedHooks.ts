@@ -1,7 +1,7 @@
 import React from 'react';
 import { noop } from 'ts-essentials';
 
-export function withMockedHooks<T extends (...args: never[]) => unknown>(fn: T): T {
+export function withMockedHooks<T extends UnknownFn>(fn: T): T {
     const _fn = (...args: never[]) => {
         const _useCallback = React.useCallback;
         const _useContext = React.useContext;
