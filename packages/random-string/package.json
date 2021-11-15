@@ -23,7 +23,7 @@
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "build-dist": "tsc --project tsconfigs/tsconfig.dist.json",
-        "clean": "rimraf lib lib-commonjs tsconfigs/*.tsbuildinfo",
+        "clean": "rimraf dist lib lib-commonjs tsconfigs/*.tsbuildinfo",
         "clean-dist": "rimraf dist",
         "format": "format-code",
         "lint": "eslint .",
