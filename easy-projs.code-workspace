@@ -186,10 +186,6 @@
         {
             "name": "@easy/utils-type",
             "path": "packages/utils-type"
-        },
-        {
-            "name": "@types/react-component-benchmark",
-            "path": "packages/types-react-component-benchmark"
         }
     ]
 }
