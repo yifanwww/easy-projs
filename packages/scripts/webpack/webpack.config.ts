@@ -22,7 +22,7 @@ const resolveProject = (relative: string) => path.resolve(project, relative);
 
 // Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
 // Line 62-79
-export const craPaths = {
+const craPaths = {
     appBuild: resolveProject('build'),
     appHtml: resolveProject('public/index.html'),
     appIndexTs: resolveProject('src/index.tsx'),
@@ -90,7 +90,7 @@ function overrideWebpackConfigs(webpack: Configuration): Configuration {
     return webpack;
 }
 
-module.exports = {
+export = {
     webpack: overrideWebpackConfigs,
     paths: overridePathsConfigs,
 };

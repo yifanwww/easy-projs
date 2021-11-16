@@ -47,9 +47,11 @@ function Controller(): React.ReactElement {
     );
 }
 
+const renderController = () => <Controller />;
+
 export function NestedFCPage(): React.ReactElement {
     return (
-        <TestPage onRenderController={() => <Controller />}>
+        <TestPage onRenderController={renderController}>
             <Inspector group="Nested FC">
                 <ParentNC />
             </Inspector>

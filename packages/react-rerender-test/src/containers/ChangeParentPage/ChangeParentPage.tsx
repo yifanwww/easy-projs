@@ -35,9 +35,11 @@ function ParentSelectorPtc() {
     );
 }
 
+const renderController = () => <Controller />;
+
 export function ChangeParentPage(): React.ReactElement {
     return (
-        <TestPage onRenderController={() => <Controller />}>
+        <TestPage onRenderController={renderController}>
             <Inspector group="PRC">
                 <ParentSelectorPrc />
             </Inspector>

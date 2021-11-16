@@ -36,9 +36,11 @@ function CorrectRoute() {
     return null;
 }
 
+const renderController = () => <Controller />;
+
 export function RouterPage(): React.ReactElement {
     return (
-        <TestPage onRenderController={() => <Controller />}>
+        <TestPage onRenderController={renderController}>
             <Inspector group="PTC">
                 <RouterPtc />
             </Inspector>

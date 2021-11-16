@@ -12,7 +12,7 @@ describe('Test component `Introduction`', () => {
         expect(tree).toMatchSnapshot();
 
         const { getByText } = render(reactElement);
-        const linkElement = getByText(new RegExp('Learn easy-projs', 'i'));
+        const linkElement = getByText(/Learn easy-projs/i);
         expect(linkElement).toBeInTheDocument();
     });
 });
