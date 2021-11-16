@@ -1,5 +1,6 @@
 import { Benchmark } from '../src';
 
+/** Used to avoid some optimization */
 let res;
 
 const benchmark = new Benchmark('String#indexOf', () => {

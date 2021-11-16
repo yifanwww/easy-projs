@@ -5,7 +5,22 @@ A benchmark tool to test javascript performance.
 ## Usage
 ### `Benchmark`
 
-TODO
+```ts
+import { Benchmark } from '../src';
+
+/** Used to avoid some optimization */
+let res;
+
+const benchmark = new Benchmark('String#indexOf', () => {
+    res = 'Hello World!'.indexOf('o') > -1;
+});
+
+res;
+
+benchmark.run();
+
+console.log(benchmark.toString());
+```
 
 ## Develop this package
 
