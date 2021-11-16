@@ -108,6 +108,10 @@
             "path": "packages/benchmark-javascript"
         },
         {
+            "name": "@easy/cra-check",
+            "path": "packages/cra-check"
+        },
+        {
             "name": "@easy/demo-test-nodejs",
             "path": "packages/demo-test-nodejs"
         },

@@ -1,0 +1,28 @@
+{
+    "name": "@easy/cra-check",
+    "version": "0.0.0",
+    "description": "This project is used to check what the cra-generated projects change.",
+    "main": "lib-commonjs/index.js",
+    "module": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/cra-check"
+    },
+    "scripts": {
+        "build": "skip-npm-script",
+        "cra-gen": "node cra-gen.mjs",
+        "format": "format-code",
+        "lint": "skip-npm-script",
+        "pre-commit": "skip-npm-script",
+        "test-coverage": "skip-npm-script"
+    }
+}

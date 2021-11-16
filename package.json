@@ -111,6 +111,7 @@
     "workspaces": [
         "packages/assets",
         "packages/benchmark-javascript",
+        "packages/cra-check",
         "packages/demo-test-nodejs",
         "packages/eslint-config",
         "packages/global-types",
