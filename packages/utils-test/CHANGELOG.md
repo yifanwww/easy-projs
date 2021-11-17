@@ -1,4 +1,9 @@
 # CHANGELOG
+## @packages/utils-test v0.2.0 (Unreleased)
+### Features
+
+- Add `mockLocalStorage` and `mockSessionStorage` to help mock local storage and session storage
+
 ## @packages/utils-test v0.1.0 (2021-10-29)
 ### Features
 

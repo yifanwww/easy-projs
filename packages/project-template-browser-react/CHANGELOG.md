@@ -1,4 +1,9 @@
 # CHANGELOG
+## @easy/project-template-browser-react v0.5.0 (Unreleased)
+### Features
+
+- Add empty classes of local storage and session storage with unit tests
+
 ## @easy/project-template-browser-react v0.4.0 (2021-11-07)
 ### Features
 
