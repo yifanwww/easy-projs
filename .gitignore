@@ -34,7 +34,9 @@ release
 **/*.map
 **/*.mjs
 
+!packages/cra-check/gen-cra.mjs
 !packages/eslint-config/index.js
+!packages/projs-manage/bin/**/*.js
 !packages/scripts/bin/**/*.js
 !packages/stylelint-config/index.js
 

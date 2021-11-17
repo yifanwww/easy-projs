@@ -152,6 +152,10 @@
             "path": "packages/project-template-nodejs"
         },
         {
+            "name": "@easy/projs-manage",
+            "path": "packages/projs-manage"
+        },
+        {
             "name": "@easy/random-string",
             "path": "packages/random-string"
         },
