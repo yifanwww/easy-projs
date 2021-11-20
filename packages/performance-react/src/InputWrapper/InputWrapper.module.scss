@@ -1,0 +1,12 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.root.auto {
+    flex: auto;
+}
+
+.title {
+    height: 24px;
+}

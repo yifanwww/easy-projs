@@ -18,11 +18,11 @@
         "last 9 chrome versions"
     ],
     "scripts": {
-        "build": "skip-npm-script",
+        "build": "react-proj build",
         "clean": "rimraf build",
-        "dev": "skip-npm-script",
+        "dev": "react-proj dev",
         "format": "format-code",
-        "lint": "skip-npm-script",
+        "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
         "pre-commit": "lint-staged",
         "test": "skip-npm-script",
         "test-coverage": "skip-npm-script"

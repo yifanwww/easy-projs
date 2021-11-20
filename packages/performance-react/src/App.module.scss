@@ -1,0 +1,31 @@
+.root {
+    display: flex;
+    flex-direction: row;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 50vw;
+    padding: 16px;
+    border-right: 1px solid #eee;
+}
+
+.controller {
+    display: grid;
+    grid-template-columns: 1fr 1fr 90px 75px 75px;
+    gap: 16px;
+}
+
+.button {
+    width: 75px;
+    margin-right: 0;
+}
+
+.test {
+    display: grid;
+    width: 50vw;
+    height: 100vh;
+    padding: 16px;
+}
