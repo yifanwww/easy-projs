@@ -1,7 +1,7 @@
 import { Table } from 'antd';
 import { ColumnType } from 'antd/lib/table';
 
-import { BenchmarkResult } from '../types';
+import { BenchmarkResult } from 'src/common/benchmark';
 
 const formatNumber = (num: number) => `${num.toFixed(3)}ms`;
 

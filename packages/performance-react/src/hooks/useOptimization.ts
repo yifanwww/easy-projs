@@ -2,7 +2,7 @@ import { usePersistFn } from '@easy/hooks';
 import { useEffect, useRef, useState } from 'react';
 import { BenchmarkRef } from 'react-component-benchmark';
 
-import { BenchmarkTypes } from 'src/types';
+import { BenchmarkTypes } from 'src/common/benchmark';
 
 import { UseComponentKeysActions } from './useComponentKeys';
 

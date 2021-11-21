@@ -3,13 +3,13 @@ import copy from 'copy-to-clipboard';
 import { useReducer, useRef, useState } from 'react';
 import Benchmark, { BenchmarkType, BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
 
-import { useComponentKeys, useMultipleTest, useOptimization, useTest } from './hooks';
-import { InputWrapper } from './InputWrapper';
-import { ResultTable } from './ResultTable';
-import { componentInfos } from './tests';
-import { BenchmarkResult, BenchmarkTypes } from './types';
+import { BenchmarkResult, BenchmarkTypes } from 'src/common/benchmark';
+import { InputWrapper } from 'src/components/InputWrapper';
+import { ResultTable } from 'src/components/ResultTable';
+import { componentInfos } from 'src/components/tests';
+import { useComponentKeys, useMultipleTest, useOptimization, useTest } from 'src/hooks';
 
-import scss from './App.module.scss';
+import scss from './TestPage.module.scss';
 
 function reducer(state: BenchmarkResult[], action: BenchmarkResult | 'clear') {
     if (action === 'clear') {
@@ -19,7 +19,7 @@ function reducer(state: BenchmarkResult[], action: BenchmarkResult | 'clear') {
     }
 }
 
-export function App(): React.ReactElement {
+export function TestPage(): React.ReactElement {
     const benchmarkRef = useRef<BenchmarkRef>(null);
 
     const benchmarkTypeState = useState<BenchmarkTypes>(BenchmarkType.MOUNT);
@@ -90,60 +90,65 @@ export function App(): React.ReactElement {
         message.info('Copy to clibboard successfully');
     };
 
+    const controllerElement = (
+        <div className={scss.controller}>
+            <div className={scss.selectorBar}>
+                <InputWrapper flexAuto title="Component">
+                    <Select
+                        className={scss.select}
+                        disabled={running}
+                        value={componentKey}
+                        onChange={changeComponentKey}
+                    >
+                        {Object.keys(componentInfos).map((key) => (
+                            <Select.Option key={key} value={key}>
+                                {componentInfos[key as keyof typeof componentInfos].name}
+                            </Select.Option>
+                        ))}
+                    </Select>
+                </InputWrapper>
+                <InputWrapper flexAuto title="Benchmark Type">
+                    <Select
+                        className={scss.select}
+                        disabled={running}
+                        value={benchmarkType}
+                        onChange={changeBenchmarkType}
+                    >
+                        {Object.keys(BenchmarkType).map((type) => (
+                            <Select.Option key={type} value={type}>
+                                {type.toLowerCase()}
+                            </Select.Option>
+                        ))}
+                    </Select>
+                </InputWrapper>
+                <InputWrapper title="Samples">
+                    <InputNumber disabled={running} min={50} value={samples} onChange={changeSamples} />
+                </InputWrapper>
+            </div>
+            <div className={scss.buttonBar}>
+                <Button className={scss.button} disabled={running} onClick={optimize}>
+                    Optimize
+                </Button>
+                <Button className={scss.button} disabled={running} onClick={startBenchmark}>
+                    Start
+                </Button>
+                <Button className={scss.button} disabled={running} onClick={startBenchmark50}>
+                    Start 50
+                </Button>
+                <Button className={scss.button} disabled={running || results.length === 0} onClick={clearResults}>
+                    Clear
+                </Button>
+                <Button className={scss.button} disabled={running || results.length === 0} onClick={copyResults}>
+                    Copy Results
+                </Button>
+            </div>
+        </div>
+    );
+
     return (
         <div className={scss.root}>
             <div className={scss.display}>
-                <div className={scss.selector}>
-                    <InputWrapper flexAuto title="Component">
-                        <Select
-                            className={scss.select}
-                            disabled={running}
-                            value={componentKey}
-                            onChange={changeComponentKey}
-                        >
-                            {Object.keys(componentInfos).map((key) => (
-                                <Select.Option key={key} value={key}>
-                                    {componentInfos[key as keyof typeof componentInfos].name}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </InputWrapper>
-                    <InputWrapper flexAuto title="Benchmark Type">
-                        <Select
-                            className={scss.select}
-                            disabled={running}
-                            value={benchmarkType}
-                            onChange={changeBenchmarkType}
-                        >
-                            {Object.keys(BenchmarkType).map((type) => (
-                                <Select.Option key={type} value={type}>
-                                    {type.toLowerCase()}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </InputWrapper>
-                    <InputWrapper title="Samples">
-                        <InputNumber disabled={running} min={50} value={samples} onChange={changeSamples} />
-                    </InputWrapper>
-                </div>
-                <div className={scss.controller}>
-                    <Button className={scss.button} disabled={running} onClick={optimize}>
-                        Optimize
-                    </Button>
-                    <Button className={scss.button} disabled={running} onClick={startBenchmark}>
-                        Start
-                    </Button>
-                    <Button className={scss.button} disabled={running} onClick={startBenchmark50}>
-                        Start 50
-                    </Button>
-                    <Button className={scss.button} disabled={running || results.length === 0} onClick={clearResults}>
-                        Clear
-                    </Button>
-                    <Button className={scss.button} disabled={running || results.length === 0} onClick={copyResults}>
-                        Copy Results
-                    </Button>
-                </div>
-
+                {controllerElement}
                 <ResultTable results={results} />
             </div>
 

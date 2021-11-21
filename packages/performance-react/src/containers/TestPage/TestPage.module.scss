@@ -6,13 +6,19 @@
 .display {
     display: flex;
     flex-direction: column;
-    gap: 16px;
     width: 60vw;
-    padding: 16px;
     border-right: 1px solid #eee;
 }
 
-.selector {
+.controller {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: flex-end;
+    padding: 16px;
+}
+
+.selectorBar {
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -22,7 +28,7 @@
     min-width: 120px;
 }
 
-.controller {
+.buttonBar {
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -39,5 +45,4 @@
     display: grid;
     width: 40vw;
     height: 100vh;
-    padding: 16px;
 }
