@@ -1,29 +1,47 @@
+import { useCallback, useMemo, useReducer, useRef, useState } from 'react';
 import scss from './tests.module.scss';
 
-function ComponentView() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function ComponentView(props: Record<string, unknown>) {
     return <div className={scss.root} />;
 }
 
 export function NoHooks() {
-    return <ComponentView />;
+    const obj = {};
+    const fn = () => {};
+
+    return <ComponentView obj={obj} callback={fn} />;
 }
 
 export function UseMemo() {
-    return <div />;
+    const obj = useMemo(() => ({}), []);
+    const fn = () => {};
+
+    return <ComponentView obj={obj} callback={fn} />;
 }
 
 export function UseCallback() {
-    return <div />;
+    const obj = {};
+    const fn = useCallback(() => {}, []);
+
+    return <ComponentView obj={obj} callback={fn} />;
 }
 
 export function UseRef() {
-    return <div />;
+    const obj = useRef(() => ({}));
+    const fn = () => {};
+
+    return <ComponentView obj={obj} callback={fn} />;
 }
 
 export function UseState() {
-    return <div />;
+    const [obj, setObj] = useState(() => ({}));
+
+    return <ComponentView obj={obj} callback={setObj} />;
 }
 
 export function UseReducer() {
-    return <div />;
+    const [obj, dispatch] = useReducer((prev) => ({ ...prev }), {});
+
+    return <ComponentView obj={obj} callback={dispatch} />;
 }

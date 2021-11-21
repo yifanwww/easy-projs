@@ -2,6 +2,7 @@ import { Button, InputNumber, Select } from 'antd';
 import { useReducer, useRef, useState } from 'react';
 import Benchmark, { BenchmarkType, BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
 
+import { useComponentKeys, useMultipleTest, useOptimization, useTest } from './hooks';
 import { InputWrapper } from './InputWrapper';
 import { ResultTable } from './ResultTable';
 import { componentInfos } from './tests';
@@ -19,13 +20,31 @@ function reducer(state: BenchmarkResult[], action: BenchmarkResult | 'clear') {
 
 export function App(): React.ReactElement {
     const benchmarkRef = useRef<BenchmarkRef>(null);
-    const [benchmarkType, setBenchmarkType] = useState<BenchmarkTypes>(BenchmarkType.MOUNT);
-    const [componentKey, setComponentKey] = useState<string>(Object.keys(componentInfos)[0]);
-    const [samples, setSamples] = useState(100);
-    const [running, setRunning] = useState(false);
+
+    const benchmarkTypeState = useState<BenchmarkTypes>(BenchmarkType.MOUNT);
+    const [benchmarkType, setBenchmarkType] = benchmarkTypeState;
+    const componentKeysState = useComponentKeys(Object.keys(componentInfos));
+    const [componentKey, { setComponentKey }] = componentKeysState;
+    const samplesState = useState(100);
+    const [samples, setSamples] = samplesState;
+
     const [results, dispatch] = useReducer(reducer, []);
 
-    const finishBenchmark = (result: BenchResultsType) => {
+    const [task, setTask] = useState<'optimize' | 'benchmark' | 'benchmark-50'>('benchmark');
+
+    const [isOptimizationRunning, { onComplete: onCompleteForOptimization, startOptimization }] = useOptimization(
+        benchmarkRef,
+        benchmarkTypeState,
+        componentKeysState,
+        samplesState,
+    );
+    const [isTestRunning, { onComplete: onCompleteForTest, startTest }] = useTest(benchmarkRef);
+    const [isMultipleTestRunning, { onComplete: onCompleteForMultipleTest, startMultipleTest }] =
+        useMultipleTest(benchmarkRef);
+
+    const running = isOptimizationRunning || isTestRunning || isMultipleTestRunning;
+
+    const onBenchmarkComplete = (result: BenchResultsType) => {
         dispatch({
             order: results.length + 1,
             name: `${componentKey} - ${benchmarkType}`,
@@ -36,12 +55,25 @@ export function App(): React.ReactElement {
             p99: result.p99,
             layout: result.layout!.mean,
         });
-        setRunning(false);
+
+        if (task === 'optimize') onCompleteForOptimization();
+        else if (task === 'benchmark') onCompleteForTest();
+        else if (task === 'benchmark-50') onCompleteForMultipleTest();
+    };
+
+    const optimize = () => {
+        setTask('optimize');
+        startOptimization();
     };
 
     const startBenchmark = () => {
-        setRunning(true);
-        benchmarkRef.current?.start();
+        setTask('benchmark');
+        startTest();
+    };
+
+    const startBenchmark50 = () => {
+        setTask('benchmark-50');
+        startMultipleTest();
     };
 
     const clearResults = () => dispatch('clear');
@@ -78,8 +110,18 @@ export function App(): React.ReactElement {
                         <InputNumber disabled={running} min={50} value={samples} onChange={changeSamples} />
                     </InputWrapper>
                     <InputWrapper>
+                        <Button className={scss.button} disabled={running} onClick={optimize}>
+                            Optimize
+                        </Button>
+                    </InputWrapper>
+                    <InputWrapper>
                         <Button className={scss.button} disabled={running} onClick={startBenchmark}>
                             Start
+                        </Button>
+                    </InputWrapper>
+                    <InputWrapper>
+                        <Button className={scss.button} disabled={running} onClick={startBenchmark50}>
+                            Start 50
                         </Button>
                     </InputWrapper>
                     <InputWrapper>
@@ -101,7 +143,7 @@ export function App(): React.ReactElement {
                     key={`${componentKey}-${benchmarkType}-${results.length}`}
                     component={componentInfos[componentKey].component}
                     includeLayout
-                    onComplete={finishBenchmark}
+                    onComplete={onBenchmarkComplete}
                     ref={benchmarkRef}
                     samples={samples}
                     timeout={10000}
