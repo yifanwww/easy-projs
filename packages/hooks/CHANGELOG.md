@@ -1,4 +1,10 @@
 # CHANGELOG
+## @easy/hooks v0.4.0 (Unreleased)
+### Breaking Changes
+
+- Rename interface `IUseBooleanActions` to `UseBooleanActions`
+- Rename interface `IUseToggleUpdaters` to `UseToggleActions`
+
 ## @easy/hooks v0.3.0 (2021-11-03)
 ### Features
 
