@@ -1,25 +1,21 @@
 import { Button, InputNumber, message, Select } from 'antd';
 import copy from 'copy-to-clipboard';
-import { useReducer, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import Benchmark, { BenchmarkType, BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
 
-import { BenchmarkResult, BenchmarkTypes } from 'src/common/benchmark';
+import { BenchmarkTypes } from 'src/common/benchmark';
 import { InputWrapper } from 'src/components/InputWrapper';
 import { ResultTable } from 'src/components/ResultTable';
 import { componentInfos } from 'src/components/tests';
+import { BenchmarkContext, BenchmarkContextUpdater } from 'src/contexts/BenchmarkContext';
 import { useComponentKeys, useMultipleTest, useOptimization, useTest } from 'src/hooks';
 
 import scss from './TestPage.module.scss';
 
-function reducer(state: BenchmarkResult[], action: BenchmarkResult | 'clear') {
-    if (action === 'clear') {
-        return [];
-    } else {
-        return [action, ...state];
-    }
-}
-
 export function TestPage(): React.ReactElement {
+    const { results } = useContext(BenchmarkContext);
+    const updaters = useContext(BenchmarkContextUpdater);
+
     const benchmarkRef = useRef<BenchmarkRef>(null);
 
     const benchmarkTypeState = useState<BenchmarkTypes>(BenchmarkType.MOUNT);
@@ -28,8 +24,6 @@ export function TestPage(): React.ReactElement {
     const [componentKey, { setComponentKey }] = componentKeysState;
     const samplesState = useState(100);
     const [samples, setSamples] = samplesState;
-
-    const [results, dispatch] = useReducer(reducer, []);
 
     const [task, setTask] = useState<'optimize' | 'benchmark' | 'benchmark-50'>('benchmark');
 
@@ -46,7 +40,7 @@ export function TestPage(): React.ReactElement {
     const running = isOptimizationRunning || isTestRunning || isMultipleTestRunning;
 
     const onBenchmarkComplete = (result: BenchResultsType) => {
-        dispatch({
+        updaters.add({
             order: results.length + 1,
             name: `${componentKey} - ${benchmarkType}`,
             samples: result.sampleCount,
@@ -77,7 +71,7 @@ export function TestPage(): React.ReactElement {
         startMultipleTest();
     };
 
-    const clearResults = () => dispatch('clear');
+    const clearResults = () => updaters.clear();
 
     const changeComponentKey = (key: string) => setComponentKey(key);
 

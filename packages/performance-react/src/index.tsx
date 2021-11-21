@@ -10,6 +10,7 @@ import './index.css';
 import { RoutePath } from './common/route';
 import { Page } from './components/Page';
 import { getPageInfo, pageRoutePaths } from './containers/configs';
+import { BenchmarkProvider } from './contexts/BenchmarkContext';
 
 function ClientArea(): React.ReactElement {
     const pageRoutes = pageRoutePaths.map((path) => {
@@ -19,10 +20,12 @@ function ClientArea(): React.ReactElement {
 
     return (
         <Page>
-            <Routes>
-                {pageRoutes}
-                <Route key="/*" path="/*" element={<Navigate to={RoutePath.HomePage} replace />} />
-            </Routes>
+            <BenchmarkProvider>
+                <Routes>
+                    {pageRoutes}
+                    <Route key="/*" path="/*" element={<Navigate to={RoutePath.HomePage} replace />} />
+                </Routes>
+            </BenchmarkProvider>
         </Page>
     );
 }
