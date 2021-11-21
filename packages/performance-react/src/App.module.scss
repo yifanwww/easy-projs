@@ -12,14 +12,25 @@
     border-right: 1px solid #eee;
 }
 
-.controller {
-    display: grid;
-    grid-template-columns: 1fr 1fr 90px 75px 75px 75px 75px;
+.selector {
+    display: flex;
+    flex-direction: row;
     gap: 16px;
 }
 
+.select {
+    min-width: 120px;
+}
+
+.controller {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-end;
+}
+
 .button {
-    width: 75px;
+    width: 100px;
     padding: 4px 6px;
     margin-right: 0;
 }

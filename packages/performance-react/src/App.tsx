@@ -1,4 +1,5 @@
-import { Button, InputNumber, Select } from 'antd';
+import { Button, InputNumber, message, Select } from 'antd';
+import copy from 'copy-to-clipboard';
 import { useReducer, useRef, useState } from 'react';
 import Benchmark, { BenchmarkType, BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
 
@@ -84,12 +85,22 @@ export function App(): React.ReactElement {
 
     const changeSamples = (value: number) => setSamples(value);
 
+    const copyResults = () => {
+        copy(JSON.stringify(results));
+        message.info('Copy to clibboard successfully');
+    };
+
     return (
         <div className={scss.root}>
             <div className={scss.display}>
-                <div className={scss.controller}>
+                <div className={scss.selector}>
                     <InputWrapper flexAuto title="Component">
-                        <Select disabled={running} value={componentKey} onChange={changeComponentKey}>
+                        <Select
+                            className={scss.select}
+                            disabled={running}
+                            value={componentKey}
+                            onChange={changeComponentKey}
+                        >
                             {Object.keys(componentInfos).map((key) => (
                                 <Select.Option key={key} value={key}>
                                     {componentInfos[key as keyof typeof componentInfos].name}
@@ -98,7 +109,12 @@ export function App(): React.ReactElement {
                         </Select>
                     </InputWrapper>
                     <InputWrapper flexAuto title="Benchmark Type">
-                        <Select disabled={running} value={benchmarkType} onChange={changeBenchmarkType}>
+                        <Select
+                            className={scss.select}
+                            disabled={running}
+                            value={benchmarkType}
+                            onChange={changeBenchmarkType}
+                        >
                             {Object.keys(BenchmarkType).map((type) => (
                                 <Select.Option key={type} value={type}>
                                     {type.toLowerCase()}
@@ -109,30 +125,23 @@ export function App(): React.ReactElement {
                     <InputWrapper title="Samples">
                         <InputNumber disabled={running} min={50} value={samples} onChange={changeSamples} />
                     </InputWrapper>
-                    <InputWrapper>
-                        <Button className={scss.button} disabled={running} onClick={optimize}>
-                            Optimize
-                        </Button>
-                    </InputWrapper>
-                    <InputWrapper>
-                        <Button className={scss.button} disabled={running} onClick={startBenchmark}>
-                            Start
-                        </Button>
-                    </InputWrapper>
-                    <InputWrapper>
-                        <Button className={scss.button} disabled={running} onClick={startBenchmark50}>
-                            Start 50
-                        </Button>
-                    </InputWrapper>
-                    <InputWrapper>
-                        <Button
-                            className={scss.button}
-                            disabled={running || results.length === 0}
-                            onClick={clearResults}
-                        >
-                            Clear
-                        </Button>
-                    </InputWrapper>
+                </div>
+                <div className={scss.controller}>
+                    <Button className={scss.button} disabled={running} onClick={optimize}>
+                        Optimize
+                    </Button>
+                    <Button className={scss.button} disabled={running} onClick={startBenchmark}>
+                        Start
+                    </Button>
+                    <Button className={scss.button} disabled={running} onClick={startBenchmark50}>
+                        Start 50
+                    </Button>
+                    <Button className={scss.button} disabled={running || results.length === 0} onClick={clearResults}>
+                        Clear
+                    </Button>
+                    <Button className={scss.button} disabled={running || results.length === 0} onClick={copyResults}>
+                        Copy Results
+                    </Button>
                 </div>
 
                 <ResultTable results={results} />
