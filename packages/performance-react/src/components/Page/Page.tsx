@@ -6,7 +6,7 @@ import { getPageInfo, pageRoutePaths } from 'src/containers/configs';
 
 import scss from './Page.module.scss';
 
-export function Page(props: IChildrenProps): React.ReactElement {
+export function Page(props: ReactChildrenProps): React.ReactElement {
     const items = pageRoutePaths.map((path) => {
         const pageInfo = getPageInfo(path)!;
 

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import scss from './InputWrapper.module.scss';
 
-export interface IInputWrapperProps extends IChildrenProps {
+export interface IInputWrapperProps extends ReactChildrenProps {
     flexAuto?: boolean;
     title?: string;
 }
