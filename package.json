@@ -19,17 +19,17 @@
         "build-packages": "build-packages",
         "build-projects": "build-projects",
         "build-scripts": "npm run build-scripts --workspace @easy/scripts",
-        "clean": "npm run clean --workspaces",
+        "clean": "npm run clean --workspaces --if-present",
         "clean-scripts": "npm run clean-scripts --workspace @easy/scripts",
         "easy": "easy",
         "format": "npm run format:root && npm run format:workspaces",
         "format:root": "format-code",
-        "format:workspaces": "npm run format --workspaces",
-        "lint": "npm run lint --workspaces",
+        "format:workspaces": "npm run format --workspaces --if-present",
+        "lint": "npm run lint --workspaces --if-present",
         "postinstall": "husky install",
         "prebuild": "npm run build-scripts",
-        "pre-commit": "npm run pre-commit --workspaces",
-        "test-coverage": "npm run test-coverage --workspaces"
+        "pre-commit": "npm run pre-commit --workspaces --if-present",
+        "test-coverage": "npm run test-coverage --workspaces --if-present"
     },
     "engines": {
         "node": ">=16"

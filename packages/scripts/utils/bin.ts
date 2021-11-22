@@ -36,6 +36,7 @@ export function buildProjects(): void {
         '@easy/performance-react',
         '@easy/project-template-browser-react',
         '@easy/project-template-nodejs',
+        '@easy/projs-manage',
         '@easy/react-rerender-test',
     ];
 

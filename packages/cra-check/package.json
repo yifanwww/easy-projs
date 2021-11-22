@@ -18,12 +18,7 @@
         "directory": "packages/cra-check"
     },
     "scripts": {
-        "build": "skip-npm-script",
-        "clean": "skip-npm-script",
         "cra-gen": "node cra-gen.mjs",
-        "format": "format-code",
-        "lint": "skip-npm-script",
-        "pre-commit": "skip-npm-script",
-        "test-coverage": "skip-npm-script"
+        "format": "format-code"
     }
 }
