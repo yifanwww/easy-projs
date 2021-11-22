@@ -4,6 +4,10 @@
 
 - Add empty classes of local storage and session storage with unit tests
 
+### Breaking Changes
+
+- Rename type declarations
+
 ## @easy/project-template-browser-react v0.4.0 (2021-11-07)
 ### Features
 

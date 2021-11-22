@@ -1,12 +1,12 @@
 import { ReduxReducer } from '@easy/utils-redux';
 
-interface IDisplayConfig {
-    clientAreaSize: IClientAreaSize;
+interface DisplayConfig {
+    clientAreaSize: ClientAreaSize;
 }
 
-export interface IStoreState {
-    displayConfig: IDisplayConfig;
+export interface StoreState {
+    displayConfig: DisplayConfig;
     prepared: boolean;
 }
 
-export type MainReducer<Payload = undefined> = ReduxReducer<IStoreState, Payload>;
+export type MainReducer<Payload = undefined> = ReduxReducer<StoreState, Payload>;

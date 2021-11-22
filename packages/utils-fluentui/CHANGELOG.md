@@ -1,4 +1,9 @@
 # CHANGELOG
+## @easy/utils-fluentui v0.3.0 (2021-10-08)
+### Breaking Changes
+
+- Rename interface `IFluentuiProviderProps` to `FluentuiProviderProps`
+
 ## @easy/utils-fluentui v0.2.0 (2021-10-08)
 ### Breaking Changes
 

@@ -1,28 +1,28 @@
-export interface IInspectionNode {
+export interface InspectionNode {
     index: number;
-    children?: IInspectionNode[];
+    children?: InspectionNode[];
     key: Optional<string>;
     name: string;
 }
 
-export interface IInspectionTree {
+export interface InspectionTree {
     group: string;
     index: number;
     // name: string;
-    children?: IInspectionNode[];
+    children?: InspectionNode[];
 }
 
-export interface IInspectionParent {
+export interface InspectionParent {
     index: number;
     // key: Optional<string>;
     // name: string;
 }
 
-export interface IInspectionData {
+export interface InspectionData {
     index: number;
     key: Optional<string>;
     name: string;
-    parents: IInspectionParent[];
+    parents: InspectionParent[];
 }
 
 export type InspectedFCType = 'nil' | 'prc' | 'ptc';

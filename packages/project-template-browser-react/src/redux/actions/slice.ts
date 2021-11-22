@@ -1,11 +1,11 @@
 import { omitUnderscorePrefixActions } from '@easy/utils-redux';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IStoreState } from '../types';
+import { StoreState } from '../types';
 import { _finishPreparing } from './reducers';
 import { updateClientAreaSize } from './reducers.DisplayConfig';
 
-export function getInitialState(): IStoreState {
+export function getInitialState(): StoreState {
     return {
         displayConfig: {
             clientAreaSize: { height: 720, width: 1280 },

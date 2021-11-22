@@ -9,14 +9,14 @@ import scss from './Inspector.module.scss';
 
 export const inspectorName = 'Inspector';
 
-export interface IInspectorProps {
+export interface InspectorProps {
     /**
      * Default is `default`.
      */
     group?: string;
 }
 
-export const Inspector: InspectedFC<IInspectorProps> = (props) => {
+export const Inspector: InspectedFC<InspectorProps> = (props) => {
     const { children, group = 'default' } = props;
 
     const { groups, selectedGroup } = useContext(InspectionContext);

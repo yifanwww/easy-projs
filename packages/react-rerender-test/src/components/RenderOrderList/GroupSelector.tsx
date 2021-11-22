@@ -3,13 +3,13 @@ import { Button } from 'antd';
 
 import scss from './GroupSelector.module.scss';
 
-export interface IGroupSelectorProps {
+export interface GroupSelectorProps {
     group: string;
     toggleNext?: () => void;
     togglePrev?: () => void;
 }
 
-export function GroupSelector(props: IGroupSelectorProps): React.ReactElement {
+export function GroupSelector(props: GroupSelectorProps): React.ReactElement {
     const { group, toggleNext, togglePrev } = props;
 
     return (

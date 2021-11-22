@@ -19,6 +19,7 @@
     },
     "scripts": {
         "build": "skip-npm-script",
+        "clean": "skip-npm-script",
         "cra-gen": "node cra-gen.mjs",
         "format": "format-code",
         "lint": "skip-npm-script",

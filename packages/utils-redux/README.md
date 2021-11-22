@@ -10,11 +10,11 @@ This type is used to create redux reducers in a simpler way.
 ```ts
 import { ReduxReducer } from '@easy/utils-redux';
 
-export interface IEasyState {
+export interface EasyState {
     prepared: boolean;
 }
 
-type EasyReducer<Payload = undefined> = ReduxReducer<IEasyState, Payload>;
+type EasyReducer<Payload = undefined> = ReduxReducer<EasyState, Payload>;
 ```
 
 Then you can use `EasyReducer` to create your reducers.
@@ -34,7 +34,7 @@ This function is used to avoid using the internal reducers in react components.
 ```ts
 import { omitUnderscorePrefixActions } from '@easy/utils-redux';
 
-const getInitialState = (): IEasyState => ({ prepared: false });
+const getInitialState = (): EasyState => ({ prepared: false });
 
 const slice = createSlice({
     name: 'easy-projs',
@@ -63,7 +63,7 @@ First, you need to create a creator by using this factory `thunkCreatorFactory`.
 ```ts
 import { thunkCreatorFactory } from '@easy/utils-redux';
 
-export const createEasyThunk = thunkCreatorFactory<IEasyState>();
+export const createEasyThunk = thunkCreatorFactory<EasyState>();
 ```
 
 Then you can use this creator to create asynchronous middlewares.

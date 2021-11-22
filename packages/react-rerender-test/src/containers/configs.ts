@@ -7,33 +7,14 @@ import { NestedFCPage } from './NestedFCPage';
 import { RerenderParentPage } from './RerenderParentPage';
 import { RouterPage } from './RouterPage';
 
-export const pages = genRouteInfos({
-    [RoutePath.HomePage]: {
-        component: HomePage,
-        sider: 'Home',
-    },
-    [RoutePath.ChangeLevelPage]: {
-        component: ChangeLevelPage,
-        sider: 'Change Level',
-    },
-    [RoutePath.ChangeParentPage]: {
-        component: ChangeParentPage,
-        sider: 'Change Parent',
-    },
-    [RoutePath.NestedFCPage]: {
-        component: NestedFCPage,
-        sider: 'Nested FC',
-    },
-    [RoutePath.RerenderParentPage]: {
-        component: RerenderParentPage,
-        sider: 'Rerender Parent',
-    },
-    [RoutePath.RoutePage]: {
-        component: RouterPage,
-        deepMatch: true,
-        sider: 'Router',
-    },
-});
+export const pages = genRouteInfos([
+    { component: HomePage, path: RoutePath.HomePage, sider: 'Home' },
+    { component: ChangeLevelPage, path: RoutePath.ChangeLevelPage, sider: 'Change Level' },
+    { component: ChangeParentPage, path: RoutePath.ChangeParentPage, sider: 'Change Parent' },
+    { component: NestedFCPage, path: RoutePath.NestedFCPage, sider: 'Nested FC' },
+    { component: RerenderParentPage, path: RoutePath.RerenderParentPage, sider: 'Rerender Parent' },
+    { component: RouterPage, path: RoutePath.RoutePage, deepMatch: true, sider: 'Router' },
+]);
 
 export const pageRoutePaths = Object.keys(pages) as RoutePath[];
 

@@ -1,13 +1,13 @@
 import { Button } from 'antd';
 import { useNavigate } from 'react-router';
 
-import { IPageOverview } from './types';
+import { PageOverviewInfo } from './types';
 
 import scss from './PageOverview.module.scss';
 
-export interface IPageOverviewItemProps extends IPageOverview {}
+export interface PageOverviewItemProps extends PageOverviewInfo {}
 
-export function PageOverviewItem(props: IPageOverviewItemProps): React.ReactElement {
+export function PageOverviewItem(props: PageOverviewItemProps): React.ReactElement {
     const { title, url } = props;
 
     const navigate = useNavigate();
@@ -22,11 +22,11 @@ export function PageOverviewItem(props: IPageOverviewItemProps): React.ReactElem
     );
 }
 
-export interface IPageOverviewProps {
-    overviews: IPageOverview[];
+export interface PageOverviewProps {
+    overviews: PageOverviewInfo[];
 }
 
-export function PageOverview(props: IPageOverviewProps): React.ReactElement {
+export function PageOverview(props: PageOverviewProps): React.ReactElement {
     const { overviews } = props;
 
     const elements = overviews.map((overview) => <PageOverviewItem key={overview.url} {...overview} />);
