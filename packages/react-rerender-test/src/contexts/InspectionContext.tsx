@@ -4,39 +4,39 @@ import produce from 'immer';
 import { createContext, useRef } from 'react';
 import { noop } from 'ts-essentials';
 
-import { IInspectionData, IInspectionTree } from 'src/common/inspection';
+import { InspectionData, InspectionTree } from 'src/common/inspection';
 import { useDoubleRenderSign } from 'src/hooks/useDoubleRenderSign';
 
-export interface IInspectionContext {
+export interface InspectionContextState {
     data: {
         [Group: string]: {
-            records: IInspectionData[];
-            tree: IInspectionTree;
+            records: InspectionData[];
+            tree: InspectionTree;
         };
     };
     groups: string[];
     selectedGroup: Optional<string>;
 }
 
-export interface IInspectionContextUpdater {
-    addRecord: (record: IInspectionData, groupIndex: number) => void;
+export interface InspectionContextUpdaters {
+    addRecord: (record: InspectionData, groupIndex: number) => void;
     forceUpdate: () => void;
     registerGroup: (group: string, index: number) => void;
     toggleGroup: (toggle: 'prev' | 'next') => void;
 }
 
-const initialContext: IInspectionContext = {
+const initialContext: InspectionContextState = {
     data: {},
     groups: [],
     selectedGroup: null,
 };
 
-type IInspectionAction =
-    | { type: 'add-record'; groupIndex: number; record: IInspectionData }
+type InspectionAction =
+    | { type: 'add-record'; groupIndex: number; record: InspectionData }
     | { type: 'register-group'; index: number; group: string }
     | { type: 'toggle-group'; toggle: 'prev' | 'next' };
 
-const reduce = produce<ReactImmerReducer<IInspectionContext, IInspectionAction>>((state, action) => {
+const reduce = produce<ReactImmerReducer<InspectionContextState, InspectionAction>>((state, action) => {
     let never: never;
     switch (action.type) {
         case 'add-record': {
@@ -89,9 +89,9 @@ const reduce = produce<ReactImmerReducer<IInspectionContext, IInspectionAction>>
     }
 });
 
-export const InspectionContext = createContext<IInspectionContext>(initialContext);
+export const InspectionContext = createContext<InspectionContextState>(initialContext);
 
-export const InspectionContextUpdater = createContext<IInspectionContextUpdater>({
+export const InspectionContextUpdater = createContext<InspectionContextUpdaters>({
     addRecord: noop,
     forceUpdate: noop,
     registerGroup: noop,
@@ -104,11 +104,11 @@ export const InspectionProvider: React.FC = (props) => {
     const { sign } = useDoubleRenderSign();
     const forceUpdate = useForceUpdate();
 
-    const dispatch = useConstFn<React.Dispatch<IInspectionAction>>((action) => {
+    const dispatch = useConstFn<React.Dispatch<InspectionAction>>((action) => {
         ref.current = reduce(ref.current, action);
     });
 
-    const updaters = useConst<IInspectionContextUpdater>(() => ({
+    const updaters = useConst<InspectionContextUpdaters>(() => ({
         addRecord: (record, groupIndex) => {
             if (sign(record)) {
                 dispatch({ type: 'add-record', groupIndex, record });

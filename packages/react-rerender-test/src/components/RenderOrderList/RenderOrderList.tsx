@@ -1,7 +1,7 @@
 import { List, ListProps } from 'antd';
 import { useContext } from 'react';
 
-import { IInspectionData } from 'src/common/inspection';
+import { InspectionData } from 'src/common/inspection';
 import { InspectionContext, InspectionContextUpdater } from 'src/contexts/InspectionContext';
 import { GroupSelector } from './GroupSelector';
 
@@ -16,7 +16,7 @@ export function RenderList() {
     const togglePrev = () => toggleGroup('prev');
     const toggleNext = () => toggleGroup('next');
 
-    const renderItem: PickProp<ListProps<IInspectionData>, 'renderItem'> = (item) => <List.Item>{item.name}</List.Item>;
+    const renderItem: PickProp<ListProps<InspectionData>, 'renderItem'> = (item) => <List.Item>{item.name}</List.Item>;
 
     return (
         <div className={scss.root}>

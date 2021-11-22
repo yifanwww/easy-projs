@@ -8,11 +8,11 @@ A package that contains React utilities.
 ```tsx
 import { defaultOnRender, renderFactory, RenderFn } from '@easy/utils-react';
 
-export interface IPageHeaderProps {
+export interface PageHeaderProps {
     title: string;
 }
 
-export const PageHeader = (props: IPageHeaderProps): React.ReactElement => (
+export const PageHeader = (props: PageHeaderProps): React.ReactElement => (
     <div>
         {props.title}
         {/* ... */}
@@ -21,12 +21,12 @@ export const PageHeader = (props: IPageHeaderProps): React.ReactElement => (
 
 const renderHeader = renderFactory(PageHeader);
 
-export interface IPageProps {
-    onRenderHeader?: RenderFn<IPageHeaderProps>;
+export interface PageProps {
+    onRenderHeader?: RenderFn<PageHeaderProps>;
     title: string;
 }
 
-export function Page(props: IPageProps): React.ReactElement {
+export function Page(props: PageProps): React.ReactElement {
     const { onRenderHeader = defaultOnRender, title } = props;
 
     return (
@@ -44,10 +44,10 @@ export function Page(props: IPageProps): React.ReactElement {
 import { ReactImmerReducer } from '@easy/utils-react';
 import { useImmerReducer } from 'use-immer';
 
-type IEasyContext = { value1: number; value2: string };
-type IEasyAction = { type: 'value1' } | { type: 'value2'; payload: string };
+type EasyContext = { value1: number; value2: string };
+type EasyAction = { type: 'value1' } | { type: 'value2'; payload: string };
 
-const reducer: ReactImmerReducer<IEasyContext, IEasyAction> = (state, action) => {
+const reducer: ReactImmerReducer<EasyContext, EasyAction> = (state, action) => {
     let never: never;
     switch (action.type) {
         case 'value1':

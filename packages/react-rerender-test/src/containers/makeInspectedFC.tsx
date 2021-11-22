@@ -22,7 +22,7 @@ const colors = [
     '#f9f0ff',
 ];
 
-export interface IInspectedOptions {
+export interface InspectedOptions {
     /**
      * Background color.
      */

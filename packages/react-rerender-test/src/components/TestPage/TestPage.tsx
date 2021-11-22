@@ -8,11 +8,11 @@ import { RenderList } from '../RenderOrderList';
 
 import scss from './TestPage.module.scss';
 
-export interface IPageContainerProps extends IChildrenProps {
+export interface TestPageProps extends ReactChildrenProps {
     onRenderController?: () => React.ReactNode;
 }
 
-export function TestPage(props: IPageContainerProps): React.ReactElement {
+export function TestPage(props: TestPageProps): React.ReactElement {
     const { children, onRenderController } = props;
 
     return (

@@ -5,11 +5,11 @@ import { useRenderCount } from 'src/hooks';
 
 import scss from './ComponentView.module.scss';
 
-interface IComponentTagProps {
+interface ComponentTagProps {
     type: InspectedFCType;
 }
 
-function ComponentTag(props: IComponentTagProps): Optional<React.ReactElement> {
+function ComponentTag(props: ComponentTagProps): Optional<React.ReactElement> {
     const { type } = props;
 
     let never: never;
@@ -36,7 +36,7 @@ function ComponentTag(props: IComponentTagProps): Optional<React.ReactElement> {
     }
 }
 
-export interface IComponentViewProps extends IChildrenProps {
+export interface ComponentViewProps extends ReactChildrenProps {
     /**
      * Background color.
      */
@@ -46,7 +46,7 @@ export interface IComponentViewProps extends IChildrenProps {
     type?: InspectedFCType;
 }
 
-export function ComponentView(props: Readonly<IComponentViewProps>): React.ReactElement {
+export function ComponentView(props: Readonly<ComponentViewProps>): React.ReactElement {
     const { children, color, desc, name, type = 'nil' } = props;
 
     const renderCount = useRenderCount();

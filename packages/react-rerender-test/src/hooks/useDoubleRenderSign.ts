@@ -1,19 +1,19 @@
 import { useConstFn } from '@easy/hooks';
 import { useRef } from 'react';
 
-import { IInspectionData } from 'src/common/inspection';
+import { InspectionData } from 'src/common/inspection';
 
-export interface IUseDoubleRenderSignActions {
-    readonly sign: (record: IInspectionData) => boolean;
+export interface UseDoubleRenderSignActions {
+    readonly sign: (record: InspectionData) => boolean;
 }
 
-export function useDoubleRenderSign(): IUseDoubleRenderSignActions {
+export function useDoubleRenderSign(): UseDoubleRenderSignActions {
     if (process.env.NODE_ENV === 'development') {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const ref = useRef<Record<string, boolean>>({});
 
         // eslint-disable-next-line react-hooks/rules-of-hooks
-        const sign = useConstFn((record: IInspectionData): boolean => {
+        const sign = useConstFn((record: InspectionData): boolean => {
             const key = JSON.stringify(record);
 
             ref.current[key] = ref.current[key] === undefined ? false : !ref.current[key];

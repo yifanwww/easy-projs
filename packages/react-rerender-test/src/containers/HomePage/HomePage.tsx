@@ -1,9 +1,9 @@
 import { RoutePath } from 'src/common/route';
-import { IPageOverview, PageOverview } from 'src/components/PageOverview';
+import { PageOverview, PageOverviewInfo } from 'src/components/PageOverview';
 
 import scss from './HomePage.module.scss';
 
-const overviews: IPageOverview[] = [
+const overviews: PageOverviewInfo[] = [
     { title: 'Change Level', /*   */ url: RoutePath.ChangeLevelPage },
     { title: 'Change Parent', /*  */ url: RoutePath.ChangeParentPage },
     { title: 'Nested FC', /*      */ url: RoutePath.NestedFCPage },

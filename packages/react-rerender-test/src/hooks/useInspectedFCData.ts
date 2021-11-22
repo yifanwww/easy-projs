@@ -1,17 +1,17 @@
 import { useRef } from 'react';
 
-import { IInspectionData, InspectedFC } from 'src/common/inspection';
+import { InspectionData, InspectedFC } from 'src/common/inspection';
 import { inspectorName } from 'src/components/Inspector';
 import { getElementOwner } from 'src/utils/getElementOwner';
 
-export function useInspectedFCData(): IInspectionData {
-    const ref = useRef<IInspectionData>();
+export function useInspectedFCData(): InspectionData {
+    const ref = useRef<InspectionData>();
 
     if (ref.current === undefined) {
         const owner = getElementOwner();
         let fc = owner.type as InspectedFC;
 
-        const record: IInspectionData = {
+        const record: InspectionData = {
             index: owner.index,
             key: owner.key,
             name: fc.inspected ?? fc.displayName ?? fc.name,

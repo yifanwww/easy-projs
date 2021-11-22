@@ -2,7 +2,7 @@ import { Layout } from 'antd';
 
 import { PageSidebar } from './PageSidebar';
 
-export function Page(props: IChildrenProps): React.ReactElement {
+export function Page(props: ReactChildrenProps): React.ReactElement {
     return (
         <Layout style={{ minHeight: '100vh' }}>
             <PageSidebar />
