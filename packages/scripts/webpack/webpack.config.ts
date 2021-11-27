@@ -1,13 +1,6 @@
 // Used for `react-scripts` 4.0.3
 // For more information about how to override default configs of `react-scripts`
-// visit: https://github.com/timarney/react-app-rewired
-
-// - paths.js:
-//   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
-// - webpack.config.js:
-//   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
-// - createJestConfig.js:
-//   https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/scripts/utils/createJestConfig.js
+// please visit https://github.com/timarney/react-app-rewired
 
 import path from 'path';
 import { Configuration } from 'webpack';
@@ -20,8 +13,7 @@ const projectRealName = projectName?.includes('@easy') ? projectName.slice(6) : 
 const project = projectRealName ? path.resolve(paths.packages, projectRealName) : process.cwd();
 const resolveProject = (relative: string) => path.resolve(project, relative);
 
-// Edited from `https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js`
-// Line 62-79
+// Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
 const craPaths = {
     appBuild: resolveProject('build'),
     appHtml: resolveProject('public/index.html'),
@@ -64,6 +56,8 @@ interface CRAPaths {
  * Override paths configurations.
  *
  * The paths config to use when compiling your react app for development or production.
+ *
+ * Check Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
  */
 function overridePathsConfigs(_paths: CRAPaths): CRAPaths {
     _paths.appBuild = craPaths.appBuild;
@@ -85,12 +79,14 @@ function overridePathsConfigs(_paths: CRAPaths): CRAPaths {
  * Override webpack configurations.
  *
  * The Webpack config to use when compiling your react app for development or production.
+ *
+ * Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
  */
 function overrideWebpackConfigs(webpack: Configuration): Configuration {
     return webpack;
 }
 
 export = {
-    webpack: overrideWebpackConfigs,
     paths: overridePathsConfigs,
+    webpack: overrideWebpackConfigs,
 };
