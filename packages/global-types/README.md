@@ -27,12 +27,3 @@ For example:
 /// <reference types="@easy/global-types/lib/test" />
 /// <reference types="@easy/global-types/lib/utils.type" />
 ```
-
-In React packages you will need to import `@easy/global-types/lib/utils.react` manually:
-
-```ts
-// global.d.ts
-
-/// <reference types="@easy/global-types" />
-/// <reference types="@easy/global-types/lib/utils.react" />
-```
