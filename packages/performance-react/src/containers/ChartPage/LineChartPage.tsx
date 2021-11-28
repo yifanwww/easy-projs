@@ -1,24 +1,20 @@
 import { Select } from 'antd';
-import { LineChart } from 'echarts/charts';
-import { GridComponent } from 'echarts/components';
+import { GridComponentOption, LineSeriesOption } from 'echarts';
 import * as echarts from 'echarts/core';
-import { UniversalTransition } from 'echarts/features';
-import { CanvasRenderer } from 'echarts/renderers';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { BenchmarkType } from 'react-component-benchmark';
 
 import { BenchmarkTypes, ComponentName } from 'src/common/benchmark';
+import { InputWrapper } from 'src/components/InputWrapper';
+import { componentInfos, componentNames } from 'src/components/tests';
 import { BenchmarkContext, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
 import { useComponentNames } from 'src/hooks';
 
-import { InputWrapper } from '../InputWrapper';
-import { componentInfos, componentNames } from '../tests';
-
 import scss from './Charts.module.scss';
 
-echarts.use([GridComponent, LineChart, CanvasRenderer, UniversalTransition]);
+type EChartsOption = echarts.ComposeOption<GridComponentOption | LineSeriesOption>;
 
-export function BenchmarkLineChart(): React.ReactElement {
+export function LineChartPage(): React.ReactElement {
     const ref = useRef<HTMLDivElement>(null);
 
     const { mount, unmount, update } = useContext(BenchmarkContext);
@@ -31,21 +27,21 @@ export function BenchmarkLineChart(): React.ReactElement {
 
         const chart = echarts.init(ref.current!);
 
-        chart.setOption({
+        const options: EChartsOption = {
             xAxis: {
                 type: 'category',
                 data: benchmarkResultSelector.selectIds(group[componentName]),
             },
-            yAxis: {
-                type: 'value',
-            },
+            yAxis: { type: 'value' },
             series: [
                 {
                     data: benchmarkResultSelector.selectAll(group[componentName]).map((result) => result.stats.mean),
                     type: 'line',
                 },
             ],
-        });
+        };
+
+        chart.setOption(options);
 
         const resize = () => chart.resize();
 

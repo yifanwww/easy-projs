@@ -1,9 +1,13 @@
 import { BenchmarkResult, BenchmarkResultState, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
+export type GroupBenchmarkResults = Record<ComponentName, BenchmarkResultState> & {
+    average: Record<ComponentName, number>;
+};
+
 export interface IBenchmarkContext {
-    mount: Record<ComponentName, BenchmarkResultState>;
-    unmount: Record<ComponentName, BenchmarkResultState>;
-    update: Record<ComponentName, BenchmarkResultState>;
+    mount: GroupBenchmarkResults;
+    unmount: GroupBenchmarkResults;
+    update: GroupBenchmarkResults;
     totalResults: BenchmarkResultState;
 }
 

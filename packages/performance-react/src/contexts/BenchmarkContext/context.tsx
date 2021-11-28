@@ -1,5 +1,6 @@
 import { useConst } from '@easy/hooks';
 import { ReactImmerReducer } from '@easy/utils-react';
+import { Draft } from 'immer';
 import { createContext } from 'react';
 import { noop } from 'ts-essentials';
 import { useImmerReducer } from 'use-immer';
@@ -7,10 +8,11 @@ import { useImmerReducer } from 'use-immer';
 import { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
 import { benchmarkResultAdapter, benchmarkResultSelector } from './adapters';
-import { IBenchmarkContext, IBenchmarkContextUpdaters } from './types';
+import { GroupBenchmarkResults, IBenchmarkContext, IBenchmarkContextUpdaters } from './types';
 
 const initialContext: IBenchmarkContext = {
     mount: {
+        average: { noHooks: 0, useCallback: 0, useMemo: 0, useReducer: 0, useRef: 0, useState: 0 },
         noHooks: benchmarkResultAdapter.getInitialState(),
         useCallback: benchmarkResultAdapter.getInitialState(),
         useMemo: benchmarkResultAdapter.getInitialState(),
@@ -19,6 +21,7 @@ const initialContext: IBenchmarkContext = {
         useState: benchmarkResultAdapter.getInitialState(),
     },
     unmount: {
+        average: { noHooks: 0, useCallback: 0, useMemo: 0, useReducer: 0, useRef: 0, useState: 0 },
         noHooks: benchmarkResultAdapter.getInitialState(),
         useCallback: benchmarkResultAdapter.getInitialState(),
         useMemo: benchmarkResultAdapter.getInitialState(),
@@ -27,6 +30,7 @@ const initialContext: IBenchmarkContext = {
         useState: benchmarkResultAdapter.getInitialState(),
     },
     update: {
+        average: { noHooks: 0, useCallback: 0, useMemo: 0, useReducer: 0, useRef: 0, useState: 0 },
         noHooks: benchmarkResultAdapter.getInitialState(),
         useCallback: benchmarkResultAdapter.getInitialState(),
         useMemo: benchmarkResultAdapter.getInitialState(),
@@ -36,6 +40,34 @@ const initialContext: IBenchmarkContext = {
     },
     totalResults: benchmarkResultAdapter.getInitialState(),
 };
+
+function calculateAverageStats(state: Draft<IBenchmarkContext>): void {
+    function _calculate(group: GroupBenchmarkResults, name: ComponentName): void {
+        const total = benchmarkResultSelector.selectAll(group[name]).reduce((prev, curr) => prev + curr.stats.mean, 0);
+        group.average[name] = total / benchmarkResultSelector.selectTotal(group[name]);
+    }
+
+    _calculate(state.mount, 'noHooks');
+    _calculate(state.mount, 'useCallback');
+    _calculate(state.mount, 'useMemo');
+    _calculate(state.mount, 'useReducer');
+    _calculate(state.mount, 'useRef');
+    _calculate(state.mount, 'useState');
+
+    _calculate(state.unmount, 'noHooks');
+    _calculate(state.unmount, 'useCallback');
+    _calculate(state.unmount, 'useMemo');
+    _calculate(state.unmount, 'useReducer');
+    _calculate(state.unmount, 'useRef');
+    _calculate(state.unmount, 'useState');
+
+    _calculate(state.update, 'noHooks');
+    _calculate(state.update, 'useCallback');
+    _calculate(state.update, 'useMemo');
+    _calculate(state.update, 'useReducer');
+    _calculate(state.update, 'useRef');
+    _calculate(state.update, 'useState');
+}
 
 type IBenchmarkAction =
     | { type: 'add'; result: BenchmarkResult }
@@ -79,6 +111,8 @@ const reducer: ReactImmerReducer<IBenchmarkContext, IBenchmarkAction> = (state, 
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = action;
     }
+
+    calculateAverageStats(state);
 };
 
 export const BenchmarkContext = createContext<IBenchmarkContext>(initialContext);

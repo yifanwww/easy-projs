@@ -4,8 +4,9 @@ import { IPageOverview, PageOverview } from 'src/components/PageOverview';
 import scss from './HomePage.module.scss';
 
 const overviews: IPageOverview[] = [
-    { title: 'Chart', url: RoutePath.ChartPage },
     { title: 'Test', url: RoutePath.TestPage },
+    { title: 'Bar Chart', url: RoutePath.BarChartPage },
+    { title: 'Line Chart', url: RoutePath.LineChartPage },
 ];
 
 export function HomePage(): React.ReactElement {
