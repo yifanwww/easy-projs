@@ -8,7 +8,7 @@ import { InputWrapper } from 'src/components/InputWrapper';
 import { ResultTable } from 'src/components/ResultTable';
 import { componentInfos, componentNames } from 'src/components/tests';
 import { BenchmarkContext, BenchmarkContextUpdater, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
-import { useComponentNames, useMultipleTest, useOptimization, useTest } from 'src/hooks';
+import { useComponentNames, useGroupTest, useTest } from 'src/hooks';
 
 import scss from './TestPage.module.scss';
 
@@ -25,19 +25,17 @@ export function TestPage(): React.ReactElement {
     const samplesState = useState(100);
     const [samples, setSamples] = samplesState;
 
-    const [task, setTask] = useState<'optimize' | 'benchmark' | 'benchmark-50'>('benchmark');
+    const [times, setTimes] = useState(1);
 
-    const [isOptimizationRunning, { onComplete: onCompleteForOptimization, startOptimization }] = useOptimization(
+    const [isGroupTestRunning, { onCompleteOne: onCompleteOneGroupTest, startGroupTest }] = useGroupTest(
+        times,
         benchmarkRef,
         benchmarkTypeState,
         componentNamesState,
-        samplesState,
     );
-    const [isTestRunning, { onComplete: onCompleteForTest, startTest }] = useTest(benchmarkRef);
-    const [isMultipleTestRunning, { onComplete: onCompleteForMultipleTest, startMultipleTest }] =
-        useMultipleTest(benchmarkRef);
+    const [isTestRunning, { onCompleteOne: onCompleteOneTest, startTest }] = useTest(times, benchmarkRef);
 
-    const running = isOptimizationRunning || isTestRunning || isMultipleTestRunning;
+    const running = isGroupTestRunning || isTestRunning;
 
     const onBenchmarkComplete = (result: BenchResultsType) => {
         updaters.add({
@@ -54,33 +52,17 @@ export function TestPage(): React.ReactElement {
             },
         });
 
-        if (task === 'optimize') onCompleteForOptimization();
-        else if (task === 'benchmark') onCompleteForTest();
-        else if (task === 'benchmark-50') onCompleteForMultipleTest();
-    };
-
-    const optimize = () => {
-        setTask('optimize');
-        startOptimization();
-    };
-
-    const startBenchmark = () => {
-        setTask('benchmark');
-        startTest();
-    };
-
-    const startBenchmark50 = () => {
-        setTask('benchmark-50');
-        startMultipleTest();
+        if (isGroupTestRunning) onCompleteOneGroupTest();
+        else if (isTestRunning) onCompleteOneTest();
     };
 
     const clearResults = () => updaters.clearAll();
 
     const changeComponentName = (name: ComponentName) => setComponentName(name);
-
     const changeBenchmarkType = (type: BenchmarkTypes) => setBenchmarkType(type);
 
     const changeSamples = (value: number) => setSamples(value);
+    const changeTimes = (value: number) => setTimes(value);
 
     const copyResults = () => {
         copy(JSON.stringify(totalResults));
@@ -123,16 +105,16 @@ export function TestPage(): React.ReactElement {
                 <InputWrapper title="Samples">
                     <InputNumber disabled={running} min={50} value={samples} onChange={changeSamples} />
                 </InputWrapper>
+                <InputWrapper title="Times">
+                    <InputNumber disabled={running} min={1} value={times} onChange={changeTimes} />
+                </InputWrapper>
             </div>
             <div className={scss.buttonBar}>
-                <Button className={scss.button} disabled={running} onClick={optimize}>
-                    Optimize
+                <Button className={scss.button} disabled={running} onClick={startTest}>
+                    Test
                 </Button>
-                <Button className={scss.button} disabled={running} onClick={startBenchmark}>
-                    Start
-                </Button>
-                <Button className={scss.button} disabled={running} onClick={startBenchmark50}>
-                    Start 50
+                <Button className={scss.button} disabled={running} onClick={startGroupTest}>
+                    Group Test
                 </Button>
                 <Button className={scss.button} disabled={running || totalCount === 0} onClick={clearResults}>
                     Clear

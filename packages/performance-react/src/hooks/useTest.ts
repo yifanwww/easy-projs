@@ -1,21 +1,29 @@
-import { useConstFn } from '@easy/hooks';
-import { useState } from 'react';
+import { useForceUpdate, usePersistFn } from '@easy/hooks';
+import { useEffect } from 'react';
 import { BenchmarkRef } from 'react-component-benchmark';
 
+import { useRound } from './useRound';
+
 export interface UseTestActions {
-    onComplete: () => void;
+    onCompleteOne: () => void;
     startTest: () => void;
 }
 
-export function useTest(benchmarkRef: React.RefObject<BenchmarkRef>): [boolean, UseTestActions] {
-    const [running, setRunning] = useState(false);
+export function useTest(times: number, benchmarkRef: React.RefObject<BenchmarkRef>): [boolean, UseTestActions] {
+    const [isRoundZero, { decrease, set }] = useRound();
 
-    const startTest = useConstFn(() => {
-        setRunning(true);
-        benchmarkRef.current?.start();
+    const forceUpdate = useForceUpdate();
+
+    useEffect(() => {
+        if (!isRoundZero) {
+            benchmarkRef.current?.start();
+        }
     });
 
-    const onComplete = useConstFn(() => setRunning(false));
+    const startTest = usePersistFn(() => {
+        set(times);
+        forceUpdate();
+    });
 
-    return [running, { onComplete, startTest }];
+    return [!isRoundZero, { onCompleteOne: decrease, startTest }];
 }

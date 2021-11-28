@@ -5,6 +5,7 @@ import { ComponentName } from 'src/common/benchmark';
 import { componentNames } from 'src/components/tests';
 
 export interface UseComponentKeysActions {
+    isLast: () => boolean;
     selectFirst: () => void;
     selectNext: () => boolean;
     setComponentName: (name: ComponentName) => void;
@@ -12,6 +13,8 @@ export interface UseComponentKeysActions {
 
 export function useComponentNames(): [ComponentName, UseComponentKeysActions] {
     const [name, setName] = useState(componentNames[0]);
+
+    const isLast = usePersistFn(() => name === componentNames[componentNames.length - 1]);
 
     const selectFirst = usePersistFn(() => setName(componentNames[0]));
 
@@ -27,5 +30,5 @@ export function useComponentNames(): [ComponentName, UseComponentKeysActions] {
 
     const setComponentName = useConstFn((_key: ComponentName) => setName(_key));
 
-    return [name, { selectFirst, selectNext, setComponentName }];
+    return [name, { isLast, selectFirst, selectNext, setComponentName }];
 }
