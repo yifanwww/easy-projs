@@ -12,3 +12,6 @@ export interface BenchmarkResult {
     p99: number;
     layout: number;
 }
+
+export const genBenchmarkResultName = (benchmarkType: BenchmarkTypes, componentKey: string) =>
+    `${componentKey} - ${benchmarkType}`;

@@ -3,7 +3,7 @@ import copy from 'copy-to-clipboard';
 import { useContext, useRef, useState } from 'react';
 import Benchmark, { BenchmarkType, BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
 
-import { BenchmarkTypes } from 'src/common/benchmark';
+import { BenchmarkTypes, genBenchmarkResultName } from 'src/common/benchmark';
 import { InputWrapper } from 'src/components/InputWrapper';
 import { ResultTable } from 'src/components/ResultTable';
 import { componentInfos } from 'src/components/tests';
@@ -42,7 +42,7 @@ export function TestPage(): React.ReactElement {
     const onBenchmarkComplete = (result: BenchResultsType) => {
         updaters.add({
             order: results.length + 1,
-            name: `${componentKey} - ${benchmarkType}`,
+            name: genBenchmarkResultName(benchmarkType, componentKey),
             samples: result.sampleCount,
             mean: result.mean,
             stdDev: result.stdDev,
