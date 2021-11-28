@@ -1,26 +1,24 @@
+import { ComponentName } from 'src/common/component';
+
 import { NoHooks, UseCallback, UseMemo, UseReducer, UseRef, UseState } from './tests';
 
 export interface ComponentInfo {
     component: React.FunctionComponent;
-    key: string;
-    name: string;
+    name: ComponentName;
+    displayName: string;
 }
 
-function transform(infos: ComponentInfo[]): Record<string, ComponentInfo> {
-    const res: Record<string, ComponentInfo> = {};
-
-    for (const info of infos) {
-        res[info.key] = info;
-    }
-
+function transform(infos: ComponentInfo[]): Record<ComponentName, ComponentInfo> {
+    const res: Record<ComponentName, ComponentInfo> = {};
+    for (const info of infos) res[info.name] = info;
     return res;
 }
 
 export const componentInfos = transform([
-    { component: NoHooks, key: 'NoHooks', name: 'No Hooks' },
-    { component: UseMemo, key: 'UseMemo', name: 'useMemo' },
-    { component: UseCallback, key: 'UseCallback', name: 'useCallback' },
-    { component: UseRef, key: 'UseRef', name: 'useRef' },
-    { component: UseState, key: 'UseState', name: 'useState' },
-    { component: UseReducer, key: 'UseReducer', name: 'useReducer' },
+    { component: NoHooks, name: 'NoHooks', displayName: 'No Hooks' },
+    { component: UseMemo, name: 'UseMemo', displayName: 'useMemo' },
+    { component: UseCallback, name: 'UseCallback', displayName: 'useCallback' },
+    { component: UseRef, name: 'UseRef', displayName: 'useRef' },
+    { component: UseState, name: 'UseState', displayName: 'useState' },
+    { component: UseReducer, name: 'UseReducer', displayName: 'useReducer' },
 ]);

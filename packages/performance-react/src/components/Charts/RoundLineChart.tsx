@@ -15,8 +15,8 @@ export function BenchmarkLineChart(): React.ReactElement {
     const ref = useRef<HTMLDivElement>(null);
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { groups, results } = useContext(BenchmarkContext);
-    console.log(groups, results);
+    const { totalResults } = useContext(BenchmarkContext);
+    console.log(totalResults);
 
     useEffect(() => {
         const chart = echarts.init(ref.current!);

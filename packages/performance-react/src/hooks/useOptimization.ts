@@ -14,7 +14,7 @@ export interface UseOptimizationModeActions {
 export function useOptimization(
     benchmarkRef: React.RefObject<BenchmarkRef>,
     [benchmarkType, setBenchmarkType]: [BenchmarkTypes, React.Dispatch<React.SetStateAction<BenchmarkTypes>>],
-    [componentKey, { selectFirst, selectNext, setComponentKey }]: [string, UseComponentKeysActions],
+    [componentKey, { selectFirst, selectNext, setComponentName }]: [string, UseComponentKeysActions],
     [samples, setSamples]: [number, React.Dispatch<React.SetStateAction<number>>],
 ): [boolean, UseOptimizationModeActions] {
     const originBenchmarkType = useRef<BenchmarkTypes>();
@@ -32,7 +32,7 @@ export function useOptimization(
                 originBenchmarkType.current = undefined;
             }
             if (originComponentKey.current) {
-                setComponentKey(originComponentKey.current);
+                setComponentName(originComponentKey.current);
                 originComponentKey.current = undefined;
             }
             if (originSamples.current) {

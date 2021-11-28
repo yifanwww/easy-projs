@@ -3,25 +3,25 @@ import copy from 'copy-to-clipboard';
 import { useContext, useRef, useState } from 'react';
 import Benchmark, { BenchmarkType, BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
 
-import { BenchmarkTypes, genBenchmarkResultName } from 'src/common/benchmark';
+import { BenchmarkTypes } from 'src/common/benchmark';
 import { InputWrapper } from 'src/components/InputWrapper';
 import { ResultTable } from 'src/components/ResultTable';
 import { componentInfos } from 'src/components/tests';
-import { BenchmarkContext, BenchmarkContextUpdater } from 'src/contexts/BenchmarkContext';
-import { useComponentKeys, useMultipleTest, useOptimization, useTest } from 'src/hooks';
+import { BenchmarkContext, BenchmarkContextUpdater, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
+import { useComponentNames, useMultipleTest, useOptimization, useTest } from 'src/hooks';
 
 import scss from './TestPage.module.scss';
 
 export function TestPage(): React.ReactElement {
-    const { results } = useContext(BenchmarkContext);
+    const { totalResults } = useContext(BenchmarkContext);
     const updaters = useContext(BenchmarkContextUpdater);
 
     const benchmarkRef = useRef<BenchmarkRef>(null);
 
     const benchmarkTypeState = useState<BenchmarkTypes>(BenchmarkType.MOUNT);
     const [benchmarkType, setBenchmarkType] = benchmarkTypeState;
-    const componentKeysState = useComponentKeys(Object.keys(componentInfos));
-    const [componentKey, { setComponentKey }] = componentKeysState;
+    const componentNamesState = useComponentNames(Object.keys(componentInfos));
+    const [componentName, { setComponentName }] = componentNamesState;
     const samplesState = useState(100);
     const [samples, setSamples] = samplesState;
 
@@ -30,7 +30,7 @@ export function TestPage(): React.ReactElement {
     const [isOptimizationRunning, { onComplete: onCompleteForOptimization, startOptimization }] = useOptimization(
         benchmarkRef,
         benchmarkTypeState,
-        componentKeysState,
+        componentNamesState,
         samplesState,
     );
     const [isTestRunning, { onComplete: onCompleteForTest, startTest }] = useTest(benchmarkRef);
@@ -41,14 +41,17 @@ export function TestPage(): React.ReactElement {
 
     const onBenchmarkComplete = (result: BenchResultsType) => {
         updaters.add({
-            order: results.length + 1,
-            name: genBenchmarkResultName(benchmarkType, componentKey),
+            order: totalResults.ids.length + 1,
+            name: componentName,
+            type: benchmarkType,
             samples: result.sampleCount,
-            mean: result.mean,
-            stdDev: result.stdDev,
-            p95: result.p95,
-            p99: result.p99,
-            layout: result.layout!.mean,
+            stats: {
+                mean: result.mean,
+                stdDev: result.stdDev,
+                p95: result.p95,
+                p99: result.p99,
+                layout: result.layout!.mean,
+            },
         });
 
         if (task === 'optimize') onCompleteForOptimization();
@@ -71,18 +74,20 @@ export function TestPage(): React.ReactElement {
         startMultipleTest();
     };
 
-    const clearResults = () => updaters.clear();
+    const clearResults = () => updaters.clearAll();
 
-    const changeComponentKey = (key: string) => setComponentKey(key);
+    const changeComponentName = (name: string) => setComponentName(name);
 
     const changeBenchmarkType = (type: BenchmarkTypes) => setBenchmarkType(type);
 
     const changeSamples = (value: number) => setSamples(value);
 
     const copyResults = () => {
-        copy(JSON.stringify(results));
+        copy(JSON.stringify(totalResults));
         message.info('Copy to clibboard successfully');
     };
+
+    const totalCount = benchmarkResultSelector.selectTotal(totalResults);
 
     const controllerElement = (
         <div className={scss.controller}>
@@ -91,12 +96,12 @@ export function TestPage(): React.ReactElement {
                     <Select
                         className={scss.select}
                         disabled={running}
-                        value={componentKey}
-                        onChange={changeComponentKey}
+                        value={componentName}
+                        onChange={changeComponentName}
                     >
-                        {Object.keys(componentInfos).map((key) => (
-                            <Select.Option key={key} value={key}>
-                                {componentInfos[key as keyof typeof componentInfos].name}
+                        {Object.keys(componentInfos).map((name) => (
+                            <Select.Option key={name} value={name}>
+                                {componentInfos[name].displayName}
                             </Select.Option>
                         ))}
                     </Select>
@@ -129,10 +134,10 @@ export function TestPage(): React.ReactElement {
                 <Button className={scss.button} disabled={running} onClick={startBenchmark50}>
                     Start 50
                 </Button>
-                <Button className={scss.button} disabled={running || results.length === 0} onClick={clearResults}>
+                <Button className={scss.button} disabled={running || totalCount === 0} onClick={clearResults}>
                     Clear
                 </Button>
-                <Button className={scss.button} disabled={running || results.length === 0} onClick={copyResults}>
+                <Button className={scss.button} disabled={running || totalCount === 0} onClick={copyResults}>
                     Copy Results
                 </Button>
             </div>
@@ -143,13 +148,13 @@ export function TestPage(): React.ReactElement {
         <div className={scss.root}>
             <div className={scss.display}>
                 {controllerElement}
-                <ResultTable results={results} />
+                <ResultTable />
             </div>
 
             <div className={scss.test}>
                 <Benchmark
-                    key={`${componentKey}-${benchmarkType}-${results.length}`}
-                    component={componentInfos[componentKey].component}
+                    key={`${componentName}-${benchmarkType}-${totalCount}`}
+                    component={componentInfos[componentName].component}
                     includeLayout
                     onComplete={onBenchmarkComplete}
                     ref={benchmarkRef}

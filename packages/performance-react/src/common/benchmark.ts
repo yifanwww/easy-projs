@@ -1,11 +1,11 @@
+import { EntityState } from '@reduxjs/toolkit';
 import { BenchmarkType } from 'react-component-benchmark';
 
-export type BenchmarkTypes = typeof BenchmarkType[keyof typeof BenchmarkType];
+import { ComponentName } from './component';
 
-export interface BenchmarkResult {
-    name: string;
-    order: number;
-    samples: number;
+export type BenchmarkTypes = ValueOf<typeof BenchmarkType>;
+
+export interface BenchmarkStats {
     mean: number;
     stdDev: number;
     p95: number;
@@ -13,5 +13,15 @@ export interface BenchmarkResult {
     layout: number;
 }
 
-export const genBenchmarkResultName = (benchmarkType: BenchmarkTypes, componentKey: string) =>
-    `${componentKey} - ${benchmarkType}`;
+export interface BenchmarkResult {
+    name: ComponentName;
+    type: BenchmarkTypes;
+    order: number;
+    samples: number;
+    stats: BenchmarkStats;
+}
+
+export const genBenchmarkResultDisplayName = (benchmarkType: BenchmarkTypes, componentName: ComponentName) =>
+    `${componentName} - ${benchmarkType}`;
+
+export type BenchmarkResultState = EntityState<BenchmarkResult>;
