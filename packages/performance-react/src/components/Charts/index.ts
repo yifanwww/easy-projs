@@ -1,1 +1,1 @@
-export * from './RoundLineChart';
+export * from './BenchmarkLineChart';

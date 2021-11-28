@@ -1,5 +1,4 @@
-import { BenchmarkResult, BenchmarkResultState, BenchmarkTypes } from 'src/common/benchmark';
-import { ComponentName } from 'src/common/component';
+import { BenchmarkResult, BenchmarkResultState, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
 export interface IBenchmarkContext {
     mount: Record<ComponentName, BenchmarkResultState>;

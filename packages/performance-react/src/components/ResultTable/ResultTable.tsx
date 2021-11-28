@@ -2,7 +2,7 @@ import { Table } from 'antd';
 import { ColumnType } from 'antd/lib/table';
 import { useContext } from 'react';
 
-import { BenchmarkResult } from 'src/common/benchmark';
+import { BenchmarkResult, ComponentName } from 'src/common/benchmark';
 import { BenchmarkContext, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
 
 import { componentInfos } from '../tests';
@@ -11,7 +11,12 @@ const formatNumber = (num: number) => `${num.toFixed(3)}ms`;
 
 const columns: ColumnType<BenchmarkResult>[] = [
     { title: 'Order', dataIndex: 'order', key: 'order' },
-    { title: 'Name', dataIndex: 'name', key: 'name', render: (name) => componentInfos[name].displayName },
+    {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+        render: (name: ComponentName) => componentInfos[name].displayName,
+    },
     { title: 'Type', dataIndex: 'type', key: 'type' },
     { title: 'Samples', dataIndex: 'samples', key: 'samples' },
     {
@@ -28,5 +33,8 @@ const columns: ColumnType<BenchmarkResult>[] = [
 export function ResultTable(): React.ReactElement {
     const { totalResults } = useContext(BenchmarkContext);
 
-    return <Table columns={columns} dataSource={benchmarkResultSelector.selectAll(totalResults)} rowKey="order" />;
+    // We need to create a new array because of the cache of `reselect`?
+    const reversedTotalResults = [...benchmarkResultSelector.selectAll(totalResults)].reverse();
+
+    return <Table key={totalResults.ids.length} columns={columns} dataSource={reversedTotalResults} rowKey="order" />;
 }

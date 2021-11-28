@@ -2,9 +2,9 @@ import { usePersistFn } from '@easy/hooks';
 import { useEffect, useRef, useState } from 'react';
 import { BenchmarkRef } from 'react-component-benchmark';
 
-import { BenchmarkTypes } from 'src/common/benchmark';
+import { BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
-import { UseComponentKeysActions } from './useComponentKeys';
+import { UseComponentKeysActions } from './useComponentNames';
 
 export interface UseOptimizationModeActions {
     onComplete: () => void;
@@ -14,11 +14,11 @@ export interface UseOptimizationModeActions {
 export function useOptimization(
     benchmarkRef: React.RefObject<BenchmarkRef>,
     [benchmarkType, setBenchmarkType]: [BenchmarkTypes, React.Dispatch<React.SetStateAction<BenchmarkTypes>>],
-    [componentKey, { selectFirst, selectNext, setComponentName }]: [string, UseComponentKeysActions],
+    [componentName, { selectFirst, selectNext, setComponentName }]: [ComponentName, UseComponentKeysActions],
     [samples, setSamples]: [number, React.Dispatch<React.SetStateAction<number>>],
 ): [boolean, UseOptimizationModeActions] {
     const originBenchmarkType = useRef<BenchmarkTypes>();
-    const originComponentKey = useRef<string>();
+    const originComponentName = useRef<ComponentName>();
     const originSamples = useRef<number>();
 
     const [running, setRunning] = useState(false);
@@ -31,9 +31,9 @@ export function useOptimization(
                 setBenchmarkType(originBenchmarkType.current);
                 originBenchmarkType.current = undefined;
             }
-            if (originComponentKey.current) {
-                setComponentName(originComponentKey.current);
-                originComponentKey.current = undefined;
+            if (originComponentName.current) {
+                setComponentName(originComponentName.current);
+                originComponentName.current = undefined;
             }
             if (originSamples.current) {
                 setSamples(originSamples.current);
@@ -44,7 +44,7 @@ export function useOptimization(
 
     const startOptimization = usePersistFn(() => {
         originBenchmarkType.current = benchmarkType;
-        originComponentKey.current = componentKey;
+        originComponentName.current = componentName;
         originSamples.current = samples;
 
         setRunning(true);

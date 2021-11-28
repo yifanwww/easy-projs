@@ -4,21 +4,42 @@ import { createContext } from 'react';
 import { noop } from 'ts-essentials';
 import { useImmerReducer } from 'use-immer';
 
-import { BenchmarkResult, BenchmarkTypes } from 'src/common/benchmark';
+import { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
 import { benchmarkResultAdapter, benchmarkResultSelector } from './adapters';
 import { IBenchmarkContext, IBenchmarkContextUpdaters } from './types';
 
 const initialContext: IBenchmarkContext = {
-    mount: {},
-    unmount: {},
-    update: {},
+    mount: {
+        noHooks: benchmarkResultAdapter.getInitialState(),
+        useCallback: benchmarkResultAdapter.getInitialState(),
+        useMemo: benchmarkResultAdapter.getInitialState(),
+        useReducer: benchmarkResultAdapter.getInitialState(),
+        useRef: benchmarkResultAdapter.getInitialState(),
+        useState: benchmarkResultAdapter.getInitialState(),
+    },
+    unmount: {
+        noHooks: benchmarkResultAdapter.getInitialState(),
+        useCallback: benchmarkResultAdapter.getInitialState(),
+        useMemo: benchmarkResultAdapter.getInitialState(),
+        useReducer: benchmarkResultAdapter.getInitialState(),
+        useRef: benchmarkResultAdapter.getInitialState(),
+        useState: benchmarkResultAdapter.getInitialState(),
+    },
+    update: {
+        noHooks: benchmarkResultAdapter.getInitialState(),
+        useCallback: benchmarkResultAdapter.getInitialState(),
+        useMemo: benchmarkResultAdapter.getInitialState(),
+        useReducer: benchmarkResultAdapter.getInitialState(),
+        useRef: benchmarkResultAdapter.getInitialState(),
+        useState: benchmarkResultAdapter.getInitialState(),
+    },
     totalResults: benchmarkResultAdapter.getInitialState(),
 };
 
 type IBenchmarkAction =
     | { type: 'add'; result: BenchmarkResult }
-    | { type: 'clear'; benchmarkType: BenchmarkTypes; componentName: string }
+    | { type: 'clear'; benchmarkType: BenchmarkTypes; componentName: ComponentName }
     | { type: 'clear-all' };
 
 const reducer: ReactImmerReducer<IBenchmarkContext, IBenchmarkAction> = (state, action) => {
@@ -28,9 +49,6 @@ const reducer: ReactImmerReducer<IBenchmarkContext, IBenchmarkAction> = (state, 
             const { result } = action;
 
             benchmarkResultAdapter.addOne(state.totalResults, result);
-            if (state[result.type][result.name] === undefined) {
-                state[result.type][result.name] = benchmarkResultAdapter.getInitialState();
-            }
             benchmarkResultAdapter.addOne(state[result.type][result.name], result);
 
             break;
@@ -52,9 +70,9 @@ const reducer: ReactImmerReducer<IBenchmarkContext, IBenchmarkAction> = (state, 
 
         case 'clear-all':
             benchmarkResultAdapter.removeAll(state.totalResults);
-            for (const name in state.mount) benchmarkResultAdapter.removeAll(state.mount[name]);
-            for (const name in state.unmount) benchmarkResultAdapter.removeAll(state.unmount[name]);
-            for (const name in state.update) benchmarkResultAdapter.removeAll(state.update[name]);
+            for (const name in state.mount) benchmarkResultAdapter.removeAll(state.mount[name as ComponentName]);
+            for (const name in state.unmount) benchmarkResultAdapter.removeAll(state.unmount[name as ComponentName]);
+            for (const name in state.update) benchmarkResultAdapter.removeAll(state.update[name as ComponentName]);
             break;
 
         default:

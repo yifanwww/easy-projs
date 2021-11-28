@@ -3,10 +3,10 @@ import copy from 'copy-to-clipboard';
 import { useContext, useRef, useState } from 'react';
 import Benchmark, { BenchmarkType, BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
 
-import { BenchmarkTypes } from 'src/common/benchmark';
+import { BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 import { InputWrapper } from 'src/components/InputWrapper';
 import { ResultTable } from 'src/components/ResultTable';
-import { componentInfos } from 'src/components/tests';
+import { componentInfos, componentNames } from 'src/components/tests';
 import { BenchmarkContext, BenchmarkContextUpdater, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
 import { useComponentNames, useMultipleTest, useOptimization, useTest } from 'src/hooks';
 
@@ -20,7 +20,7 @@ export function TestPage(): React.ReactElement {
 
     const benchmarkTypeState = useState<BenchmarkTypes>(BenchmarkType.MOUNT);
     const [benchmarkType, setBenchmarkType] = benchmarkTypeState;
-    const componentNamesState = useComponentNames(Object.keys(componentInfos));
+    const componentNamesState = useComponentNames();
     const [componentName, { setComponentName }] = componentNamesState;
     const samplesState = useState(100);
     const [samples, setSamples] = samplesState;
@@ -76,7 +76,7 @@ export function TestPage(): React.ReactElement {
 
     const clearResults = () => updaters.clearAll();
 
-    const changeComponentName = (name: string) => setComponentName(name);
+    const changeComponentName = (name: ComponentName) => setComponentName(name);
 
     const changeBenchmarkType = (type: BenchmarkTypes) => setBenchmarkType(type);
 
@@ -99,7 +99,7 @@ export function TestPage(): React.ReactElement {
                         value={componentName}
                         onChange={changeComponentName}
                     >
-                        {Object.keys(componentInfos).map((name) => (
+                        {componentNames.map((name) => (
                             <Select.Option key={name} value={name}>
                                 {componentInfos[name].displayName}
                             </Select.Option>
@@ -113,9 +113,9 @@ export function TestPage(): React.ReactElement {
                         value={benchmarkType}
                         onChange={changeBenchmarkType}
                     >
-                        {Object.keys(BenchmarkType).map((type) => (
+                        {Object.values(BenchmarkType).map((type) => (
                             <Select.Option key={type} value={type}>
-                                {type.toLowerCase()}
+                                {type}
                             </Select.Option>
                         ))}
                     </Select>
