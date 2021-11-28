@@ -61,12 +61,13 @@ export function useGroupTest(
         const round = roundActions.get();
 
         if (round === 0 && !isLast()) {
-            selectNext();
             roundActions.set(times);
-        } else {
+            selectNext();
+        } else if (round === 0 && isLast()) {
             if (benchmarkType === 'update') {
                 running.current = false;
             } else {
+                roundActions.set(times);
                 selectFirst();
                 setBenchmarkType(benchmarkType === 'mount' ? 'unmount' : 'update');
             }
