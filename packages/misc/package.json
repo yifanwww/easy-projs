@@ -1,0 +1,27 @@
+{
+    "name": "@easy/misc",
+    "version": "0.0.0",
+    "description": "Misc.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/misc"
+    },
+    "scripts": {
+        "build": "npm run build:ts",
+        "build:ts": "concurrently -n esm,types \"npm run build:ts:esm\" \"npm run build:ts:types\"",
+        "build:ts:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:ts:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf lib tsconfigs/*.tsbuildinfo",
+        "lint": "eslint .",
+        "format": "format-code",
+        "pre-commit": "lint-staged"
+    }
+}

@@ -134,6 +134,10 @@
             "path": "packages/memorize"
         },
         {
+            "name": "@easy/misc",
+            "path": "packages/misc"
+        },
+        {
             "name": "@easy/package-template-nodejs",
             "path": "packages/package-template-nodejs"
         },

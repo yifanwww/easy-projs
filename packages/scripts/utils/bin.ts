@@ -16,6 +16,7 @@ export function buildPackages(): void {
         '@easy/benchmark-javascript',
         '@easy/hooks',
         '@easy/memorize',
+        '@easy/misc',
         '@easy/package-template-nodejs',
         '@easy/random-string',
         '@easy/utils-fluentui',
@@ -30,7 +31,7 @@ export function buildPackages(): void {
 }
 
 export function buildProjects(): void {
-    const packagesOrder = [
+    const projsOrder = [
         '@easy/demo-test-nodejs',
         '@easy/performance-javascript',
         '@easy/performance-react',
@@ -40,7 +41,7 @@ export function buildProjects(): void {
         '@easy/react-rerender-test',
     ];
 
-    for (const name of packagesOrder) {
+    for (const name of projsOrder) {
         const command = `npm run build --workspace ${name}`;
         child.execSync(command, { stdio: 'inherit' });
     }

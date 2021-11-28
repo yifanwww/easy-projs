@@ -122,6 +122,7 @@
         "packages/global-types",
         "packages/hooks",
         "packages/memorize",
+        "packages/misc",
         "packages/package-template-nodejs",
         "packages/performance-javascript",
         "packages/performance-react",
