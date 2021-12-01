@@ -30,11 +30,11 @@ const columns: ColumnType<BenchmarkResult>[] = [
     { title: 'P99', dataIndex: ['stats', 'p99'], key: 'p99', render: formatNumber },
 ];
 
-export function ResultTable(): React.ReactElement {
+export const ResultTable: React.VFC = () => {
     const { totalResults } = useContext(BenchmarkContext);
 
     // We need to create a new array because of the cache of `reselect`?
     const reversedTotalResults = [...benchmarkResultSelector.selectAll(totalResults)].reverse();
 
     return <Table key={totalResults.ids.length} columns={columns} dataSource={reversedTotalResults} rowKey="order" />;
-}
+};

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { RenderContext, RenderContextUpdater } from 'src/contexts/RenderContext';
 
-export function Controller(): React.ReactElement {
+export const Controller: React.VFC = () => {
     const { selected } = useContext(RenderContext);
     const { select } = useContext(RenderContextUpdater);
 
@@ -12,4 +12,4 @@ export function Controller(): React.ReactElement {
             Change Parent
         </Button>
     );
-}
+};

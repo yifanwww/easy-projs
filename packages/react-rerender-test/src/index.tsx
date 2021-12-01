@@ -11,7 +11,7 @@ import { RoutePath } from './common/route';
 import { Page } from './components/Page';
 import { getPageInfo, pageRoutePaths } from './containers/configs';
 
-function ClientArea(): React.ReactElement {
+const ClientArea: React.VFC = () => {
     const pageRoutes = pageRoutePaths.map((path) => {
         const pageInfo = getPageInfo(path)!;
         return <Route key={path} path={pageInfo.deepMatch ? `${path}/*` : path} element={<pageInfo.component />} />;
@@ -25,9 +25,9 @@ function ClientArea(): React.ReactElement {
             </Routes>
         </Page>
     );
-}
+};
 
-function App(): React.ReactElement {
+const App: React.VFC = () => {
     return (
         <ConfigProvider autoInsertSpaceInButton={false}>
             <BrowserRouter basename="/react-rerender-test">
@@ -35,7 +35,7 @@ function App(): React.ReactElement {
             </BrowserRouter>
         </ConfigProvider>
     );
-}
+};
 
 render(
     <StrictMode>

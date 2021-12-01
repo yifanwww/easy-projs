@@ -7,7 +7,7 @@ import scss from './PageOverview.module.scss';
 
 export interface PageOverviewItemProps extends PageOverviewInfo {}
 
-export function PageOverviewItem(props: PageOverviewItemProps): React.ReactElement {
+export const PageOverviewItem: React.VFC<PageOverviewItemProps> = (props) => {
     const { title, url } = props;
 
     const navigate = useNavigate();
@@ -20,16 +20,16 @@ export function PageOverviewItem(props: PageOverviewItemProps): React.ReactEleme
             <code className={scss.url}>{url}</code>
         </Button>
     );
-}
+};
 
 export interface PageOverviewProps {
     overviews: PageOverviewInfo[];
 }
 
-export function PageOverview(props: PageOverviewProps): React.ReactElement {
+export const PageOverview: React.VFC<PageOverviewProps> = (props) => {
     const { overviews } = props;
 
     const elements = overviews.map((overview) => <PageOverviewItem key={overview.url} {...overview} />);
 
     return <div className={scss.root}>{elements}</div>;
-}
+};

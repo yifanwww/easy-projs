@@ -3,13 +3,13 @@ import clsx from 'clsx';
 
 import scss from './Page.module.scss';
 
-export interface PageContainerProps extends ReactChildrenProps {
+export interface PageContainerProps {
     center?: boolean;
     className?: string;
     gap?: number;
 }
 
-export function PageContainer(props: PageContainerProps): React.ReactElement {
+export const PageContainer: React.FC<PageContainerProps> = (props) => {
     const { center, children, className, gap } = props;
 
     return (
@@ -17,4 +17,4 @@ export function PageContainer(props: PageContainerProps): React.ReactElement {
             {children}
         </Layout.Content>
     );
-}
+};

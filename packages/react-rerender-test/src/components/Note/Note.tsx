@@ -1,6 +1,6 @@
 import scss from './Note.module.scss';
 
-export function Note(): React.ReactElement {
+export const Note: React.VFC = () => {
     return (
         <div className={scss.root}>
             <span className={scss.title}>Note</span>
@@ -10,4 +10,4 @@ export function Note(): React.ReactElement {
             </div>
         </div>
     );
-}
+};

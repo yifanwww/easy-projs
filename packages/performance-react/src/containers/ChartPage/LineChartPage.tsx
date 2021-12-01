@@ -14,7 +14,7 @@ import scss from './Charts.module.scss';
 
 type EChartsOption = echarts.ComposeOption<GridComponentOption | LineSeriesOption>;
 
-export function LineChartPage(): React.ReactElement {
+export const LineChartPage: React.VFC = () => {
     const ref = useRef<HTMLDivElement>(null);
 
     const { mount, unmount, update } = useContext(BenchmarkContext);
@@ -84,4 +84,4 @@ export function LineChartPage(): React.ReactElement {
             </div>
         </div>
     );
-}
+};

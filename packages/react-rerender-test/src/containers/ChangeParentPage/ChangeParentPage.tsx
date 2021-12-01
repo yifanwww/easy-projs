@@ -37,7 +37,7 @@ function ParentSelectorPtc() {
 
 const renderController = () => <Controller />;
 
-export function ChangeParentPage(): React.ReactElement {
+export const ChangeParentPage: React.VFC = () => {
     return (
         <TestPage onRenderController={renderController}>
             <Inspector group="PRC">
@@ -48,4 +48,4 @@ export function ChangeParentPage(): React.ReactElement {
             </Inspector>
         </TestPage>
     );
-}
+};

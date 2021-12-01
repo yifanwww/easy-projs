@@ -27,7 +27,7 @@ Here is an example about how to use hook `useIsHovered`.
 ```ts
 import { useIsHovered } from '@easy/hooks';
 
-export function Component(): React.ReactElement {
+export const Component: React.VFC () => {
     const ref = useRef<SubComponent>(null);
 
     const isHovered = useIsHovered(ref);

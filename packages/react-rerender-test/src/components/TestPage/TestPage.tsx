@@ -8,11 +8,11 @@ import { RenderList } from '../RenderOrderList';
 
 import scss from './TestPage.module.scss';
 
-export interface TestPageProps extends ReactChildrenProps {
+export interface TestPageProps {
     onRenderController?: () => React.ReactNode;
 }
 
-export function TestPage(props: TestPageProps): React.ReactElement {
+export const TestPage: React.FC<TestPageProps> = (props) => {
     const { children, onRenderController } = props;
 
     return (
@@ -31,4 +31,4 @@ export function TestPage(props: TestPageProps): React.ReactElement {
             </InspectionProvider>
         </Layout.Content>
     );
-}
+};

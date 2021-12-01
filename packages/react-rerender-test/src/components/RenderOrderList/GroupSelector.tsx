@@ -9,7 +9,7 @@ export interface GroupSelectorProps {
     togglePrev?: () => void;
 }
 
-export function GroupSelector(props: GroupSelectorProps): React.ReactElement {
+export const GroupSelector: React.VFC<GroupSelectorProps> = (props) => {
     const { group, toggleNext, togglePrev } = props;
 
     return (
@@ -23,4 +23,4 @@ export function GroupSelector(props: GroupSelectorProps): React.ReactElement {
             </Button>
         </div>
     );
-}
+};

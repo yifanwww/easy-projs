@@ -11,11 +11,11 @@ const overviews: PageOverviewInfo[] = [
     { title: 'Router', /*         */ url: RoutePath.RoutePage },
 ];
 
-export function HomePage(): React.ReactElement {
+export const HomePage: React.VFC = () => {
     return (
         <div className={scss.root}>
             <div className={scss.title}>React Rerender Test</div>
             <PageOverview overviews={overviews} />
         </div>
     );
-}
+};

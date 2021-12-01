@@ -6,7 +6,7 @@ import { getPageInfo, pageRoutePaths } from 'src/containers/configs';
 
 import scss from './Page.module.scss';
 
-export function Page(props: ReactChildrenProps): React.ReactElement {
+export const Page: React.FC = (props) => {
     const items = pageRoutePaths.map((path) => {
         const pageInfo = getPageInfo(path)!;
 
@@ -29,4 +29,4 @@ export function Page(props: ReactChildrenProps): React.ReactElement {
             <Layout className={scss.content}>{props.children}</Layout>
         </Layout>
     );
-}
+};

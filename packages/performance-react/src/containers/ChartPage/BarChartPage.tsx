@@ -13,7 +13,7 @@ import scss from './Charts.module.scss';
 
 type EChartsOption = echarts.ComposeOption<BarSeriesOption | GridComponentOption | TooltipComponentOption>;
 
-export function BarChartPage(): React.ReactElement {
+export const BarChartPage: React.VFC = () => {
     const ref = useRef<HTMLDivElement>(null);
 
     const { mount, unmount, update } = useContext(BenchmarkContext);
@@ -83,4 +83,4 @@ export function BarChartPage(): React.ReactElement {
             </div>
         </div>
     );
-}
+};

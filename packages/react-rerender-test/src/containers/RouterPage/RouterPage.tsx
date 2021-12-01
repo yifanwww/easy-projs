@@ -38,7 +38,7 @@ function CorrectRoute() {
 
 const renderController = () => <Controller />;
 
-export function RouterPage(): React.ReactElement {
+export const RouterPage: React.VFC = () => {
     return (
         <TestPage onRenderController={renderController}>
             <Inspector group="PTC">
@@ -47,4 +47,4 @@ export function RouterPage(): React.ReactElement {
             <CorrectRoute />
         </TestPage>
     );
-}
+};

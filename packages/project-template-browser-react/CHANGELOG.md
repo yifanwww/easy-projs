@@ -4,6 +4,10 @@
 
 - Add empty classes of local storage and session storage with unit tests
 
+### Changes
+
+- Use `React.FC` and `React.VFC` to make function components
+
 ### Breaking Changes
 
 - Rename type declarations

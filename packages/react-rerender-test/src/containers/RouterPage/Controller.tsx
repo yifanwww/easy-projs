@@ -5,7 +5,7 @@ import { RoutePath } from 'src/common/route';
 
 import { useRouterNum } from './useRouterNum';
 
-export function Controller(): React.ReactElement {
+export const Controller: React.VFC = () => {
     const path = RoutePath.RoutePageDetail;
 
     const navigate = useNavigate();
@@ -22,4 +22,4 @@ export function Controller(): React.ReactElement {
             </Button>
         </div>
     );
-}
+};

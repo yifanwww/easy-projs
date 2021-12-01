@@ -9,7 +9,7 @@ interface ComponentTagProps {
     type: InspectedFCType;
 }
 
-function ComponentTag(props: ComponentTagProps): Optional<React.ReactElement> {
+const ComponentTag: React.VFC<ComponentTagProps> = (props) => {
     const { type } = props;
 
     let never: never;
@@ -34,9 +34,9 @@ function ComponentTag(props: ComponentTagProps): Optional<React.ReactElement> {
             never = type;
             return null;
     }
-}
+};
 
-export interface ComponentViewProps extends ReactChildrenProps {
+export interface ComponentViewProps {
     /**
      * Background color.
      */
@@ -46,7 +46,7 @@ export interface ComponentViewProps extends ReactChildrenProps {
     type?: InspectedFCType;
 }
 
-export function ComponentView(props: Readonly<ComponentViewProps>): React.ReactElement {
+export const ComponentView: React.FC<ComponentViewProps> = (props) => {
     const { children, color, desc, name, type = 'nil' } = props;
 
     const renderCount = useRenderCount();
@@ -65,4 +65,4 @@ export function ComponentView(props: Readonly<ComponentViewProps>): React.ReactE
             {children}
         </div>
     );
-}
+};

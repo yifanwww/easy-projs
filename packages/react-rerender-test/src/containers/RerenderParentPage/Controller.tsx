@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { RenderContextUpdater } from 'src/contexts/RenderContext';
 
-export function Controller(): React.ReactElement {
+export const Controller: React.VFC = () => {
     const { forceUpdate } = useContext(RenderContextUpdater);
 
     return (
@@ -11,4 +11,4 @@ export function Controller(): React.ReactElement {
             Force Update
         </Button>
     );
-}
+};

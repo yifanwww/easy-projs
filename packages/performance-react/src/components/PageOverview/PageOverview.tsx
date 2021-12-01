@@ -11,7 +11,7 @@ export interface IPageOverview {
 
 export interface IPageOverviewItemProps extends IPageOverview {}
 
-export function PageOverviewItem(props: IPageOverviewItemProps): React.ReactElement {
+export const PageOverviewItem: React.VFC<IPageOverviewItemProps> = (props: IPageOverviewItemProps) => {
     const { title, url } = props;
 
     const navigate = useNavigate();
@@ -22,16 +22,16 @@ export function PageOverviewItem(props: IPageOverviewItemProps): React.ReactElem
             <code className={scss.url}>{url}</code>
         </Button>
     );
-}
+};
 
 export interface IPageOverviewProps {
     overviews: IPageOverview[];
 }
 
-export function PageOverview(props: IPageOverviewProps): React.ReactElement {
+export const PageOverview: React.VFC<IPageOverviewProps> = (props) => {
     const { overviews } = props;
 
     const elements = overviews.map((overview) => <PageOverviewItem key={overview.url} {...overview} />);
 
     return <div className={scss.root}>{elements}</div>;
-}
+};

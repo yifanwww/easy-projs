@@ -9,7 +9,7 @@ const overviews: IPageOverview[] = [
     { title: 'Line Chart', url: RoutePath.LineChartPage },
 ];
 
-export function HomePage(): React.ReactElement {
+export const HomePage: React.VFC = () => {
     return (
         <div className={scss.root}>
             <div className={scss.content}>
@@ -18,4 +18,4 @@ export function HomePage(): React.ReactElement {
             </div>
         </div>
     );
-}
+};

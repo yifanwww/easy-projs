@@ -1,9 +1,8 @@
 import Assets from '@easy/assets';
-import { ReactElement } from 'react';
 
 import scss from './Introduction.module.scss';
 
-export function Introduction(): ReactElement {
+export const Introduction: React.VFC = () => {
     return (
         <header className={scss.introduction}>
             <img className={scss.logo} src={Assets.logo} alt="logo" />
@@ -20,4 +19,4 @@ export function Introduction(): ReactElement {
             </a>
         </header>
     );
-}
+};
