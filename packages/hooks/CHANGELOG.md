@@ -1,5 +1,16 @@
 # CHANGELOG
 ## @easy/hooks v0.4.0 (Unreleased)
+### Features
+
+- Add new hooks
+  - `useCountdown`
+  - `useDelayFn`
+  - `useDoubleTrigger`
+  - `useInterval`
+  - `useIsMounted`
+  - `useSingleInterval`
+  - `useSingleTimeout`
+
 ### Breaking Changes
 
 - Rename interface `IUseBooleanActions` to `UseBooleanActions`

@@ -24,7 +24,7 @@ console.log(benchmark.toString());
 
 ## Develop this package
 
-You need to build package `@tecra/scripts` before building or testing this package.
+You need to build package `@easy/scripts` before building or testing this package.
 
 ### Build this package
 
