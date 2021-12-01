@@ -1,5 +1,5 @@
 # CHANGELOG
-## @easy/hooks v0.4.0 (Unreleased)
+## @easy/hooks v0.4.0 (2021-12-01)
 ### Features
 
 - Add new hooks
@@ -10,6 +10,7 @@
   - `useIsMounted`
   - `useSingleInterval`
   - `useSingleTimeout`
+  - `useTimeout`
 
 ### Breaking Changes
 
