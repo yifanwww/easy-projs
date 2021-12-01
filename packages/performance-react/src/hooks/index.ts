@@ -1,4 +1,4 @@
-export * from './useComponentKeys';
-export * from './useMultipleTest';
-export * from './useOptimization';
+export * from './useComponentNames';
+export * from './useGroupTest';
+export * from './useRound';
 export * from './useTest';

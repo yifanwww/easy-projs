@@ -1,31 +1,40 @@
 import { Table } from 'antd';
 import { ColumnType } from 'antd/lib/table';
+import { useContext } from 'react';
 
-import { BenchmarkResult } from 'src/common/benchmark';
+import { BenchmarkResult, ComponentName } from 'src/common/benchmark';
+import { BenchmarkContext, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
+
+import { componentInfos } from '../tests';
 
 const formatNumber = (num: number) => `${num.toFixed(3)}ms`;
 
 const columns: ColumnType<BenchmarkResult>[] = [
     { title: 'Order', dataIndex: 'order', key: 'order' },
-    { title: 'Name', dataIndex: 'name', key: 'name' },
+    {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+        render: (name: ComponentName) => componentInfos[name].displayName,
+    },
+    { title: 'Type', dataIndex: 'type', key: 'type' },
     { title: 'Samples', dataIndex: 'samples', key: 'samples' },
     {
         title: 'Mean',
-        dataIndex: 'mean',
+        dataIndex: ['stats', 'mean'],
         key: 'mean',
-        render: (num, record) => `${num.toFixed(3)}ms (±${record.stdDev.toFixed(3)}ms)`,
+        render: (num, record) => `${num.toFixed(3)}ms (±${record.stats.stdDev.toFixed(3)}ms)`,
     },
-    { title: 'Layout', dataIndex: 'layout', key: 'layout', render: formatNumber },
-    { title: 'P95', dataIndex: 'p95', key: 'p95', render: formatNumber },
-    { title: 'P99', dataIndex: 'p99', key: 'p99', render: formatNumber },
+    { title: 'Layout', dataIndex: ['stats', 'layout'], key: 'layout', render: formatNumber },
+    { title: 'P95', dataIndex: ['stats', 'p95'], key: 'p95', render: formatNumber },
+    { title: 'P99', dataIndex: ['stats', 'p99'], key: 'p99', render: formatNumber },
 ];
 
-export interface IResultTableProps {
-    results: BenchmarkResult[];
-}
+export function ResultTable(): React.ReactElement {
+    const { totalResults } = useContext(BenchmarkContext);
 
-export function ResultTable(props: IResultTableProps): React.ReactElement {
-    const { results } = props;
+    // We need to create a new array because of the cache of `reselect`?
+    const reversedTotalResults = [...benchmarkResultSelector.selectAll(totalResults)].reverse();
 
-    return <Table columns={columns} dataSource={results} rowKey="order" />;
+    return <Table key={totalResults.ids.length} columns={columns} dataSource={reversedTotalResults} rowKey="order" />;
 }
