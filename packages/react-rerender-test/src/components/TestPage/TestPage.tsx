@@ -12,9 +12,7 @@ export interface TestPageProps {
     onRenderController?: () => React.ReactNode;
 }
 
-export const TestPage: React.FC<TestPageProps> = (props) => {
-    const { children, onRenderController } = props;
-
+export const TestPage: React.FC<TestPageProps> = ({ children, onRenderController }) => {
     return (
         <Layout.Content className={scss.root}>
             <InspectionProvider>

@@ -15,10 +15,10 @@ const ParentPrc = makeInspectedFC('Parent', () => {
     return <Child />;
 });
 
-const ParentPtc = makeInspectedFC('Parent', (props) => {
+const ParentPtc = makeInspectedFC('Parent', ({ children }) => {
     useContext(RenderContext);
 
-    return <>{props.children}</>;
+    return <>{children}</>;
 });
 
 const renderController = () => <Controller />;

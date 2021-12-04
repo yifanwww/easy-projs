@@ -26,14 +26,14 @@ const ParentPrc = makeInspectedFC('Parent', () => {
     );
 });
 
-const ParentPtc = makeInspectedFC('Parent', (props) => {
+const ParentPtc = makeInspectedFC('Parent', ({ children }) => {
     const { selected } = useContext(RenderContext);
 
     return selected === 0 ? (
-        <>{props.children}</>
+        <>{children}</>
     ) : (
         <Sub1>
-            <Sub2>{props.children}</Sub2>
+            <Sub2>{children}</Sub2>
         </Sub1>
     );
 });

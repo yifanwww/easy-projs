@@ -98,7 +98,7 @@ export const InspectionContextUpdater = createContext<InspectionContextUpdaters>
     toggleGroup: noop,
 });
 
-export const InspectionProvider: React.FC = (props) => {
+export const InspectionProvider: React.FC = ({ children }) => {
     const ref = useRef(initialContext);
 
     const { sign } = useDoubleRenderSign();
@@ -124,7 +124,7 @@ export const InspectionProvider: React.FC = (props) => {
 
     return (
         <InspectionContextUpdater.Provider value={updaters}>
-            <InspectionContext.Provider value={ref.current}>{props.children}</InspectionContext.Provider>
+            <InspectionContext.Provider value={ref.current}>{children}</InspectionContext.Provider>
         </InspectionContextUpdater.Provider>
     );
 };

@@ -28,9 +28,7 @@ export interface IPageOverviewProps {
     overviews: IPageOverview[];
 }
 
-export const PageOverview: React.VFC<IPageOverviewProps> = (props) => {
-    const { overviews } = props;
-
+export const PageOverview: React.VFC<IPageOverviewProps> = ({ overviews }) => {
     const elements = overviews.map((overview) => <PageOverviewItem key={overview.url} {...overview} />);
 
     return <div className={scss.root}>{elements}</div>;

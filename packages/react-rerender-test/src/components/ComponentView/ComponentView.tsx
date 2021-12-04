@@ -9,9 +9,7 @@ interface ComponentTagProps {
     type: InspectedFCType;
 }
 
-const ComponentTag: React.VFC<ComponentTagProps> = (props) => {
-    const { type } = props;
-
+const ComponentTag: React.VFC<ComponentTagProps> = ({ type }) => {
     let never: never;
     switch (type) {
         case 'nil':

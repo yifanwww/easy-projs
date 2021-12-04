@@ -41,7 +41,7 @@ const initialContext: RenderContextState = {
 export const RenderContext = createContext<RenderContextState>(initialContext);
 export const RenderContextUpdater = createContext<RenderContextUpdaters>({ forceUpdate: noop, select: noop });
 
-export const RenderProvider: React.FC = (props) => {
+export const RenderProvider: React.FC = ({ children }) => {
     const [context, dispatch] = useImmerReducer(reducer, initialContext);
 
     const updaters = useConst<RenderContextUpdaters>(() => ({
@@ -51,7 +51,7 @@ export const RenderProvider: React.FC = (props) => {
 
     return (
         <RenderContextUpdater.Provider value={updaters}>
-            <RenderContext.Provider value={context}>{props.children}</RenderContext.Provider>
+            <RenderContext.Provider value={context}>{children}</RenderContext.Provider>
         </RenderContextUpdater.Provider>
     );
 };

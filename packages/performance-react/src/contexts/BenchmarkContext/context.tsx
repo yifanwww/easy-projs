@@ -123,7 +123,7 @@ export const BenchmarkContextUpdater = createContext<IBenchmarkContextUpdaters>(
     clearAll: noop,
 });
 
-export const BenchmarkProvider: React.FC = (props) => {
+export const BenchmarkProvider: React.FC = ({ children }) => {
     const [context, dispatch] = useImmerReducer(reducer, initialContext);
 
     const updaters = useConst<IBenchmarkContextUpdaters>(() => ({
@@ -134,7 +134,7 @@ export const BenchmarkProvider: React.FC = (props) => {
 
     return (
         <BenchmarkContextUpdater.Provider value={updaters}>
-            <BenchmarkContext.Provider value={context}>{props.children}</BenchmarkContext.Provider>
+            <BenchmarkContext.Provider value={context}>{children}</BenchmarkContext.Provider>
         </BenchmarkContextUpdater.Provider>
     );
 };
