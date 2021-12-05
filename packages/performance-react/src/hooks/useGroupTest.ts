@@ -16,7 +16,7 @@ export function useGroupTest(
     times: number,
     benchmarkRef: React.RefObject<BenchmarkRef>,
     [benchmarkType, setBenchmarkType]: [BenchmarkTypes, React.Dispatch<React.SetStateAction<BenchmarkTypes>>],
-    [componentName, { isLast, selectFirst, selectNext, setComponentName }]: [ComponentName, UseComponentKeysActions],
+    [componentName, { selectFirst, selectNext, setComponentName }]: [ComponentName, UseComponentKeysActions],
 ): [boolean, UseGroupTestActions] {
     const originBenchmarkType = useRef<BenchmarkTypes>();
     const originComponentName = useRef<ComponentName>();
@@ -57,19 +57,19 @@ export function useGroupTest(
     const onCompleteOne = usePersistFn(() => {
         if (!running) return;
 
-        roundActions.decrease();
-        const round = roundActions.get();
-
-        if (round === 0 && !isLast()) {
-            roundActions.set(times);
-            selectNext();
-        } else if (round === 0 && isLast()) {
-            if (benchmarkType === 'update') {
-                running.current = false;
-            } else {
-                roundActions.set(times);
+        if (!selectNext()) {
+            if (benchmarkType !== 'update') {
                 selectFirst();
                 setBenchmarkType(benchmarkType === 'mount' ? 'unmount' : 'update');
+            } else {
+                roundActions.decrease();
+                const round = roundActions.get();
+                if (round === 0) {
+                    running.current = false;
+                } else {
+                    setBenchmarkType('mount');
+                    selectFirst();
+                }
             }
         }
     });
