@@ -1,4 +1,9 @@
 # CHANGELOG
+## @easy/hooks v0.5.0 (Unreleased)
+### Features
+
+- Improve `usePersistFn` by using only one `useRef`
+
 ## @easy/hooks v0.4.0 (2021-12-01)
 ### Features
 

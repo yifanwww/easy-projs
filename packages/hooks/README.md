@@ -7,13 +7,21 @@ React hooks for easy-projs.
 - `useBoolean`
 - `useConst`
 - `useConstFn`
+- `useCountdown`
+- `useDelayFn`
+- `useDoubleTrigger`
 - `useForceUpdate`
 - `useImmediateFocus`
+- `useInterval`
 - `useIsFocused`
 - `useIsHovered`
+- `useIsMounted`
 - `useMount`
 - `usePersistFn`
 - `usePrevious`
+- `useSingleInterval`
+- `useSingleTimeout`
+- `useTimeout`
 - `useToggle`
 - `useUnmount`
 - `useWhyDidYouUpdate`
@@ -24,7 +32,7 @@ It's very easy to use these custom React hooks.
 
 Here is an example about how to use hook `useIsHovered`.
 
-```ts
+```tsx
 import { useIsHovered } from '@easy/hooks';
 
 export const Component: React.VFC () => {
@@ -33,7 +41,7 @@ export const Component: React.VFC () => {
     const isHovered = useIsHovered(ref);
 
     return <SubComponent className={isHovered ? 'sub-component-hover' : 'sub-component'} ref={ref} />;
-}
+};
 ```
 
 ## Develop this package
