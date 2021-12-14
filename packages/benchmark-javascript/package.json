@@ -25,6 +25,7 @@
         "build-dist": "tsc --project tsconfigs/tsconfig.dist.json",
         "clean": "rimraf dist lib lib-commonjs tsconfigs/*.tsbuildinfo",
         "clean-dist": "rimraf dist",
+        "dev": "npm run build:cjs -- --watch",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged",

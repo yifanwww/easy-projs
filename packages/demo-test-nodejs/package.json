@@ -19,6 +19,7 @@
         "app": "node build/index.js",
         "build": "tsc --project tsconfig.node.json",
         "clean": "rimraf build ./*.tsbuildinfo",
+        "dev": "npm run build -- --watch",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
