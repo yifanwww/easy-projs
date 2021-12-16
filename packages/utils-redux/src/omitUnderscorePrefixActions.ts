@@ -1,3 +1,5 @@
+import { OmitUnderscorePrefix } from '@easy/utils-type';
+
 import { ReduxActions } from './types';
 
 export function omitUnderscorePrefixActions<T extends ReduxActions>(internalActions: T): OmitUnderscorePrefix<T> {

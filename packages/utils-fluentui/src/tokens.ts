@@ -1,3 +1,4 @@
+import { ExcludeFunction, ExtractFunction } from '@easy/utils-type';
 import { IStackProps } from '@fluentui/react';
 
 export namespace FluentuiTokens {
