@@ -1,5 +1,5 @@
 /*
- * Modified from https://github.com/reduxjs/redux-toolkit/tree/master/packages/toolkit/src/entities
+ * Modified from https://github.com/reduxjs/redux-toolkit/tree/v1.7.1/packages/toolkit/src/entities
  */
 
 export type Comparer<T> = (a: T, b: T) => number;
@@ -61,7 +61,7 @@ function createSelectorsFactory<T>() {
 
     function getSelectors(): EntitySelectors<T, R>;
     function getSelectors<V>(selectState: (state: V) => R): EntitySelectors<T, V>;
-    function getSelectors(selectState: (state: unknown) => R = (state) => state as never): EntitySelectors<T, never> {
+    function getSelectors<V>(selectState: (state: V) => R = (state) => state as never): EntitySelectors<T, V> {
         return {
             selectIds: (state) => selectState(state).ids,
             selectEntities: (state) => selectState(state).entities,
