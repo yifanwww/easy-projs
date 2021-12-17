@@ -11,3 +11,13 @@
   - `ExcludeUnderscorePrefix`
   - `ExtractFunction`
   - `OmitUnderscorePrefix`
+- Add type utilities:
+  - `OmitNonNullableProps`
+  - `OmitNullableProps`
+  - `OmitUndefinableProps`
+  - `PickNonNullableKeys`
+  - `PickNonNullableProps`
+  - `PickNullableKeys`
+  - `PickNullableProps`
+  - `PickUndefinableKeys`
+  - `PickUndefinableProps`
