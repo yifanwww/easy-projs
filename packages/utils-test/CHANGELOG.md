@@ -3,6 +3,7 @@
 ### Features
 
 - Add `mockLocalStorage` and `mockSessionStorage` to help mock local storage and session storage
+- Add test utils: `expectElementSnapshot`, `expectSnapshot`, `mockConsoleToMatchSnapshot`
 
 ## @packages/utils-test v0.1.0 (2021-10-29)
 ### Features
