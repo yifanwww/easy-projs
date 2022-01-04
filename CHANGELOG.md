@@ -1,4 +1,88 @@
 # CHANGELOG
+## easy-projs v0.4.0 (2022-01-04)
+### Features
+
+- [Assets] Add package `@easy/assets` to store common assets
+- [NPM] Add npm script `dev` in not-react packages
+- [Test] Support to pass `--verbose` when do unit test
+- [Types] Add global types `PickProp`, `AnyFn`, `UnknownFn` and `VoidReturn`
+
+### Changes
+
+- [Git] Use `husky` to execute pre-commit scripts
+- [Github] Change Github Actions timeout to 10 minutes
+
+### Bugfixes
+
+- Fix tsconfigs, delete some `baseUrl`
+
+### Breaking Changes
+
+- [Test] Delete `console.testInfo`, `console.testWarn` and `console.testError`
+- [Uitls/Type] Move some global types into `@tecra/utils-type`:
+  - `Contain`
+  - `Contained`
+  - `ExcludeFunction`
+  - `ExcludeUnderscorePrefix`
+  - `ExtractFunction`
+  - `OmitUnderscorePrefix`
+
+### Packages Changes
+
+- New
+  - `@easy/assets`
+  - `@easy/benchmark-javascript`            v0.1.0
+  - `@easy/cra-check`
+  - `@easy/misc`
+  - `@easy/performance-javascript`          v0.0.0
+  - `@easy/performance-react`               v0.0.0
+  - `@easy/projs-manage`                    v0.0.0
+  - `@easy/react-rerender-test`             v0.2.0
+  - `@easy/utils-react`                     v0.1.0
+  - `@easy/utils-test`                      v0.1.0
+  - `@easy/utils-type`                      v0.0.0
+- Upgrade
+  - `@easy/hooks`                           v0.2.0 -> v0.4.0
+  - `@easy/project-template-browser-react`  v0.3.0 -> v0.4.0
+
+### Dependencies
+
+- New
+  - `@types/benchmark`                          v2.1.1
+  - `antd`                                      v4.16.13
+  - `benchmark`                                 v2.1.4
+  - `echarts`                                   v5.2.2
+  - `eslint`                                    v8.2.0
+  - `husky`                                     v7.0.4
+  - `immer`                                     v9.0.6
+  - `react-component-benchmark`                 v1.0.0
+  - `react-router`                              v6.0.1
+  - `react-router-dom`                          v6.0.1
+  - `serve`                                     v13.0.2
+  - `ts-essentials`                             v9.0.0
+  - `use-immer`                                 v0.6.0
+- Upgrade
+  - `@typescript-eslint/eslint-plugin`          v4.32.0  -> v5.4.0
+  - `@typescript-eslint/experimental-utils`     v4.32.0  -> v5.4.0
+  - `@typescript-eslint/parser`                 v4.32.0  -> v5.4.0
+  - `@typescript-eslint/scope-manager`          v4.32.0  -> v5.4.0
+  - `@typescript-eslint/types`                  v4.32.0  -> v5.4.0
+  - `@typescript-eslint/typescript-estree`      v4.32.0  -> v5.4.0
+  - `@typescript-eslint/visitor-keys`           v4.32.0  -> v5.4.0
+  - `eslint-config-airbnb`                      v18.2.1  -> v19.0.0
+  - `eslint-config-airbnb-typescript`           v14.0.0  -> v16.1.0
+  - `eslint-plugin-import`                      v2.24.2  -> v2.25.3
+  - `eslint-plugin-jest`                        v24.5.0  -> v25.2.4
+  - `eslint-plugin-jsx-a11y`                    v6.4.1   -> v6.5.1
+  - `eslint-plugin-prettier`                    v3.4.1   -> v4.0.0
+  - `eslint-plugin-react`                       v7.26.1  -> v7.27.0
+  - `eslint-plugin-react-hooks`                 v4.2.0   -> v4.3.0
+  - `stylelint`                                 v13.13.1 -> v14.1.0
+  - `stylelint-config-recess-order`             v2.5.0   -> v3.0.0
+  - `stylelint-config-sass-guidelines`          v8.0.0   -> v9.0.1
+- Remove
+  - `eslint-plugin-deprecation`                 v1.2.1
+
 ## easy-projs v0.3.0 (2021-10-08)
 ### Features
 
