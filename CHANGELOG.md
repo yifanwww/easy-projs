@@ -1,4 +1,57 @@
 # CHANGELOG
+## easy-projs v0.5.0 (Unreleased)
+### Dependency Changes
+
+- Upgrade
+  - `@fluentui/react`                           v8.36.0   -> v8.49.0
+  - `@hyperjump/json-schema`                    v0.17.2   -> v0.18.3
+  - `@reduxjs/toolkit`                          v1.6.1    -> v1.7.1
+  - `@testing-library/jest-dom`                 v5.14.1   -> v5.16.1
+  - `@testing-library/react`                    v12.1.1   -> v12.1.2
+  - `@testing-library/user-event`               v13.2.1   -> v13.5.0
+  - `@types/jest`                               v27.0.2   -> v27.4.0
+  - `@types/lodash`                             v4.14.175 -> v4.14.178
+  - `@types/node`                               v16.10.2  -> v16.11.19
+  - `@types/react`                              v17.0.26  -> v17.0.38
+  - `@types/react-dom`                          v17.0.9   -> v17.0.11
+  - `@types/react-redux`                        v7.1.18   -> v7.1.21
+  - `@types/yargs`                              v17.0.5   -> v17.0.8
+  - `@typescript-eslint/eslint-plugin`          v5.4.0    -> v5.9.0
+  - `@typescript-eslint/experimental-utils`     v5.4.0    -> v5.9.0
+  - `@typescript-eslint/parser`                 v5.4.0    -> v5.9.0
+  - `@typescript-eslint/scope-manager`          v5.4.0    -> v5.9.0
+  - `@typescript-eslint/types`                  v5.4.0    -> v5.9.0
+  - `@typescript-eslint/typescript-estree`      v5.4.0    -> v5.9.0
+  - `@typescript-eslint/visitor-keys`           v5.4.0    -> v5.9.0
+  - `antd`                                      v4.16.13  -> v4.18.2
+  - `babel-jest`                                v27.2.4   -> v27.4.6
+  - `browserslist`                              v4.17.1   -> v4.19.1
+  - `concurrently`                              v6.2.2    -> v7.0.0
+  - `eslint`                                    v8.2.0    -> v8.6.0
+  - `eslint-config-airbnb`                      v19.0.0   -> v19.0.4
+  - `eslint-plugin-import`                      v2.25.3   -> v2.25.4
+  - `eslint-plugin-jest`                        v25.2.4   -> v25.3.4
+  - `eslint-plugin-react`                       v7.27.0   -> v7.28.0
+  - `jest`                                      v27.2.4   -> v27.2.7
+  - `lint-staged`                               v11.1.2   -> v11.1.5
+  - `prettier`                                  v2.4.1    -> v2.5.1
+  - `react-app-rewired`                         v2.1.8    -> v2.1.9
+  - `react-redux`                               v7.2.5    -> v7.2.6
+  - `react-router`                              v6.0.1    -> v6.2.1
+  - `react-router-dom`                          v6.0.1    -> v6.2.1
+  - `react-scripts`                             v4.0.3    -> v5.0.0
+  - `sass`                                      v1.42.1   -> v1.46.0
+  - `stylelint`                                 v14.1.0   -> v14.2.0
+  - `ts-essentials`                             v9.0.0    -> v9.1.2
+  - `ts-loader`                                 v8.3.0    -> v9.2.6
+  - `typescript`                                v4.4.3    -> v4.5.4
+  - `web-vitals`                                v2.1.0    -> v2.1.2
+  - `webpack-cli`                               v4.8.0    -> v4.9.1
+  - `yargs`                                     v17.2.1   -> v17.3.1
+- Remove
+  - `jest-circus`                               v27.2.4
+  - `tsconfig-paths-webpack-plugin`             v3.5.1
+
 ## easy-projs v0.4.0 (2022-01-04)
 ### Features
 
