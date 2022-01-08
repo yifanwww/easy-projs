@@ -1,16 +1,15 @@
 import { tTable } from './constants';
 import { TimeUnitUtil } from './TimeUnitUtil';
-import { BenchmarkOptions, BenchmarkTestFns, TestFn, URA } from './types';
+import { BenchmarkOptions, TestFn } from './types';
 import { BenchmarkStats, _BenchmarkSettings, _Nanosecond } from './types.internal';
 import { formatNumber, genStr, getMean, getMinTime, getVariance, hrtime2ns, sleep } from './utils';
 
-export class Benchmark<Args extends URA> {
+export class Benchmark {
     private static minTime: _Nanosecond = 0 as _Nanosecond;
 
     private name: string;
 
-    private testFn: TestFn<Args>;
-    private getArgs: () => Args;
+    private testFn: TestFn;
 
     private onComplete: Optional<Function>;
     private onStart: Optional<Function>;
@@ -42,19 +41,9 @@ export class Benchmark<Args extends URA> {
      * @param testFn The function to benchmark.
      * @param options The options of benchmark.
      */
-    constructor(name: string, testFn: TestFn<Args>, options?: BenchmarkOptions);
-    /**
-     * @param name The name used to identify this test.
-     * @param testFns The test functions to benchmark.
-     * @param options The options of benchmark.
-     */
-    constructor(name: string, testFns: BenchmarkTestFns<Args>, options?: BenchmarkOptions);
-
-    constructor(name: string, testFns: TestFn<Args> | BenchmarkTestFns<Args>, options?: BenchmarkOptions) {
+    constructor(name: string, testFn: TestFn, options?: BenchmarkOptions) {
         this.name = name;
 
-        const { getArgs, testFn } = this.parseConstructorArgs(testFns);
-        this.getArgs = getArgs;
         this.testFn = testFn;
 
         this.onComplete = options?.onComplete ?? null;
@@ -79,14 +68,6 @@ export class Benchmark<Args extends URA> {
         this.count = this.settings.initCount;
     }
 
-    private parseConstructorArgs(testFns: TestFn<Args> | BenchmarkTestFns<Args>): BenchmarkTestFns<Args> {
-        const isObject = typeof testFns === 'object';
-        return {
-            getArgs: isObject ? testFns.getArgs : () => [] as never,
-            testFn: isObject ? testFns.testFn : testFns,
-        };
-    }
-
     /**
      * Runs the benchmark.
      * @returns The benchmark instance.
@@ -108,11 +89,9 @@ export class Benchmark<Args extends URA> {
     }
 
     private cycle(): _Nanosecond {
-        const args = this.getArgs();
-
         const begin = process.hrtime();
         for (let i = 0; i < this.count; i++) {
-            this.testFn(...args);
+            this.testFn();
         }
         const duration = process.hrtime(begin);
         return hrtime2ns(duration);

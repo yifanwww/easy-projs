@@ -10,14 +10,7 @@ export type Millisecond = number & {};
  */
 export type Nanosecond = number & {};
 
-export type URA = ReadonlyArray<unknown>;
-
-export type TestFn<Args extends URA> = (...args: Args) => void;
-
-export interface BenchmarkTestFns<Args extends URA> {
-    getArgs: () => Args;
-    testFn: TestFn<Args>;
-}
+export type TestFn = () => void;
 
 export interface BenchmarkCallbacks {
     /**
