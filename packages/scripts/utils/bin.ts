@@ -1,37 +1,56 @@
 import chalk from 'chalk';
 import child from 'child_process';
+import concurrently from 'concurrently';
 
 import { paths } from './paths';
 
 const genCommand = <T extends (string | false | undefined | null)[]>(...params: T) => params.filter(Boolean).join(' ');
+const genBuildCommand = (name: string) => `npm run build --workspace ${name}`;
 
-export function buildPackages(): void {
-    const packagesOrder = [
-        /* ----- may be used by all other packages ----- */
-        '@easy/utils-type',
-        '@easy/utils-test',
+type Order = Array<string | string[]>;
 
-        /* ----- product packages ----- */
-        '@easy/assets',
-        '@easy/benchmark-js',
-        '@easy/hooks',
-        '@easy/memorize',
-        '@easy/misc',
-        '@easy/package-template-nodejs',
-        '@easy/random-string',
-        '@easy/utils-fluentui',
-        '@easy/utils-react',
-        '@easy/utils-redux',
-    ];
+const maxProcesses = 4;
 
-    for (const name of packagesOrder) {
-        const command = `npm run build --workspace ${name}`;
-        child.execSync(command, { stdio: 'inherit' });
+async function buildOrder(order: Order): Promise<void> {
+    for (const names of order) {
+        if (typeof names === 'string') {
+            const command = genBuildCommand(names);
+            child.execSync(command, { stdio: 'inherit' });
+        } else {
+            // eslint-disable-next-line no-await-in-loop
+            await concurrently(
+                names.map((name) => ({ command: genBuildCommand(name), name })),
+                { maxProcesses },
+            ).result;
+        }
     }
 }
 
-export function buildProjects(): void {
-    const projsOrder = [
+export async function buildPackages(): Promise<void> {
+    const order: Order = [
+        /* ----- may be used by all other packages ----- */
+        ['@easy/utils-type', '@easy/utils-test'],
+
+        /* ----- product packages ----- */
+        [
+            '@easy/assets',
+            '@easy/benchmark-js',
+            '@easy/hooks',
+            '@easy/memorize',
+            '@easy/misc',
+            '@easy/package-template-nodejs',
+            '@easy/random-string',
+            '@easy/utils-fluentui',
+            '@easy/utils-react',
+            '@easy/utils-redux',
+        ],
+    ];
+
+    return buildOrder(order);
+}
+
+export async function buildProjects(): Promise<void> {
+    const order = [
         '@easy/demo-test-nodejs',
         '@easy/perf-js',
         '@easy/perf-react',
@@ -41,10 +60,7 @@ export function buildProjects(): void {
         '@easy/react-rerender-test',
     ];
 
-    for (const name of projsOrder) {
-        const command = `npm run build --workspace ${name}`;
-        child.execSync(command, { stdio: 'inherit' });
-    }
+    return buildOrder([order]);
 }
 
 type CompilationFlagRenderer = 'build' | 'build-profile' | 'dev';
