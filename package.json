@@ -123,7 +123,7 @@
         "packages/memorize",
         "packages/misc",
         "packages/package-template-nodejs",
-        "packages/performance-javascript",
+        "packages/perf-js",
         "packages/performance-react",
         "packages/project-template-browser-react",
         "packages/project-template-nodejs",

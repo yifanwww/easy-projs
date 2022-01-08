@@ -1,3 +1,3 @@
-# @easy/performance-javascript
+# @easy/perf-js
 
 This package contains some performance benchmark results of javascript.

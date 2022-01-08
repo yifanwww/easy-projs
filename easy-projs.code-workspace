@@ -146,8 +146,8 @@
             "path": "packages/project-template-browser-react"
         },
         {
-            "name": "@easy/performance-javascript",
-            "path": "packages/performance-javascript"
+            "name": "@easy/perf-js",
+            "path": "packages/perf-js"
         },
         {
             "name": "@easy/performance-react",
