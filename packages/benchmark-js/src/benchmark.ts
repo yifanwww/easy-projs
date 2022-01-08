@@ -1,6 +1,15 @@
 import { BenchmarkBase } from './benchmarkBase';
 import { tTable } from './constants';
-import { formatNumber, genStr, getCurrentTime, getVariance, getMean, sleep, getMinTime } from './utils';
+import { formatNumber, genStr, getCurrentTime, getMean, getMinTime, getVariance, sleep } from './utils';
+
+type TestArgs = ReadonlyArray<unknown>;
+
+export type TestFn<Args extends TestArgs> = (...args: Args) => void;
+
+export interface BenchmarkTestFns<Args extends TestArgs> {
+    getArgs: () => Args;
+    testFn: TestFn<Args>;
+}
 
 export interface BenchmarkCallbacks {
     /**
@@ -94,10 +103,11 @@ export interface BenchmarkStats {
     variance: number;
 }
 
-export class Benchmark<F extends UnknownFn> extends BenchmarkBase {
+export class Benchmark<Args extends TestArgs> extends BenchmarkBase {
     private name: string;
 
-    private fn: F;
+    private testFn: TestFn<Args>;
+    private getArgs: () => Args;
 
     private onComplete: Optional<Function>;
     private onStart: Optional<Function>;
@@ -126,25 +136,38 @@ export class Benchmark<F extends UnknownFn> extends BenchmarkBase {
 
     /**
      * @param name The name used to identify this test.
-     * @param fn The function to benchmark.
+     * @param testFn The function to benchmark.
      * @param options The options of benchmark.
      */
-    constructor(name: string, fn: F, options: BenchmarkOptions & BenchmarkCallbacks = {}) {
+    constructor(name: string, testFn: TestFn<Args>, options?: BenchmarkOptions & BenchmarkCallbacks);
+    /**
+     * @param name The name used to identify this test.
+     * @param testFns The test functions to benchmark.
+     * @param options The options of benchmark.
+     */
+    constructor(name: string, testFns: BenchmarkTestFns<Args>, options?: BenchmarkOptions & BenchmarkCallbacks);
+
+    constructor(
+        name: string,
+        testFns: TestFn<Args> | BenchmarkTestFns<Args>,
+        options?: BenchmarkOptions & BenchmarkCallbacks,
+    ) {
         super();
 
         this.name = name;
-        this.fn = fn;
+        this.getArgs = typeof testFns === 'function' ? () => [] as unknown as Args : testFns.getArgs;
+        this.testFn = typeof testFns === 'function' ? testFns : testFns.testFn;
 
-        this.onComplete = options.onComplete ?? null;
-        this.onStart = options.onStart ?? null;
+        this.onComplete = options?.onComplete ?? null;
+        this.onStart = options?.onStart ?? null;
 
         this.options = {
-            delay: options.delay ?? 0.005,
-            initCount: options.initCount ?? 1,
-            maxPrepareTime: options.maxPrepareTime ?? 1,
-            maxTime: options.maxTime ?? 5,
-            minSamples: options.minSamples ?? 5,
-            minTime: options.minTime || Math.max(getMinTime() * 100, 0.05),
+            delay: options?.delay ?? 0.005,
+            initCount: options?.initCount ?? 1,
+            maxPrepareTime: options?.maxPrepareTime ?? 1,
+            maxTime: options?.maxTime ?? 5,
+            minSamples: options?.minSamples ?? 5,
+            minTime: options?.minTime || Math.max(getMinTime() * 100, 0.05),
         };
 
         this.count = this.options.initCount;
@@ -171,9 +194,11 @@ export class Benchmark<F extends UnknownFn> extends BenchmarkBase {
     }
 
     private cycle(): number {
+        const args = this.getArgs?.();
+
         const start = getCurrentTime();
         for (let i = 0; i < this.count; i++) {
-            this.fn();
+            this.testFn(...args);
         }
         const end = getCurrentTime();
         return end - start;
