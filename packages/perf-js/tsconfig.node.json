@@ -2,7 +2,8 @@
     "extends": "@easy/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
         "outDir": "build",
-        "rootDir": "src"
+        "rootDir": "src",
+        "sourceMap": false
     },
     "include": ["src/**/*"],
     "exclude": ["src/**/__tests__", "src/**/*.spec.ts", "src/**/*.test.ts"]

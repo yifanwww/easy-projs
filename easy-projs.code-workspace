@@ -106,8 +106,8 @@
             "path": "packages/assets"
         },
         {
-            "name": "@easy/benchmark-javascript",
-            "path": "packages/benchmark-javascript"
+            "name": "@easy/benchmark-js",
+            "path": "packages/benchmark-js"
         },
         {
             "name": "@easy/cra-check",
@@ -146,12 +146,12 @@
             "path": "packages/project-template-browser-react"
         },
         {
-            "name": "@easy/performance-javascript",
-            "path": "packages/performance-javascript"
+            "name": "@easy/perf-js",
+            "path": "packages/perf-js"
         },
         {
-            "name": "@easy/performance-react",
-            "path": "packages/performance-react"
+            "name": "@easy/perf-react",
+            "path": "packages/perf-react"
         },
         {
             "name": "@easy/project-template-nodejs",

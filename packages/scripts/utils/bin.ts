@@ -13,7 +13,7 @@ export function buildPackages(): void {
 
         /* ----- product packages ----- */
         '@easy/assets',
-        '@easy/benchmark-javascript',
+        '@easy/benchmark-js',
         '@easy/hooks',
         '@easy/memorize',
         '@easy/misc',
@@ -33,8 +33,8 @@ export function buildPackages(): void {
 export function buildProjects(): void {
     const projsOrder = [
         '@easy/demo-test-nodejs',
-        '@easy/performance-javascript',
-        '@easy/performance-react',
+        '@easy/perf-js',
+        '@easy/perf-react',
         '@easy/project-template-browser-react',
         '@easy/project-template-nodejs',
         '@easy/projs-manage',

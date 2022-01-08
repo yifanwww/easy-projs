@@ -1,8 +1,7 @@
 {
-    "name": "@easy/performance-javascript",
+    "name": "@easy/perf-js",
     "version": "0.0.0",
     "description": "This package contains some performance benchmark results of javascript.",
-    "main": "build/index.js",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -13,10 +12,9 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/performance-javascript"
+        "directory": "packages/perf-js"
     },
     "scripts": {
-        "app": "node build/index.js",
         "build": "tsc --build tsconfig.node.json",
         "clean": "rimraf build ./*.tsbuildinfo",
         "dev": "npm run build -- --watch",
