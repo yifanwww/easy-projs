@@ -1,109 +1,8 @@
-import { BenchmarkBase } from './benchmarkBase';
 import { tTable } from './constants';
+import { BenchmarkOptions, BenchmarkSettings, BenchmarkStats, BenchmarkTestFns, TestFn, URA } from './types';
 import { formatNumber, genStr, getCurrentTime, getMean, getMinTime, getVariance, sleep } from './utils';
 
-type TestArgs = ReadonlyArray<unknown>;
-
-export type TestFn<Args extends TestArgs> = (...args: Args) => void;
-
-export interface BenchmarkTestFns<Args extends TestArgs> {
-    getArgs: () => Args;
-    testFn: TestFn<Args>;
-}
-
-export interface BenchmarkCallbacks {
-    /**
-     * Called when benchmark starts running.
-     */
-    onStart?: AnyFn;
-    /**
-     * Called when the benchmark completes running.
-     */
-    onComplete?: AnyFn;
-}
-
-export interface BenchmarkOptions {
-    /**
-     * The delay between test cycles (secs).
-     *
-     * Default is `0.005`.
-     */
-    delay?: number;
-    /**
-     * The default number of times to execute a test on a benchmark's first cycle.
-     *
-     * Default is `1`.
-     */
-    initCount?: number;
-    /**
-     * The maximum time preparing is allowed to run before benchmarking.
-     *
-     * Default is `1`.
-     *
-     * Note: Cycle delays aren't counted toward the maximum time.
-     */
-    maxPrepareTime?: number;
-    /**
-     * The maximum time a benchmark is allowed to run before finishing (secs).
-     *
-     * Default is `5`.
-     *
-     * Note: Cycle delays aren't counted toward the maximum time.
-     */
-    maxTime?: number;
-    /**
-     * The minimum sample size required to perform statistical analysis.
-     *
-     * Default is `5`.
-     */
-    minSamples?: number;
-    /**
-     * The time needed to reduce the percent uncertainty of measurement to 1% (secs).
-     *
-     * If not provided or is set to `0`, will automatically detect the minimum time.
-     */
-    minTime?: number;
-}
-
-/**
- * An object of stats including mean, margin or error, and standard deviation.
- */
-export interface BenchmarkStats {
-    /**
-     * The sample standard deviation.
-     */
-    deviation: number;
-    /**
-     * The sample arithmetic mean (secs).
-     */
-    mean: number;
-    /**
-     * The margin of error.
-     */
-    moe: number;
-    /**
-     * The number of executions per second.
-     */
-    ops: number;
-    /**
-     * The relative margin of error (expressed as a percentage of the mean).
-     */
-    rme: number;
-    /**
-     * The array of sampled periods.
-     */
-    sample: number[];
-    /**
-     * The standard error of the mean (a.k.a. the standard deviation of the sampling distribution of the sample mean).
-     */
-    sem: number;
-    /**
-     * The sample variance.
-     */
-    variance: number;
-}
-
-export class Benchmark<Args extends TestArgs> extends BenchmarkBase {
+export class Benchmark<Args extends URA> {
     private name: string;
 
     private testFn: TestFn<Args>;
@@ -112,7 +11,7 @@ export class Benchmark<Args extends TestArgs> extends BenchmarkBase {
     private onComplete: Optional<Function>;
     private onStart: Optional<Function>;
 
-    private options: Required<BenchmarkOptions>;
+    private settings: Required<BenchmarkSettings>;
 
     private stats: BenchmarkStats = {
         deviation: 0,
@@ -139,29 +38,25 @@ export class Benchmark<Args extends TestArgs> extends BenchmarkBase {
      * @param testFn The function to benchmark.
      * @param options The options of benchmark.
      */
-    constructor(name: string, testFn: TestFn<Args>, options?: BenchmarkOptions & BenchmarkCallbacks);
+    constructor(name: string, testFn: TestFn<Args>, options?: BenchmarkOptions);
     /**
      * @param name The name used to identify this test.
      * @param testFns The test functions to benchmark.
      * @param options The options of benchmark.
      */
-    constructor(name: string, testFns: BenchmarkTestFns<Args>, options?: BenchmarkOptions & BenchmarkCallbacks);
+    constructor(name: string, testFns: BenchmarkTestFns<Args>, options?: BenchmarkOptions);
 
-    constructor(
-        name: string,
-        testFns: TestFn<Args> | BenchmarkTestFns<Args>,
-        options?: BenchmarkOptions & BenchmarkCallbacks,
-    ) {
-        super();
-
+    constructor(name: string, testFns: TestFn<Args> | BenchmarkTestFns<Args>, options?: BenchmarkOptions) {
         this.name = name;
-        this.getArgs = typeof testFns === 'function' ? () => [] as unknown as Args : testFns.getArgs;
-        this.testFn = typeof testFns === 'function' ? testFns : testFns.testFn;
+
+        const { getArgs, testFn } = this.parseConstructorArgs(testFns);
+        this.getArgs = getArgs;
+        this.testFn = testFn;
 
         this.onComplete = options?.onComplete ?? null;
         this.onStart = options?.onStart ?? null;
 
-        this.options = {
+        this.settings = {
             delay: options?.delay ?? 0.005,
             initCount: options?.initCount ?? 1,
             maxPrepareTime: options?.maxPrepareTime ?? 1,
@@ -170,7 +65,15 @@ export class Benchmark<Args extends TestArgs> extends BenchmarkBase {
             minTime: options?.minTime || Math.max(getMinTime() * 100, 0.05),
         };
 
-        this.count = this.options.initCount;
+        this.count = this.settings.initCount;
+    }
+
+    private parseConstructorArgs(testFns: TestFn<Args> | BenchmarkTestFns<Args>): BenchmarkTestFns<Args> {
+        const isObject = typeof testFns === 'object';
+        return {
+            getArgs: isObject ? testFns.getArgs : () => [] as never,
+            testFn: isObject ? testFns.testFn : testFns,
+        };
     }
 
     /**
@@ -182,10 +85,10 @@ export class Benchmark<Args extends TestArgs> extends BenchmarkBase {
 
         this.onStart?.();
 
-        this.benchmarking(this.options.maxPrepareTime);
+        this.benchmarking(this.settings.maxPrepareTime);
         // Delete samples generated while pre-benchmarking.
         this.stats.sample = [];
-        this.benchmarking(this.options.maxTime);
+        this.benchmarking(this.settings.maxTime);
         this.evaluate();
 
         this.onComplete?.();
@@ -194,7 +97,7 @@ export class Benchmark<Args extends TestArgs> extends BenchmarkBase {
     }
 
     private cycle(): number {
-        const args = this.getArgs?.();
+        const args = this.getArgs();
 
         const start = getCurrentTime();
         for (let i = 0; i < this.count; i++) {
@@ -213,14 +116,14 @@ export class Benchmark<Args extends TestArgs> extends BenchmarkBase {
 
             // Calculate how many more iterations it will take to achieve the `minTime`.
             // After pre-benchmarking stage, we should get a good count number.
-            if (used < this.options.minTime) {
-                this.count += Math.ceil((this.options.minTime - used) / period);
+            if (used < this.settings.minTime) {
+                this.count += Math.ceil((this.settings.minTime - used) / period);
             }
 
             elapsed += used;
-            if (elapsed >= time && this.stats.sample.length >= this.options.minSamples) break;
+            if (elapsed >= time && this.stats.sample.length >= this.settings.minSamples) break;
 
-            sleep(this.options.delay);
+            sleep(this.settings.delay);
         }
     }
 
@@ -256,7 +159,7 @@ export class Benchmark<Args extends TestArgs> extends BenchmarkBase {
      * Displays relevant benchmark information when coerced to a string.
      * @returns A string representation of the benchmark instance.
      */
-    public override toString(): string {
+    public toString(): string {
         const size = this.stats.sample.length;
 
         const opsStr = formatNumber(this.stats.ops.toFixed(this.stats.ops < 100 ? 2 : 0));
