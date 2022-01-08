@@ -1,6 +1,6 @@
 import { tTable } from './constants';
 import { BenchmarkOptions, BenchmarkSettings, BenchmarkStats, BenchmarkTestFns, TestFn, URA } from './types';
-import { formatNumber, genStr, getCurrentTime, getMean, getMinTime, getVariance, sleep } from './utils';
+import { convertHrtime, formatNumber, genStr, getMean, getMinTime, getVariance, sleep } from './utils';
 
 export class Benchmark<Args extends URA> {
     private name: string;
@@ -99,12 +99,12 @@ export class Benchmark<Args extends URA> {
     private cycle(): number {
         const args = this.getArgs();
 
-        const start = getCurrentTime();
+        const begin = process.hrtime();
         for (let i = 0; i < this.count; i++) {
             this.testFn(...args);
         }
-        const end = getCurrentTime();
-        return end - start;
+        const duration = process.hrtime(begin);
+        return convertHrtime(duration);
     }
 
     private benchmarking(time: number): void {

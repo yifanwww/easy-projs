@@ -26,19 +26,14 @@ export function formatNumber(number: number | string): string {
     return getLeft(str[0]) + getRigth(str[1]);
 }
 
-export function getCurrentTime() {
-    const accuracy = 1e9;
-
-    const time = process.hrtime();
-    return time[0] + time[1] / accuracy;
-}
+export const convertHrtime = (hrtime: [number, number]) => hrtime[0] + hrtime[1] / 1e9;
 
 export function sleep(time: number): void {
-    const start = getCurrentTime();
-    let curr;
+    const begin = process.hrtime();
+    let duration;
     do {
-        curr = getCurrentTime();
-    } while (curr - start < time);
+        duration = process.hrtime(begin);
+    } while (convertHrtime(duration) < time);
 }
 
 export function sleepAsync(time: number): Promise<void> {
@@ -63,21 +58,9 @@ export function getMinTime() {
 
     // Get average smallest measurable time.
     for (let count = 30; count > 0; count--) {
-        const begin = getCurrentTime();
-
-        let measured;
-        do {
-            const curr = getCurrentTime();
-            measured = curr - begin;
-        } while (!measured);
-
-        // Check for broken timers.
-        if (measured > 0) {
-            sample.push(measured);
-        } else {
-            sample.push(Infinity);
-            break;
-        }
+        const begin = process.hrtime();
+        const duration = convertHrtime(process.hrtime(begin));
+        sample.push(duration);
     }
 
     // Convert to seconds.
