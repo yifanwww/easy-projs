@@ -13,7 +13,7 @@ export function buildPackages(): void {
 
         /* ----- product packages ----- */
         '@easy/assets',
-        '@easy/benchmark-javascript',
+        '@easy/benchmark-js',
         '@easy/hooks',
         '@easy/memorize',
         '@easy/misc',

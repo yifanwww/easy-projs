@@ -1,5 +1,5 @@
 {
-    "name": "@easy/benchmark-javascript",
+    "name": "@easy/benchmark-js",
     "version": "0.1.0",
     "description": "A benchmark tool to test javascript performance.",
     "main": "lib-commonjs/index.js",
@@ -15,7 +15,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/benchmark-javascript"
+        "directory": "packages/benchmark-js"
     },
     "scripts": {
         "build": "concurrently -n cjs,esm,types \"npm run build:cjs\" \"npm run build:esm\" \"npm run build:types\"",

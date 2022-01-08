@@ -1,4 +1,4 @@
-import { Benchmark } from '@easy/benchmark-javascript';
+import { Benchmark } from '@easy/benchmark-js';
 
 /** Used to avoid some optimization */
 let res;

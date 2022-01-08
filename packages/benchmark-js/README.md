@@ -1,4 +1,4 @@
-# @easy/benchmark-javascript
+# @easy/benchmark-js
 
 A benchmark tool to test javascript performance.
 
