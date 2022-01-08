@@ -1,3 +1,15 @@
+/**
+ * The type representing millisecond.
+ */
+export type Millisecond = number & {};
+
+/**
+ * The type representing nanosecond.
+ *
+ * The maximum safe integer in Javascript is `2^53 - 1` (`Number.MAX_SAFE_INTEGER`), can represent nanosecond.
+ */
+export type Nanosecond = number & {};
+
 export type URA = ReadonlyArray<unknown>;
 
 export type TestFn<Args extends URA> = (...args: Args) => void;
@@ -20,11 +32,11 @@ export interface BenchmarkCallbacks {
 
 export interface BenchmarkSettings {
     /**
-     * The delay between test cycles (secs).
+     * The delay between test cycles (ms).
      *
-     * Default is `0.005`.
+     * Default is `5`.
      */
-    delay?: number;
+    delay?: Millisecond;
     /**
      * The default number of times to execute a test on a benchmark's first cycle.
      *
@@ -32,21 +44,21 @@ export interface BenchmarkSettings {
      */
     initCount?: number;
     /**
-     * The maximum time preparing is allowed to run before benchmarking.
+     * The maximum time preparing is allowed to run before benchmarking (ms).
      *
-     * Default is `1`.
+     * Default is `1_000`.
      *
      * Note: Cycle delays aren't counted toward the maximum time.
      */
-    maxPrepareTime?: number;
+    maxPrepareTime?: Millisecond;
     /**
-     * The maximum time a benchmark is allowed to run before finishing (secs).
+     * The maximum time a benchmark is allowed to run before finishing (ms).
      *
-     * Default is `5`.
+     * Default is `5_000`.
      *
      * Note: Cycle delays aren't counted toward the maximum time.
      */
-    maxTime?: number;
+    maxTime?: Millisecond;
     /**
      * The minimum sample size required to perform statistical analysis.
      *
@@ -54,49 +66,11 @@ export interface BenchmarkSettings {
      */
     minSamples?: number;
     /**
-     * The time needed to reduce the percent uncertainty of measurement to 1% (secs).
+     * The time needed to reduce the percent uncertainty of measurement to 1% (ms).
      *
      * If not provided or is set to `0`, will automatically detect the minimum time.
      */
-    minTime?: number;
+    minTime?: Millisecond;
 }
 
 export interface BenchmarkOptions extends BenchmarkCallbacks, BenchmarkSettings {}
-
-/**
- * An object of stats including mean, margin or error, and standard deviation.
- */
-export interface BenchmarkStats {
-    /**
-     * The sample standard deviation.
-     */
-    deviation: number;
-    /**
-     * The sample arithmetic mean (secs).
-     */
-    mean: number;
-    /**
-     * The margin of error.
-     */
-    moe: number;
-    /**
-     * The number of executions per second.
-     */
-    ops: number;
-    /**
-     * The relative margin of error (expressed as a percentage of the mean).
-     */
-    rme: number;
-    /**
-     * The array of sampled periods.
-     */
-    sample: number[];
-    /**
-     * The standard error of the mean (a.k.a. the standard deviation of the sampling distribution of the sample mean).
-     */
-    sem: number;
-    /**
-     * The sample variance.
-     */
-    variance: number;
-}

@@ -1,8 +1,12 @@
 import { tTable } from './constants';
-import { BenchmarkOptions, BenchmarkSettings, BenchmarkStats, BenchmarkTestFns, TestFn, URA } from './types';
-import { convertHrtime, formatNumber, genStr, getMean, getMinTime, getVariance, sleep } from './utils';
+import { TimeUnitUtil } from './TimeUnitUtil';
+import { BenchmarkOptions, BenchmarkTestFns, TestFn, URA } from './types';
+import { BenchmarkStats, _BenchmarkSettings, _Nanosecond } from './types.internal';
+import { formatNumber, genStr, getMean, getMinTime, getVariance, hrtime2ns, sleep } from './utils';
 
 export class Benchmark<Args extends URA> {
+    private static minTime: _Nanosecond = 0 as _Nanosecond;
+
     private name: string;
 
     private testFn: TestFn<Args>;
@@ -11,11 +15,11 @@ export class Benchmark<Args extends URA> {
     private onComplete: Optional<Function>;
     private onStart: Optional<Function>;
 
-    private settings: Required<BenchmarkSettings>;
+    private settings: Required<_BenchmarkSettings>;
 
     private stats: BenchmarkStats = {
         deviation: 0,
-        mean: 0,
+        mean: 0 as _Nanosecond,
         moe: 0,
         ops: 0,
         rme: 0,
@@ -56,13 +60,20 @@ export class Benchmark<Args extends URA> {
         this.onComplete = options?.onComplete ?? null;
         this.onStart = options?.onStart ?? null;
 
+        if (Benchmark.minTime === 0) {
+            Benchmark.minTime = Math.max(getMinTime() * 100, 50_000_000) as _Nanosecond;
+        }
+
         this.settings = {
-            delay: options?.delay ?? 0.005,
+            delay: TimeUnitUtil.ms2ns(options?.delay ?? 5),
             initCount: options?.initCount ?? 1,
-            maxPrepareTime: options?.maxPrepareTime ?? 1,
-            maxTime: options?.maxTime ?? 5,
+            maxPrepareTime: TimeUnitUtil.ms2ns(options?.maxPrepareTime ?? 1_000),
+            maxTime: TimeUnitUtil.ms2ns(options?.maxTime ?? 5_000),
             minSamples: options?.minSamples ?? 5,
-            minTime: options?.minTime || Math.max(getMinTime() * 100, 0.05),
+            minTime:
+                options?.minTime === undefined || options.minTime === 0
+                    ? Benchmark.minTime
+                    : TimeUnitUtil.ms2ns(options.minTime),
         };
 
         this.count = this.settings.initCount;
@@ -96,7 +107,7 @@ export class Benchmark<Args extends URA> {
         return this;
     }
 
-    private cycle(): number {
+    private cycle(): _Nanosecond {
         const args = this.getArgs();
 
         const begin = process.hrtime();
@@ -104,14 +115,14 @@ export class Benchmark<Args extends URA> {
             this.testFn(...args);
         }
         const duration = process.hrtime(begin);
-        return convertHrtime(duration);
+        return hrtime2ns(duration);
     }
 
-    private benchmarking(time: number): void {
-        let elapsed = 0;
+    private benchmarking(ns: _Nanosecond): void {
+        let elapsed: _Nanosecond = 0 as _Nanosecond;
         while (true) {
             const used = this.cycle();
-            const period = used / this.count;
+            const period = (used / this.count) as _Nanosecond;
             this.stats.sample.push(period);
 
             // Calculate how many more iterations it will take to achieve the `minTime`.
@@ -120,8 +131,8 @@ export class Benchmark<Args extends URA> {
                 this.count += Math.ceil((this.settings.minTime - used) / period);
             }
 
-            elapsed += used;
-            if (elapsed >= time && this.stats.sample.length >= this.settings.minSamples) break;
+            elapsed = (elapsed + used) as _Nanosecond;
+            if (elapsed >= ns && this.stats.sample.length >= this.settings.minSamples) break;
 
             sleep(this.settings.delay);
         }
@@ -141,7 +152,7 @@ export class Benchmark<Args extends URA> {
         const moe = sem * critical;
         const rme = (moe / mean) * 100 ?? 0;
 
-        const ops = 1 / mean;
+        const ops = 1e9 / mean;
 
         this.stats = {
             deviation,
@@ -166,5 +177,9 @@ export class Benchmark<Args extends URA> {
         const rmeStr = this.stats.rme.toFixed(2);
 
         return this.name + genStr(` ${opsStr} ops/sec`, ` ${rmeStr}%`, ` (${size} sample${size > 1 ? 's' : ''})`);
+    }
+
+    public printResult(): void {
+        console.info(this.toString());
     }
 }

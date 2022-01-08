@@ -28,7 +28,7 @@ export class BenchmarkGroup {
     public run() {
         for (const instance of this.instances) {
             instance.run();
-            console.info(instance.toString());
+            instance.printResult();
         }
     }
 }
