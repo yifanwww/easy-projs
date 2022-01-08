@@ -33,7 +33,7 @@ const ClientArea: React.VFC = () => {
 const App: React.VFC = () => {
     return (
         <ConfigProvider autoInsertSpaceInButton={false}>
-            <BrowserRouter basename="/performance-react">
+            <BrowserRouter basename="/perf-react">
                 <ClientArea />
             </BrowserRouter>
         </ConfigProvider>

@@ -34,7 +34,7 @@ export function buildProjects(): void {
     const projsOrder = [
         '@easy/demo-test-nodejs',
         '@easy/perf-js',
-        '@easy/performance-react',
+        '@easy/perf-react',
         '@easy/project-template-browser-react',
         '@easy/project-template-nodejs',
         '@easy/projs-manage',

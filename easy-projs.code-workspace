@@ -150,8 +150,8 @@
             "path": "packages/perf-js"
         },
         {
-            "name": "@easy/performance-react",
-            "path": "packages/performance-react"
+            "name": "@easy/perf-react",
+            "path": "packages/perf-react"
         },
         {
             "name": "@easy/project-template-nodejs",

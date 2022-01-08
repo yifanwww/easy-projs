@@ -1,5 +1,5 @@
 {
-    "name": "@easy/performance-react",
+    "name": "@easy/perf-react",
     "version": "0.0.0",
     "description": "This project is used to test the performance of React.",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
@@ -12,7 +12,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/performance-react"
+        "directory": "packages/perf-react"
     },
     "browserslist": [
         "last 9 chrome versions"
