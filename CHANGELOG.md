@@ -1,5 +1,16 @@
 # CHANGELOG
 ## easy-projs v0.5.0 (Unreleased)
+### Notable Changes
+
+- Bump dependency `react-script` from v4.0.3 to v5.0.0
+
+### Packages Changes
+
+- Rename
+  - `@easy/benchmark-javascript`  v0.1.0    -> `@easy/benchmark-js` v0.1.0
+  - `@easy/performance-javascript`  v0.0.0  -> `@easy/perf-js` v0.0.0
+  - `@easy/performance-react`  v0.0.0       -> `@easy/perf-react` v0.0.0
+
 ### Dependency Changes
 
 - Upgrade
