@@ -32,5 +32,12 @@
         "test": "unit-test",
         "test-coverage": "unit-test",
         "test-perf": "node dist/test/performance.js"
+    },
+    "devDependencies": {
+        "@easy/eslint-config": "*",
+        "@easy/global-types": "*",
+        "@easy/scripts": "*",
+        "@easy/tsconfigs": "*",
+        "@easy/utils-test": "*"
     }
 }

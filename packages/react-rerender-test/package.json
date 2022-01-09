@@ -27,5 +27,16 @@
         "pre-commit": "lint-staged",
         "test": "skip-npm-script",
         "test-coverage": "skip-npm-script"
+    },
+    "dependencies": {
+        "@easy/hooks": "*",
+        "@easy/utils-react": "*"
+    },
+    "devDependencies": {
+        "@easy/eslint-config": "*",
+        "@easy/global-types": "*",
+        "@easy/scripts": "*",
+        "@easy/stylelint-config": "*",
+        "@easy/tsconfigs": "*"
     }
 }

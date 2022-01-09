@@ -28,5 +28,9 @@
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
+    },
+    "devDependencies": {
+        "@easy/eslint-config": "*",
+        "@easy/tsconfigs": "*"
     }
 }
