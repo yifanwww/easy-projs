@@ -1,13 +1,9 @@
-import { Benchmark } from '@easy/benchmark-js';
+import { BenchmarkGroup } from '@easy/benchmark-js';
 
-/** Used to avoid some optimization */
-let res;
-res;
+const benchmark = new BenchmarkGroup();
 
-const benchmark = new Benchmark('RegExp#test', () => {
-    res = /o/.test('Hello World!');
+benchmark.add('RegExp#test', () => {
+    /o/.test('Hello World!');
 });
 
 benchmark.run();
-
-console.log(benchmark.toString());
