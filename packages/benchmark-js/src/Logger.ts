@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 
-export enum LoggerLevel {
+export enum BenchmarkLoggerLevel {
     Debug = 'debug',
     Info = 'info',
     Warn = 'warn',
@@ -8,41 +8,62 @@ export enum LoggerLevel {
 }
 
 const LoggerOrder = {
-    [LoggerLevel.Debug]: 1,
-    [LoggerLevel.Error]: 2,
-    [LoggerLevel.Info]: 3,
-    [LoggerLevel.Warn]: 4,
-};
-
-const LoggerPrefix = {
-    [LoggerLevel.Debug]: '[Debug]',
-    [LoggerLevel.Error]: '[Error]',
-    [LoggerLevel.Info]: '',
-    [LoggerLevel.Warn]: '[Warn]',
+    [BenchmarkLoggerLevel.Debug]: 1,
+    [BenchmarkLoggerLevel.Error]: 2,
+    [BenchmarkLoggerLevel.Info]: 3,
+    [BenchmarkLoggerLevel.Warn]: 4,
 };
 
 const ChalkColor = {
-    [LoggerLevel.Debug]: chalk.grey,
-    [LoggerLevel.Error]: chalk.red,
-    [LoggerLevel.Info]: chalk.white,
-    [LoggerLevel.Warn]: chalk.yellow,
+    [BenchmarkLoggerLevel.Debug]: chalk.grey,
+    [BenchmarkLoggerLevel.Error]: chalk.red,
+    [BenchmarkLoggerLevel.Info]: chalk.white,
+    [BenchmarkLoggerLevel.Warn]: chalk.yellow,
 };
 
 export class Logger {
-    public static level = LoggerLevel.Warn;
+    public static level = BenchmarkLoggerLevel.Warn;
 
-    private static _log(level: LoggerLevel, ...message: string[]) {
-        if (LoggerOrder[level] < LoggerOrder[Logger.level]) return;
+    private _name: string;
 
-        // eslint-disable-next-line no-console
-        console[level](ChalkColor[level](LoggerPrefix[level]), ...message);
+    public constructor(name: string) {
+        this._name = `[${name}] `;
     }
 
-    public static debug = (...message: string[]) => Logger._log(LoggerLevel.Debug, ...message);
-    public static error = (...message: string[]) => Logger._log(LoggerLevel.Error, ...message);
-    public static info = (...message: string[]) => Logger._log(LoggerLevel.Info, ...message);
-    public static warn = (...message: string[]) => Logger._log(LoggerLevel.Warn, ...message);
+    private _log(level: BenchmarkLoggerLevel | false, ...message: unknown[]) {
+        let msgs: unknown[];
+        if (message.length === 0) msgs = message;
+        else msgs = [this._name, ...message];
 
-    // eslint-disable-next-line no-console
-    public static log = (...message: string[]) => console.info(...message);
+        if (level === false) {
+            // eslint-disable-next-line no-console
+            console.info(...msgs);
+        } else {
+            if (LoggerOrder[level] < LoggerOrder[Logger.level]) return;
+
+            // eslint-disable-next-line no-console
+            console[level](ChalkColor[level](...msgs));
+        }
+    }
+
+    public debug = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Debug, ...message);
+    public error = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Error, ...message);
+    public info = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Info, ...message);
+    public warn = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Warn, ...message);
+
+    public write = (...message: unknown[]) => this._log(false, ...message);
+
+    public beautifyNumber(num: number): string {
+        const from = Buffer.from(num.toString(), 'ascii').reverse();
+        const newLength = from.length + Math.ceil(from.length / 3) - 1;
+        const to = Buffer.alloc(newLength, '_');
+
+        for (let indexFrom = 0; indexFrom < from.length; indexFrom++) {
+            const offset = Math.ceil((indexFrom + 1) / 3) - 1;
+            const indexTo = indexFrom + offset;
+            to[indexTo] = from[indexFrom];
+        }
+
+        return to.reverse().toString('ascii');
+    }
 }

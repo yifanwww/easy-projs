@@ -1,3 +1,3 @@
 export * from './Benchmark';
 export * from './BenchmarkGroup';
-export { LoggerLevel } from './Logger';
+export { BenchmarkLoggerLevel } from './Logger';

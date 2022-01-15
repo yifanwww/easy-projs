@@ -1,3 +1,4 @@
+import { TU } from './TimeUnit';
 import { _Nanosecond } from './types.internal';
 
 export const genStr = <T extends (string | false | undefined | null)[]>(...args: T) => args.filter(Boolean).join('');
@@ -28,14 +29,12 @@ export function formatNumber(number: number | string): string {
     return getLeft(str[0]) + getRigth(str[1]);
 }
 
-export const hrtime2ns = (hrtime: [number, number]): _Nanosecond => (hrtime[0] * 1e9 + hrtime[1]) as _Nanosecond;
-
 export function sleep(ns: _Nanosecond): void {
     const begin = process.hrtime();
     let duration;
     do {
         duration = process.hrtime(begin);
-    } while (hrtime2ns(duration) < ns);
+    } while (TU.hrtime2ns(duration) < ns);
 }
 
 export function sleepAsync(time: number): Promise<void> {
@@ -61,7 +60,7 @@ export function getMinTime(): _Nanosecond {
     // Get average smallest measurable time.
     for (let count = 30; count > 0; count--) {
         const begin = process.hrtime();
-        const duration = hrtime2ns(process.hrtime(begin));
+        const duration = TU.hrtime2ns(process.hrtime(begin));
         samples.push(duration);
     }
 

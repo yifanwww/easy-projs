@@ -16,11 +16,11 @@ export interface BenchmarkCallbacks {
     /**
      * Called when benchmark starts running.
      */
-    onStart?: AnyFn;
+    onStart?: () => void;
     /**
      * Called when the benchmark completes running.
      */
-    onComplete?: AnyFn;
+    onComplete?: () => void;
 }
 
 export interface BenchmarkSettings {

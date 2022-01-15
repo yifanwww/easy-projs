@@ -4,7 +4,7 @@
 
 - Add `BenchmarkGroup` to do group testing.
 - Add method `printResult` to `Benchmark`.
-- Can change logger level by setting `Benchmark.loggerLevel`.
+- Add logs, can change logger level by setting `Benchmark.loggerLevel`.
 
 ### Breaking Changes
 
