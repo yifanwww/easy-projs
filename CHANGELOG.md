@@ -11,9 +11,11 @@
 ### Packages Changes
 
 - Rename
-  - `@easy/benchmark-javascript`  v0.1.0    -> `@easy/benchmark-js` v0.1.0
-  - `@easy/performance-javascript`  v0.0.0  -> `@easy/perf-js` v0.0.0
-  - `@easy/performance-react`  v0.0.0       -> `@easy/perf-react` v0.0.0
+  - `@easy/benchmark-javascript`    -> `@easy/benchmark-js`
+  - `@easy/performance-javascript`  -> `@easy/perf-js`
+  - `@easy/performance-react`       -> `@easy/perf-react`
+- Upgrade
+  - `@easy/benchmark-js`  v0.1.0    -> `@easy/benchmark-js` v0.2.0
 
 ### Dependency Changes
 
