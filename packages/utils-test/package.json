@@ -27,5 +27,11 @@
         "lint": "eslint .",
         "pre-commit": "lint-staged",
         "test-coverage": "skip-npm-script"
+    },
+    "devDependencies": {
+        "@easy/eslint-config": "*",
+        "@easy/global-types": "*",
+        "@easy/scripts": "*",
+        "@easy/tsconfigs": "*"
     }
 }
