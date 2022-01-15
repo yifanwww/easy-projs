@@ -1,5 +1,9 @@
 # CHANGELOG
 ## easy-projs v0.5.0 (Unreleased)
+### Features
+
+- [Build] Speed up compilation with parallel builds
+
 ### Notable Changes
 
 - Bump dependency `react-script` from v4.0.3 to v5.0.0
