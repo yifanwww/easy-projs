@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../utils/bin').buildReact();
+require('../dist/utils/bin').buildReact();

@@ -27,5 +27,18 @@
         "pre-commit": "lint-staged",
         "test": "unit-test",
         "test-coverage": "unit-test"
+    },
+    "dependencies": {
+        "@easy/assets": "*",
+        "@easy/utils-fluentui": "*",
+        "@easy/utils-redux": "*"
+    },
+    "devDependencies": {
+        "@easy/eslint-config": "*",
+        "@easy/global-types": "*",
+        "@easy/scripts": "*",
+        "@easy/stylelint-config": "*",
+        "@easy/tsconfigs": "*",
+        "@easy/utils-test": "*"
     }
 }

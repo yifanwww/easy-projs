@@ -22,5 +22,14 @@
         "lint": "eslint .",
         "pre-commit": "lint-staged",
         "test-coverage": "skip-npm-script"
+    },
+    "dependencies": {
+        "@easy/benchmark-js": "*"
+    },
+    "devDependencies": {
+        "@easy/eslint-config": "*",
+        "@easy/global-types": "*",
+        "@easy/scripts": "*",
+        "@easy/tsconfigs": "*"
     }
 }

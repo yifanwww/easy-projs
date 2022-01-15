@@ -25,5 +25,12 @@
         "pre-commit": "lint-staged",
         "test": "unit-test",
         "test-coverage": "unit-test"
+    },
+    "devDependencies": {
+        "@easy/eslint-config": "*",
+        "@easy/global-types": "*",
+        "@easy/scripts": "*",
+        "@easy/tsconfigs": "*",
+        "@easy/utils-test": "*"
     }
 }

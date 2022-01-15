@@ -10,7 +10,7 @@ Add `"extends": "@easy/eslint-config"` to your ESLint config file.
 For example `.eslintrc.json`:
 ```json
 {
-    "extends": ["@easy/eslint-config"]
+    "extends": "@easy/eslint-config"
 }
 ```
 
@@ -23,7 +23,7 @@ In your ESLint config, set [parserOptions.project] to the path of your `tsconfig
 For example:
 ```json
 {
-    "extends": ["@easy/eslint-config"],
+    "extends": "@easy/eslint-config",
     "parserOptions": {
         "project": "./tsconfig.json"
     }
