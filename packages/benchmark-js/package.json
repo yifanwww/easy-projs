@@ -1,6 +1,6 @@
 {
     "name": "@easy/benchmark-js",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "A benchmark tool to test javascript performance.",
     "main": "lib-commonjs/index.js",
     "module": "lib/index.js",
@@ -22,9 +22,7 @@
         "build:cjs": "tsc --project tsconfigs/tsconfig.cjs.json",
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "build-dist": "tsc --project tsconfigs/tsconfig.dist.json",
         "clean": "rimraf dist lib lib-commonjs tsconfigs/*.tsbuildinfo",
-        "clean-dist": "rimraf dist",
         "dev": "npm run build:cjs -- --watch",
         "format": "format-code",
         "lint": "eslint .",
