@@ -1,4 +1,13 @@
 # CHANGELOG
+## @easy/benchmark-js v0.2.0 (Unreleased)
+### Features
+
+- Run pre-benchmarking double times for optimization.
+
+### Breaking Changes
+
+- Rename option `maxPrepareTime` to `maxPreparingTime`, and change the default value to `50`.
+
 ## @easy/benchmark-js v0.2.0 (2022-01-15)
 ### Features
 

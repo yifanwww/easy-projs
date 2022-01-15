@@ -7,7 +7,7 @@ export type _Nanosecond = number & { __ns__: void };
 export interface _BenchmarkSettings {
     delay?: _Nanosecond;
     initCount?: number;
-    maxPrepareTime?: _Nanosecond;
+    maxPreparingTime?: _Nanosecond;
     maxTime?: _Nanosecond;
     minSamples?: number;
     minTime?: _Nanosecond;

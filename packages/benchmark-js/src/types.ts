@@ -39,11 +39,11 @@ export interface BenchmarkSettings {
     /**
      * The maximum time preparing is allowed to run before benchmarking (ms).
      *
-     * Default is `1_000`.
+     * Default is `50`.
      *
      * Note: Cycle delays aren't counted toward the maximum time.
      */
-    maxPrepareTime?: Millisecond;
+    maxPreparingTime?: Millisecond;
     /**
      * The maximum time a benchmark is allowed to run before finishing (ms).
      *

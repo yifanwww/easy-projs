@@ -56,7 +56,7 @@ export class Benchmark {
         const {
             delay = 5,
             initCount = 1,
-            maxPrepareTime = 1_000,
+            maxPreparingTime = 50,
             maxTime = 5_000,
             minSamples = 5,
             minTime = 0,
@@ -70,7 +70,7 @@ export class Benchmark {
         this.settings = {
             delay: TU.ms2ns(delay),
             initCount,
-            maxPrepareTime: TU.ms2ns(maxPrepareTime),
+            maxPreparingTime: TU.ms2ns(maxPreparingTime),
             maxTime: TU.ms2ns(maxTime),
             minSamples,
             minTime: minTime === 0 ? Benchmark.minTime : TU.ms2ns(minTime),
@@ -90,12 +90,12 @@ export class Benchmark {
     }
 
     private logConfigs() {
-        this.logger.debug(`delay           : ${this.logger.beautifyNumber(this.settings.delay)} ns`);
-        this.logger.debug(`initial count   : ${this.logger.beautifyNumber(this.settings.initCount)}`);
-        this.logger.debug(`max prepare time: ${this.logger.beautifyNumber(this.settings.maxPrepareTime)} ns`);
-        this.logger.debug(`max time        : ${this.logger.beautifyNumber(this.settings.maxTime)} ns`);
-        this.logger.debug(`min samples     : ${this.logger.beautifyNumber(this.settings.minSamples)}`);
-        this.logger.debug(`min time        : ${this.logger.beautifyNumber(this.settings.minTime)} ns`);
+        this.logger.debug(`delay             : ${this.logger.beautifyNumber(this.settings.delay)} ns`);
+        this.logger.debug(`initial count     : ${this.logger.beautifyNumber(this.settings.initCount)}`);
+        this.logger.debug(`max preparing time: ${this.logger.beautifyNumber(this.settings.maxPreparingTime)} ns`);
+        this.logger.debug(`max time          : ${this.logger.beautifyNumber(this.settings.maxTime)} ns`);
+        this.logger.debug(`min samples       : ${this.logger.beautifyNumber(this.settings.minSamples)}`);
+        this.logger.debug(`min time          : ${this.logger.beautifyNumber(this.settings.minTime)} ns`);
 
         this.logger.debug(`${this.onComplete ? 'Has' : 'No'} callback \`onComplete\``);
         this.logger.debug(`${this.onStart ? 'Has' : 'No'} callback \`onStart\``);
@@ -112,9 +112,12 @@ export class Benchmark {
 
         this.onStart?.();
 
-        this.benchmarking(this.settings.maxPrepareTime, true);
+        // Run pre-benchmarking double times for optimization.
+        this.benchmarking(this.settings.maxPreparingTime, true);
+        this.benchmarking(this.settings.maxPreparingTime, true);
         // Delete samples generated while pre-benchmarking.
         this.stats.sample = [];
+
         this.benchmarking(this.settings.maxTime);
         this.evaluate();
 
