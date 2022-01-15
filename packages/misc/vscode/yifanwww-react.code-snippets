@@ -1,0 +1,88 @@
+{
+    "JS React FC": {
+        "prefix": "rfc",
+        "body": [
+            "function ${1:Component}(props) {",
+            "    return <div />;",
+            "}"
+        ],
+        "scope": "javascript,javascriptreact",
+        "description": "Generate an empty React function component"
+    },
+    "TS React FC": {
+        "prefix": "rfc",
+        "body": [
+            "const ${1:Component}: React.FC<${2:Props}> = (props) => {",
+            "    return <div />;",
+            "};"
+        ],
+        "scope": "typescriptreact",
+        "description": "Generate an empty React function component"
+    },
+    "TS React FC With Interface": {
+        "prefix": "rfci",
+        "body": [
+            "export interface ${2:Props} {}",
+            "",
+            "const ${1:Component}: React.FC<${2:Props}> = (props) => {",
+            "    return <div />;",
+            "};"
+        ],
+        "scope": "typescriptreact",
+        "description": "Generate an empty React function component"
+    },
+    "JS React VFC": {
+        "prefix": "rvfc",
+        "body": [
+            "function ${1:Component}(props) {",
+            "    return <div />;",
+            "}"
+        ],
+        "scope": "javascript,javascriptreact",
+        "description": "Generate an empty React void function component"
+    },
+    "TS React VFC": {
+        "prefix": "rvfc",
+        "body": [
+            "const ${1:Component}: React.VFC<${2:Props}> = (props) => {",
+            "    return <div />;",
+            "};"
+        ],
+        "scope": "typescriptreact",
+        "description": "Generate an empty React void function component"
+    },
+    "TS React VFC With Interface": {
+        "prefix": "rvfci",
+        "body": [
+            "export interface ${2:Props} {}",
+            "",
+            "const ${1:Component}: React.VFC<${2:Props}> = (props) => {",
+            "    return <div />;",
+            "};"
+        ],
+        "scope": "typescriptreact",
+        "description": "Generate an empty React void function component"
+    },
+    "JS React Ref FC": {
+        "prefix": "rrfc",
+        "body": [
+            "const ${1:Component} = forwardRef((props, ref) => {",
+            "    return <div />;",
+            "});"
+        ],
+        "scope": "javascript,javascriptreact",
+        "description": "Generate an empty React forward ref function component"
+    },
+    "TS React Ref FC With Interface": {
+        "prefix": "rrfci",
+        "body": [
+            "export interface ${3:Props} {}",
+            "",
+            "const ${1:Component} = forwardRef<${2:Ref}, ${3:Props}>((props, ref) => {",
+            "    return <div />;",
+            "});"
+        ],
+        "scope": "typescriptreact",
+        "description": "Generate an empty React forward ref function component"
+    }
+}
