@@ -1,7 +1,8 @@
 import { tTable } from './constants';
+import { Formatter } from './Formatter';
 import { BenchmarkLoggerLevel, Logger } from './Logger';
 import { TU } from './TimeUnit';
-import { formatNumber, genStr, getMean, getMinTime, getVariance, sleep } from './tools';
+import { genStr, getMean, getMinTime, getVariance, sleep } from './tools';
 import { BenchmarkOptions, TestFn } from './types';
 import { BenchmarkStats, _BenchmarkSettings, _Nanosecond } from './types.internal';
 
@@ -90,12 +91,12 @@ export class Benchmark {
     }
 
     private logConfigs() {
-        this.logger.debug(`delay             : ${this.logger.beautifyNumber(this.settings.delay)} ns`);
-        this.logger.debug(`initial count     : ${this.logger.beautifyNumber(this.settings.initCount)}`);
-        this.logger.debug(`max preparing time: ${this.logger.beautifyNumber(this.settings.maxPreparingTime)} ns`);
-        this.logger.debug(`max time          : ${this.logger.beautifyNumber(this.settings.maxTime)} ns`);
-        this.logger.debug(`min samples       : ${this.logger.beautifyNumber(this.settings.minSamples)}`);
-        this.logger.debug(`min time          : ${this.logger.beautifyNumber(this.settings.minTime)} ns`);
+        this.logger.debug(`delay             : ${Formatter.beautifyNumber(this.settings.delay)} ns`);
+        this.logger.debug(`initial count     : ${Formatter.beautifyNumber(this.settings.initCount)}`);
+        this.logger.debug(`max preparing time: ${Formatter.beautifyNumber(this.settings.maxPreparingTime)} ns`);
+        this.logger.debug(`max time          : ${Formatter.beautifyNumber(this.settings.maxTime)} ns`);
+        this.logger.debug(`min samples       : ${Formatter.beautifyNumber(this.settings.minSamples)}`);
+        this.logger.debug(`min time          : ${Formatter.beautifyNumber(this.settings.minTime)} ns`);
 
         this.logger.debug(`${this.onComplete ? 'Has' : 'No'} callback \`onComplete\``);
         this.logger.debug(`${this.onStart ? 'Has' : 'No'} callback \`onStart\``);
@@ -141,11 +142,11 @@ export class Benchmark {
     private logCycleData() {
         const { sample } = this.stats;
         const len = sample.length;
-        this.logger.debug(`${len.toString().padStart(3)}> period: ${sample[len - 1]} ns`);
+        this.logger.debug(`${len.toString().padStart(3)}> period: ${sample[len - 1].toFixed(6)} ns`);
     }
 
     private logCountChanging(from: number, to: number) {
-        this.logger.debug(`count: ${from} -> ${to}`);
+        this.logger.debug(`count: ${Formatter.beautifyNumber(from)} -> ${Formatter.beautifyNumber(to)}`);
     }
 
     private benchmarking(ns: _Nanosecond, prepare?: boolean): void {
@@ -207,7 +208,7 @@ export class Benchmark {
     public toString(): string {
         const size = this.stats.sample.length;
 
-        const opsStr = formatNumber(this.stats.ops.toFixed(this.stats.ops < 100 ? 2 : 0));
+        const opsStr = Formatter.beautifyNumber(this.stats.ops.toFixed(this.stats.ops < 100 ? 2 : 0));
         const rmeStr = this.stats.rme.toFixed(2);
 
         return genStr(`${opsStr} ops/sec`, ` ${rmeStr}%`, ` (${size} sample${size > 1 ? 's' : ''})`);
