@@ -1,5 +1,11 @@
 # CHANGELOG
 ## @easy/benchmark-js v0.2.0 (Unreleased)
+### Features
+
+- Add `BenchmarkGroup` to do group testing.
+- Add method `printResult` to `Benchmark`.
+- Add logs, can change logger level by setting `Benchmark.loggerLevel`.
+
 ### Breaking Changes
 
 - Renamed to `@easy/benchmark-js`

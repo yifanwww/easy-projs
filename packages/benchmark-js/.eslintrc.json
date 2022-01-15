@@ -3,5 +3,8 @@
     "ignorePatterns": ["*.cjs", "*.js", "*.mjs", "dist", "lib", "lib-commonjs"],
     "parserOptions": {
         "project": "./tsconfig.json"
+    },
+    "rules": {
+        "no-console": ["error", {}]
     }
 }

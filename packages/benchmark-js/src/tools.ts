@@ -1,3 +1,6 @@
+import { TU } from './TimeUnit';
+import { _Nanosecond } from './types.internal';
+
 export const genStr = <T extends (string | false | undefined | null)[]>(...args: T) => args.filter(Boolean).join('');
 
 /**
@@ -26,19 +29,12 @@ export function formatNumber(number: number | string): string {
     return getLeft(str[0]) + getRigth(str[1]);
 }
 
-export function getCurrentTime() {
-    const accuracy = 1e9;
-
-    const time = process.hrtime();
-    return time[0] + time[1] / accuracy;
-}
-
-export function sleep(time: number): void {
-    const start = getCurrentTime();
-    let curr;
+export function sleep(ns: _Nanosecond): void {
+    const begin = process.hrtime();
+    let duration;
     do {
-        curr = getCurrentTime();
-    } while (curr - start < time);
+        duration = process.hrtime(begin);
+    } while (TU.hrtime2ns(duration) < ns);
 }
 
 export function sleepAsync(time: number): Promise<void> {
@@ -47,8 +43,8 @@ export function sleepAsync(time: number): Promise<void> {
     });
 }
 
-export function getMean(arr: number[]): number {
-    return arr.reduce((sum, curr) => sum + curr, 0) / arr.length;
+export function getMean(arr: _Nanosecond[]): _Nanosecond {
+    return (arr.reduce((sum, curr) => sum + curr, 0) / arr.length) as _Nanosecond;
 }
 
 export function getVariance(arr: number[], mean: number): number {
@@ -56,30 +52,18 @@ export function getVariance(arr: number[], mean: number): number {
 }
 
 /**
- * Gets the current timer's minimum resolution (secs).
+ * Gets the current timer's minimum resolution.
  */
-export function getMinTime() {
-    const sample = [];
+export function getMinTime(): _Nanosecond {
+    const samples: _Nanosecond[] = [];
 
     // Get average smallest measurable time.
     for (let count = 30; count > 0; count--) {
-        const begin = getCurrentTime();
-
-        let measured;
-        do {
-            const curr = getCurrentTime();
-            measured = curr - begin;
-        } while (!measured);
-
-        // Check for broken timers.
-        if (measured > 0) {
-            sample.push(measured);
-        } else {
-            sample.push(Infinity);
-            break;
-        }
+        const begin = process.hrtime();
+        const duration = TU.hrtime2ns(process.hrtime(begin));
+        samples.push(duration);
     }
 
-    // Convert to seconds.
-    return getMean(sample);
+    // Calculate the average value.
+    return getMean(samples);
 }
