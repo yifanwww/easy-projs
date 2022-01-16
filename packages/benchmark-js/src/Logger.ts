@@ -27,7 +27,7 @@ export class Logger {
     private _name: string;
 
     public constructor(name: string) {
-        this._name = `[${name}] `;
+        this._name = `[${name}]`;
     }
 
     private _log(level: BenchmarkLoggerLevel | false, ...message: unknown[]) {

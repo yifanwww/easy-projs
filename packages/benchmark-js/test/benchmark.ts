@@ -1,4 +1,4 @@
-import { Benchmark, BenchmarkGroup, BenchmarkLoggerLevel } from '@easy/benchmark-js';
+import { Benchmark, BenchmarkGroup, BenchmarkLoggerLevel } from '../src';
 
 Benchmark.loggerLevel = BenchmarkLoggerLevel.Debug;
 

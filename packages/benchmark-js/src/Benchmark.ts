@@ -8,7 +8,7 @@ import { BenchmarkOptions, TestFn } from './types';
 import { BenchmarkStats, _BenchmarkSettings, _Nanosecond } from './types.internal';
 
 export class Benchmark {
-    private static minTime: _Nanosecond = Time.ns(0);
+    private static minTime: _Nanosecond = Time.ns(Math.max(Time.minResolution * 100, 50_000_000));
 
     private logger: Logger;
 
@@ -46,10 +46,6 @@ export class Benchmark {
      * @param options The options of benchmark.
      */
     constructor(name: string, testFn: TestFn, options?: BenchmarkOptions) {
-        if (Benchmark.minTime === 0) {
-            Benchmark.minTime = Time.ns(Math.max(Time.minResolution * 100, 50_000_000));
-        }
-
         this.logger = new Logger(name);
 
         this.name = name;
@@ -123,8 +119,8 @@ export class Benchmark {
         this.benchmarking(this.settings.maxTime);
         this.evaluate();
 
-        this.logger.debug(this.toString());
-        this.logger.debug();
+        this.logger.info(this.toString());
+        this.logger.info();
 
         this.onComplete?.();
 
@@ -132,9 +128,13 @@ export class Benchmark {
     }
 
     private logTestData() {
+        const { maxTime, minSamples, minTime } = this.settings;
         const { sample } = this.stats;
+
         const len = sample.length;
-        this.logger.debug(`${len.toString().padStart(3)}> elapsed: ${sample[len - 1].toFixed(6)} ns`);
+        const maxLen = Math.max(minSamples, maxTime / minTime).toString().length;
+
+        this.logger.debug(`${len.toString().padStart(maxLen)}> elapsed: ${sample[len - 1].toFixed(6)} ns`);
     }
 
     private logCountChanging(from: number, to: number) {
@@ -142,6 +142,8 @@ export class Benchmark {
     }
 
     private benchmarking(maxTime: _Nanosecond, prepare?: boolean): void {
+        if (!prepare) this.logger.info('Start testing...');
+
         const testerContext: TesterContext = {
             count: this.count,
             testFn: this.testFn,
@@ -175,6 +177,8 @@ export class Benchmark {
 
             Time.sleep(this.settings.delay);
         }
+
+        if (!prepare) this.logger.info('Finished testing.');
     }
 
     /**
