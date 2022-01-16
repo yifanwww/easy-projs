@@ -1,6 +1,6 @@
 {
-    "name": "@easy/project-template-browser-react",
-    "version": "0.4.0",
+    "name": "@easy/template-proj-browser-react",
+    "version": "0.0.0",
     "description": "A template project used for creating new react browser projects.",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
@@ -12,7 +12,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/project-template-browser-react"
+        "directory": "packages/template-proj-browser-react"
     },
     "browserslist": [
         "last 9 chrome versions"

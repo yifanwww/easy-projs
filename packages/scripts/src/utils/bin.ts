@@ -17,11 +17,15 @@ async function buildOrder(order: Order): Promise<void> {
             const command = genBuildCommand(names);
             child.execSync(command, { stdio: 'inherit' });
         } else {
-            // eslint-disable-next-line no-await-in-loop
-            await concurrently(
-                names.map((name) => ({ command: genBuildCommand(name), name })),
-                { maxProcesses },
-            ).result;
+            try {
+                // eslint-disable-next-line no-await-in-loop
+                await concurrently(
+                    names.map((name) => ({ command: genBuildCommand(name), name })),
+                    { maxProcesses },
+                ).result;
+            } catch (err) {
+                console.error(err);
+            }
         }
     }
 }
@@ -38,8 +42,8 @@ export async function buildPackages(): Promise<void> {
             '@easy/hooks',
             '@easy/memorize',
             '@easy/misc',
-            '@easy/package-template-nodejs',
             '@easy/random-string',
+            '@easy/template-pkg-nodejs',
             '@easy/utils-fluentui',
             '@easy/utils-react',
             '@easy/utils-redux',
@@ -51,13 +55,13 @@ export async function buildPackages(): Promise<void> {
 
 export async function buildProjects(): Promise<void> {
     const order = [
-        '@easy/demo-test-nodejs',
         '@easy/perf-js',
         '@easy/perf-react',
-        '@easy/project-template-browser-react',
-        '@easy/project-template-nodejs',
         '@easy/projs-manage',
+        '@easy/proving-ground-nodejs',
         '@easy/react-rerender-test',
+        '@easy/template-proj-browser-react',
+        '@easy/template-proj-nodejs',
     ];
 
     return buildOrder([order]);

@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 
 function templateNodejs(): string {
-    return 'This package named `@easy/project-template-nodejs` is used for creating new nodejs packages.';
+    return 'This package named `@easy/template-proj-nodejs` is used for creating new nodejs packages.';
 }
 
 console.log(chalk.black(templateNodejs()));

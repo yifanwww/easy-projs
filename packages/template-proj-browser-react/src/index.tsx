@@ -45,7 +45,7 @@ function main(): void {
     render(
         <StrictMode>
             <FluentuiProvider>
-                <BrowserRouter basename="/project-template-browser-react">
+                <BrowserRouter basename="/template-proj-browser-react">
                     <ReduxProvider store={mainStore}>
                         <ClientArea />
                     </ReduxProvider>

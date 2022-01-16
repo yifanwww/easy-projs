@@ -1,7 +1,7 @@
 {
-    "name": "@easy/demo-test-nodejs",
+    "name": "@easy/proving-ground-nodejs",
     "version": "0.0.0",
-    "description": "Used for doing some small demo test.",
+    "description": "Used for doing some small test.",
     "main": "build/index.js",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
@@ -13,7 +13,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/demo-test-nodejs"
+        "directory": "packages/proving-ground-nodejs"
     },
     "scripts": {
         "app": "node build/index.js",
@@ -21,10 +21,7 @@
         "clean": "rimraf build ./*.tsbuildinfo",
         "dev": "npm run build -- --watch",
         "format": "format-code",
-        "lint": "eslint .",
-        "pre-commit": "lint-staged",
-        "test": "unit-test",
-        "test-coverage": "unit-test"
+        "pre-commit": "lint-staged"
     },
     "devDependencies": {
         "@easy/eslint-config": "*",
