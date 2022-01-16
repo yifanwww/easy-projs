@@ -34,6 +34,9 @@
     "engines": {
         "node": ">=16"
     },
+    "workspaces": [
+        "packages/*"
+    ],
     "dependencies": {
         "@fluentui/react": "^8.49.0",
         "@reduxjs/toolkit": "^1.7.1",
@@ -111,32 +114,5 @@
         "typescript-plugin-css-modules": "^3.4.0",
         "webpack-cli": "^4.9.1",
         "yargs": "^17.3.1"
-    },
-    "workspaces": [
-        "packages/assets",
-        "packages/benchmark-js",
-        "packages/cra-check",
-        "packages/demo-test-nodejs",
-        "packages/eslint-config",
-        "packages/global-types",
-        "packages/hooks",
-        "packages/memorize",
-        "packages/misc",
-        "packages/package-template-nodejs",
-        "packages/perf-js",
-        "packages/perf-react",
-        "packages/project-template-browser-react",
-        "packages/project-template-nodejs",
-        "packages/projs-manage",
-        "packages/random-string",
-        "packages/react-rerender-test",
-        "packages/scripts",
-        "packages/stylelint-config",
-        "packages/tsconfigs",
-        "packages/utils-fluentui",
-        "packages/utils-react",
-        "packages/utils-redux",
-        "packages/utils-test",
-        "packages/utils-type"
-    ]
+    }
 }

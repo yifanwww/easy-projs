@@ -1,0 +1,18 @@
+{
+    "Use useConstFn": {
+        "prefix": "usecfn",
+        "body": [
+            "const ${1:fn} = useConstFn(($2) => {$3});"
+        ],
+        "scope": "javascript,javascriptreact,typescript,typescriptreact",
+        "description": "Use `useConstFn`"
+    },
+    "Use usePersistFn": {
+        "prefix": "usepfn",
+        "body": [
+            "const ${1:fn} = usePersistFn(($2) => {$3});"
+        ],
+        "scope": "javascript,javascriptreact,typescript,typescriptreact",
+        "description": "Use `usePersistFn`"
+    }
+}

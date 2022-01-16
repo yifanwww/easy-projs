@@ -4,7 +4,12 @@
     "parserOptions": {
         "project": "./tsconfig.json"
     },
-    "rules": {
-        "no-console": ["error", {}]
-    }
+    "overrides": [
+        {
+            "files": "src/**/*.ts",
+            "rules": {
+                "no-console": ["error", {}]
+            }
+        }
+    ]
 }

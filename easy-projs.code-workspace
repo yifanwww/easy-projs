@@ -114,10 +114,6 @@
             "path": "packages/cra-check"
         },
         {
-            "name": "@easy/demo-test-nodejs",
-            "path": "packages/demo-test-nodejs"
-        },
-        {
             "name": "@easy/eslint-config",
             "path": "packages/eslint-config"
         },
@@ -138,14 +134,6 @@
             "path": "packages/misc"
         },
         {
-            "name": "@easy/package-template-nodejs",
-            "path": "packages/package-template-nodejs"
-        },
-        {
-            "name": "@easy/project-template-browser-react",
-            "path": "packages/project-template-browser-react"
-        },
-        {
             "name": "@easy/perf-js",
             "path": "packages/perf-js"
         },
@@ -154,12 +142,12 @@
             "path": "packages/perf-react"
         },
         {
-            "name": "@easy/project-template-nodejs",
-            "path": "packages/project-template-nodejs"
-        },
-        {
             "name": "@easy/projs-manage",
             "path": "packages/projs-manage"
+        },
+        {
+            "name": "@easy/proving-ground-nodejs",
+            "path": "packages/proving-ground-nodejs"
         },
         {
             "name": "@easy/random-string",
@@ -176,6 +164,18 @@
         {
             "name": "@easy/stylelint-config",
             "path": "packages/stylelint-config"
+        },
+        {
+            "name": "@easy/template-pkg-nodejs",
+            "path": "packages/template-pkg-nodejs"
+        },
+        {
+            "name": "@easy/template-proj-browser-react",
+            "path": "packages/template-proj-browser-react"
+        },
+        {
+            "name": "@easy/template-proj-nodejs",
+            "path": "packages/template-proj-nodejs"
         },
         {
             "name": "@easy/tsconfigs",

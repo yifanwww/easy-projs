@@ -27,7 +27,7 @@ export class Logger {
     private _name: string;
 
     public constructor(name: string) {
-        this._name = `[${name}] `;
+        this._name = `[${name}]`;
     }
 
     private _log(level: BenchmarkLoggerLevel | false, ...message: unknown[]) {
@@ -52,18 +52,4 @@ export class Logger {
     public warn = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Warn, ...message);
 
     public write = (...message: unknown[]) => this._log(false, ...message);
-
-    public beautifyNumber(num: number): string {
-        const from = Buffer.from(num.toString(), 'ascii').reverse();
-        const newLength = from.length + Math.ceil(from.length / 3) - 1;
-        const to = Buffer.alloc(newLength, '_');
-
-        for (let indexFrom = 0; indexFrom < from.length; indexFrom++) {
-            const offset = Math.ceil((indexFrom + 1) / 3) - 1;
-            const indexTo = indexFrom + offset;
-            to[indexTo] = from[indexFrom];
-        }
-
-        return to.reverse().toString('ascii');
-    }
 }

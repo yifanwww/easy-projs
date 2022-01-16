@@ -1,12 +1,14 @@
+import { CodeGen, TesterContext } from './CodeGen';
 import { tTable } from './constants';
+import { Formatter } from './Formatter';
 import { BenchmarkLoggerLevel, Logger } from './Logger';
-import { TU } from './TimeUnit';
-import { formatNumber, genStr, getMean, getMinTime, getVariance, sleep } from './tools';
+import { Time } from './TimeTool';
+import { genStr, getMean, getVariance } from './tools';
 import { BenchmarkOptions, TestFn } from './types';
 import { BenchmarkStats, _BenchmarkSettings, _Nanosecond } from './types.internal';
 
 export class Benchmark {
-    private static minTime: _Nanosecond = TU.ns(0);
+    private static minTime: _Nanosecond = Time.ns(Math.max(Time.minResolution * 100, 50_000_000));
 
     private logger: Logger;
 
@@ -20,7 +22,7 @@ export class Benchmark {
 
     private stats: BenchmarkStats = {
         deviation: 0,
-        mean: TU.ns(0),
+        mean: Time.ns(0),
         moe: 0,
         ops: 0,
         rme: 0,
@@ -44,10 +46,6 @@ export class Benchmark {
      * @param options The options of benchmark.
      */
     constructor(name: string, testFn: TestFn, options?: BenchmarkOptions) {
-        if (Benchmark.minTime === 0) {
-            Benchmark.minTime = TU.ns(Math.max(getMinTime() * 100, 50_000_000));
-        }
-
         this.logger = new Logger(name);
 
         this.name = name;
@@ -56,7 +54,7 @@ export class Benchmark {
         const {
             delay = 5,
             initCount = 1,
-            maxPrepareTime = 1_000,
+            maxPreparingTime = 50,
             maxTime = 5_000,
             minSamples = 5,
             minTime = 0,
@@ -68,12 +66,12 @@ export class Benchmark {
         this.onStart = onStart;
 
         this.settings = {
-            delay: TU.ms2ns(delay),
+            delay: Time.ms2ns(delay),
             initCount,
-            maxPrepareTime: TU.ms2ns(maxPrepareTime),
-            maxTime: TU.ms2ns(maxTime),
+            maxPreparingTime: Time.ms2ns(maxPreparingTime),
+            maxTime: Time.ms2ns(maxTime),
             minSamples,
-            minTime: minTime === 0 ? Benchmark.minTime : TU.ms2ns(minTime),
+            minTime: minTime === 0 ? Benchmark.minTime : Time.ms2ns(minTime),
         };
 
         this.count = this.settings.initCount;
@@ -90,12 +88,12 @@ export class Benchmark {
     }
 
     private logConfigs() {
-        this.logger.debug(`delay           : ${this.logger.beautifyNumber(this.settings.delay)} ns`);
-        this.logger.debug(`initial count   : ${this.logger.beautifyNumber(this.settings.initCount)}`);
-        this.logger.debug(`max prepare time: ${this.logger.beautifyNumber(this.settings.maxPrepareTime)} ns`);
-        this.logger.debug(`max time        : ${this.logger.beautifyNumber(this.settings.maxTime)} ns`);
-        this.logger.debug(`min samples     : ${this.logger.beautifyNumber(this.settings.minSamples)}`);
-        this.logger.debug(`min time        : ${this.logger.beautifyNumber(this.settings.minTime)} ns`);
+        this.logger.debug(`delay             : ${Formatter.beautifyNumber(this.settings.delay)} ns`);
+        this.logger.debug(`initial count     : ${Formatter.beautifyNumber(this.settings.initCount)}`);
+        this.logger.debug(`max preparing time: ${Formatter.beautifyNumber(this.settings.maxPreparingTime)} ns`);
+        this.logger.debug(`max time          : ${Formatter.beautifyNumber(this.settings.maxTime)} ns`);
+        this.logger.debug(`min samples       : ${Formatter.beautifyNumber(this.settings.minSamples)}`);
+        this.logger.debug(`min time          : ${Formatter.beautifyNumber(this.settings.minTime)} ns`);
 
         this.logger.debug(`${this.onComplete ? 'Has' : 'No'} callback \`onComplete\``);
         this.logger.debug(`${this.onStart ? 'Has' : 'No'} callback \`onStart\``);
@@ -112,61 +110,75 @@ export class Benchmark {
 
         this.onStart?.();
 
-        this.benchmarking(this.settings.maxPrepareTime, true);
+        // Run pre-benchmarking double times for optimization.
+        this.benchmarking(this.settings.maxPreparingTime, true);
+        this.benchmarking(this.settings.maxPreparingTime, true);
         // Delete samples generated while pre-benchmarking.
         this.stats.sample = [];
+
         this.benchmarking(this.settings.maxTime);
         this.evaluate();
 
-        this.logger.debug(this.toString());
-        this.logger.debug();
+        this.logger.info(this.toString());
+        this.logger.info();
 
         this.onComplete?.();
 
         return this;
     }
 
-    private cycle(): _Nanosecond {
-        const begin = process.hrtime();
-        for (let i = 0; i < this.count; i++) {
-            this.testFn();
-        }
-        const duration = process.hrtime(begin);
-        return TU.hrtime2ns(duration);
-    }
-
-    private logCycleData() {
+    private logTestData() {
+        const { maxTime, minSamples, minTime } = this.settings;
         const { sample } = this.stats;
+
         const len = sample.length;
-        this.logger.debug(`${len.toString().padStart(3)}> period: ${sample[len - 1]} ns`);
+        const maxLen = Math.max(minSamples, maxTime / minTime).toString().length;
+
+        this.logger.debug(`${len.toString().padStart(maxLen)}> elapsed: ${sample[len - 1].toFixed(6)} ns`);
     }
 
     private logCountChanging(from: number, to: number) {
-        this.logger.debug(`count: ${from} -> ${to}`);
+        this.logger.debug(`count: ${Formatter.beautifyNumber(from)} -> ${Formatter.beautifyNumber(to)}`);
     }
 
-    private benchmarking(ns: _Nanosecond, prepare?: boolean): void {
-        let elapsed: _Nanosecond = TU.ns(0);
-        while (true) {
-            const used = this.cycle();
-            const period = TU.ns(used / this.count);
-            this.stats.sample.push(period);
+    private benchmarking(maxTime: _Nanosecond, prepare?: boolean): void {
+        if (!prepare) this.logger.info('Start testing...');
 
-            if (!prepare) this.logCycleData();
+        const testerContext: TesterContext = {
+            count: this.count,
+            testFn: this.testFn,
+        };
+
+        // Gets a totally new function to test the performance of `testFn`.
+        // Passing different callbacks into one same function who calls the callbacks will cause a optimization problem.
+        // See "src/test/dynamicCall.ts".
+        const tester = CodeGen.createTester();
+
+        let duration: _Nanosecond = Time.ns(0);
+        while (true) {
+            testerContext.count = this.count;
+            const used = Time.hrtime2ns(tester(testerContext));
+
+            const elapsed = Time.ns(used / this.count);
+            this.stats.sample.push(elapsed);
+
+            if (!prepare) this.logTestData();
 
             // Calculate how many more iterations it will take to achieve the `minTime`.
             // After pre-benchmarking stage, we should get a good count number.
             if (used < this.settings.minTime) {
-                const count = this.count + Math.ceil((this.settings.minTime - used) / period);
+                const count = this.count + Math.ceil((this.settings.minTime - used) / elapsed);
                 this.logCountChanging(this.count, count);
                 this.count = count;
             }
 
-            elapsed = TU.ns(elapsed + used);
-            if (elapsed >= ns && this.stats.sample.length >= this.settings.minSamples) break;
+            duration = Time.ns(duration + used);
+            if (duration >= maxTime && this.stats.sample.length >= this.settings.minSamples) break;
 
-            sleep(this.settings.delay);
+            Time.sleep(this.settings.delay);
         }
+
+        if (!prepare) this.logger.info('Finished testing.');
     }
 
     /**
@@ -204,7 +216,7 @@ export class Benchmark {
     public toString(): string {
         const size = this.stats.sample.length;
 
-        const opsStr = formatNumber(this.stats.ops.toFixed(this.stats.ops < 100 ? 2 : 0));
+        const opsStr = Formatter.beautifyNumber(this.stats.ops.toFixed(this.stats.ops < 100 ? 2 : 0));
         const rmeStr = this.stats.rme.toFixed(2);
 
         return genStr(`${opsStr} ops/sec`, ` ${rmeStr}%`, ` (${size} sample${size > 1 ? 's' : ''})`);
