@@ -16,6 +16,11 @@ export class BenchmarkGroup {
         return this;
     }
 
+    public setEmptyTest(name: string = 'EmptyTest'): this {
+        this.instances = [new Benchmark(name, () => {}), ...this.instances];
+        return this;
+    }
+
     public run() {
         for (const instance of this.instances) instance.run();
         for (const instance of this.instances) instance.writeResult();
