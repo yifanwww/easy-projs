@@ -11,9 +11,13 @@
 ### Packages Changes
 
 - Rename
-  - `@easy/benchmark-javascript`    -> `@easy/benchmark-js`
-  - `@easy/performance-javascript`  -> `@easy/perf-js`
-  - `@easy/performance-react`       -> `@easy/perf-react`
+  - `@easy/benchmark-javascript`            -> `@easy/benchmark-js`
+  - `@easy/demo-test-nodejs`                -> `@easy/proving-ground-nodejs`
+  - `@easy/package-template-nodejs`         -> `@easy/template-pkg-nodejs`
+  - `@easy/performance-javascript`          -> `@easy/perf-js`
+  - `@easy/performance-react`               -> `@easy/perf-react`
+  - `@easy/project-template-browser-react`  -> `@easy/template-proj-browser-react`
+  - `@easy/project-template-nodejs`         -> `@easy/template-proj-nodejs`
 - Upgrade
   - `@easy/benchmark-js`  v0.1.0    -> `@easy/benchmark-js` v0.2.0
 
