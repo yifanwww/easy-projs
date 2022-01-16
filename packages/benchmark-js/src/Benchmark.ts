@@ -1,4 +1,4 @@
-import { CodeGen, TesterContext } from './CodeGen';
+import { CodeGen, Tester, TesterContext } from './CodeGen';
 import { tTable } from './constants';
 import { Formatter } from './Formatter';
 import { BenchmarkLoggerLevel, Logger } from './Logger';
@@ -14,6 +14,7 @@ export class Benchmark {
 
     private name: string;
     private testFn: TestFn;
+    private tester: Tester;
 
     private onComplete: Optional<() => void>;
     private onStart: Optional<() => void>;
@@ -50,6 +51,11 @@ export class Benchmark {
 
         this.name = name;
         this.testFn = testFn;
+
+        // Gets a totally new function to test the performance of `testFn`.
+        // Passing different callbacks into one same function who calls the callbacks will cause a optimization problem.
+        // See "src/test/dynamicCall.ts".
+        this.tester = CodeGen.createTester();
 
         const {
             delay = 5,
@@ -149,15 +155,10 @@ export class Benchmark {
             testFn: this.testFn,
         };
 
-        // Gets a totally new function to test the performance of `testFn`.
-        // Passing different callbacks into one same function who calls the callbacks will cause a optimization problem.
-        // See "src/test/dynamicCall.ts".
-        const tester = CodeGen.createTester();
-
         let duration: _Nanosecond = Time.ns(0);
         while (true) {
             testerContext.count = this.count;
-            const used = Time.hrtime2ns(tester(testerContext));
+            const used = Time.hrtime2ns(this.tester(testerContext));
 
             const elapsed = Time.ns(used / this.count);
             this.stats.sample.push(elapsed);
