@@ -1,3 +1,4 @@
+import { CodeGen, TesterContext } from './CodeGen';
 import { tTable } from './constants';
 import { Formatter } from './Formatter';
 import { BenchmarkLoggerLevel, Logger } from './Logger';
@@ -130,33 +131,36 @@ export class Benchmark {
         return this;
     }
 
-    private cycle(): _Nanosecond {
-        const begin = process.hrtime();
-        for (let i = 0; i < this.count; i++) {
-            this.testFn();
-        }
-        const duration = process.hrtime(begin);
-        return Time.hrtime2ns(duration);
-    }
-
-    private logCycleData() {
+    private logTestData() {
         const { sample } = this.stats;
         const len = sample.length;
-        this.logger.debug(`${len.toString().padStart(3)}> period: ${sample[len - 1].toFixed(6)} ns`);
+        this.logger.debug(`${len.toString().padStart(3)}> elapsed: ${sample[len - 1].toFixed(6)} ns`);
     }
 
     private logCountChanging(from: number, to: number) {
         this.logger.debug(`count: ${Formatter.beautifyNumber(from)} -> ${Formatter.beautifyNumber(to)}`);
     }
 
-    private benchmarking(ns: _Nanosecond, prepare?: boolean): void {
-        let totalElapsed: _Nanosecond = Time.ns(0);
+    private benchmarking(maxTime: _Nanosecond, prepare?: boolean): void {
+        const testerContext: TesterContext = {
+            count: this.count,
+            testFn: this.testFn,
+        };
+
+        // Gets a totally new function to test the performance of `testFn`.
+        // Passing different callbacks into one same function who calls the callbacks will cause a optimization problem.
+        // See "src/test/dynamicCall.ts".
+        const tester = CodeGen.createTester();
+
+        let duration: _Nanosecond = Time.ns(0);
         while (true) {
-            const used = this.cycle();
+            testerContext.count = this.count;
+            const used = Time.hrtime2ns(tester(testerContext));
+
             const elapsed = Time.ns(used / this.count);
             this.stats.sample.push(elapsed);
 
-            if (!prepare) this.logCycleData();
+            if (!prepare) this.logTestData();
 
             // Calculate how many more iterations it will take to achieve the `minTime`.
             // After pre-benchmarking stage, we should get a good count number.
@@ -166,8 +170,8 @@ export class Benchmark {
                 this.count = count;
             }
 
-            totalElapsed = Time.ns(totalElapsed + used);
-            if (totalElapsed >= ns && this.stats.sample.length >= this.settings.minSamples) break;
+            duration = Time.ns(duration + used);
+            if (duration >= maxTime && this.stats.sample.length >= this.settings.minSamples) break;
 
             Time.sleep(this.settings.delay);
         }

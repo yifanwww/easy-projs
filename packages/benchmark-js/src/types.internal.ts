@@ -50,3 +50,5 @@ export interface BenchmarkStats {
      */
     variance: number;
 }
+
+export type Hrtime = [number, number];

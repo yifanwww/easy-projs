@@ -1,6 +1,6 @@
 import { getMean } from './tools';
 import { Millisecond } from './types';
-import { _Millisecond, _Nanosecond } from './types.internal';
+import { Hrtime, _Millisecond, _Nanosecond } from './types.internal';
 
 export class TimeTool {
     private static accuracy = 1e6;
@@ -11,7 +11,7 @@ export class TimeTool {
 
     public static ms2ns = (ms: Millisecond | _Millisecond): _Nanosecond => (ms * TimeTool.accuracy) as _Nanosecond;
 
-    public static hrtime2ns = (hrtime: [number, number]): _Nanosecond => (hrtime[0] * 1e9 + hrtime[1]) as _Nanosecond;
+    public static hrtime2ns = (hrtime: Hrtime): _Nanosecond => (hrtime[0] * 1e9 + hrtime[1]) as _Nanosecond;
 
     public static sleep(ns: _Nanosecond): void {
         const begin = process.hrtime();
@@ -28,6 +28,7 @@ export class TimeTool {
         const samples: _Nanosecond[] = [];
 
         // The first few measurement times we got weren't stable enough, so dropped them.
+        // To test it, you can comment the following loop, then run "src/minTimeResolution.ts".
         for (let count = 20; count > 0; count--) {
             process.hrtime(process.hrtime());
         }

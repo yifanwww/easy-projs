@@ -1,9 +1,13 @@
 # CHANGELOG
-## @easy/benchmark-js v0.2.0 (Unreleased)
+## @easy/benchmark-js v0.3.0 (Unreleased)
 ### Features
 
 - Run pre-benchmarking double times for optimization.
 - Improve the accuracy of the minimum duration time.
+
+### Bug Fixes
+
+- Fix a optimization problem that cause wrong performance test results.
 
 ### Breaking Changes
 
