@@ -3,6 +3,7 @@
 ### Features
 
 - Run pre-benchmarking double times for optimization.
+- Improve the accuracy of the minimum duration time.
 
 ### Breaking Changes
 

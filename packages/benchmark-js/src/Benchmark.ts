@@ -1,13 +1,13 @@
 import { tTable } from './constants';
 import { Formatter } from './Formatter';
 import { BenchmarkLoggerLevel, Logger } from './Logger';
-import { TU } from './TimeUnit';
-import { genStr, getMean, getMinTime, getVariance, sleep } from './tools';
+import { Time } from './TimeTool';
+import { genStr, getMean, getVariance } from './tools';
 import { BenchmarkOptions, TestFn } from './types';
 import { BenchmarkStats, _BenchmarkSettings, _Nanosecond } from './types.internal';
 
 export class Benchmark {
-    private static minTime: _Nanosecond = TU.ns(0);
+    private static minTime: _Nanosecond = Time.ns(0);
 
     private logger: Logger;
 
@@ -21,7 +21,7 @@ export class Benchmark {
 
     private stats: BenchmarkStats = {
         deviation: 0,
-        mean: TU.ns(0),
+        mean: Time.ns(0),
         moe: 0,
         ops: 0,
         rme: 0,
@@ -46,7 +46,7 @@ export class Benchmark {
      */
     constructor(name: string, testFn: TestFn, options?: BenchmarkOptions) {
         if (Benchmark.minTime === 0) {
-            Benchmark.minTime = TU.ns(Math.max(getMinTime() * 100, 50_000_000));
+            Benchmark.minTime = Time.ns(Math.max(Time.minResolution * 100, 50_000_000));
         }
 
         this.logger = new Logger(name);
@@ -69,12 +69,12 @@ export class Benchmark {
         this.onStart = onStart;
 
         this.settings = {
-            delay: TU.ms2ns(delay),
+            delay: Time.ms2ns(delay),
             initCount,
-            maxPreparingTime: TU.ms2ns(maxPreparingTime),
-            maxTime: TU.ms2ns(maxTime),
+            maxPreparingTime: Time.ms2ns(maxPreparingTime),
+            maxTime: Time.ms2ns(maxTime),
             minSamples,
-            minTime: minTime === 0 ? Benchmark.minTime : TU.ms2ns(minTime),
+            minTime: minTime === 0 ? Benchmark.minTime : Time.ms2ns(minTime),
         };
 
         this.count = this.settings.initCount;
@@ -136,7 +136,7 @@ export class Benchmark {
             this.testFn();
         }
         const duration = process.hrtime(begin);
-        return TU.hrtime2ns(duration);
+        return Time.hrtime2ns(duration);
     }
 
     private logCycleData() {
@@ -150,26 +150,26 @@ export class Benchmark {
     }
 
     private benchmarking(ns: _Nanosecond, prepare?: boolean): void {
-        let elapsed: _Nanosecond = TU.ns(0);
+        let totalElapsed: _Nanosecond = Time.ns(0);
         while (true) {
             const used = this.cycle();
-            const period = TU.ns(used / this.count);
-            this.stats.sample.push(period);
+            const elapsed = Time.ns(used / this.count);
+            this.stats.sample.push(elapsed);
 
             if (!prepare) this.logCycleData();
 
             // Calculate how many more iterations it will take to achieve the `minTime`.
             // After pre-benchmarking stage, we should get a good count number.
             if (used < this.settings.minTime) {
-                const count = this.count + Math.ceil((this.settings.minTime - used) / period);
+                const count = this.count + Math.ceil((this.settings.minTime - used) / elapsed);
                 this.logCountChanging(this.count, count);
                 this.count = count;
             }
 
-            elapsed = TU.ns(elapsed + used);
-            if (elapsed >= ns && this.stats.sample.length >= this.settings.minSamples) break;
+            totalElapsed = Time.ns(totalElapsed + used);
+            if (totalElapsed >= ns && this.stats.sample.length >= this.settings.minSamples) break;
 
-            sleep(this.settings.delay);
+            Time.sleep(this.settings.delay);
         }
     }
 
