@@ -2,10 +2,11 @@
 ## @easy/benchmark-js v0.3.0 (Unreleased)
 ### Features
 
-- Run pre-benchmarking double times for optimization.
 - Improve the accuracy of the minimum duration time.
 - Add method `BenchmarkGroup.setEmptyTest` to get the maximum ops as a base line.
 - Add methods `Benchmark.writeTesterCode` and `BenchmarkGroup.writeTestersCode` to print the tester source code.
+- Add Support to pass arguments to `testFn`.
+- Add adjust-benchmarking stage after pre-benchmarking stage but before formal-benchmarking stage.
 
 ### Bug Fixes
 

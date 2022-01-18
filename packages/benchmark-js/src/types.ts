@@ -10,9 +10,22 @@ export type Millisecond = number & {};
  */
 export type Nanosecond = number & {};
 
-export type TestFn = () => void;
+export type TestFn = (...args: never[]) => void;
+
+export interface BenchmarkTestFnArguments {
+    arguments?: unknown[];
+    restArguments?: unknown[];
+}
 
 export interface BenchmarkCallbacks {
+    /**
+     * Called before testing the testFn in adjust-benchmarking stage and formal-benchmarking stage.
+     */
+    onGetArguments?: () => BenchmarkTestFnArguments;
+    /**
+     * Called before testing the testFn in pre-benchmarking stage.
+     */
+    onGetArgumentsInPrebenchmarkStage?: () => BenchmarkTestFnArguments | BenchmarkTestFnArguments[];
     /**
      * Called when benchmark starts running.
      */
@@ -37,15 +50,23 @@ export interface BenchmarkSettings {
      */
     initCount?: number;
     /**
-     * The maximum time preparing is allowed to run before benchmarking (ms).
+     * The maximum time a benchmark is allowed to run in adjust-benchmarking stage (ms).
      *
-     * Default is `50`.
+     * Default is `100`.
+     *
+     * Note: Cycle delays aren't counted toward the maximum time.
+     */
+    maxAdjustTime?: Millisecond;
+    /**
+     * The maximum time a benchmark is allowed to run in pre-benchmarking stage (ms).
+     *
+     * Default is `10`.
      *
      * Note: Cycle delays aren't counted toward the maximum time.
      */
     maxPreparingTime?: Millisecond;
     /**
-     * The maximum time a benchmark is allowed to run before finishing (ms).
+     * The maximum time a benchmark is allowed to run in formal-benchmarking stage (ms).
      *
      * Default is `5_000`.
      *
@@ -66,4 +87,13 @@ export interface BenchmarkSettings {
     minTime?: Millisecond;
 }
 
-export interface BenchmarkOptions extends BenchmarkCallbacks, BenchmarkSettings {}
+export interface BenchmarkTestFnArgumentOptions {
+    count?: number;
+    rest?: boolean;
+}
+
+export interface BenchmarkTestFnOptions {
+    argument?: BenchmarkTestFnArgumentOptions;
+}
+
+export interface BenchmarkOptions extends BenchmarkCallbacks, BenchmarkSettings, BenchmarkTestFnOptions {}
