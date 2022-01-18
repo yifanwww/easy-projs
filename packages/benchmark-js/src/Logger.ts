@@ -52,4 +52,17 @@ export class Logger {
     public warn = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Warn, ...message);
 
     public write = (...message: unknown[]) => this._log(false, ...message);
+
+    public writeLines(lines: string | string[]): void {
+        let _lines: string[];
+        if (!Array.isArray(lines)) {
+            _lines = lines.split('\n');
+        } else {
+            _lines = lines.join('\n').split('\n');
+        }
+
+        for (const line of _lines) {
+            this.write(line);
+        }
+    }
 }

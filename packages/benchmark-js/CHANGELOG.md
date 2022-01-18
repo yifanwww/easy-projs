@@ -5,6 +5,7 @@
 - Run pre-benchmarking double times for optimization.
 - Improve the accuracy of the minimum duration time.
 - Add method `BenchmarkGroup.setEmptyTest` to get the maximum ops as a base line.
+- Add methods `Benchmark.writeTesterCode` and `BenchmarkGroup.writeTestersCode` to print the tester source code.
 
 ### Bug Fixes
 

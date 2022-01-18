@@ -226,4 +226,9 @@ export class Benchmark {
     public writeResult(): void {
         this.logger.write(this.toString());
     }
+
+    public writeTesterCode(): void {
+        this.logger.writeLines(this.tester.toString());
+        this.logger.write();
+    }
 }
