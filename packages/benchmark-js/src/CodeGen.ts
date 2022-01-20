@@ -2,19 +2,19 @@ import { TestFn } from './types';
 import { Hrtime } from './types.internal';
 
 export interface TesterContext {
-    arguments?: unknown[];
+    args?: unknown[];
     count: number;
-    restArguments?: unknown[];
+    restArgs?: unknown[];
     setup?: () => void;
     teardown?: () => void;
     testFn: TestFn;
 }
 
-export type Tester = (context: TesterContext) => Hrtime;
+export type Tester = (context: TesterContext) => { elapsed: Hrtime };
 
 export interface CodeGenArgumentOptions {
     count: number;
-    rest: boolean;
+    rest?: boolean;
 }
 
 export interface CodeGenOptions {
@@ -34,21 +34,18 @@ export class CodeGen {
         CodeGen.cgid++;
         this.id = CodeGen.cgid.toString();
 
-        this.argument = {
-            count: options.argument.count,
-            rest: options.argument.rest,
-        };
+        this.argument = options.argument;
     }
 
     private generatePickArguments(): string {
         const code: string[] = [];
 
         for (let i = 0; i < this.argument.count; i++) {
-            code.push(`const arg${i}_# = context#.arguments[${i}];`);
+            code.push(`const arg${i}_# = context#.args[${i}];`);
         }
 
         if (this.argument.rest) {
-            code.push('const restArg# = context#.restArguments;');
+            code.push('const restArg# = context#.restArgs;');
         }
 
         return code.join('\n');
@@ -86,15 +83,17 @@ const testFn# = context#.testFn;
 
 ${this.generatePickArguments()}
 
+let return#;
+
 const begin# = process.hrtime();
 for (let i# = 0; i# < context#.count; i#++) {
-${this.generateTestFnCall()}
+return# = ${this.generateTestFnCall()};
 }
 const elapsed# = process.hrtime(begin#);
 
 context#.teardown?.();
 
-return elapsed#;
+return { elapsed: elapsed#, _internal_return: return# };
 `,
         );
 

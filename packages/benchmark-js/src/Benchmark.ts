@@ -204,16 +204,16 @@ export class Benchmark {
         preOrAdjust?: boolean,
     ): void {
         const testerContext: TesterContext = {
-            arguments: args?.arguments,
+            args: args?.arguments,
             count: this.count,
-            restArguments: args?.restArguments,
+            restArgs: args?.restArguments,
             testFn: this.testFn,
         };
 
         let duration: _Nanosecond = Time.ns(0);
         while (true) {
             testerContext.count = this.count;
-            const used = Time.hrtime2ns(this.tester(testerContext));
+            const used = Time.hrtime2ns(this.tester(testerContext).elapsed);
 
             const elapsed = Time.ns(used / this.count);
 
