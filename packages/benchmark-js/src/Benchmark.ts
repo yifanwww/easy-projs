@@ -1,11 +1,10 @@
 import { CodeGen, Tester, TesterContext } from './CodeGen';
-import { tTable } from './constants';
 import { Formatter } from './Formatter';
 import { BenchmarkLoggerLevel, Logger } from './Logger';
+import { Stats } from './Stats';
 import { Time } from './TimeTool';
-import { genStr, getMean, getVariance } from './tools';
 import { BenchmarkOptions, BenchmarkTestFnArguments, BenchmarkTestFnOptions, TestFn } from './types';
-import { BenchmarkStats, _BenchmarkSettings, _Nanosecond } from './types.internal';
+import { _BenchmarkSettings, _Nanosecond } from './types.internal';
 
 export class Benchmark {
     private static minTime: _Nanosecond = Time.ns(Math.max(Time.minResolution * 100, 50_000_000));
@@ -25,16 +24,8 @@ export class Benchmark {
     private settings: Required<_BenchmarkSettings>;
     private testFnOptions: DeepRequired<BenchmarkTestFnOptions>;
 
-    private stats: BenchmarkStats = {
-        deviation: 0,
-        mean: Time.ns(0),
-        moe: 0,
-        ops: 0,
-        rme: 0,
-        sample: [],
-        sem: 0,
-        variance: 0,
-    };
+    private samples: _Nanosecond[] = [];
+    private stats: Stats[] = [];
 
     /**
      * A flag to indicate if the benchmark is running.
@@ -145,9 +136,9 @@ export class Benchmark {
         this.adjustBenchmarking();
         this.formalBenchmarking();
 
-        this.evaluate();
+        this.stats.push(new Stats(this.samples));
 
-        this.logger.info(this.toString());
+        this.logger.info(this.stats[this.stats.length - 1].toString());
         this.logger.info();
 
         this.onComplete?.();
@@ -159,12 +150,11 @@ export class Benchmark {
 
     private logTestData() {
         const { maxTime, minSamples, minTime } = this.settings;
-        const { sample } = this.stats;
 
-        const len = sample.length;
+        const len = this.samples.length;
         const maxLen = Math.max(minSamples, maxTime / minTime).toString().length;
 
-        this.logger.debug(`${len.toString().padStart(maxLen)}> elapsed: ${sample[len - 1].toFixed(6)} ns`);
+        this.logger.debug(`${len.toString().padStart(maxLen)}> elapsed: ${this.samples[len - 1].toFixed(6)} ns`);
     }
 
     private logCountChanging(from: number, to: number) {
@@ -217,7 +207,7 @@ export class Benchmark {
 
             const elapsed = Time.ns(used / this.count);
 
-            if (!preOrAdjust) this.stats.sample.push(elapsed);
+            if (!preOrAdjust) this.samples.push(elapsed);
             if (!preOrAdjust) this.logTestData();
 
             // Calculate how many more iterations it will take to achieve the `minTime`.
@@ -232,56 +222,23 @@ export class Benchmark {
             if (preOrAdjust) {
                 if (duration >= maxTime) break;
             } else {
-                if (duration >= maxTime && this.stats.sample.length >= this.settings.minSamples) break;
+                if (duration >= maxTime && this.samples.length >= this.settings.minSamples) break;
             }
 
             Time.sleep(this.settings.delay);
         }
     }
 
-    /**
-     * Computes stats on benchmark results.
-     */
-    private evaluate(): void {
-        const size = this.stats.sample.length;
-
-        const mean = getMean(this.stats.sample);
-        const variance = getVariance(this.stats.sample, mean);
-        const deviation = Math.sqrt(variance);
-        const sem = deviation / Math.sqrt(size);
-        const critical = tTable[size - 1] ?? tTable.infinity;
-        const moe = sem * critical;
-        const rme = (moe / mean) * 100 ?? 0;
-
-        const ops = 1e9 / mean;
-
-        this.stats = {
-            deviation,
-            mean,
-            moe,
-            ops,
-            rme,
-            sample: this.stats.sample,
-            sem,
-            variance,
-        };
-    }
-
-    /**
-     * Displays relevant benchmark information when coerced to a string.
-     * @returns A string representation of the benchmark instance.
-     */
-    public toString(): string {
-        const size = this.stats.sample.length;
-
-        const opsStr = Formatter.beautifyNumber(this.stats.ops.toFixed(this.stats.ops < 100 ? 2 : 0));
-        const rmeStr = this.stats.rme.toFixed(2);
-
-        return genStr(`${opsStr} ops/sec`, ` ${rmeStr}%`, ` (${size} sample${size > 1 ? 's' : ''})`);
-    }
-
     public writeResult(): void {
-        this.logger.write(this.toString());
+        if (this.stats.length === 0) return;
+
+        if (this.stats.length === 1) {
+            this.logger.write(this.stats[0].toString());
+        } else {
+            for (let i = 0; i < this.stats.length; i++) {
+                this.logger.write(this.stats[i].toString(i));
+            }
+        }
     }
 
     public writeTesterCode(): void {

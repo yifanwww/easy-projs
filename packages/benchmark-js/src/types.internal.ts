@@ -14,42 +14,4 @@ export interface _BenchmarkSettings {
     minTime?: _Nanosecond;
 }
 
-/**
- * An object of stats including mean, margin or error, and standard deviation.
- */
-export interface BenchmarkStats {
-    /**
-     * The sample standard deviation.
-     */
-    deviation: number;
-    /**
-     * The sample arithmetic mean (secs).
-     */
-    mean: _Nanosecond;
-    /**
-     * The margin of error.
-     */
-    moe: number;
-    /**
-     * The number of executions per second.
-     */
-    ops: number;
-    /**
-     * The relative margin of error (expressed as a percentage of the mean).
-     */
-    rme: number;
-    /**
-     * The array of sampled periods.
-     */
-    sample: _Nanosecond[];
-    /**
-     * The standard error of the mean (a.k.a. the standard deviation of the sampling distribution of the sample mean).
-     */
-    sem: number;
-    /**
-     * The sample variance.
-     */
-    variance: number;
-}
-
 export type Hrtime = [number, number];

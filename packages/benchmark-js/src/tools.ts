@@ -1,7 +1,5 @@
 import { _Nanosecond } from './types.internal';
 
-export const genStr = <T extends (string | false | undefined | null)[]>(...args: T) => args.filter(Boolean).join('');
-
 export function sleepAsync(time: number): Promise<void> {
     return new Promise((resolve) => {
         setTimeout(resolve, time * 1e3);
