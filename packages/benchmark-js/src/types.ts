@@ -75,9 +75,17 @@ export interface BenchmarkSettings {
 }
 
 export type TestFnArgumentValues = unknown[];
+export type TestFnArgumentsValues = Array<TestFnArgumentValues | undefined>;
 
 export interface BenchmarkTestFnOptions {
-    args?: TestFnArgumentValues[];
+    /**
+     * Used for adjust-benchmarking and fomal-benchmarking.
+     */
+    args?: TestFnArgumentsValues;
+    /**
+     * Used for pre-benchmarking. The arguments provided in `args` will be also added into `preArgs`.
+     */
+    preArgs?: TestFnArgumentsValues;
 }
 
 export interface BenchmarkOptions extends BenchmarkCallbacks, BenchmarkSettings, BenchmarkTestFnOptions {}
