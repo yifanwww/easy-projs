@@ -76,7 +76,7 @@ export class Stats {
         const rmeStr = this._rme.toFixed(2);
 
         return [
-            order ? `${order} >` : '',
+            order === undefined ? '' : `${order}> `,
             `${opsStr} ops/sec`,
             ` ${rmeStr}%`,
             ` (${size} sample${size > 1 ? 's' : ''})`,

@@ -12,20 +12,7 @@ export type Nanosecond = number & {};
 
 export type TestFn = (...args: never[]) => void;
 
-export interface BenchmarkTestFnArguments {
-    arguments?: unknown[];
-    restArguments?: unknown[];
-}
-
 export interface BenchmarkCallbacks {
-    /**
-     * Called before testing the testFn in adjust-benchmarking stage and formal-benchmarking stage.
-     */
-    onGetArguments?: () => BenchmarkTestFnArguments;
-    /**
-     * Called before testing the testFn in pre-benchmarking stage.
-     */
-    onGetArgumentsInPrebenchmarkStage?: () => BenchmarkTestFnArguments | BenchmarkTestFnArguments[];
     /**
      * Called when benchmark starts running.
      */
@@ -87,13 +74,10 @@ export interface BenchmarkSettings {
     minTime?: Millisecond;
 }
 
-export interface BenchmarkTestFnArgumentOptions {
-    count?: number;
-    rest?: boolean;
-}
+export type TestFnArgumentValues = unknown[];
 
 export interface BenchmarkTestFnOptions {
-    argument?: BenchmarkTestFnArgumentOptions;
+    args?: TestFnArgumentValues[];
 }
 
 export interface BenchmarkOptions extends BenchmarkCallbacks, BenchmarkSettings, BenchmarkTestFnOptions {}

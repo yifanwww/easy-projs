@@ -2,9 +2,10 @@ import { CodeGen, Tester, TesterContext } from './CodeGen';
 import { Formatter } from './Formatter';
 import { BenchmarkLoggerLevel, Logger } from './Logger';
 import { Stats } from './Stats';
+import { TestFnOptions } from './TestFnOptions';
 import { Time } from './TimeTool';
-import { BenchmarkOptions, BenchmarkTestFnArguments, BenchmarkTestFnOptions, TestFn } from './types';
-import { _BenchmarkSettings, _Nanosecond } from './types.internal';
+import { BenchmarkCallbacks, BenchmarkOptions, TestFn } from './types';
+import { _BenchmarkSettings, _Nanosecond, _TestFnArguments } from './types.internal';
 
 export class Benchmark {
     private static minTime: _Nanosecond = Time.ns(Math.max(Time.minResolution * 100, 50_000_000));
@@ -15,14 +16,11 @@ export class Benchmark {
     private testFn: TestFn;
     private tester: Tester;
 
-    private onGetArguments: Optional<() => BenchmarkTestFnArguments>;
-    private onGetArgumentsInPrebenchmarkStage: Optional<() => BenchmarkTestFnArguments | BenchmarkTestFnArguments[]>;
-
-    private onComplete: Optional<() => void>;
-    private onStart: Optional<() => void>;
+    private onComplete: Optional<BenchmarkCallbacks['onComplete']>;
+    private onStart: Optional<BenchmarkCallbacks['onStart']>;
 
     private settings: Required<_BenchmarkSettings>;
-    private testFnOptions: DeepRequired<BenchmarkTestFnOptions>;
+    private testFnOptions: TestFnOptions;
 
     private samples: _Nanosecond[] = [];
     private stats: Stats[] = [];
@@ -48,7 +46,7 @@ export class Benchmark {
         this.testFn = testFn;
 
         const {
-            argument,
+            args = [],
             delay = 5,
             initCount = 1,
             maxAdjustTime = 10,
@@ -57,13 +55,8 @@ export class Benchmark {
             minSamples = 5,
             minTime = 0,
             onComplete = null,
-            onGetArguments = null,
-            onGetArgumentsInPrebenchmarkStage = null,
             onStart = null,
         } = options ?? {};
-
-        this.onGetArguments = onGetArguments;
-        this.onGetArgumentsInPrebenchmarkStage = onGetArgumentsInPrebenchmarkStage;
 
         this.onComplete = onComplete;
         this.onStart = onStart;
@@ -78,18 +71,13 @@ export class Benchmark {
             minTime: minTime === 0 ? Benchmark.minTime : Time.ms2ns(minTime),
         };
 
-        this.testFnOptions = {
-            argument: {
-                count: argument?.count ? Math.max(0, argument.count) : 0,
-                rest: argument?.rest ?? false,
-            },
-        };
+        this.testFnOptions = new TestFnOptions({ args });
 
         // Gets a totally new function to test the performance of `testFn`.
         // Passing different callbacks into one same function who calls the callbacks will cause a optimization problem.
         // See "src/test/dynamicCall.ts".
         this.tester = CodeGen.createTester({
-            argument: this.testFnOptions.argument,
+            argument: { count: this.testFnOptions.argsCount },
         });
 
         this.count = this.settings.initCount;
@@ -128,18 +116,31 @@ export class Benchmark {
 
         this.onStart?.();
 
-        this.preBenchmarking();
+        if (this.testFnOptions.argsGroupsCount === 0) {
+            this.adjustBenchmarking();
+            this.formalBenchmarking();
 
-        // Reset variables before adjust-benchmarking and benchmarking.
-        // this.stats.sample = [];
-        this.count = this.settings.initCount;
-        this.adjustBenchmarking();
-        this.formalBenchmarking();
+            this.stats.push(new Stats(this.samples));
 
-        this.stats.push(new Stats(this.samples));
+            this.logger.info(this.stats[this.stats.length - 1].toString());
+            this.logger.info();
+        } else {
+            this.preBenchmarking();
 
-        this.logger.info(this.stats[this.stats.length - 1].toString());
-        this.logger.info();
+            for (const args of this.testFnOptions.args) {
+                // Reset variables before adjust-benchmarking and benchmarking.
+                this.samples = [];
+                this.count = this.settings.initCount;
+
+                this.adjustBenchmarking(args);
+                this.formalBenchmarking(args);
+
+                this.stats.push(new Stats(this.samples));
+
+                this.logger.info(this.stats[this.stats.length - 1].toString());
+                this.logger.info();
+            }
+        }
 
         this.onComplete?.();
 
@@ -162,41 +163,29 @@ export class Benchmark {
     }
 
     private preBenchmarking(): void {
-        const args = this.onGetArgumentsInPrebenchmarkStage?.();
-        if (!args) return;
-
         this.logger.info('Start pre-benchmarking...');
-        for (const arg of Array.isArray(args) ? args : [args]) {
-            this.benchmarking(this.settings.maxPreparingTime, arg, true);
+        for (const args of this.testFnOptions.args) {
+            this.benchmarking(this.settings.maxPreparingTime, args, true);
         }
         this.logger.info('Finished pre-benchmarking.');
     }
 
-    private adjustBenchmarking(): void {
-        const args = this.onGetArguments?.();
-
+    private adjustBenchmarking(args?: _TestFnArguments): void {
         this.logger.info('Start adjust-benchmarking...');
         this.benchmarking(this.settings.maxAdjustTime, args, true);
         this.logger.info('Finished adjust-benchmarking.');
     }
 
-    private formalBenchmarking(): void {
-        const args = this.onGetArguments?.();
-
+    private formalBenchmarking(args?: _TestFnArguments): void {
         this.logger.info('Start formal-benchmarking...');
         this.benchmarking(this.settings.maxTime, args);
         this.logger.info('Finished formal-benchmarking.');
     }
 
-    private benchmarking(
-        maxTime: _Nanosecond,
-        args: BenchmarkTestFnArguments | undefined,
-        preOrAdjust?: boolean,
-    ): void {
+    private benchmarking(maxTime: _Nanosecond, args?: _TestFnArguments, preOrAdjust?: boolean): void {
         const testerContext: TesterContext = {
-            args: args?.arguments,
+            args,
             count: this.count,
-            restArgs: args?.restArguments,
             testFn: this.testFn,
         };
 
@@ -236,13 +225,14 @@ export class Benchmark {
             this.logger.write(this.stats[0].toString());
         } else {
             for (let i = 0; i < this.stats.length; i++) {
-                this.logger.write(this.stats[i].toString(i));
+                this.logger.write(this.stats[i].toString(i + 1));
             }
         }
     }
 
     public writeTesterCode(): void {
-        this.logger.writeLines(this.tester.toString());
-        this.logger.write();
+        this.logger.debug('testFn code:');
+        this.logger.debug(this.tester.toString());
+        this.logger.debug();
     }
 }

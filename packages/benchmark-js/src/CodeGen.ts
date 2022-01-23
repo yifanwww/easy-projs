@@ -1,10 +1,10 @@
 import { TestFn } from './types';
-import { Hrtime } from './types.internal';
+import { Hrtime, _TestFnArguments } from './types.internal';
 
 export interface TesterContext {
-    args?: unknown[];
+    args?: _TestFnArguments;
     count: number;
-    restArgs?: unknown[];
+    restArgs?: _TestFnArguments;
     setup?: () => void;
     teardown?: () => void;
     testFn: TestFn;

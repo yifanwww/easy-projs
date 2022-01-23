@@ -7,62 +7,71 @@ export enum BenchmarkLoggerLevel {
     Error = 'error',
 }
 
-const LoggerOrder = {
+const loggerOrder = {
     [BenchmarkLoggerLevel.Debug]: 1,
     [BenchmarkLoggerLevel.Error]: 2,
     [BenchmarkLoggerLevel.Info]: 3,
     [BenchmarkLoggerLevel.Warn]: 4,
+    always: 5,
 };
 
-const ChalkColor = {
-    [BenchmarkLoggerLevel.Debug]: chalk.grey,
-    [BenchmarkLoggerLevel.Error]: chalk.red,
-    [BenchmarkLoggerLevel.Info]: chalk.white,
-    [BenchmarkLoggerLevel.Warn]: chalk.yellow,
+type ChalkMiddle = (value: string) => string;
+
+const chalkMiddles = {
+    [BenchmarkLoggerLevel.Debug]: chalk.grey as ChalkMiddle,
+    [BenchmarkLoggerLevel.Error]: chalk.red as ChalkMiddle,
+    [BenchmarkLoggerLevel.Info]: chalk.white as ChalkMiddle,
+    [BenchmarkLoggerLevel.Warn]: chalk.yellow as ChalkMiddle,
+    always: ((value: string) => value) as ChalkMiddle,
 };
 
 export class Logger {
     public static level = BenchmarkLoggerLevel.Warn;
 
-    private _name: string;
+    private name: string;
 
     public constructor(name: string) {
-        this._name = `[${name}]`;
+        this.name = `[${name}] `;
     }
 
-    private _log(level: BenchmarkLoggerLevel | false, ...message: unknown[]) {
-        let msgs: unknown[];
-        if (message.length === 0) msgs = message;
-        else msgs = [this._name, ...message];
-
-        if (level === false) {
-            // eslint-disable-next-line no-console
-            console.info(...msgs);
+    private logSingleLine(level: BenchmarkLoggerLevel | 'always', value?: string): void {
+        if (level === BenchmarkLoggerLevel.Error) {
+            if (value) {
+                process.stderr.write(chalkMiddles[level](this.name));
+                process.stderr.write(chalkMiddles[level](value));
+            }
+            process.stderr.write('\n');
         } else {
-            if (LoggerOrder[level] < LoggerOrder[Logger.level]) return;
-
-            // eslint-disable-next-line no-console
-            console[level](ChalkColor[level](...msgs));
+            if (value) {
+                process.stdout.write(chalkMiddles[level](this.name));
+                process.stdout.write(chalkMiddles[level](value));
+            }
+            process.stdout.write('\n');
         }
     }
 
-    public debug = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Debug, ...message);
-    public error = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Error, ...message);
-    public info = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Info, ...message);
-    public warn = (...message: unknown[]) => this._log(BenchmarkLoggerLevel.Warn, ...message);
+    private logMultiLine(level: BenchmarkLoggerLevel | 'always', value: string): void {
+        const lines = value.split('\n');
 
-    public write = (...message: unknown[]) => this._log(false, ...message);
+        for (const line of lines) {
+            this.logSingleLine(level, line);
+        }
+    }
 
-    public writeLines(lines: string | string[]): void {
-        let _lines: string[];
-        if (!Array.isArray(lines)) {
-            _lines = lines.split('\n');
+    private log(level: BenchmarkLoggerLevel | 'always', value?: string): void {
+        if (loggerOrder[level] < loggerOrder[Logger.level]) return;
+
+        if (value?.includes('\n')) {
+            this.logMultiLine(level, value);
         } else {
-            _lines = lines.join('\n').split('\n');
-        }
-
-        for (const line of _lines) {
-            this.write(line);
+            this.logSingleLine(level, value);
         }
     }
+
+    public debug = (value?: string) => this.log(BenchmarkLoggerLevel.Debug, value);
+    public error = (value?: string) => this.log(BenchmarkLoggerLevel.Error, value);
+    public info = (value?: string) => this.log(BenchmarkLoggerLevel.Info, value);
+    public warn = (value?: string) => this.log(BenchmarkLoggerLevel.Warn, value);
+
+    public write = (value?: string) => this.log('always', value);
 }
