@@ -10,14 +10,4 @@ export type _TestFnArguments = _TestFnArgument[];
 
 export type _TestFnArgumentValues = _TestFnArgument[];
 
-export interface _BenchmarkSettings {
-    delay?: _Nanosecond;
-    initCount?: number;
-    maxAdjustTime?: _Nanosecond;
-    maxPreparingTime?: _Nanosecond;
-    maxTime?: _Nanosecond;
-    minSamples?: number;
-    minTime?: _Nanosecond;
-}
-
 export type Hrtime = [number, number];

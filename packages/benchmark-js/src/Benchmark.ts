@@ -1,15 +1,13 @@
 import { CodeGen, Tester, TesterContext } from './CodeGen';
 import { Formatter } from './Formatter';
 import { BenchmarkLoggerLevel, Logger } from './Logger';
+import { Settings, TestFnOptions } from './options';
 import { Stats } from './Stats';
-import { TestFnOptions } from './TestFnOptions';
 import { Time } from './TimeTool';
 import { BenchmarkCallbacks, BenchmarkOptions, TestFn } from './types';
-import { _BenchmarkSettings, _Nanosecond, _TestFnArguments } from './types.internal';
+import { _Nanosecond, _TestFnArguments } from './types.internal';
 
 export class Benchmark {
-    private static minTime: _Nanosecond = Time.ns(Math.max(Time.minResolution * 100, 50_000_000));
-
     private logger: Logger;
 
     private name: string;
@@ -19,7 +17,7 @@ export class Benchmark {
     private onComplete: Optional<BenchmarkCallbacks['onComplete']>;
     private onStart: Optional<BenchmarkCallbacks['onStart']>;
 
-    private settings: Required<_BenchmarkSettings>;
+    private settings: Settings;
     private testFnOptions: TestFnOptions;
 
     private samples: _Nanosecond[] = [];
@@ -50,31 +48,11 @@ export class Benchmark {
         this.onComplete = onComplete;
         this.onStart = onStart;
 
-        const {
-            delay = 5,
-            initCount = 1,
-            maxAdjustTime = 10,
-            maxPreparingTime = 100,
-            maxTime = 5_000,
-            minSamples = 5,
-            minTime = 0,
-        } = options;
-
-        this.settings = {
-            delay: Time.ms2ns(delay),
-            initCount,
-            maxAdjustTime: Time.ms2ns(maxAdjustTime),
-            maxPreparingTime: Time.ms2ns(maxPreparingTime),
-            maxTime: Time.ms2ns(maxTime),
-            minSamples,
-            minTime: minTime === 0 ? Benchmark.minTime : Time.ms2ns(minTime),
-        };
+        this.settings = new Settings(options);
 
         this.count = this.settings.initCount;
 
-        const { args = [], preArgs = [] } = options;
-
-        this.testFnOptions = new TestFnOptions({ args, preArgs });
+        this.testFnOptions = new TestFnOptions(options);
 
         // Gets a totally new function to test the performance of `testFn`.
         // Passing different callbacks into one same function who calls the callbacks will cause a optimization problem.
@@ -171,6 +149,7 @@ export class Benchmark {
             this.benchmarking(this.settings.maxPreparingTime, args, true);
         }
         this.logger.info('Finished pre-benchmarking.');
+        this.logger.info();
     }
 
     private adjustBenchmarking(args?: _TestFnArguments): void {
