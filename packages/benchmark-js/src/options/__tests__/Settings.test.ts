@@ -5,7 +5,7 @@ describe(`test class \`${Settings.name}\``, () => {
         const settings = new Settings({});
 
         expect(settings.delay).toBe(5_000_000);
-        expect(settings.initOpsCount).toBe(1);
+        expect(settings.initOps).toBe(16);
         expect(settings.minSampleTime).toBe(100_000_000);
         expect(settings.samplesCount).toBe(15);
     });
@@ -13,13 +13,13 @@ describe(`test class \`${Settings.name}\``, () => {
     it('gets custom settings', () => {
         const settings = new Settings({
             delay: 1,
-            initOpsCount: 100,
+            initOps: 100,
             minSampleTime: 25,
             samplesCount: 10,
         });
 
         expect(settings.delay).toBe(1_000_000);
-        expect(settings.initOpsCount).toBe(100);
+        expect(settings.initOps).toBe(100);
         expect(settings.minSampleTime).toBe(25_000_000);
         expect(settings.samplesCount).toBe(10);
     });

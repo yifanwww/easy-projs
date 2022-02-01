@@ -33,21 +33,21 @@ export interface BenchmarkJobSettings {
     /**
      * The initial number of ops to run in a benchmark.
      *
-     * Default is `1`.
+     * Default is `16`.
      */
-    initOpsCount?: number;
-    /**
-     * The count of samples required to perform statistical analysis.
-     *
-     * Default is `15`.
-     */
-    samplesCount?: number;
+    initOps?: number;
     /**
      * The minimum time a benchmark uses.
      *
      * Default is `100`.
      */
     minSampleTime?: Millisecond;
+    /**
+     * The count of samples required to perform statistical analysis.
+     *
+     * Default is `15`.
+     */
+    samplesCount?: number;
 }
 
 /**

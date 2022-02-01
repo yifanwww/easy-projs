@@ -1,5 +1,5 @@
 export enum StagePrefix {
-    Jitting /* */ = 'Jitting',
-    Pilot /*   */ = 'Pilot  ',
-    Formal /*  */ = 'Formal ',
+    Jitting /* */ = 'Jitting ',
+    Pilot /*   */ = 'Pilot   ',
+    Formal /*  */ = 'Formal  ',
 }
