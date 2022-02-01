@@ -19,7 +19,7 @@
   - `@easy/project-template-browser-react`  -> `@easy/template-proj-browser-react`
   - `@easy/project-template-nodejs`         -> `@easy/template-proj-nodejs`
 - Upgrade
-  - `@easy/benchmark-js`  v0.1.0    -> `@easy/benchmark-js` v0.2.0
+  - `@easy/benchmark-js`  v0.1.0    -> `@easy/benchmark-js` v0.3.0
 
 ### Dependency Changes
 
