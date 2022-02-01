@@ -10,7 +10,7 @@ export type Millisecond = number & {};
  */
 export type Nanosecond = number & {};
 
-export type TestFn = () => void;
+export type TestFn = (...args: never[]) => void;
 
 export interface BenchmarkCallbacks {
     /**
@@ -37,15 +37,23 @@ export interface BenchmarkSettings {
      */
     initCount?: number;
     /**
-     * The maximum time preparing is allowed to run before benchmarking (ms).
+     * The maximum time a benchmark is allowed to run in adjust-benchmarking stage (ms).
      *
-     * Default is `50`.
+     * Default is `100`.
+     *
+     * Note: Cycle delays aren't counted toward the maximum time.
+     */
+    maxAdjustTime?: Millisecond;
+    /**
+     * The maximum time a benchmark is allowed to run in pre-benchmarking stage (ms).
+     *
+     * Default is `10`.
      *
      * Note: Cycle delays aren't counted toward the maximum time.
      */
     maxPreparingTime?: Millisecond;
     /**
-     * The maximum time a benchmark is allowed to run before finishing (ms).
+     * The maximum time a benchmark is allowed to run in formal-benchmarking stage (ms).
      *
      * Default is `5_000`.
      *
@@ -66,4 +74,18 @@ export interface BenchmarkSettings {
     minTime?: Millisecond;
 }
 
-export interface BenchmarkOptions extends BenchmarkCallbacks, BenchmarkSettings {}
+export type TestFnArgumentValues = unknown[];
+export type TestFnArgumentsValues = Array<TestFnArgumentValues | undefined>;
+
+export interface BenchmarkTestFnOptions {
+    /**
+     * Used for adjust-benchmarking and fomal-benchmarking.
+     */
+    args?: TestFnArgumentsValues;
+    /**
+     * Used for pre-benchmarking. The arguments provided in `args` will be also added into `preArgs`.
+     */
+    preArgs?: TestFnArgumentsValues;
+}
+
+export interface BenchmarkOptions extends BenchmarkCallbacks, BenchmarkSettings, BenchmarkTestFnOptions {}

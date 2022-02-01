@@ -1,6 +1,6 @@
 {
     "name": "@easy/benchmark-js",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "A benchmark tool to test javascript performance.",
     "main": "lib-commonjs/index.js",
     "module": "lib/index.js",

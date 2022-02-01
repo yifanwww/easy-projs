@@ -1,52 +1,103 @@
 import { TestFn } from './types';
-import { Hrtime } from './types.internal';
+import { Hrtime, _TestFnArguments } from './types.internal';
 
 export interface TesterContext {
+    args?: _TestFnArguments;
     count: number;
+    restArgs?: _TestFnArguments;
     setup?: () => void;
     teardown?: () => void;
     testFn: TestFn;
 }
 
-export type Tester = (context: TesterContext) => Hrtime;
+export type Tester = (context: TesterContext) => { elapsed: Hrtime };
+
+export interface CodeGenArgumentOptions {
+    count: number;
+    rest?: boolean;
+}
+
+export interface CodeGenOptions {
+    argument: CodeGenArgumentOptions;
+}
 
 export class CodeGen {
     private static cgid: number = 0;
 
+    public static createTester = (options: CodeGenOptions) => new CodeGen(options).createTester();
+
     private id: string;
 
-    public static createTester = () => new CodeGen().createTester();
+    private argument: CodeGenArgumentOptions;
 
-    public constructor() {
+    public constructor(options: CodeGenOptions) {
         CodeGen.cgid++;
         this.id = CodeGen.cgid.toString();
+
+        this.argument = options.argument;
     }
 
-    private interpolate(str: string) {
-        return str.replace(/#/g, this.id);
+    private generatePickArguments(): string {
+        const code: string[] = [];
+
+        for (let i = 0; i < this.argument.count; i++) {
+            code.push(`const arg${i}_# = context#.args[${i}];`);
+        }
+
+        if (this.argument.rest) {
+            code.push('const restArg# = context#.restArgs;');
+        }
+
+        return code.join('\n');
+    }
+
+    private generateTestFnCall(): string {
+        const code: string[] = [];
+
+        for (let i = 0; i < this.argument.count; i++) {
+            code.push(`arg${i}_#`);
+        }
+
+        if (this.argument.rest) {
+            code.push('restArg#');
+        }
+
+        return `testFn#(${code.join(', ')})`;
+    }
+
+    private interpolate = (str: string) => str.replace(/#/g, this.id);
+
+    private removeEmptyLines(str: string) {
+        return str
+            .split('\n')
+            .filter((value) => value !== '')
+            .join('\n');
     }
 
     public createTester(): Tester {
-        // eslint-disable-next-line @typescript-eslint/no-implied-eval
-        return Function(
-            this.interpolate('context#'),
-            this.interpolate(
-                `
+        const body = this.removeEmptyLines(
+            `
 context#.setup?.();
 
 const testFn# = context#.testFn;
 
+${this.generatePickArguments()}
+
+let return#;
+
 const begin# = process.hrtime();
 for (let i# = 0; i# < context#.count; i#++) {
-    testFn#();
+return# = ${this.generateTestFnCall()};
 }
 const elapsed# = process.hrtime(begin#);
 
 context#.teardown?.();
 
-return elapsed#;
-`.trim(),
-            ),
-        ) as Tester;
+return { elapsed: elapsed#, _internal_return: return# };
+`,
+        );
+
+        // eslint-disable-next-line @typescript-eslint/no-implied-eval
+        return Function(this.interpolate('context#'), this.interpolate(body)) as Tester;
     }
 }
