@@ -45,22 +45,35 @@ export class TestFnOptions {
     private getGroupsCount(args: _TestFnArgumentValues[]): number {
         if (args.length === 0) return 0;
 
-        let res = 1;
+        let count = 1;
         for (const values of args) {
             // values.length won't be zero.
-            res *= values.length;
+            count *= values.length;
         }
 
-        return res;
+        return count;
     }
 
     private *getEnumerator(args: _TestFnArgumentValues[]) {
-        for (let i = 0; i < this._argsGroupsCount; i++) {
-            const _args: _TestFnArguments = [];
-            for (const values of args) {
-                _args.push(values[i % values.length]);
+        if (args.length > 0) {
+            let count = 1;
+
+            const base = [];
+            for (let i = args.length - 1; i >= 0; i--) {
+                base.push(count);
+                count *= args[i].length;
             }
-            yield _args;
+            base.reverse();
+
+            for (let i = 0; i < count; i++) {
+                const _args: _TestFnArguments = [];
+                for (let j = 0; j < args.length; j++) {
+                    const values = args[j];
+                    const index = Math.floor(i / base[j]) % values.length;
+                    _args.push(values[index]);
+                }
+                yield _args;
+            }
         }
     }
 
