@@ -1,16 +1,15 @@
+import { StagePrefix } from './constants';
 import { Settings, TestFnOptions } from './options';
 import { CodeGen, Tester, TesterContext } from './tools/CodeGen';
+import { ConsoleLogger, LogKind } from './tools/ConsoleLogger';
 import { Formatter } from './tools/Formatter';
-import { Logger } from './tools/Logger';
 import { Stats } from './tools/Stats';
 import { Time } from './tools/TimeTool';
 import { BenchmarkJobCallbacks, BenchmarkJobOptions, TestFn } from './types';
 import { _Nanosecond, _TestFnArguments } from './types.internal';
 
 export class BenchmarkJob {
-    private logger: Logger;
-
-    private name: string;
+    private _name: string;
     private testFn: TestFn;
     private tester: Tester;
 
@@ -24,13 +23,13 @@ export class BenchmarkJob {
     private stats: Stats[] = [];
 
     /**
-     * A flag to indicate if the benchmark is running.
+     * The number of ops to be run in a benchmark.
      */
-    private running: boolean = false;
-    /**
-     * The number of times a test was executed.
-     */
-    private count: number;
+    private ops: number;
+
+    public get name(): string {
+        return this._name;
+    }
 
     /**
      * @param name The name used to identify this test.
@@ -38,9 +37,7 @@ export class BenchmarkJob {
      * @param options The options of benchmark.
      */
     constructor(name: string, testFn: TestFn, options: BenchmarkJobOptions = {}) {
-        this.logger = new Logger(name);
-
-        this.name = name;
+        this._name = name;
         this.testFn = testFn;
 
         const { onComplete = null, onStart = null } = options;
@@ -50,7 +47,7 @@ export class BenchmarkJob {
 
         this.settings = new Settings(options);
 
-        this.count = this.settings.initCount;
+        this.ops = this.settings.initCount;
 
         this.testFnOptions = new TestFnOptions(options);
 
@@ -60,22 +57,24 @@ export class BenchmarkJob {
         this.tester = CodeGen.createTester({
             argument: { count: this.testFnOptions.argsCount },
         });
-
-        this.logConfigs();
     }
 
     private logConfigs() {
-        this.logger.debug(`delay             : ${Formatter.beautifyNumber(this.settings.delay)} ns`);
-        this.logger.debug(`initial count     : ${Formatter.beautifyNumber(this.settings.initCount)}`);
-        this.logger.debug(`max preparing time: ${Formatter.beautifyNumber(this.settings.maxPreparingTime)} ns`);
-        this.logger.debug(`max time          : ${Formatter.beautifyNumber(this.settings.maxTime)} ns`);
-        this.logger.debug(`min samples       : ${Formatter.beautifyNumber(this.settings.minSamples)}`);
-        this.logger.debug(`min time          : ${Formatter.beautifyNumber(this.settings.minTime)} ns`);
+        const { delay, initCount, maxAdjustTime, maxPreparingTime, maxTime, minSamples, minTime } = this.settings;
 
-        this.logger.debug(`${this.onComplete ? 'Has' : 'No'} callback \`onComplete\``);
-        this.logger.debug(`${this.onStart ? 'Has' : 'No'} callback \`onStart\``);
+        const logger = ConsoleLogger.default;
+        logger.writeLine(LogKind.Info, `// delay             : ${Formatter.beautifyNumber(delay)} ns`);
+        logger.writeLine(LogKind.Info, `// initial count     : ${Formatter.beautifyNumber(initCount)}`);
+        logger.writeLine(LogKind.Info, `// max preparing time: ${Formatter.beautifyNumber(maxPreparingTime)} ns`);
+        logger.writeLine(LogKind.Info, `// max adjust time   : ${Formatter.beautifyNumber(maxAdjustTime)} ns`);
+        logger.writeLine(LogKind.Info, `// max time          : ${Formatter.beautifyNumber(maxTime)} ns`);
+        logger.writeLine(LogKind.Info, `// min samples       : ${Formatter.beautifyNumber(minSamples)}`);
+        logger.writeLine(LogKind.Info, `// min time          : ${Formatter.beautifyNumber(minTime)} ns`);
 
-        this.logger.debug();
+        logger.writeLine(LogKind.Info, `// ${this.onComplete ? 'Has' : 'No'} callback \`onComplete\``);
+        logger.writeLine(LogKind.Info, `// ${this.onStart ? 'Has' : 'No'} callback \`onStart\``);
+
+        logger.writeLine();
     }
 
     /**
@@ -83,102 +82,102 @@ export class BenchmarkJob {
      * @returns The benchmark instance.
      */
     public run(): this {
-        this.running = true;
+        const logger = ConsoleLogger.default;
+        logger.writeLine(LogKind.Header, '// *************************');
+        logger.writeLine(LogKind.Header, `// Benchmark: ${this._name}`);
+
+        this.logConfigs();
 
         this.onStart?.();
 
-        this.preBenchmarking();
+        this.jitting();
 
         if (this.testFnOptions.argsGroupsCount === 0) {
-            this.adjustBenchmarking();
-            this.formalBenchmarking();
+            this.pilot();
+            ConsoleLogger.default.writeLine();
+            this.formal();
+            ConsoleLogger.default.writeLine();
 
             this.stats.push(new Stats(this.samples));
-
-            this.logger.info(this.stats[0].toString());
-            this.logger.info();
         } else {
             for (const args of this.testFnOptions.args) {
                 // Reset variables before adjust-benchmarking and benchmarking.
                 this.samples = [];
-                this.count = this.settings.initCount;
+                this.ops = this.settings.initCount;
 
-                this.adjustBenchmarking(args);
-                this.formalBenchmarking(args);
+                this.pilot(args);
+                ConsoleLogger.default.writeLine();
+                this.formal(args);
+                ConsoleLogger.default.writeLine();
 
                 this.stats.push(new Stats(this.samples));
-
-                this.logger.info(this.stats[this.stats.length - 1].toString());
-                this.logger.info();
             }
         }
 
         this.onComplete?.();
 
-        this.running = false;
-
         return this;
     }
 
-    private logTestData() {
-        const { maxTime, minSamples, minTime } = this.settings;
-
-        const len = this.samples.length;
-        const maxLen = Math.max(minSamples, maxTime / minTime).toString().length;
-
-        this.logger.debug(`${len.toString().padStart(maxLen)}> elapsed: ${this.samples[len - 1].toFixed(6)} ns`);
-    }
-
-    private logCountChanging(from: number, to: number) {
-        this.logger.debug(`count: ${Formatter.beautifyNumber(from)} -> ${Formatter.beautifyNumber(to)}`);
-    }
-
-    private preBenchmarking(): void {
+    private jitting(): void {
         if (this.testFnOptions.preArgsGroupsCount === 0) return;
 
-        this.logger.info('Start pre-benchmarking...');
         for (const args of this.testFnOptions.preArgs) {
-            this.benchmarking(this.settings.maxPreparingTime, args, true);
+            this._benchmarkImpl(StagePrefix.Jitting, this.settings.maxPreparingTime, args, true);
         }
-        this.logger.info('Finished pre-benchmarking.');
-        this.logger.info();
+        ConsoleLogger.default.writeLine();
     }
 
-    private adjustBenchmarking(args?: _TestFnArguments): void {
-        this.logger.info('Start adjust-benchmarking...');
-        this.benchmarking(this.settings.maxAdjustTime, args, true);
-        this.logger.info('Finished adjust-benchmarking.');
+    private pilot(args?: _TestFnArguments): void {
+        this._benchmarkImpl(StagePrefix.Pilot, this.settings.maxAdjustTime, args, true);
     }
 
-    private formalBenchmarking(args?: _TestFnArguments): void {
-        this.logger.info('Start formal-benchmarking...');
-        this.benchmarking(this.settings.maxTime, args);
-        this.logger.info('Finished formal-benchmarking.');
+    private formal(args?: _TestFnArguments): void {
+        this._benchmarkImpl(StagePrefix.Formal, this.settings.maxTime, args);
     }
 
-    private benchmarking(maxTime: _Nanosecond, args?: _TestFnArguments, preOrAdjust?: boolean): void {
+    private logOpsData(stagePrefix: StagePrefix, index: number, used: _Nanosecond, elapsed: _Nanosecond) {
+        const { maxTime, minSamples, minTime } = this.settings;
+        const maxLen = Math.max(minSamples, maxTime / minTime).toString().length;
+
+        ConsoleLogger.default.writeLine(
+            [
+                stagePrefix,
+                `${index.toString().padStart(maxLen)}: `,
+                `${this.ops} op, `,
+                `${used} ns, `,
+                `${elapsed.toFixed(4)} ns/op`,
+            ].join(''),
+        );
+    }
+
+    private _benchmarkImpl(
+        stagePrefix: StagePrefix,
+        maxTime: _Nanosecond,
+        args?: _TestFnArguments,
+        preOrAdjust?: boolean,
+    ): void {
         const testerContext: TesterContext = {
             args,
-            count: this.count,
+            ops: this.ops,
             testFn: this.testFn,
         };
 
         let duration: _Nanosecond = Time.ns(0);
-        while (true) {
-            testerContext.count = this.count;
+        for (let index = 1; ; index++) {
+            testerContext.ops = this.ops;
             const used = Time.hrtime2ns(this.tester(testerContext).elapsed);
 
-            const elapsed = Time.ns(used / this.count);
+            const elapsed = Time.ns(used / this.ops);
 
             if (!preOrAdjust) this.samples.push(elapsed);
-            if (!preOrAdjust) this.logTestData();
+
+            this.logOpsData(stagePrefix, index, used, elapsed);
 
             // Calculate how many more iterations it will take to achieve the `minTime`.
-            // After pre-benchmarking stage, we should get a good count number.
+            // After stage `jitting`, we should get a good count number.
             if (used < this.settings.minTime) {
-                const count = this.count + Math.ceil((this.settings.minTime - used) / elapsed);
-                this.logCountChanging(this.count, count);
-                this.count = count;
+                this.ops += Math.ceil((this.settings.minTime - used) / elapsed);
             }
 
             duration = Time.ns(duration + used);
@@ -196,10 +195,10 @@ export class BenchmarkJob {
         if (this.stats.length === 0) return;
 
         if (this.stats.length === 1) {
-            this.logger.write(this.stats[0].toString());
+            ConsoleLogger.default.writeLineStatistic(`${this._name}: ${this.stats[0].toString()}`);
         } else {
             for (let i = 0; i < this.stats.length; i++) {
-                this.logger.write(this.stats[i].toString(i + 1));
+                ConsoleLogger.default.writeLineStatistic(`${this._name}: ${this.stats[i].toString(i + 1)}`);
             }
         }
     }
