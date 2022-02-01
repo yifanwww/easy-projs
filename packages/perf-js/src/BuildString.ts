@@ -1,6 +1,4 @@
-import { Benchmark, BenchmarkGroup, BenchmarkLoggerLevel, BenchmarkTestFnOptions } from '@easy/benchmark-js';
-
-Benchmark.loggerLevel = BenchmarkLoggerLevel.Info;
+import { BenchmarkGroup, BenchmarkTestFnOptions } from '@easy/benchmark-js';
 
 const options: BenchmarkTestFnOptions = {
     args: [['a'], ['b'], ['c'], ['d'], ['e']],

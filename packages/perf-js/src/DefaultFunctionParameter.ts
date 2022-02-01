@@ -1,6 +1,4 @@
-import { Benchmark, BenchmarkGroup, BenchmarkLoggerLevel } from '@easy/benchmark-js';
-
-Benchmark.loggerLevel = BenchmarkLoggerLevel.Info;
+import { BenchmarkGroup } from '@easy/benchmark-js';
 
 function es5default(options?: string) {
     options || (options = 'hello world');

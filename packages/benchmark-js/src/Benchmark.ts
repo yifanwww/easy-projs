@@ -1,7 +1,7 @@
 import { Settings, TestFnOptions } from './options';
 import { CodeGen, Tester, TesterContext } from './tools/CodeGen';
 import { Formatter } from './tools/Formatter';
-import { BenchmarkLoggerLevel, Logger } from './tools/Logger';
+import { Logger } from './tools/Logger';
 import { Stats } from './tools/Stats';
 import { Time } from './tools/TimeTool';
 import { BenchmarkCallbacks, BenchmarkOptions, TestFn } from './types';
@@ -62,14 +62,6 @@ export class Benchmark {
         });
 
         this.logConfigs();
-    }
-
-    public static get loggerLevel(): BenchmarkLoggerLevel {
-        return Logger.level;
-    }
-
-    public static set loggerLevel(level: BenchmarkLoggerLevel) {
-        Logger.level = level;
     }
 
     private logConfigs() {

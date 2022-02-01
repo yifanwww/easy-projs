@@ -1,41 +1,29 @@
 import chalk from 'chalk';
 
-export enum BenchmarkLoggerLevel {
+export enum LogKind {
     Debug = 'debug',
     Info = 'info',
-    Warn = 'warn',
     Error = 'error',
 }
-
-const loggerOrder = {
-    [BenchmarkLoggerLevel.Debug]: 1,
-    [BenchmarkLoggerLevel.Error]: 2,
-    [BenchmarkLoggerLevel.Info]: 3,
-    [BenchmarkLoggerLevel.Warn]: 4,
-    always: 5,
-};
 
 type ChalkMiddle = (value: string) => string;
 
 const chalkMiddles = {
-    [BenchmarkLoggerLevel.Debug]: chalk.grey as ChalkMiddle,
-    [BenchmarkLoggerLevel.Error]: chalk.red as ChalkMiddle,
-    [BenchmarkLoggerLevel.Info]: chalk.white as ChalkMiddle,
-    [BenchmarkLoggerLevel.Warn]: chalk.yellow as ChalkMiddle,
+    [LogKind.Debug]: chalk.grey as ChalkMiddle,
+    [LogKind.Error]: chalk.red as ChalkMiddle,
+    [LogKind.Info]: chalk.white as ChalkMiddle,
     always: ((value: string) => value) as ChalkMiddle,
 };
 
 export class Logger {
-    public static level = BenchmarkLoggerLevel.Warn;
-
     private name: string;
 
     public constructor(name: string) {
         this.name = `[${name}] `;
     }
 
-    private logSingleLine(level: BenchmarkLoggerLevel | 'always', value?: string): void {
-        if (level === BenchmarkLoggerLevel.Error) {
+    private logSingleLine(level: LogKind | 'always', value?: string): void {
+        if (level === LogKind.Error) {
             if (value) {
                 process.stderr.write(chalkMiddles[level](this.name));
                 process.stderr.write(chalkMiddles[level](value));
@@ -50,7 +38,7 @@ export class Logger {
         }
     }
 
-    private logMultiLine(level: BenchmarkLoggerLevel | 'always', value: string): void {
+    private logMultiLine(level: LogKind | 'always', value: string): void {
         const lines = value.split('\n');
 
         for (const line of lines) {
@@ -58,9 +46,7 @@ export class Logger {
         }
     }
 
-    private log(level: BenchmarkLoggerLevel | 'always', value?: string): void {
-        if (loggerOrder[level] < loggerOrder[Logger.level]) return;
-
+    private log(level: LogKind | 'always', value?: string): void {
         if (value?.includes('\n')) {
             this.logMultiLine(level, value);
         } else {
@@ -68,10 +54,9 @@ export class Logger {
         }
     }
 
-    public debug = (value?: string) => this.log(BenchmarkLoggerLevel.Debug, value);
-    public error = (value?: string) => this.log(BenchmarkLoggerLevel.Error, value);
-    public info = (value?: string) => this.log(BenchmarkLoggerLevel.Info, value);
-    public warn = (value?: string) => this.log(BenchmarkLoggerLevel.Warn, value);
+    public debug = (value?: string) => this.log(LogKind.Debug, value);
+    public error = (value?: string) => this.log(LogKind.Error, value);
+    public info = (value?: string) => this.log(LogKind.Info, value);
 
     public write = (value?: string) => this.log('always', value);
 }

@@ -2,7 +2,11 @@
 ## @easy/benchmark-js v0.4.0 (Unreleased)
 ### Bug Fixes
 
-- Fix wrong test args passed to test fn.
+- Fix wrong test args passed to test fn
+
+### Breaking Changes
+
+- Remove `Benchmark.loggerLevel`
 
 ## @easy/benchmark-js v0.3.0 (2022-02-01)
 ### Features

@@ -1,6 +1,4 @@
-import { Benchmark, BenchmarkGroup, BenchmarkLoggerLevel } from '../src';
-
-Benchmark.loggerLevel = BenchmarkLoggerLevel.Debug;
+import { BenchmarkGroup } from '../src';
 
 const benchmark = new BenchmarkGroup();
 benchmark.setEmptyTest();
