@@ -1,5 +1,5 @@
 # CHANGELOG
-## @easy/benchmark-js v0.3.0 (Unreleased)
+## @easy/benchmark-js v0.3.0 (2022-02-01)
 ### Features
 
 - Improve the accuracy of the minimum duration time.
