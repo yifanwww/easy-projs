@@ -1,4 +1,4 @@
-import { _Nanosecond } from './types.internal';
+import { _Nanosecond } from '../types.internal';
 
 export function sleepAsync(time: number): Promise<void> {
     return new Promise((resolve) => {

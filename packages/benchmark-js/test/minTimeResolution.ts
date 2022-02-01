@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/dot-notation */
 
-import { TimeTool } from '../src/TimeTool';
+import { TimeTool } from '../src/tools/TimeTool';
 
 console.log(1, TimeTool['getMinResolution']());
 console.log(2, TimeTool['getMinResolution']());

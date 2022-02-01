@@ -1,6 +1,7 @@
+import { Millisecond } from '../types';
+import { Hrtime, _Millisecond, _Nanosecond } from '../types.internal';
+
 import { getMean } from './tools';
-import { Millisecond } from './types';
-import { Hrtime, _Millisecond, _Nanosecond } from './types.internal';
 
 export class TimeTool {
     private static accuracy = 1e6;

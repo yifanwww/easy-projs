@@ -1,4 +1,4 @@
-import { Time } from '../TimeTool';
+import { Time } from '../tools/TimeTool';
 import { BenchmarkSettings } from '../types';
 import { _Nanosecond } from '../types.internal';
 
