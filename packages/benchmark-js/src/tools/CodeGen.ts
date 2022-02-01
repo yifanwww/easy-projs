@@ -1,5 +1,5 @@
-import { TestFn } from './types';
-import { Hrtime, _TestFnArguments } from './types.internal';
+import { TestFn } from '../types';
+import { Hrtime, _TestFnArguments } from '../types.internal';
 
 export interface TesterContext {
     args?: _TestFnArguments;

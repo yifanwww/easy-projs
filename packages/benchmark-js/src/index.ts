@@ -1,4 +1,4 @@
 export * from './Benchmark';
 export * from './BenchmarkGroup';
-export { BenchmarkLoggerLevel } from './Logger';
+export { BenchmarkLoggerLevel } from './tools/Logger';
 export * from './types';

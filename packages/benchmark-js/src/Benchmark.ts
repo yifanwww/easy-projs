@@ -1,9 +1,9 @@
-import { CodeGen, Tester, TesterContext } from './CodeGen';
-import { Formatter } from './Formatter';
-import { BenchmarkLoggerLevel, Logger } from './Logger';
 import { Settings, TestFnOptions } from './options';
-import { Stats } from './Stats';
-import { Time } from './TimeTool';
+import { CodeGen, Tester, TesterContext } from './tools/CodeGen';
+import { Formatter } from './tools/Formatter';
+import { BenchmarkLoggerLevel, Logger } from './tools/Logger';
+import { Stats } from './tools/Stats';
+import { Time } from './tools/TimeTool';
 import { BenchmarkCallbacks, BenchmarkOptions, TestFn } from './types';
 import { _Nanosecond, _TestFnArguments } from './types.internal';
 

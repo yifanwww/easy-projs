@@ -74,16 +74,38 @@ export interface BenchmarkSettings {
     minTime?: Millisecond;
 }
 
+/**
+ * An array of the choices a argument can use.
+ */
 export type TestFnArgumentValues = unknown[];
+/**
+ * An array contains several arrays of the choices a argument can use.
+ *
+ * Example:
+ * ```ts
+ * [[1, 2], [true], ['a', 'b']]
+ * ```
+ */
 export type TestFnArgumentsValues = Array<TestFnArgumentValues | undefined>;
 
 export interface BenchmarkTestFnOptions {
     /**
      * Used for adjust-benchmarking and fomal-benchmarking.
+     *
+     * Example:
+     * ```ts
+     * [[1, 2], [true], ['a', 'b']]
+     * ```
      */
     args?: TestFnArgumentsValues;
     /**
      * Used for pre-benchmarking. The arguments provided in `args` will be also added into `preArgs`.
+     *
+     *
+     * Example:
+     * ```ts
+     * [[1, 2], [true], ['a', 'b']]
+     * ```
      */
     preArgs?: TestFnArgumentsValues;
 }

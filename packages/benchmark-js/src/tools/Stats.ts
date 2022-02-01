@@ -1,7 +1,8 @@
-import { tTable } from './constants';
+import { tTable } from '../constants';
+import { _Nanosecond } from '../types.internal';
+
 import { Formatter } from './Formatter';
 import { getMean, getVariance } from './tools';
-import { _Nanosecond } from './types.internal';
 
 /**
  * Class for stats including mean, margin or error, and standard deviation.
