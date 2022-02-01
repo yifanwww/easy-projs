@@ -8,6 +8,13 @@ import { Time } from './tools/TimeTool';
 import { BenchmarkJobCallbacks, BenchmarkJobOptions, TestFn } from './types';
 import { _Nanosecond, _TestFnArguments } from './types.internal';
 
+interface BenchmarkImplOptions {
+    args?: _TestFnArguments;
+    loopCount?: number;
+    onOpsFinished?: (used: _Nanosecond, elapsed: _Nanosecond) => void | boolean;
+    stagePrefix: StagePrefix;
+}
+
 export class BenchmarkJob {
     private _name: string;
     private testFn: TestFn;
@@ -23,7 +30,7 @@ export class BenchmarkJob {
     private stats: Stats[] = [];
 
     /**
-     * The number of ops to be run in a benchmark.
+     * The number of ops to run in a benchmark.
      */
     private ops: number;
 
@@ -47,7 +54,7 @@ export class BenchmarkJob {
 
         this.settings = new Settings(options);
 
-        this.ops = this.settings.initCount;
+        this.ops = this.settings.initOpsCount;
 
         this.testFnOptions = new TestFnOptions(options);
 
@@ -60,16 +67,13 @@ export class BenchmarkJob {
     }
 
     private logConfigs() {
-        const { delay, initCount, maxAdjustTime, maxPreparingTime, maxTime, minSamples, minTime } = this.settings;
+        const { delay, initOpsCount, samplesCount: minSamples, minSampleTime } = this.settings;
 
         const logger = ConsoleLogger.default;
-        logger.writeLine(LogKind.Info, `// delay             : ${Formatter.beautifyNumber(delay)} ns`);
-        logger.writeLine(LogKind.Info, `// initial count     : ${Formatter.beautifyNumber(initCount)}`);
-        logger.writeLine(LogKind.Info, `// max preparing time: ${Formatter.beautifyNumber(maxPreparingTime)} ns`);
-        logger.writeLine(LogKind.Info, `// max adjust time   : ${Formatter.beautifyNumber(maxAdjustTime)} ns`);
-        logger.writeLine(LogKind.Info, `// max time          : ${Formatter.beautifyNumber(maxTime)} ns`);
-        logger.writeLine(LogKind.Info, `// min samples       : ${Formatter.beautifyNumber(minSamples)}`);
-        logger.writeLine(LogKind.Info, `// min time          : ${Formatter.beautifyNumber(minTime)} ns`);
+        logger.writeLine(LogKind.Info, `// delay            : ${Formatter.beautifyNumber(delay)} ns`);
+        logger.writeLine(LogKind.Info, `// initial ops count: ${Formatter.beautifyNumber(initOpsCount)}`);
+        logger.writeLine(LogKind.Info, `// min samples      : ${Formatter.beautifyNumber(minSamples)}`);
+        logger.writeLine(LogKind.Info, `// min sample time  : ${Formatter.beautifyNumber(minSampleTime)} ns`);
 
         logger.writeLine(LogKind.Info, `// ${this.onComplete ? 'Has' : 'No'} callback \`onComplete\``);
         logger.writeLine(LogKind.Info, `// ${this.onStart ? 'Has' : 'No'} callback \`onStart\``);
@@ -103,7 +107,7 @@ export class BenchmarkJob {
             for (const args of this.testFnOptions.args) {
                 // Reset variables before adjust-benchmarking and benchmarking.
                 this.samples = [];
-                this.ops = this.settings.initCount;
+                this.ops = this.settings.initOpsCount;
 
                 this.pilot(args);
                 ConsoleLogger.default.writeLine();
@@ -120,30 +124,54 @@ export class BenchmarkJob {
     }
 
     private jitting(): void {
-        if (this.testFnOptions.preArgsGroupsCount === 0) return;
-
-        for (const args of this.testFnOptions.preArgs) {
-            this._benchmarkImpl(StagePrefix.Jitting, this.settings.maxPreparingTime, args, true);
+        if (this.testFnOptions.preArgsGroupsCount === 0) {
+            // Run double times for jitting
+            this._benchmarkImpl({ loopCount: 2, stagePrefix: StagePrefix.Jitting });
+        } else {
+            for (const args of this.testFnOptions.preArgs) {
+                // Run double times for jitting
+                this._benchmarkImpl({ args, loopCount: 2, stagePrefix: StagePrefix.Jitting });
+            }
         }
+
         ConsoleLogger.default.writeLine();
     }
 
     private pilot(args?: _TestFnArguments): void {
-        this._benchmarkImpl(StagePrefix.Pilot, this.settings.maxAdjustTime, args, true);
+        this._benchmarkImpl({
+            args,
+            onOpsFinished: (used, elapsed) => {
+                if (used > this.settings.minSampleTime) return false;
+
+                // Calculate how many more iterations it will take to achieve the `minTime`.
+                // After stage Pilot, we should get a good count number.
+                if (used <= this.settings.minSampleTime) {
+                    this.ops += Math.ceil((this.settings.minSampleTime - used) / elapsed);
+                }
+                return true;
+            },
+            stagePrefix: StagePrefix.Pilot,
+        });
     }
 
     private formal(args?: _TestFnArguments): void {
-        this._benchmarkImpl(StagePrefix.Formal, this.settings.maxTime, args);
+        this._benchmarkImpl({
+            args,
+            loopCount: this.settings.samplesCount,
+            onOpsFinished: (used, elapsed) => {
+                this.samples.push(elapsed);
+            },
+            stagePrefix: StagePrefix.Formal,
+        });
     }
 
     private logOpsData(stagePrefix: StagePrefix, index: number, used: _Nanosecond, elapsed: _Nanosecond) {
-        const { maxTime, minSamples, minTime } = this.settings;
-        const maxLen = Math.max(minSamples, maxTime / minTime).toString().length;
+        const len = this.settings.samplesCount.toString().length;
 
         ConsoleLogger.default.writeLine(
             [
                 stagePrefix,
-                `${index.toString().padStart(maxLen)}: `,
+                `${index.toString().padStart(len)}: `,
                 `${this.ops} op, `,
                 `${used} ns, `,
                 `${elapsed.toFixed(4)} ns/op`,
@@ -151,41 +179,25 @@ export class BenchmarkJob {
         );
     }
 
-    private _benchmarkImpl(
-        stagePrefix: StagePrefix,
-        maxTime: _Nanosecond,
-        args?: _TestFnArguments,
-        preOrAdjust?: boolean,
-    ): void {
+    private _benchmarkImpl(options: BenchmarkImplOptions): void {
+        const { args, onOpsFinished, loopCount, stagePrefix } = options;
+
         const testerContext: TesterContext = {
             args,
             ops: this.ops,
             testFn: this.testFn,
         };
 
-        let duration: _Nanosecond = Time.ns(0);
-        for (let index = 1; ; index++) {
+        for (let index = 1; loopCount === undefined || index <= loopCount; index++) {
             testerContext.ops = this.ops;
             const used = Time.hrtime2ns(this.tester(testerContext).elapsed);
 
             const elapsed = Time.ns(used / this.ops);
 
-            if (!preOrAdjust) this.samples.push(elapsed);
-
             this.logOpsData(stagePrefix, index, used, elapsed);
 
-            // Calculate how many more iterations it will take to achieve the `minTime`.
-            // After stage `jitting`, we should get a good count number.
-            if (used < this.settings.minTime) {
-                this.ops += Math.ceil((this.settings.minTime - used) / elapsed);
-            }
-
-            duration = Time.ns(duration + used);
-            if (preOrAdjust) {
-                if (duration >= maxTime) break;
-            } else {
-                if (duration >= maxTime && this.samples.length >= this.settings.minSamples) break;
-            }
+            const flag = onOpsFinished?.(used, elapsed);
+            if (flag === false) break;
 
             Time.sleep(this.settings.delay);
         }

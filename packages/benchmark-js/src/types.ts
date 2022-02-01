@@ -31,47 +31,23 @@ export interface BenchmarkJobSettings {
      */
     delay?: Millisecond;
     /**
-     * The default number of times to execute a test on a benchmark's first cycle.
+     * The initial number of ops to run in a benchmark.
      *
      * Default is `1`.
      */
-    initCount?: number;
+    initOpsCount?: number;
     /**
-     * The maximum time a benchmark is allowed to run in adjust-benchmarking stage (ms).
+     * The count of samples required to perform statistical analysis.
+     *
+     * Default is `15`.
+     */
+    samplesCount?: number;
+    /**
+     * The minimum time a benchmark uses.
      *
      * Default is `100`.
-     *
-     * Note: Cycle delays aren't counted toward the maximum time.
      */
-    maxAdjustTime?: Millisecond;
-    /**
-     * The maximum time a benchmark is allowed to run in pre-benchmarking stage (ms).
-     *
-     * Default is `10`.
-     *
-     * Note: Cycle delays aren't counted toward the maximum time.
-     */
-    maxPreparingTime?: Millisecond;
-    /**
-     * The maximum time a benchmark is allowed to run in formal-benchmarking stage (ms).
-     *
-     * Default is `5_000`.
-     *
-     * Note: Cycle delays aren't counted toward the maximum time.
-     */
-    maxTime?: Millisecond;
-    /**
-     * The minimum sample size required to perform statistical analysis.
-     *
-     * Default is `5`.
-     */
-    minSamples?: number;
-    /**
-     * The time needed to reduce the percent uncertainty of measurement to 1% (ms).
-     *
-     * If not provided or is set to `0`, will automatically detect the minimum time.
-     */
-    minTime?: Millisecond;
+    minSampleTime?: Millisecond;
 }
 
 /**
