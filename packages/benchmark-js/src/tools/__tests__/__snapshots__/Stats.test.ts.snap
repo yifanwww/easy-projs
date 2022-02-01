@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test class \`Stats\` calculates 1`] = `121019108.28025477`;
+
+exports[`test class \`Stats\` calculates 2`] = `57.96879268569932`;
+
+exports[`test class \`Stats\` calculates 3`] = `
+Array [
+  1,
+  2,
+  3,
+  4,
+  3,
+  23,
+  21,
+  2,
+  3,
+  3,
+  2,
+  21,
+  1,
+  2,
+  23,
+  3,
+  4,
+  4,
+  32,
+]
+`;
+
+exports[`test class \`Stats\` calculates 4`] = `
+"{
+    \\"_samples\\": [
+        1,
+        2,
+        3,
+        4,
+        3,
+        23,
+        21,
+        2,
+        3,
+        3,
+        2,
+        21,
+        1,
+        2,
+        23,
+        3,
+        4,
+        4,
+        32
+    ],
+    \\"_mean\\": 8.263157894736842,
+    \\"_deviation\\": 9.93781836813939,
+    \\"_moe\\": 4.790052869291997,
+    \\"_rme\\": 57.96879268569932,
+    \\"_sem\\": 2.2798918939990465,
+    \\"_variance\\": 98.76023391812865,
+    \\"_ops\\": 121019108.28025477
+}"
+`;
+
+exports[`test class \`Stats\` calculates 5`] = `"121,019,108 ops/sec 57.97% (19 samples)"`;
+
+exports[`test class \`Stats\` calculates 6`] = `"2> 121,019,108 ops/sec 57.97% (19 samples)"`;
