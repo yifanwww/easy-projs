@@ -203,10 +203,4 @@ export class BenchmarkJob {
             }
         }
     }
-
-    public writeTesterCode(): void {
-        this.logger.debug('testFn code:');
-        this.logger.debug(this.tester.toString());
-        this.logger.debug();
-    }
 }

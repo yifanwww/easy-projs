@@ -13,6 +13,7 @@
   - `BenchmarkOptions`          -> `BenchmarkJobOptions`
   - `BenchmarkSettings`         -> `BenchmarkJobSettings`
   - `BenchmarkTestFnOptions`    -> `BenchmarkJobTestFnOptions`
+- Delete methods `Benchmark.writeTestersCode` and `BenchmarkJob.writeTesterCode`
 
 ## @easy/benchmark-js v0.3.0 (2022-02-01)
 ### Features

@@ -25,9 +25,4 @@ export class Benchmark {
         for (const job of this.jobs) job.run();
         for (const job of this.jobs) job.writeResult();
     }
-
-    public writeTestersCode(): this {
-        for (const job of this.jobs) job.writeTesterCode();
-        return this;
-    }
 }
