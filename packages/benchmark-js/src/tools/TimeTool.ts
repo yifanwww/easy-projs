@@ -6,7 +6,7 @@ import { getMean } from './tools';
 export class TimeTool {
     private static accuracy = 1e6;
 
-    private static _minresolution = 0;
+    private static _minResolution = 0;
 
     public static ns = (ns: number): _Nanosecond => ns as _Nanosecond;
 
@@ -45,10 +45,10 @@ export class TimeTool {
     }
 
     public static get minResolution() {
-        if (TimeTool._minresolution === 0) {
-            TimeTool._minresolution = TimeTool.getMinResolution();
+        if (TimeTool._minResolution === 0) {
+            TimeTool._minResolution = TimeTool.getMinResolution();
         }
-        return TimeTool._minresolution;
+        return TimeTool._minResolution;
     }
 }
 
