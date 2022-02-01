@@ -1,5 +1,5 @@
 import { Time } from '../tools/TimeTool';
-import { BenchmarkSettings } from '../types';
+import { BenchmarkJobSettings } from '../types';
 import { _Nanosecond } from '../types.internal';
 
 export class Settings {
@@ -13,7 +13,7 @@ export class Settings {
     private _minSamples: number;
     private _minTime: _Nanosecond;
 
-    public constructor(settings: BenchmarkSettings) {
+    public constructor(settings: BenchmarkJobSettings) {
         const {
             delay = 5,
             initCount = 1,

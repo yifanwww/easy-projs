@@ -12,7 +12,7 @@ export type Nanosecond = number & {};
 
 export type TestFn = (...args: never[]) => void;
 
-export interface BenchmarkCallbacks {
+export interface BenchmarkJobCallbacks {
     /**
      * Called when benchmark starts running.
      */
@@ -23,7 +23,7 @@ export interface BenchmarkCallbacks {
     onComplete?: () => void;
 }
 
-export interface BenchmarkSettings {
+export interface BenchmarkJobSettings {
     /**
      * The delay between test cycles (ms).
      *
@@ -88,7 +88,7 @@ export type TestFnArgumentValues = unknown[];
  */
 export type TestFnArgumentsValues = Array<TestFnArgumentValues | undefined>;
 
-export interface BenchmarkTestFnOptions {
+export interface BenchmarkJobTestFnOptions {
     /**
      * Used for adjust-benchmarking and fomal-benchmarking.
      *
@@ -110,4 +110,4 @@ export interface BenchmarkTestFnOptions {
     preArgs?: TestFnArgumentsValues;
 }
 
-export interface BenchmarkOptions extends BenchmarkCallbacks, BenchmarkSettings, BenchmarkTestFnOptions {}
+export interface BenchmarkJobOptions extends BenchmarkJobCallbacks, BenchmarkJobSettings, BenchmarkJobTestFnOptions {}

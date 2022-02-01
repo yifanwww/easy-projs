@@ -1,4 +1,4 @@
-import { BenchmarkGroup } from '@easy/benchmark-js';
+import { Benchmark } from '@easy/benchmark-js';
 
 function es5default(options?: string) {
     options || (options = 'hello world');
@@ -9,7 +9,7 @@ function es6default(options: string = 'hello world') {
     return options;
 }
 
-const benchmark = new BenchmarkGroup();
+const benchmark = new Benchmark();
 benchmark.setEmptyTest();
 benchmark.add('ES5#default', es5default, {
     args: [['str']],

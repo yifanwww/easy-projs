@@ -1,3 +1,3 @@
 export * from './Benchmark';
-export * from './BenchmarkGroup';
+export * from './BenchmarkJob';
 export * from './types';

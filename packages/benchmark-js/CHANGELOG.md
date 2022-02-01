@@ -7,6 +7,12 @@
 ### Breaking Changes
 
 - Remove `Benchmark.loggerLevel`
+- Rename classes and interfaces
+  - `BenchmarkGroup`            -> `Benchmark`
+  - `Benchmark`                 -> `BenchmarkJob`
+  - `BenchmarkOptions`          -> `BenchmarkJobOptions`
+  - `BenchmarkSettings`         -> `BenchmarkJobSettings`
+  - `BenchmarkTestFnOptions`    -> `BenchmarkJobTestFnOptions`
 
 ## @easy/benchmark-js v0.3.0 (2022-02-01)
 ### Features
