@@ -1,8 +1,9 @@
 import { BenchmarkRunner } from './BenchmarkRunner';
-import { StagePrefix } from './constants';
+import { StagePrefix } from './Enums';
 import { ConsoleLogger } from './tools/ConsoleLogger';
 import { Stats } from './tools/Stats';
 import { BenchmarkJobOptions, TestFn } from './types';
+import { _Nanosecond } from './types.internal';
 
 export class BenchmarkJob extends BenchmarkRunner {
     /**
@@ -41,24 +42,29 @@ export class BenchmarkJob extends BenchmarkRunner {
         if (this.testFnOptions.argsCount === 0) {
             const ops = this.benchmarkPilot(StagePrefix.Pilot);
             ConsoleLogger.default.writeLine();
-            this.benchmarkFormal(StagePrefix.Formal, ops);
+
+            const measurements: _Nanosecond[] = [];
+            this.benchmarkFormal(StagePrefix.Formal, measurements, ops);
             ConsoleLogger.default.writeLine();
 
-            this.stats.push(new Stats(this.samples));
+            const stats = new Stats(measurements);
+            this.stats.push(stats);
+            stats.log();
         } else {
             for (const args of this.testFnOptions.args) {
                 ConsoleLogger.default.writeLineInfo(`// arguments: ${args.toString()}`);
                 ConsoleLogger.default.writeLine();
 
-                // Reset variables before benchmarking.
-                this.samples = [];
-
                 const ops = this.benchmarkPilot(StagePrefix.Pilot, args);
                 ConsoleLogger.default.writeLine();
-                this.benchmarkFormal(StagePrefix.Formal, ops, args);
+
+                const measurements: _Nanosecond[] = [];
+                this.benchmarkFormal(StagePrefix.Formal, measurements, ops, args);
                 ConsoleLogger.default.writeLine();
 
-                this.stats.push(new Stats(this.samples));
+                const stats = new Stats(measurements);
+                this.stats.push(stats);
+                stats.log();
             }
         }
 

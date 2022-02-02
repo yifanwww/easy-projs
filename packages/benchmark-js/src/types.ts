@@ -39,17 +39,17 @@ export interface BenchmarkJobSettings {
      */
     initOps?: number;
     /**
+     * The count of measurements required to perform statistical analysis.
+     *
+     * Default is `15`.
+     */
+    measurementCount?: number;
+    /**
      * The minimum time a benchmark uses.
      *
      * Default is `100`.
      */
-    minSampleTime?: Millisecond;
-    /**
-     * The count of samples required to perform statistical analysis.
-     *
-     * Default is `15`.
-     */
-    samplesCount?: number;
+    minMeasurementTime?: Millisecond;
 }
 
 export interface BenchmarkJobTestFnOptions {

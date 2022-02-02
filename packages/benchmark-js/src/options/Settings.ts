@@ -5,16 +5,16 @@ import { _Nanosecond } from '../types.internal';
 export class Settings {
     private _delay: _Nanosecond;
     private _initOps: number;
-    private _minSampleTime: _Nanosecond;
-    private _samplesCount: number;
+    private _measurementCount: number;
+    private _minMeasurementTime: _Nanosecond;
 
     public constructor(settings: BenchmarkJobSettings) {
-        const { delay = 5, initOps = 16, minSampleTime = 100, samplesCount = 15 } = settings;
+        const { delay = 5, initOps = 16, measurementCount = 15, minMeasurementTime = 100 } = settings;
 
         this._delay = Time.ms2ns(delay);
         this._initOps = initOps;
-        this._minSampleTime = Time.ms2ns(minSampleTime);
-        this._samplesCount = samplesCount;
+        this._measurementCount = measurementCount;
+        this._minMeasurementTime = Time.ms2ns(minMeasurementTime);
     }
 
     public get delay(): _Nanosecond {
@@ -25,11 +25,11 @@ export class Settings {
         return this._initOps;
     }
 
-    public get minSampleTime(): _Nanosecond {
-        return this._minSampleTime;
+    public get measurementCount(): number {
+        return this._measurementCount;
     }
 
-    public get samplesCount(): number {
-        return this._samplesCount;
+    public get minMeasurementTime(): _Nanosecond {
+        return this._minMeasurementTime;
     }
 }

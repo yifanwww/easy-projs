@@ -1,86 +1,173 @@
-import { tTable } from '../constants';
-import { _Nanosecond } from '../types.internal';
+import { ConfidenceInterval, _Nanosecond } from '../types.internal';
 
+import { ConsoleLogger } from './ConsoleLogger';
 import { Formatter } from './Formatter';
-import { getMean, getVariance } from './tools';
+import { MathTool } from './MathTool';
 
 /**
  * Class for stats including mean, margin or error, and standard deviation.
  */
 export class Stats {
-    /**
-     * The array of sampled periods.
-     */
-    private _samples: _Nanosecond[];
-    /**
-     * The sample arithmetic mean (secs).
-     */
+    private _n: number;
+
     private _mean: _Nanosecond;
+    private _variance: number;
+    private _standardDeviation: _Nanosecond;
+    private _standardError: _Nanosecond;
+    private _standardErrorPercent: number;
+
+    private _confidenceInterval: ConfidenceInterval;
+    private _ciMargin: _Nanosecond;
+    private _ciMarginPercent: number;
+
+    private _q0: _Nanosecond;
+    private _q1: _Nanosecond;
+    private _q2: _Nanosecond;
+    private _q3: _Nanosecond;
+    private _q4: _Nanosecond;
+
+    private _ops: number;
 
     /**
-     * The sample standard deviation.
+     * The measurements count.
      */
-    private _deviation: number;
+    public get n() {
+        return this._n;
+    }
+
     /**
-     * The margin of error.
+     * The arithmetic mean of measurements in nanoseconds.
      */
-    private _moe: number;
+    public get mean() {
+        return this._mean;
+    }
+
     /**
-     * The relative margin of error (expressed as a percentage of the mean).
+     * The variance of measurements.
      */
-    private _rme: number;
+    public get variance() {
+        return this._variance;
+    }
+
     /**
-     * The standard error of the mean (a.k.a. the standard deviation of the sampling distribution of the sample mean).
+     * The standard deviation of measurements.
      */
-    private _sem: number;
+    public get standardDeviation() {
+        return this._standardDeviation;
+    }
+
     /**
-     * The sample variance.
+     * The standard error of measurements in nanoseconds.
      */
-    private _variance: number;
+    public get standardError() {
+        return this._standardError;
+    }
+
+    /**
+     * The margin of error in nanoseconds.
+     */
+    public get margin() {
+        return this._ciMargin;
+    }
+
+    public get confidenceInterval() {
+        return this._confidenceInterval;
+    }
+
+    public get min() {
+        return this._q0;
+    }
+
+    public get q1() {
+        return this._q1;
+    }
+
+    public get median() {
+        return this._q2;
+    }
+
+    public get q3() {
+        return this._q3;
+    }
+
+    public get max() {
+        return this._q4;
+    }
 
     /**
      * The number of executions per second.
      */
-    private _ops: number;
-
-    public constructor(samples: _Nanosecond[]) {
-        this._samples = samples;
-
-        const size = samples.length;
-        this._mean = getMean(samples);
-        this._variance = getVariance(samples, this._mean);
-        this._deviation = Math.sqrt(this._variance);
-        this._sem = this._deviation / Math.sqrt(size);
-        const critical = tTable[size - 1] ?? tTable.infinity;
-        this._moe = this._sem * critical;
-        this._rme = (this._moe / this._mean) * 100 ?? 0;
-
-        this._ops = 1e9 / this._mean;
-    }
-
-    public get samples(): _Nanosecond[] {
-        return this._samples;
-    }
-
-    public get rme(): number {
-        return this._rme;
-    }
-
     public get ops(): number {
         return this._ops;
     }
 
-    public toString(order?: number): string {
-        const size = this._samples.length;
+    public constructor(measurements: _Nanosecond[]) {
+        measurements.sort((a, b) => a - b);
 
+        this._n = measurements.length;
+
+        this._mean = MathTool.mean(measurements);
+        this._variance = MathTool.variance(measurements, this._mean);
+        this._standardDeviation = Math.sqrt(this._variance) as _Nanosecond;
+        this._standardError = (this._standardDeviation / Math.sqrt(this._n)) as _Nanosecond;
+        this._standardErrorPercent = (this._standardError / this._mean) * 100;
+
+        const criticalValue = MathTool.getTDistributionCriticalValue(this._n - 1);
+        this._ciMargin = (this._standardError * criticalValue) as _Nanosecond;
+        this._confidenceInterval = [this._mean - this._ciMargin, this._mean + this._ciMargin] as ConfidenceInterval;
+        this._ciMarginPercent = (this._ciMargin / this._mean) * 100;
+
+        this._q0 = measurements[0];
+        this._q1 = measurements[Math.round(this._n * 0.25)];
+        this._q2 = measurements[Math.round(this._n * 0.5)];
+        this._q3 = measurements[Math.round(this._n * 0.75)];
+        this._q4 = measurements[this._n - 1];
+
+        this._ops = 1e9 / this._mean;
+    }
+
+    public toString(order?: number): string {
         const opsStr = Formatter.beautifyNumber(this._ops.toFixed(this._ops < 100 ? 2 : 0));
-        const rmeStr = this._rme.toFixed(2);
+        const rmeStr = this._ciMarginPercent.toFixed(2);
 
         return [
             order === undefined ? '' : `${order}: `,
             `${opsStr} ops/sec`,
             ` ${rmeStr}%`,
-            ` (${size} sample${size > 1 ? 's' : ''})`,
+            ` (${this._n} sample${this._n > 1 ? 's' : ''})`,
         ].join('');
+    }
+
+    public log(): void {
+        const logger = ConsoleLogger.default;
+
+        logger.writeLineStatistic(
+            [
+                `Mean = ${this._mean.toFixed(3)} ns`,
+                `StdErr = ${this._standardError.toFixed(3)} ns (${this._standardErrorPercent.toFixed(2)}%)`,
+                `N = ${this._n}`,
+                `StdDev = ${this._standardDeviation.toFixed(3)} ns`,
+            ].join(', '),
+        );
+
+        logger.writeLineStatistic(
+            [
+                `Min = ${this._q0.toFixed(3)} ns`,
+                `Q1 = ${this._q1.toFixed(3)} ns`,
+                `Median = ${this._q2.toFixed(3)}`,
+                `Q3 = ${this._q3.toFixed(3)} ns`,
+                `Max = ${this._q4.toFixed(3)} ns`,
+            ].join(', '),
+        );
+
+        const [left, right] = this._confidenceInterval;
+        logger.writeLineStatistic(
+            [
+                `ConfidenceInterval = [${left.toFixed(3)} ns; ${right.toFixed(3)} ns] (CI 95%)`,
+                `Margin = ${this._ciMargin.toFixed(3)} ns (${this._ciMarginPercent.toFixed(2)}% of Mean)`,
+            ].join(', '),
+        );
+
+        logger.writeLine();
     }
 }

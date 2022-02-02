@@ -1,4 +1,4 @@
-import { StagePrefix } from './constants';
+import { StagePrefix } from './Enums';
 import { Settings, TestFnOptions } from './options';
 import { CodeGen, Tester, TesterContext } from './tools/CodeGen';
 import { ConsoleLogger } from './tools/ConsoleLogger';
@@ -19,7 +19,6 @@ export class BenchmarkRunner {
     protected settings: Settings;
     protected testFnOptions: TestFnOptions;
 
-    protected samples: _Nanosecond[] = [];
     protected stats: Stats[] = [];
 
     public get name(): string {
@@ -59,14 +58,14 @@ export class BenchmarkRunner {
     }
 
     protected logConfigs() {
-        const { delay, initOps, samplesCount, minSampleTime } = this.settings;
+        const { delay, initOps, measurementCount, minMeasurementTime } = this.settings;
 
         const logger = ConsoleLogger.default;
         logger.writeLineInfo('// Benchmark Configuration:');
-        logger.writeLineInfo(`//   delay          : ${Formatter.beautifyNumber(delay)} ns`);
-        logger.writeLineInfo(`//   initial ops    : ${Formatter.beautifyNumber(initOps)}`);
-        logger.writeLineInfo(`//   min sample time: ${Formatter.beautifyNumber(minSampleTime)} ns`);
-        logger.writeLineInfo(`//   samples count  : ${Formatter.beautifyNumber(samplesCount)}`);
+        logger.writeLineInfo(`//   delay               : ${Formatter.beautifyNumber(delay)} ns`);
+        logger.writeLineInfo(`//   initial ops         : ${Formatter.beautifyNumber(initOps)}`);
+        logger.writeLineInfo(`//   measurement count   : ${Formatter.beautifyNumber(measurementCount)}`);
+        logger.writeLineInfo(`//   min measurement time: ${Formatter.beautifyNumber(minMeasurementTime)} ns`);
         logger.writeLineInfo(`//   ${this.onComplete ? 'Has' : 'No'} callback \`onComplete\``);
         logger.writeLineInfo(`//   ${this.onStart ? 'Has' : 'No'} callback \`onStart\``);
     }
@@ -123,8 +122,8 @@ export class BenchmarkRunner {
 
             // Calculate how many more iterations it will take to achieve the `minTime`.
             // After stage Pilot, we should get a good count number.
-            if (used <= this.settings.minSampleTime) {
-                testerContext.ops += Math.ceil((this.settings.minSampleTime - used) / elapsed);
+            if (used <= this.settings.minMeasurementTime) {
+                testerContext.ops += Math.ceil((this.settings.minMeasurementTime - used) / elapsed);
             } else {
                 break;
             }
@@ -135,27 +134,27 @@ export class BenchmarkRunner {
         return testerContext.ops;
     }
 
-    protected benchmarkFormal(prefix: StagePrefix, ops: number, args?: _Arguments): void {
+    protected benchmarkFormal(prefix: StagePrefix, measurements: _Nanosecond[], ops: number, args?: _Arguments): void {
         const testerContext: TesterContext = {
             args,
             ops,
             testFn: this.testFn,
         };
 
-        for (let index = 1; index <= this.settings.samplesCount; index++) {
+        for (let index = 1; index <= this.settings.measurementCount; index++) {
             const used = Time.hrtime2ns(this.tester(testerContext).elapsed);
             const elapsed = Time.ns(used / ops);
 
             this.logOpsData(prefix, index, ops, used, elapsed);
 
-            this.samples.push(elapsed);
+            measurements.push(elapsed);
 
             Time.sleep(this.settings.delay);
         }
     }
 
     private logOpsData(prefix: StagePrefix, index: number, ops: number, used: _Nanosecond, elapsed: _Nanosecond) {
-        const len = this.settings.samplesCount.toString().length;
+        const len = this.settings.measurementCount.toString().length;
 
         ConsoleLogger.default.writeLine(
             [

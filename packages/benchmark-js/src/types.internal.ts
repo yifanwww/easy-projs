@@ -9,3 +9,5 @@ export type _Argument = unknown & { __arg__: void };
 export type _Arguments = _Argument[];
 
 export type Hrtime = [number, number];
+
+export type ConfidenceInterval = [_Nanosecond, _Nanosecond];
