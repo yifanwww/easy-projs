@@ -54,9 +54,9 @@ export class BenchmarkJob extends BenchmarkRunner {
         ConsoleLogger.default.writeLine();
 
         if (this.testFnOptions.argsCount === 0) {
-            this.benchmarkPilot(StagePrefix.Pilot);
+            const ops = this.benchmarkPilot(StagePrefix.Pilot);
             ConsoleLogger.default.writeLine();
-            this.benchmarkFormal(StagePrefix.Formal);
+            this.benchmarkFormal(StagePrefix.Formal, ops);
             ConsoleLogger.default.writeLine();
 
             this.stats.push(new Stats(this.samples));
@@ -67,11 +67,10 @@ export class BenchmarkJob extends BenchmarkRunner {
 
                 // Reset variables before benchmarking.
                 this.samples = [];
-                this.ops = this.settings.initOps;
 
-                this.benchmarkPilot(StagePrefix.Pilot, args);
+                const ops = this.benchmarkPilot(StagePrefix.Pilot, args);
                 ConsoleLogger.default.writeLine();
-                this.benchmarkFormal(StagePrefix.Formal, args);
+                this.benchmarkFormal(StagePrefix.Formal, ops, args);
                 ConsoleLogger.default.writeLine();
 
                 this.stats.push(new Stats(this.samples));
