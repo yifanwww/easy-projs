@@ -63,4 +63,4 @@ exports[`test class \`Stats\` calculates 4`] = `
 
 exports[`test class \`Stats\` calculates 5`] = `"121,019,108 ops/sec 57.97% (19 samples)"`;
 
-exports[`test class \`Stats\` calculates 6`] = `"2> 121,019,108 ops/sec 57.97% (19 samples)"`;
+exports[`test class \`Stats\` calculates 6`] = `"2: 121,019,108 ops/sec 57.97% (19 samples)"`;

@@ -2,7 +2,20 @@
 ## @easy/benchmark-js v0.4.0 (Unreleased)
 ### Bug Fixes
 
-- Fix wrong test args passed to test fn.
+- Fix wrong test args passed to test fn
+
+### Breaking Changes
+
+- Remove `Benchmark.loggerLevel`
+- Rename classes and interfaces
+  - `BenchmarkGroup`            -> `Benchmark`
+  - `Benchmark`                 -> `BenchmarkJob`
+  - `BenchmarkOptions`          -> `BenchmarkJobOptions`
+  - `BenchmarkSettings`         -> `BenchmarkJobSettings`
+  - `BenchmarkTestFnOptions`    -> `BenchmarkJobTestFnOptions`
+- Delete methods `Benchmark.writeTestersCode` and `BenchmarkJob.writeTesterCode`
+- Change stages to Jitting, Pilot and Formal
+- Change `BenchmarkJobOptions`
 
 ## @easy/benchmark-js v0.3.0 (2022-02-01)
 ### Features

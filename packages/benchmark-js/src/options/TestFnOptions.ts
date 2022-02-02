@@ -1,4 +1,4 @@
-import { BenchmarkTestFnOptions, TestFnArgumentsValues, TestFnArgumentValues } from '../types';
+import { BenchmarkJobTestFnOptions, TestFnArgumentsValues, TestFnArgumentValues } from '../types';
 import { _TestFnArguments, _TestFnArgumentValues } from '../types.internal';
 
 export class TestFnOptions {
@@ -10,7 +10,7 @@ export class TestFnOptions {
 
     private _argsCount: number;
 
-    constructor(options: BenchmarkTestFnOptions) {
+    constructor(options: BenchmarkJobTestFnOptions) {
         const { args = [], preArgs = [] } = options;
 
         this._args = this.getArgsValues(args);

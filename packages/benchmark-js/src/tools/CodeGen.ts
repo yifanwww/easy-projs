@@ -3,7 +3,7 @@ import { Hrtime, _TestFnArguments } from '../types.internal';
 
 export interface TesterContext {
     args?: _TestFnArguments;
-    count: number;
+    ops: number;
     restArgs?: _TestFnArguments;
     setup?: () => void;
     teardown?: () => void;
@@ -86,7 +86,7 @@ ${this.generatePickArguments()}
 let return#;
 
 const begin# = process.hrtime();
-for (let i# = 0; i# < context#.count; i#++) {
+for (let i# = 0; i# < context#.ops; i#++) {
 return# = ${this.generateTestFnCall()};
 }
 const elapsed# = process.hrtime(begin#);

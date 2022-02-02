@@ -1,8 +1,6 @@
-import { Benchmark, BenchmarkGroup, BenchmarkLoggerLevel, BenchmarkTestFnOptions } from '@easy/benchmark-js';
+import { Benchmark, BenchmarkJobTestFnOptions } from '@easy/benchmark-js';
 
-Benchmark.loggerLevel = BenchmarkLoggerLevel.Info;
-
-const options: BenchmarkTestFnOptions = {
+const options: BenchmarkJobTestFnOptions = {
     args: [['a'], ['b'], ['c'], ['d'], ['e']],
     preArgs: [
         ['q', 'z'],
@@ -24,7 +22,7 @@ _d = 'd';
 let _e: string;
 _e = 'e';
 
-const benchmark = new BenchmarkGroup();
+const benchmark = new Benchmark();
 benchmark.setEmptyTest();
 
 benchmark.add('str-add-1-argument', (a) => a, options);

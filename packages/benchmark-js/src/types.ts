@@ -12,7 +12,7 @@ export type Nanosecond = number & {};
 
 export type TestFn = (...args: never[]) => void;
 
-export interface BenchmarkCallbacks {
+export interface BenchmarkJobCallbacks {
     /**
      * Called when benchmark starts running.
      */
@@ -23,7 +23,7 @@ export interface BenchmarkCallbacks {
     onComplete?: () => void;
 }
 
-export interface BenchmarkSettings {
+export interface BenchmarkJobSettings {
     /**
      * The delay between test cycles (ms).
      *
@@ -31,47 +31,23 @@ export interface BenchmarkSettings {
      */
     delay?: Millisecond;
     /**
-     * The default number of times to execute a test on a benchmark's first cycle.
+     * The initial number of ops to run in a benchmark.
      *
-     * Default is `1`.
+     * Default is `16`.
      */
-    initCount?: number;
+    initOps?: number;
     /**
-     * The maximum time a benchmark is allowed to run in adjust-benchmarking stage (ms).
+     * The minimum time a benchmark uses.
      *
      * Default is `100`.
-     *
-     * Note: Cycle delays aren't counted toward the maximum time.
      */
-    maxAdjustTime?: Millisecond;
+    minSampleTime?: Millisecond;
     /**
-     * The maximum time a benchmark is allowed to run in pre-benchmarking stage (ms).
+     * The count of samples required to perform statistical analysis.
      *
-     * Default is `10`.
-     *
-     * Note: Cycle delays aren't counted toward the maximum time.
+     * Default is `15`.
      */
-    maxPreparingTime?: Millisecond;
-    /**
-     * The maximum time a benchmark is allowed to run in formal-benchmarking stage (ms).
-     *
-     * Default is `5_000`.
-     *
-     * Note: Cycle delays aren't counted toward the maximum time.
-     */
-    maxTime?: Millisecond;
-    /**
-     * The minimum sample size required to perform statistical analysis.
-     *
-     * Default is `5`.
-     */
-    minSamples?: number;
-    /**
-     * The time needed to reduce the percent uncertainty of measurement to 1% (ms).
-     *
-     * If not provided or is set to `0`, will automatically detect the minimum time.
-     */
-    minTime?: Millisecond;
+    samplesCount?: number;
 }
 
 /**
@@ -88,7 +64,7 @@ export type TestFnArgumentValues = unknown[];
  */
 export type TestFnArgumentsValues = Array<TestFnArgumentValues | undefined>;
 
-export interface BenchmarkTestFnOptions {
+export interface BenchmarkJobTestFnOptions {
     /**
      * Used for adjust-benchmarking and fomal-benchmarking.
      *
@@ -110,4 +86,4 @@ export interface BenchmarkTestFnOptions {
     preArgs?: TestFnArgumentsValues;
 }
 
-export interface BenchmarkOptions extends BenchmarkCallbacks, BenchmarkSettings, BenchmarkTestFnOptions {}
+export interface BenchmarkJobOptions extends BenchmarkJobCallbacks, BenchmarkJobSettings, BenchmarkJobTestFnOptions {}
