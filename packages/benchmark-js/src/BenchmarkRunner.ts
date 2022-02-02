@@ -2,6 +2,7 @@ import { StagePrefix } from './constants';
 import { Settings, TestFnOptions } from './options';
 import { CodeGen, Tester, TesterContext } from './tools/CodeGen';
 import { ConsoleLogger } from './tools/ConsoleLogger';
+import { Formatter } from './tools/Formatter';
 import { Stats } from './tools/Stats';
 import { Time } from './tools/TimeTool';
 import { BenchmarkJobCallbacks, BenchmarkJobOptions, TestFn } from './types';
@@ -49,6 +50,25 @@ export class BenchmarkRunner {
         this.tester = CodeGen.createTester({
             argument: { count: this.testFnOptions.argsLength },
         });
+    }
+
+    protected logEnvironmentInfos() {
+        const logger = ConsoleLogger.default;
+        logger.writeLineInfo('// Benchmark Environment Information:');
+        logger.writeLineInfo(`//   Node.js ${process.version} (V8 ${process.versions.v8})`);
+    }
+
+    protected logConfigs() {
+        const { delay, initOps, samplesCount, minSampleTime } = this.settings;
+
+        const logger = ConsoleLogger.default;
+        logger.writeLineInfo('// Benchmark Configuration:');
+        logger.writeLineInfo(`//   delay          : ${Formatter.beautifyNumber(delay)} ns`);
+        logger.writeLineInfo(`//   initial ops    : ${Formatter.beautifyNumber(initOps)}`);
+        logger.writeLineInfo(`//   min sample time: ${Formatter.beautifyNumber(minSampleTime)} ns`);
+        logger.writeLineInfo(`//   samples count  : ${Formatter.beautifyNumber(samplesCount)}`);
+        logger.writeLineInfo(`//   ${this.onComplete ? 'Has' : 'No'} callback \`onComplete\``);
+        logger.writeLineInfo(`//   ${this.onStart ? 'Has' : 'No'} callback \`onStart\``);
     }
 
     private benchmarkJitting(

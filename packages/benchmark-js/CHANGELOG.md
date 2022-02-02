@@ -3,6 +3,7 @@
 ### Features
 
 - Add class `Arguments` to specify the arguments passed to test fn
+- Print Node.js version
 
 ### Breaking Changes
 

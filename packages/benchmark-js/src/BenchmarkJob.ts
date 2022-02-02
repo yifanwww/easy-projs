@@ -1,7 +1,6 @@
 import { BenchmarkRunner } from './BenchmarkRunner';
 import { StagePrefix } from './constants';
-import { ConsoleLogger, LogKind } from './tools/ConsoleLogger';
-import { Formatter } from './tools/Formatter';
+import { ConsoleLogger } from './tools/ConsoleLogger';
 import { Stats } from './tools/Stats';
 import { BenchmarkJobOptions, TestFn } from './types';
 
@@ -15,31 +14,18 @@ export class BenchmarkJob extends BenchmarkRunner {
         super(name, testFn, options);
     }
 
-    private logConfigs() {
-        const { delay, initOps, samplesCount, minSampleTime } = this.settings;
-
-        const logger = ConsoleLogger.default;
-        logger.writeLine(LogKind.Info, `// delay          : ${Formatter.beautifyNumber(delay)} ns`);
-        logger.writeLine(LogKind.Info, `// initial ops    : ${Formatter.beautifyNumber(initOps)}`);
-        logger.writeLine(LogKind.Info, `// min sample time: ${Formatter.beautifyNumber(minSampleTime)} ns`);
-        logger.writeLine(LogKind.Info, `// samples count  : ${Formatter.beautifyNumber(samplesCount)}`);
-
-        logger.writeLine(LogKind.Info, `// ${this.onComplete ? 'Has' : 'No'} callback \`onComplete\``);
-        logger.writeLine(LogKind.Info, `// ${this.onStart ? 'Has' : 'No'} callback \`onStart\``);
-
-        logger.writeLine();
-    }
-
     /**
      * Runs the benchmark.
      * @returns The benchmark instance.
      */
     public run(): this {
         const logger = ConsoleLogger.default;
-        logger.writeLine(LogKind.Header, '// *************************');
-        logger.writeLine(LogKind.Header, `// Benchmark: ${this._name}`);
+        logger.writeLineHeader('// *************************');
+        logger.writeLineHeader(`// Benchmark: ${this._name}`);
 
+        this.logEnvironmentInfos();
         this.logConfigs();
+        logger.writeLine();
 
         this.onStart?.();
 
