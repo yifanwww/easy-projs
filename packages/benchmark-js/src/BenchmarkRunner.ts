@@ -51,28 +51,40 @@ export class BenchmarkRunner {
         });
     }
 
-    protected benchmarkJitting(prefix: StagePrefix, args?: _Arguments): void {
+    private benchmarkJitting(
+        prefix: StagePrefix,
+        order: number,
+        ops: number,
+        argsGenerator?: Generator<_Arguments, void>,
+    ): void {
         const testerContext: TesterContext = {
-            args,
-            ops: 1,
+            ops,
             testFn: this.testFn,
         };
 
-        {
+        if (!argsGenerator) {
             const used = Time.hrtime2ns(this.tester(testerContext).elapsed);
-            const elapsed = Time.ns(used);
+            const elapsed = Time.ns(used / ops);
 
-            this.logOpsData(prefix, 1, 1, used, elapsed);
+            this.logOpsData(prefix, order, ops, used, elapsed);
+        } else {
+            let used: _Nanosecond = Time.ns(0);
+            for (const args of argsGenerator) {
+                testerContext.args = args;
+                used = Time.hrtime2ns(this.tester(testerContext).elapsed);
+            }
+            const elapsed = Time.ns(used / ops);
+
+            this.logOpsData(prefix, order, ops, used, elapsed);
         }
+    }
 
-        {
-            testerContext.ops = this.settings.initOps;
+    protected benchmarkJitting1(prefix: StagePrefix, argsGenerator?: Generator<_Arguments, void>): void {
+        this.benchmarkJitting(prefix, 1, 1, argsGenerator);
+    }
 
-            const used = Time.hrtime2ns(this.tester(testerContext).elapsed);
-            const elapsed = Time.ns(used / this.settings.initOps);
-
-            this.logOpsData(prefix, 2, this.settings.initOps, used, elapsed);
-        }
+    protected benchmarkJitting2(prefix: StagePrefix, argsGenerator?: Generator<_Arguments, void>): void {
+        this.benchmarkJitting(prefix, 2, this.settings.initOps, argsGenerator);
     }
 
     protected benchmarkPilot(prefix: StagePrefix, args?: _Arguments): number {

@@ -44,12 +44,11 @@ export class BenchmarkJob extends BenchmarkRunner {
         this.onStart?.();
 
         if (this.testFnOptions.jitArgsCount === 0) {
-            this.benchmarkJitting(StagePrefix.Jitting);
+            this.benchmarkJitting1(StagePrefix.Jitting);
+            this.benchmarkJitting2(StagePrefix.Jitting);
         } else {
-            for (const args of this.testFnOptions.jitArgs) {
-                ConsoleLogger.default.writeLineInfo(`// arguments: ${args.toString()}`);
-                this.benchmarkJitting(StagePrefix.Jitting, args);
-            }
+            this.benchmarkJitting1(StagePrefix.Jitting, this.testFnOptions.jitArgs);
+            this.benchmarkJitting2(StagePrefix.Jitting, this.testFnOptions.jitArgs);
         }
         ConsoleLogger.default.writeLine();
 
