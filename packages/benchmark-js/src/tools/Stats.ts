@@ -8,6 +8,8 @@ import { MathTool } from './MathTool';
  * Class for stats including mean, margin or error, and standard deviation.
  */
 export class Stats {
+    private _name: string;
+
     private _n: number;
 
     private _mean: _Nanosecond;
@@ -27,6 +29,10 @@ export class Stats {
     private _q4: _Nanosecond;
 
     private _ops: number;
+
+    public get name() {
+        return this._name;
+    }
 
     /**
      * The measurements count.
@@ -101,7 +107,9 @@ export class Stats {
         return this._ops;
     }
 
-    public constructor(measurements: _Nanosecond[]) {
+    public constructor(name: string, measurements: _Nanosecond[]) {
+        this._name = name;
+
         measurements.sort((a, b) => a - b);
 
         this._n = measurements.length;

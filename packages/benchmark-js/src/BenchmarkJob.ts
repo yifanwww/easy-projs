@@ -6,6 +6,12 @@ import { BenchmarkJobOptions, TestFn } from './types';
 import { _Nanosecond } from './types.internal';
 
 export class BenchmarkJob extends BenchmarkRunner {
+    private _stats: Stats[] = [];
+
+    public get stats() {
+        return this._stats;
+    }
+
     /**
      * @param name The name used to identify this test.
      * @param testFn The function to benchmark.
@@ -47,8 +53,8 @@ export class BenchmarkJob extends BenchmarkRunner {
             this.benchmarkFormal(StagePrefix.Formal, measurements, ops);
             ConsoleLogger.default.writeLine();
 
-            const stats = new Stats(measurements);
-            this.stats.push(stats);
+            const stats = new Stats(this._name, measurements);
+            this._stats.push(stats);
             stats.log();
         } else {
             for (const args of this.testFnOptions.args) {
@@ -62,8 +68,8 @@ export class BenchmarkJob extends BenchmarkRunner {
                 this.benchmarkFormal(StagePrefix.Formal, measurements, ops, args);
                 ConsoleLogger.default.writeLine();
 
-                const stats = new Stats(measurements);
-                this.stats.push(stats);
+                const stats = new Stats(this._name, measurements);
+                this._stats.push(stats);
                 stats.log();
             }
         }
@@ -71,17 +77,5 @@ export class BenchmarkJob extends BenchmarkRunner {
         this.onComplete?.();
 
         return this;
-    }
-
-    public writeResult(): void {
-        if (this.stats.length === 0) return;
-
-        if (this.stats.length === 1) {
-            ConsoleLogger.default.writeLineStatistic(`${this._name}: ${this.stats[0].toString()}`);
-        } else {
-            for (let i = 0; i < this.stats.length; i++) {
-                ConsoleLogger.default.writeLineStatistic(`${this._name}: ${this.stats[i].toString(i + 1)}`);
-            }
-        }
     }
 }

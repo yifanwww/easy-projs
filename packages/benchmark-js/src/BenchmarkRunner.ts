@@ -3,7 +3,6 @@ import { Settings, TestFnOptions } from './options';
 import { CodeGen, Tester, TesterContext } from './tools/CodeGen';
 import { ConsoleLogger } from './tools/ConsoleLogger';
 import { Formatter } from './tools/Formatter';
-import { Stats } from './tools/Stats';
 import { Time } from './tools/TimeTool';
 import { BenchmarkJobCallbacks, BenchmarkJobOptions, TestFn } from './types';
 import { _Arguments, _Nanosecond } from './types.internal';
@@ -18,8 +17,6 @@ export class BenchmarkRunner {
 
     protected settings: Settings;
     protected testFnOptions: TestFnOptions;
-
-    protected stats: Stats[] = [];
 
     public get name(): string {
         return this._name;

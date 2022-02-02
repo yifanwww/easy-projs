@@ -11,6 +11,7 @@
   - Q2
   - Q3
   - Q4
+- Add markdown table for printing benchmark results
 
 ### Breaking Changes
 
