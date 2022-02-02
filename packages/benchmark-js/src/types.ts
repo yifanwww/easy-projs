@@ -1,3 +1,5 @@
+import { Arguments } from './ConfigOptions/Arguments';
+
 /**
  * The type representing millisecond.
  */
@@ -50,40 +52,15 @@ export interface BenchmarkJobSettings {
     samplesCount?: number;
 }
 
-/**
- * An array of the choices a argument can use.
- */
-export type TestFnArgumentValues = unknown[];
-/**
- * An array contains several arrays of the choices a argument can use.
- *
- * Example:
- * ```ts
- * [[1, 2], [true], ['a', 'b']]
- * ```
- */
-export type TestFnArgumentsValues = Array<TestFnArgumentValues | undefined>;
-
 export interface BenchmarkJobTestFnOptions {
     /**
-     * Used for adjust-benchmarking and fomal-benchmarking.
-     *
-     * Example:
-     * ```ts
-     * [[1, 2], [true], ['a', 'b']]
-     * ```
+     * Used for pilot benchmarking and formal benchmarking.
      */
-    args?: TestFnArgumentsValues;
+    args?: Arguments | Arguments[];
     /**
-     * Used for pre-benchmarking. The arguments provided in `args` will be also added into `preArgs`.
-     *
-     *
-     * Example:
-     * ```ts
-     * [[1, 2], [true], ['a', 'b']]
-     * ```
+     * Used for jitting benchmarking. The arguments provided in `args` will be also added into `preArgs`.
      */
-    preArgs?: TestFnArgumentsValues;
+    jitArgs?: Arguments | Arguments[];
 }
 
 export interface BenchmarkJobOptions extends BenchmarkJobCallbacks, BenchmarkJobSettings, BenchmarkJobTestFnOptions {}

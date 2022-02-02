@@ -5,9 +5,7 @@ export type _Millisecond = number & { __ms__: void };
 export type _Nanosecond = number & { __ns__: void };
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export type _TestFnArgument = unknown & { _arg_: void };
-export type _TestFnArguments = _TestFnArgument[];
-
-export type _TestFnArgumentValues = _TestFnArgument[];
+export type _Argument = unknown & { __arg__: void };
+export type _Arguments = _Argument[];
 
 export type Hrtime = [number, number];

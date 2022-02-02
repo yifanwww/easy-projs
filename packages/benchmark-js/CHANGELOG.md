@@ -1,8 +1,8 @@
 # CHANGELOG
 ## @easy/benchmark-js v0.4.0 (Unreleased)
-### Bug Fixes
+### Features
 
-- Fix wrong test args passed to test fn
+- Add class `Arguments` to specify the arguments passed to test fn
 
 ### Breaking Changes
 

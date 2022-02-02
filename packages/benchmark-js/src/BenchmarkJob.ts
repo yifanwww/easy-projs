@@ -43,17 +43,17 @@ export class BenchmarkJob extends BenchmarkRunner {
 
         this.onStart?.();
 
-        if (this.testFnOptions.preArgsGroupsCount === 0) {
+        if (this.testFnOptions.jitArgsCount === 0) {
             this.benchmarkJitting(StagePrefix.Jitting);
         } else {
-            for (const args of this.testFnOptions.preArgs) {
+            for (const args of this.testFnOptions.jitArgs) {
                 ConsoleLogger.default.writeLineInfo(`// arguments: ${args.toString()}`);
                 this.benchmarkJitting(StagePrefix.Jitting, args);
             }
         }
         ConsoleLogger.default.writeLine();
 
-        if (this.testFnOptions.argsGroupsCount === 0) {
+        if (this.testFnOptions.argsCount === 0) {
             this.benchmarkPilot(StagePrefix.Pilot);
             ConsoleLogger.default.writeLine();
             this.benchmarkFormal(StagePrefix.Formal);
@@ -65,7 +65,7 @@ export class BenchmarkJob extends BenchmarkRunner {
                 ConsoleLogger.default.writeLineInfo(`// arguments: ${args.toString()}`);
                 ConsoleLogger.default.writeLine();
 
-                // Reset variables before adjust-benchmarking and benchmarking.
+                // Reset variables before benchmarking.
                 this.samples = [];
                 this.ops = this.settings.initOps;
 

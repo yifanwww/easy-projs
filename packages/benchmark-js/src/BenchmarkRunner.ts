@@ -5,7 +5,7 @@ import { ConsoleLogger } from './tools/ConsoleLogger';
 import { Stats } from './tools/Stats';
 import { Time } from './tools/TimeTool';
 import { BenchmarkJobCallbacks, BenchmarkJobOptions, TestFn } from './types';
-import { _Nanosecond, _TestFnArguments } from './types.internal';
+import { _Arguments, _Nanosecond } from './types.internal';
 
 export class BenchmarkRunner {
     protected _name: string;
@@ -45,7 +45,6 @@ export class BenchmarkRunner {
         this.onStart = onStart;
 
         this.settings = new Settings(options);
-
         this.ops = this.settings.initOps;
 
         this.testFnOptions = new TestFnOptions(options);
@@ -54,11 +53,11 @@ export class BenchmarkRunner {
         // Passing different callbacks into one same function who calls the callbacks will cause a optimization problem.
         // See "src/test/dynamicCall.ts".
         this.tester = CodeGen.createTester({
-            argument: { count: this.testFnOptions.argsCount },
+            argument: { count: this.testFnOptions.argsLength },
         });
     }
 
-    protected benchmarkJitting(prefix: StagePrefix, args?: _TestFnArguments): void {
+    protected benchmarkJitting(prefix: StagePrefix, args?: _Arguments): void {
         const testerContext: TesterContext = {
             args,
             ops: 1,
@@ -82,7 +81,7 @@ export class BenchmarkRunner {
         }
     }
 
-    protected benchmarkPilot(prefix: StagePrefix, args?: _TestFnArguments): void {
+    protected benchmarkPilot(prefix: StagePrefix, args?: _Arguments): void {
         const testerContext: TesterContext = {
             args,
             ops: this.ops,
@@ -109,7 +108,7 @@ export class BenchmarkRunner {
         }
     }
 
-    protected benchmarkFormal(prefix: StagePrefix, args?: _TestFnArguments): void {
+    protected benchmarkFormal(prefix: StagePrefix, args?: _Arguments): void {
         const testerContext: TesterContext = {
             args,
             ops: this.ops,
