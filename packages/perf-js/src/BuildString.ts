@@ -1,14 +1,8 @@
-import { Benchmark, BenchmarkJobTestFnOptions } from '@easy/benchmark-js';
+import { Arguments, Benchmark, BenchmarkJobTestFnOptions } from '@easy/benchmark-js';
 
 const options: BenchmarkJobTestFnOptions = {
-    args: [['a'], ['b'], ['c'], ['d'], ['e']],
-    preArgs: [
-        ['q', 'z'],
-        ['w', 'x'],
-        ['e', 'c'],
-        ['r', 'v'],
-        ['t', 'b'],
-    ],
+    args: new Arguments('a', 'b', 'c', 'd', 'e'),
+    jitArgs: [new Arguments('q', 'w', 'e', 'r', 't'), new Arguments('z', 'x', 'c', 'v', 'b')],
 };
 
 let _a: string;

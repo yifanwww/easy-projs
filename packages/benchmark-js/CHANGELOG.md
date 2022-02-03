@@ -1,8 +1,17 @@
 # CHANGELOG
 ## @easy/benchmark-js v0.4.0 (Unreleased)
-### Bug Fixes
+### Features
 
-- Fix wrong test args passed to test fn
+- Add class `Arguments` to specify the arguments passed to test fn
+- Print Node.js version
+- Add more statistic data
+  - ConfidenceInterval
+  - Q0
+  - Q1
+  - Q2
+  - Q3
+  - Q4
+- Add markdown table for printing benchmark results
 
 ### Breaking Changes
 

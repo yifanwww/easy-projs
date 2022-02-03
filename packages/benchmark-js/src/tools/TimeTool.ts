@@ -1,7 +1,7 @@
 import { Millisecond } from '../types';
 import { Hrtime, _Millisecond, _Nanosecond } from '../types.internal';
 
-import { getMean } from './tools';
+import { MathTool } from './MathTool';
 
 export class TimeTool {
     private static accuracy = 1e6;
@@ -41,7 +41,7 @@ export class TimeTool {
         }
 
         // Calculate the average value.
-        return getMean(samples);
+        return MathTool.mean(samples);
     }
 
     public static get minResolution() {

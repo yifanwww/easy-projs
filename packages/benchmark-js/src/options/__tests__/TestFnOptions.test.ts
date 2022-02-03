@@ -1,3 +1,4 @@
+import { Arguments } from '../../ConfigOptions';
 import { TestFnOptions } from '../TestFnOptions';
 
 describe(`test class \`${TestFnOptions.name}\``, () => {
@@ -6,78 +7,59 @@ describe(`test class \`${TestFnOptions.name}\``, () => {
 
         expect([...options.args]).toStrictEqual([]);
         expect(options.argsCount).toBe(0);
-        expect(options.argsGroupsCount).toBe(0);
-        expect([...options.preArgs]).toStrictEqual([]);
-        expect(options.preArgsGroupsCount).toBe(0);
+        expect(options.argsLength).toBe(0);
+        expect([...options.jitArgs]).toStrictEqual([]);
+        expect(options.jitArgsCount).toBe(0);
+        expect(options.jitArgsLength).toBe(0);
     });
 
     it('receives args', () => {
-        const options = new TestFnOptions({ args: [[1, 2], [3], [4, 5]] });
+        const options = new TestFnOptions({ args: new Arguments(1, 2, 3) });
 
-        expect([...options.args]).toStrictEqual([
-            [1, 3, 4],
-            [1, 3, 5],
-            [2, 3, 4],
-            [2, 3, 5],
-        ]);
-        expect(options.argsCount).toBe(3);
-        expect(options.argsGroupsCount).toBe(4);
-        expect([...options.preArgs]).toStrictEqual([
-            [1, 3, 4],
-            [1, 3, 5],
-            [2, 3, 4],
-            [2, 3, 5],
-        ]);
-        expect(options.preArgsGroupsCount).toBe(4);
+        expect([...options.args]).toStrictEqual([[1, 2, 3]]);
+        expect(options.argsCount).toBe(1);
+        expect(options.argsLength).toBe(3);
+        expect([...options.jitArgs]).toStrictEqual([[1, 2, 3]]);
+        expect(options.jitArgsCount).toBe(1);
+        expect(options.jitArgsLength).toBe(3);
     });
 
     it('receives args and preArgs', () => {
-        const options = new TestFnOptions({ args: [[1, 2], [3], [4, 5]], preArgs: [[6], [7], [8, 9]] });
+        const options = new TestFnOptions({
+            args: new Arguments(1, 2, 3),
+            jitArgs: new Arguments('1', '2', '3'),
+        });
 
-        expect([...options.args]).toStrictEqual([
-            [1, 3, 4],
-            [1, 3, 5],
-            [2, 3, 4],
-            [2, 3, 5],
+        expect([...options.args]).toStrictEqual([[1, 2, 3]]);
+        expect(options.argsCount).toBe(1);
+        expect(options.argsLength).toBe(3);
+        expect([...options.jitArgs]).toStrictEqual([
+            ['1', '2', '3'],
+            [1, 2, 3],
         ]);
-        expect(options.argsCount).toBe(3);
-        expect(options.argsGroupsCount).toBe(4);
-        expect([...options.preArgs]).toStrictEqual([
-            [1, 3, 4],
-            [1, 3, 5],
-            [1, 3, 8],
-            [1, 3, 9],
-            [1, 7, 4],
-            [1, 7, 5],
-            [1, 7, 8],
-            [1, 7, 9],
-            [2, 3, 4],
-            [2, 3, 5],
-            [2, 3, 8],
-            [2, 3, 9],
-            [2, 7, 4],
-            [2, 7, 5],
-            [2, 7, 8],
-            [2, 7, 9],
-            [6, 3, 4],
-            [6, 3, 5],
-            [6, 3, 8],
-            [6, 3, 9],
-            [6, 7, 4],
-            [6, 7, 5],
-            [6, 7, 8],
-            [6, 7, 9],
-        ]);
-        expect(options.preArgsGroupsCount).toBe(24);
+        expect(options.jitArgsCount).toBe(2);
+        expect(options.jitArgsLength).toBe(3);
     });
 
-    it('receives args with implicit undefined', () => {
-        const options = new TestFnOptions({ args: [[], [3]], preArgs: [[], [], []] });
+    it('receives complex args and complex preArgs', () => {
+        const options = new TestFnOptions({
+            args: [new Arguments(1, 2, 3), new Arguments(2, 2)],
+            jitArgs: [new Arguments('1', '2', '3'), new Arguments('a', 'b', 'c', 'd', 'e')],
+        });
 
-        expect([...options.args]).toStrictEqual([[undefined, 3]]);
-        expect(options.argsCount).toBe(3);
-        expect(options.argsGroupsCount).toBe(1);
-        expect([...options.preArgs]).toStrictEqual([[undefined, 3, undefined]]);
-        expect(options.preArgsGroupsCount).toBe(1);
+        expect([...options.args]).toStrictEqual([
+            [1, 2, 3],
+            [2, 2],
+        ]);
+        expect(options.argsCount).toBe(2);
+        expect(options.argsLength).toBe(3);
+        expect([...options.jitArgs]).toStrictEqual([
+            ['1', '2', '3'],
+            ['a', 'b', 'c', 'd', 'e'],
+            [1, 2, 3],
+            [2, 2],
+        ]);
+        expect(options.jitArgsCount).toBe(4);
+        expect(options.jitArgsLength).toBe(5);
     });
 });
