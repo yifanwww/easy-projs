@@ -2,6 +2,7 @@
 
 exports[`test class \`Stats\` calculates 1`] = `
 "{
+    \\"_name\\": \\"name\\",
     \\"_n\\": 19,
     \\"_mean\\": 8.263157894736842,
     \\"_variance\\": 98.76023391812866,
