@@ -1,5 +1,5 @@
 # CHANGELOG
-## @easy/benchmark-js v0.4.0 (Unreleased)
+## @easy/benchmark-js v0.4.0 (2022-02-03)
 ### Features
 
 - Add class `Arguments` to specify the arguments passed to test fn
