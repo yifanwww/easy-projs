@@ -18,8 +18,8 @@
   - `@easy/performance-react`               -> `@easy/perf-react`
   - `@easy/project-template-browser-react`  -> `@easy/template-proj-browser-react`
   - `@easy/project-template-nodejs`         -> `@easy/template-proj-nodejs`
-- Upgrade
-  - `@easy/benchmark-js`  v0.1.0    -> `@easy/benchmark-js` v0.3.0
+- Delete
+  - `@easy/benchmark-js`    (Moved to https://github.com/yifanwww/benchmark-node)
 
 ### Dependency Changes
 
