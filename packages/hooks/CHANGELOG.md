@@ -4,6 +4,10 @@
 
 - Improve `usePersistFn` by using only one `useRef`
 
+### Bug Fixes
+
+- Fix return type of `useDelayFn`
+
 ## @easy/hooks v0.4.0 (2021-12-01)
 ### Features
 

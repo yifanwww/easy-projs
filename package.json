@@ -29,7 +29,7 @@
         "postinstall": "husky install",
         "prebuild": "npm run build-scripts",
         "pre-commit": "npm run pre-commit --workspaces --if-present",
-        "test-coverage": "npm run test-coverage --workspaces --if-present"
+        "test-full": "npm run test-full --workspaces --if-present"
     },
     "engines": {
         "node": ">=16"
@@ -42,6 +42,7 @@
         "@reduxjs/toolkit": "^1.7.1",
         "antd": "^4.18.2",
         "benchmark": "^2.1.4",
+        "benchmark-node": "^0.4.3",
         "clsx": "^1.1.1",
         "copy-to-clipboard": "^3.3.1",
         "echarts": "^5.2.2",

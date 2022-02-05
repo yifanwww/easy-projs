@@ -21,10 +21,7 @@
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
-        "test-coverage": "skip-npm-script"
-    },
-    "dependencies": {
-        "@easy/benchmark-js": "*"
+        "test-full": "skip-npm-script"
     },
     "devDependencies": {
         "@easy/eslint-config": "*",

@@ -4,7 +4,7 @@ import concurrently from 'concurrently';
 
 import { paths } from './paths';
 
-const genCommand = <T extends (string | false | undefined | null)[]>(...params: T) => params.filter(Boolean).join(' ');
+const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
 const genBuildCommand = (name: string) => `npm run build --workspace ${name}`;
 
 type Order = Array<string | string[]>;
@@ -38,7 +38,6 @@ export async function buildPackages(): Promise<void> {
         /* ----- product packages ----- */
         [
             '@easy/assets',
-            '@easy/benchmark-js',
             '@easy/hooks',
             '@easy/memorize',
             '@easy/misc',
@@ -99,14 +98,16 @@ export function buildReact(): void {
 }
 
 export function unitTest(watch: boolean): void {
-    const isVerbose = process.argv.includes('--verbose');
+    const coverage = process.argv.includes('--coverage');
+    const verbose = process.argv.includes('--verbose');
 
     const command = genCommand(
         'jest',
         '--config',
         paths.jestConfig,
         watch ? '--watch' : '--coverage',
-        isVerbose && '--verbose',
+        watch && coverage ? '--coverage' : null,
+        verbose && '--verbose',
     );
 
     const env = {

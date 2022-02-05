@@ -1,8 +1,0 @@
-{
-    "extends": "@easy/tsconfigs/tsconfig.eslint.json",
-    "compilerOptions": {
-        "rootDir": "."
-    },
-    "include": ["src/**/*", "test/**/*"],
-    "exclude": []
-}
