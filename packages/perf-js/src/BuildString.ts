@@ -1,4 +1,4 @@
-import { Arguments, Benchmark, BenchmarkJobTestFnOptions } from '@easy/benchmark-js';
+import { Arguments, Benchmark, BenchmarkJobTestFnOptions } from 'benchmark-node';
 
 const options: BenchmarkJobTestFnOptions = {
     args: new Arguments('a', 'b', 'c', 'd', 'e'),

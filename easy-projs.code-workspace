@@ -106,10 +106,6 @@
             "path": "packages/assets"
         },
         {
-            "name": "@easy/benchmark-js",
-            "path": "packages/benchmark-js"
-        },
-        {
             "name": "@easy/cra-check",
             "path": "packages/cra-check"
         },

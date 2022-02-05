@@ -23,9 +23,6 @@
         "pre-commit": "lint-staged",
         "test-full": "skip-npm-script"
     },
-    "dependencies": {
-        "@easy/benchmark-js": "*"
-    },
     "devDependencies": {
         "@easy/eslint-config": "*",
         "@easy/global-types": "*",

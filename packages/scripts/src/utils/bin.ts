@@ -38,7 +38,6 @@ export async function buildPackages(): Promise<void> {
         /* ----- product packages ----- */
         [
             '@easy/assets',
-            '@easy/benchmark-js',
             '@easy/hooks',
             '@easy/memorize',
             '@easy/misc',

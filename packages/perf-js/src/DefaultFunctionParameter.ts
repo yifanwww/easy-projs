@@ -1,4 +1,4 @@
-import { Arguments, Benchmark } from '@easy/benchmark-js';
+import { Arguments, Benchmark } from 'benchmark-node';
 
 function es5default(options?: string) {
     options || (options = 'hello world');
