@@ -42,6 +42,7 @@ export async function buildPackages(): Promise<void> {
             '@easy/memorize',
             '@easy/misc',
             '@easy/random-string',
+            '@easy/react-hooks-nodom',
             '@easy/template-pkg-nodejs',
             '@easy/utils-fluentui',
             '@easy/utils-react',

@@ -1,0 +1,39 @@
+{
+    "name": "@easy/react-hooks-nodom",
+    "version": "0.0.0",
+    "description": "This project is used to implement React Hooks without DOM environment.",
+    "main": "lib-commonjs/index.js",
+    "module": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/react-hooks-nodom"
+    },
+    "scripts": {
+        "build": "concurrently -n cjs,esm,types \"npm run build:cjs\" \"npm run build:esm\" \"npm run build:types\"",
+        "build:cjs": "tsc --project tsconfigs/tsconfig.cjs.json",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf lib lib-commonjs tsconfigs/*.tsbuildinfo",
+        "dev": "npm run build:cjs -- --watch",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "test": "skip-npm-script",
+        "test-full": "skip-npm-script"
+    },
+    "devDependencies": {
+        "@easy/eslint-config": "*",
+        "@easy/global-types": "*",
+        "@easy/scripts": "*",
+        "@easy/tsconfigs": "*"
+    }
+}

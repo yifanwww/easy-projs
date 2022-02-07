@@ -150,6 +150,10 @@
             "path": "packages/random-string"
         },
         {
+            "name": "@easy/react-hooks-nodom",
+            "path": "packages/react-hooks-nodom"
+        },
+        {
             "name": "@easy/react-rerender-test",
             "path": "packages/react-rerender-test"
         },
