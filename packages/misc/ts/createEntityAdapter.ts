@@ -1,73 +1,105 @@
 /*
- * Modified from https://github.com/reduxjs/redux-toolkit/tree/v1.7.1/packages/toolkit/src/entities
+ * Modified from https://github.com/reduxjs/redux-toolkit/tree/v1.8.0/packages/toolkit/src/entities
  */
+
+export type IsAny<T, True, False = never> = true | false extends (T extends never ? true : false) ? True : False;
+export type PreventAny<TState, TEntity, TId extends EntityId> = IsAny<TState, EntityState<TEntity, TId>, TState>;
+
+export type EntityId = number | string;
 
 export type Comparer<T> = (a: T, b: T) => number;
 
-export type IdSelector<T> = (model: T) => string;
+export type IdSelector<TEntity, TId extends EntityId> = (model: TEntity) => TId;
 
-interface Dictionary<T> {
-    [id: string]: T | undefined;
+type Dictionary<TEntity, TId extends EntityId> = {
+    [id in TId]?: TEntity;
+};
+
+type Entities<TEntity, TId extends EntityId> = readonly TEntity[] | Readonly<Record<TId, TEntity>>;
+
+export type Update<TEntity, TId extends EntityId> = { id: TId; changes: Partial<TEntity> };
+
+export interface EntityState<TEntity, TId extends EntityId> {
+    ids: TId[];
+    entities: Dictionary<TEntity, TId>;
 }
 
-export type Update<T> = { id: string; changes: Partial<T> };
-
-export interface EntityState<T> {
-    ids: string[];
-    entities: Dictionary<T>;
+export interface EntityDefinition<TEntity, Id extends EntityId> {
+    selectId: IdSelector<TEntity, Id>;
+    sortComparer: false | Comparer<TEntity>;
 }
 
-export interface EntityDefinition<T> {
-    selectId: IdSelector<T>;
-    sortComparer: false | Comparer<T>;
+export interface EntityStateAdapter<TEntity, TId extends EntityId> {
+    addOne<TState extends EntityState<TEntity, TId>>(state: PreventAny<TState, TEntity, TId>, entity: TEntity): TState;
+    addMany<TState extends EntityState<TEntity, TId>>(
+        state: PreventAny<TState, TEntity, TId>,
+        entities: Entities<TEntity, TId>,
+    ): TState;
+    setOne<TState extends EntityState<TEntity, TId>>(state: PreventAny<TState, TEntity, TId>, entity: TEntity): TState;
+    setMany<TState extends EntityState<TEntity, TId>>(
+        state: PreventAny<TState, TEntity, TId>,
+        entities: Entities<TEntity, TId>,
+    ): TState;
+    setAll<TState extends EntityState<TEntity, TId>>(
+        state: PreventAny<TState, TEntity, TId>,
+        entities: Entities<TEntity, TId>,
+    ): TState;
+    removeOne<TState extends EntityState<TEntity, TId>>(state: PreventAny<TState, TEntity, TId>, key: TId): TState;
+    removeMany<TState extends EntityState<TEntity, TId>>(
+        state: PreventAny<TState, TEntity, TId>,
+        keys: readonly TId[],
+    ): TState;
+    removeAll<TState extends EntityState<TEntity, TId>>(state: PreventAny<TState, TEntity, TId>): TState;
+    updateOne<TState extends EntityState<TEntity, TId>>(
+        state: PreventAny<TState, TEntity, TId>,
+        update: Update<TEntity, TId>,
+    ): TState;
+    updateMany<TState extends EntityState<TEntity, TId>>(
+        state: PreventAny<TState, TEntity, TId>,
+        updates: ReadonlyArray<Update<TEntity, TId>>,
+    ): TState;
+    upsertOne<TState extends EntityState<TEntity, TId>>(
+        state: PreventAny<TState, TEntity, TId>,
+        entity: TEntity,
+    ): TState;
+    upsertMany<TState extends EntityState<TEntity, TId>>(
+        state: PreventAny<TState, TEntity, TId>,
+        entities: Entities<TEntity, TId>,
+    ): TState;
 }
 
-export type IsAny<T, True, False = never> = true | false extends (T extends never ? true : false) ? True : False;
-export type PreventAny<S, T> = IsAny<S, EntityState<T>, S>;
-
-export interface EntityStateAdapter<T> {
-    addOne<S extends EntityState<T>>(state: PreventAny<S, T>, entity: T): S;
-    addMany<S extends EntityState<T>>(state: PreventAny<S, T>, entities: readonly T[] | Record<string, T>): S;
-    setOne<S extends EntityState<T>>(state: PreventAny<S, T>, entity: T): S;
-    setMany<S extends EntityState<T>>(state: PreventAny<S, T>, entities: readonly T[] | Record<string, T>): S;
-    setAll<S extends EntityState<T>>(state: PreventAny<S, T>, entities: readonly T[] | Record<string, T>): S;
-    removeOne<S extends EntityState<T>>(state: PreventAny<S, T>, key: string): S;
-    removeMany<S extends EntityState<T>>(state: PreventAny<S, T>, keys: readonly string[]): S;
-    removeAll<S extends EntityState<T>>(state: PreventAny<S, T>): S;
-    updateOne<S extends EntityState<T>>(state: PreventAny<S, T>, update: Update<T>): S;
-    updateMany<S extends EntityState<T>>(state: PreventAny<S, T>, updates: ReadonlyArray<Update<T>>): S;
-    upsertOne<S extends EntityState<T>>(state: PreventAny<S, T>, entity: T): S;
-    upsertMany<S extends EntityState<T>>(state: PreventAny<S, T>, entities: readonly T[] | Record<string, T>): S;
+export interface EntitySelectors<TState, TEntity, TId extends EntityId> {
+    selectIds: (state: TState) => TId[];
+    selectEntities: (state: TState) => Dictionary<TEntity, TId>;
+    selectAll: (state: TState) => TEntity[];
+    selectTotal: (state: TState) => number;
+    selectById: (state: TState, id: TId) => TEntity | undefined;
 }
 
-export interface EntitySelectors<T, V> {
-    selectIds: (state: V) => string[];
-    selectEntities: (state: V) => Dictionary<T>;
-    selectAll: (state: V) => T[];
-    selectTotal: (state: V) => number;
-    selectById: (state: V, id: string) => T | undefined;
+export interface EntityAdapter<TEntity, TId extends EntityId> extends EntityStateAdapter<TEntity, TId> {
+    selectId: IdSelector<TEntity, TId>;
+    sortComparer: false | Comparer<TEntity>;
+    getInitialState(): EntityState<TEntity, TId>;
+    getSelectors(): EntitySelectors<EntityState<TEntity, TId>, TEntity, TId>;
+    getSelectors<TState>(
+        selectState: (state: TState) => EntityState<TEntity, TId>,
+    ): EntitySelectors<TState, TEntity, TId>;
 }
 
-export interface EntityAdapter<T> extends EntityStateAdapter<T> {
-    selectId: IdSelector<T>;
-    sortComparer: false | Comparer<T>;
-    getInitialState(): EntityState<T>;
-    getSelectors(): EntitySelectors<T, EntityState<T>>;
-    getSelectors<V>(selectState: (state: V) => EntityState<T>): EntitySelectors<T, V>;
-}
+function createSelectorsFactory<TEntity, TId extends EntityId>() {
+    type State = EntityState<TEntity, TId>;
 
-function createSelectorsFactory<T>() {
-    type R = EntityState<T>;
-
-    function getSelectors(): EntitySelectors<T, R>;
-    function getSelectors<V>(selectState: (state: V) => R): EntitySelectors<T, V>;
-    function getSelectors<V>(selectState: (state: V) => R = (state) => state as never): EntitySelectors<T, V> {
+    function getSelectors(): EntitySelectors<State, TEntity, TId>;
+    function getSelectors<TState>(selectState: (state: TState) => State): EntitySelectors<TState, TEntity, TId>;
+    function getSelectors<TState>(
+        selectState: (state: TState) => State = (state) => state as never,
+    ): EntitySelectors<TState, TEntity, TId> {
         return {
             selectIds: (state) => selectState(state).ids,
             selectEntities: (state) => selectState(state).entities,
             selectAll: (state) => {
                 const { entities, ids } = selectState(state);
-                return ids.map((id) => <T>entities[id]);
+                return ids.map((id) => <TEntity>entities[id]);
             },
             selectTotal: (state) => selectState(state).ids.length,
             selectById: (state, id) => selectState(state).entities[id],
@@ -77,7 +109,7 @@ function createSelectorsFactory<T>() {
     return { getSelectors };
 }
 
-function selectIdValue<T>(entity: T, selectId: IdSelector<T>): string {
+function selectIdValue<TEntity, TId extends EntityId>(entity: TEntity, selectId: IdSelector<TEntity, TId>): TId {
     const key = selectId(entity);
 
     if (process.env.NODE_ENV !== 'production' && key === undefined) {
@@ -94,19 +126,19 @@ function selectIdValue<T>(entity: T, selectId: IdSelector<T>): string {
     return key;
 }
 
-function ensureEntitiesArray<T>(entities: readonly T[] | Record<string, T>): readonly T[] {
+function ensureEntitiesArray<TEntity>(entities: Entities<TEntity, EntityId>): readonly TEntity[] {
     return !Array.isArray(entities) ? Object.values(entities) : entities;
 }
 
-function splitAddedUpdatedEntities<T>(
-    state: EntityState<T>,
-    entities: readonly T[] | Record<string, T>,
-    selectId: IdSelector<T>,
-): [T[], Update<T>[]] {
+function splitAddedUpdatedEntities<TEntity, TId extends EntityId>(
+    state: EntityState<TEntity, TId>,
+    entities: Entities<TEntity, EntityId>,
+    selectId: IdSelector<TEntity, TId>,
+): [TEntity[], Update<TEntity, TId>[]] {
     const _entities = ensureEntitiesArray(entities);
 
-    const added: T[] = [];
-    const updated: Update<T>[] = [];
+    const added: TEntity[] = [];
+    const updated: Update<TEntity, TId>[] = [];
 
     for (const entity of _entities) {
         const id = selectIdValue(entity, selectId);
@@ -120,10 +152,12 @@ function splitAddedUpdatedEntities<T>(
     return [added, updated];
 }
 
-function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): EntityStateAdapter<T> {
-    type R = EntityState<T>;
+function createUnsortedStateAdapter<TEntity, TId extends EntityId>(
+    selectId: IdSelector<TEntity, TId>,
+): EntityStateAdapter<TEntity, TId> {
+    type State = EntityState<TEntity, TId>;
 
-    function addOne<S extends R>(state: S, entity: T): S {
+    function addOne<TState extends State>(state: TState, entity: TEntity): TState {
         const key = selectIdValue(entity, selectId);
 
         if (!(key in state.entities)) {
@@ -134,14 +168,14 @@ function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): EntityStateAdap
         return state;
     }
 
-    function addMany<S extends R>(state: S, entities: readonly T[] | Record<string, T>): S {
+    function addMany<TState extends State>(state: TState, entities: Entities<TEntity, TId>): TState {
         const _entities = ensureEntitiesArray(entities);
         _entities.forEach((entity) => addOne(state, entity));
 
         return state;
     }
 
-    function setOne<S extends R>(state: S, entity: T): S {
+    function setOne<TState extends State>(state: TState, entity: TEntity): TState {
         const key = selectIdValue(entity, selectId);
 
         if (!(key in state.entities)) {
@@ -152,14 +186,14 @@ function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): EntityStateAdap
         return state;
     }
 
-    function setMany<S extends R>(state: S, entities: readonly T[] | Record<string, T>): S {
+    function setMany<TState extends State>(state: TState, entities: Entities<TEntity, TId>): TState {
         const _entities = ensureEntitiesArray(entities);
         _entities.forEach((entity) => setOne(state, entity));
 
         return state;
     }
 
-    function setAll<S extends R>(state: S, entities: readonly T[] | Record<string, T>): S {
+    function setAll<TState extends State>(state: TState, entities: Entities<TEntity, TId>): TState {
         const _entities = ensureEntitiesArray(entities);
 
         state.ids = [];
@@ -169,7 +203,7 @@ function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): EntityStateAdap
         return state;
     }
 
-    function removeMany<S extends R>(state: S, keys: readonly string[]): S {
+    function removeMany<TState extends State>(state: TState, keys: readonly TId[]): TState {
         let didMutate = false;
 
         for (const key of keys) {
@@ -186,19 +220,23 @@ function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): EntityStateAdap
         return state;
     }
 
-    function removeOne<S extends R>(state: S, key: string): S {
+    function removeOne<TState extends State>(state: TState, key: TId): TState {
         return removeMany(state, [key]);
     }
 
-    function removeAll<S extends R>(state: S): S {
+    function removeAll<TState extends State>(state: TState): TState {
         state.ids = [];
         state.entities = {};
         return state;
     }
 
-    function takeNewKey<S extends R>(keys: { [id: string]: string }, update: Update<T>, state: S): boolean {
+    function takeNewKey<TState extends State>(
+        keys: { [id in TId]?: TId },
+        update: Update<TEntity, TId>,
+        state: TState,
+    ): boolean {
         const original = state.entities[update.id];
-        const updated = <T>{ ...original, ...update.changes };
+        const updated = <TEntity>{ ...original, ...update.changes };
         const newKey = selectIdValue(updated, selectId);
         const hasNewKey = newKey !== update.id;
 
@@ -212,10 +250,10 @@ function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): EntityStateAdap
         return hasNewKey;
     }
 
-    function updateMany<S extends R>(state: S, updates: ReadonlyArray<Update<T>>): S {
-        const newKeys: { [id: string]: string } = {};
+    function updateMany<TState extends State>(state: TState, updates: ReadonlyArray<Update<TEntity, TId>>): TState {
+        const newKeys: { [id in TId]?: TId } = {};
 
-        const updatesPerEntity: { [id: string]: Update<T> } = {};
+        const updatesPerEntity: { [id: EntityId]: Update<TEntity, TId> } = {};
 
         for (const update of updates) {
             // Only apply updates to entities that currently exist
@@ -248,12 +286,12 @@ function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): EntityStateAdap
         return state;
     }
 
-    function updateOne<S extends R>(state: S, update: Update<T>): S {
+    function updateOne<TState extends State>(state: TState, update: Update<TEntity, TId>): TState {
         return updateMany(state, [update]);
     }
 
-    function upsertMany<S extends R>(state: S, entities: readonly T[] | Record<string, T>): S {
-        const [added, updated] = splitAddedUpdatedEntities<T>(state, entities, selectId);
+    function upsertMany<TState extends State>(state: TState, entities: Entities<TEntity, TId>): TState {
+        const [added, updated] = splitAddedUpdatedEntities<TEntity, TId>(state, entities, selectId);
 
         updateMany(state, updated);
         addMany(state, added);
@@ -261,7 +299,7 @@ function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): EntityStateAdap
         return state;
     }
 
-    function upsertOne<S extends R>(state: S, entity: T): S {
+    function upsertOne<TState extends State>(state: TState, entity: TEntity): TState {
         return upsertMany(state, [entity]);
     }
 
@@ -281,8 +319,11 @@ function createUnsortedStateAdapter<T>(selectId: IdSelector<T>): EntityStateAdap
     } as never;
 }
 
-function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>): EntityStateAdapter<T> {
-    type R = EntityState<T>;
+function createSortedStateAdapter<TEntity, TId extends EntityId>(
+    selectId: IdSelector<TEntity, TId>,
+    sort: Comparer<TEntity>,
+): EntityStateAdapter<TEntity, TId> {
+    type State = EntityState<TEntity, TId>;
 
     const { removeOne, removeMany, removeAll } = createUnsortedStateAdapter(selectId);
 
@@ -296,13 +337,13 @@ function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>)
         return true;
     }
 
-    function merge(state: R, models: readonly T[]): void {
+    function merge(state: State, models: readonly TEntity[]): void {
         // Insert/overwrite all new/updated
         models.forEach((model) => {
             state.entities[selectId(model)] = model;
         });
 
-        const allEntities = Object.values(state.entities) as T[];
+        const allEntities = Object.values(state.entities) as TEntity[];
         allEntities.sort(sort);
 
         const sortedIds = allEntities.map(selectId);
@@ -312,7 +353,7 @@ function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>)
         }
     }
 
-    function addMany<S extends R>(state: S, entities: readonly T[] | Record<string, T>): S {
+    function addMany<TState extends State>(state: TState, entities: Entities<TEntity, TId>): TState {
         const _entities = ensureEntitiesArray(entities);
 
         const models = _entities.filter((model) => !(selectIdValue(model, selectId) in state.entities));
@@ -323,11 +364,11 @@ function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>)
         return state;
     }
 
-    function addOne<S extends R>(state: S, entity: T): S {
+    function addOne<TState extends State>(state: TState, entity: TEntity): TState {
         return addMany(state, [entity]);
     }
 
-    function setMany<S extends R>(state: S, entities: readonly T[] | Record<string, T>): S {
+    function setMany<TState extends State>(state: TState, entities: Entities<TEntity, TId>): TState {
         const _entities = ensureEntitiesArray(entities);
         if (_entities.length !== 0) {
             merge(state, _entities);
@@ -336,11 +377,11 @@ function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>)
         return state;
     }
 
-    function setOne<S extends R>(state: S, entity: T): S {
+    function setOne<TState extends State>(state: TState, entity: TEntity): TState {
         return setMany(state, [entity]);
     }
 
-    function setAll<S extends R>(state: S, entities: readonly T[] | Record<string, T>): S {
+    function setAll<TState extends State>(state: TState, entities: Entities<TEntity, TId>): TState {
         const _entities = ensureEntitiesArray(entities);
 
         state.entities = {};
@@ -350,13 +391,13 @@ function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>)
         return state;
     }
 
-    function takeUpdatedModel(state: R, models: T[], update: Update<T>): boolean {
+    function takeUpdatedModel(state: State, models: TEntity[], update: Update<TEntity, TId>): boolean {
         if (!(update.id in state.entities)) {
             return false;
         }
 
         const original = state.entities[update.id];
-        const updated = <T>{ ...original, ...update.changes };
+        const updated = <TEntity>{ ...original, ...update.changes };
         const newKey = selectIdValue(updated, selectId);
 
         delete state.entities[update.id];
@@ -366,8 +407,8 @@ function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>)
         return newKey !== update.id;
     }
 
-    function updateMany<S extends R>(state: S, updates: ReadonlyArray<Update<T>>): S {
-        const models: T[] = [];
+    function updateMany<TState extends State>(state: TState, updates: ReadonlyArray<Update<TEntity, TId>>): TState {
+        const models: TEntity[] = [];
 
         updates.forEach((update) => takeUpdatedModel(state, models, update));
 
@@ -378,12 +419,12 @@ function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>)
         return state;
     }
 
-    function updateOne<S extends R>(state: S, update: Update<T>): S {
+    function updateOne<TState extends State>(state: TState, update: Update<TEntity, TId>): TState {
         return updateMany(state, [update]);
     }
 
-    function upsertMany<S extends R>(state: S, newEntities: readonly T[] | Record<string, T>): S {
-        const [added, updated] = splitAddedUpdatedEntities<T>(state, newEntities, selectId);
+    function upsertMany<TState extends State>(state: TState, newEntities: Entities<TEntity, TId>): TState {
+        const [added, updated] = splitAddedUpdatedEntities<TEntity, TId>(state, newEntities, selectId);
 
         updateMany(state, updated);
         addMany(state, added);
@@ -391,7 +432,7 @@ function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>)
         return state;
     }
 
-    function upsertOne<S extends R>(state: S, entity: T): S {
+    function upsertOne<TState extends State>(state: TState, entity: TEntity): TState {
         return upsertMany(state, [entity]);
     }
 
@@ -411,11 +452,13 @@ function createSortedStateAdapter<T>(selectId: IdSelector<T>, sort: Comparer<T>)
     } as never;
 }
 
-export function createEntityAdapter<T>(options: Partial<EntityDefinition<T>> = {}): EntityAdapter<T> {
+export function createEntityAdapter<TEntity, TId extends EntityId>(
+    options: Partial<EntityDefinition<TEntity, TId>> = {},
+): EntityAdapter<TEntity, TId> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { selectId = (instance: any) => instance.id, sortComparer = false } = options;
 
-    const selectorsFactory = createSelectorsFactory<T>();
+    const selectorsFactory = createSelectorsFactory<TEntity, TId>();
     const stateAdapter = sortComparer
         ? createSortedStateAdapter(selectId, sortComparer)
         : createUnsortedStateAdapter(selectId);
