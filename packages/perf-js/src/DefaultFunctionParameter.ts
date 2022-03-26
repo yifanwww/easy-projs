@@ -1,4 +1,4 @@
-import { Arguments, Benchmark } from 'benchmark-node';
+import { Arguments, BenchmarkJob } from 'benchmark-node';
 
 function es5default(options?: string) {
     options || (options = 'hello world');
@@ -9,13 +9,13 @@ function es6default(options: string = 'hello world') {
     return options;
 }
 
-const benchmark = new Benchmark();
-benchmark.add('ES5#default', es5default, {
+const job = new BenchmarkJob();
+job.add('ES5#default', es5default, {
     args: new Arguments('str'),
     jitArgs: new Arguments(undefined),
 });
-benchmark.add('ES6#default', es6default, {
+job.add('ES6#default', es6default, {
     args: new Arguments('str'),
     jitArgs: new Arguments(undefined),
 });
-benchmark.run();
+job.run();
