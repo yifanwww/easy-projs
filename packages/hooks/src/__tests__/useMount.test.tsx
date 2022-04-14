@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 
-import { useMount } from '../useMount';
+import { useMountEffect } from '../useMountEffect';
 
-describe(`Test react hook \`${useMount.name}\``, () => {
+describe(`Test react hook \`${useMountEffect.name}\``, () => {
     it('fires a callback', () => {
         const onMount = jest.fn();
 
         function TestComponent() {
-            useMount(() => onMount());
+            useMountEffect(() => onMount());
             return <div />;
         }
 

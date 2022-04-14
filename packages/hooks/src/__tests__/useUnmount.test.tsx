@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react';
 
-import { useUnmount } from '../useUnmount';
+import { useUnmountEffect } from '../useUnmountEffect';
 
-describe(`Test react hook \`${useUnmount.name}\``, () => {
+describe(`Test react hook \`${useUnmountEffect.name}\``, () => {
     it('fires a callback', () => {
         const onUnmount = jest.fn();
 
         function TestComponent() {
-            useUnmount(() => onUnmount());
+            useUnmountEffect(() => onUnmount());
             return <div />;
         }
 

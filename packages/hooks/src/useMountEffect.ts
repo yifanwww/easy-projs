@@ -5,7 +5,7 @@ import { useEffect } from 'react';
  *
  * @param callback Function to call before mount.
  */
-export function useMount(callback: () => void): void {
+export function useMountEffect(callback: () => void): void {
     useEffect(
         () => {
             callback();
