@@ -3,6 +3,8 @@
 ### Features
 
 - Improve `usePersistFn` by using only one `useRef`
+- Rename `useMount` to `useMountEffect`
+- Rename `useUnmount` to `useUnmountEffect`
 
 ### Bug Fixes
 

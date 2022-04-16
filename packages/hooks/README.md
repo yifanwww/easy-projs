@@ -16,14 +16,14 @@ React hooks for easy-projs.
 - `useIsFocused`
 - `useIsHovered`
 - `useIsMounted`
-- `useMount`
+- `useMountEffect`
 - `usePersistFn`
 - `usePrevious`
 - `useSingleInterval`
 - `useSingleTimeout`
 - `useTimeout`
 - `useToggle`
-- `useUnmount`
+- `useUnmountEffect`
 - `useWhyDidYouUpdate`
 
 ## Usage
