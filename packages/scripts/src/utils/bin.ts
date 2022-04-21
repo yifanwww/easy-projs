@@ -81,7 +81,7 @@ export function buildReact(): void {
         printHelpInfo();
         process.exit(1);
     } else if (flag !== 'build' && flag !== 'build-profile' && flag !== 'dev') {
-        console.error(chalk.red(`Unknown argument "mode": ${flag}\n`));
+        console.error(chalk.red(`Unknown argument "mode": ${flag as string}\n`));
         printHelpInfo();
         process.exit(1);
     }

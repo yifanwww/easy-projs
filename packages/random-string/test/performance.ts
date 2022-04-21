@@ -5,16 +5,16 @@ class Stopwatch {
     private _timeEnd: number = 0;
     private _totalSeconds: number = 0;
 
-    public start(): void {
+    start(): void {
         this._timeStart = Date.now();
     }
 
-    public stop(): void {
+    stop(): void {
         this._timeEnd = Date.now();
         this._totalSeconds = (this._timeEnd - this._timeStart) / 1000;
     }
 
-    public get totalSeconds() {
+    get totalSeconds() {
         return this._totalSeconds;
     }
 }

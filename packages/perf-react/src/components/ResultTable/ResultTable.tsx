@@ -23,7 +23,7 @@ const columns: ColumnType<BenchmarkResult>[] = [
         title: 'Mean',
         dataIndex: ['stats', 'mean'],
         key: 'mean',
-        render: (num, record) => `${num.toFixed(3)}ms (±${record.stats.stdDev.toFixed(3)}ms)`,
+        render: (num: number, record) => `${num.toFixed(3)}ms (±${record.stats.stdDev.toFixed(3)}ms)`,
     },
     { title: 'Layout', dataIndex: ['stats', 'layout'], key: 'layout', render: formatNumber },
     { title: 'P95', dataIndex: ['stats', 'p95'], key: 'p95', render: formatNumber },

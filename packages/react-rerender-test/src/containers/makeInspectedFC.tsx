@@ -36,7 +36,7 @@ export interface InspectedOptions {
     type?: InspectedFCType;
 }
 
-interface _InspectedFCMaker<P = {}> extends InspectedFCMaker<P> {
+interface InternalInspectedFCMaker<P = {}> extends InspectedFCMaker<P> {
     _inspectedColor?: string;
     _inspectedDesc?: string;
     _inspectedType?: InspectedFCType;
@@ -49,7 +49,7 @@ interface _InspectedFCMaker<P = {}> extends InspectedFCMaker<P> {
 export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
     const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
 
-    const _inspectedFC: _InspectedFCMaker<P> = (props) => {
+    const _inspectedFC: InternalInspectedFCMaker<P> = (props) => {
         const { _inspectedColor, _inspectedDesc, _inspectedType } = _inspectedFC;
 
         const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);

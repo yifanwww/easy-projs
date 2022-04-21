@@ -12,7 +12,7 @@ function defaultDiff(prev: unknown[], curr: unknown[]): boolean {
     return false;
 }
 
-export function memorize<Args extends unknown[], ReturnType extends unknown>(
+export function memorize<Args extends unknown[], ReturnType>(
     fn: (...args: Args) => ReturnType,
     diff?: (prev: Args, curr: Args) => boolean,
 ): (...args: Args) => ReturnType {
