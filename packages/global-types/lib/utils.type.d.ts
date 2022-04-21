@@ -27,9 +27,7 @@ declare global {
 
     type ValueOf<T> = T[keyof T];
 
-    type LooseArray<T> = T | T[];
-
-    type LooseReadonlyArray<T> = T | readonly T[];
+    type LooseArray<T> = T | readonly T[];
 
     /**
      * Pick the non-nullable type of a certain property of interface `P`.
