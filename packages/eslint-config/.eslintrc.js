@@ -22,6 +22,7 @@ module.exports = {
     rules: {
         'class-methods-use-this': 'off',
         'consistent-return': 'off',
+        'default-case': 'off',
         'default-param-last': 'off',
         // Disable this rule and use rule `prettier/prettier` instead.
         'function-paren-newline': 'off',

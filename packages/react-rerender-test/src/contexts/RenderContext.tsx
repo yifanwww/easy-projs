@@ -17,7 +17,6 @@ export interface RenderContextUpdaters {
 type RenderAction = { type: 'forceUpdate' } | { type: 'select'; select: Integer };
 
 const reducer: ReactImmerReducer<RenderContextState, RenderAction> = (state, action) => {
-    let never: never;
     switch (action.type) {
         case 'forceUpdate':
             state.forceUpdateNumber++;
@@ -26,10 +25,6 @@ const reducer: ReactImmerReducer<RenderContextState, RenderAction> = (state, act
         case 'select':
             state.selected = action.select;
             break;
-
-        default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = action;
     }
 };
 

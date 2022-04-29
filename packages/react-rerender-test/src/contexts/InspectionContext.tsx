@@ -37,7 +37,6 @@ type InspectionAction =
     | { type: 'toggle-group'; toggle: 'prev' | 'next' };
 
 const reduce = produce<ReactImmerReducer<InspectionContextState, InspectionAction>>((state, action) => {
-    let never: never;
     switch (action.type) {
         case 'add-record': {
             const { groupIndex, record } = action;
@@ -82,10 +81,6 @@ const reduce = produce<ReactImmerReducer<InspectionContextState, InspectionActio
 
             break;
         }
-
-        default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = action;
     }
 });
 

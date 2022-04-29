@@ -75,7 +75,6 @@ type IBenchmarkAction =
     | { type: 'clear-all' };
 
 const reducer: ReactImmerReducer<IBenchmarkContext, IBenchmarkAction> = (state, action) => {
-    let never: never;
     switch (action.type) {
         case 'add': {
             const { result } = action;
@@ -106,10 +105,6 @@ const reducer: ReactImmerReducer<IBenchmarkContext, IBenchmarkAction> = (state, 
             for (const name in state.unmount) benchmarkResultAdapter.removeAll(state.unmount[name as ComponentName]);
             for (const name in state.update) benchmarkResultAdapter.removeAll(state.update[name as ComponentName]);
             break;
-
-        default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = action;
     }
 
     calculateAverageStats(state);

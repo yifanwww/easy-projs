@@ -10,7 +10,6 @@ interface ComponentTagProps {
 }
 
 const ComponentTag: React.VFC<ComponentTagProps> = ({ type }) => {
-    let never: never;
     switch (type) {
         case 'nil':
             return null;
@@ -26,11 +25,6 @@ const ComponentTag: React.VFC<ComponentTagProps> = ({ type }) => {
                     <span>ptc</span>
                 </Tag>
             );
-
-        default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = type;
-            return null;
     }
 };
 
