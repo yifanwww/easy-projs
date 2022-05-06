@@ -26,7 +26,7 @@ function dfs(element: React.ReactElement): InspectedFCType {
         if (item === null) continue;
 
         const { type } = item;
-        const { children } = item.props;
+        const children = item.props.children as LooseArray<React.ReactElement>;
 
         if (typeof type === 'function') {
             const fc = type as InspectedFC;
