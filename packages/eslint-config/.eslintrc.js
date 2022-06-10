@@ -33,7 +33,7 @@ module.exports = {
         'max-len': ['error', { code: 120, ignoreUrls: true }],
         // Allows bitwise operators, but be CAREFUL for not using them in most case.
         'no-bitwise': 'off',
-        'no-console': ['error', { allow: ['log', 'debug', 'info', 'warn', 'error'] }],
+        'no-console': ['error', {}],
         'no-constant-condition': 'off',
         'no-continue': 'off',
         'no-else-return': 'off',
@@ -163,6 +163,17 @@ module.exports = {
         'react-hooks/exhaustive-deps': ['error', { additionalHooks: 'use[a-zA-Z]+Effect' }],
     },
     overrides: [
+        {
+            files: [
+                'perf/**/*.ts',
+                'src/**/__tests__/*.{ts,tsx}',
+                'src/**/*.{spec,test}.{ts,tsx}',
+                'test/**/*.{ts,tsx}',
+            ],
+            rules: {
+                'no-console': 'off',
+            },
+        },
         {
             files: ['*.d.ts'],
             rules: {
