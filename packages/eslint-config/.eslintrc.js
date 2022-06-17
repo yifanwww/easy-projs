@@ -88,6 +88,7 @@ module.exports = {
             { selector: 'method', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'property', format: ['camelCase'], leadingUnderscore: 'allow' },
+            { selector: 'objectLiteralProperty', format: null },
             { selector: 'typeAlias', format: ['PascalCase'] },
             { selector: 'typeParameter', format: ['PascalCase'] },
             {
@@ -143,6 +144,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'import/prefer-default-export': 'off',
 
+        'jest/no-alias-methods': 'error',
         'jest/prefer-strict-equal': 'error',
 
         // Enables prettier rules.
