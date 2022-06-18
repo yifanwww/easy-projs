@@ -26,9 +26,9 @@
         "format:root": "format-code",
         "format:workspaces": "npm run format --workspaces --if-present",
         "lint": "npm run lint --workspaces --if-present",
-        "postinstall": "husky install",
-        "prebuild": "npm run build-scripts",
         "pre-commit": "npm run pre-commit --workspaces --if-present",
+        "prebuild": "npm run build-scripts",
+        "prepare": "husky install",
         "test-full": "npm run test-full --workspaces --if-present"
     },
     "engines": {
@@ -92,7 +92,7 @@
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-react": "^7.28.0",
         "eslint-plugin-react-hooks": "^4.3.0",
-        "husky": "^7.0.4",
+        "husky": "^8.0.1",
         "jest": "^27.2.7",
         "jest-watch-typeahead": "^1.0.0",
         "lint-staged": "^11.1.5",
