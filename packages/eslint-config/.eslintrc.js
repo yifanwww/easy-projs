@@ -19,6 +19,9 @@ module.exports = {
         'react',
         'react-hooks',
     ],
+    settings: {
+        'import/internal-regex': '^src',
+    },
     rules: {
         'class-methods-use-this': 'off',
         'consistent-return': 'off',
@@ -33,7 +36,7 @@ module.exports = {
         'max-len': ['error', { code: 120, ignoreUrls: true }],
         // Allows bitwise operators, but be CAREFUL for not using them in most case.
         'no-bitwise': 'off',
-        'no-console': ['error', { allow: ['log', 'debug', 'info', 'warn', 'error'] }],
+        'no-console': ['error', {}],
         'no-constant-condition': 'off',
         'no-continue': 'off',
         'no-else-return': 'off',
@@ -88,6 +91,7 @@ module.exports = {
             { selector: 'method', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'property', format: ['camelCase'], leadingUnderscore: 'allow' },
+            { selector: 'objectLiteralProperty', format: null },
             { selector: 'typeAlias', format: ['PascalCase'] },
             { selector: 'typeParameter', format: ['PascalCase'] },
             {
@@ -137,12 +141,27 @@ module.exports = {
         // 'deprecation/deprecation': 'warn',
 
         'import/extensions': 'off',
+        // From: https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/imports.js#L149
+        'import/order': [
+            'error',
+            {
+                groups: [['builtin', 'external'], 'internal', 'parent', 'sibling'],
+                pathGroups: [
+                    {
+                        pattern: './*.{css,scss}',
+                        group: 'sibling',
+                        position: 'after',
+                    },
+                ],
+            },
+        ],
         'import/no-cycle': 'error',
         'import/no-default-export': 'error',
         // Disabled for import-statement of dev dependencies.
         'import/no-extraneous-dependencies': 'off',
         'import/prefer-default-export': 'off',
 
+        'jest/no-alias-methods': 'error',
         'jest/prefer-strict-equal': 'error',
 
         // Enables prettier rules.
@@ -163,6 +182,17 @@ module.exports = {
         'react-hooks/exhaustive-deps': ['error', { additionalHooks: 'use[a-zA-Z]+Effect' }],
     },
     overrides: [
+        {
+            files: [
+                'perf/**/*.ts',
+                'src/**/__tests__/*.{ts,tsx}',
+                'src/**/*.{spec,test}.{ts,tsx}',
+                'test/**/*.{ts,tsx}',
+            ],
+            rules: {
+                'no-console': 'off',
+            },
+        },
         {
             files: ['*.d.ts'],
             rules: {

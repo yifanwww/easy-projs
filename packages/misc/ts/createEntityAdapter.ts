@@ -113,6 +113,7 @@ function selectIdValue<TEntity, TId extends EntityId>(entity: TEntity, selectId:
     const key = selectId(entity);
 
     if (process.env.NODE_ENV !== 'production' && key === undefined) {
+        // eslint-disable-next-line no-console
         console.warn(
             'The entity passed to the `selectId` implementation returned undefined.',
             'You should probably provide your own `selectId` implementation.',
