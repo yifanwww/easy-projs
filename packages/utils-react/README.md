@@ -48,6 +48,7 @@ type EasyContext = { value1: number; value2: string };
 type EasyAction = { type: 'value1' } | { type: 'value2'; payload: string };
 
 const reducer: ReactImmerReducer<EasyContext, EasyAction> = (state, action) => {
+    let never: never;
     switch (action.type) {
         case 'value1':
             state.value1++;
@@ -56,6 +57,10 @@ const reducer: ReactImmerReducer<EasyContext, EasyAction> = (state, action) => {
         case 'value2':
             state.value2 = action.payload;
             break;
+
+        default:
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            never = action;
     }
 };
 
