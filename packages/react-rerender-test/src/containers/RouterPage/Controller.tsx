@@ -1,11 +1,10 @@
 import { Button } from 'antd';
 import { generatePath, useNavigate } from 'react-router';
 
-import { RoutePath } from 'src/common/route';
-
+import { RoutePath } from 'src/router';
 import { useRouterNum } from './useRouterNum';
 
-export const Controller: React.VFC = () => {
+export const Controller: React.FC = () => {
     const path = RoutePath.RoutePageDetail;
 
     const navigate = useNavigate();

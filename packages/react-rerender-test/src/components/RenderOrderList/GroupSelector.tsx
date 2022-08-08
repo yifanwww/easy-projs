@@ -9,7 +9,7 @@ export interface GroupSelectorProps {
     togglePrev?: () => void;
 }
 
-export const GroupSelector: React.VFC<GroupSelectorProps> = ({ group, toggleNext, togglePrev }) => {
+export const GroupSelector: React.FC<GroupSelectorProps> = ({ group, toggleNext, togglePrev }) => {
     return (
         <div className={scss.root}>
             <Button onClick={togglePrev}>

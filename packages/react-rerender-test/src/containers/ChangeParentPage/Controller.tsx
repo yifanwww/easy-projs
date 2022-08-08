@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { RenderContext, RenderContextUpdater } from 'src/contexts/RenderContext';
 
-export const Controller: React.VFC = () => {
+export const Controller: React.FC = () => {
     const { selected } = useContext(RenderContext);
     const { select } = useContext(RenderContextUpdater);
 

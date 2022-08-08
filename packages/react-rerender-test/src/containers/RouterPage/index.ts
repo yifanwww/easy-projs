@@ -1,1 +1,1 @@
-export * from './RouterPage';
+export { default } from './RouterPage';

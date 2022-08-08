@@ -12,7 +12,7 @@ import { useComponentNames, useGroupTest, useTest } from 'src/hooks';
 
 import scss from './TestPage.module.scss';
 
-export const TestPage: React.VFC = () => {
+const TestPage: React.FC = () => {
     const { totalResults } = useContext(BenchmarkContext);
     const updaters = useContext(BenchmarkContextUpdater);
 
@@ -148,3 +148,5 @@ export const TestPage: React.VFC = () => {
         </div>
     );
 };
+
+export default TestPage;

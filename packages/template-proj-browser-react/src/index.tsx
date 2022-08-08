@@ -1,39 +1,41 @@
 import { FluentuiProvider } from '@easy/utils-fluentui';
 import { initializeIcons } from '@fluentui/react';
-import { StrictMode, useEffect } from 'react';
+import { StrictMode, Suspense, useEffect } from 'react';
 import { render } from 'react-dom';
 import { Provider as ReduxProvider } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
-import { RoutePath } from './common/route';
-import { getPageInfo, pageRoutePaths } from './containers/configs';
-import { mainStore, useMainDispatchingThunks, usePrepared } from './redux';
+import { reduxStore, usePrepared, useReduxDispatchingThunks } from './redux';
 import { reportWebVitals } from './reportWebVitals';
+import { RoutePath, routes } from './router';
 
 import './index.css';
 import scss from './index.module.scss';
 
 export function ClientArea() {
     const prepared = usePrepared();
-    const { prepare } = useMainDispatchingThunks();
+    const { prepare } = useReduxDispatchingThunks();
 
     useEffect(() => {
         prepare();
     }, [prepare]);
 
-    const pageRoutes = pageRoutePaths.map((path) => {
-        const pageInfo = getPageInfo(path)!;
-        return <Route key={path} path={pageInfo.deepMatch ? `${path}/*` : path} element={<pageInfo.component />} />;
-    });
-
     return (
         <div className={scss.clientArea}>
             {prepared && (
-                <Routes>
-                    {pageRoutes}
-                    <Route key="/*" path="/*" element={<Navigate to={RoutePath.HomePage} replace />} />
-                </Routes>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Routes>
+                        {routes.map((route) => (
+                            <Route
+                                key={route.path}
+                                path={route.exact ? route.path : `${route.path}/*`}
+                                element={<route.component />}
+                            />
+                        ))}
+                        <Route key="/*" path="/*" element={<Navigate to={RoutePath.Home} replace />} />
+                    </Routes>
+                </Suspense>
             )}
         </div>
     );
@@ -45,11 +47,11 @@ function main(): void {
     render(
         <StrictMode>
             <FluentuiProvider>
-                <BrowserRouter basename="/template-proj-browser-react">
-                    <ReduxProvider store={mainStore}>
+                <ReduxProvider store={reduxStore}>
+                    <BrowserRouter basename="/template-proj-browser-react">
                         <ClientArea />
-                    </ReduxProvider>
-                </BrowserRouter>
+                    </BrowserRouter>
+                </ReduxProvider>
             </FluentuiProvider>
         </StrictMode>,
         document.getElementById('root'),

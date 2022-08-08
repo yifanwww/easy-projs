@@ -1,1 +1,1 @@
-export * from './ChangeParentPage';
+export { default } from './ChangeParentPage';

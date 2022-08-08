@@ -9,12 +9,13 @@ import { InputWrapper } from 'src/components/InputWrapper';
 import { componentInfos, componentNames } from 'src/components/tests';
 import { BenchmarkContext, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
 import { useComponentNames } from 'src/hooks';
+import './echarts';
 
 import scss from './Charts.module.scss';
 
 type EChartsOption = echarts.ComposeOption<GridComponentOption | LineSeriesOption>;
 
-export const LineChartPage: React.VFC = () => {
+const LineChartPage: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);
 
     const { mount, unmount, update } = useContext(BenchmarkContext);
@@ -85,3 +86,5 @@ export const LineChartPage: React.VFC = () => {
         </div>
     );
 };
+
+export default LineChartPage;

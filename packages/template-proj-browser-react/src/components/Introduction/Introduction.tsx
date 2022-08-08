@@ -2,7 +2,7 @@ import Assets from '@easy/assets';
 
 import scss from './Introduction.module.scss';
 
-export const Introduction: React.VFC = () => {
+export const Introduction: React.FC = () => {
     return (
         <header className={scss.introduction}>
             <img className={scss.logo} src={Assets.logo} alt="logo" />

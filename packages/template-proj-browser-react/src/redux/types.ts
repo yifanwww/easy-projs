@@ -1,4 +1,4 @@
-import { ReduxReducer } from '@easy/utils-redux';
+import { ReduxReducer as InternalReduxReducer } from '@easy/utils-redux';
 
 interface DisplayConfig {
     clientAreaSize: ClientAreaSize;
@@ -9,4 +9,4 @@ export interface StoreState {
     prepared: boolean;
 }
 
-export type MainReducer<Payload = undefined> = ReduxReducer<StoreState, Payload>;
+export type ReduxReducer<Payload = undefined> = InternalReduxReducer<StoreState, Payload>;

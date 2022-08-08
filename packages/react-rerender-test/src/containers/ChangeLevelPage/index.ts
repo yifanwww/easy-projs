@@ -1,1 +1,1 @@
-export * from './ChangeLevelPage';
+export { default } from './ChangeLevelPage';

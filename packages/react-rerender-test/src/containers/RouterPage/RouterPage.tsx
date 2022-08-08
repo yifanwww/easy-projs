@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { generatePath, Route, Routes, useNavigate } from 'react-router';
 
-import { RoutePath } from 'src/common/route';
 import { Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage';
-
+import { RoutePath } from 'src/router';
 import { makeInspectedFC } from '../makeInspectedFC';
 import { Controller } from './Controller';
 import { useRouterNum } from './useRouterNum';
@@ -38,7 +37,7 @@ function CorrectRoute() {
 
 const renderController = () => <Controller />;
 
-export const RouterPage: React.VFC = () => {
+const RouterPage: React.FC = () => {
     return (
         <TestPage onRenderController={renderController}>
             <Inspector group="PTC">
@@ -48,3 +47,5 @@ export const RouterPage: React.VFC = () => {
         </TestPage>
     );
 };
+
+export default RouterPage;

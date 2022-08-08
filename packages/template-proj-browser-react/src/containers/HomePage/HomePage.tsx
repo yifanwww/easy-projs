@@ -1,5 +1,7 @@
 import { Introduction } from 'src/components/Introduction';
 
-export const HomePage: React.VFC = () => {
+const HomePage: React.FC = () => {
     return <Introduction />;
 };
+
+export default HomePage;

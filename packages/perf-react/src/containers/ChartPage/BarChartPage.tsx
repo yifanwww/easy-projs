@@ -8,12 +8,13 @@ import { BenchmarkTypes } from 'src/common/benchmark';
 import { InputWrapper } from 'src/components/InputWrapper';
 import { componentNames } from 'src/components/tests';
 import { BenchmarkContext } from 'src/contexts/BenchmarkContext';
+import './echarts';
 
 import scss from './Charts.module.scss';
 
 type EChartsOption = echarts.ComposeOption<BarSeriesOption | GridComponentOption | TooltipComponentOption>;
 
-export const BarChartPage: React.VFC = () => {
+const BarChartPage: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);
 
     const { mount, unmount, update } = useContext(BenchmarkContext);
@@ -84,3 +85,5 @@ export const BarChartPage: React.VFC = () => {
         </div>
     );
 };
+
+export default BarChartPage;

@@ -1,5 +1,5 @@
-import { MainReducer } from '../types';
+import { ReduxReducer } from '../types';
 
-export const _finishPreparing: MainReducer = (state) => {
+export const _finishPreparing: ReduxReducer = (state) => {
     state.prepared = true;
 };

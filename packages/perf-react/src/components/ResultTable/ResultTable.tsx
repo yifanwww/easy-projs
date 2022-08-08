@@ -30,7 +30,7 @@ const columns: ColumnType<BenchmarkResult>[] = [
     { title: 'P99', dataIndex: ['stats', 'p99'], key: 'p99', render: formatNumber },
 ];
 
-export const ResultTable: React.VFC = () => {
+export const ResultTable: React.FC = () => {
     const { totalResults } = useContext(BenchmarkContext);
 
     // We need to create a new array because of the cache of `reselect`?

@@ -1,1 +1,1 @@
-export * from './NestedFCPage';
+export { default } from './NestedFCPage';

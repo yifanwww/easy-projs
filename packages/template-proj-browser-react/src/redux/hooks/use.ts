@@ -1,3 +1,3 @@
-import { useMainSelector } from './useMainSelector';
+import { useReduxSelector } from './useReduxSelector';
 
-export const usePrepared = () => useMainSelector((state) => state.prepared);
+export const usePrepared = () => useReduxSelector((state) => state.prepared);

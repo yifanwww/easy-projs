@@ -15,7 +15,7 @@ export function getInitialState(): StoreState {
 }
 
 const slice = createSlice({
-    name: 'Main',
+    name: 'redux',
     initialState: getInitialState(),
     reducers: {
         _finishPreparing,

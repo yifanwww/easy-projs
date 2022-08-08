@@ -2,4 +2,4 @@ import { thunkCreatorFactory } from '@easy/utils-redux';
 
 import { StoreState } from '../types';
 
-export const createMainThunk = thunkCreatorFactory<StoreState>();
+export const createReduxThunk = thunkCreatorFactory<StoreState>();

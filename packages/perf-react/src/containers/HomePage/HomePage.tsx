@@ -1,5 +1,5 @@
-import { RoutePath } from 'src/common/route';
 import { IPageOverview, PageOverview } from 'src/components/PageOverview';
+import { RoutePath } from 'src/router';
 
 import scss from './HomePage.module.scss';
 
@@ -9,7 +9,7 @@ const overviews: IPageOverview[] = [
     { title: 'Line Chart', url: RoutePath.LineChartPage },
 ];
 
-export const HomePage: React.VFC = () => {
+const HomePage: React.FC = () => {
     return (
         <div className={scss.root}>
             <div className={scss.content}>
@@ -19,3 +19,5 @@ export const HomePage: React.VFC = () => {
         </div>
     );
 };
+
+export default HomePage;

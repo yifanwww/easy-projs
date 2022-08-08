@@ -1,6 +1,6 @@
 import scss from './Note.module.scss';
 
-export const Note: React.VFC = () => {
+export const Note: React.FC = () => {
     return (
         <div className={scss.root}>
             <span className={scss.title}>Note</span>

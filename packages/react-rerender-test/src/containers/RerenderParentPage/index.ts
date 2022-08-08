@@ -1,1 +1,1 @@
-export * from './RerenderParentPage';
+export { default } from './RerenderParentPage';

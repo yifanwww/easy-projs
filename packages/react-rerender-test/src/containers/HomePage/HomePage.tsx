@@ -1,5 +1,5 @@
-import { RoutePath } from 'src/common/route';
 import { PageOverview, PageOverviewInfo } from 'src/components/PageOverview';
+import { RoutePath } from 'src/router';
 
 import scss from './HomePage.module.scss';
 
@@ -11,7 +11,7 @@ const overviews: PageOverviewInfo[] = [
     { title: 'Router', /*         */ url: RoutePath.RoutePage },
 ];
 
-export const HomePage: React.VFC = () => {
+const HomePage: React.FC = () => {
     return (
         <div className={scss.root}>
             <div className={scss.title}>React Rerender Test</div>
@@ -19,3 +19,5 @@ export const HomePage: React.VFC = () => {
         </div>
     );
 };
+
+export default HomePage;

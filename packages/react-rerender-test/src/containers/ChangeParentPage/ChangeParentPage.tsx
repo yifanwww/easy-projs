@@ -37,7 +37,7 @@ function ParentSelectorPtc() {
 
 const renderController = () => <Controller />;
 
-export const ChangeParentPage: React.VFC = () => {
+const ChangeParentPage: React.FC = () => {
     return (
         <TestPage onRenderController={renderController}>
             <Inspector group="PRC">
@@ -49,3 +49,5 @@ export const ChangeParentPage: React.VFC = () => {
         </TestPage>
     );
 };
+
+export default ChangeParentPage;

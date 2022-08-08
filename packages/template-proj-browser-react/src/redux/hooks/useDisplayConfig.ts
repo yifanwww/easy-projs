@@ -1,3 +1,3 @@
-import { useMainSelector } from './useMainSelector';
+import { useReduxSelector } from './useReduxSelector';
 
-export const useClientAreaSize = () => useMainSelector((state) => state.displayConfig.clientAreaSize);
+export const useClientAreaSize = () => useReduxSelector((state) => state.displayConfig.clientAreaSize);

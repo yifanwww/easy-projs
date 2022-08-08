@@ -1,33 +1,34 @@
 import { ConfigProvider } from 'antd';
-import { StrictMode } from 'react';
+import { StrictMode, Suspense } from 'react';
 import { render } from 'react-dom';
 import { Navigate, Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
 import 'antd/dist/antd.css';
+
+import { Page } from './components/Page';
+import { RoutePath, routes } from './router';
+
 import './index.css';
 
-import { RoutePath } from './common/route';
-import { Page } from './components/Page';
-import { getPageInfo, pageRoutePaths } from './containers/configs';
-
-const ClientArea: React.VFC = () => {
-    const pageRoutes = pageRoutePaths.map((path) => {
-        const pageInfo = getPageInfo(path)!;
-        return <Route key={path} path={pageInfo.deepMatch ? `${path}/*` : path} element={<pageInfo.component />} />;
-    });
-
-    return (
-        <Page>
+const ClientArea: React.FC = () => (
+    <Page>
+        <Suspense fallback={<div>Loading...</div>}>
             <Routes>
-                {pageRoutes}
+                {routes.map((route) => (
+                    <Route
+                        key={route.path}
+                        path={route.exact ? route.path : `${route.path}/*`}
+                        element={<route.component />}
+                    />
+                ))}
                 <Route key="/*" path="/*" element={<Navigate to={RoutePath.HomePage} replace />} />
             </Routes>
-        </Page>
-    );
-};
+        </Suspense>
+    </Page>
+);
 
-const App: React.VFC = () => {
+const App: React.FC = () => {
     return (
         <ConfigProvider autoInsertSpaceInButton={false}>
             <BrowserRouter basename="/react-rerender-test">

@@ -1,6 +1,6 @@
 import { _actions } from '../actions';
-import { createMainThunk } from './createMainThunk';
+import { createReduxThunk } from './createReduxThunk';
 
-export const prepare = createMainThunk((dispatch) => {
+export const prepare = createReduxThunk((dispatch) => {
     dispatch(_actions._finishPreparing());
 });
