@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import scss from './InputWrapper.module.scss';
+import css from './InputWrapper.module.scss';
 
 export interface IInputWrapperProps {
     className?: string;
@@ -11,8 +11,8 @@ export interface IInputWrapperProps {
 export const InputWrapper: React.FC<IInputWrapperProps> = (props) => {
     const { children, className, flexAuto, title } = props;
     return (
-        <div className={clsx(scss.root, flexAuto && scss.auto, className)}>
-            <div className={scss.title}>{title}</div>
+        <div className={clsx(css.root, flexAuto && css.auto, className)}>
+            <div className={css.title}>{title}</div>
             {children}
         </div>
     );

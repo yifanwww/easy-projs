@@ -3,7 +3,7 @@ import { Tag } from 'antd';
 import { InspectedFCType } from 'src/common/inspection';
 import { useRenderCount } from 'src/hooks';
 
-import scss from './ComponentView.module.scss';
+import css from './ComponentView.module.scss';
 
 interface ComponentTagProps {
     type: InspectedFCType;
@@ -16,13 +16,13 @@ const ComponentTag: React.FC<ComponentTagProps> = ({ type }) => {
             return null;
         case 'prc':
             return (
-                <Tag className={scss.tag} color="green">
+                <Tag className={css.tag} color="green">
                     <span>prc</span>
                 </Tag>
             );
         case 'ptc':
             return (
-                <Tag className={scss.tag} color="blue">
+                <Tag className={css.tag} color="blue">
                     <span>ptc</span>
                 </Tag>
             );
@@ -50,9 +50,9 @@ export const ComponentView: React.FC<ComponentViewProps> = (props) => {
     const renderCount = useRenderCount();
 
     return (
-        <div className={scss.root} style={{ background: color }}>
-            <div className={scss.info}>
-                <span className={scss.title}>
+        <div className={css.root} style={{ background: color }}>
+            <div className={css.info}>
+                <span className={css.title}>
                     {name}
                     <ComponentTag type={type} />
                 </span>

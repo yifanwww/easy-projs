@@ -10,7 +10,7 @@ import { componentInfos, componentNames } from 'src/components/tests';
 import { BenchmarkContext, BenchmarkContextUpdater, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
 import { useComponentNames, useGroupTest, useTest } from 'src/hooks';
 
-import scss from './TestPage.module.scss';
+import css from './TestPage.module.scss';
 
 const TestPage: React.FC = () => {
     const { totalResults } = useContext(BenchmarkContext);
@@ -72,11 +72,11 @@ const TestPage: React.FC = () => {
     const totalCount = benchmarkResultSelector.selectTotal(totalResults);
 
     const controllerElement = (
-        <div className={scss.controller}>
-            <div className={scss.selectorBar}>
+        <div className={css.controller}>
+            <div className={css.selectorBar}>
                 <InputWrapper flexAuto title="Component">
                     <Select
-                        className={scss.select}
+                        className={css.select}
                         disabled={running}
                         value={componentName}
                         onChange={changeComponentName}
@@ -90,7 +90,7 @@ const TestPage: React.FC = () => {
                 </InputWrapper>
                 <InputWrapper flexAuto title="Benchmark Type">
                     <Select
-                        className={scss.select}
+                        className={css.select}
                         disabled={running}
                         value={benchmarkType}
                         onChange={changeBenchmarkType}
@@ -109,17 +109,17 @@ const TestPage: React.FC = () => {
                     <InputNumber disabled={running} min={1} value={times} onChange={changeTimes} />
                 </InputWrapper>
             </div>
-            <div className={scss.buttonBar}>
-                <Button className={scss.button} disabled={running} onClick={startTest}>
+            <div className={css.buttonBar}>
+                <Button className={css.button} disabled={running} onClick={startTest}>
                     Test
                 </Button>
-                <Button className={scss.button} disabled={running} onClick={startGroupTest}>
+                <Button className={css.button} disabled={running} onClick={startGroupTest}>
                     Group Test
                 </Button>
-                <Button className={scss.button} disabled={running || totalCount === 0} onClick={clearResults}>
+                <Button className={css.button} disabled={running || totalCount === 0} onClick={clearResults}>
                     Clear
                 </Button>
-                <Button className={scss.button} disabled={running || totalCount === 0} onClick={copyResults}>
+                <Button className={css.button} disabled={running || totalCount === 0} onClick={copyResults}>
                     Copy Results
                 </Button>
             </div>
@@ -127,13 +127,13 @@ const TestPage: React.FC = () => {
     );
 
     return (
-        <div className={scss.root}>
-            <div className={scss.display}>
+        <div className={css.root}>
+            <div className={css.display}>
                 {controllerElement}
                 <ResultTable />
             </div>
 
-            <div className={scss.test}>
+            <div className={css.test}>
                 <Benchmark
                     key={`${componentName}-${benchmarkType}-${totalCount}`}
                     component={componentInfos[componentName].component}

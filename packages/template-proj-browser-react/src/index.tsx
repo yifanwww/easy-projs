@@ -11,7 +11,7 @@ import { reportWebVitals } from './reportWebVitals';
 import { RoutePath, routes } from './router';
 
 import './index.css';
-import scss from './index.module.scss';
+import css from './index.module.scss';
 
 export function ClientArea() {
     const prepared = usePrepared();
@@ -22,7 +22,7 @@ export function ClientArea() {
     }, [prepare]);
 
     return (
-        <div className={scss.clientArea}>
+        <div className={css.clientArea}>
             {prepared && (
                 <Suspense fallback={<div>Loading...</div>}>
                     <Routes>

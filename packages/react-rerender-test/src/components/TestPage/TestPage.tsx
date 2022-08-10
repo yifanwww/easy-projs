@@ -6,7 +6,7 @@ import { RenderProvider } from 'src/contexts/RenderContext';
 import { Note } from '../Note';
 import { RenderList } from '../RenderOrderList';
 
-import scss from './TestPage.module.scss';
+import css from './TestPage.module.scss';
 
 export interface TestPageProps {
     onRenderController?: () => React.ReactNode;
@@ -14,10 +14,10 @@ export interface TestPageProps {
 
 export const TestPage: React.FC<TestPageProps> = ({ children, onRenderController }) => {
     return (
-        <Layout.Content className={scss.root}>
+        <Layout.Content className={css.root}>
             <InspectionProvider>
-                <div className={scss.view}>
-                    <div className={scss.components}>
+                <div className={css.view}>
+                    <div className={css.components}>
                         <RenderProvider>
                             {children}
                             {onRenderController?.()}

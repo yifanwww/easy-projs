@@ -1,10 +1,10 @@
-import scss from './Note.module.scss';
+import css from './Note.module.scss';
 
 export const Note: React.FC = () => {
     return (
-        <div className={scss.root}>
-            <span className={scss.title}>Note</span>
-            <div className={scss.textContainer}>
+        <div className={css.root}>
+            <span className={css.title}>Note</span>
+            <div className={css.textContainer}>
                 <code>PRC = Parent Renders Children</code>
                 <code>PTC = Pass Through Children</code>
             </div>

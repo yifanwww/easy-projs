@@ -1,7 +1,7 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 
-import scss from './GroupSelector.module.scss';
+import css from './GroupSelector.module.scss';
 
 export interface GroupSelectorProps {
     group: string;
@@ -11,11 +11,11 @@ export interface GroupSelectorProps {
 
 export const GroupSelector: React.FC<GroupSelectorProps> = ({ group, toggleNext, togglePrev }) => {
     return (
-        <div className={scss.root}>
+        <div className={css.root}>
             <Button onClick={togglePrev}>
                 <LeftOutlined />
             </Button>
-            <span className={scss.selected}>{group}</span>
+            <span className={css.selected}>{group}</span>
             <Button onClick={toggleNext}>
                 <RightOutlined />
             </Button>

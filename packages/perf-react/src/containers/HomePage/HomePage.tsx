@@ -1,7 +1,7 @@
 import { IPageOverview, PageOverview } from 'src/components/PageOverview';
 import { RoutePath } from 'src/router';
 
-import scss from './HomePage.module.scss';
+import css from './HomePage.module.scss';
 
 const overviews: IPageOverview[] = [
     { title: 'Test', url: RoutePath.TestPage },
@@ -11,9 +11,9 @@ const overviews: IPageOverview[] = [
 
 const HomePage: React.FC = () => {
     return (
-        <div className={scss.root}>
-            <div className={scss.content}>
-                <div className={scss.title}>React Hooks Performance</div>
+        <div className={css.root}>
+            <div className={css.content}>
+                <div className={css.title}>React Hooks Performance</div>
                 <PageOverview overviews={overviews} />
             </div>
         </div>

@@ -1,9 +1,9 @@
 import { useCallback, useMemo, useReducer, useRef, useState } from 'react';
-import scss from './tests.module.scss';
+import css from './tests.module.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ComponentView(props: Record<string, unknown>) {
-    return <div className={scss.root} />;
+    return <div className={css.root} />;
 }
 
 export function NoHooks() {

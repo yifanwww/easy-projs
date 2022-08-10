@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 
 import { siders } from './sider';
 
-import scss from './Page.module.scss';
+import css from './Page.module.scss';
 
 export const Page: React.FC = ({ children }) => {
     const pagePath = useLocation().pathname;
 
     return (
         <Layout>
-            <Layout.Sider className={scss.sider} width="128px">
-                <Menu className={scss.siderMenu} mode="inline" selectedKeys={[pagePath]}>
+            <Layout.Sider className={css.sider} width="128px">
+                <Menu className={css.siderMenu} mode="inline" selectedKeys={[pagePath]}>
                     {siders.map((sider) => (
                         <Menu.Item key={sider.path}>
                             <Link to={sider.path}>{sider.title}</Link>
@@ -20,7 +20,7 @@ export const Page: React.FC = ({ children }) => {
                     ))}
                 </Menu>
             </Layout.Sider>
-            <Layout className={scss.content}>{children}</Layout>
+            <Layout className={css.content}>{children}</Layout>
         </Layout>
     );
 };

@@ -5,7 +5,7 @@ import { InspectedFC } from 'src/common/inspection';
 import { InspectionContext, InspectionContextUpdater } from 'src/contexts/InspectionContext';
 import { useInspectorPosition } from 'src/hooks/useInspectorPosition';
 
-import scss from './Inspector.module.scss';
+import css from './Inspector.module.scss';
 
 export const inspectorName = 'Inspector';
 
@@ -29,9 +29,9 @@ export const Inspector: InspectedFC<InspectorProps> = (props) => {
     registerGroup(group, index);
 
     return (
-        <div className={scss.root}>
-            {hasMultiGroups && <span className={scss.group}>Group: {group}</span>}
-            <div className={clsx(selectedGroup === group && hasMultiGroups && scss.highlight)}>{children}</div>
+        <div className={css.root}>
+            {hasMultiGroups && <span className={css.group}>Group: {group}</span>}
+            <div className={clsx(selectedGroup === group && hasMultiGroups && css.highlight)}>{children}</div>
         </div>
     );
 };

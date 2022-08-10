@@ -11,7 +11,7 @@ import { BenchmarkContext, benchmarkResultSelector } from 'src/contexts/Benchmar
 import { useComponentNames } from 'src/hooks';
 import './echarts';
 
-import scss from './Charts.module.scss';
+import css from './Charts.module.scss';
 
 type EChartsOption = echarts.ComposeOption<GridComponentOption | LineSeriesOption>;
 
@@ -61,11 +61,11 @@ const LineChartPage: React.FC = () => {
     const changeBenchmarkType = (type: BenchmarkTypes) => setBenchmarkType(type);
 
     return (
-        <div className={scss.root}>
-            <div className={scss.container} ref={ref} />
-            <div className={scss.selectorBar}>
-                <InputWrapper className={scss.select} flexAuto title="Component">
-                    <Select className={scss.select} value={componentName} onChange={changeComponentName}>
+        <div className={css.root}>
+            <div className={css.container} ref={ref} />
+            <div className={css.selectorBar}>
+                <InputWrapper className={css.select} flexAuto title="Component">
+                    <Select className={css.select} value={componentName} onChange={changeComponentName}>
                         {componentNames.map((name) => (
                             <Select.Option key={name} value={name}>
                                 {componentInfos[name].displayName}
@@ -73,8 +73,8 @@ const LineChartPage: React.FC = () => {
                         ))}
                     </Select>
                 </InputWrapper>
-                <InputWrapper className={scss.select} flexAuto title="Benchmark Type">
-                    <Select className={scss.select} value={benchmarkType} onChange={changeBenchmarkType}>
+                <InputWrapper className={css.select} flexAuto title="Benchmark Type">
+                    <Select className={css.select} value={benchmarkType} onChange={changeBenchmarkType}>
                         {Object.values(BenchmarkType).map((type) => (
                             <Select.Option key={type} value={type}>
                                 {type}

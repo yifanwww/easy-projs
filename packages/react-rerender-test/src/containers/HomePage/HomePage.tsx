@@ -1,7 +1,7 @@
 import { PageOverview, PageOverviewInfo } from 'src/components/PageOverview';
 import { RoutePath } from 'src/router';
 
-import scss from './HomePage.module.scss';
+import css from './HomePage.module.scss';
 
 const overviews: PageOverviewInfo[] = [
     { title: 'Change Level', /*   */ url: RoutePath.ChangeLevelPage },
@@ -13,8 +13,8 @@ const overviews: PageOverviewInfo[] = [
 
 const HomePage: React.FC = () => {
     return (
-        <div className={scss.root}>
-            <div className={scss.title}>React Rerender Test</div>
+        <div className={css.root}>
+            <div className={css.title}>React Rerender Test</div>
             <PageOverview overviews={overviews} />
         </div>
     );
