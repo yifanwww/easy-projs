@@ -1,9 +1,8 @@
 import { useConst } from '@easy/hooks';
-import { ReactImmerReducer } from '@easy/utils-react';
+import { ImmerReducer, useImmerReducer } from '@easy/utils-react';
 import { Draft } from 'immer';
 import { createContext } from 'react';
 import { noop } from 'ts-essentials';
-import { useImmerReducer } from 'use-immer';
 
 import { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
@@ -74,7 +73,7 @@ type IBenchmarkAction =
     | { type: 'clear'; benchmarkType: BenchmarkTypes; componentName: ComponentName }
     | { type: 'clear-all' };
 
-const reducer: ReactImmerReducer<IBenchmarkContext, IBenchmarkAction> = (state, action) => {
+const reducer: ImmerReducer<IBenchmarkContext, IBenchmarkAction> = (state, action) => {
     let never: never;
     switch (action.type) {
         case 'add': {

@@ -38,16 +38,15 @@ export const Page: React.FC<PageProps> = (props) => {
 }
 ```
 
-### `ReactImmerReducer`
+### `useImmerReducer`
 
 ```tsx
-import { ReactImmerReducer } from '@easy/utils-react';
-import { useImmerReducer } from 'use-immer';
+import { ImmerReducer, useImmerReducer } from '@easy/utils-react';
 
 type EasyContext = { value1: number; value2: string };
 type EasyAction = { type: 'value1' } | { type: 'value2'; payload: string };
 
-const reducer: ReactImmerReducer<EasyContext, EasyAction> = (state, action) => {
+const reducer: ImmerReducer<EasyContext, EasyAction> = (state, action) => {
     let never: never;
     switch (action.type) {
         case 'value1':

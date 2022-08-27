@@ -1,8 +1,7 @@
 import { useConst } from '@easy/hooks';
-import { ReactImmerReducer } from '@easy/utils-react';
+import { ImmerReducer, useImmerReducer } from '@easy/utils-react';
 import { createContext } from 'react';
 import { noop } from 'ts-essentials';
-import { useImmerReducer } from 'use-immer';
 
 export interface RenderContextState {
     forceUpdateNumber: Integer;
@@ -16,7 +15,7 @@ export interface RenderContextUpdaters {
 
 type RenderAction = { type: 'forceUpdate' } | { type: 'select'; select: Integer };
 
-const reducer: ReactImmerReducer<RenderContextState, RenderAction> = (state, action) => {
+const reducer: ImmerReducer<RenderContextState, RenderAction> = (state, action) => {
     let never: never;
     switch (action.type) {
         case 'forceUpdate':

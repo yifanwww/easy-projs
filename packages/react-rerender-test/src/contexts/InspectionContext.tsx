@@ -1,5 +1,5 @@
 import { useConst, useConstFn, useForceUpdate } from '@easy/hooks';
-import { ReactImmerReducer } from '@easy/utils-react';
+import { ImmerReducer } from '@easy/utils-react';
 import produce from 'immer';
 import { createContext, useRef } from 'react';
 import { noop } from 'ts-essentials';
@@ -36,7 +36,7 @@ type InspectionAction =
     | { type: 'register-group'; index: number; group: string }
     | { type: 'toggle-group'; toggle: 'prev' | 'next' };
 
-const reduce = produce<ReactImmerReducer<InspectionContextState, InspectionAction>>((state, action) => {
+const reduce = produce<ImmerReducer<InspectionContextState, InspectionAction>>((state, action) => {
     let never: never;
     switch (action.type) {
         case 'add-record': {
