@@ -13,7 +13,7 @@ import { RoutePath, routes } from './router';
 import './index.css';
 import css from './index.module.scss';
 
-export function ClientArea() {
+const App: React.FC = () => {
     const prepared = usePrepared();
     const { prepare } = useReduxDispatchingThunks();
 
@@ -39,20 +39,24 @@ export function ClientArea() {
             )}
         </div>
     );
-}
+};
+
+const GlobalProviders: React.FC = (props) => (
+    <FluentuiProvider>
+        <ReduxProvider store={reduxStore}>
+            <BrowserRouter basename="/template-proj-browser-react">{props.children}</BrowserRouter>
+        </ReduxProvider>
+    </FluentuiProvider>
+);
 
 function main(): void {
     initializeIcons();
 
     render(
         <StrictMode>
-            <FluentuiProvider>
-                <ReduxProvider store={reduxStore}>
-                    <BrowserRouter basename="/template-proj-browser-react">
-                        <ClientArea />
-                    </BrowserRouter>
-                </ReduxProvider>
-            </FluentuiProvider>
+            <GlobalProviders>
+                <App />
+            </GlobalProviders>
         </StrictMode>,
         document.getElementById('root'),
     );

@@ -12,38 +12,36 @@ import { RoutePath, routes } from './router';
 
 import './index.css';
 
-const ClientArea: React.FC = () => (
+const App: React.FC = () => (
     <Page>
-        <BenchmarkProvider>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    {routes.map((route) => (
-                        <Route
-                            key={route.path}
-                            path={route.exact ? route.path : `${route.path}/*`}
-                            element={<route.component />}
-                        />
-                    ))}
-                    <Route key="/*" path="/*" element={<Navigate to={RoutePath.HomePage} replace />} />
-                </Routes>
-            </Suspense>
-        </BenchmarkProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+                {routes.map((route) => (
+                    <Route
+                        key={route.path}
+                        path={route.exact ? route.path : `${route.path}/*`}
+                        element={<route.component />}
+                    />
+                ))}
+                <Route key="/*" path="/*" element={<Navigate to={RoutePath.HomePage} replace />} />
+            </Routes>
+        </Suspense>
     </Page>
 );
 
-const App: React.FC = () => {
-    return (
-        <ConfigProvider autoInsertSpaceInButton={false}>
-            <BrowserRouter basename="/perf-react">
-                <ClientArea />
-            </BrowserRouter>
-        </ConfigProvider>
-    );
-};
+const GlobalProviders: React.FC = (props) => (
+    <ConfigProvider autoInsertSpaceInButton={false}>
+        <BrowserRouter basename="/perf-react">
+            <BenchmarkProvider>{props.children}</BenchmarkProvider>
+        </BrowserRouter>
+    </ConfigProvider>
+);
 
 render(
     <StrictMode>
-        <App />
+        <GlobalProviders>
+            <App />
+        </GlobalProviders>
     </StrictMode>,
     document.getElementById('root'),
 );

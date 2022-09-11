@@ -11,7 +11,7 @@ import { RoutePath, routes } from './router';
 
 import './index.css';
 
-const ClientArea: React.FC = () => (
+const App: React.FC = () => (
     <Page>
         <Suspense fallback={<div>Loading...</div>}>
             <Routes>
@@ -28,19 +28,17 @@ const ClientArea: React.FC = () => (
     </Page>
 );
 
-const App: React.FC = () => {
-    return (
-        <ConfigProvider autoInsertSpaceInButton={false}>
-            <BrowserRouter basename="/react-rerender-test">
-                <ClientArea />
-            </BrowserRouter>
-        </ConfigProvider>
-    );
-};
+const GlobalProviders: React.FC = (props) => (
+    <ConfigProvider autoInsertSpaceInButton={false}>
+        <BrowserRouter basename="/react-rerender-test">{props.children}</BrowserRouter>
+    </ConfigProvider>
+);
 
 render(
     <StrictMode>
-        <App />
+        <GlobalProviders>
+            <App />
+        </GlobalProviders>
     </StrictMode>,
     document.getElementById('root'),
 );
