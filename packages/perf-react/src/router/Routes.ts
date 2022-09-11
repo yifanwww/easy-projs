@@ -2,13 +2,28 @@ import React, { lazy } from 'react';
 
 import { RoutePath } from './RoutePath';
 
-export interface RouteInfo {
+interface RouteConfig {
     component: React.ComponentType;
+    /** Default is `false`. */
     exact?: boolean;
     path: RoutePath;
 }
 
-export const routes: RouteInfo[] = [
+export interface RouteInfo {
+    component: React.ComponentType;
+    exact: boolean;
+    path: RoutePath;
+}
+
+function createRoutes(routes: RouteConfig[]): RouteInfo[] {
+    return routes.map((route) => ({
+        component: route.component,
+        exact: route.exact ?? false,
+        path: route.path,
+    }));
+}
+
+export const routes: RouteInfo[] = createRoutes([
     {
         path: RoutePath.HomePage,
         component: lazy(() => import(/* webpackChunkName: 'home' */ 'src/containers/HomePage')),
@@ -29,4 +44,4 @@ export const routes: RouteInfo[] = [
         component: lazy(() => import(/* webpackChunkName: 'line-chart' */ 'src/containers/ChartPage/LineChartPage')),
         exact: true,
     },
-];
+]);
