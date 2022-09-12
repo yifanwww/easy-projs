@@ -10,9 +10,9 @@ interface RouteConfig {
 }
 
 export interface RouteInfo {
-    component: React.ComponentType;
-    exact: boolean;
-    path: RoutePath;
+    readonly component: React.ComponentType;
+    readonly exact: boolean;
+    readonly path: RoutePath;
 }
 
 function createRoutes(routes: RouteConfig[]): RouteInfo[] {
