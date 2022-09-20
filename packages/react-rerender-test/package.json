@@ -30,6 +30,7 @@
     },
     "dependencies": {
         "@easy/hooks": "*",
+        "@easy/utils": "*",
         "@easy/utils-react": "*"
     },
     "devDependencies": {

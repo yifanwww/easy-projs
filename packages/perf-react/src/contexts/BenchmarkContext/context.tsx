@@ -1,8 +1,8 @@
 import { useConst } from '@easy/hooks';
+import { abstractFn } from '@easy/utils';
 import { ImmerReducer, useImmerReducer } from '@easy/utils-react';
 import { Draft } from 'immer';
 import { createContext } from 'react';
-import { noop } from 'ts-essentials';
 
 import { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
@@ -117,9 +117,9 @@ const reducer: ImmerReducer<IBenchmarkContext, IBenchmarkAction> = (state, actio
 export const BenchmarkContext = createContext<IBenchmarkContext>(initialContext);
 
 export const BenchmarkContextUpdater = createContext<IBenchmarkContextUpdaters>({
-    add: noop,
-    clear: noop,
-    clearAll: noop,
+    add: abstractFn,
+    clear: abstractFn,
+    clearAll: abstractFn,
 });
 
 export const BenchmarkProvider: React.FC = ({ children }) => {

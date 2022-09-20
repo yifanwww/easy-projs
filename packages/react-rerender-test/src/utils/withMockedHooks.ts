@@ -1,5 +1,5 @@
+import { noop } from 'lodash';
 import React from 'react';
-import { noop } from 'ts-essentials';
 
 export function withMockedHooks<T extends UnknownFn>(fn: T): T {
     const _fn = (...args: never[]) => {

@@ -182,6 +182,10 @@
             "path": "packages/tsconfigs"
         },
         {
+            "name": "@easy/utils",
+            "path": "packages/utils"
+        },
+        {
             "name": "@easy/utils-fluentui",
             "path": "packages/utils-fluentui"
         },

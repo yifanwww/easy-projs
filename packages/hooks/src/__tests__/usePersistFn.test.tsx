@@ -1,7 +1,7 @@
 import { validateHookValueNotChanged } from '@easy/utils-test';
 import { act, render } from '@testing-library/react';
+import { noop } from 'lodash';
 import { useState } from 'react';
-import { noop } from 'ts-essentials';
 
 import { usePersistFn } from '../usePersistFn';
 

@@ -1,6 +1,6 @@
 import { validateHookValueNotChanged } from '@easy/utils-test';
 import { act, renderHook } from '@testing-library/react-hooks';
-import { noop } from 'ts-essentials';
+import { noop } from 'lodash';
 
 import { useDoubleTrigger } from '../useDoubleTrigger';
 

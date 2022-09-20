@@ -1,7 +1,7 @@
 import { useConst } from '@easy/hooks';
+import { abstractFn } from '@easy/utils';
 import { ImmerReducer, useImmerReducer } from '@easy/utils-react';
 import { createContext } from 'react';
-import { noop } from 'ts-essentials';
 
 export interface RenderContextState {
     forceUpdateNumber: Integer;
@@ -38,7 +38,10 @@ const initialContext: RenderContextState = {
 };
 
 export const RenderContext = createContext<RenderContextState>(initialContext);
-export const RenderContextUpdater = createContext<RenderContextUpdaters>({ forceUpdate: noop, select: noop });
+export const RenderContextUpdater = createContext<RenderContextUpdaters>({
+    forceUpdate: abstractFn,
+    select: abstractFn,
+});
 
 export const RenderProvider: React.FC = ({ children }) => {
     const [context, dispatch] = useImmerReducer(reducer, initialContext);

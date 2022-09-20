@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../dist/utils/bin').buildProjects();
+require('../dist/bin').buildProjects();

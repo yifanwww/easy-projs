@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import child from 'child_process';
 import concurrently from 'concurrently';
 
-import { paths } from './paths';
+import { paths } from './utils/paths';
 
 const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
 const genBuildCommand = (name: string) => `npm run build --workspace ${name}`;
@@ -33,7 +33,7 @@ async function buildOrder(order: Order): Promise<void> {
 export async function buildPackages(): Promise<void> {
     const order: Order = [
         /* ----- may be used by all other packages ----- */
-        ['@easy/utils-type', '@easy/utils-test'],
+        ['@easy/utils', '@easy/utils-type', '@easy/utils-test'],
 
         /* ----- product packages ----- */
         [

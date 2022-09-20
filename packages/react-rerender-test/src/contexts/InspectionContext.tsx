@@ -1,8 +1,8 @@
 import { useConst, useConstFn, useForceUpdate } from '@easy/hooks';
+import { abstractFn } from '@easy/utils';
 import { ImmerReducer } from '@easy/utils-react';
 import produce from 'immer';
 import { createContext, useRef } from 'react';
-import { noop } from 'ts-essentials';
 
 import { InspectionData, InspectionTree } from 'src/common/inspection';
 import { useDoubleRenderSign } from 'src/hooks/useDoubleRenderSign';
@@ -92,10 +92,10 @@ const reduce = produce<ImmerReducer<InspectionContextState, InspectionAction>>((
 export const InspectionContext = createContext<InspectionContextState>(initialContext);
 
 export const InspectionContextUpdater = createContext<InspectionContextUpdaters>({
-    addRecord: noop,
-    forceUpdate: noop,
-    registerGroup: noop,
-    toggleGroup: noop,
+    addRecord: abstractFn,
+    forceUpdate: abstractFn,
+    registerGroup: abstractFn,
+    toggleGroup: abstractFn,
 });
 
 export const InspectionProvider: React.FC = ({ children }) => {

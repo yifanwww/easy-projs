@@ -1,7 +1,10 @@
 {
-    "name": "@easy/perf-react",
-    "version": "0.0.0",
-    "description": "This project is used to test the performance of React.",
+    "name": "@easy/utils",
+    "version": "0.1.0",
+    "description": "Utilities for easy-projs.",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "typings": "lib/index.d.ts",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -12,31 +15,28 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/perf-react"
+        "directory": "packages/utils"
     },
-    "browserslist": [
-        "last 9 chrome versions"
-    ],
     "scripts": {
-        "build": "react-proj build",
-        "clean": "rimraf build",
-        "dev": "react-proj dev",
+        "build": "concurrently -n cjs,esm,types \"npm run build:cjs\" \"npm run build:esm\" \"npm run build:types\"",
+        "build:cjs": "tsc --project tsconfigs/tsconfig.cjs.json",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
+        "dev": "npm run build:esm -- --watch",
         "format": "format-code",
-        "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
+        "lint": "eslint .",
         "pre-commit": "lint-staged",
         "test": "skip-npm-script",
         "test-full": "skip-npm-script"
     },
     "dependencies": {
-        "@easy/hooks": "*",
-        "@easy/utils": "*",
-        "@easy/utils-react": "*"
+        "@easy/utils-type": "*"
     },
     "devDependencies": {
         "@easy/eslint-config": "*",
         "@easy/global-types": "*",
         "@easy/scripts": "*",
-        "@easy/stylelint-config": "*",
         "@easy/tsconfigs": "*"
     }
 }
