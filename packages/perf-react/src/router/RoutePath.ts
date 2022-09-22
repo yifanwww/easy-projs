@@ -1,6 +1,6 @@
 export enum RoutePath {
-    BarChartPage = '/bar-chart',
-    LineChartPage = '/line-chart',
-    HomePage = '/home',
-    TestPage = '/test',
+    BAR_CHART = '/bar-chart',
+    LINE_CHART = '/line-chart',
+    HOME = '/home',
+    TEST = '/test',
 }

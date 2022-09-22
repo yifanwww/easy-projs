@@ -4,11 +4,11 @@ import { RoutePath } from 'src/router';
 import css from './HomePage.module.scss';
 
 const overviews: PageOverviewInfo[] = [
-    { title: 'Change Level', /*   */ url: RoutePath.ChangeLevelPage },
-    { title: 'Change Parent', /*  */ url: RoutePath.ChangeParentPage },
-    { title: 'Nested FC', /*      */ url: RoutePath.NestedFCPage },
-    { title: 'Rerender Parent', /**/ url: RoutePath.RerenderParentPage },
-    { title: 'Router', /*         */ url: RoutePath.RoutePage },
+    { title: 'Change Level', /*   */ url: RoutePath.CHANGE_LEVEL },
+    { title: 'Change Parent', /*  */ url: RoutePath.CHANGE_PARENT },
+    { title: 'Nested FC', /*      */ url: RoutePath.NESTED_FC },
+    { title: 'Rerender Parent', /**/ url: RoutePath.RERENDER_PARENT },
+    { title: 'Router', /*         */ url: RoutePath.ROUTE },
 ];
 
 const HomePage: React.FC = () => {

@@ -9,7 +9,7 @@ import css from './Page.module.scss';
 
 export function PageSidebar() {
     let pagePath = useLocation().pathname;
-    if (pagePath.startsWith(RoutePath.RoutePage)) pagePath = RoutePath.RoutePage;
+    if (pagePath.startsWith(RoutePath.ROUTE)) pagePath = RoutePath.ROUTE;
 
     return (
         <Layout.Sider className={css.sider}>

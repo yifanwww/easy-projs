@@ -33,7 +33,7 @@ const App: React.FC = () => {
                                 element={<route.component />}
                             />
                         ))}
-                        <Route key="/*" path="/*" element={<Navigate to={RoutePath.Home} replace />} />
+                        <Route key="/*" path="/*" element={<Navigate to={RoutePath.HOME} replace />} />
                     </Routes>
                 </Suspense>
             )}

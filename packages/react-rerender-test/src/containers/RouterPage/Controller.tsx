@@ -5,7 +5,7 @@ import { RoutePath } from 'src/router';
 import { useRouterNum } from './useRouterNum';
 
 export const Controller: React.FC = () => {
-    const path = RoutePath.RoutePageDetail;
+    const path = RoutePath.ROUTE_DETAIL;
 
     const navigate = useNavigate();
 

@@ -3,7 +3,7 @@ import { useMatch } from 'react-router';
 import { RoutePath } from 'src/router';
 
 export function useRouterNum(): Optional<number> {
-    const match = useMatch(RoutePath.RoutePageDetail);
+    const match = useMatch(RoutePath.ROUTE_DETAIL);
 
     if (match === null) return null;
 

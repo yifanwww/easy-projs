@@ -28,7 +28,7 @@ function CorrectRoute() {
 
     useEffect(() => {
         if (num === null) {
-            navigate(generatePath(RoutePath.RoutePageDetail, { num: '1' }), { replace: true });
+            navigate(generatePath(RoutePath.ROUTE_DETAIL, { num: '1' }), { replace: true });
         }
     }, [navigate, num]);
 

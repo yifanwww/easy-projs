@@ -6,10 +6,10 @@ export interface SiderInfo {
 }
 
 export const siders: SiderInfo[] = [
-    { path: RoutePath.HomePage, title: 'Home' },
-    { path: RoutePath.ChangeLevelPage, title: 'Change Level' },
-    { path: RoutePath.ChangeParentPage, title: 'Change Parent' },
-    { path: RoutePath.NestedFCPage, title: 'Nested FC' },
-    { path: RoutePath.RerenderParentPage, title: 'Rerender Parent' },
-    { path: RoutePath.RoutePage, title: 'Router' },
+    { path: RoutePath.HOME, title: 'Home' },
+    { path: RoutePath.CHANGE_LEVEL, title: 'Change Level' },
+    { path: RoutePath.CHANGE_PARENT, title: 'Change Parent' },
+    { path: RoutePath.NESTED_FC, title: 'Nested FC' },
+    { path: RoutePath.RERENDER_PARENT, title: 'Rerender Parent' },
+    { path: RoutePath.ROUTE, title: 'Router' },
 ];

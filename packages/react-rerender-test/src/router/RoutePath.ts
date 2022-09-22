@@ -1,10 +1,10 @@
 export enum RoutePath {
-    HomePage = '/home',
+    HOME = '/home',
 
-    ChangeLevelPage = '/change-level',
-    ChangeParentPage = '/change-parent',
-    NestedFCPage = '/nested-fc',
-    RerenderParentPage = '/rerender-parent',
-    RoutePage = '/router',
-    RoutePageDetail = '/router/:num',
+    CHANGE_LEVEL = '/change-level',
+    CHANGE_PARENT = '/change-parent',
+    NESTED_FC = '/nested-fc',
+    RERENDER_PARENT = '/rerender-parent',
+    ROUTE = '/router',
+    ROUTE_DETAIL = '/router/:num',
 }

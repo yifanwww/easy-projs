@@ -6,8 +6,8 @@ export interface SiderInfo {
 }
 
 export const siders: SiderInfo[] = [
-    { path: RoutePath.HomePage, title: 'Home' },
-    { path: RoutePath.TestPage, title: 'Test' },
-    { path: RoutePath.BarChartPage, title: 'Bar Chart' },
-    { path: RoutePath.LineChartPage, title: 'Line Chart' },
+    { path: RoutePath.HOME, title: 'Home' },
+    { path: RoutePath.TEST, title: 'Test' },
+    { path: RoutePath.BAR_CHART, title: 'Bar Chart' },
+    { path: RoutePath.LINE_CHART, title: 'Line Chart' },
 ];
