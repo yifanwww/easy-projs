@@ -1,0 +1,11 @@
+# Compilation
+
+/lib
+
+# Running and Testing
+
+/coverage
+
+# Misc
+
+/vscode
