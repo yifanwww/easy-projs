@@ -6,7 +6,8 @@ Typescript configurations for easy-projs.
 
 Your typescript configurations can be extended from
 - `@easy/tsconfigs/tsconfig.base.json`
-- `@easy/tsconfigs/tsconfig.eslint.json`
+- `@easy/tsconfigs/tsconfig.eslint.node.json`
+- `@easy/tsconfigs/tsconfig.eslint.react.json`
 - `@easy/tsconfigs/tsconfig.node.json`
 - `@easy/tsconfigs/tsconfig.node.cjs.json`
 - `@easy/tsconfigs/tsconfig.node.esm.json`

@@ -1,4 +1,4 @@
 {
-    "extends": "@easy/tsconfigs/tsconfig.eslint.json",
+    "extends": "@easy/tsconfigs/tsconfig.eslint.react.json",
     "include": ["lib/**/*"]
 }
