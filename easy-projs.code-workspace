@@ -118,6 +118,10 @@
             "path": "packages/misc"
         },
         {
+            "name": "@easy/misc-scripts",
+            "path": "packages/misc-scripts"
+        },
+        {
             "name": "@easy/perf-js",
             "path": "packages/perf-js"
         },
