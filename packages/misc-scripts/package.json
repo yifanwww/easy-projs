@@ -22,10 +22,14 @@
         "format": "format-code",
         "pre-commit": "lint-staged"
     },
+    "dependencies": {
+        "semver": "^7.3.7"
+    },
     "devDependencies": {
         "@easy/eslint-config": "*",
         "@easy/global-types": "*",
         "@easy/scripts": "*",
-        "@easy/tsconfigs": "*"
+        "@easy/tsconfigs": "*",
+        "@types/semver": "^7.3.12"
     }
 }
