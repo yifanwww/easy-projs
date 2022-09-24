@@ -24,14 +24,16 @@
         "dev": "react-proj dev",
         "format": "format-code",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
-        "pre-commit": "lint-staged",
-        "test": "skip-npm-script",
-        "test-full": "skip-npm-script"
+        "pre-commit": "lint-staged"
     },
     "dependencies": {
+        "@ant-design/icons": "^4.7.0",
         "@easy/hooks": "*",
         "@easy/utils": "*",
-        "@easy/utils-react": "*"
+        "@easy/utils-react": "*",
+        "antd": "^4.23.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
     },
     "devDependencies": {
         "@easy/eslint-config": "*",

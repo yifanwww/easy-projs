@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import css from './PageOverview.module.scss';
 
 export interface IPageOverview {
-    desc?: string;
+    // desc?: string;
     title: string;
     url: string;
 }

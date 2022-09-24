@@ -18,17 +18,15 @@
         "directory": "packages/utils"
     },
     "scripts": {
-        "build": "concurrently -n cjs,esm,types \"npm run build:cjs\" \"npm run build:esm\" \"npm run build:types\"",
+        "build": "concurrently -n cjs,esm,types \"pnpm run build:cjs\" \"pnpm run build:esm\" \"pnpm run build:types\"",
         "build:cjs": "tsc --project tsconfigs/tsconfig.cjs.json",
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
-        "dev": "npm run build:esm -- --watch",
+        "dev": "pnpm run build:esm --watch",
         "format": "format-code",
         "lint": "eslint .",
-        "pre-commit": "lint-staged",
-        "test": "skip-npm-script",
-        "test-full": "skip-npm-script"
+        "pre-commit": "lint-staged"
     },
     "dependencies": {
         "@easy/utils-type": "*"

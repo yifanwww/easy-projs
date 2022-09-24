@@ -5,7 +5,7 @@ import concurrently from 'concurrently';
 import { paths } from './utils/paths';
 
 const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
-const genBuildCommand = (name: string) => `npm run build --workspace ${name}`;
+const genBuildCommand = (name: string) => `pnpm run --filter ${name} build`;
 
 type Order = Array<string | string[]>;
 
@@ -106,9 +106,7 @@ export function unitTest(watch: boolean): void {
 
     const env = {
         ...process.env,
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         BABEL_ENV: 'test',
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         NODE_ENV: 'test',
     };
 
