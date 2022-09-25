@@ -4,6 +4,11 @@ import { appendURL, buildURL } from './url';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyObject = Record<string, any>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isPlainJsonObject(obj: any): boolean {
+    return !!obj && typeof obj === 'object' && typeof obj.append !== 'function';
+}
+
 function deepMerge(options?: AnyObject, overrides?: AnyObject, lowercase = false) {
     const out: AnyObject = {};
 
@@ -26,41 +31,41 @@ function deepMerge(options?: AnyObject, overrides?: AnyObject, lowercase = false
 }
 
 export interface Fetcher {
-    <Data = unknown, Payload extends BodyInit = BodyInit>(
+    <Data, Payload extends BodyInit | {} = {}>(
         url: string,
         method?: Method | undefined,
         config?: FetchOptions<Payload> | undefined,
         _data?: Payload | undefined,
     ): Promise<FetchResponse<Data>>;
 
-    get: <Data = unknown>(url: string, config?: FetchOptions<BodyInit> | undefined) => Promise<FetchResponse<Data>>;
-    head: <Data = unknown>(url: string, config?: FetchOptions<BodyInit> | undefined) => Promise<FetchResponse<Data>>;
-    options: <Data = unknown>(url: string, config?: FetchOptions<BodyInit> | undefined) => Promise<FetchResponse<Data>>;
+    get: <Data>(url: string, config?: FetchOptions | undefined) => Promise<FetchResponse<Data>>;
+    head: <Data>(url: string, config?: FetchOptions | undefined) => Promise<FetchResponse<Data>>;
+    options: <Data>(url: string, config?: FetchOptions | undefined) => Promise<FetchResponse<Data>>;
 
-    post: <Data = unknown, Payload extends BodyInit = BodyInit>(
+    post: <Data, Payload extends BodyInit | {} = {}>(
         url: string,
         data?: Payload | undefined,
         config?: FetchOptions<Payload> | undefined,
     ) => Promise<FetchResponse<Data>>;
-    delete: <Data = unknown, Payload extends BodyInit = BodyInit>(
+    delete: <Data, Payload extends BodyInit | {} = {}>(
         url: string,
         data?: Payload | undefined,
         config?: FetchOptions<Payload> | undefined,
     ) => Promise<FetchResponse<Data>>;
-    put: <Data = unknown, Payload extends BodyInit = BodyInit>(
+    put: <Data, Payload extends BodyInit | {} = {}>(
         url: string,
         data?: Payload | undefined,
         config?: FetchOptions<Payload> | undefined,
     ) => Promise<FetchResponse<Data>>;
-    patch: <Data = unknown, Payload extends BodyInit = BodyInit>(
+    patch: <Data, Payload extends BodyInit | {} = {}>(
         url: string,
         data?: Payload | undefined,
         config?: FetchOptions<Payload> | undefined,
     ) => Promise<FetchResponse<Data>>;
 }
 
-export function createFetcher(defaults?: FetchOptions<BodyInit>): Fetcher {
-    function fetcher<Data = unknown, Payload extends BodyInit = BodyInit>(
+export function createFetcher(defaults?: FetchOptions): Fetcher {
+    function fetcher<Data, Payload extends BodyInit | {} = {}>(
         url: string,
         method?: Method,
         config?: FetchOptions<Payload>,
@@ -70,35 +75,42 @@ export function createFetcher(defaults?: FetchOptions<BodyInit>): Fetcher {
         const {
             auth,
             baseURL,
-            data,
             headers,
             params,
             paramsSerializer,
-            payload,
             responseType,
             signal,
             validateStatus,
             withCredentials,
         } = options;
 
+        const data = _data ?? options.data ?? options.payload;
+
         const getRealURL = () => {
             const _url = baseURL ? appendURL(baseURL, url) : url;
             return params ? buildURL(_url, params, paramsSerializer) : _url;
         };
 
-        const _url = getRealURL();
+        const getCustomHeaders = () => {
+            const customHeaders: Record<string, string> = {};
 
-        const customHeaders: Record<string, string> = {
-            'content-type': 'application/json; charset=utf-8',
+            if (isPlainJsonObject(data)) {
+                customHeaders['content-type'] = 'application/json; charset=utf-8';
+            }
+            if (auth) {
+                customHeaders.authorization = auth;
+            }
+
+            return customHeaders;
         };
-        if (auth) {
-            customHeaders.authorization = auth;
-        }
+
+        const _url = getRealURL();
+        const customHeaders = getCustomHeaders();
 
         return fetch(_url, {
             method,
-            body: _data ?? data ?? payload,
-            headers: deepMerge(headers, customHeaders, true),
+            body: isPlainJsonObject(data) ? JSON.stringify(data) : (data as unknown as string),
+            headers: deepMerge(customHeaders, headers, true),
             credentials: withCredentials ? 'include' : 'same-origin',
             signal,
         }).then((resp) => {
@@ -129,29 +141,29 @@ export function createFetcher(defaults?: FetchOptions<BodyInit>): Fetcher {
         });
     }
 
-    fetcher.get = <Data = unknown>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'get', config);
-    fetcher.head = <Data = unknown>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'head', config);
-    fetcher.options = <Data = unknown>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'options', config);
+    fetcher.get = <Data>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'get', config);
+    fetcher.head = <Data>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'head', config);
+    fetcher.options = <Data>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'options', config);
 
-    fetcher.post = <Data = unknown, Payload extends BodyInit = BodyInit>(
+    fetcher.post = <Data, Payload extends BodyInit | {} = {}>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
     ) => fetcher<Data, Payload>(url, 'post', config, data);
 
-    fetcher.delete = <Data = unknown, Payload extends BodyInit = BodyInit>(
+    fetcher.delete = <Data, Payload extends BodyInit | {} = {}>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
     ) => fetcher<Data, Payload>(url, 'delete', config, data);
 
-    fetcher.put = <Data = unknown, Payload extends BodyInit = BodyInit>(
+    fetcher.put = <Data, Payload extends BodyInit | {} = {}>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
     ) => fetcher<Data, Payload>(url, 'put', config, data);
 
-    fetcher.patch = <Data = unknown, Payload extends BodyInit = BodyInit>(
+    fetcher.patch = <Data, Payload extends BodyInit | {} = {}>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
