@@ -16,7 +16,7 @@ export function useGetRequest<Data = unknown, Err = unknown>(
         acRef.current = new AbortController();
     });
 
-    const swr = useSWR(key, (url: string) => fetcher(url, { signal: acRef.current.signal }), config);
+    const swr = useSWR(key, () => fetcher({ signal: acRef.current.signal }), config);
 
     return {
         ...swr,

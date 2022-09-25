@@ -1,7 +1,7 @@
 import { useIsMounted, usePersistFn } from '@easy-pkg/hooks';
 import { useCallback, useRef, useState } from 'react';
 
-import { FetchOptions, Method } from '../fetcher';
+import { FetchOptions } from '../fetcher';
 import { HookFetcher } from './types';
 import { uid } from './uid';
 
@@ -11,13 +11,13 @@ interface State<Data, Err> {
     loading: boolean;
 }
 
-export interface NonGetRequestConfiguration<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown> {
+export interface RequestConfiguration<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown> {
     onSuccess?: (data: Data, fetchArgs: Partial<FetchOptions<Payload>> | undefined) => void;
     onError?: (error: Err, fetchArgs: Partial<FetchOptions<Payload>> | undefined) => void;
     shouldThrowOnError?: boolean;
 }
 
-export interface NonGetRequestResponse<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown> {
+export interface RequestResponse<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown> {
     data: Data | undefined;
     error: Err | undefined;
     loading: boolean;
@@ -27,12 +27,10 @@ export interface NonGetRequestResponse<Data = unknown, Payload extends BodyInit 
     reset: () => void;
 }
 
-function useNonGetRequest<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown>(
-    url: string,
+export function useRequest<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown>(
     fetcher: HookFetcher<Data>,
-    config?: NonGetRequestConfiguration<Data, Payload, Err>,
-    method?: Method,
-): NonGetRequestResponse<Data, Payload, Err> {
+    config?: RequestConfiguration<Data, Payload, Err>,
+): RequestResponse<Data, Payload, Err> {
     const { onError, onSuccess, shouldThrowOnError } = config ?? {};
 
     const [state, setState] = useState<State<Data, Err>>({ data: undefined, error: undefined, loading: false });
@@ -54,7 +52,7 @@ function useNonGetRequest<Data = unknown, Payload extends BodyInit = BodyInit, E
         }
 
         try {
-            const data = await fetcher(url, { method, signal: abortController.signal, ...fetchArgs });
+            const data = await fetcher({ signal: abortController.signal, ...fetchArgs });
 
             if (isMounted() && isLatest()) {
                 setState({ data, error: undefined, loading: false });
@@ -93,36 +91,4 @@ function useNonGetRequest<Data = unknown, Payload extends BodyInit = BodyInit, E
         reset,
         abort: abortController.abort.bind(abortController),
     };
-}
-
-export function usePostRequest<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown>(
-    url: string,
-    fetcher: HookFetcher<Data>,
-    config?: NonGetRequestConfiguration<Data, Payload, Err>,
-) {
-    return useNonGetRequest(url, fetcher, config, 'post');
-}
-
-export function usePatchRequest<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown>(
-    url: string,
-    fetcher: HookFetcher<Data>,
-    config?: NonGetRequestConfiguration<Data, Payload, Err>,
-) {
-    return useNonGetRequest(url, fetcher, config, 'patch');
-}
-
-export function usePutRequest<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown>(
-    url: string,
-    fetcher: HookFetcher<Data>,
-    config?: NonGetRequestConfiguration<Data, Payload, Err>,
-) {
-    return useNonGetRequest(url, fetcher, config, 'put');
-}
-
-export function useDeleteRequest<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown>(
-    url: string,
-    fetcher: HookFetcher<Data>,
-    config?: NonGetRequestConfiguration<Data, Payload, Err>,
-) {
-    return useNonGetRequest(url, fetcher, config, 'delete');
 }

@@ -19,8 +19,6 @@ export type FetchBody = FormData | string | Record<string, unknown>;
 export type FetchResponseType = 'arrayBuffer' | 'blob' | 'formData' | 'json' | 'text';
 
 export interface FetchOptions<Payload extends BodyInit = BodyInit> {
-    /** HTTP method, case-insensitive. Default is `GET`. */
-    method?: Method;
     /** Request headers. */
     headers?: Record<string, string>;
     data?: Payload;
@@ -42,6 +40,11 @@ export interface FetchOptions<Payload extends BodyInit = BodyInit> {
     baseURL?: string;
     /** Abort signal. */
     signal?: AbortSignal;
+}
+
+export interface BaseFetchOptions<Payload extends BodyInit = BodyInit> extends FetchOptions<Payload> {
+    /** HTTP method, case-insensitive. Default is `GET`. */
+    method?: Method;
 }
 
 export interface FetchResponse<Data = unknown> {

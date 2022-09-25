@@ -1,3 +1,3 @@
 export * from './types';
 export * from './useGetRequest';
-export * from './useNonGetRequest';
+export * from './useRequest';

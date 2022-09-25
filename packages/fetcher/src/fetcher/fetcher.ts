@@ -1,4 +1,4 @@
-import { FetchOptions, FetchResponse, Method } from './types';
+import { BaseFetchOptions, FetchOptions, FetchResponse, Method } from './types';
 import { appendURL, buildURL } from './url';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,7 +28,7 @@ function deepMerge(options?: AnyObject, overrides?: AnyObject, lowercase = false
 export interface Fetcher {
     <Data = unknown, Payload extends BodyInit = BodyInit>(
         url: string,
-        config?: FetchOptions<Payload> | undefined,
+        config?: BaseFetchOptions<Payload> | undefined,
         _method?: Method | undefined,
         _data?: Payload | undefined,
     ): Promise<FetchResponse<Data>>;
@@ -59,14 +59,14 @@ export interface Fetcher {
     ) => Promise<FetchResponse<Data>>;
 }
 
-export function createFetcher(defaults?: FetchOptions<BodyInit>): Fetcher {
+export function createFetcher(defaults?: BaseFetchOptions<BodyInit>): Fetcher {
     function fetcher<Data = unknown, Payload extends BodyInit = BodyInit>(
         url: string,
-        config?: FetchOptions<Payload>,
+        config?: BaseFetchOptions<Payload>,
         _method?: Method,
         _data?: Payload,
     ): Promise<FetchResponse<Data>> {
-        const options = deepMerge(defaults, config) as FetchOptions<Payload>;
+        const options = deepMerge(defaults, config) as BaseFetchOptions<Payload>;
         const {
             auth,
             baseURL,
