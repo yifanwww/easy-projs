@@ -27,9 +27,9 @@ export interface FetchOptions<Payload extends BodyInit = BodyInit> {
     /** An encoding to use for the response. Default is `json`. */
     responseType?: FetchResponseType;
     /** wuerystring parameters. */
-    params?: Record<string, string> | URLSearchParams;
+    params?: Record<string, string | undefined> | URLSearchParams;
     /** Customized function to stringify querystring parameters. */
-    paramsSerializer?: (params: Record<string, string> | URLSearchParams) => string;
+    paramsSerializer?: (params: Record<string, string | undefined> | URLSearchParams) => string;
     /** Send the request with credentials like cookies. */
     withCredentials?: boolean;
     /** Authorization header value to send with the request. */
