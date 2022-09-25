@@ -42,11 +42,6 @@ export interface FetchOptions<Payload extends BodyInit = BodyInit> {
     signal?: AbortSignal;
 }
 
-export interface BaseFetchOptions<Payload extends BodyInit = BodyInit> extends FetchOptions<Payload> {
-    /** HTTP method, case-insensitive. Default is `GET`. */
-    method?: Method;
-}
-
 export interface FetchResponse<Data = unknown> {
     data: Data;
     headers: Headers;

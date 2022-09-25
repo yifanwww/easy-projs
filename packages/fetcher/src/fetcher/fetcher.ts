@@ -1,4 +1,4 @@
-import { BaseFetchOptions, FetchOptions, FetchResponse, Method } from './types';
+import { FetchOptions, FetchResponse, Method } from './types';
 import { appendURL, buildURL } from './url';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,8 +28,8 @@ function deepMerge(options?: AnyObject, overrides?: AnyObject, lowercase = false
 export interface Fetcher {
     <Data = unknown, Payload extends BodyInit = BodyInit>(
         url: string,
-        config?: BaseFetchOptions<Payload> | undefined,
-        _method?: Method | undefined,
+        method?: Method | undefined,
+        config?: FetchOptions<Payload> | undefined,
         _data?: Payload | undefined,
     ): Promise<FetchResponse<Data>>;
 
@@ -59,20 +59,19 @@ export interface Fetcher {
     ) => Promise<FetchResponse<Data>>;
 }
 
-export function createFetcher(defaults?: BaseFetchOptions<BodyInit>): Fetcher {
+export function createFetcher(defaults?: FetchOptions<BodyInit>): Fetcher {
     function fetcher<Data = unknown, Payload extends BodyInit = BodyInit>(
         url: string,
-        config?: BaseFetchOptions<Payload>,
-        _method?: Method,
+        method?: Method,
+        config?: FetchOptions<Payload>,
         _data?: Payload,
     ): Promise<FetchResponse<Data>> {
-        const options = deepMerge(defaults, config) as BaseFetchOptions<Payload>;
+        const options = deepMerge(defaults, config) as FetchOptions<Payload>;
         const {
             auth,
             baseURL,
             data,
             headers,
-            method,
             params,
             paramsSerializer,
             payload,
@@ -97,7 +96,7 @@ export function createFetcher(defaults?: BaseFetchOptions<BodyInit>): Fetcher {
         }
 
         return fetch(_url, {
-            method: _method ?? method,
+            method,
             body: _data ?? data ?? payload,
             headers: deepMerge(headers, customHeaders, true),
             credentials: withCredentials ? 'include' : 'same-origin',
@@ -130,33 +129,33 @@ export function createFetcher(defaults?: BaseFetchOptions<BodyInit>): Fetcher {
         });
     }
 
-    fetcher.get = <Data = unknown>(url: string, config?: FetchOptions) => fetcher<Data>(url, config, 'get');
-    fetcher.head = <Data = unknown>(url: string, config?: FetchOptions) => fetcher<Data>(url, config, 'head');
-    fetcher.options = <Data = unknown>(url: string, config?: FetchOptions) => fetcher<Data>(url, config, 'options');
+    fetcher.get = <Data = unknown>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'get', config);
+    fetcher.head = <Data = unknown>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'head', config);
+    fetcher.options = <Data = unknown>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'options', config);
 
     fetcher.post = <Data = unknown, Payload extends BodyInit = BodyInit>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
-    ) => fetcher<Data, Payload>(url, config, 'post', data);
+    ) => fetcher<Data, Payload>(url, 'post', config, data);
 
     fetcher.delete = <Data = unknown, Payload extends BodyInit = BodyInit>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
-    ) => fetcher<Data, Payload>(url, config, 'delete', data);
+    ) => fetcher<Data, Payload>(url, 'delete', config, data);
 
     fetcher.put = <Data = unknown, Payload extends BodyInit = BodyInit>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
-    ) => fetcher<Data, Payload>(url, config, 'put', data);
+    ) => fetcher<Data, Payload>(url, 'put', config, data);
 
     fetcher.patch = <Data = unknown, Payload extends BodyInit = BodyInit>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
-    ) => fetcher<Data, Payload>(url, config, 'patch', data);
+    ) => fetcher<Data, Payload>(url, 'patch', config, data);
 
     return fetcher;
 }
