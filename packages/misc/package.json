@@ -15,8 +15,8 @@
         "directory": "packages/misc"
     },
     "scripts": {
-        "build": "npm run build:ts",
-        "build:ts": "concurrently -n esm,types \"npm run build:ts:esm\" \"npm run build:ts:types\"",
+        "build": "pnpm run build:ts",
+        "build:ts": "concurrently -n esm,types \"pnpm run build:ts:esm\" \"pnpm run build:ts:types\"",
         "build:ts:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:ts:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf lib tsconfigs/*.tsbuildinfo",

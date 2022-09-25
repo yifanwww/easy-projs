@@ -19,7 +19,7 @@
         "app": "node build/index.js",
         "build": "tsc --build tsconfig.node.json",
         "clean": "rimraf build ./*.tsbuildinfo",
-        "dev": "npm run build -- --watch",
+        "dev": "pnpm run build --watch",
         "format": "format-code",
         "pre-commit": "lint-staged"
     },

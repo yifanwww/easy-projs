@@ -19,8 +19,6 @@ This package contains several binary which can be called via `npx` (or `yarn`) d
     Dev react project.
 - `format-code`
   Format source code by `prettier`.
-- `skip-npm-script`
-  Skip a npm script, some npm scripts must exist to avoid error `Missing script` when execute a script with `--workspaces`.
 
 ## Configurations
 

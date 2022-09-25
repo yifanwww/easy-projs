@@ -21,12 +21,10 @@
     "scripts": {
         "build": "tsc --build tsconfig.node.json",
         "clean": "rimraf build ./*.tsbuildinfo",
-        "dev": "npm run build -- --watch",
+        "dev": "pnpm run build --watch",
         "format": "format-code",
         "lint": "eslint .",
-        "pre-commit": "lint-staged",
-        "test": "skip-npm-script",
-        "test-full": "skip-npm-script"
+        "pre-commit": "lint-staged"
     },
     "devDependencies": {
         "@easy/eslint-config": "*",

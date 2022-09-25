@@ -61,8 +61,8 @@ const TestPage: React.FC = () => {
     const changeComponentName = (name: ComponentName) => setComponentName(name);
     const changeBenchmarkType = (type: BenchmarkTypes) => setBenchmarkType(type);
 
-    const changeSamples = (value: number) => setSamples(value);
-    const changeTimes = (value: number) => setTimes(value);
+    const changeSamples = (value: number | null) => value !== null && setSamples(value);
+    const changeTimes = (value: number | null) => value !== null && setTimes(value);
 
     const copyResults = () => {
         copy(JSON.stringify(totalResults));

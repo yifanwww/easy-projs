@@ -94,10 +94,6 @@
             "path": "packages/assets"
         },
         {
-            "name": "@easy/cra-check",
-            "path": "packages/cra-check"
-        },
-        {
             "name": "@easy/eslint-config",
             "path": "packages/eslint-config"
         },

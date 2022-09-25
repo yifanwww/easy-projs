@@ -18,18 +18,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup PNPM environment
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
-          cache: 'npm'
+          node-version: '16'
+          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Setup node modules
-        run: npm ci
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build packages and projects
-        run: npm run build
+        run: pnpm run build
 
   lint:
     runs-on: ubuntu-latest
@@ -39,24 +44,29 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup PNPM environment
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
-          cache: 'npm'
+          node-version: '16'
+          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Setup node modules
-        run: npm ci
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build scripts
-        run: npm run build-scripts
+        run: pnpm run build-scripts
 
       - name: Build packages
-        run: npm run build-packages
+        run: pnpm run build-packages
 
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
   test:
     runs-on: ubuntu-latest
@@ -66,21 +76,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup PNPM environment
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
-          cache: 'npm'
+          node-version: '16'
+          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Setup node modules
-        run: npm ci
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build scripts
-        run: npm run build-scripts
+        run: pnpm run build-scripts
 
       - name: Build packages
-        run: npm run build-packages
+        run: pnpm run build-packages
 
       - name: Do coverage test
-        run: npm run test-full
+        run: pnpm run test-full

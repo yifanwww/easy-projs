@@ -21,6 +21,7 @@
         "pre-commit": "lint-staged"
     },
     "devDependencies": {
-        "@easy/eslint-config": "*"
+        "@easy/eslint-config": "*",
+        "@easy/tsconfigs": "*"
     }
 }
