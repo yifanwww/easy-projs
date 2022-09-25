@@ -25,7 +25,7 @@
         "format:root": "format-code",
         "format:workspaces": "pnpm run --recursive --stream format",
         "lint": "pnpm run --recursive --stream lint",
-        "pre-commit": "pnpm run --recursive --stream pre-commit",
+        "pre-commit": "pnpm run --recursive --workspace-concurrency 1 pre-commit",
         "prepare": "husky install",
         "test-full": "pnpm run --recursive --stream test-full"
     },
