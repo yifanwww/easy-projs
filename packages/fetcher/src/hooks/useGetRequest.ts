@@ -1,13 +1,12 @@
 import { useEffect, useRef } from 'react';
-import useSWR, { Key, SWRConfiguration, SWRResponse } from 'swr';
+import useSWR, { SWRConfiguration, SWRResponse } from 'swr';
 
-import { HookFetcher } from './types';
+import { GetHookFetcher } from './types';
 
 export type GetRequestResponse<Data, Err> = SWRResponse<Data, Err> & { loading: boolean; abort: () => void };
 
 export function useGetRequest<Data = unknown, Err = unknown>(
-    key: Key,
-    fetcher: HookFetcher<Data>,
+    fetcher: GetHookFetcher<Data>,
     config?: SWRConfiguration<Data, Err>,
 ): GetRequestResponse<Data, Err> {
     const acRef = useRef<AbortController>(new AbortController());
@@ -16,7 +15,7 @@ export function useGetRequest<Data = unknown, Err = unknown>(
         acRef.current = new AbortController();
     });
 
-    const swr = useSWR(key, () => fetcher({ signal: acRef.current.signal }), config);
+    const swr = useSWR(fetcher.URL, () => fetcher({ signal: acRef.current.signal }), config);
 
     return {
         ...swr,
