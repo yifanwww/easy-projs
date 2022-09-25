@@ -1,29 +1,30 @@
-import produce, { Draft } from 'immer';
+import produce, { Draft, nothing } from 'immer';
 import { Dispatch, useMemo, useReducer } from 'react';
 
-export type ImmerReducer<State extends {}, Action> = (state: Draft<State>, action: Action) => void;
+export type ImmerReducer<S, A> = (draftState: Draft<S>, action: A) => void | (S extends undefined ? typeof nothing : S);
 
-export function useImmerReducer<State extends {}, Action, I>(
-    reducer: ImmerReducer<State, Action>,
-    initializerArg: State & I,
-    initializer: (arg: State & I) => State,
-): [State, Dispatch<Action>];
+export function useImmerReducer<S, A, I>(
+    reducer: ImmerReducer<S, A>,
+    initializerArg: S & I,
+    initializer: (arg: S & I) => S,
+): [S, Dispatch<A>];
 
-export function useImmerReducer<State extends {}, Action, I>(
-    reducer: ImmerReducer<State, Action>,
+export function useImmerReducer<S, A, I>(
+    reducer: ImmerReducer<S, A>,
     initializerArg: I,
-    initializer: (arg: I) => State,
-): [State, Dispatch<Action>];
+    initializer: (arg: I) => S,
+): [S, Dispatch<A>];
 
-export function useImmerReducer<State extends {}, Action>(
-    reducer: ImmerReducer<State, Action>,
-    initialState: State,
-): [State, Dispatch<Action>];
+export function useImmerReducer<S, A>(
+    reducer: ImmerReducer<S, A>,
+    initialState: S,
+    initializer?: undefined,
+): [S, Dispatch<A>];
 
-export function useImmerReducer<State extends {}, Action, I>(
-    reducer: ImmerReducer<State, Action>,
-    initializerArg: State & I,
-    initializer?: (arg: State & I) => State,
+export function useImmerReducer<S, A, I>(
+    reducer: ImmerReducer<S, A>,
+    initializerArg: S & I,
+    initializer?: (arg: S & I) => S,
 ) {
     const cachedReducer = useMemo(() => produce(reducer), [reducer]);
     return useReducer(cachedReducer, initializerArg as never, initializer as never);
