@@ -1,0 +1,15 @@
+{
+    "extends": "@easy-config/tsconfigs/tsconfig.node.types.json",
+    "compilerOptions": {
+        "declarationDir": "../lib",
+        "rootDir": "../ts"
+    },
+    "include": ["../ts/**/*"],
+    "exclude": [
+        "../ts/**/__tests__/**/*",
+        "../ts/**/*.spec.ts",
+        "../ts/**/*.spec.tsx",
+        "../ts/**/*.test.ts",
+        "../ts/**/*.test.tsx"
+    ]
+}

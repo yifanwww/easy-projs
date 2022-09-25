@@ -1,0 +1,43 @@
+{
+    "name": "@easy/perf-react",
+    "version": "0.0.0",
+    "description": "This project is used to test the performance of React.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/perf-react"
+    },
+    "browserslist": [
+        "last 9 chrome versions"
+    ],
+    "scripts": {
+        "build": "react-proj build",
+        "clean": "rimraf build",
+        "dev": "react-proj dev",
+        "format": "format-code",
+        "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
+        "pre-commit": "lint-staged"
+    },
+    "dependencies": {
+        "@easy/hooks": "*",
+        "@easy/utils": "*",
+        "@easy/utils-react": "*",
+        "antd": "^4.23.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "devDependencies": {
+        "@easy-config/eslint-config": "*",
+        "@easy-config/global-types": "*",
+        "@easy-config/scripts": "*",
+        "@easy-config/stylelint-config": "*",
+        "@easy-config/tsconfigs": "*"
+    }
+}

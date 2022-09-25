@@ -1,9 +1,0 @@
-{
-    "extends": "@easy/tsconfigs/tsconfig.eslint.react.json",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "rootDir": "src"
-    },
-    "include": ["src/**/*"],
-    "exclude": []
-}

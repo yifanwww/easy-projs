@@ -19,6 +19,7 @@
             "**/CVS": true,
             "**/node_modules": true,
             // additional
+            "**/configs": true,
             "**/packages": true
         },
 
@@ -89,18 +90,33 @@
             "name": "easy-projs",
             "path": "."
         },
+
+        {
+            "name": "@easy-config/eslint-config",
+            "path": "configs/eslint-config"
+        },
+        {
+            "name": "@easy-config/global-types",
+            "path": "configs/global-types"
+        },
+        {
+            "name": "@easy-config/scripts",
+            "path": "configs/scripts"
+        },
+        {
+            "name": "@easy-config/stylelint-config",
+            "path": "configs/stylelint-config"
+        },
+        {
+            "name": "@easy-config/tsconfigs",
+            "path": "configs/tsconfigs"
+        },
+
         {
             "name": "@easy/assets",
             "path": "packages/assets"
         },
-        {
-            "name": "@easy/eslint-config",
-            "path": "packages/eslint-config"
-        },
-        {
-            "name": "@easy/global-types",
-            "path": "packages/global-types"
-        },
+
         {
             "name": "@easy/hooks",
             "path": "packages/hooks"
@@ -145,14 +161,7 @@
             "name": "@easy/react-rerender-test",
             "path": "packages/react-rerender-test"
         },
-        {
-            "name": "@easy/scripts",
-            "path": "packages/scripts"
-        },
-        {
-            "name": "@easy/stylelint-config",
-            "path": "packages/stylelint-config"
-        },
+
         {
             "name": "@easy/template-pkg-nodejs",
             "path": "packages/template-pkg-nodejs"
@@ -165,10 +174,7 @@
             "name": "@easy/template-proj-nodejs",
             "path": "packages/template-proj-nodejs"
         },
-        {
-            "name": "@easy/tsconfigs",
-            "path": "packages/tsconfigs"
-        },
+
         {
             "name": "@easy/utils",
             "path": "packages/utils"

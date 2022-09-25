@@ -1,0 +1,45 @@
+{
+    "name": "@easy/template-proj-browser-react",
+    "version": "0.0.0",
+    "description": "A template project used for creating new react browser projects.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/template-proj-browser-react"
+    },
+    "browserslist": [
+        "last 9 chrome versions"
+    ],
+    "scripts": {
+        "build": "react-proj build",
+        "build-profile": "react-proj build-profile",
+        "clean": "rimraf build",
+        "dev": "react-proj dev",
+        "format": "format-code",
+        "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
+        "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-full": "unit-test"
+    },
+    "dependencies": {
+        "@easy/assets": "*",
+        "@easy/utils-fluentui": "*",
+        "@easy/utils-redux": "*"
+    },
+    "devDependencies": {
+        "@easy-config/eslint-config": "*",
+        "@easy-config/global-types": "*",
+        "@easy-config/scripts": "*",
+        "@easy-config/stylelint-config": "*",
+        "@easy-config/tsconfigs": "*",
+        "@easy/utils-test": "*",
+        "@types/testing-library__jest-dom": "^5.14.5"
+    }
+}

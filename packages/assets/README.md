@@ -12,7 +12,7 @@ import Assets from '@easy/assets';
 
 ## Develop this package
 
-You need to build package `@easy/scripts` before building or testing this package.
+You need to build package `@easy-config/scripts` before building or testing this package.
 
 ### Build this package
 
