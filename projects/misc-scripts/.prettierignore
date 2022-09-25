@@ -1,11 +1,7 @@
 # Compilation
 
-/lib
+/dist
 
-# Running and Testing
+# Test
 
 /coverage
-
-# Misc
-
-/vscode

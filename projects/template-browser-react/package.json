@@ -20,7 +20,7 @@
     "scripts": {
         "build": "react-proj build",
         "build-profile": "react-proj build-profile",
-        "clean": "rimraf build",
+        "clean": "rimraf coverage build",
         "dev": "react-proj dev",
         "format": "format-code",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
