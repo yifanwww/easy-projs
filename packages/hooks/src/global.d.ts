@@ -1,1 +1,1 @@
-/// <reference types="@easy/global-types" />
+/// <reference types="@easy-config/global-types" />

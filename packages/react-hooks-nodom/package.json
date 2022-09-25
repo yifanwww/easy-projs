@@ -1,5 +1,5 @@
 {
-    "name": "@easy/react-hooks-nodom",
+    "name": "@easy-pkg/react-hooks-nodom",
     "version": "0.0.0",
     "description": "This project is used to implement React Hooks without DOM environment.",
     "main": "lib-commonjs/index.js",
@@ -29,9 +29,9 @@
         "pre-commit": "lint-staged"
     },
     "devDependencies": {
-        "@easy/eslint-config": "*",
-        "@easy/global-types": "*",
-        "@easy/scripts": "*",
-        "@easy/tsconfigs": "*"
+        "@easy-config/eslint-config": "*",
+        "@easy-config/global-types": "*",
+        "@easy-config/scripts": "*",
+        "@easy-config/tsconfigs": "*"
     }
 }

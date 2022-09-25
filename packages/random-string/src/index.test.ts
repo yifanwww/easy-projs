@@ -1,4 +1,4 @@
-import { expectSnapshot } from '@easy/utils-test';
+import { expectSnapshot } from '@easy-pkg/utils-test';
 
 import * as package_exports from './index';
 

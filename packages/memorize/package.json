@@ -1,5 +1,5 @@
 {
-    "name": "@easy/memorize",
+    "name": "@easy-pkg/memorize",
     "version": "1.0.0",
     "description": "Memorize functions.",
     "main": "lib-commonjs/index.js",
@@ -31,10 +31,10 @@
         "test-full": "unit-test"
     },
     "devDependencies": {
-        "@easy/eslint-config": "*",
-        "@easy/global-types": "*",
-        "@easy/scripts": "*",
-        "@easy/tsconfigs": "*",
-        "@easy/utils-test": "*"
+        "@easy-config/eslint-config": "*",
+        "@easy-config/global-types": "*",
+        "@easy-config/scripts": "*",
+        "@easy-config/tsconfigs": "*",
+        "@easy-pkg/utils-test": "*"
     }
 }

@@ -1,0 +1,31 @@
+{
+    "name": "@easy-proj/perf-js",
+    "version": "0.0.0",
+    "description": "This package contains some performance benchmark results of javascript.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "projects/perf-js"
+    },
+    "scripts": {
+        "build": "tsc --build tsconfig.node.json",
+        "clean": "rimraf build ./*.tsbuildinfo",
+        "dev": "pnpm run build --watch",
+        "format": "format-code",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged"
+    },
+    "devDependencies": {
+        "@easy-config/eslint-config": "*",
+        "@easy-config/global-types": "*",
+        "@easy-config/scripts": "*",
+        "@easy-config/tsconfigs": "*"
+    }
+}

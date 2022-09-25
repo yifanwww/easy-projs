@@ -1,3 +1,3 @@
-# @easy/utils
+# @easy-pkg/utils
 
 Utilities for easy-projs.

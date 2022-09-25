@@ -19,7 +19,9 @@
             "**/CVS": true,
             "**/node_modules": true,
             // additional
-            "**/packages": true
+            "**/configs": true,
+            "**/packages": true,
+            "**/projects": true
         },
 
         "git.enabled": true,
@@ -89,109 +91,114 @@
             "name": "easy-projs",
             "path": "."
         },
+
+        // configs
+
         {
-            "name": "@easy/assets",
+            "name": "@easy-config/eslint-config",
+            "path": "configs/eslint-config"
+        },
+        {
+            "name": "@easy-config/global-types",
+            "path": "configs/global-types"
+        },
+        {
+            "name": "@easy-config/scripts",
+            "path": "configs/scripts"
+        },
+        {
+            "name": "@easy-config/stylelint-config",
+            "path": "configs/stylelint-config"
+        },
+        {
+            "name": "@easy-config/tsconfigs",
+            "path": "configs/tsconfigs"
+        },
+
+        // packages
+
+        {
+            "name": "@easy-pkg/assets",
             "path": "packages/assets"
         },
         {
-            "name": "@easy/eslint-config",
-            "path": "packages/eslint-config"
-        },
-        {
-            "name": "@easy/global-types",
-            "path": "packages/global-types"
-        },
-        {
-            "name": "@easy/hooks",
+            "name": "@easy-pkg/hooks",
             "path": "packages/hooks"
         },
         {
-            "name": "@easy/memorize",
+            "name": "@easy-pkg/memorize",
             "path": "packages/memorize"
         },
         {
-            "name": "@easy/misc",
-            "path": "packages/misc"
-        },
-        {
-            "name": "@easy/misc-scripts",
-            "path": "packages/misc-scripts"
-        },
-        {
-            "name": "@easy/perf-js",
-            "path": "packages/perf-js"
-        },
-        {
-            "name": "@easy/perf-react",
-            "path": "packages/perf-react"
-        },
-        {
-            "name": "@easy/projs-manage",
-            "path": "packages/projs-manage"
-        },
-        {
-            "name": "@easy/proving-ground-nodejs",
-            "path": "packages/proving-ground-nodejs"
-        },
-        {
-            "name": "@easy/random-string",
+            "name": "@easy-pkg/random-string",
             "path": "packages/random-string"
         },
         {
-            "name": "@easy/react-hooks-nodom",
+            "name": "@easy-pkg/react-hooks-nodom",
             "path": "packages/react-hooks-nodom"
         },
         {
-            "name": "@easy/react-rerender-test",
-            "path": "packages/react-rerender-test"
+            "name": "@easy-pkg/template-nodejs",
+            "path": "packages/template-nodejs"
         },
         {
-            "name": "@easy/scripts",
-            "path": "packages/scripts"
-        },
-        {
-            "name": "@easy/stylelint-config",
-            "path": "packages/stylelint-config"
-        },
-        {
-            "name": "@easy/template-pkg-nodejs",
-            "path": "packages/template-pkg-nodejs"
-        },
-        {
-            "name": "@easy/template-proj-browser-react",
-            "path": "packages/template-proj-browser-react"
-        },
-        {
-            "name": "@easy/template-proj-nodejs",
-            "path": "packages/template-proj-nodejs"
-        },
-        {
-            "name": "@easy/tsconfigs",
-            "path": "packages/tsconfigs"
-        },
-        {
-            "name": "@easy/utils",
+            "name": "@easy-pkg/utils",
             "path": "packages/utils"
         },
         {
-            "name": "@easy/utils-fluentui",
+            "name": "@easy-pkg/utils-fluentui",
             "path": "packages/utils-fluentui"
         },
         {
-            "name": "@easy/utils-react",
+            "name": "@easy-pkg/utils-react",
             "path": "packages/utils-react"
         },
         {
-            "name": "@easy/utils-redux",
+            "name": "@easy-pkg/utils-redux",
             "path": "packages/utils-redux"
         },
         {
-            "name": "@easy/utils-test",
+            "name": "@easy-pkg/utils-test",
             "path": "packages/utils-test"
         },
         {
-            "name": "@easy/utils-type",
+            "name": "@easy-pkg/utils-type",
             "path": "packages/utils-type"
+        },
+
+        // projects
+
+        {
+            "name": "@easy-proj/misc",
+            "path": "projects/misc"
+        },
+        {
+            "name": "@easy-proj/misc-scripts",
+            "path": "projects/misc-scripts"
+        },
+        {
+            "name": "@easy-proj/perf-js",
+            "path": "projects/perf-js"
+        },
+        {
+            "name": "@easy-proj/perf-react",
+            "path": "projects/perf-react"
+        },
+        {
+            "name": "@easy-proj/proving-ground-nodejs",
+            "path": "projects/proving-ground-nodejs"
+        },
+        {
+            "name": "@easy-proj/react-rerender-test",
+            "path": "projects/react-rerender-test"
+        },
+        {
+            "name": "@easy-proj/template-browser-react",
+            "path": "projects/template-browser-react"
+        },
+        {
+            "name": "@easy-proj/template-nodejs",
+            "path": "projects/template-nodejs"
         }
     ]
 }

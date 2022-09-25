@@ -1,5 +1,5 @@
 {
-    "name": "@easy/utils-redux",
+    "name": "@easy-pkg/utils-redux",
     "version": "1.0.0",
     "description": "Redux utils for easy-projs.",
     "main": "lib/index.js",
@@ -28,12 +28,12 @@
         "pre-commit": "lint-staged"
     },
     "dependencies": {
-        "@easy/utils-type": "*"
+        "@easy-pkg/utils-type": "*"
     },
     "devDependencies": {
-        "@easy/eslint-config": "*",
-        "@easy/global-types": "*",
-        "@easy/scripts": "*",
-        "@easy/tsconfigs": "*"
+        "@easy-config/eslint-config": "*",
+        "@easy-config/global-types": "*",
+        "@easy-config/scripts": "*",
+        "@easy-config/tsconfigs": "*"
     }
 }

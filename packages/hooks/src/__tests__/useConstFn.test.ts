@@ -1,4 +1,4 @@
-import { validateHookValueNotChanged } from '@easy/utils-test';
+import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { renderHook } from '@testing-library/react-hooks';
 
 import { useConstFn } from '../useConstFn';

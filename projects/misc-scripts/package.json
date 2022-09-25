@@ -1,0 +1,35 @@
+{
+    "name": "@easy-proj/misc-scripts",
+    "version": "0.0.0",
+    "description": "Misc scripts.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "projects/misc-scripts"
+    },
+    "scripts": {
+        "build": "tsc --project tsconfig.node.json",
+        "clean": "rimraf dist *.tsbuildinfo",
+        "dev": "tsc --project tsconfig.node.json --watch",
+        "lint": "eslint .",
+        "format": "format-code",
+        "pre-commit": "lint-staged"
+    },
+    "dependencies": {
+        "semver": "^7.3.7"
+    },
+    "devDependencies": {
+        "@easy-config/eslint-config": "*",
+        "@easy-config/global-types": "*",
+        "@easy-config/scripts": "*",
+        "@easy-config/tsconfigs": "*",
+        "@types/semver": "^7.3.12"
+    }
+}

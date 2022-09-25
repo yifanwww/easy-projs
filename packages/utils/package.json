@@ -1,5 +1,5 @@
 {
-    "name": "@easy/utils",
+    "name": "@easy-pkg/utils",
     "version": "0.1.0",
     "description": "Utilities for easy-projs.",
     "main": "lib/index.js",
@@ -29,12 +29,12 @@
         "pre-commit": "lint-staged"
     },
     "dependencies": {
-        "@easy/utils-type": "*"
+        "@easy-pkg/utils-type": "*"
     },
     "devDependencies": {
-        "@easy/eslint-config": "*",
-        "@easy/global-types": "*",
-        "@easy/scripts": "*",
-        "@easy/tsconfigs": "*"
+        "@easy-config/eslint-config": "*",
+        "@easy-config/global-types": "*",
+        "@easy-config/scripts": "*",
+        "@easy-config/tsconfigs": "*"
     }
 }

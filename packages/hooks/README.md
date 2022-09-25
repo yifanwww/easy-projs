@@ -1,4 +1,4 @@
-# @easy/hooks
+# @easy-pkg/hooks
 
 React hooks for easy-projs.
 
@@ -33,7 +33,7 @@ It's very easy to use these custom React hooks.
 Here is an example about how to use hook `useIsHovered`.
 
 ```tsx
-import { useIsHovered } from '@easy/hooks';
+import { useIsHovered } from '@easy-pkg/hooks';
 
 export const Component: React.FC () => {
     const ref = useRef<SubComponent>(null);
@@ -46,7 +46,7 @@ export const Component: React.FC () => {
 
 ## Develop this package
 
-You need to build package `@easy/scripts` before building or testing this package.
+You need to build package `@easy-config/scripts` before building or testing this package.
 
 ### Build this package
 

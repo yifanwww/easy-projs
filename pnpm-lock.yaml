@@ -7,7 +7,7 @@ importers:
       '@babel/core': ^7.19.1
       '@babel/plugin-syntax-flow': ^7.18.6
       '@babel/plugin-transform-react-jsx': ^7.19.0
-      '@easy/scripts': '*'
+      '@easy-config/scripts': '*'
       '@fluentui/react': ^8.96.1
       '@reduxjs/toolkit': ^1.8.5
       '@testing-library/dom': ^8.18.1
@@ -100,7 +100,7 @@ importers:
       ts-essentials: 9.3.0_typescript@4.8.3
       web-vitals: 3.0.2
     devDependencies:
-      '@easy/scripts': link:packages/scripts
+      '@easy-config/scripts': link:configs/scripts
       '@testing-library/dom': 8.18.1
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 12.1.5_sfoxds7t5ydpegc3knd667wn6m
@@ -157,358 +157,346 @@ importers:
       webpack-cli: 4.10.0_webpack@5.74.0
       yargs: 17.5.1
 
-  packages/assets:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-
-  packages/eslint-config:
+  configs/eslint-config:
     specifiers: {}
 
-  packages/global-types:
+  configs/global-types:
     specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/tsconfigs': '*'
+      '@easy-config/eslint-config': '*'
+      '@easy-config/tsconfigs': '*'
     devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/tsconfigs': link:../tsconfigs
+      '@easy-config/eslint-config': link:../eslint-config
+      '@easy-config/tsconfigs': link:../tsconfigs
 
-  packages/hooks:
+  configs/scripts:
     specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-test': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-      '@easy/utils-test': link:../utils-test
-
-  packages/memorize:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-test': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-      '@easy/utils-test': link:../utils-test
-
-  packages/misc:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-
-  packages/misc-scripts:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@types/semver': ^7.3.12
-      semver: ^7.3.7
-    dependencies:
-      semver: 7.3.7
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-      '@types/semver': 7.3.12
-
-  packages/perf-js:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-
-  packages/perf-react:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/hooks': '*'
-      '@easy/scripts': '*'
-      '@easy/stylelint-config': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils': '*'
-      '@easy/utils-react': '*'
-      antd: ^4.23.2
-      react: ^17.0.2
-      react-dom: ^17.0.2
-    dependencies:
-      '@easy/hooks': link:../hooks
-      '@easy/utils': link:../utils
-      '@easy/utils-react': link:../utils-react
-      antd: 4.23.2_sfoxds7t5ydpegc3knd667wn6m
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/stylelint-config': link:../stylelint-config
-      '@easy/tsconfigs': link:../tsconfigs
-
-  packages/projs-manage:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-
-  packages/proving-ground-nodejs:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-test': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-      '@easy/utils-test': link:../utils-test
-
-  packages/random-string:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-test': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-      '@easy/utils-test': link:../utils-test
-
-  packages/react-hooks-nodom:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-
-  packages/react-rerender-test:
-    specifiers:
-      '@ant-design/icons': ^4.7.0
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/hooks': '*'
-      '@easy/scripts': '*'
-      '@easy/stylelint-config': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils': '*'
-      '@easy/utils-react': '*'
-      antd: ^4.23.2
-      react: ^17.0.2
-      react-dom: ^17.0.2
-    dependencies:
-      '@ant-design/icons': 4.7.0_sfoxds7t5ydpegc3knd667wn6m
-      '@easy/hooks': link:../hooks
-      '@easy/utils': link:../utils
-      '@easy/utils-react': link:../utils-react
-      antd: 4.23.2_sfoxds7t5ydpegc3knd667wn6m
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/stylelint-config': link:../stylelint-config
-      '@easy/tsconfigs': link:../tsconfigs
-
-  packages/scripts:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/tsconfigs': '*'
+      '@easy-config/eslint-config': '*'
+      '@easy-config/tsconfigs': '*'
       '@jest/types': ^27.5.1
       camelcase: ^6.3.0
     dependencies:
       camelcase: 6.3.0
     devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/tsconfigs': link:../tsconfigs
+      '@easy-config/eslint-config': link:../eslint-config
+      '@easy-config/tsconfigs': link:../tsconfigs
       '@jest/types': 27.5.1
 
-  packages/stylelint-config:
+  configs/stylelint-config:
     specifiers: {}
 
-  packages/template-pkg-nodejs:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-test': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-      '@easy/utils-test': link:../utils-test
-
-  packages/template-proj-browser-react:
-    specifiers:
-      '@easy/assets': '*'
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/stylelint-config': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-fluentui': '*'
-      '@easy/utils-redux': '*'
-      '@easy/utils-test': '*'
-      '@types/testing-library__jest-dom': ^5.14.5
-    dependencies:
-      '@easy/assets': link:../assets
-      '@easy/utils-fluentui': link:../utils-fluentui
-      '@easy/utils-redux': link:../utils-redux
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/stylelint-config': link:../stylelint-config
-      '@easy/tsconfigs': link:../tsconfigs
-      '@easy/utils-test': link:../utils-test
-      '@types/testing-library__jest-dom': 5.14.5
-
-  packages/template-proj-nodejs:
-    specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-test': '*'
-    devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
-      '@easy/utils-test': link:../utils-test
-
-  packages/tsconfigs:
+  configs/tsconfigs:
     specifiers: {}
+
+  packages/assets:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+
+  packages/hooks:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/utils-test': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@easy-pkg/utils-test': link:../utils-test
+
+  packages/memorize:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/utils-test': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@easy-pkg/utils-test': link:../utils-test
+
+  packages/random-string:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/utils-test': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@easy-pkg/utils-test': link:../utils-test
+
+  packages/react-hooks-nodom:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+
+  packages/template-nodejs:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/utils-test': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@easy-pkg/utils-test': link:../utils-test
 
   packages/utils:
     specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-type': '*'
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/utils-type': '*'
     dependencies:
-      '@easy/utils-type': link:../utils-type
+      '@easy-pkg/utils-type': link:../utils-type
     devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
 
   packages/utils-fluentui:
     specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-type': '*'
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/utils-type': '*'
     dependencies:
-      '@easy/utils-type': link:../utils-type
+      '@easy-pkg/utils-type': link:../utils-type
     devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
 
   packages/utils-react:
     specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
     devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
 
   packages/utils-redux:
     specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
-      '@easy/utils-type': '*'
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/utils-type': '*'
     dependencies:
-      '@easy/utils-type': link:../utils-type
+      '@easy-pkg/utils-type': link:../utils-type
     devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
 
   packages/utils-test:
     specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
     devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
 
   packages/utils-type:
     specifiers:
-      '@easy/eslint-config': '*'
-      '@easy/global-types': '*'
-      '@easy/scripts': '*'
-      '@easy/tsconfigs': '*'
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
     devDependencies:
-      '@easy/eslint-config': link:../eslint-config
-      '@easy/global-types': link:../global-types
-      '@easy/scripts': link:../scripts
-      '@easy/tsconfigs': link:../tsconfigs
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+
+  projects/misc:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+
+  projects/misc-scripts:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@types/semver': ^7.3.12
+      semver: ^7.3.7
+    dependencies:
+      semver: 7.3.7
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@types/semver': 7.3.12
+
+  projects/perf-js:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+
+  projects/perf-react:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/stylelint-config': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/hooks': '*'
+      '@easy-pkg/utils': '*'
+      '@easy-pkg/utils-react': '*'
+      antd: ^4.23.2
+      react: ^17.0.2
+      react-dom: ^17.0.2
+    dependencies:
+      '@easy-pkg/hooks': link:../../packages/hooks
+      '@easy-pkg/utils': link:../../packages/utils
+      '@easy-pkg/utils-react': link:../../packages/utils-react
+      antd: 4.23.2_sfoxds7t5ydpegc3knd667wn6m
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/stylelint-config': link:../../configs/stylelint-config
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+
+  projects/proving-ground-nodejs:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/utils-test': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@easy-pkg/utils-test': link:../../packages/utils-test
+
+  projects/react-rerender-test:
+    specifiers:
+      '@ant-design/icons': ^4.7.0
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/stylelint-config': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/hooks': '*'
+      '@easy-pkg/utils': '*'
+      '@easy-pkg/utils-react': '*'
+      antd: ^4.23.2
+      react: ^17.0.2
+      react-dom: ^17.0.2
+    dependencies:
+      '@ant-design/icons': 4.7.0_sfoxds7t5ydpegc3knd667wn6m
+      '@easy-pkg/hooks': link:../../packages/hooks
+      '@easy-pkg/utils': link:../../packages/utils
+      '@easy-pkg/utils-react': link:../../packages/utils-react
+      antd: 4.23.2_sfoxds7t5ydpegc3knd667wn6m
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/stylelint-config': link:../../configs/stylelint-config
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+
+  projects/template-browser-react:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/stylelint-config': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/assets': '*'
+      '@easy-pkg/utils-fluentui': '*'
+      '@easy-pkg/utils-redux': '*'
+      '@easy-pkg/utils-test': '*'
+      '@types/testing-library__jest-dom': ^5.14.5
+    dependencies:
+      '@easy-pkg/assets': link:../../packages/assets
+      '@easy-pkg/utils-fluentui': link:../../packages/utils-fluentui
+      '@easy-pkg/utils-redux': link:../../packages/utils-redux
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/stylelint-config': link:../../configs/stylelint-config
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@easy-pkg/utils-test': link:../../packages/utils-test
+      '@types/testing-library__jest-dom': 5.14.5
+
+  projects/template-nodejs:
+    specifiers:
+      '@easy-config/eslint-config': '*'
+      '@easy-config/global-types': '*'
+      '@easy-config/scripts': '*'
+      '@easy-config/tsconfigs': '*'
+      '@easy-pkg/utils-test': '*'
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@easy-pkg/utils-test': link:../../packages/utils-test
 
 packages:
 

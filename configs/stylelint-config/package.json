@@ -1,0 +1,20 @@
+{
+    "name": "@easy-config/stylelint-config",
+    "version": "0.0.0",
+    "description": "Stylelint configurations for easy-projs.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "configs/stylelint-config"
+    },
+    "scripts": {
+        "format": "format-code"
+    }
+}

@@ -15,12 +15,12 @@
         "url": "git+https://github.com/yifanwww/easy-projs.git"
     },
     "scripts": {
-        "build": "pnpm run build-scripts && build-packages && build-projects",
-        "build-packages": "build-packages",
-        "build-projects": "build-projects",
-        "build-scripts": "pnpm run --filter @easy/scripts build-scripts",
+        "build": "pnpm run build-scripts && pnpm run --recursive --stream build",
+        "build-pkgs": "pnpm run --filter @easy-pkg/* --stream build",
+        "build-projs": "pnpm run --filter @easy-proj/* --stream build",
+        "build-scripts": "pnpm run --filter @easy-config/scripts build-scripts",
         "clean": "pnpm run --recursive clean",
-        "clean-scripts": "pnpm run --filter @easy/scripts clean-scripts",
+        "clean-scripts": "pnpm run --filter @easy-config/scripts clean-scripts",
         "format": "pnpm run format:root && pnpm run format:workspaces",
         "format:root": "format-code",
         "format:workspaces": "pnpm run --recursive --stream format",
@@ -32,9 +32,6 @@
     "engines": {
         "node": ">=16"
     },
-    "workspaces": [
-        "packages/*"
-    ],
     "dependencies": {
         "@babel/core": "^7.19.1",
         "@babel/plugin-syntax-flow": "^7.18.6",
@@ -57,7 +54,7 @@
         "web-vitals": "^3.0.2"
     },
     "devDependencies": {
-        "@easy/scripts": "*",
+        "@easy-config/scripts": "*",
         "@testing-library/dom": "^8.18.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^12.1.4",
