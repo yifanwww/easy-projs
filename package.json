@@ -19,7 +19,7 @@
         "build-pkgs": "pnpm run --filter @easy-pkg/* --stream build",
         "build-projs": "pnpm run --filter @easy-proj/* --stream build",
         "build-scripts": "pnpm run --filter @easy-config/scripts build-scripts",
-        "clean": "pnpm run --recursive --aggregate-output clean",
+        "clean": "pnpm run --recursive clean",
         "clean-scripts": "pnpm run --filter @easy-config/scripts clean-scripts",
         "format": "pnpm run format:root && pnpm run format:workspaces",
         "format:root": "format-code",
