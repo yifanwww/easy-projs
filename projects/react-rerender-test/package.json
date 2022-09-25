@@ -28,18 +28,18 @@
     },
     "dependencies": {
         "@ant-design/icons": "^4.7.0",
-        "@easy-pkg/hooks": "*",
-        "@easy-pkg/utils": "*",
-        "@easy-pkg/utils-react": "*",
+        "@easy-pkg/hooks": "workspace:*",
+        "@easy-pkg/utils": "workspace:*",
+        "@easy-pkg/utils-react": "workspace:*",
         "antd": "^4.23.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
     },
     "devDependencies": {
-        "@easy-config/eslint-config": "*",
-        "@easy-config/global-types": "*",
-        "@easy-config/scripts": "*",
-        "@easy-config/stylelint-config": "*",
-        "@easy-config/tsconfigs": "*"
+        "@easy-config/eslint-config": "workspace:*",
+        "@easy-config/global-types": "workspace:*",
+        "@easy-config/scripts": "workspace:*",
+        "@easy-config/stylelint-config": "workspace:*",
+        "@easy-config/tsconfigs": "workspace:*"
     }
 }

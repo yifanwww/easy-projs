@@ -122,6 +122,10 @@
             "path": "packages/assets"
         },
         {
+            "name": "@easy-pkg/fetcher",
+            "path": "packages/fetcher"
+        },
+        {
             "name": "@easy-pkg/hooks",
             "path": "packages/hooks"
         },

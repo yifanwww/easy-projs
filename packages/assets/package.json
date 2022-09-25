@@ -27,9 +27,9 @@
         "pre-commit": "lint-staged"
     },
     "devDependencies": {
-        "@easy-config/eslint-config": "*",
-        "@easy-config/global-types": "*",
-        "@easy-config/scripts": "*",
-        "@easy-config/tsconfigs": "*"
+        "@easy-config/eslint-config": "workspace:*",
+        "@easy-config/global-types": "workspace:*",
+        "@easy-config/scripts": "workspace:*",
+        "@easy-config/tsconfigs": "workspace:*"
     }
 }

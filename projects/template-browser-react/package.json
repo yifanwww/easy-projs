@@ -29,17 +29,17 @@
         "test-full": "unit-test"
     },
     "dependencies": {
-        "@easy-pkg/assets": "*",
-        "@easy-pkg/utils-fluentui": "*",
-        "@easy-pkg/utils-redux": "*"
+        "@easy-pkg/assets": "workspace:*",
+        "@easy-pkg/utils-fluentui": "workspace:*",
+        "@easy-pkg/utils-redux": "workspace:*"
     },
     "devDependencies": {
-        "@easy-config/eslint-config": "*",
-        "@easy-config/global-types": "*",
-        "@easy-config/scripts": "*",
-        "@easy-config/stylelint-config": "*",
-        "@easy-config/tsconfigs": "*",
-        "@easy-pkg/utils-test": "*",
+        "@easy-config/eslint-config": "workspace:*",
+        "@easy-config/global-types": "workspace:*",
+        "@easy-config/scripts": "workspace:*",
+        "@easy-config/stylelint-config": "workspace:*",
+        "@easy-config/tsconfigs": "workspace:*",
+        "@easy-pkg/utils-test": "workspace:*",
         "@types/testing-library__jest-dom": "^5.14.5"
     }
 }

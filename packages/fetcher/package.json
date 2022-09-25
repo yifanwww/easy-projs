@@ -1,7 +1,7 @@
 {
-    "name": "@easy-pkg/utils-react",
-    "version": "0.1.0",
-    "description": "A package that contains React utilities.",
+    "name": "@easy-pkg/fetcher",
+    "version": "0.0.0",
+    "description": "",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "typings": "lib/index.d.ts",
@@ -15,14 +15,14 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/utils-react"
+        "directory": "packages/fetcher"
     },
     "scripts": {
         "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build:esm --watch",
+        "dev": "pnpm run build:esm -- --watch",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged"

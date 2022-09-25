@@ -54,7 +54,7 @@
         "web-vitals": "^3.0.2"
     },
     "devDependencies": {
-        "@easy-config/scripts": "*",
+        "@easy-config/scripts": "workspace:*",
         "@testing-library/dom": "^8.18.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^12.1.4",
