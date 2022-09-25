@@ -4,23 +4,28 @@ import path from 'path';
 // `../..` points to `<repo>/packages/scripts`
 // `../../..` points to `<repo>/packages`
 // `../../../..` points to `<repo>`
-const repository = path.join(__dirname, '../../../..');
+const repo = path.join(__dirname, '../../../..');
 
-const nodeModules = path.join(repository, 'node_modules');
-const packages = path.join(repository, 'packages');
+const rootNodeModules = path.join(repo, 'node_modules');
 
-const scriptsDist = path.resolve(packages, 'scripts/dist');
+const configs = path.join(repo, 'configs');
+const pkgs = path.join(repo, 'packages');
+const projs = path.join(repo, 'projects');
+
+const scriptsDist = path.resolve(configs, 'scripts/dist');
 
 export const paths = {
-    repository,
+    repository: repo,
 
     // node_modules
 
-    nodeModules,
+    rootNodeModules,
 
     // packages
 
-    packages,
+    configs,
+    pkgs,
+    projs,
 
     // compilation
 
@@ -28,10 +33,10 @@ export const paths = {
 
     // test
 
-    jestCache: path.resolve(nodeModules, '.cache/jest'),
+    jestCache: path.resolve(rootNodeModules, '.cache/jest'),
 
     jestConfig: path.resolve(scriptsDist, 'jest/jest.config.js'),
-    testSetup: path.resolve(packages, 'utils-test/src/setup.ts'),
+    testSetup: path.resolve(pkgs, 'utils-test/src/setup.ts'),
     transforms: {
         babel: path.resolve(scriptsDist, 'jest/transform.babel.js'),
         css: path.resolve(scriptsDist, 'jest/transform.css.js'),

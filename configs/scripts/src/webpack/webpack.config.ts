@@ -1,4 +1,4 @@
-// Used for `react-scripts` 4.0.3
+// Used for `react-scripts` 5.0.1
 // For more information about how to override default configs of `react-scripts`
 // please visit https://github.com/timarney/react-app-rewired
 
@@ -7,26 +7,29 @@ import { Configuration } from 'webpack';
 
 import { paths } from '../utils';
 
-const projectName = process.env.npm_package_name;
-const projectRealName = projectName?.includes('@easy') ? projectName.slice(6) : projectName;
+const PROJ_PREFIX = '@easy-proj/';
 
-const project = projectRealName ? path.resolve(paths.packages, projectRealName) : process.cwd();
-const resolveProject = (relative: string) => path.resolve(project, relative);
+const projName = process.env.npm_package_name;
+const projRealName = projName?.includes(PROJ_PREFIX) ? projName.slice(PROJ_PREFIX.length) : projName;
 
-// Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
+const proj = projRealName ? path.resolve(paths.projs, projRealName) : process.cwd();
+const resolveProj = (relative: string) => path.resolve(proj, relative);
+
+// Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/paths.js
 const craPaths = {
-    appBuild: resolveProject('build'),
-    appHtml: resolveProject('public/index.html'),
-    appIndexTs: resolveProject('src/index.tsx'),
-    appNodeModules: paths.nodeModules,
-    appPath: project,
-    appPublic: resolveProject('public'),
-    appSrc: resolveProject('src'),
-    appTsConfig: resolveProject('tsconfig.json'),
-    appTypeDeclarations: resolveProject('src/global.d.ts'),
-    proxySetup: resolveProject('src/setup.proxy.js'),
-    swSrc: resolveProject('src/serviceWorker.js'),
-    testsSetup: resolveProject('src/setup.tests.ts'),
+    appBuild: resolveProj('build'),
+    appHtml: resolveProj('public/index.html'),
+    appIndexTs: resolveProj('src/index.tsx'),
+    // FIXME: not all dependencies are in root node_modules
+    appNodeModules: paths.rootNodeModules,
+    appPath: proj,
+    appPublic: resolveProj('public'),
+    appSrc: resolveProj('src'),
+    appTsConfig: resolveProj('tsconfig.json'),
+    appTypeDeclarations: resolveProj('src/global.d.ts'),
+    proxySetup: resolveProj('src/setup.proxy.js'),
+    swSrc: resolveProj('src/serviceWorker.js'),
+    testsSetup: resolveProj('src/setup.tests.ts'),
 };
 
 interface CRAPaths {
@@ -57,7 +60,7 @@ interface CRAPaths {
  *
  * The paths config to use when compiling your react app for development or production.
  *
- * Check Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/paths.js
+ * Check Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/paths.js
  */
 function overridePathsConfigs(_paths: CRAPaths): CRAPaths {
     _paths.appBuild = craPaths.appBuild;
@@ -80,7 +83,7 @@ function overridePathsConfigs(_paths: CRAPaths): CRAPaths {
  *
  * The Webpack config to use when compiling your react app for development or production.
  *
- * Check https://github.com/facebook/create-react-app/blob/v4.0.3/packages/react-scripts/config/webpack.config.js
+ * Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/webpack.config.js
  */
 function overrideWebpackConfigs(webpack: Configuration): Configuration {
     return webpack;

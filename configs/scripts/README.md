@@ -6,10 +6,6 @@ Scripts for easy-projs.
 
 This package contains several binary which can be called via `npx` (or `yarn`) directly:
 
-- `build-packages`
-  Build app packages.
-- `build-projects`
-  Build app projects.
 - `react-proj`
   - `react-proj build`
     Build react project.

@@ -1,5 +1,5 @@
 {
-    "name": "@easy-proj/template-proj-nodejs",
+    "name": "@easy-proj/template-nodejs",
     "version": "0.0.0",
     "description": "A template project used for creating new nodejs projects.",
     "main": "build/index.js",
