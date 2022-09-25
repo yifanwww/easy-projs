@@ -1,4 +1,4 @@
-import { useForceUpdate, usePersistFn } from '@easy/hooks';
+import { useForceUpdate, usePersistFn } from '@easy-pkg/hooks';
 import { useEffect, useRef } from 'react';
 import { BenchmarkRef } from 'react-component-benchmark';
 

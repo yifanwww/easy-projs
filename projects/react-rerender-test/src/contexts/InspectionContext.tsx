@@ -1,6 +1,6 @@
-import { useConst, useConstFn, useForceUpdate } from '@easy/hooks';
-import { abstractFn } from '@easy/utils';
-import { ImmerReducer } from '@easy/utils-react';
+import { useConst, useConstFn, useForceUpdate } from '@easy-pkg/hooks';
+import { abstractFn } from '@easy-pkg/utils';
+import { ImmerReducer } from '@easy-pkg/utils-react';
 import produce from 'immer';
 import { createContext, useRef } from 'react';
 

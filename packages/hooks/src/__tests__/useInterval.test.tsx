@@ -1,4 +1,4 @@
-import { validateHookValueNotChanged } from '@easy/utils-test';
+import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { render } from '@testing-library/react';
 import { createRef, forwardRef, useImperativeHandle, useRef } from 'react';
 

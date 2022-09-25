@@ -1,5 +1,5 @@
 {
-    "name": "@easy/random-string",
+    "name": "@easy-pkg/random-string",
     "version": "1.0.0",
     "description": "A package to generate random strings.",
     "main": "lib-commonjs/index.js",
@@ -38,6 +38,6 @@
         "@easy-config/global-types": "*",
         "@easy-config/scripts": "*",
         "@easy-config/tsconfigs": "*",
-        "@easy/utils-test": "*"
+        "@easy-pkg/utils-test": "*"
     }
 }

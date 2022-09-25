@@ -1,5 +1,5 @@
 {
-    "name": "@easy/misc",
+    "name": "@easy-proj/misc",
     "version": "0.0.0",
     "description": "Misc.",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
@@ -12,7 +12,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/misc"
+        "directory": "projects/misc"
     },
     "scripts": {
         "build": "pnpm run build:ts",

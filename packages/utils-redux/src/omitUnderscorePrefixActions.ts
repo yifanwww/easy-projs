@@ -1,4 +1,4 @@
-import { OmitUnderscorePrefix } from '@easy/utils-type';
+import { OmitUnderscorePrefix } from '@easy-pkg/utils-type';
 
 import { ReduxActions } from './types';
 

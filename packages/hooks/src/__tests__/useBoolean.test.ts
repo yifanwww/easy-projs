@@ -1,4 +1,4 @@
-import { validateHookValueNotChanged } from '@easy/utils-test';
+import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { act, renderHook } from '@testing-library/react-hooks';
 
 import { useBoolean } from '../useBoolean';

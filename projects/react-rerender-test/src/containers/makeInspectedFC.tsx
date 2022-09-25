@@ -1,4 +1,4 @@
-import { usePersistFn } from '@easy/hooks';
+import { usePersistFn } from '@easy-pkg/hooks';
 import { useContext, useEffect } from 'react';
 
 import { InspectedFCMaker, InspectedFCType } from 'src/common/inspection';

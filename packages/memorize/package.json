@@ -1,5 +1,5 @@
 {
-    "name": "@easy/memorize",
+    "name": "@easy-pkg/memorize",
     "version": "1.0.0",
     "description": "Memorize functions.",
     "main": "lib-commonjs/index.js",
@@ -35,6 +35,6 @@
         "@easy-config/global-types": "*",
         "@easy-config/scripts": "*",
         "@easy-config/tsconfigs": "*",
-        "@easy/utils-test": "*"
+        "@easy-pkg/utils-test": "*"
     }
 }

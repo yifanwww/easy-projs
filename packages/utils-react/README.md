@@ -1,4 +1,4 @@
-# @easy/utils-react
+# @easy-pkg/utils-react
 
 A package that contains React utilities.
 
@@ -6,7 +6,7 @@ A package that contains React utilities.
 ### `renderFactory` && `defaultOnRender`
 
 ```tsx
-import { defaultOnRender, renderFactory, RenderFn } from '@easy/utils-react';
+import { defaultOnRender, renderFactory, RenderFn } from '@easy-pkg/utils-react';
 
 export interface PageHeaderProps {
     title: string;
@@ -41,7 +41,7 @@ export const Page: React.FC<PageProps> = (props) => {
 ### `useImmerReducer`
 
 ```tsx
-import { ImmerReducer, useImmerReducer } from '@easy/utils-react';
+import { ImmerReducer, useImmerReducer } from '@easy-pkg/utils-react';
 
 type EasyContext = { value1: number; value2: string };
 type EasyAction = { type: 'value1' } | { type: 'value2'; payload: string };

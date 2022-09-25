@@ -1,5 +1,5 @@
 {
-    "name": "@easy/hooks",
+    "name": "@easy-pkg/hooks",
     "version": "0.4.0",
     "description": "React hooks for easy-projs.",
     "main": "lib/index.js",
@@ -34,6 +34,6 @@
         "@easy-config/global-types": "*",
         "@easy-config/scripts": "*",
         "@easy-config/tsconfigs": "*",
-        "@easy/utils-test": "*"
+        "@easy-pkg/utils-test": "*"
     }
 }

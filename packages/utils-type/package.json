@@ -1,5 +1,5 @@
 {
-    "name": "@easy/utils-type",
+    "name": "@easy-pkg/utils-type",
     "version": "0.0.0",
     "description": "Type utilities.",
     "main": "lib/index.js",

@@ -1,4 +1,4 @@
-import { useConstFn, usePersistFn } from '@easy/hooks';
+import { useConstFn, usePersistFn } from '@easy-pkg/hooks';
 import { useState } from 'react';
 
 import { ComponentName } from 'src/common/benchmark';

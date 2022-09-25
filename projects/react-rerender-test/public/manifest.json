@@ -1,6 +1,6 @@
 {
     "short_name": "react-rerender-test",
-    "name": "@easy/react-rerender-test",
+    "name": "@easy-proj/react-rerender-test",
     "icons": [],
     "start_url": ".",
     "display": "standalone",

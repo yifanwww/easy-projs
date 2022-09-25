@@ -1,5 +1,5 @@
 {
-    "name": "@easy/perf-react",
+    "name": "@easy-proj/perf-react",
     "version": "0.0.0",
     "description": "This project is used to test the performance of React.",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
@@ -12,7 +12,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/perf-react"
+        "directory": "projects/perf-react"
     },
     "browserslist": [
         "last 9 chrome versions"
@@ -26,9 +26,9 @@
         "pre-commit": "lint-staged"
     },
     "dependencies": {
-        "@easy/hooks": "*",
-        "@easy/utils": "*",
-        "@easy/utils-react": "*",
+        "@easy-pkg/hooks": "*",
+        "@easy-pkg/utils": "*",
+        "@easy-pkg/utils-react": "*",
         "antd": "^4.23.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"

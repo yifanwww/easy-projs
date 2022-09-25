@@ -32,9 +32,6 @@
     "engines": {
         "node": ">=16"
     },
-    "workspaces": [
-        "packages/*"
-    ],
     "dependencies": {
         "@babel/core": "^7.19.1",
         "@babel/plugin-syntax-flow": "^7.18.6",

@@ -1,4 +1,4 @@
-# @easy/utils-type
+# @easy-pkg/utils-type
 
 Type utilities.
 

@@ -1,5 +1,5 @@
 {
-    "name": "@easy/proving-ground-nodejs",
+    "name": "@easy-proj/proving-ground-nodejs",
     "version": "0.0.0",
     "description": "Used for doing some small test.",
     "main": "build/index.js",
@@ -13,7 +13,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/proving-ground-nodejs"
+        "directory": "prjects/proving-ground-nodejs"
     },
     "scripts": {
         "app": "node build/index.js",
@@ -28,6 +28,6 @@
         "@easy-config/global-types": "*",
         "@easy-config/scripts": "*",
         "@easy-config/tsconfigs": "*",
-        "@easy/utils-test": "*"
+        "@easy-pkg/utils-test": "*"
     }
 }

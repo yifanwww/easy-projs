@@ -1,6 +1,6 @@
-import { useConst } from '@easy/hooks';
-import { abstractFn } from '@easy/utils';
-import { ImmerReducer, useImmerReducer } from '@easy/utils-react';
+import { useConst } from '@easy-pkg/hooks';
+import { abstractFn } from '@easy-pkg/utils';
+import { ImmerReducer, useImmerReducer } from '@easy-pkg/utils-react';
 import { createContext } from 'react';
 
 export interface RenderContextState {

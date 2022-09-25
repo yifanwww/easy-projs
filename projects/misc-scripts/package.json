@@ -1,5 +1,5 @@
 {
-    "name": "@easy/misc-scripts",
+    "name": "@easy-proj/misc-scripts",
     "version": "0.0.0",
     "description": "Misc scripts.",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
@@ -12,7 +12,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/misc-scripts"
+        "directory": "projects/misc-scripts"
     },
     "scripts": {
         "build": "tsc --project tsconfig.node.json",

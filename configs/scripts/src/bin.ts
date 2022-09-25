@@ -33,20 +33,20 @@ async function buildOrder(order: Order): Promise<void> {
 export async function buildPackages(): Promise<void> {
     const order: Order = [
         /* ----- may be used by all other packages ----- */
-        ['@easy/utils', '@easy/utils-type', '@easy/utils-test'],
+        ['@easy-pkg/utils', '@easy-pkg/utils-type', '@easy-pkg/utils-test'],
 
         /* ----- product packages ----- */
         [
-            '@easy/assets',
-            '@easy/hooks',
-            '@easy/memorize',
-            '@easy/misc',
-            '@easy/random-string',
-            '@easy/react-hooks-nodom',
-            '@easy/template-pkg-nodejs',
-            '@easy/utils-fluentui',
-            '@easy/utils-react',
-            '@easy/utils-redux',
+            '@easy-pkg/assets',
+            '@easy-pkg/hooks',
+            '@easy-pkg/memorize',
+            '@easy-proj/misc',
+            '@easy-pkg/random-string',
+            '@easy-pkg/react-hooks-nodom',
+            '@easy-pkg/template-nodejs',
+            '@easy-pkg/utils-fluentui',
+            '@easy-pkg/utils-react',
+            '@easy-pkg/utils-redux',
         ],
     ];
 
@@ -55,13 +55,12 @@ export async function buildPackages(): Promise<void> {
 
 export async function buildProjects(): Promise<void> {
     const order = [
-        '@easy/perf-js',
-        '@easy/perf-react',
-        '@easy/projs-manage',
-        '@easy/proving-ground-nodejs',
-        '@easy/react-rerender-test',
-        '@easy/template-proj-browser-react',
-        '@easy/template-proj-nodejs',
+        '@easy-proj/perf-js',
+        '@easy-proj/perf-react',
+        '@easy-proj/proving-ground-nodejs',
+        '@easy-proj/react-rerender-test',
+        '@easy-proj/template-browser-react',
+        '@easy-proj/template-nodejs',
     ];
 
     return buildOrder([order]);

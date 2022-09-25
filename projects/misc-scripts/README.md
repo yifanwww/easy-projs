@@ -1,3 +1,3 @@
-# @easy/misc-scripts
+# @easy-proj/misc-scripts
 
 Misc scripts.

@@ -1,3 +1,3 @@
-# @easy/memorize
+# @easy-pkg/memorize
 
 Memorize functions.

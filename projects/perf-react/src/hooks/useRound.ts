@@ -1,4 +1,4 @@
-import { useConstFn } from '@easy/hooks';
+import { useConstFn } from '@easy-pkg/hooks';
 import { useRef } from 'react';
 
 export interface UseRoundActions {

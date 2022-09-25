@@ -1,3 +1,3 @@
-# @easy/misc
+# @easy-proj/misc
 
 Misc.

@@ -1,4 +1,4 @@
-# @easy/utils-test
+# @easy-pkg/utils-test
 
 Test utils used for easy-projs.
 

@@ -1,6 +1,6 @@
 {
     "short_name": "perf-react",
-    "name": "@easy/perf-react",
+    "name": "@easy-proj/perf-react",
     "icons": [],
     "start_url": ".",
     "display": "standalone",
