@@ -34,10 +34,10 @@
         "test-perf": "node dist/test/performance.js"
     },
     "devDependencies": {
-        "@easy-config/eslint-config": "*",
-        "@easy-config/global-types": "*",
-        "@easy-config/scripts": "*",
-        "@easy-config/tsconfigs": "*",
-        "@easy-pkg/utils-test": "*"
+        "@easy-config/eslint-config": "workspace:*",
+        "@easy-config/global-types": "workspace:*",
+        "@easy-config/scripts": "workspace:*",
+        "@easy-config/tsconfigs": "workspace:*",
+        "@easy-pkg/utils-test": "workspace:*"
     }
 }

@@ -1,7 +1,7 @@
 {
-    "name": "@easy-pkg/utils-react",
-    "version": "0.1.0",
-    "description": "A package that contains React utilities.",
+    "name": "@easy-pkg/fetcher",
+    "version": "0.0.0",
+    "description": "",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "typings": "lib/index.d.ts",
@@ -15,22 +15,30 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/utils-react"
+        "directory": "packages/fetcher"
     },
     "scripts": {
         "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build:esm --watch",
+        "dev": "pnpm run build:esm -- --watch",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
+    },
+    "dependencies": {
+        "@easy-pkg/hooks": "workspace:*",
+        "lodash": "^4.17.21",
+        "react": "^17.0.2",
+        "swr": "^1.3.0"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*"
+        "@easy-config/tsconfigs": "workspace:*",
+        "@types/lodash": "^4.14.185",
+        "@types/react": "^17.0.50"
     }
 }
