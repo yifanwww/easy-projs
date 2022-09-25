@@ -18,14 +18,11 @@
         "directory": "packages/random-string"
     },
     "scripts": {
-        "build": "concurrently -n cjs,esm,types \"pnpm run build:cjs\" \"pnpm run build:esm\" \"pnpm run build:types\"",
-        "build:cjs": "tsc --project tsconfigs/tsconfig.cjs.json",
-        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
-        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "build": "tsc --build tsconfigs/tsconfig.build.json",
         "build-dist": "tsc --project tsconfigs/tsconfig.dist.json",
         "clean": "rimraf coverage dist lib lib-commonjs tsconfigs/*.tsbuildinfo",
         "clean-dist": "rimraf dist",
-        "dev": "pnpm run build:cjs --watch",
+        "dev": "pnpm run build --watch",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged",

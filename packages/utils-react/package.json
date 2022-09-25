@@ -18,11 +18,9 @@
         "directory": "packages/utils-react"
     },
     "scripts": {
-        "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
-        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
-        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "build": "tsc --build tsconfigs/tsconfig.build.json",
         "clean": "rimraf lib tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build:esm --watch",
+        "dev": "pnpm run build --watch",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
