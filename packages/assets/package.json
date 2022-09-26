@@ -18,7 +18,9 @@
         "directory": "packages/assets"
     },
     "scripts": {
-        "build": "tsc --build tsconfigs/tsconfig.build.json",
+        "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
         "format": "format-code",
         "lint": "eslint .",

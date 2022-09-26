@@ -16,7 +16,9 @@
     },
     "scripts": {
         "build": "pnpm run build:ts",
-        "build:ts": "tsc --build tsconfigs/tsconfig.build.json",
+        "build:ts": "concurrently -n esm,types \"pnpm run build:ts:esm\" \"pnpm run build:ts:types\"",
+        "build:ts:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:ts:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf lib tsconfigs/*.tsbuildinfo",
         "lint": "eslint .",
         "format": "format-code",

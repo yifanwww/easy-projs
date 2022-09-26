@@ -18,9 +18,11 @@
         "directory": "packages/utils-type"
     },
     "scripts": {
-        "build": "tsc --build tsconfigs/tsconfig.build.json",
+        "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf lib tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build --watch",
+        "dev": "pnpm run build:esm --watch",
         "format": "format-code",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
