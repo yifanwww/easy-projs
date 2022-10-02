@@ -4,7 +4,9 @@ import { generatePath, Route, Routes, useNavigate } from 'react-router';
 import { Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage';
 import { RoutePath } from 'src/router';
+
 import { makeInspectedFC } from '../makeInspectedFC';
+
 import { Controller } from './Controller';
 import { useRouterNum } from './useRouterNum';
 

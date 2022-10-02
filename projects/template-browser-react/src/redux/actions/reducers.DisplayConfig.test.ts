@@ -1,4 +1,5 @@
 import { expectSnapshot } from '@easy-pkg/utils-test';
+
 import { getInitialState, _actions, _reducer } from './slice';
 
 describe('Test redux reducer `updateClientAreaSize`', () => {

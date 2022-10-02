@@ -1,4 +1,5 @@
-import { PageOverview, PageOverviewInfo } from 'src/components/PageOverview';
+import { PageOverview } from 'src/components/PageOverview';
+import type { PageOverviewInfo } from 'src/components/PageOverview';
 import { RoutePath } from 'src/router';
 
 import css from './HomePage.module.scss';

@@ -1,6 +1,6 @@
 import { createEntityAdapter } from '@reduxjs/toolkit';
 
-import { BenchmarkResult } from 'src/common/benchmark';
+import type { BenchmarkResult } from 'src/common/benchmark';
 
 export const benchmarkResultAdapter = createEntityAdapter<BenchmarkResult>({
     selectId: (model) => model.order,

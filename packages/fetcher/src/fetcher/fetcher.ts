@@ -1,4 +1,4 @@
-import { FetchOptions, FetchResponse, Method } from './types';
+import type { FetchOptions, FetchResponse, Method } from './types';
 import { appendURL, buildURL } from './url';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

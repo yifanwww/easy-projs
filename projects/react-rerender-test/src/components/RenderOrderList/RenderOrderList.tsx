@@ -1,8 +1,10 @@
-import { List, ListProps } from 'antd';
+import { List } from 'antd';
+import type { ListProps } from 'antd';
 import { useContext } from 'react';
 
-import { InspectionData } from 'src/common/inspection';
+import type { InspectionData } from 'src/common/inspection';
 import { InspectionContext, InspectionContextUpdater } from 'src/contexts/InspectionContext';
+
 import { GroupSelector } from './GroupSelector';
 
 import css from './RenderOrderList.module.scss';

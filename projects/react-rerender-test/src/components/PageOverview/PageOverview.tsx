@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import { useNavigate } from 'react-router';
 
-import { PageOverviewInfo } from './types';
+import type { PageOverviewInfo } from './types';
 
 import css from './PageOverview.module.scss';
 

@@ -1,10 +1,10 @@
 import { Select } from 'antd';
-import { GridComponentOption, LineSeriesOption } from 'echarts';
+import type { GridComponentOption, LineSeriesOption } from 'echarts';
 import * as echarts from 'echarts/core';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { BenchmarkType } from 'react-component-benchmark';
 
-import { BenchmarkTypes, ComponentName } from 'src/common/benchmark';
+import type { BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 import { InputWrapper } from 'src/components/InputWrapper';
 import { componentInfos, componentNames } from 'src/components/tests';
 import { BenchmarkContext, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';

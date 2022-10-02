@@ -3,7 +3,7 @@
 // please visit https://github.com/timarney/react-app-rewired
 
 import path from 'path';
-import { Configuration } from 'webpack';
+import type { Configuration } from 'webpack';
 
 import { paths } from '../utils';
 

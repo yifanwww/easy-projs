@@ -1,6 +1,6 @@
 import { Tag } from 'antd';
 
-import { InspectedFCType } from 'src/common/inspection';
+import type { InspectedFCType } from 'src/common/inspection';
 import { useRenderCount } from 'src/hooks';
 
 import css from './ComponentView.module.scss';

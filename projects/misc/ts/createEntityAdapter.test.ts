@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { useSelector } from 'react-redux';
-import { createEntityAdapter, EntityState } from './createEntityAdapter';
+
+import { createEntityAdapter } from './createEntityAdapter';
+import type { EntityState } from './createEntityAdapter';
 
 interface Item {
     id: number;

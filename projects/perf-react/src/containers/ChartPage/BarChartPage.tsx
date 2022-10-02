@@ -1,10 +1,10 @@
 import { Select } from 'antd';
-import { BarSeriesOption, GridComponentOption, TooltipComponentOption } from 'echarts';
+import type { BarSeriesOption, GridComponentOption, TooltipComponentOption } from 'echarts';
 import * as echarts from 'echarts/core';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { BenchmarkType } from 'react-component-benchmark';
 
-import { BenchmarkTypes } from 'src/common/benchmark';
+import type { BenchmarkTypes } from 'src/common/benchmark';
 import { InputWrapper } from 'src/components/InputWrapper';
 import { componentNames } from 'src/components/tests';
 import { BenchmarkContext } from 'src/contexts/BenchmarkContext';

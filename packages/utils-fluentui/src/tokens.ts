@@ -1,5 +1,5 @@
-import { ExcludeFunction, ExtractFunction } from '@easy-pkg/utils-type';
-import { IStackProps } from '@fluentui/react';
+import type { ExcludeFunction, ExtractFunction } from '@easy-pkg/utils-type';
+import type { IStackProps } from '@fluentui/react';
 
 export namespace FluentuiTokens {
     export type Stack = ExcludeFunction<PickProp<IStackProps, 'tokens'>>;

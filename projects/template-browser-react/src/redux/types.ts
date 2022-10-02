@@ -1,4 +1,4 @@
-import { ReduxReducer as InternalReduxReducer } from '@easy-pkg/utils-redux';
+import type { ReduxReducer as InternalReduxReducer } from '@easy-pkg/utils-redux';
 
 interface DisplayConfig {
     clientAreaSize: ClientAreaSize;

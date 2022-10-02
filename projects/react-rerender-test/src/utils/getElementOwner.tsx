@@ -1,4 +1,4 @@
-import { Fiber } from 'src/common/fiber';
+import type { Fiber } from 'src/common/fiber';
 
 interface ReactElementObject extends React.ReactElement {
     _owner: Fiber;

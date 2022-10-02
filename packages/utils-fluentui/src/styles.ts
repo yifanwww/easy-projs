@@ -1,5 +1,5 @@
-import { ExcludeFunction, ExtractFunction } from '@easy-pkg/utils-type';
-import {
+import type { ExcludeFunction, ExtractFunction } from '@easy-pkg/utils-type';
+import type {
     IButtonProps,
     ICheckboxProps,
     IChoiceGroupOptionProps,

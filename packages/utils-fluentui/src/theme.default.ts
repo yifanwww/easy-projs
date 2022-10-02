@@ -2,7 +2,8 @@
 // For more information:
 // https://fluentuipr.z22.web.core.windows.net/heads/master/theming-designer/index.html
 
-import { createTheme, IPalette, ISemanticColors } from '@fluentui/react';
+import { createTheme } from '@fluentui/react';
+import type { IPalette, ISemanticColors } from '@fluentui/react';
 
 export const palette: Partial<IPalette> = {
     // theme colors

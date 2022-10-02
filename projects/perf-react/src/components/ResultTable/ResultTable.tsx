@@ -1,8 +1,8 @@
 import { Table } from 'antd';
-import { ColumnType } from 'antd/lib/table';
+import type { ColumnType } from 'antd/lib/table';
 import { useContext } from 'react';
 
-import { BenchmarkResult, ComponentName } from 'src/common/benchmark';
+import type { BenchmarkResult, ComponentName } from 'src/common/benchmark';
 import { BenchmarkContext, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
 
 import { componentInfos } from '../tests';

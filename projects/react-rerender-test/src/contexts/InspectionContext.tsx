@@ -1,10 +1,10 @@
 import { useConst, useConstFn, useForceUpdate } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
-import { ImmerReducer } from '@easy-pkg/utils-react';
+import type { ImmerReducer } from '@easy-pkg/utils-react';
 import produce from 'immer';
 import { createContext, useRef } from 'react';
 
-import { InspectionData, InspectionTree } from 'src/common/inspection';
+import type { InspectionData, InspectionTree } from 'src/common/inspection';
 import { useDoubleRenderSign } from 'src/hooks/useDoubleRenderSign';
 
 export interface InspectionContextState {

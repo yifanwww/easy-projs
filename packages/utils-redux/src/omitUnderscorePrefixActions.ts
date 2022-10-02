@@ -1,6 +1,6 @@
-import { OmitUnderscorePrefix } from '@easy-pkg/utils-type';
+import type { OmitUnderscorePrefix } from '@easy-pkg/utils-type';
 
-import { ReduxActions } from './types';
+import type { ReduxActions } from './types';
 
 export function omitUnderscorePrefixActions<T extends ReduxActions>(internalActions: T): OmitUnderscorePrefix<T> {
     const actions: Record<string, Function> = {};

@@ -1,4 +1,4 @@
-import { BenchmarkResult, BenchmarkResultState, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
+import type { BenchmarkResult, BenchmarkResultState, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
 export type GroupBenchmarkResults = Record<ComponentName, BenchmarkResultState> & {
     average: Record<ComponentName, number>;

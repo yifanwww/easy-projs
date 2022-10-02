@@ -1,5 +1,5 @@
-import { EntityState } from '@reduxjs/toolkit';
-import { BenchmarkType } from 'react-component-benchmark';
+import type { EntityState } from '@reduxjs/toolkit';
+import type { BenchmarkType } from 'react-component-benchmark';
 
 export type ComponentName = 'noHooks' | 'useMemo' | 'useCallback' | 'useRef' | 'useState' | 'useReducer';
 

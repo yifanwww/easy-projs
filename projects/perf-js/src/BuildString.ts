@@ -1,4 +1,5 @@
-import { Arguments, BenchmarkJob, BenchmarkTestFnOptions } from 'benchmark-node';
+import { Arguments, BenchmarkJob } from 'benchmark-node';
+import type { BenchmarkTestFnOptions } from 'benchmark-node';
 
 type Test1 = (a: string) => string;
 type Test2 = (a: string, b: string) => string;

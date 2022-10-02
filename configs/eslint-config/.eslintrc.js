@@ -81,12 +81,16 @@ module.exports = {
         // Disabled for better code comments
         '@typescript-eslint/brace-style': 'off',
         '@typescript-eslint/comma-dangle': 'off',
-        // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
+        // https://typescript-eslint.io/rules/consistent-type-exports
+        '@typescript-eslint/consistent-type-exports': 'error',
+        // https://typescript-eslint.io/rules/consistent-type-imports
+        '@typescript-eslint/consistent-type-imports': 'error',
+        // https://typescript-eslint.io/rules/explicit-member-accessibility
         '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'no-public' }],
         // Disable this rule and use rule `prettier/prettier` instead.
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/lines-between-class-members': 'off',
-        // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md
+        // https://typescript-eslint.io/rules/naming-convention
         '@typescript-eslint/naming-convention': [
             'error',
             { selector: 'accessor', format: ['camelCase'] },
@@ -134,7 +138,7 @@ module.exports = {
         '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
         '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
         '@typescript-eslint/no-unnecessary-type-constraint': 'warn',
-        // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/restrict-template-expressions.md
+        // https://typescript-eslint.io/rules/restrict-template-expressions
         '@typescript-eslint/restrict-template-expressions': [
             'error',
             { allowNumber: true, allowBoolean: true, allowAny: false, allowNullish: true, allowRegExp: true },
@@ -150,6 +154,7 @@ module.exports = {
         // 'deprecation/deprecation': 'warn',
 
         'import/extensions': 'off',
+        // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
         // From: https://github.com/airbnb/javascript/blob/eslint-config-airbnb-base-v15.0.0/packages/eslint-config-airbnb-base/rules/imports.js#L149
         'import/order': [
             'error',
@@ -162,6 +167,8 @@ module.exports = {
                         position: 'after',
                     },
                 ],
+                alphabetize: { order: 'asc' },
+                'newlines-between': 'always',
             },
         ],
         'import/no-cycle': 'error',

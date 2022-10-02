@@ -1,10 +1,10 @@
 import { useForceUpdate, usePersistFn } from '@easy-pkg/hooks';
 import { useEffect, useRef } from 'react';
-import { BenchmarkRef } from 'react-component-benchmark';
+import type { BenchmarkRef } from 'react-component-benchmark';
 
-import { BenchmarkTypes, ComponentName } from 'src/common/benchmark';
+import type { BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
-import { UseComponentKeysActions } from './useComponentNames';
+import type { UseComponentKeysActions } from './useComponentNames';
 import { useRound } from './useRound';
 
 export interface UseGroupTestActions {

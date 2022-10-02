@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { InspectedFC } from 'src/common/inspection';
+import type { InspectedFC } from 'src/common/inspection';
 import { inspectorName } from 'src/components/Inspector';
 import { getElementOwner } from 'src/utils/getElementOwner';
 

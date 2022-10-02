@@ -1,13 +1,14 @@
 import { useConst } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
-import { ImmerReducer, useImmerReducer } from '@easy-pkg/utils-react';
-import { Draft } from 'immer';
+import { useImmerReducer } from '@easy-pkg/utils-react';
+import type { ImmerReducer } from '@easy-pkg/utils-react';
+import type { Draft } from 'immer';
 import { createContext } from 'react';
 
-import { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
+import type { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
 import { benchmarkResultAdapter, benchmarkResultSelector } from './adapters';
-import { GroupBenchmarkResults, IBenchmarkContext, IBenchmarkContextUpdaters } from './types';
+import type { GroupBenchmarkResults, IBenchmarkContext, IBenchmarkContextUpdaters } from './types';
 
 const initialContext: IBenchmarkContext = {
     mount: {

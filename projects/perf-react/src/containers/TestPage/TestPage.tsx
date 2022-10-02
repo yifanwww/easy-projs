@@ -1,9 +1,10 @@
 import { Button, InputNumber, message, Select } from 'antd';
 import copy from 'copy-to-clipboard';
 import { useContext, useRef, useState } from 'react';
-import Benchmark, { BenchmarkType, BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
+import Benchmark, { BenchmarkType } from 'react-component-benchmark';
+import type { BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
 
-import { BenchmarkTypes, ComponentName } from 'src/common/benchmark';
+import type { BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 import { InputWrapper } from 'src/components/InputWrapper';
 import { ResultTable } from 'src/components/ResultTable';
 import { componentInfos, componentNames } from 'src/components/tests';

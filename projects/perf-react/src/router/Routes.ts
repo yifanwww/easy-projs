@@ -1,4 +1,5 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
+import type React from 'react';
 
 import { RoutePath } from './RoutePath';
 

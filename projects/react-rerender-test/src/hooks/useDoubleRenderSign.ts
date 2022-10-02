@@ -1,7 +1,7 @@
 import { useConstFn } from '@easy-pkg/hooks';
 import { useRef } from 'react';
 
-import { InspectionData } from 'src/common/inspection';
+import type { InspectionData } from 'src/common/inspection';
 
 export interface UseDoubleRenderSignActions {
     readonly sign: (record: InspectionData) => boolean;

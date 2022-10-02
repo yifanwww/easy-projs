@@ -1,6 +1,6 @@
 import { useForceUpdate, usePersistFn } from '@easy-pkg/hooks';
 import { useEffect } from 'react';
-import { BenchmarkRef } from 'react-component-benchmark';
+import type { BenchmarkRef } from 'react-component-benchmark';
 
 import { useRound } from './useRound';
 

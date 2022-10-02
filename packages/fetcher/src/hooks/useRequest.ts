@@ -1,8 +1,9 @@
 import { useIsMounted, usePersistFn } from '@easy-pkg/hooks';
 import { useCallback, useRef, useState } from 'react';
 
-import { FetchOptions } from '../fetcher';
-import { HookFetcher } from './types';
+import type { FetchOptions } from '../fetcher';
+
+import type { HookFetcher } from './types';
 import { uid } from './uid';
 
 interface State<Data, Err> {

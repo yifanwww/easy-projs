@@ -1,4 +1,4 @@
-import { ReduxReducer } from '../types';
+import type { ReduxReducer } from '../types';
 
 export const _finishPreparing: ReduxReducer = (state) => {
     state.prepared = true;

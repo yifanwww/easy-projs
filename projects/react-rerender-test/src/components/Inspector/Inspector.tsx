@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useContext } from 'react';
 
-import { InspectedFC } from 'src/common/inspection';
+import type { InspectedFC } from 'src/common/inspection';
 import { InspectionContext, InspectionContextUpdater } from 'src/contexts/InspectionContext';
 import { useInspectorPosition } from 'src/hooks/useInspectorPosition';
 

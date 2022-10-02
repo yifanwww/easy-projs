@@ -1,7 +1,8 @@
 import { omitUnderscorePrefixActions } from '@easy-pkg/utils-redux';
 import { createSlice } from '@reduxjs/toolkit';
 
-import { StoreState } from '../types';
+import type { StoreState } from '../types';
+
 import { _finishPreparing } from './reducers';
 import { updateClientAreaSize } from './reducers.DisplayConfig';
 

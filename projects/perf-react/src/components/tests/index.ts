@@ -1,4 +1,4 @@
-import { ComponentName } from 'src/common/benchmark';
+import type { ComponentName } from 'src/common/benchmark';
 
 import { NoHooks, UseCallback, UseMemo, UseReducer, UseRef, UseState } from './tests';
 

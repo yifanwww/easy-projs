@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { InspectedFC, InspectedFCType } from 'src/common/inspection';
+import type { InspectedFC, InspectedFCType } from 'src/common/inspection';
 import { withMockedHooks } from 'src/utils/withMockedHooks';
 
 const inspectionTestName = 'InspectionTest';

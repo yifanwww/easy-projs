@@ -1,7 +1,7 @@
 import { useConstFn, usePersistFn } from '@easy-pkg/hooks';
 import { useState } from 'react';
 
-import { ComponentName } from 'src/common/benchmark';
+import type { ComponentName } from 'src/common/benchmark';
 import { componentNames } from 'src/components/tests';
 
 export interface UseComponentKeysActions {
