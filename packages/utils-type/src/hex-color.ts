@@ -1,4 +1,4 @@
-import type { HexDigit } from './base';
+import type { HexDigit } from './char';
 
 type IsHexColorNumber<Color extends string, Position extends number> = Position extends 0
     ? true
