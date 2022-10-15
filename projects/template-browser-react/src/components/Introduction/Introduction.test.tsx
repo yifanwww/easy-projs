@@ -3,8 +3,8 @@ import { render } from '@testing-library/react';
 
 import { Introduction } from './Introduction';
 
-describe('Test component `Introduction`', () => {
-    it('renders', () => {
+describe(`Test component \`${Introduction.name}\``, () => {
+    it('should render', () => {
         const reactElement = <Introduction />;
 
         expectElementSnapshot(reactElement);

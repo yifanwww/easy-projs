@@ -12,14 +12,14 @@ function defaultDiff(prev: unknown[], curr: unknown[]): boolean {
     return false;
 }
 
-export function memorize<Args extends unknown[], ReturnType>(
-    fn: (...args: Args) => ReturnType,
+export function memorize<Args extends unknown[], Return>(
+    fn: (...args: Args) => Return,
     diff?: (prev: Args, curr: Args) => boolean,
-): (...args: Args) => ReturnType {
+): (...args: Args) => Return {
     let prev = [] as unknown as Args;
 
     // Box the value in an object so we can tell if it's initialized even if the function returns undefined.
-    let result: Result<ReturnType>;
+    let result: Result<Return>;
 
     return function memorizeWrapper(...curr: Args) {
         if (result === undefined) {

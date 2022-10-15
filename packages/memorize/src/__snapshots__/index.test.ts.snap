@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`exports from this package 1`] = `
-Array [
-  "memorize",
-]
-`;

@@ -1,8 +1,8 @@
-import Test from '@easy-pkg/utils-test';
+import { mockSessionStorage } from '@easy-pkg/utils-test';
 
 import { SessionStorage } from './sessionStorage';
 
-Test.mockSessionStorage();
+mockSessionStorage();
 
 describe(`Test \`${SessionStorage.name}\``, () => {
     it('has no method', () => {

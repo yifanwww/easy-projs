@@ -1,8 +1,8 @@
-import Test from '@easy-pkg/utils-test';
+import { mockLocalStorage } from '@easy-pkg/utils-test';
 
 import { LocalStorage } from './localStorage';
 
-Test.mockLocalStorage();
+mockLocalStorage();
 
 describe(`Test \`${LocalStorage.name}\``, () => {
     it('has no method', () => {

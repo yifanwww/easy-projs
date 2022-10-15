@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { usePersistFn } from '../usePersistFn';
 
 describe(`Test react hook \`${usePersistFn.name}\``, () => {
-    validateHookValueNotChanged('returns the same callbacks', () => [usePersistFn(noop)]);
+    validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);
 
-    it('calls the latest non-persist function', () => {
+    it('should call the latest non-persist function', () => {
         let count: Optional<number> = null;
         let increaseCount: Optional<() => void> = null;
         expect(count).toBeNull();
