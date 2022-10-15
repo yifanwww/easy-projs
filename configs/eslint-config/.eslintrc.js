@@ -84,7 +84,7 @@ module.exports = {
         // https://typescript-eslint.io/rules/consistent-type-exports
         '@typescript-eslint/consistent-type-exports': 'error',
         // https://typescript-eslint.io/rules/consistent-type-imports
-        '@typescript-eslint/consistent-type-imports': 'error',
+        '@typescript-eslint/consistent-type-imports': ['error', { disallowTypeAnnotations: false }],
         // https://typescript-eslint.io/rules/explicit-member-accessibility
         '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'no-public' }],
         // Disable this rule and use rule `prettier/prettier` instead.
@@ -167,7 +167,10 @@ module.exports = {
                         position: 'after',
                     },
                 ],
-                alphabetize: { order: 'asc' },
+                alphabetize: {
+                    caseInsensitive: true,
+                    order: 'asc',
+                },
                 'newlines-between': 'always',
             },
         ],
