@@ -23,6 +23,9 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "pre-commit": "lint-staged"
     },
+    "dependencies": {
+        "chalk": "^4.1.2"
+    },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
@@ -32,6 +35,7 @@
         "eslint": "^8.24.0",
         "lint-staged": "^13.0.3",
         "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
         "typescript": "4.8.3"
     }
 }
