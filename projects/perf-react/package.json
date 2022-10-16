@@ -21,7 +21,7 @@
         "build": "react-proj build",
         "clean": "rimraf build",
         "dev": "react-proj dev",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
         "pre-commit": "lint-staged"
     },
@@ -40,6 +40,7 @@
         "@easy-config/stylelint-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "eslint": "^8.24.0",
+        "prettier": "2.7.1",
         "stylelint": "^14.12.1"
     }
 }

@@ -24,7 +24,7 @@
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf lib lib-commonjs tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build:cjs --watch",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
     },
@@ -33,6 +33,7 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "eslint": "^8.24.0"
+        "eslint": "^8.24.0",
+        "prettier": "2.7.1"
     }
 }

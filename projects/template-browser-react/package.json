@@ -22,7 +22,7 @@
         "build-profile": "react-proj build-profile",
         "clean": "rimraf coverage build",
         "dev": "react-proj dev",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
         "pre-commit": "lint-staged",
         "test": "unit-test",
@@ -42,6 +42,7 @@
         "@easy-pkg/utils-test": "workspace:*",
         "@types/testing-library__jest-dom": "^5.14.5",
         "eslint": "^8.24.0",
+        "prettier": "2.7.1",
         "stylelint": "^14.12.1"
     }
 }

@@ -23,7 +23,7 @@
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf coverage lib tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build:esm --watch",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
         "test": "unit-test",
@@ -37,6 +37,7 @@
         "@easy-pkg/utils-test": "workspace:*",
         "@types/lodash": "^4.14.185",
         "eslint": "^8.24.0",
-        "lodash": "^4.17.21"
+        "lodash": "^4.17.21",
+        "prettier": "2.7.1"
     }
 }

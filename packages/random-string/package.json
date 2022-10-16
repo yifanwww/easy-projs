@@ -26,7 +26,7 @@
         "clean": "rimraf coverage dist lib lib-commonjs tsconfigs/*.tsbuildinfo",
         "clean-dist": "rimraf dist",
         "dev": "pnpm run build:cjs --watch",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
         "test": "unit-test",
@@ -39,6 +39,7 @@
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@easy-pkg/utils-test": "workspace:*",
-        "eslint": "^8.24.0"
+        "eslint": "^8.24.0",
+        "prettier": "2.7.1"
     }
 }

@@ -15,7 +15,7 @@
         "directory": "configs/stylelint-config"
     },
     "scripts": {
-        "format": "format-code"
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\""
     },
     "dependencies": {
         "postcss": "^8.4.16",
@@ -23,6 +23,7 @@
         "stylelint-config-sass-guidelines": "^9.0.1"
     },
     "devDependencies": {
+        "prettier": "2.7.1",
         "stylelint": "^14.12.1"
     },
     "peerDependencies": {

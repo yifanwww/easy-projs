@@ -13,8 +13,6 @@ This package contains several binary which can be called via `npx` (or `yarn`) d
     Build react project with profiling enabled. See [React Profiling].
   - `react-proj dev`
     Dev react project.
-- `format-code`
-  Format source code by `prettier`.
 
 ## Configurations
 

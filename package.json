@@ -22,7 +22,7 @@
         "clean": "pnpm run --recursive clean",
         "clean-scripts": "pnpm run --filter @easy-config/scripts clean-scripts",
         "format": "pnpm run format:root && pnpm run format:workspaces",
-        "format:root": "format-code",
+        "format:root": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "format:workspaces": "pnpm run --recursive --stream format",
         "lint": "pnpm run --recursive --stream lint",
         "pre-commit": "pnpm run --recursive --workspace-concurrency 1 pre-commit",
@@ -53,7 +53,6 @@
         "web-vitals": "^3.0.2"
     },
     "devDependencies": {
-        "@easy-config/scripts": "workspace:*",
         "@testing-library/dom": "^8.18.1",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^12.1.4",
