@@ -19,7 +19,7 @@
         "clean": "rimraf dist *.tsbuildinfo",
         "dev": "tsc --project tsconfig.node.json --watch",
         "lint": "eslint .",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "pre-commit": "lint-staged"
     },
     "dependencies": {
@@ -30,6 +30,11 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@types/semver": "^7.3.12"
+        "@types/semver": "^7.3.12",
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
+        "typescript": "4.8.3"
     }
 }

@@ -21,7 +21,7 @@
         "build": "react-proj build",
         "clean": "rimraf build",
         "dev": "react-proj dev",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
         "pre-commit": "lint-staged"
     },
@@ -29,15 +29,32 @@
         "@easy-pkg/hooks": "workspace:*",
         "@easy-pkg/utils": "workspace:*",
         "@easy-pkg/utils-react": "workspace:*",
+        "@reduxjs/toolkit": "^1.8.5",
         "antd": "^4.23.2",
+        "clsx": "^1.2.1",
+        "copy-to-clipboard": "^3.3.2",
+        "echarts": "^5.3.3",
+        "immer": "^9.0.15",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-component-benchmark": "^1.0.0",
+        "react-dom": "^17.0.2",
+        "react-router": "^6.4.1",
+        "react-router-dom": "^6.4.1"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/stylelint-config": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*"
+        "@easy-config/tsconfigs": "workspace:*",
+        "@types/react": "^17.0.50",
+        "@types/react-component-benchmark": "^1.0.0",
+        "@types/react-dom": "^17.0.17",
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
+        "stylelint": "^14.12.1",
+        "typescript": "4.8.3"
     }
 }

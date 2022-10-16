@@ -16,12 +16,19 @@
         "directory": "configs/global-types"
     },
     "scripts": {
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
     },
+    "dependencies": {
+        "ts-essentials": "^9.3.0"
+    },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*"
+        "@easy-config/tsconfigs": "workspace:*",
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "typescript": "4.8.3"
     }
 }

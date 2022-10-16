@@ -18,14 +18,22 @@
         "build": "tsc --build tsconfig.node.json",
         "clean": "rimraf build ./*.tsbuildinfo",
         "dev": "pnpm run build --watch",
-        "format": "format-code",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged"
+    },
+    "dependencies": {
+        "benchmark-node": "^0.7.2"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*"
+        "@easy-config/tsconfigs": "workspace:*",
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "rimraf": "^3.0.2",
+        "typescript": "4.8.3"
     }
 }
