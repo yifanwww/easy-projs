@@ -20,6 +20,9 @@
         "lint": "eslint .",
         "pre-commit": "lint-staged"
     },
+    "dependencies": {
+        "ts-essentials": "^9.3.0"
+    },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",

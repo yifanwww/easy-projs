@@ -27,6 +27,9 @@
         "lint": "eslint .",
         "pre-commit": "lint-staged"
     },
+    "dependencies": {
+        "immer": "^9.0.15"
+    },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",

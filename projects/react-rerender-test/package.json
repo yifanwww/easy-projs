@@ -32,9 +32,13 @@
         "@easy-pkg/utils": "workspace:*",
         "@easy-pkg/utils-react": "workspace:*",
         "antd": "^4.23.2",
+        "clsx": "^1.2.1",
+        "immer": "^9.0.15",
         "lodash": "^4.17.21",
         "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react-dom": "^17.0.2",
+        "react-router": "^6.4.1",
+        "react-router-dom": "^6.4.1"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
