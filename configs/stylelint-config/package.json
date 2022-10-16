@@ -16,5 +16,16 @@
     },
     "scripts": {
         "format": "format-code"
+    },
+    "dependencies": {
+        "postcss": "^8.4.16",
+        "stylelint-config-recess-order": "^3.0.0",
+        "stylelint-config-sass-guidelines": "^9.0.1"
+    },
+    "devDependencies": {
+        "stylelint": "^14.12.1"
+    },
+    "peerDependencies": {
+        "stylelint": "^14.12.1"
     }
 }

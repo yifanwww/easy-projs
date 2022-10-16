@@ -41,6 +41,7 @@
         "@easy-config/tsconfigs": "workspace:*",
         "@easy-pkg/utils-test": "workspace:*",
         "@types/testing-library__jest-dom": "^5.14.5",
-        "eslint": "^8.24.0"
+        "eslint": "^8.24.0",
+        "stylelint": "^14.12.1"
     }
 }
