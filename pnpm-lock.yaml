@@ -25,14 +25,12 @@ importers:
       browserslist: ^4.21.4
       chalk: ^4.1.2
       clsx: ^1.2.1
-      concurrently: ^7.4.0
       copy-to-clipboard: ^3.3.2
       echarts: ^5.3.3
       husky: ^8.0.1
       immer: ^9.0.15
       jest: ^27.5.1
       jest-watch-typeahead: ^2.2.0
-      lint-staged: ^13.0.3
       prettier: 2.7.1
       react: ^17.0.2
       react-app-rewired: 2.1.9
@@ -84,11 +82,9 @@ importers:
       babel-jest: 27.5.1_@babel+core@7.19.1
       browserslist: 4.21.4
       chalk: 4.1.2
-      concurrently: 7.4.0
       husky: 8.0.1
       jest: 27.5.1
       jest-watch-typeahead: 2.2.0_jest@27.5.1
-      lint-staged: 13.0.3
       prettier: 2.7.1
       react-app-rewired: 2.1.9_react-scripts@5.0.1
       react-scripts: 5.0.1_owve4qzeglcz7bibcdeg6u6iyi
@@ -139,12 +135,16 @@ importers:
       '@easy-config/eslint-config': workspace:*
       '@easy-config/tsconfigs': workspace:*
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../eslint-config
       '@easy-config/tsconfigs': link:../tsconfigs
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   configs/scripts:
     specifiers:
@@ -153,7 +153,9 @@ importers:
       '@jest/types': ^27.5.1
       camelcase: ^6.3.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     dependencies:
       camelcase: 6.3.0
     devDependencies:
@@ -161,7 +163,9 @@ importers:
       '@easy-config/tsconfigs': link:../tsconfigs
       '@jest/types': 27.5.1
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   configs/stylelint-config:
     specifiers:
@@ -170,6 +174,7 @@ importers:
       stylelint: ^14.12.1
       stylelint-config-recess-order: ^3.0.0
       stylelint-config-sass-guidelines: ^9.0.1
+      typescript: 4.8.3
     dependencies:
       postcss: 8.4.16
       stylelint-config-recess-order: 3.0.0_stylelint@14.12.1
@@ -177,12 +182,15 @@ importers:
     devDependencies:
       prettier: 2.7.1
       stylelint: 14.12.1
+      typescript: 4.8.3
 
   configs/tsconfigs:
     specifiers:
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/assets:
     specifiers:
@@ -190,15 +198,21 @@ importers:
       '@easy-config/global-types': workspace:*
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/fetcher:
     specifiers:
@@ -209,11 +223,14 @@ importers:
       '@easy-pkg/hooks': workspace:*
       '@types/lodash': ^4.14.185
       '@types/react': ^17.0.50
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       lodash: ^4.17.21
       prettier: 2.7.1
       react: ^17.0.2
       swr: ^1.3.0
+      typescript: 4.8.3
     dependencies:
       '@easy-pkg/hooks': link:../hooks
       lodash: 4.17.21
@@ -226,8 +243,11 @@ importers:
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@types/lodash': 4.14.185
       '@types/react': 17.0.50
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/hooks:
     specifiers:
@@ -237,9 +257,12 @@ importers:
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/utils-test': workspace:*
       '@types/lodash': ^4.14.185
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       lodash: ^4.17.21
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
@@ -247,9 +270,12 @@ importers:
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@easy-pkg/utils-test': link:../utils-test
       '@types/lodash': 4.14.185
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       lodash: 4.17.21
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/memorize:
     specifiers:
@@ -258,16 +284,22 @@ importers:
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/utils-test': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@easy-pkg/utils-test': link:../utils-test
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/random-string:
     specifiers:
@@ -276,16 +308,22 @@ importers:
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/utils-test': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@easy-pkg/utils-test': link:../utils-test
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/react-hooks-nodom:
     specifiers:
@@ -293,15 +331,21 @@ importers:
       '@easy-config/global-types': workspace:*
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/template-nodejs:
     specifiers:
@@ -310,16 +354,22 @@ importers:
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/utils-test': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@easy-pkg/utils-test': link:../utils-test
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/utils:
     specifiers:
@@ -328,8 +378,11 @@ importers:
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/utils-type': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     dependencies:
       '@easy-pkg/utils-type': link:../utils-type
     devDependencies:
@@ -337,8 +390,11 @@ importers:
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/utils-fluentui:
     specifiers:
@@ -347,8 +403,11 @@ importers:
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/utils-type': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     dependencies:
       '@easy-pkg/utils-type': link:../utils-type
     devDependencies:
@@ -356,8 +415,11 @@ importers:
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/utils-react:
     specifiers:
@@ -365,15 +427,21 @@ importers:
       '@easy-config/global-types': workspace:*
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/utils-redux:
     specifiers:
@@ -382,8 +450,11 @@ importers:
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/utils-type': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     dependencies:
       '@easy-pkg/utils-type': link:../utils-type
     devDependencies:
@@ -391,8 +462,11 @@ importers:
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/utils-test:
     specifiers:
@@ -400,15 +474,21 @@ importers:
       '@easy-config/global-types': workspace:*
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   packages/utils-type:
     specifiers:
@@ -416,15 +496,21 @@ importers:
       '@easy-config/global-types': workspace:*
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   projects/misc:
     specifiers:
@@ -432,15 +518,21 @@ importers:
       '@easy-config/global-types': workspace:*
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
+      concurrently: ^7.4.0
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      concurrently: 7.4.0
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   projects/misc-scripts:
     specifiers:
@@ -450,8 +542,10 @@ importers:
       '@easy-config/tsconfigs': workspace:*
       '@types/semver': ^7.3.12
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
       semver: ^7.3.7
+      typescript: 4.8.3
     dependencies:
       semver: 7.3.7
     devDependencies:
@@ -461,7 +555,9 @@ importers:
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@types/semver': 7.3.12
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   projects/perf-js:
     specifiers:
@@ -470,14 +566,18 @@ importers:
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   projects/perf-react:
     specifiers:
@@ -491,10 +591,12 @@ importers:
       '@easy-pkg/utils-react': workspace:*
       antd: ^4.23.2
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
       react: ^17.0.2
       react-dom: ^17.0.2
       stylelint: ^14.12.1
+      typescript: 4.8.3
     dependencies:
       '@easy-pkg/hooks': link:../../packages/hooks
       '@easy-pkg/utils': link:../../packages/utils
@@ -509,8 +611,10 @@ importers:
       '@easy-config/stylelint-config': link:../../configs/stylelint-config
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
       stylelint: 14.12.1
+      typescript: 4.8.3
 
   projects/proving-ground-nodejs:
     specifiers:
@@ -520,7 +624,9 @@ importers:
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/utils-test': workspace:*
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
@@ -528,7 +634,9 @@ importers:
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@easy-pkg/utils-test': link:../../packages/utils-test
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
   projects/react-rerender-test:
     specifiers:
@@ -544,11 +652,13 @@ importers:
       '@types/lodash': ^4.14.185
       antd: ^4.23.2
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       lodash: ^4.17.21
       prettier: 2.7.1
       react: ^17.0.2
       react-dom: ^17.0.2
       stylelint: ^14.12.1
+      typescript: 4.8.3
     dependencies:
       '@ant-design/icons': 4.7.0_sfoxds7t5ydpegc3knd667wn6m
       '@easy-pkg/hooks': link:../../packages/hooks
@@ -566,8 +676,10 @@ importers:
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@types/lodash': 4.14.185
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
       stylelint: 14.12.1
+      typescript: 4.8.3
 
   projects/template-browser-react:
     specifiers:
@@ -582,8 +694,10 @@ importers:
       '@easy-pkg/utils-test': workspace:*
       '@types/testing-library__jest-dom': ^5.14.5
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
       stylelint: ^14.12.1
+      typescript: 4.8.3
     dependencies:
       '@easy-pkg/assets': link:../../packages/assets
       '@easy-pkg/utils-fluentui': link:../../packages/utils-fluentui
@@ -597,8 +711,10 @@ importers:
       '@easy-pkg/utils-test': link:../../packages/utils-test
       '@types/testing-library__jest-dom': 5.14.5
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
       stylelint: 14.12.1
+      typescript: 4.8.3
 
   projects/template-nodejs:
     specifiers:
@@ -608,7 +724,9 @@ importers:
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/utils-test': workspace:*
       eslint: ^8.24.0
+      lint-staged: ^13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
@@ -616,7 +734,9 @@ importers:
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@easy-pkg/utils-test': link:../../packages/utils-test
       eslint: 8.24.0
+      lint-staged: 13.0.3
       prettier: 2.7.1
+      typescript: 4.8.3
 
 packages:
 

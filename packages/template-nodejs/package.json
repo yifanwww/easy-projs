@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/template-pkg-nodejs",
+    "name": "@easy-pkg/template-nodejs",
     "version": "0.0.0",
     "description": "A package used for creating new nodejs packages.",
     "main": "lib-commonjs/index.js",
@@ -15,7 +15,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/template-pkg-nodejs"
+        "directory": "packages/template-nodejs"
     },
     "scripts": {
         "build": "concurrently -n cjs,esm,types \"pnpm run build:cjs\" \"pnpm run build:esm\" \"pnpm run build:types\"",
@@ -33,7 +33,10 @@
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@easy-pkg/utils-test": "workspace:*",
+        "concurrently": "^7.4.0",
         "eslint": "^8.24.0",
-        "prettier": "2.7.1"
+        "lint-staged": "^13.0.3",
+        "prettier": "2.7.1",
+        "typescript": "4.8.3"
     }
 }
