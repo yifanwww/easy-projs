@@ -9,8 +9,6 @@ importers:
       '@babel/plugin-transform-react-jsx': ^7.19.0
       '@types/jest': ^27.5.2
       '@types/node': ^16.11.60
-      '@types/react': ^17.0.50
-      '@types/react-dom': ^17.0.17
       babel-jest: ^27.5.1
       browserslist: ^4.21.4
       husky: ^8.0.1
@@ -33,8 +31,6 @@ importers:
     devDependencies:
       '@types/jest': 27.5.2
       '@types/node': 16.11.60
-      '@types/react': 17.0.50
-      '@types/react-dom': 17.0.17
       babel-jest: 27.5.1_@babel+core@7.19.1
       browserslist: 4.21.4
       husky: 8.0.1
@@ -428,20 +424,24 @@ importers:
       '@easy-config/global-types': workspace:*
       '@easy-config/scripts': workspace:*
       '@easy-config/tsconfigs': workspace:*
+      '@types/react': ^17.0.50
       concurrently: ^7.4.0
       eslint: ^8.24.0
       immer: ^9.0.15
       lint-staged: ^13.0.3
       prettier: 2.7.1
+      react: ^17.0.2
       rimraf: ^3.0.2
       typescript: 4.8.3
     dependencies:
       immer: 9.0.15
+      react: 17.0.2
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@types/react': 17.0.50
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
@@ -638,7 +638,9 @@ importers:
       '@easy-pkg/utils': workspace:*
       '@easy-pkg/utils-react': workspace:*
       '@reduxjs/toolkit': ^1.8.5
+      '@types/react': ^17.0.50
       '@types/react-component-benchmark': ^1.0.0
+      '@types/react-dom': ^17.0.17
       antd: ^4.23.2
       clsx: ^1.2.1
       copy-to-clipboard: ^3.3.2
@@ -676,7 +678,9 @@ importers:
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/stylelint-config': link:../../configs/stylelint-config
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@types/react': 17.0.50
       '@types/react-component-benchmark': 1.0.0
+      '@types/react-dom': 17.0.17
       eslint: 8.24.0
       lint-staged: 13.0.3
       prettier: 2.7.1
@@ -720,6 +724,8 @@ importers:
       '@easy-pkg/utils': workspace:*
       '@easy-pkg/utils-react': workspace:*
       '@types/lodash': ^4.14.185
+      '@types/react': ^17.0.50
+      '@types/react-dom': ^17.0.17
       antd: ^4.23.2
       clsx: ^1.2.1
       eslint: ^8.24.0
@@ -754,6 +760,8 @@ importers:
       '@easy-config/stylelint-config': link:../../configs/stylelint-config
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@types/lodash': 4.14.185
+      '@types/react': 17.0.50
+      '@types/react-dom': 17.0.17
       eslint: 8.24.0
       lint-staged: 13.0.3
       prettier: 2.7.1

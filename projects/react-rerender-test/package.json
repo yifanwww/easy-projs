@@ -47,6 +47,8 @@
         "@easy-config/stylelint-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@types/lodash": "^4.14.185",
+        "@types/react": "^17.0.50",
+        "@types/react-dom": "^17.0.17",
         "eslint": "^8.24.0",
         "lint-staged": "^13.0.3",
         "prettier": "2.7.1",
