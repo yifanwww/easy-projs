@@ -22,6 +22,7 @@
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*"
+        "@easy-config/tsconfigs": "workspace:*",
+        "eslint": "^8.24.0"
     }
 }

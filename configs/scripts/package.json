@@ -32,6 +32,7 @@
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@jest/types": "^27.5.1"
+        "@jest/types": "^27.5.1",
+        "eslint": "^8.24.0"
     }
 }

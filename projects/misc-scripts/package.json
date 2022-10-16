@@ -30,6 +30,7 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@types/semver": "^7.3.12"
+        "@types/semver": "^7.3.12",
+        "eslint": "^8.24.0"
     }
 }

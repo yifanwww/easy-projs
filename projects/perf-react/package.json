@@ -38,6 +38,7 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/stylelint-config": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*"
+        "@easy-config/tsconfigs": "workspace:*",
+        "eslint": "^8.24.0"
     }
 }
