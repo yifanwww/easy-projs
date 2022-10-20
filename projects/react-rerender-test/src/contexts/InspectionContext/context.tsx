@@ -4,39 +4,23 @@ import type { ImmerReducer } from '@easy-pkg/utils-react';
 import produce from 'immer';
 import { createContext, useRef } from 'react';
 
-import type { InspectionData, InspectionTree } from 'src/common/inspection';
+import type { InspectionData } from 'src/common/inspection';
 import { useDoubleRenderSign } from 'src/hooks/useDoubleRenderSign';
 
-export interface InspectionContextState {
-    data: {
-        [Group: string]: {
-            records: InspectionData[];
-            tree: InspectionTree;
-        };
-    };
-    groups: string[];
-    selectedGroup: Optional<string>;
-}
+import type { IInspectionContextState, IInspectionContextUpdaters } from './types';
 
-export interface InspectionContextUpdaters {
-    addRecord: (record: InspectionData, groupIndex: number) => void;
-    forceUpdate: () => void;
-    registerGroup: (group: string, index: number) => void;
-    toggleGroup: (toggle: 'prev' | 'next') => void;
-}
-
-const initialContext: InspectionContextState = {
+const initialState: IInspectionContextState = {
     data: {},
     groups: [],
     selectedGroup: null,
 };
 
-type InspectionAction =
+type ReducerAction =
     | { type: 'add-record'; groupIndex: number; record: InspectionData }
     | { type: 'register-group'; index: number; group: string }
     | { type: 'toggle-group'; toggle: 'prev' | 'next' };
 
-const reduce = produce<ImmerReducer<InspectionContextState, InspectionAction>>((state, action) => {
+const reduce = produce<ImmerReducer<IInspectionContextState, ReducerAction>>((state, action) => {
     let never: never;
     switch (action.type) {
         case 'add-record': {
@@ -89,9 +73,9 @@ const reduce = produce<ImmerReducer<InspectionContextState, InspectionAction>>((
     }
 });
 
-export const InspectionContext = createContext<InspectionContextState>(initialContext);
+export const InspectionContext = createContext<IInspectionContextState>(initialState);
 
-export const InspectionContextUpdater = createContext<InspectionContextUpdaters>({
+export const InspectionContextUpdater = createContext<IInspectionContextUpdaters>({
     addRecord: abstractFn,
     forceUpdate: abstractFn,
     registerGroup: abstractFn,
@@ -99,16 +83,16 @@ export const InspectionContextUpdater = createContext<InspectionContextUpdaters>
 });
 
 export const InspectionProvider: React.FC = ({ children }) => {
-    const ref = useRef(initialContext);
+    const ref = useRef(initialState);
 
     const { sign } = useDoubleRenderSign();
     const forceUpdate = useForceUpdate();
 
-    const dispatch = useConstFn<React.Dispatch<InspectionAction>>((action) => {
+    const dispatch = useConstFn<React.Dispatch<ReducerAction>>((action) => {
         ref.current = reduce(ref.current, action);
     });
 
-    const updaters = useConst<InspectionContextUpdaters>(() => ({
+    const updaters = useConst<IInspectionContextUpdaters>(() => ({
         addRecord: (record, groupIndex) => {
             if (sign(record)) {
                 dispatch({ type: 'add-record', groupIndex, record });
