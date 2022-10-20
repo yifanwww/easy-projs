@@ -131,6 +131,8 @@ module.exports = {
                 ],
             },
         ],
+        // https://typescript-eslint.io/rules/no-empty-interface
+        '@typescript-eslint/no-empty-interface': ['error', { allowSingleExtends: true }],
         '@typescript-eslint/no-explicit-any': 'warn',
         '@typescript-eslint/no-extra-non-null-assertion': 'error',
         '@typescript-eslint/no-for-in-array': 'off',
