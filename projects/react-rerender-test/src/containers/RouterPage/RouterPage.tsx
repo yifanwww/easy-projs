@@ -3,7 +3,7 @@ import { generatePath, Route, Routes, useNavigate } from 'react-router';
 
 import { Inspector } from 'src/components/Inspector';
 import { TestPage } from 'src/components/TestPage';
-import { RoutePath } from 'src/router';
+import { RoutePath } from 'src/routes';
 
 import { makeInspectedFC } from '../makeInspectedFC';
 

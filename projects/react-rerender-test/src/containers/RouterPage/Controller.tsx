@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import { generatePath, useNavigate } from 'react-router';
 
-import { RoutePath } from 'src/router';
+import { RoutePath } from 'src/routes';
 
 import { useRouterNum } from './useRouterNum';
 

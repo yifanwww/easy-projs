@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { reduxStore, usePrepared, useReduxDispatchingThunks } from './redux';
 import { reportWebVitals } from './reportWebVitals';
-import { RoutePath, routes } from './router';
+import { RoutePath, routes } from './routes';
 
 import './index.css';
 import css from './index.module.scss';

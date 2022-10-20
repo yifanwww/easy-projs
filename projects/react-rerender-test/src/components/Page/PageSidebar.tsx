@@ -2,7 +2,7 @@ import { Layout, Menu } from 'antd';
 import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import { RoutePath } from 'src/router';
+import { RoutePath } from 'src/routes';
 
 import { siders } from './sider';
 

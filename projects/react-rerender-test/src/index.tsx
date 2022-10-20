@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 
 import { Page } from './components/Page';
-import { RoutePath, routes } from './router';
+import { RoutePath, routes } from './routes';
 
 import './index.css';
 

@@ -8,7 +8,7 @@ import 'antd/dist/antd.css';
 
 import { Page } from './components/Page';
 import { BenchmarkProvider } from './contexts/BenchmarkContext';
-import { RoutePath, routes } from './router';
+import { RoutePath, routes } from './routes';
 
 import './index.css';
 

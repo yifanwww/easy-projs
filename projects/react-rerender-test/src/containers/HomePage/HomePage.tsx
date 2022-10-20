@@ -1,6 +1,6 @@
 import { PageOverview } from 'src/components/PageOverview';
 import type { PageOverviewInfo } from 'src/components/PageOverview';
-import { RoutePath } from 'src/router';
+import { RoutePath } from 'src/routes';
 
 import css from './HomePage.module.scss';
 

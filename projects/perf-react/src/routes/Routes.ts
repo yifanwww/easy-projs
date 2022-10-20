@@ -7,13 +7,13 @@ interface RouteConfig {
     component: React.ComponentType;
     /** Default is `false`. */
     exact?: boolean;
-    path: RoutePath;
+    path: string;
 }
 
 export interface RouteInfo {
     readonly component: React.ComponentType;
     readonly exact: boolean;
-    readonly path: RoutePath;
+    readonly path: string;
 }
 
 function createRoutes(routes: RouteConfig[]): RouteInfo[] {
@@ -28,6 +28,21 @@ export const routes: RouteInfo[] = createRoutes([
     {
         path: RoutePath.HOME,
         component: lazy(() => import(/* webpackChunkName: 'home' */ 'src/containers/HomePage')),
+        exact: true,
+    },
+    {
+        path: RoutePath.TEST,
+        component: lazy(() => import(/* webpackChunkName: 'test' */ 'src/containers/TestPage')),
+        exact: true,
+    },
+    {
+        path: RoutePath.BAR_CHART,
+        component: lazy(() => import(/* webpackChunkName: 'bar-chart' */ 'src/containers/ChartPage/BarChartPage')),
+        exact: true,
+    },
+    {
+        path: RoutePath.LINE_CHART,
+        component: lazy(() => import(/* webpackChunkName: 'line-chart' */ 'src/containers/ChartPage/LineChartPage')),
         exact: true,
     },
 ]);

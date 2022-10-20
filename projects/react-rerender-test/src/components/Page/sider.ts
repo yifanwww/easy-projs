@@ -1,7 +1,7 @@
-import { RoutePath } from 'src/router';
+import { RoutePath } from 'src/routes';
 
 export interface SiderInfo {
-    path: RoutePath;
+    path: string;
     title: string;
 }
 

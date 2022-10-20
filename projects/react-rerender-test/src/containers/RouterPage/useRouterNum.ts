@@ -1,6 +1,6 @@
 import { useMatch } from 'react-router';
 
-import { RoutePath } from 'src/router';
+import { RoutePath } from 'src/routes';
 
 export function useRouterNum(): Optional<number> {
     const match = useMatch(RoutePath.ROUTE_DETAIL);
