@@ -1,48 +1,24 @@
+import { createRoutes } from '@easy-pkg/utils-react-router';
+import type { RouteConfig } from '@easy-pkg/utils-react-router';
 import { lazy } from 'react';
-import type React from 'react';
 
 import { RoutePath } from './RoutePath';
 
-interface RouteConfig {
-    component: React.ComponentType;
-    /** Default is `false`. */
-    exact?: boolean;
-    path: string;
-}
-
-export interface RouteInfo {
-    readonly component: React.ComponentType;
-    readonly exact: boolean;
-    readonly path: string;
-}
-
-function createRoutes(routes: RouteConfig[]): RouteInfo[] {
-    return routes.map((route) => ({
-        component: route.component,
-        exact: route.exact ?? false,
-        path: route.path,
-    }));
-}
-
-export const routes: RouteInfo[] = createRoutes([
+export const routes: RouteConfig[] = createRoutes([
     {
         path: RoutePath.HOME,
         component: lazy(() => import(/* webpackChunkName: 'home' */ 'src/containers/HomePage')),
-        exact: true,
     },
     {
         path: RoutePath.TEST,
         component: lazy(() => import(/* webpackChunkName: 'test' */ 'src/containers/TestPage')),
-        exact: true,
     },
     {
         path: RoutePath.BAR_CHART,
         component: lazy(() => import(/* webpackChunkName: 'bar-chart' */ 'src/containers/ChartPage/BarChartPage')),
-        exact: true,
     },
     {
         path: RoutePath.LINE_CHART,
         component: lazy(() => import(/* webpackChunkName: 'line-chart' */ 'src/containers/ChartPage/LineChartPage')),
-        exact: true,
     },
 ]);

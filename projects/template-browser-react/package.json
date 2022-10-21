@@ -31,6 +31,7 @@
     "dependencies": {
         "@easy-pkg/assets": "workspace:*",
         "@easy-pkg/utils-fluentui": "workspace:*",
+        "@easy-pkg/utils-react-router": "workspace:*",
         "@easy-pkg/utils-redux": "workspace:*",
         "@fluentui/react": "^8.96.1",
         "@reduxjs/toolkit": "^1.8.5",
