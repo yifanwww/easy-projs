@@ -158,6 +158,10 @@
             "path": "packages/utils-react"
         },
         {
+            "name": "@easy-pkg/utils-react-router",
+            "path": "packages/utils-react-router"
+        },
+        {
             "name": "@easy-pkg/utils-redux",
             "path": "packages/utils-redux"
         },

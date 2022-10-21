@@ -449,6 +449,35 @@ importers:
       rimraf: 3.0.2
       typescript: 4.8.3
 
+  packages/utils-react-router:
+    specifiers:
+      '@easy-config/eslint-config': workspace:*
+      '@easy-config/global-types': workspace:*
+      '@easy-config/scripts': workspace:*
+      '@easy-config/tsconfigs': workspace:*
+      '@types/react': ^17.0.50
+      concurrently: ^7.4.0
+      eslint: ^8.24.0
+      lint-staged: ^13.0.3
+      prettier: 2.7.1
+      react: ^17.0.2
+      rimraf: ^3.0.2
+      typescript: 4.8.3
+    dependencies:
+      react: 17.0.2
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@types/react': 17.0.50
+      concurrently: 7.4.0
+      eslint: 8.24.0
+      lint-staged: 13.0.3
+      prettier: 2.7.1
+      rimraf: 3.0.2
+      typescript: 4.8.3
+
   packages/utils-redux:
     specifiers:
       '@easy-config/eslint-config': workspace:*
@@ -637,6 +666,7 @@ importers:
       '@easy-pkg/hooks': workspace:*
       '@easy-pkg/utils': workspace:*
       '@easy-pkg/utils-react': workspace:*
+      '@easy-pkg/utils-react-router': workspace:*
       '@reduxjs/toolkit': ^1.8.5
       '@types/react': ^17.0.50
       '@types/react-component-benchmark': ^1.0.0
@@ -661,6 +691,7 @@ importers:
       '@easy-pkg/hooks': link:../../packages/hooks
       '@easy-pkg/utils': link:../../packages/utils
       '@easy-pkg/utils-react': link:../../packages/utils-react
+      '@easy-pkg/utils-react-router': link:../../packages/utils-react-router
       '@reduxjs/toolkit': 1.8.5_react@17.0.2
       antd: 4.23.2_sfoxds7t5ydpegc3knd667wn6m
       clsx: 1.2.1
@@ -723,6 +754,7 @@ importers:
       '@easy-pkg/hooks': workspace:*
       '@easy-pkg/utils': workspace:*
       '@easy-pkg/utils-react': workspace:*
+      '@easy-pkg/utils-react-router': workspace:*
       '@types/lodash': ^4.14.185
       '@types/react': ^17.0.50
       '@types/react-dom': ^17.0.17
@@ -745,6 +777,7 @@ importers:
       '@easy-pkg/hooks': link:../../packages/hooks
       '@easy-pkg/utils': link:../../packages/utils
       '@easy-pkg/utils-react': link:../../packages/utils-react
+      '@easy-pkg/utils-react-router': link:../../packages/utils-react-router
       antd: 4.23.2_sfoxds7t5ydpegc3knd667wn6m
       clsx: 1.2.1
       immer: 9.0.15
@@ -778,6 +811,7 @@ importers:
       '@easy-config/tsconfigs': workspace:*
       '@easy-pkg/assets': workspace:*
       '@easy-pkg/utils-fluentui': workspace:*
+      '@easy-pkg/utils-react-router': workspace:*
       '@easy-pkg/utils-redux': workspace:*
       '@easy-pkg/utils-test': workspace:*
       '@fluentui/react': ^8.96.1
@@ -804,6 +838,7 @@ importers:
     dependencies:
       '@easy-pkg/assets': link:../../packages/assets
       '@easy-pkg/utils-fluentui': link:../../packages/utils-fluentui
+      '@easy-pkg/utils-react-router': link:../../packages/utils-react-router
       '@easy-pkg/utils-redux': link:../../packages/utils-redux
       '@fluentui/react': 8.96.1_wwhe23kdoifxkyhsv4sd73qu4q
       '@reduxjs/toolkit': 1.8.5_xiw2xh7zkwauncevrxklika6mu
@@ -3076,7 +3111,7 @@ packages:
     dependencies:
       immer: 9.0.15
       react: 17.0.2
-      react-redux: 8.0.4_wwhe23kdoifxkyhsv4sd73qu4q
+      react-redux: 8.0.4_pxzommwrsowkd4kgag6q3sluym
       redux: 4.2.0
       redux-thunk: 2.4.1_redux@4.2.0
       reselect: 4.1.6
