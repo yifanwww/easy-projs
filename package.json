@@ -27,7 +27,8 @@
         "lint": "pnpm run --recursive --stream lint",
         "pre-commit": "pnpm run --recursive --workspace-concurrency 1 pre-commit",
         "prepare": "husky install",
-        "test-full": "pnpm run --recursive --stream test-full"
+        "test-full": "pnpm run --recursive --stream test-full",
+        "typecheck": "pnpm run --recursive --stream typecheck"
     },
     "engines": {
         "node": ">=16"

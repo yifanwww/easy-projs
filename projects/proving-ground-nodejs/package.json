@@ -21,7 +21,8 @@
         "clean": "rimraf build ./*.tsbuildinfo",
         "dev": "pnpm run build --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
-        "pre-commit": "lint-staged"
+        "pre-commit": "lint-staged",
+        "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",

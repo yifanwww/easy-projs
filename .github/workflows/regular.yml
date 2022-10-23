@@ -1,4 +1,4 @@
-name: Build Lint Test
+name: Regular Workflows
 
 on:
   push:
@@ -99,3 +99,35 @@ jobs:
 
       - name: Do coverage test
         run: pnpm run test-full
+
+  typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PNPM environment
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build scripts
+        run: pnpm run build-scripts
+
+      - name: Build packages
+        run: pnpm run build-pkgs
+
+      - name: Do coverage test
+        run: pnpm run typecheck
