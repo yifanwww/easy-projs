@@ -20,7 +20,8 @@
         "dev": "tsc --project tsconfig.node.json --watch",
         "lint": "eslint .",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
-        "pre-commit": "lint-staged"
+        "pre-commit": "lint-staged",
+        "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
         "semver": "^7.3.7"
