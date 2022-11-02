@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router';
 
 import css from './PageOverview.module.scss';
 
-export interface IPageOverview {
+export interface PageOverviewInfo {
     // desc?: string;
     title: string;
     url: string;
 }
 
-export interface IPageOverviewItemProps extends IPageOverview {}
+export interface PageOverviewItemProps extends PageOverviewInfo {}
 
-export const PageOverviewItem: React.FC<IPageOverviewItemProps> = (props: IPageOverviewItemProps) => {
+export const PageOverviewItem: React.FC<PageOverviewItemProps> = (props: PageOverviewItemProps) => {
     const { title, url } = props;
 
     const navigate = useNavigate();
@@ -24,11 +24,11 @@ export const PageOverviewItem: React.FC<IPageOverviewItemProps> = (props: IPageO
     );
 };
 
-export interface IPageOverviewProps {
-    overviews: IPageOverview[];
+export interface PageOverviewProps {
+    overviews: PageOverviewInfo[];
 }
 
-export const PageOverview: React.FC<IPageOverviewProps> = ({ overviews }) => {
+export const PageOverview: React.FC<PageOverviewProps> = ({ overviews }) => {
     const elements = overviews.map((overview) => <PageOverviewItem key={overview.url} {...overview} />);
 
     return <div className={css.root}>{elements}</div>;

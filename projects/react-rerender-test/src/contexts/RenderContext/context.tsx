@@ -4,11 +4,11 @@ import { useImmerReducer } from '@easy-pkg/utils-react';
 import type { ImmerReducer } from '@easy-pkg/utils-react';
 import { createContext } from 'react';
 
-import type { IRenderContextState, IRenderContextUpdaters } from './types';
+import type { RenderContextState, RenderContextUpdaters } from './types';
 
 type RenderAction = { type: 'forceUpdate' } | { type: 'select'; select: Integer };
 
-const reducer: ImmerReducer<IRenderContextState, RenderAction> = (state, action) => {
+const reducer: ImmerReducer<RenderContextState, RenderAction> = (state, action) => {
     let never: never;
     switch (action.type) {
         case 'forceUpdate':
@@ -25,13 +25,13 @@ const reducer: ImmerReducer<IRenderContextState, RenderAction> = (state, action)
     }
 };
 
-const initialState: IRenderContextState = {
+const initialState: RenderContextState = {
     forceUpdateNumber: 0,
     selected: 0,
 };
 
-export const RenderContext = createContext<IRenderContextState>(initialState);
-export const RenderContextUpdater = createContext<IRenderContextUpdaters>({
+export const RenderContext = createContext<RenderContextState>(initialState);
+export const RenderContextUpdater = createContext<RenderContextUpdaters>({
     forceUpdate: abstractFn,
     select: abstractFn,
 });
@@ -39,7 +39,7 @@ export const RenderContextUpdater = createContext<IRenderContextUpdaters>({
 export const RenderProvider: React.FC = ({ children }) => {
     const [context, dispatch] = useImmerReducer(reducer, initialState);
 
-    const updaters = useConst<IRenderContextUpdaters>(() => ({
+    const updaters = useConst<RenderContextUpdaters>(() => ({
         forceUpdate: () => dispatch({ type: 'forceUpdate' }),
         select: (select) => dispatch({ type: 'select', select }),
     }));

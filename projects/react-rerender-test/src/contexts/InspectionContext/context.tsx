@@ -7,9 +7,9 @@ import { createContext, useRef } from 'react';
 import type { InspectionData } from 'src/common/inspection';
 import { useDoubleRenderSign } from 'src/hooks/useDoubleRenderSign';
 
-import type { IInspectionContextState, IInspectionContextUpdaters } from './types';
+import type { InspectionContextState, InspectionContextUpdaters } from './types';
 
-const initialState: IInspectionContextState = {
+const initialState: InspectionContextState = {
     data: {},
     groups: [],
     selectedGroup: null,
@@ -20,7 +20,7 @@ type ReducerAction =
     | { type: 'register-group'; index: number; group: string }
     | { type: 'toggle-group'; toggle: 'prev' | 'next' };
 
-const reduce = produce<ImmerReducer<IInspectionContextState, ReducerAction>>((state, action) => {
+const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction>>((state, action) => {
     let never: never;
     switch (action.type) {
         case 'add-record': {
@@ -73,9 +73,9 @@ const reduce = produce<ImmerReducer<IInspectionContextState, ReducerAction>>((st
     }
 });
 
-export const InspectionContext = createContext<IInspectionContextState>(initialState);
+export const InspectionContext = createContext<InspectionContextState>(initialState);
 
-export const InspectionContextUpdater = createContext<IInspectionContextUpdaters>({
+export const InspectionContextUpdater = createContext<InspectionContextUpdaters>({
     addRecord: abstractFn,
     forceUpdate: abstractFn,
     registerGroup: abstractFn,
@@ -92,7 +92,7 @@ export const InspectionProvider: React.FC = ({ children }) => {
         ref.current = reduce(ref.current, action);
     });
 
-    const updaters = useConst<IInspectionContextUpdaters>(() => ({
+    const updaters = useConst<InspectionContextUpdaters>(() => ({
         addRecord: (record, groupIndex) => {
             if (sign(record)) {
                 dispatch({ type: 'add-record', groupIndex, record });

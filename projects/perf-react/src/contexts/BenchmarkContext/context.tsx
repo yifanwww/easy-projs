@@ -8,9 +8,9 @@ import { createContext } from 'react';
 import type { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 
 import { benchmarkResultAdapter, benchmarkResultSelector } from './adapters';
-import type { GroupBenchmarkResults, IBenchmarkContextState, IBenchmarkContextUpdaters } from './types';
+import type { BenchmarkContextState, BenchmarkContextUpdaters, GroupBenchmarkResults } from './types';
 
-const initialState: IBenchmarkContextState = {
+const initialState: BenchmarkContextState = {
     mount: {
         average: { noHooks: 0, useCallback: 0, useMemo: 0, useReducer: 0, useRef: 0, useState: 0 },
         noHooks: benchmarkResultAdapter.getInitialState(),
@@ -41,7 +41,7 @@ const initialState: IBenchmarkContextState = {
     totalResults: benchmarkResultAdapter.getInitialState(),
 };
 
-function calculateAverageStats(state: Draft<IBenchmarkContextState>): void {
+function calculateAverageStats(state: Draft<BenchmarkContextState>): void {
     function _calculate(group: GroupBenchmarkResults, name: ComponentName): void {
         const total = benchmarkResultSelector.selectAll(group[name]).reduce((prev, curr) => prev + curr.stats.mean, 0);
         group.average[name] = total / benchmarkResultSelector.selectTotal(group[name]);
@@ -74,7 +74,7 @@ type ReducerAction =
     | { type: 'clear'; benchmarkType: BenchmarkTypes; componentName: ComponentName }
     | { type: 'clear-all' };
 
-const reducer: ImmerReducer<IBenchmarkContextState, ReducerAction> = (state, action) => {
+const reducer: ImmerReducer<BenchmarkContextState, ReducerAction> = (state, action) => {
     let never: never;
     switch (action.type) {
         case 'add': {
@@ -115,9 +115,9 @@ const reducer: ImmerReducer<IBenchmarkContextState, ReducerAction> = (state, act
     calculateAverageStats(state);
 };
 
-export const BenchmarkContext = createContext<IBenchmarkContextState>(initialState);
+export const BenchmarkContext = createContext<BenchmarkContextState>(initialState);
 
-export const BenchmarkContextUpdater = createContext<IBenchmarkContextUpdaters>({
+export const BenchmarkContextUpdater = createContext<BenchmarkContextUpdaters>({
     add: abstractFn,
     clear: abstractFn,
     clearAll: abstractFn,
@@ -126,7 +126,7 @@ export const BenchmarkContextUpdater = createContext<IBenchmarkContextUpdaters>(
 export const BenchmarkProvider: React.FC = ({ children }) => {
     const [context, dispatch] = useImmerReducer(reducer, initialState);
 
-    const updaters = useConst<IBenchmarkContextUpdaters>(() => ({
+    const updaters = useConst<BenchmarkContextUpdaters>(() => ({
         add: (result) => dispatch({ type: 'add', result }),
         clear: (benchmarkType, componentName) => dispatch({ type: 'clear', benchmarkType, componentName }),
         clearAll: () => dispatch({ type: 'clear-all' }),
