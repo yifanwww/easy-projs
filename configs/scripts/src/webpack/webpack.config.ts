@@ -2,7 +2,7 @@
 // For more information about how to override default configs of `react-scripts`
 // please visit https://github.com/timarney/react-app-rewired
 
-import path from 'path';
+import path from 'node:path';
 import type { Configuration } from 'webpack';
 
 import { paths } from '../utils';

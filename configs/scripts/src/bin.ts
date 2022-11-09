@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import child from 'child_process';
+import child from 'node:child_process';
 
 import { paths } from './utils/paths';
 
