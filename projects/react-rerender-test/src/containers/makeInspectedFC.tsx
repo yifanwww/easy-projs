@@ -37,8 +37,11 @@ export interface InspectedOptions {
 }
 
 interface InternalInspectedFCMaker<P = {}> extends InspectedFCMaker<P> {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     _inspectedColor?: string;
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     _inspectedDesc?: string;
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     _inspectedType?: InspectedFCType;
 }
 
