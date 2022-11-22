@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test reducer fn \`curriedProduce\` should add new record 1`] = `
+Object {
+  "data": Object {
+    "group0": Object {
+      "records": Array [
+        Object {
+          "index": 0,
+          "key": "record0",
+          "name": "record0",
+          "parents": Array [],
+        },
+      ],
+      "tree": Object {
+        "children": Array [],
+        "group": "group0",
+        "index": 0,
+      },
+    },
+    "group1": Object {
+      "records": Array [
+        Object {
+          "index": 1,
+          "key": "record1",
+          "name": "record1",
+          "parents": Array [],
+        },
+      ],
+      "tree": Object {
+        "children": Array [],
+        "group": "group1",
+        "index": 1,
+      },
+    },
+    "group2": Object {
+      "records": Array [
+        Object {
+          "index": 2,
+          "key": "record2",
+          "name": "record2",
+          "parents": Array [],
+        },
+        Object {
+          "index": 3,
+          "key": "record3",
+          "name": "record3",
+          "parents": Array [],
+        },
+      ],
+      "tree": Object {
+        "children": Array [],
+        "group": "group2",
+        "index": 2,
+      },
+    },
+    "group3": Object {
+      "records": Array [],
+      "tree": Object {
+        "children": Array [],
+        "group": "group3",
+        "index": 3,
+      },
+    },
+    "group4": Object {
+      "records": Array [],
+      "tree": Object {
+        "children": Array [],
+        "group": "group4",
+        "index": 4,
+      },
+    },
+  },
+  "groups": Array [
+    "group0",
+    "group1",
+    "group2",
+    "group3",
+    "group4",
+  ],
+  "selectedGroup": "group0",
+}
+`;
+
+exports[`Test reducer fn \`curriedProduce\` should register new group 1`] = `
+Object {
+  "data": Object {
+    "group0": Object {
+      "records": Array [],
+      "tree": Object {
+        "children": Array [],
+        "group": "group0",
+        "index": 0,
+      },
+    },
+    "group1": Object {
+      "records": Array [],
+      "tree": Object {
+        "children": Array [],
+        "group": "group1",
+        "index": 1,
+      },
+    },
+    "group2": Object {
+      "records": Array [],
+      "tree": Object {
+        "children": Array [],
+        "group": "group2",
+        "index": 2,
+      },
+    },
+    "group3": Object {
+      "records": Array [],
+      "tree": Object {
+        "children": Array [],
+        "group": "group3",
+        "index": 3,
+      },
+    },
+    "group4": Object {
+      "records": Array [],
+      "tree": Object {
+        "children": Array [],
+        "group": "group4",
+        "index": 4,
+      },
+    },
+  },
+  "groups": Array [
+    "group0",
+    "group1",
+    "group2",
+    "group3",
+    "group4",
+  ],
+  "selectedGroup": "group0",
+}
+`;

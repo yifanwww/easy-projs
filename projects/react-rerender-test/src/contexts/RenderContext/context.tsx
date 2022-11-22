@@ -1,31 +1,12 @@
 import { useConst } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
 import { useImmerReducer } from '@easy-pkg/utils-react';
-import type { ImmerReducer } from '@easy-pkg/utils-react';
 import { createContext } from 'react';
 
+import { reducer } from './reducer';
 import type { RenderContextState, RenderContextUpdaters } from './types';
 
-type RenderAction = { type: 'forceUpdate' } | { type: 'select'; select: Integer };
-
-const reducer: ImmerReducer<RenderContextState, RenderAction> = (state, action) => {
-    let never: never;
-    switch (action.type) {
-        case 'forceUpdate':
-            state.forceUpdateNumber++;
-            break;
-
-        case 'select':
-            state.selected = action.select;
-            break;
-
-        default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = action;
-    }
-};
-
-const initialState: RenderContextState = {
+export const initialState: RenderContextState = {
     forceUpdateNumber: 0,
     selected: 0,
 };

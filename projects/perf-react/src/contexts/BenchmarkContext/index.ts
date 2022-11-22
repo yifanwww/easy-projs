@@ -1,3 +1,3 @@
 export * from './adapters';
-export * from './context';
+export { BenchmarkContext, BenchmarkContextUpdater, BenchmarkProvider } from './context';
 export * from './types';
