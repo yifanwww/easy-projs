@@ -1,5 +1,3 @@
-import { expectSnapshot } from '@easy-pkg/utils-test';
-
 import { getInitialState, _actions, _reducer } from './slice';
 
 {
@@ -9,7 +7,7 @@ import { getInitialState, _actions, _reducer } from './slice';
         it('should finish preparing', () => {
             const prevState = getInitialState();
 
-            expectSnapshot(_reducer(prevState, _actions[name]()).prepared);
+            expect(_reducer(prevState, _actions[name]()).prepared).toMatchSnapshot();
         });
     });
 }

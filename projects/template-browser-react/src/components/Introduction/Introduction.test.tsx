@@ -1,16 +1,16 @@
-import { expectElementSnapshot } from '@easy-pkg/utils-test';
 import { render } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 
 import { Introduction } from './Introduction';
 
 describe(`Test component \`${Introduction.name}\``, () => {
     it('should render', () => {
-        const reactElement = <Introduction />;
+        const element = <Introduction />;
 
-        expectElementSnapshot(reactElement);
+        expect(renderer.create(element).toJSON()).toMatchSnapshot();
 
-        const { getByText } = render(reactElement);
-        const linkElement = getByText(/Learn easy-projs/i);
-        expect(linkElement).toBeInTheDocument();
+        const { getByText } = render(element);
+        const textElement = getByText(/Learn easy-projs/i);
+        expect(textElement).toBeInTheDocument();
     });
 });

@@ -520,33 +520,31 @@ importers:
       '@easy-config/tsconfigs': workspace:*
       '@testing-library/jest-dom': ^5.16.5
       '@testing-library/react-hooks': ^8.0.1
-      '@types/react-test-renderer': ^17.0.1
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
       prettier: 2.7.1
       react: ^17.0.2
       react-dom: ^17.0.2
-      react-test-renderer: ^17.0.2
       rimraf: ^3.0.2
+      type-fest: ^3.2.0
       typescript: 4.8.3
     dependencies:
-      '@testing-library/react-hooks': 8.0.1_7qv3rjnqa3j7exc7qtvho7thru
+      '@testing-library/react-hooks': 8.0.1_sfoxds7t5ydpegc3knd667wn6m
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      react-test-renderer: 17.0.2_react@17.0.2
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       '@testing-library/jest-dom': 5.16.5
-      '@types/react-test-renderer': 17.0.2
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
       prettier: 2.7.1
       rimraf: 3.0.2
+      type-fest: 3.2.0
       typescript: 4.8.3
 
   packages/utils-type:
@@ -819,6 +817,7 @@ importers:
       '@testing-library/user-event': ^14.4.3
       '@types/react': ^17.0.50
       '@types/react-dom': ^17.0.17
+      '@types/react-test-renderer': ^17.0.1
       '@types/testing-library__jest-dom': ^5.14.5
       eslint: ^8.24.0
       lint-staged: ^13.0.3
@@ -828,6 +827,7 @@ importers:
       react-redux: ^8.0.4
       react-router: ^6.4.1
       react-router-dom: ^6.4.1
+      react-test-renderer: ^17.0.2
       rimraf: ^3.0.2
       stylelint: ^14.12.1
       typescript: 4.8.3
@@ -854,14 +854,16 @@ importers:
       '@easy-pkg/utils-test': link:../../packages/utils-test
       '@testing-library/dom': 8.18.1
       '@testing-library/react': 12.1.5_sfoxds7t5ydpegc3knd667wn6m
-      '@testing-library/react-hooks': 8.0.1_hiunvzosbwliizyirxfy6hjyim
+      '@testing-library/react-hooks': 8.0.1_ew242u6iwqxr2zyanoxafskbjy
       '@testing-library/user-event': 14.4.3_znccgeejomvff3jrsk3ljovfpu
       '@types/react': 17.0.50
       '@types/react-dom': 17.0.17
+      '@types/react-test-renderer': 17.0.2
       '@types/testing-library__jest-dom': 5.14.5
       eslint: 8.24.0
       lint-staged: 13.0.3
       prettier: 2.7.1
+      react-test-renderer: 17.0.2_react@17.0.2
       rimraf: 3.0.2
       stylelint: 14.12.1
       typescript: 4.8.3
@@ -3108,7 +3110,7 @@ packages:
     dependencies:
       immer: 9.0.15
       react: 17.0.2
-      react-redux: 8.0.4_pxzommwrsowkd4kgag6q3sluym
+      react-redux: 8.0.4_wwhe23kdoifxkyhsv4sd73qu4q
       redux: 4.2.0
       redux-thunk: 2.4.1_redux@4.2.0
       reselect: 4.1.6
@@ -5253,7 +5255,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react-hooks/8.0.1_7qv3rjnqa3j7exc7qtvho7thru:
+  /@testing-library/react-hooks/8.0.1_ew242u6iwqxr2zyanoxafskbjy:
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -5270,11 +5272,12 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.19.0
+      '@types/react': 17.0.50
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-error-boundary: 3.1.4_react@17.0.2
       react-test-renderer: 17.0.2_react@17.0.2
-    dev: false
+    dev: true
 
   /@testing-library/react-hooks/8.0.1_hiunvzosbwliizyirxfy6hjyim:
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
@@ -5298,6 +5301,28 @@ packages:
       react-dom: 17.0.2_react@17.0.2
       react-error-boundary: 3.1.4_react@17.0.2
     dev: true
+
+  /@testing-library/react-hooks/8.0.1_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      '@types/react': ^16.9.0 || ^17.0.0
+      react: ^16.9.0 || ^17.0.0
+      react-dom: ^16.9.0 || ^17.0.0
+      react-test-renderer: ^16.9.0 || ^17.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react-dom:
+        optional: true
+      react-test-renderer:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.19.0
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-error-boundary: 3.1.4_react@17.0.2
+    dev: false
 
   /@testing-library/react/12.1.5_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
@@ -12427,6 +12452,7 @@ packages:
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+    dev: true
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
@@ -12657,7 +12683,7 @@ packages:
       object-assign: 4.1.1
       react: 17.0.2
       react-is: 18.2.0
-    dev: false
+    dev: true
 
   /react-test-renderer/17.0.2_react@17.0.2:
     resolution: {integrity: sha512-yaQ9cB89c17PUb0x6UfWRs7kQCorVdHlutU1boVPEsB8IDZH6n9tHxMacc3y0JoXOJUsZb/t/Mb8FUWMKaM7iQ==}
@@ -12669,7 +12695,7 @@ packages:
       react-is: 17.0.2
       react-shallow-renderer: 16.15.0_react@17.0.2
       scheduler: 0.20.2
-    dev: false
+    dev: true
 
   /react/17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
@@ -14016,6 +14042,11 @@ packages:
   /type-fest/1.4.0:
     resolution: {integrity: sha512-yGSza74xk0UG8k+pLh5oeoYirvIiWo5t0/o3zHHAO2tRDiZcxWP7fywNlXhqb6/r6sWvwi+RsyQMWhVLe4BVuA==}
     engines: {node: '>=10'}
+    dev: true
+
+  /type-fest/3.2.0:
+    resolution: {integrity: sha512-Il3wdLRzWvbAEtocgxGQA9YOoRVeVUGOMBtel5LdEpNeEAol6GJTLw8GbX6Z8EIMfvfhoOXs2bwOijtAZdK5og==}
+    engines: {node: '>=14.16'}
     dev: true
 
   /type-is/1.6.18:
