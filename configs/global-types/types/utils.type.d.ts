@@ -37,8 +37,3 @@ type LooseArray<T> = T | readonly T[];
 type PickProp<P, K extends keyof P> = NonNullable<P[K]>;
 
 type VoidReturn<T extends UnknownFn> = (...args: Parameters<T>) => void;
-
-/**
- * Obtain the static methods of a class.
- */
-type ClassStaticMethods<T extends abstract new (...args: unknown[]) => unknown> = Exclude<keyof T, 'prototype'>;
