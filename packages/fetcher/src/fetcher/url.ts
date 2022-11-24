@@ -18,13 +18,14 @@ export function buildURL<Params extends URLParams>(
 
     const normalizeParams = (): [string, string][] | string | URLSearchParams => {
         if (Array.isArray(params)) {
-            const _params: [string, string | undefined][] = params;
-            return _params.filter((pair) => pair[1] !== undefined) as [string, string][];
-        } else if (lodash.isPlainObject(params)) {
-            return Object.entries(params).filter((pair) => pair[1] !== undefined);
-        } else {
-            return params as string | URLSearchParams;
+            return params.filter((pair): pair is [string, string] => pair[1] !== undefined);
         }
+
+        if (lodash.isPlainObject(params)) {
+            return Object.entries(params).filter((pair) => pair[1] !== undefined);
+        }
+
+        return params as string | URLSearchParams;
     };
 
     const query = paramsSerializer ? paramsSerializer(params) : new URLSearchParams(normalizeParams());
