@@ -14,7 +14,7 @@ importers:
       husky: ^8.0.1
       jest: ^27.5.1
       jest-watch-typeahead: ^2.2.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       react-app-rewired: 2.1.9
       react-dom: ^17.0.2
@@ -36,7 +36,7 @@ importers:
       husky: 8.0.1
       jest: 27.5.1
       jest-watch-typeahead: 2.2.0_jest@27.5.1
-      prettier: 2.7.1
+      prettier: 2.8.0
       react-app-rewired: 2.1.9_react-scripts@5.0.1
       react-scripts: 5.0.1_owve4qzeglcz7bibcdeg6u6iyi
       sass: 1.55.0
@@ -58,7 +58,7 @@ importers:
       eslint-plugin-prettier: ^4.2.1
       eslint-plugin-react: ^7.31.8
       eslint-plugin-react-hooks: ^4.6.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.8.3
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.38.0_4gkcvl6qsi23tqqawfqgcwtp54
@@ -70,12 +70,12 @@ importers:
       eslint-plugin-jest: 27.0.4_x2ukgxiyci4lfkhuv2ldo3vzd4
       eslint-plugin-jsx-a11y: 6.6.1_eslint@8.24.0
       eslint-plugin-node: 11.1.0_eslint@8.24.0
-      eslint-plugin-prettier: 4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm
+      eslint-plugin-prettier: 4.2.1_ymb4ahmlfudfhplmme7qtcehse
       eslint-plugin-react: 7.31.8_eslint@8.24.0
       eslint-plugin-react-hooks: 4.6.0_eslint@8.24.0
     devDependencies:
       eslint: 8.24.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.8.3
 
   configs/global-types:
@@ -84,14 +84,14 @@ importers:
       '@easy-config/tsconfigs': workspace:*
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.8.3
     devDependencies:
       '@easy-config/eslint-config': link:../eslint-config
       '@easy-config/tsconfigs': link:../tsconfigs
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.8.3
 
   configs/scripts:
@@ -103,7 +103,7 @@ importers:
       chalk: ^4.1.2
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     dependencies:
@@ -115,14 +115,14 @@ importers:
       '@jest/types': 27.5.1
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
   configs/stylelint-config:
     specifiers:
       postcss: ^8.4.16
-      prettier: 2.7.1
+      prettier: 2.8.0
       stylelint: ^14.12.1
       stylelint-config-recess-order: ^3.0.0
       stylelint-config-sass-guidelines: ^9.0.1
@@ -132,19 +132,19 @@ importers:
       stylelint-config-recess-order: 3.0.0_stylelint@14.12.1
       stylelint-config-sass-guidelines: 9.0.1_nqmbdxq5redfjw6kdtxj73dev4
     devDependencies:
-      prettier: 2.7.1
+      prettier: 2.8.0
       stylelint: 14.12.1
       typescript: 4.8.3
 
   configs/tsconfigs:
     specifiers:
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.8.3
       typescript-plugin-css-modules: ^3.4.0
     dependencies:
       typescript-plugin-css-modules: 3.4.0_typescript@4.8.3
     devDependencies:
-      prettier: 2.7.1
+      prettier: 2.8.0
       typescript: 4.8.3
 
   packages/assets:
@@ -156,7 +156,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     devDependencies:
@@ -167,7 +167,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -184,7 +184,7 @@ importers:
       eslint: ^8.24.0
       lint-staged: ^13.0.3
       lodash: ^4.17.21
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       rimraf: ^3.0.2
       swr: ^1.3.0
@@ -204,7 +204,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -223,7 +223,7 @@ importers:
       eslint: ^8.24.0
       lint-staged: ^13.0.3
       lodash: ^4.17.21
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       react-dom: ^17.0.2
       rimraf: ^3.0.2
@@ -244,7 +244,7 @@ importers:
       eslint: 8.24.0
       lint-staged: 13.0.3
       lodash: 4.17.21
-      prettier: 2.7.1
+      prettier: 2.8.0
       react-dom: 17.0.2_react@17.0.2
       rimraf: 3.0.2
       typescript: 4.8.3
@@ -259,7 +259,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     devDependencies:
@@ -271,7 +271,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -285,7 +285,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     devDependencies:
@@ -297,7 +297,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -310,7 +310,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     devDependencies:
@@ -321,7 +321,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -335,7 +335,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     devDependencies:
@@ -347,7 +347,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -361,7 +361,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     dependencies:
@@ -374,7 +374,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -391,7 +391,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       react-dom: ^17.0.2
       rimraf: ^3.0.2
@@ -411,7 +411,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -426,7 +426,7 @@ importers:
       eslint: ^8.24.0
       immer: ^9.0.15
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       rimraf: ^3.0.2
       typescript: 4.8.3
@@ -442,7 +442,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -456,7 +456,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       rimraf: ^3.0.2
       typescript: 4.8.3
@@ -471,7 +471,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -488,7 +488,7 @@ importers:
       eslint: ^8.24.0
       immer: ^9.0.15
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       react-redux: ^8.0.4
       rimraf: ^3.0.2
@@ -508,7 +508,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -523,7 +523,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       react-dom: ^17.0.2
       rimraf: ^3.0.2
@@ -542,7 +542,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       type-fest: 3.2.0
       typescript: 4.8.3
@@ -556,7 +556,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     devDependencies:
@@ -567,7 +567,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -580,7 +580,7 @@ importers:
       concurrently: ^7.4.0
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       react-redux: ^8.0.4
       rimraf: ^3.0.2
@@ -593,7 +593,7 @@ importers:
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: 17.0.2
       react-redux: 8.0.4_react@17.0.2
       rimraf: 3.0.2
@@ -608,7 +608,7 @@ importers:
       '@types/semver': ^7.3.12
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       semver: ^7.3.7
       typescript: 4.8.3
@@ -622,7 +622,7 @@ importers:
       '@types/semver': 7.3.12
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -635,7 +635,7 @@ importers:
       benchmark-node: ^0.7.2
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     dependencies:
@@ -647,7 +647,7 @@ importers:
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -673,7 +673,7 @@ importers:
       eslint: ^8.24.0
       immer: ^9.0.15
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       react-component-benchmark: ^1.0.0
       react-dom: ^17.0.2
@@ -709,7 +709,7 @@ importers:
       '@types/react-dom': 17.0.17
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       stylelint: 14.12.1
       typescript: 4.8.3
@@ -723,7 +723,7 @@ importers:
       '@easy-pkg/utils-test': workspace:*
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     devDependencies:
@@ -734,7 +734,7 @@ importers:
       '@easy-pkg/utils-test': link:../../packages/utils-test
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -759,7 +759,7 @@ importers:
       immer: ^9.0.15
       lint-staged: ^13.0.3
       lodash: ^4.17.21
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       react-dom: ^17.0.2
       react-router: ^6.4.1
@@ -792,7 +792,7 @@ importers:
       '@types/react-dom': 17.0.17
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       stylelint: 14.12.1
       typescript: 4.8.3
@@ -821,7 +821,7 @@ importers:
       '@types/testing-library__jest-dom': ^5.14.5
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react: ^17.0.2
       react-dom: ^17.0.2
       react-redux: ^8.0.4
@@ -862,7 +862,7 @@ importers:
       '@types/testing-library__jest-dom': 5.14.5
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       react-test-renderer: 17.0.2_react@17.0.2
       rimraf: 3.0.2
       stylelint: 14.12.1
@@ -878,7 +878,7 @@ importers:
       chalk: ^4.1.2
       eslint: ^8.24.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: ^3.0.2
       typescript: 4.8.3
     dependencies:
@@ -891,7 +891,7 @@ importers:
       '@easy-pkg/utils-test': link:../../packages/utils-test
       eslint: 8.24.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.0
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -3110,7 +3110,7 @@ packages:
     dependencies:
       immer: 9.0.15
       react: 17.0.2
-      react-redux: 8.0.4_wwhe23kdoifxkyhsv4sd73qu4q
+      react-redux: 8.0.4_pxzommwrsowkd4kgag6q3sluym
       redux: 4.2.0
       redux-thunk: 2.4.1_redux@4.2.0
       reselect: 4.1.6
@@ -7970,7 +7970,7 @@ packages:
       semver: 6.3.0
     dev: false
 
-  /eslint-plugin-prettier/4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm:
+  /eslint-plugin-prettier/4.2.1_ymb4ahmlfudfhplmme7qtcehse:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -7983,7 +7983,7 @@ packages:
     dependencies:
       eslint: 8.24.0
       eslint-config-prettier: 8.5.0_eslint@8.24.0
-      prettier: 2.7.1
+      prettier: 2.8.0
       prettier-linter-helpers: 1.0.0
     dev: false
 
@@ -10005,7 +10005,7 @@ packages:
       image-size: 0.5.5
       make-dir: 2.1.0
       mime: 1.6.0
-      needle: 3.1.0
+      needle: 3.2.0
       source-map: 0.6.1
     transitivePeerDependencies:
       - supports-color
@@ -10416,8 +10416,8 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  /needle/3.1.0:
-    resolution: {integrity: sha512-gCE9weDhjVGCRqS8dwDR/D3GTAeyXLXuqp7I8EzH6DllZGXSUyxuqqLh+YX9rMAWaaTFyVAg6rHGL25dqvczKw==}
+  /needle/3.2.0:
+    resolution: {integrity: sha512-oUvzXnyLiVyVGoianLijF9O/RecZUf7TkBfimjGrLM4eQhXyeJwM6GeAWccwfQ9aa4gMCZKqhAOuLaMIcQxajQ==}
     engines: {node: '>= 4.4.x'}
     hasBin: true
     requiresBuild: true
@@ -11681,8 +11681,8 @@ packages:
       fast-diff: 1.2.0
     dev: false
 
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+  /prettier/2.8.0:
+    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
 
