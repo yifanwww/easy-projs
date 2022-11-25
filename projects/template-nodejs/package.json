@@ -17,7 +17,7 @@
     },
     "scripts": {
         "app": "node build/index.js",
-        "build": "tsc --build tsconfig.node.json",
+        "build": "tsc --project tsconfig.node.json",
         "clean": "rimraf build ./*.tsbuildinfo",
         "dev": "pnpm run build --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
