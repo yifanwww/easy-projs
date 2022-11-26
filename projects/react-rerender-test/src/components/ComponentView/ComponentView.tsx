@@ -28,9 +28,8 @@ const ComponentTag: React.FC<ComponentTagProps> = ({ type }) => {
             );
 
         default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = type;
-            return null;
+            return never;
     }
 };
 
