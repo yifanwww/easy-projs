@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test reducer fn \`reducer\` should add new benchmark results 1`] = `
-Object {
-  "mount": Object {
-    "average": Object {
+{
+  "mount": {
+    "average": {
       "noHooks": 10,
       "useCallback": NaN,
       "useMemo": NaN,
@@ -11,13 +11,13 @@ Object {
       "useRef": NaN,
       "useState": 12,
     },
-    "noHooks": Object {
-      "entities": Object {
-        "10": Object {
+    "noHooks": {
+      "entities": {
+        "10": {
           "name": "noHooks",
           "order": 10,
           "samples": 10,
-          "stats": Object {
+          "stats": {
             "layout": 10,
             "mean": 10,
             "p95": 10,
@@ -27,33 +27,33 @@ Object {
           "type": "mount",
         },
       },
-      "ids": Array [
+      "ids": [
         10,
       ],
     },
-    "useCallback": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useCallback": {
+      "entities": {},
+      "ids": [],
     },
-    "useMemo": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useMemo": {
+      "entities": {},
+      "ids": [],
     },
-    "useReducer": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useReducer": {
+      "entities": {},
+      "ids": [],
     },
-    "useRef": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useRef": {
+      "entities": {},
+      "ids": [],
     },
-    "useState": Object {
-      "entities": Object {
-        "12": Object {
+    "useState": {
+      "entities": {
+        "12": {
           "name": "useState",
           "order": 12,
           "samples": 12,
-          "stats": Object {
+          "stats": {
             "layout": 12,
             "mean": 12,
             "p95": 12,
@@ -63,18 +63,18 @@ Object {
           "type": "mount",
         },
       },
-      "ids": Array [
+      "ids": [
         12,
       ],
     },
   },
-  "totalResults": Object {
-    "entities": Object {
-      "10": Object {
+  "totalResults": {
+    "entities": {
+      "10": {
         "name": "noHooks",
         "order": 10,
         "samples": 10,
-        "stats": Object {
+        "stats": {
           "layout": 10,
           "mean": 10,
           "p95": 10,
@@ -83,11 +83,11 @@ Object {
         },
         "type": "mount",
       },
-      "12": Object {
+      "12": {
         "name": "useState",
         "order": 12,
         "samples": 12,
-        "stats": Object {
+        "stats": {
           "layout": 12,
           "mean": 12,
           "p95": 12,
@@ -96,11 +96,11 @@ Object {
         },
         "type": "mount",
       },
-      "15": Object {
+      "15": {
         "name": "useMemo",
         "order": 15,
         "samples": 15,
-        "stats": Object {
+        "stats": {
           "layout": 15,
           "mean": 15,
           "p95": 15,
@@ -109,11 +109,11 @@ Object {
         },
         "type": "update",
       },
-      "20": Object {
+      "20": {
         "name": "useCallback",
         "order": 20,
         "samples": 20,
-        "stats": Object {
+        "stats": {
           "layout": 20,
           "mean": 20,
           "p95": 20,
@@ -123,15 +123,15 @@ Object {
         "type": "unmount",
       },
     },
-    "ids": Array [
+    "ids": [
       10,
       12,
       15,
       20,
     ],
   },
-  "unmount": Object {
-    "average": Object {
+  "unmount": {
+    "average": {
       "noHooks": NaN,
       "useCallback": 20,
       "useMemo": NaN,
@@ -139,17 +139,17 @@ Object {
       "useRef": NaN,
       "useState": NaN,
     },
-    "noHooks": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "noHooks": {
+      "entities": {},
+      "ids": [],
     },
-    "useCallback": Object {
-      "entities": Object {
-        "20": Object {
+    "useCallback": {
+      "entities": {
+        "20": {
           "name": "useCallback",
           "order": 20,
           "samples": 20,
-          "stats": Object {
+          "stats": {
             "layout": 20,
             "mean": 20,
             "p95": 20,
@@ -159,29 +159,29 @@ Object {
           "type": "unmount",
         },
       },
-      "ids": Array [
+      "ids": [
         20,
       ],
     },
-    "useMemo": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useMemo": {
+      "entities": {},
+      "ids": [],
     },
-    "useReducer": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useReducer": {
+      "entities": {},
+      "ids": [],
     },
-    "useRef": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useRef": {
+      "entities": {},
+      "ids": [],
     },
-    "useState": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useState": {
+      "entities": {},
+      "ids": [],
     },
   },
-  "update": Object {
-    "average": Object {
+  "update": {
+    "average": {
       "noHooks": NaN,
       "useCallback": NaN,
       "useMemo": 15,
@@ -189,21 +189,21 @@ Object {
       "useRef": NaN,
       "useState": NaN,
     },
-    "noHooks": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "noHooks": {
+      "entities": {},
+      "ids": [],
     },
-    "useCallback": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useCallback": {
+      "entities": {},
+      "ids": [],
     },
-    "useMemo": Object {
-      "entities": Object {
-        "15": Object {
+    "useMemo": {
+      "entities": {
+        "15": {
           "name": "useMemo",
           "order": 15,
           "samples": 15,
-          "stats": Object {
+          "stats": {
             "layout": 15,
             "mean": 15,
             "p95": 15,
@@ -213,32 +213,32 @@ Object {
           "type": "update",
         },
       },
-      "ids": Array [
+      "ids": [
         15,
       ],
     },
-    "useReducer": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useReducer": {
+      "entities": {},
+      "ids": [],
     },
-    "useRef": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useRef": {
+      "entities": {},
+      "ids": [],
     },
-    "useState": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useState": {
+      "entities": {},
+      "ids": [],
     },
   },
 }
 `;
 
 exports[`Test reducer fn \`reducer\` should clear all benchmark results 1`] = `
-Object {
-  "mount": Object {
-    "average": Object {
-      "entities": Object {},
-      "ids": Array [],
+{
+  "mount": {
+    "average": {
+      "entities": {},
+      "ids": [],
       "noHooks": NaN,
       "useCallback": NaN,
       "useMemo": NaN,
@@ -246,39 +246,39 @@ Object {
       "useRef": NaN,
       "useState": NaN,
     },
-    "noHooks": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "noHooks": {
+      "entities": {},
+      "ids": [],
     },
-    "useCallback": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useCallback": {
+      "entities": {},
+      "ids": [],
     },
-    "useMemo": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useMemo": {
+      "entities": {},
+      "ids": [],
     },
-    "useReducer": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useReducer": {
+      "entities": {},
+      "ids": [],
     },
-    "useRef": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useRef": {
+      "entities": {},
+      "ids": [],
     },
-    "useState": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useState": {
+      "entities": {},
+      "ids": [],
     },
   },
-  "totalResults": Object {
-    "entities": Object {},
-    "ids": Array [],
+  "totalResults": {
+    "entities": {},
+    "ids": [],
   },
-  "unmount": Object {
-    "average": Object {
-      "entities": Object {},
-      "ids": Array [],
+  "unmount": {
+    "average": {
+      "entities": {},
+      "ids": [],
       "noHooks": NaN,
       "useCallback": NaN,
       "useMemo": NaN,
@@ -286,35 +286,35 @@ Object {
       "useRef": NaN,
       "useState": NaN,
     },
-    "noHooks": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "noHooks": {
+      "entities": {},
+      "ids": [],
     },
-    "useCallback": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useCallback": {
+      "entities": {},
+      "ids": [],
     },
-    "useMemo": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useMemo": {
+      "entities": {},
+      "ids": [],
     },
-    "useReducer": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useReducer": {
+      "entities": {},
+      "ids": [],
     },
-    "useRef": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useRef": {
+      "entities": {},
+      "ids": [],
     },
-    "useState": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useState": {
+      "entities": {},
+      "ids": [],
     },
   },
-  "update": Object {
-    "average": Object {
-      "entities": Object {},
-      "ids": Array [],
+  "update": {
+    "average": {
+      "entities": {},
+      "ids": [],
       "noHooks": NaN,
       "useCallback": NaN,
       "useMemo": NaN,
@@ -322,38 +322,38 @@ Object {
       "useRef": NaN,
       "useState": NaN,
     },
-    "noHooks": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "noHooks": {
+      "entities": {},
+      "ids": [],
     },
-    "useCallback": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useCallback": {
+      "entities": {},
+      "ids": [],
     },
-    "useMemo": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useMemo": {
+      "entities": {},
+      "ids": [],
     },
-    "useReducer": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useReducer": {
+      "entities": {},
+      "ids": [],
     },
-    "useRef": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useRef": {
+      "entities": {},
+      "ids": [],
     },
-    "useState": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useState": {
+      "entities": {},
+      "ids": [],
     },
   },
 }
 `;
 
 exports[`Test reducer fn \`reducer\` should clear specific benchmark results 1`] = `
-Object {
-  "mount": Object {
-    "average": Object {
+{
+  "mount": {
+    "average": {
       "noHooks": NaN,
       "useCallback": NaN,
       "useMemo": NaN,
@@ -361,33 +361,33 @@ Object {
       "useRef": NaN,
       "useState": 12,
     },
-    "noHooks": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "noHooks": {
+      "entities": {},
+      "ids": [],
     },
-    "useCallback": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useCallback": {
+      "entities": {},
+      "ids": [],
     },
-    "useMemo": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useMemo": {
+      "entities": {},
+      "ids": [],
     },
-    "useReducer": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useReducer": {
+      "entities": {},
+      "ids": [],
     },
-    "useRef": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useRef": {
+      "entities": {},
+      "ids": [],
     },
-    "useState": Object {
-      "entities": Object {
-        "12": Object {
+    "useState": {
+      "entities": {
+        "12": {
           "name": "useState",
           "order": 12,
           "samples": 12,
-          "stats": Object {
+          "stats": {
             "layout": 12,
             "mean": 12,
             "p95": 12,
@@ -397,18 +397,18 @@ Object {
           "type": "mount",
         },
       },
-      "ids": Array [
+      "ids": [
         12,
       ],
     },
   },
-  "totalResults": Object {
-    "entities": Object {
-      "12": Object {
+  "totalResults": {
+    "entities": {
+      "12": {
         "name": "useState",
         "order": 12,
         "samples": 12,
-        "stats": Object {
+        "stats": {
           "layout": 12,
           "mean": 12,
           "p95": 12,
@@ -417,11 +417,11 @@ Object {
         },
         "type": "mount",
       },
-      "15": Object {
+      "15": {
         "name": "useMemo",
         "order": 15,
         "samples": 15,
-        "stats": Object {
+        "stats": {
           "layout": 15,
           "mean": 15,
           "p95": 15,
@@ -430,11 +430,11 @@ Object {
         },
         "type": "update",
       },
-      "20": Object {
+      "20": {
         "name": "useCallback",
         "order": 20,
         "samples": 20,
-        "stats": Object {
+        "stats": {
           "layout": 20,
           "mean": 20,
           "p95": 20,
@@ -444,14 +444,14 @@ Object {
         "type": "unmount",
       },
     },
-    "ids": Array [
+    "ids": [
       12,
       15,
       20,
     ],
   },
-  "unmount": Object {
-    "average": Object {
+  "unmount": {
+    "average": {
       "noHooks": NaN,
       "useCallback": 20,
       "useMemo": NaN,
@@ -459,17 +459,17 @@ Object {
       "useRef": NaN,
       "useState": NaN,
     },
-    "noHooks": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "noHooks": {
+      "entities": {},
+      "ids": [],
     },
-    "useCallback": Object {
-      "entities": Object {
-        "20": Object {
+    "useCallback": {
+      "entities": {
+        "20": {
           "name": "useCallback",
           "order": 20,
           "samples": 20,
-          "stats": Object {
+          "stats": {
             "layout": 20,
             "mean": 20,
             "p95": 20,
@@ -479,29 +479,29 @@ Object {
           "type": "unmount",
         },
       },
-      "ids": Array [
+      "ids": [
         20,
       ],
     },
-    "useMemo": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useMemo": {
+      "entities": {},
+      "ids": [],
     },
-    "useReducer": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useReducer": {
+      "entities": {},
+      "ids": [],
     },
-    "useRef": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useRef": {
+      "entities": {},
+      "ids": [],
     },
-    "useState": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useState": {
+      "entities": {},
+      "ids": [],
     },
   },
-  "update": Object {
-    "average": Object {
+  "update": {
+    "average": {
       "noHooks": NaN,
       "useCallback": NaN,
       "useMemo": 15,
@@ -509,21 +509,21 @@ Object {
       "useRef": NaN,
       "useState": NaN,
     },
-    "noHooks": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "noHooks": {
+      "entities": {},
+      "ids": [],
     },
-    "useCallback": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useCallback": {
+      "entities": {},
+      "ids": [],
     },
-    "useMemo": Object {
-      "entities": Object {
-        "15": Object {
+    "useMemo": {
+      "entities": {
+        "15": {
           "name": "useMemo",
           "order": 15,
           "samples": 15,
-          "stats": Object {
+          "stats": {
             "layout": 15,
             "mean": 15,
             "p95": 15,
@@ -533,21 +533,21 @@ Object {
           "type": "update",
         },
       },
-      "ids": Array [
+      "ids": [
         15,
       ],
     },
-    "useReducer": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useReducer": {
+      "entities": {},
+      "ids": [],
     },
-    "useRef": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useRef": {
+      "entities": {},
+      "ids": [],
     },
-    "useState": Object {
-      "entities": Object {},
-      "ids": Array [],
+    "useState": {
+      "entities": {},
+      "ids": [],
     },
   },
 }

@@ -1,77 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test reducer fn \`curriedProduce\` should add new record 1`] = `
-Object {
-  "data": Object {
-    "group0": Object {
-      "records": Array [
-        Object {
+{
+  "data": {
+    "group0": {
+      "records": [
+        {
           "index": 0,
           "key": "record0",
           "name": "record0",
-          "parents": Array [],
+          "parents": [],
         },
       ],
-      "tree": Object {
-        "children": Array [],
+      "tree": {
+        "children": [],
         "group": "group0",
         "index": 0,
       },
     },
-    "group1": Object {
-      "records": Array [
-        Object {
+    "group1": {
+      "records": [
+        {
           "index": 1,
           "key": "record1",
           "name": "record1",
-          "parents": Array [],
+          "parents": [],
         },
       ],
-      "tree": Object {
-        "children": Array [],
+      "tree": {
+        "children": [],
         "group": "group1",
         "index": 1,
       },
     },
-    "group2": Object {
-      "records": Array [
-        Object {
+    "group2": {
+      "records": [
+        {
           "index": 2,
           "key": "record2",
           "name": "record2",
-          "parents": Array [],
+          "parents": [],
         },
-        Object {
+        {
           "index": 3,
           "key": "record3",
           "name": "record3",
-          "parents": Array [],
+          "parents": [],
         },
       ],
-      "tree": Object {
-        "children": Array [],
+      "tree": {
+        "children": [],
         "group": "group2",
         "index": 2,
       },
     },
-    "group3": Object {
-      "records": Array [],
-      "tree": Object {
-        "children": Array [],
+    "group3": {
+      "records": [],
+      "tree": {
+        "children": [],
         "group": "group3",
         "index": 3,
       },
     },
-    "group4": Object {
-      "records": Array [],
-      "tree": Object {
-        "children": Array [],
+    "group4": {
+      "records": [],
+      "tree": {
+        "children": [],
         "group": "group4",
         "index": 4,
       },
     },
   },
-  "groups": Array [
+  "groups": [
     "group0",
     "group1",
     "group2",
@@ -83,50 +83,50 @@ Object {
 `;
 
 exports[`Test reducer fn \`curriedProduce\` should register new group 1`] = `
-Object {
-  "data": Object {
-    "group0": Object {
-      "records": Array [],
-      "tree": Object {
-        "children": Array [],
+{
+  "data": {
+    "group0": {
+      "records": [],
+      "tree": {
+        "children": [],
         "group": "group0",
         "index": 0,
       },
     },
-    "group1": Object {
-      "records": Array [],
-      "tree": Object {
-        "children": Array [],
+    "group1": {
+      "records": [],
+      "tree": {
+        "children": [],
         "group": "group1",
         "index": 1,
       },
     },
-    "group2": Object {
-      "records": Array [],
-      "tree": Object {
-        "children": Array [],
+    "group2": {
+      "records": [],
+      "tree": {
+        "children": [],
         "group": "group2",
         "index": 2,
       },
     },
-    "group3": Object {
-      "records": Array [],
-      "tree": Object {
-        "children": Array [],
+    "group3": {
+      "records": [],
+      "tree": {
+        "children": [],
         "group": "group3",
         "index": 3,
       },
     },
-    "group4": Object {
-      "records": Array [],
-      "tree": Object {
-        "children": Array [],
+    "group4": {
+      "records": [],
+      "tree": {
+        "children": [],
         "group": "group4",
         "index": 4,
       },
     },
   },
-  "groups": Array [
+  "groups": [
     "group0",
     "group1",
     "group2",
