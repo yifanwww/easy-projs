@@ -2,6 +2,7 @@
     "extends": "@easy-config/tsconfigs/tsconfig.eslint.react.json",
     "compilerOptions": {
         "baseUrl": ".",
+        "incremental": false,
         "rootDir": "src"
     },
     "include": ["src/**/*"],

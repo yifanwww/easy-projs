@@ -1,6 +1,7 @@
 {
     "extends": "@easy-config/tsconfigs/tsconfig.node.json",
     "compilerOptions": {
+        "incremental": false,
         "outDir": "dist",
         "rootDir": "src",
         "sourceMap": false,
