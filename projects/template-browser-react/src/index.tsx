@@ -44,7 +44,7 @@ const App: React.FC = () => {
 const GlobalProviders: React.FC = (props) => (
     <FluentuiProvider>
         <ReduxProvider store={reduxStore}>
-            <BrowserRouter basename="/template-proj-browser-react">{props.children}</BrowserRouter>
+            <BrowserRouter basename="/template-browser-react">{props.children}</BrowserRouter>
         </ReduxProvider>
     </FluentuiProvider>
 );

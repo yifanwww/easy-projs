@@ -515,20 +515,20 @@ importers:
       typescript: 4.8.3
     dependencies:
       '@easy-pkg/utils-type': link:../utils-type
-      '@reduxjs/toolkit': 1.8.5_xiw2xh7zkwauncevrxklika6mu
       immer: 9.0.15
       react: 17.0.2
-      react-redux: 8.0.4_pxzommwrsowkd4kgag6q3sluym
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
       '@easy-config/scripts': link:../../configs/scripts
       '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@reduxjs/toolkit': 1.8.5_xiw2xh7zkwauncevrxklika6mu
       '@types/react': 17.0.50
       concurrently: 7.4.0
       eslint: 8.24.0
       lint-staged: 13.0.3
       prettier: 2.8.0
+      react-redux: 8.0.4
       rimraf: 3.0.2
       typescript: 4.8.3
 
@@ -868,7 +868,7 @@ importers:
       '@reduxjs/toolkit': 1.8.5_xiw2xh7zkwauncevrxklika6mu
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      react-redux: 8.0.4_wwhe23kdoifxkyhsv4sd73qu4q
+      react-redux: 8.0.4
       react-router: 6.4.1_react@17.0.2
       react-router-dom: 6.4.1_sfoxds7t5ydpegc3knd667wn6m
       web-vitals: 3.0.2
@@ -3048,11 +3048,10 @@ packages:
     dependencies:
       immer: 9.0.15
       react: 17.0.2
-      react-redux: 8.0.4_wwhe23kdoifxkyhsv4sd73qu4q
+      react-redux: 8.0.4
       redux: 4.2.0
       redux-thunk: 2.4.1_redux@4.2.0
       reselect: 4.1.6
-    dev: false
 
   /@remix-run/router/1.0.1:
     resolution: {integrity: sha512-eBV5rvW4dRFOU1eajN7FmYxjAIVz/mRHgUE9En9mBn6m3mulK3WTR5C3iQhL9MZ14rWAq+xOlEaCkDiW0/heOg==}
@@ -12245,7 +12244,7 @@ packages:
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
 
-  /react-redux/8.0.4_pxzommwrsowkd4kgag6q3sluym:
+  /react-redux/8.0.4:
     resolution: {integrity: sha512-yMfQ7mX6bWuicz2fids6cR1YT59VTuT8MKyyE310wJQlINKENCeT1UcPdEiX6znI5tF8zXyJ/VYvDgeGuaaNwQ==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -12274,7 +12273,6 @@ packages:
       react: 17.0.2
       react-is: 18.2.0
       use-sync-external-store: 1.2.0_react@17.0.2
-    dev: false
 
   /react-redux/8.0.4_react@17.0.2:
     resolution: {integrity: sha512-yMfQ7mX6bWuicz2fids6cR1YT59VTuT8MKyyE310wJQlINKENCeT1UcPdEiX6znI5tF8zXyJ/VYvDgeGuaaNwQ==}
@@ -12305,39 +12303,6 @@ packages:
       react-is: 18.2.0
       use-sync-external-store: 1.2.0_react@17.0.2
     dev: true
-
-  /react-redux/8.0.4_wwhe23kdoifxkyhsv4sd73qu4q:
-    resolution: {integrity: sha512-yMfQ7mX6bWuicz2fids6cR1YT59VTuT8MKyyE310wJQlINKENCeT1UcPdEiX6znI5tF8zXyJ/VYvDgeGuaaNwQ==}
-    peerDependencies:
-      '@types/react': ^16.8 || ^17.0 || ^18.0
-      '@types/react-dom': ^16.8 || ^17.0 || ^18.0
-      react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^16.8 || ^17.0 || ^18.0
-      react-native: '>=0.59'
-      redux: ^4
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      '@types/react-dom':
-        optional: true
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-      redux:
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.19.0
-      '@types/hoist-non-react-statics': 3.3.1
-      '@types/react': 17.0.50
-      '@types/react-dom': 17.0.17
-      '@types/use-sync-external-store': 0.0.3
-      hoist-non-react-statics: 3.3.2
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      react-is: 18.2.0
-      use-sync-external-store: 1.2.0_react@17.0.2
-    dev: false
 
   /react-refresh/0.11.0:
     resolution: {integrity: sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==}
@@ -12562,13 +12527,11 @@ packages:
       redux: ^4
     dependencies:
       redux: 4.2.0
-    dev: false
 
   /redux/4.2.0:
     resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
     dependencies:
       '@babel/runtime': 7.19.0
-    dev: false
 
   /regenerate-unicode-properties/10.1.0:
     resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}
@@ -12657,7 +12620,6 @@ packages:
 
   /reselect/4.1.6:
     resolution: {integrity: sha512-ZovIuXqto7elwnxyXbBtCPo9YFEr3uJqj2rRbcOOog1bmu2Ag85M4hixSwFWyaBMKXNgvPaJ9OSu9SkBPIeJHQ==}
-    dev: false
 
   /reserved-words/0.1.2:
     resolution: {integrity: sha512-0S5SrIUJ9LfpbVl4Yzij6VipUdafHrOTzvmfazSw/jeZrZtQK303OPZW+obtkaw7jQlTQppy0UvZWm9872PbRw==}
