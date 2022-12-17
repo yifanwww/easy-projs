@@ -1,11 +1,16 @@
 import type { ConditionalKeys } from 'type-fest';
 
+export function buildMethodName<T extends Function>($class: T, method: ConditionalKeys<T['prototype'], UnknownFn>) {
+    return `${$class.name}.prototype.${($class.prototype[method] as Function).name}`;
+}
+
+export function buildStaticMethodName<T extends Function>($class: T, method: ConditionalKeys<T, UnknownFn>) {
+    return `${$class.name}.${($class[method] as Function).name}`;
+}
+
 export function createClassJestHelper<T extends Function>($class: T) {
-    const buildMethodName = (method: ConditionalKeys<T['prototype'], UnknownFn>) =>
-        `${$class.name}.prototype.${($class.prototype[method] as Function).name}`;
-
-    const buildStaticMethodName = (method: ConditionalKeys<T, UnknownFn>) =>
-        `${$class.name}.${($class[method] as Function).name}`;
-
-    return { buildMethodName, buildStaticMethodName };
+    return {
+        buildMethodName: (method: ConditionalKeys<T['prototype'], UnknownFn>) => buildMethodName($class, method),
+        buildStaticMethodName: (method: ConditionalKeys<T, UnknownFn>) => buildStaticMethodName($class, method),
+    };
 }
