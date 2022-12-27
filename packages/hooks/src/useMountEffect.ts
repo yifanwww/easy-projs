@@ -5,13 +5,13 @@ import { useEffect, useRef } from 'react';
  *
  * @param callback Function to call before mount.
  */
-export function useMount(callback?: () => void): void {
-    const mountRef = useRef(callback);
+export function useMountEffect(callback?: () => void): void {
+    const ref = useRef(callback);
 
     // Update the ref each render so that the latest callback will be invoked if it changes.
-    mountRef.current = callback;
+    ref.current = callback;
 
     useEffect(() => {
-        mountRef.current?.();
+        ref.current?.();
     }, []);
 }
