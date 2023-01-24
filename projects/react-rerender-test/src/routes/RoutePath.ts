@@ -1,5 +1,5 @@
 export const RoutePath = {
-    HOME: '/home',
+    HOME: '/',
 
     CHANGE_LEVEL: '/change-level',
     CHANGE_PARENT: '/change-parent',
