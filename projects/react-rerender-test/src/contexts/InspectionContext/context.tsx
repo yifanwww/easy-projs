@@ -1,6 +1,6 @@
-import { useConst, useConstFn, useForceUpdate } from '@easy-pkg/hooks';
+import { useConstFn, useForceUpdate } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
-import { createContext, useRef } from 'react';
+import { createContext, useMemo, useRef } from 'react';
 
 import { useDoubleRenderSign } from 'src/hooks/useDoubleRenderSign';
 
@@ -33,19 +33,22 @@ export const InspectionProvider: React.FC = ({ children }) => {
         ref.current = reduce(ref.current, action);
     });
 
-    const updaters = useConst<InspectionContextUpdaters>(() => ({
-        addRecord: (record, groupIndex) => {
-            if (sign(record)) {
-                dispatch({ type: 'add-record', groupIndex, record });
-            }
-        },
-        forceUpdate,
-        registerGroup: (group, index) => dispatch({ type: 'register-group', group, index }),
-        toggleGroup: (toggle) => {
-            dispatch({ type: 'toggle-group', toggle });
-            forceUpdate();
-        },
-    }));
+    const updaters = useMemo<InspectionContextUpdaters>(
+        () => ({
+            addRecord: (record, groupIndex) => {
+                if (sign(record)) {
+                    dispatch({ type: 'add-record', groupIndex, record });
+                }
+            },
+            forceUpdate,
+            registerGroup: (group, index) => dispatch({ type: 'register-group', group, index }),
+            toggleGroup: (toggle) => {
+                dispatch({ type: 'toggle-group', toggle });
+                forceUpdate();
+            },
+        }),
+        [dispatch, forceUpdate, sign],
+    );
 
     return (
         <InspectionContextUpdater.Provider value={updaters}>

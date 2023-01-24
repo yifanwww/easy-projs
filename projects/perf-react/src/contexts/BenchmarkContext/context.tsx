@@ -1,6 +1,5 @@
-import { useConst } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
-import { createContext } from 'react';
+import { createContext, useMemo } from 'react';
 import { useImmerReducer } from 'use-immer';
 
 import { benchmarkResultAdapter } from './adapters';
@@ -49,11 +48,14 @@ export const BenchmarkContextUpdater = createContext<BenchmarkContextUpdaters>({
 export const BenchmarkProvider: React.FC = ({ children }) => {
     const [context, dispatch] = useImmerReducer(reducer, initialState);
 
-    const updaters = useConst<BenchmarkContextUpdaters>(() => ({
-        add: (result) => dispatch({ type: 'add', result }),
-        clear: (benchmarkType, componentName) => dispatch({ type: 'clear', benchmarkType, componentName }),
-        clearAll: () => dispatch({ type: 'clear-all' }),
-    }));
+    const updaters = useMemo<BenchmarkContextUpdaters>(
+        () => ({
+            add: (result) => dispatch({ type: 'add', result }),
+            clear: (benchmarkType, componentName) => dispatch({ type: 'clear', benchmarkType, componentName }),
+            clearAll: () => dispatch({ type: 'clear-all' }),
+        }),
+        [dispatch],
+    );
 
     return (
         <BenchmarkContextUpdater.Provider value={updaters}>

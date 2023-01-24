@@ -1,6 +1,5 @@
-import { useConst } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
-import { createContext } from 'react';
+import { createContext, useMemo } from 'react';
 import { useImmerReducer } from 'use-immer';
 
 import { reducer } from './reducer';
@@ -20,10 +19,13 @@ export const RenderContextUpdater = createContext<RenderContextUpdaters>({
 export const RenderProvider: React.FC = ({ children }) => {
     const [context, dispatch] = useImmerReducer(reducer, initialState);
 
-    const updaters = useConst<RenderContextUpdaters>(() => ({
-        forceUpdate: () => dispatch({ type: 'forceUpdate' }),
-        select: (select) => dispatch({ type: 'select', select }),
-    }));
+    const updaters = useMemo<RenderContextUpdaters>(
+        () => ({
+            forceUpdate: () => dispatch({ type: 'forceUpdate' }),
+            select: (select) => dispatch({ type: 'select', select }),
+        }),
+        [dispatch],
+    );
 
     return (
         <RenderContextUpdater.Provider value={updaters}>
