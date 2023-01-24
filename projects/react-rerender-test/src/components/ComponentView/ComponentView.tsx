@@ -27,6 +27,7 @@ const ComponentTag: React.FC<ComponentTagProps> = ({ type }) => {
                 </Tag>
             );
 
+        /* istanbul ignore next */
         default:
             never = type;
             return never;

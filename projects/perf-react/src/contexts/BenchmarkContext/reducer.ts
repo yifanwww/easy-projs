@@ -72,6 +72,7 @@ export const reducer: ImmerReducer<BenchmarkContextState, ReducerAction> = (stat
             for (const name in state.update) benchmarkResultAdapter.removeAll(state.update[name as ComponentName]);
             break;
 
+        /* istanbul ignore next */
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = action;

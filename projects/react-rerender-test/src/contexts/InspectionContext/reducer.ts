@@ -57,6 +57,7 @@ export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction
             break;
         }
 
+        /* istanbul ignore next */
         default:
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             never = action;
