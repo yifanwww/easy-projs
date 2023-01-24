@@ -772,6 +772,51 @@ importers:
       rimraf: 3.0.2
       typescript: 4.8.3
 
+  projects/react-canvas-resize:
+    specifiers:
+      '@easy-config/eslint-config': workspace:*
+      '@easy-config/global-types': workspace:*
+      '@easy-config/scripts': workspace:*
+      '@easy-config/stylelint-config': workspace:*
+      '@easy-config/tsconfigs': workspace:*
+      '@easy-pkg/utils-react-router': workspace:*
+      '@easy-pkg/utils-type': workspace:*
+      '@types/jest': ^29.2.3
+      '@types/react': ^17.0.50
+      '@types/react-dom': ^17.0.17
+      eslint: ^8.24.0
+      lint-staged: ^13.0.3
+      prettier: 2.8.0
+      react: ^17.0.2
+      react-dom: ^17.0.2
+      react-router: ^6.4.1
+      react-router-dom: ^6.4.1
+      rimraf: ^3.0.2
+      stylelint: ^14.12.1
+      typescript: 4.8.3
+    dependencies:
+      '@easy-pkg/utils-react-router': link:../../packages/utils-react-router
+      '@easy-pkg/utils-type': link:../../packages/utils-type
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-router: 6.4.1_react@17.0.2
+      react-router-dom: 6.4.1_sfoxds7t5ydpegc3knd667wn6m
+    devDependencies:
+      '@easy-config/eslint-config': link:../../configs/eslint-config
+      '@easy-config/global-types': link:../../configs/global-types
+      '@easy-config/scripts': link:../../configs/scripts
+      '@easy-config/stylelint-config': link:../../configs/stylelint-config
+      '@easy-config/tsconfigs': link:../../configs/tsconfigs
+      '@types/jest': 29.2.3
+      '@types/react': 17.0.50
+      '@types/react-dom': 17.0.17
+      eslint: 8.24.0
+      lint-staged: 13.0.3
+      prettier: 2.8.0
+      rimraf: 3.0.2
+      stylelint: 14.12.1
+      typescript: 4.8.3
+
   projects/react-rerender-test:
     specifiers:
       '@ant-design/icons': ^4.7.0
