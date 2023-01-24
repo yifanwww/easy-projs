@@ -1,3 +1,4 @@
+import type { ClientAreaSize } from '@easy-pkg/utils-react';
 import type { ReduxReducer as InternalReduxReducer } from '@easy-pkg/utils-redux';
 
 interface DisplayConfig {

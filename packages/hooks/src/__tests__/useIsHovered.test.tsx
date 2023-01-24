@@ -1,3 +1,4 @@
+import type { Optional } from '@easy-pkg/utils-type';
 import { fireEvent, render } from '@testing-library/react';
 import { useRef } from 'react';
 

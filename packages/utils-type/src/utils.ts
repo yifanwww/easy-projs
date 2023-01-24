@@ -1,3 +1,26 @@
+import type { UnknownFn } from './function';
+
+export type Optional<T> = T | null;
+
+export type ValueOf<T> = T[keyof T];
+
+export type LooseArray<T> = T | readonly T[];
+
+/**
+ * Pick the non-nullable type of a certain property of interface `P`.
+ *
+ * Example:
+ *
+ * ```ts
+ * interface Props { a: boolean; b?: string }
+ * ```
+ * The result of `PickProp<Props, 'a'>` is `boolean`,
+ * the result of `PickProp<Props, 'b'>` is not `string | undefined` but `string`.
+ */
+export type PickProp<P, K extends keyof P> = NonNullable<P[K]>;
+
+export type VoidReturn<T extends UnknownFn> = (...args: Parameters<T>) => void;
+
 /**
  * T must contains all the properties of U.
  *

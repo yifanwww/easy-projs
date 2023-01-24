@@ -1,3 +1,4 @@
+import type { LooseArray, Optional } from '@easy-pkg/utils-type';
 import { useRef } from 'react';
 
 import type { InspectedFC, InspectedFCType } from 'src/common/inspection';

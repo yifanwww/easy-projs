@@ -35,6 +35,7 @@
         "@easy-pkg/utils": "workspace:*",
         "@easy-pkg/utils-react": "workspace:*",
         "@easy-pkg/utils-react-router": "workspace:*",
+        "@easy-pkg/utils-type": "workspace:*",
         "antd": "^4.23.2",
         "clsx": "^1.2.1",
         "immer": "^9.0.15",

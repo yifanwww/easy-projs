@@ -1,3 +1,4 @@
+import type { PickProp } from '@easy-pkg/utils-type';
 import type {
     IButtonProps,
     ICheckboxProps,

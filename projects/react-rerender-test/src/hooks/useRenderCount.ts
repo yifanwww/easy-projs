@@ -1,3 +1,4 @@
+import type { Integer } from '@easy-pkg/utils-type';
 import { useRef } from 'react';
 
 export function useRenderCount(): Integer {

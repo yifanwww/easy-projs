@@ -1,4 +1,5 @@
 import type { ImmerReducer } from '@easy-pkg/utils-react';
+import type { Integer } from '@easy-pkg/utils-type';
 
 import type { RenderContextState } from './types';
 

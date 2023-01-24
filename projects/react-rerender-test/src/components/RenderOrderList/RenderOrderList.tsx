@@ -1,3 +1,4 @@
+import type { PickProp } from '@easy-pkg/utils-type';
 import { List } from 'antd';
 import type { ListProps } from 'antd';
 import { useContext } from 'react';

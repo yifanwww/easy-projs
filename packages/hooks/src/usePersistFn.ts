@@ -1,3 +1,4 @@
+import type { UnknownFn } from '@easy-pkg/utils-type';
 import { useRef } from 'react';
 
 interface PersistFnRef<T> {

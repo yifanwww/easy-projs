@@ -1,3 +1,5 @@
+import type { Optional } from '@easy-pkg/utils-type';
+
 export type RenderFn<P> = (
     props: P,
     defaultRender: (props: P) => Optional<React.ReactElement>,

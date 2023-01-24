@@ -1,3 +1,5 @@
+import type { Optional } from '@easy-pkg/utils-type';
+
 export interface InspectionNode {
     index: number;
     children?: InspectionNode[];

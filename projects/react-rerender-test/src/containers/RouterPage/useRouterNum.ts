@@ -1,3 +1,4 @@
+import type { Optional } from '@easy-pkg/utils-type';
 import { useMatch } from 'react-router';
 
 import { RoutePath } from 'src/routes';

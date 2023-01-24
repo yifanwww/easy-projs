@@ -1,3 +1,5 @@
+import type { Optional } from '@easy-pkg/utils-type';
+
 import type { InspectionData, InspectionTree } from 'src/common/inspection';
 
 export interface InspectionContextState {
