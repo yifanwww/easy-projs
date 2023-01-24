@@ -1,5 +1,5 @@
-import type { ImmerReducer } from '@easy-pkg/utils-react';
 import produce from 'immer';
+import type { ImmerReducer } from 'use-immer';
 
 import type { InspectionData } from 'src/common/inspection';
 

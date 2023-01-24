@@ -1,5 +1,5 @@
-import type { ImmerReducer } from '@easy-pkg/utils-react';
 import type { Draft } from 'immer';
+import type { ImmerReducer } from 'use-immer';
 
 import type { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/common/benchmark';
 

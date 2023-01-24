@@ -712,6 +712,7 @@ importers:
       rimraf: ^3.0.2
       stylelint: ^14.12.1
       typescript: 4.8.3
+      use-immer: ^0.8.1
     dependencies:
       '@easy-pkg/hooks': link:../../packages/hooks
       '@easy-pkg/utils': link:../../packages/utils
@@ -729,6 +730,7 @@ importers:
       react-dom: 17.0.2_react@17.0.2
       react-router: 6.4.1_react@17.0.2
       react-router-dom: 6.4.1_sfoxds7t5ydpegc3knd667wn6m
+      use-immer: 0.8.1_immer@9.0.15+react@17.0.2
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
@@ -801,6 +803,7 @@ importers:
       rimraf: ^3.0.2
       stylelint: ^14.12.1
       typescript: 4.8.3
+      use-immer: ^0.8.1
     dependencies:
       '@ant-design/icons': 4.7.0_sfoxds7t5ydpegc3knd667wn6m
       '@easy-pkg/hooks': link:../../packages/hooks
@@ -816,6 +819,7 @@ importers:
       react-dom: 17.0.2_react@17.0.2
       react-router: 6.4.1_react@17.0.2
       react-router-dom: 6.4.1_sfoxds7t5ydpegc3knd667wn6m
+      use-immer: 0.8.1_immer@9.0.15+react@17.0.2
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
@@ -883,7 +887,7 @@ importers:
       react-redux: 8.0.4_wwhe23kdoifxkyhsv4sd73qu4q
       react-router: 6.4.1_react@17.0.2
       react-router-dom: 6.4.1_sfoxds7t5ydpegc3knd667wn6m
-      web-vitals: 3.0.2
+      web-vitals: 3.1.1
     devDependencies:
       '@easy-config/eslint-config': link:../../configs/eslint-config
       '@easy-config/global-types': link:../../configs/global-types
@@ -13945,6 +13949,16 @@ packages:
       requires-port: 1.0.0
     dev: false
 
+  /use-immer/0.8.1_immer@9.0.15+react@17.0.2:
+    resolution: {integrity: sha512-OfTFf1pL+ICjjcLPn9+ZnaJO/Yg4MBzYZtACEe2mZ/W2A5col28PNUnwowOAaBuOogACOK/37TU17KgsIhUpOw==}
+    peerDependencies:
+      immer: '>=2.0.0'
+      react: ^16.8.0 || ^17.0.1 || ^18.0.0
+    dependencies:
+      immer: 9.0.15
+      react: 17.0.2
+    dev: false
+
   /use-sync-external-store/1.2.0_react@17.0.2:
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
     peerDependencies:
@@ -14026,8 +14040,8 @@ packages:
       minimalistic-assert: 1.0.1
     dev: true
 
-  /web-vitals/3.0.2:
-    resolution: {integrity: sha512-YygzeCdGpNrCHIjW14AI4SxMX2IcONhDvwhHc9KswCIixfSeVl08WdKDfzZaypq2ynRIG3lzGO3CO5dXYzc9+w==}
+  /web-vitals/3.1.1:
+    resolution: {integrity: sha512-qvllU+ZeQChqzBhZ1oyXmWsjJ8a2jHYpH8AMaVuf29yscOPZfTQTjQFRX6+eADTdsDE8IanOZ0cetweHMs8/2A==}
     dev: false
 
   /webidl-conversions/4.0.2:

@@ -1,7 +1,7 @@
 import { useConst } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
-import { useImmerReducer } from '@easy-pkg/utils-react';
 import { createContext } from 'react';
+import { useImmerReducer } from 'use-immer';
 
 import { benchmarkResultAdapter } from './adapters';
 import { reducer } from './reducer';
