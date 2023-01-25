@@ -1,21 +1,38 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import css from './styles.module.scss';
 
 const HomePage: React.FC = () => {
-    const divRef1 = useRef<HTMLDivElement>(null);
-    const divRef2 = useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLCanvasElement>(null);
 
-    const canvasRef1 = useRef<HTMLCanvasElement>(null);
-    const canvasRef2 = useRef<HTMLCanvasElement>(null);
+    useEffect(() => {
+        const canvas = ref.current;
+
+        const observer = new ResizeObserver(() => {
+            if (canvas) {
+                canvas.width = canvas.clientWidth;
+                canvas.height = canvas.clientHeight;
+
+                // eslint-disable-next-line no-console
+                console.info(
+                    { width: canvas?.width, height: canvas?.height },
+                    { clientWidth: canvas?.clientWidth, clientHeight: canvas?.clientHeight },
+                );
+            }
+        });
+        if (canvas) {
+            observer.observe(canvas);
+        }
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
 
     return (
         <div className={css.page}>
-            <div ref={divRef1} className={css['canvas-container']}>
-                <canvas ref={canvasRef1} className={css.canvas} />
-            </div>
-            <div ref={divRef2} className={css['canvas-container']}>
-                <canvas ref={canvasRef2} className={css.canvas} />
+            <div className={css['canvas-container']}>
+                <canvas ref={ref} className={css.canvas} />
             </div>
         </div>
     );
