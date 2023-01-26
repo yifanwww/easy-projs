@@ -1,7 +1,7 @@
-export function abstractFn() {
+export function abstractFn(): never {
     throw new Error('Not Implemented');
 }
 
-export function abstractAsyncFn() {
+export function abstractAsyncFn(): Promise<never> {
     return Promise.reject(new Error('Not Implemented'));
 }
