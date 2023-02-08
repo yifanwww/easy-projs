@@ -4,7 +4,7 @@ import { InspectionProvider } from 'src/contexts/InspectionContext';
 import { RenderProvider } from 'src/contexts/RenderContext';
 
 import { Note } from '../Note';
-import { RenderList } from '../RenderOrderList';
+import { RenderOrderList } from '../RenderOrderList';
 
 import css from './TestPage.module.scss';
 
@@ -25,7 +25,7 @@ export const TestPage: React.FC<TestPageProps> = ({ children, onRenderController
                     </div>
                     <Note />
                 </div>
-                <RenderList />
+                <RenderOrderList />
             </InspectionProvider>
         </Layout.Content>
     );

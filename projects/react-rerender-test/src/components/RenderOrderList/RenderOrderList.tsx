@@ -1,6 +1,7 @@
 import type { PickProp } from '@easy-pkg/utils-type';
 import { List } from 'antd';
 import type { ListProps } from 'antd';
+import Scrollbars from 'rc-scrollbars';
 import { useContext } from 'react';
 
 import type { InspectionData } from 'src/common/inspection';
@@ -10,7 +11,7 @@ import { GroupSelector } from './GroupSelector';
 
 import css from './RenderOrderList.module.scss';
 
-export function RenderList() {
+export function RenderOrderList() {
     const { data, groups, selectedGroup } = useContext(InspectionContext);
     const { toggleGroup } = useContext(InspectionContextUpdater);
 
@@ -29,12 +30,14 @@ export function RenderList() {
                     <GroupSelector group={selectedGroup!} toggleNext={toggleNext} togglePrev={togglePrev} />
                 )}
             </div>
-            <List
-                className={css.list}
-                dataSource={selectedGroup ? data[selectedGroup].records : undefined}
-                renderItem={renderItem}
-                size="small"
-            />
+            <Scrollbars>
+                <List
+                    className={css.list}
+                    dataSource={selectedGroup ? data[selectedGroup].records : undefined}
+                    renderItem={renderItem}
+                    size="small"
+                />
+            </Scrollbars>
         </div>
     );
 }
