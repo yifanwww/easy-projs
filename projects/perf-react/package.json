@@ -29,6 +29,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
+        "@ant-design/icons": "^4.7.0",
         "@easy-pkg/hooks": "workspace:*",
         "@easy-pkg/utils": "workspace:*",
         "@easy-pkg/utils-react": "workspace:*",
