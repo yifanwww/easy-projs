@@ -1,26 +1,23 @@
 import { Layout, Menu } from 'antd';
-import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import { RoutePath } from 'src/routes';
+import type { SiderConfig } from './configs';
 
-import { siders } from './sider';
+import css from './styles.module.scss';
 
-import css from './Page.module.scss';
-
-export function PageSidebar() {
-    let pagePath = useLocation().pathname;
-    if (pagePath.startsWith(RoutePath.ROUTE)) pagePath = RoutePath.ROUTE;
-
-    return (
-        <Layout.Sider className={css.sider}>
-            <Menu className={css.siderMenu} mode="inline" selectedKeys={[pagePath]}>
-                {siders.map((sider) => (
-                    <Menu.Item key={sider.path}>
-                        <Link to={sider.path}>{sider.title}</Link>
-                    </Menu.Item>
-                ))}
-            </Menu>
-        </Layout.Sider>
-    );
+export interface PageSidebarProps {
+    configs: SiderConfig[];
+    page: string;
 }
+
+export const PageSidebar: React.FC<PageSidebarProps> = ({ configs, page }) => (
+    <Layout.Sider className={css.sider}>
+        <Menu className={css.siderMenu} mode="inline" selectedKeys={[page]}>
+            {configs.map((sider) => (
+                <Menu.Item key={sider.path}>
+                    <Link to={sider.path}>{sider.title}</Link>
+                </Menu.Item>
+            ))}
+        </Menu>
+    </Layout.Sider>
+);
