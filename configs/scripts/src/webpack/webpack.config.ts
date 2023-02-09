@@ -86,6 +86,16 @@ function overridePathsConfigs(_paths: CRAPaths): CRAPaths {
  * Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/webpack.config.js
  */
 function overrideWebpackConfigs(webpack: Configuration): Configuration {
+    // @ts-ignore
+    webpack.module.rules[1].oneOf[3].options.presets.push([
+        '@babel/preset-typescript',
+        {
+            // Can omit this setting when babel is upgrade above v8
+            // https://github.com/babel/babel/issues/10746
+            allowDeclareFields: true,
+        },
+    ]);
+
     return webpack;
 }
 
