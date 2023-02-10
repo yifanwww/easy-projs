@@ -27,6 +27,8 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-full": "unit-test",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
@@ -37,6 +39,7 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
+        "@types/jest": "^29.2.3",
         "concurrently": "^7.4.0",
         "eslint": "^8.24.0",
         "lint-staged": "^13.0.3",
