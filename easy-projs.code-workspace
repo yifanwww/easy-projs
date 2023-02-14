@@ -150,10 +150,6 @@
             "path": "packages/utils"
         },
         {
-            "name": "@easy-pkg/utils-fluentui",
-            "path": "packages/utils-fluentui"
-        },
-        {
             "name": "@easy-pkg/utils-react",
             "path": "packages/utils-react"
         },

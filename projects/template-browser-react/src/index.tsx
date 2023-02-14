@@ -1,5 +1,3 @@
-import { FluentuiProvider } from '@easy-pkg/utils-fluentui';
-import { initializeIcons } from '@fluentui/react';
 import { StrictMode, Suspense, useEffect } from 'react';
 import { render } from 'react-dom';
 import { Provider as ReduxProvider } from 'react-redux';
@@ -42,16 +40,12 @@ const App: React.FC = () => {
 };
 
 const GlobalProviders: React.FC = (props) => (
-    <FluentuiProvider>
-        <ReduxProvider store={reduxStore}>
-            <BrowserRouter basename="/template-browser-react">{props.children}</BrowserRouter>
-        </ReduxProvider>
-    </FluentuiProvider>
+    <ReduxProvider store={reduxStore}>
+        <BrowserRouter basename="/template-browser-react">{props.children}</BrowserRouter>
+    </ReduxProvider>
 );
 
 function main(): void {
-    initializeIcons();
-
     render(
         <StrictMode>
             <GlobalProviders>
