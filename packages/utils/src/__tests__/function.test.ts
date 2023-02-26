@@ -8,6 +8,6 @@ describe(`Test fn ${abstractFn.name}`, () => {
 
 describe(`Test fn ${abstractAsyncFn.name}`, () => {
     it('should throw an error', () => {
-        expect(() => abstractAsyncFn()).rejects.toThrow('Not Implemented');
+        void expect((): Promise<never> => abstractAsyncFn()).rejects.toThrow('Not Implemented');
     });
 });

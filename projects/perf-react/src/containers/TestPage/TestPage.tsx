@@ -67,7 +67,7 @@ const TestPage: React.FC = () => {
 
     const copyResults = () => {
         copy(JSON.stringify(totalResults));
-        message.info('Copy to clibboard successfully');
+        void message.info('Copy to clibboard successfully');
     };
 
     const totalCount = benchmarkResultSelector.selectTotal(totalResults);
