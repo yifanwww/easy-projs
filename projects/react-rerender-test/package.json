@@ -15,7 +15,7 @@
         "directory": "projects/react-rerender-test"
     },
     "browserslist": [
-        "last 9 chrome versions"
+        "> 0.5% and last 9 versions"
     ],
     "scripts": {
         "build": "react-proj build",
