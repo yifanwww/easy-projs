@@ -1,0 +1,52 @@
+{
+    "name": "@easy-pkg/utils-antd",
+    "version": "0.1.0",
+    "description": "A package that contains React utilities.",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/utils-antd"
+    },
+    "scripts": {
+        "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
+        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf lib tsconfigs/*.tsbuildinfo",
+        "dev": "pnpm run build:esm --watch",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-full": "unit-test",
+        "typecheck": "tsc --project tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "antd": "^4.23.2",
+        "rc-select": "^14.1.13",
+        "react": "^17.0.2"
+    },
+    "devDependencies": {
+        "@easy-config/eslint-config": "workspace:*",
+        "@easy-config/global-types": "workspace:*",
+        "@easy-config/scripts": "workspace:*",
+        "@easy-config/tsconfigs": "workspace:*",
+        "@types/react": "^17.0.50",
+        "@types/jest": "^29.2.3",
+        "concurrently": "^7.4.0",
+        "eslint": "^8.24.0",
+        "lint-staged": "^13.0.3",
+        "prettier": "2.8.0",
+        "rimraf": "^3.0.2",
+        "typescript": "5.1.3"
+    }
+}
