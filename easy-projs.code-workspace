@@ -150,6 +150,10 @@
             "path": "packages/utils"
         },
         {
+            "name": "@easy-pkg/utils-antd",
+            "path": "packages/utils-antd"
+        },
+        {
             "name": "@easy-pkg/utils-react",
             "path": "packages/utils-react"
         },
