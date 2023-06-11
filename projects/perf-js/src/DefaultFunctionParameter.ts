@@ -1,6 +1,7 @@
 import { Arguments, BenchmarkJob } from 'benchmark-node';
 
 function es5default(options?: string) {
+    // eslint-disable-next-line no-param-reassign
     options || (options = 'hello world');
     return options;
 }

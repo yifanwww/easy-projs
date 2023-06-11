@@ -6,32 +6,34 @@ import type { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/common/
 import { benchmarkResultAdapter, benchmarkResultSelector } from './adapters';
 import type { BenchmarkContextState, GroupBenchmarkResults } from './types';
 
-function calculateAverageStats(state: Draft<BenchmarkContextState>): void {
-    function _calculate(group: GroupBenchmarkResults, name: ComponentName): void {
-        const total = benchmarkResultSelector.selectAll(group[name]).reduce((prev, curr) => prev + curr.stats.mean, 0);
-        group.average[name] = total / benchmarkResultSelector.selectTotal(group[name]);
+function calculateAverageStats(draft: Draft<BenchmarkContextState>): void {
+    function _calculate(draftGroup: GroupBenchmarkResults, name: ComponentName): void {
+        const total = benchmarkResultSelector
+            .selectAll(draftGroup[name])
+            .reduce((prev, curr) => prev + curr.stats.mean, 0);
+        draftGroup.average[name] = total / benchmarkResultSelector.selectTotal(draftGroup[name]);
     }
 
-    _calculate(state.mount, 'noHooks');
-    _calculate(state.mount, 'useCallback');
-    _calculate(state.mount, 'useMemo');
-    _calculate(state.mount, 'useReducer');
-    _calculate(state.mount, 'useRef');
-    _calculate(state.mount, 'useState');
+    _calculate(draft.mount, 'noHooks');
+    _calculate(draft.mount, 'useCallback');
+    _calculate(draft.mount, 'useMemo');
+    _calculate(draft.mount, 'useReducer');
+    _calculate(draft.mount, 'useRef');
+    _calculate(draft.mount, 'useState');
 
-    _calculate(state.unmount, 'noHooks');
-    _calculate(state.unmount, 'useCallback');
-    _calculate(state.unmount, 'useMemo');
-    _calculate(state.unmount, 'useReducer');
-    _calculate(state.unmount, 'useRef');
-    _calculate(state.unmount, 'useState');
+    _calculate(draft.unmount, 'noHooks');
+    _calculate(draft.unmount, 'useCallback');
+    _calculate(draft.unmount, 'useMemo');
+    _calculate(draft.unmount, 'useReducer');
+    _calculate(draft.unmount, 'useRef');
+    _calculate(draft.unmount, 'useState');
 
-    _calculate(state.update, 'noHooks');
-    _calculate(state.update, 'useCallback');
-    _calculate(state.update, 'useMemo');
-    _calculate(state.update, 'useReducer');
-    _calculate(state.update, 'useRef');
-    _calculate(state.update, 'useState');
+    _calculate(draft.update, 'noHooks');
+    _calculate(draft.update, 'useCallback');
+    _calculate(draft.update, 'useMemo');
+    _calculate(draft.update, 'useReducer');
+    _calculate(draft.update, 'useRef');
+    _calculate(draft.update, 'useState');
 }
 
 type ReducerAction =
@@ -39,14 +41,14 @@ type ReducerAction =
     | { type: 'clear'; benchmarkType: BenchmarkTypes; componentName: ComponentName }
     | { type: 'clear-all' };
 
-export const reducer: ImmerReducer<BenchmarkContextState, ReducerAction> = (state, action) => {
+export const reducer: ImmerReducer<BenchmarkContextState, ReducerAction> = (draft, action) => {
     let never: never;
     switch (action.type) {
         case 'add': {
             const { result } = action;
 
-            benchmarkResultAdapter.addOne(state.totalResults, result);
-            benchmarkResultAdapter.addOne(state[result.type][result.name], result);
+            benchmarkResultAdapter.addOne(draft.totalResults, result);
+            benchmarkResultAdapter.addOne(draft[result.type][result.name], result);
 
             break;
         }
@@ -54,22 +56,22 @@ export const reducer: ImmerReducer<BenchmarkContextState, ReducerAction> = (stat
         case 'clear': {
             const { benchmarkType, componentName } = action;
 
-            const selectIds = benchmarkResultSelector.selectIds(state.totalResults).filter((id) => {
-                const result = benchmarkResultSelector.selectById(state.totalResults, id)!;
+            const selectIds = benchmarkResultSelector.selectIds(draft.totalResults).filter((id) => {
+                const result = benchmarkResultSelector.selectById(draft.totalResults, id)!;
                 return result.name === componentName && result.type === benchmarkType;
             });
 
-            benchmarkResultAdapter.removeMany(state.totalResults, selectIds);
-            benchmarkResultAdapter.removeAll(state[benchmarkType][componentName]);
+            benchmarkResultAdapter.removeMany(draft.totalResults, selectIds);
+            benchmarkResultAdapter.removeAll(draft[benchmarkType][componentName]);
 
             break;
         }
 
         case 'clear-all':
-            benchmarkResultAdapter.removeAll(state.totalResults);
-            for (const name in state.mount) benchmarkResultAdapter.removeAll(state.mount[name as ComponentName]);
-            for (const name in state.unmount) benchmarkResultAdapter.removeAll(state.unmount[name as ComponentName]);
-            for (const name in state.update) benchmarkResultAdapter.removeAll(state.update[name as ComponentName]);
+            benchmarkResultAdapter.removeAll(draft.totalResults);
+            for (const name in draft.mount) benchmarkResultAdapter.removeAll(draft.mount[name as ComponentName]);
+            for (const name in draft.unmount) benchmarkResultAdapter.removeAll(draft.unmount[name as ComponentName]);
+            for (const name in draft.update) benchmarkResultAdapter.removeAll(draft.update[name as ComponentName]);
             break;
 
         /* istanbul ignore next */
@@ -78,5 +80,5 @@ export const reducer: ImmerReducer<BenchmarkContextState, ReducerAction> = (stat
             never = action;
     }
 
-    calculateAverageStats(state);
+    calculateAverageStats(draft);
 };
