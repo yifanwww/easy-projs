@@ -25,22 +25,27 @@ export function buildReact(): void {
     }
 
     const command = genCommand(
-        'react-app-rewired',
-        flag === 'dev' ? 'start' : 'build',
-        '--config-overrides',
-        paths.reactWebpackConfig,
-        flag === 'build-profile' && '--profile',
+        'webpack',
+        flag === 'dev' ? 'serve' : 'build',
+        flag === 'dev' ? '--mode development' : '--mode production',
+        `--config ${paths.reactWebpackConfig}`,
+        flag === 'build-profile' && '--env profiling',
     );
 
+    const env = {
+        ...process.env,
+        BABEL_ENV: flag === 'dev' ? 'development' : 'production',
+        NODE_ENV: flag === 'dev' ? 'development' : 'production',
+    };
+
     console.info(chalk.yellow(command));
-    child.execSync(command, { stdio: 'inherit' });
+    child.execSync(command, { env, stdio: 'inherit' });
 }
 
 export function unitTest(watch: boolean): void {
     const argv = process.argv.slice(2);
 
     const command = genCommand('jest', '--config', paths.jestConfig, watch ? '--watch' : '--coverage', ...argv);
-    // console.log(command);
 
     const env = {
         ...process.env,
