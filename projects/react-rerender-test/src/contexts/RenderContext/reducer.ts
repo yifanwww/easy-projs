@@ -5,15 +5,15 @@ import type { RenderContextState } from './types';
 
 type RenderAction = { type: 'forceUpdate' } | { type: 'select'; select: Integer };
 
-export const reducer: ImmerReducer<RenderContextState, RenderAction> = (state, action) => {
+export const reducer: ImmerReducer<RenderContextState, RenderAction> = (draft, action) => {
     let never: never;
     switch (action.type) {
         case 'forceUpdate':
-            state.forceUpdateNumber++;
+            draft.forceUpdateNumber++;
             break;
 
         case 'select':
-            state.selected = action.select;
+            draft.selected = action.select;
             break;
 
         /* istanbul ignore next */

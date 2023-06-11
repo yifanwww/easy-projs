@@ -2,6 +2,8 @@
  * Modified from https://github.com/reduxjs/redux-toolkit/tree/v1.8.0/packages/toolkit/src/entities
  */
 
+/* eslint-disable no-param-reassign */
+
 export type IsAny<T, True, False = never> = true | false extends (T extends never ? true : false) ? True : False;
 export type PreventAny<State, Entity, Id extends EntityId> = IsAny<State, EntityState<Entity, Id>, State>;
 

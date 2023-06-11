@@ -10,12 +10,12 @@ export type ReducerAction =
     | { type: 'register-group'; index: number; group: string }
     | { type: 'toggle-group'; toggle: 'prev' | 'next' };
 
-export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction>>((state, action) => {
+export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction>>((draft, action) => {
     let never: never;
     switch (action.type) {
         case 'add-record': {
             const { groupIndex, record } = action;
-            const { data, groups } = state;
+            const { data, groups } = draft;
 
             data[groups[groupIndex]].records.push(record);
 
@@ -24,7 +24,7 @@ export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction
 
         case 'register-group': {
             const { group, index } = action;
-            const { data, groups } = state;
+            const { data, groups } = draft;
 
             if (data[group] === undefined) {
                 groups.push(group);
@@ -34,8 +34,8 @@ export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction
                 };
             }
 
-            if (groups.length > 0 && state.selectedGroup === null) {
-                state.selectedGroup = groups[0];
+            if (groups.length > 0 && draft.selectedGroup === null) {
+                draft.selectedGroup = groups[0];
             }
 
             break;
@@ -43,15 +43,15 @@ export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction
 
         case 'toggle-group': {
             const { toggle } = action;
-            const { groups } = state;
+            const { groups } = draft;
 
-            if (!state.selectedGroup) break;
+            if (!draft.selectedGroup) break;
 
-            const index = groups.indexOf(state.selectedGroup);
+            const index = groups.indexOf(draft.selectedGroup);
             if (toggle === 'next') {
-                state.selectedGroup = groups[(index + 1) % groups.length];
+                draft.selectedGroup = groups[(index + 1) % groups.length];
             } else {
-                state.selectedGroup = groups[(index + groups.length - 1) % groups.length];
+                draft.selectedGroup = groups[(index + groups.length - 1) % groups.length];
             }
 
             break;
