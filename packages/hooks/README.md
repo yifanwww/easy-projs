@@ -6,9 +6,9 @@ React hooks for easy-projs.
 
 - `useBoolean`
 - `useConst`
-- `useConstFn`
 - `useCountdown`
 - `useDelayFn`
+- `useDialogBeforeUnload`
 - `useDoubleTrigger`
 - `useForceUpdate`
 - `useImmediateFocus`

@@ -1,6 +1,6 @@
-import { useConstFn, useForceUpdate } from '@easy-pkg/hooks';
+import { useForceUpdate } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
-import { createContext, useMemo, useRef } from 'react';
+import { createContext, useCallback, useMemo, useRef } from 'react';
 
 import { useDoubleRenderSign } from 'src/hooks/useDoubleRenderSign';
 
@@ -29,9 +29,9 @@ export const InspectionProvider: React.FC = ({ children }) => {
     const { sign } = useDoubleRenderSign();
     const forceUpdate = useForceUpdate();
 
-    const dispatch = useConstFn<React.Dispatch<ReducerAction>>((action) => {
+    const dispatch = useCallback<React.Dispatch<ReducerAction>>((action) => {
         ref.current = reduce(ref.current, action);
-    });
+    }, []);
 
     const updaters = useMemo<InspectionContextUpdaters>(
         () => ({

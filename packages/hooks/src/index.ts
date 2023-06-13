@@ -1,6 +1,5 @@
 export * from './useBoolean';
 export * from './useConst';
-export * from './useConstFn';
 export * from './useCountdown';
 export * from './useDelayFn';
 export * from './useDialogBeforeUnload';

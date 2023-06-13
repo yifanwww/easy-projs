@@ -1,5 +1,4 @@
-import { useConstFn } from '@easy-pkg/hooks';
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 
 import type { InspectionData } from 'src/common/inspection';
 
@@ -13,18 +12,18 @@ export function useDoubleRenderSign(): UseDoubleRenderSignActions {
         const ref = useRef<Record<string, boolean>>({});
 
         // eslint-disable-next-line react-hooks/rules-of-hooks
-        const sign = useConstFn((record: InspectionData): boolean => {
+        const sign = useCallback((record: InspectionData): boolean => {
             const key = JSON.stringify(record);
 
             ref.current[key] = ref.current[key] === undefined ? false : !ref.current[key];
 
             return ref.current[key];
-        });
+        }, []);
 
         return { sign };
     } else {
         // eslint-disable-next-line react-hooks/rules-of-hooks
-        const sign = useConstFn(() => true);
+        const sign = useCallback(() => true, []);
         return { sign };
     }
 }

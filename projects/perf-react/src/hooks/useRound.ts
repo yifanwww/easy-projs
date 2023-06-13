@@ -1,5 +1,4 @@
-import { useConstFn } from '@easy-pkg/hooks';
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 
 export interface UseRoundActions {
     decrease: () => void;
@@ -10,17 +9,17 @@ export interface UseRoundActions {
 export function useRound(): [boolean, UseRoundActions] {
     const round = useRef(0);
 
-    const decrease = useConstFn(() => {
+    const decrease = useCallback(() => {
         if (round.current > 0) {
             round.current--;
         }
-    });
+    }, []);
 
-    const get = useConstFn(() => round.current);
+    const get = useCallback(() => round.current, []);
 
-    const set = useConstFn((_round: number) => {
+    const set = useCallback((_round: number) => {
         round.current = _round;
-    });
+    }, []);
 
     return [round.current === 0, { decrease, get, set }];
 }

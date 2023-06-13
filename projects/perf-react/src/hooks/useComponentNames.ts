@@ -1,5 +1,5 @@
-import { useConstFn, usePersistFn } from '@easy-pkg/hooks';
-import { useState } from 'react';
+import { usePersistFn } from '@easy-pkg/hooks';
+import { useCallback, useState } from 'react';
 
 import type { ComponentName } from 'src/common/benchmark';
 import { componentNames } from 'src/components/tests';
@@ -28,7 +28,7 @@ export function useComponentNames(): [ComponentName, UseComponentKeysActions] {
         }
     });
 
-    const setComponentName = useConstFn((_key: ComponentName) => setName(_key));
+    const setComponentName = useCallback((_key: ComponentName) => setName(_key), []);
 
     return [name, { isLast, selectFirst, selectNext, setComponentName }];
 }
