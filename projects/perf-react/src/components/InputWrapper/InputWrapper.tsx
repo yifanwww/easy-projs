@@ -2,13 +2,13 @@ import clsx from 'clsx';
 
 import css from './InputWrapper.module.scss';
 
-export interface InputWrapperProps {
+interface InputWrapperProps {
     className?: string;
     flexAuto?: boolean;
     title?: string;
 }
 
-export const InputWrapper: React.FC<InputWrapperProps> = (props) => {
+export function InputWrapper(props: React.PropsWithChildren<InputWrapperProps>): JSX.Element {
     const { children, className, flexAuto, title } = props;
     return (
         <div className={clsx(css.root, flexAuto && css.auto, className)}>
@@ -16,4 +16,4 @@ export const InputWrapper: React.FC<InputWrapperProps> = (props) => {
             {children}
         </div>
     );
-};
+}

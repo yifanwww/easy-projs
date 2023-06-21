@@ -14,7 +14,7 @@ import css from './Charts.module.scss';
 
 type EChartsOption = echarts.ComposeOption<BarSeriesOption | GridComponentOption | TooltipComponentOption>;
 
-const BarChartPage: React.FC = () => {
+function BarChartPage(): JSX.Element {
     const ref = useRef<HTMLDivElement>(null);
 
     const { mount, unmount, update } = useContext(BenchmarkContext);
@@ -84,6 +84,6 @@ const BarChartPage: React.FC = () => {
             </div>
         </div>
     );
-};
+}
 
 export default BarChartPage;

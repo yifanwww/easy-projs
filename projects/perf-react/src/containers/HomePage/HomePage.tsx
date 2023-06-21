@@ -10,7 +10,7 @@ const overviews: PageOverviewInfo[] = [
     { title: 'Line Chart', url: RoutePath.LINE_CHART },
 ];
 
-const HomePage: React.FC = () => {
+export function HomePage(): JSX.Element {
     return (
         <div className={css.root}>
             <div className={css.content}>
@@ -19,6 +19,4 @@ const HomePage: React.FC = () => {
             </div>
         </div>
     );
-};
-
-export default HomePage;
+}

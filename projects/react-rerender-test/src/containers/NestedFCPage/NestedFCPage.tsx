@@ -37,7 +37,7 @@ const ParentPNC = makeInspectedFC('Parent', () => {
     );
 });
 
-const Controller: React.FC = () => {
+function Controller(): JSX.Element {
     const { forceUpdate } = useContext(RenderContextUpdater);
 
     return (
@@ -45,11 +45,11 @@ const Controller: React.FC = () => {
             Force Update
         </Button>
     );
-};
+}
 
 const renderController = () => <Controller />;
 
-const NestedFCPage: React.FC = () => {
+function NestedFCPage(): JSX.Element {
     return (
         <TestPage onRenderController={renderController}>
             <Inspector group="Nested FC">
@@ -60,6 +60,6 @@ const NestedFCPage: React.FC = () => {
             </Inspector>
         </TestPage>
     );
-};
+}
 
 export default NestedFCPage;

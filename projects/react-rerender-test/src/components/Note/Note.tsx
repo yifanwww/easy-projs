@@ -1,6 +1,6 @@
 import css from './Note.module.scss';
 
-export const Note: React.FC = () => {
+export function Note(): JSX.Element {
     return (
         <div className={css.root}>
             <span className={css.title}>Note</span>
@@ -10,4 +10,4 @@ export const Note: React.FC = () => {
             </div>
         </div>
     );
-};
+}

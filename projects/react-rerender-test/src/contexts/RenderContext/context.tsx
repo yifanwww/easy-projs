@@ -1,4 +1,5 @@
 import { abstractFn } from '@easy-pkg/utils';
+import type { ReactChildrenProps } from '@easy-pkg/utils-react';
 import { createContext, useMemo } from 'react';
 import { useImmerReducer } from 'use-immer';
 
@@ -16,7 +17,7 @@ export const RenderContextUpdater = createContext<RenderContextUpdaters>({
     select: abstractFn,
 });
 
-export const RenderProvider: React.FC = ({ children }) => {
+export function RenderProvider({ children }: ReactChildrenProps): JSX.Element {
     const [context, dispatch] = useImmerReducer(reducer, initialState);
 
     const updaters = useMemo<RenderContextUpdaters>(
@@ -32,4 +33,4 @@ export const RenderProvider: React.FC = ({ children }) => {
             <RenderContext.Provider value={context}>{children}</RenderContext.Provider>
         </RenderContextUpdater.Provider>
     );
-};
+}

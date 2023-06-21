@@ -5,7 +5,7 @@ import { RoutePath } from 'src/routes';
 
 import { useRouterNum } from './useRouterNum';
 
-export const Controller: React.FC = () => {
+export function Controller(): JSX.Element {
     const path = RoutePath.ROUTE_DETAIL;
 
     const navigate = useNavigate();
@@ -22,4 +22,4 @@ export const Controller: React.FC = () => {
             </Button>
         </div>
     );
-};
+}

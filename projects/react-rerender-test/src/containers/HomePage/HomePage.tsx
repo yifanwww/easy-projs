@@ -12,13 +12,13 @@ const overviews: PageOverviewInfo[] = [
     { title: 'Router', /*         */ url: RoutePath.ROUTE },
 ];
 
-const HomePage: React.FC = () => {
+function HomePage(): JSX.Element {
     return (
         <div className={css.root}>
             <div className={css.title}>React Rerender Test</div>
             <PageOverview overviews={overviews} />
         </div>
     );
-};
+}
 
 export default HomePage;

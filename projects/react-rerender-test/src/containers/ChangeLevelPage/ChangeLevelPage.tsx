@@ -41,7 +41,7 @@ const ParentPtc = makeInspectedFC('Parent', ({ children }) => {
 
 const renderController = () => <Controller />;
 
-const ChangeLevelPage: React.FC = () => {
+function ChangeLevelPage(): JSX.Element {
     return (
         <TestPage onRenderController={renderController}>
             <Inspector group="PRC">
@@ -54,6 +54,6 @@ const ChangeLevelPage: React.FC = () => {
             </Inspector>
         </TestPage>
     );
-};
+}
 
 export default ChangeLevelPage;

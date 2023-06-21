@@ -5,9 +5,9 @@ import type { PageOverviewInfo } from './types';
 
 import css from './PageOverview.module.scss';
 
-export interface PageOverviewItemProps extends PageOverviewInfo {}
+interface PageOverviewItemProps extends PageOverviewInfo {}
 
-export const PageOverviewItem: React.FC<PageOverviewItemProps> = ({ title, url }) => {
+export function PageOverviewItem({ title, url }: PageOverviewItemProps): JSX.Element {
     const navigate = useNavigate();
 
     return (
@@ -18,14 +18,14 @@ export const PageOverviewItem: React.FC<PageOverviewItemProps> = ({ title, url }
             <code className={css.url}>{url}</code>
         </Button>
     );
-};
+}
 
-export interface PageOverviewProps {
+interface PageOverviewProps {
     overviews: PageOverviewInfo[];
 }
 
-export const PageOverview: React.FC<PageOverviewProps> = ({ overviews }) => {
+export function PageOverview({ overviews }: PageOverviewProps): JSX.Element {
     const elements = overviews.map((overview) => <PageOverviewItem key={overview.url} {...overview} />);
 
     return <div className={css.root}>{elements}</div>;
-};
+}

@@ -1,3 +1,4 @@
+import type { ReactChildrenProps } from '@easy-pkg/utils-react';
 import { StrictMode, Suspense, useEffect } from 'react';
 import { render } from 'react-dom';
 import { Provider as ReduxProvider } from 'react-redux';
@@ -11,7 +12,7 @@ import { RoutePath, routes } from './routes';
 import './index.css';
 import css from './index.module.scss';
 
-const App: React.FC = () => {
+function App(): JSX.Element {
     const prepared = usePrepared();
     const { prepare } = useReduxDispatchingThunks();
 
@@ -37,13 +38,15 @@ const App: React.FC = () => {
             )}
         </div>
     );
-};
+}
 
-const GlobalProviders: React.FC = (props) => (
-    <ReduxProvider store={reduxStore}>
-        <BrowserRouter basename="/template-browser-react">{props.children}</BrowserRouter>
-    </ReduxProvider>
-);
+function GlobalProviders(props: ReactChildrenProps): JSX.Element {
+    return (
+        <ReduxProvider store={reduxStore}>
+            <BrowserRouter basename="/template-browser-react">{props.children}</BrowserRouter>
+        </ReduxProvider>
+    );
+}
 
 function main(): void {
     render(

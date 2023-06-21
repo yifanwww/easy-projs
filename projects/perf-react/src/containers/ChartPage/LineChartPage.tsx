@@ -15,7 +15,7 @@ import css from './Charts.module.scss';
 
 type EChartsOption = echarts.ComposeOption<GridComponentOption | LineSeriesOption>;
 
-const LineChartPage: React.FC = () => {
+function LineChartPage(): JSX.Element {
     const ref = useRef<HTMLDivElement>(null);
 
     const { mount, unmount, update } = useContext(BenchmarkContext);
@@ -85,6 +85,6 @@ const LineChartPage: React.FC = () => {
             </div>
         </div>
     );
-};
+}
 
 export default LineChartPage;

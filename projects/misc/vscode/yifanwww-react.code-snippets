@@ -12,9 +12,9 @@
     "TS React FC": {
         "prefix": "rfc",
         "body": [
-            "export const ${1:Component}: React.FC<${2:Props}> = (props) => {",
+            "export function ${1:Component}(props: ${2:Props}): JSX.Element {",
             "    return <div />;",
-            "};"
+            "}"
         ],
         "scope": "typescriptreact",
         "description": "Generate an empty React function component"
@@ -22,11 +22,11 @@
     "TS React FC With Interface": {
         "prefix": "rfci",
         "body": [
-            "export interface ${1:Component}Props {}",
+            "interface ${1:Component}Props {}",
             "",
-            "export const ${1:Component}: React.FC<${1:Component}Props> = (props) => {",
+            "export function ${1:Component}(props: ${1:Component}Props): JSX.Element {",
             "    return <div />;",
-            "};"
+            "}"
         ],
         "scope": "typescriptreact",
         "description": "Generate an empty React function component"
@@ -56,7 +56,7 @@
         "body": [
             "export interface ${1:Component}Ref {}",
             "",
-            "export interface ${1:Component}Props {}",
+            "interface ${1:Component}Props {}",
             "",
             "export const ${1:Component} = forwardRef<${1:Component}Ref, ${1:Component}Props>((props, ref) => {",
             "    return <div />;",
@@ -68,7 +68,7 @@
     "TS React Ref FC With Props Interface": {
         "prefix": "rrfcpi",
         "body": [
-            "export interface ${1:Component}Props {}",
+            "interface ${1:Component}Props {}",
             "",
             "export const ${1:Component} = forwardRef<${2:Ref}, ${1:Component}Props>((props, ref) => {",
             "    return <div />;",

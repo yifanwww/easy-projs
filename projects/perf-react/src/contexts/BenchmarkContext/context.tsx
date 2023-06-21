@@ -1,4 +1,5 @@
 import { abstractFn } from '@easy-pkg/utils';
+import type { ReactChildrenProps } from '@easy-pkg/utils-react';
 import { createContext, useMemo } from 'react';
 import { useImmerReducer } from 'use-immer';
 
@@ -45,7 +46,7 @@ export const BenchmarkContextUpdater = createContext<BenchmarkContextUpdaters>({
     clearAll: abstractFn,
 });
 
-export const BenchmarkProvider: React.FC = ({ children }) => {
+export function BenchmarkProvider({ children }: ReactChildrenProps): JSX.Element {
     const [context, dispatch] = useImmerReducer(reducer, initialState);
 
     const updaters = useMemo<BenchmarkContextUpdaters>(
@@ -62,4 +63,4 @@ export const BenchmarkProvider: React.FC = ({ children }) => {
             <BenchmarkContext.Provider value={context}>{children}</BenchmarkContext.Provider>
         </BenchmarkContextUpdater.Provider>
     );
-};
+}

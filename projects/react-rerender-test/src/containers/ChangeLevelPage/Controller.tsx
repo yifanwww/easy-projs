@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { RenderContext, RenderContextUpdater } from 'src/contexts/RenderContext';
 
-export const Controller: React.FC = () => {
+export function Controller(): JSX.Element {
     const { selected } = useContext(RenderContext);
     const { select } = useContext(RenderContextUpdater);
 
@@ -12,4 +12,4 @@ export const Controller: React.FC = () => {
             Change Level
         </Button>
     );
-};
+}

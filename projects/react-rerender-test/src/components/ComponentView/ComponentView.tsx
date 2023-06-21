@@ -9,7 +9,7 @@ interface ComponentTagProps {
     type: InspectedFCType;
 }
 
-const ComponentTag: React.FC<ComponentTagProps> = ({ type }) => {
+function ComponentTag({ type }: ComponentTagProps): JSX.Element | null {
     let never: never;
     switch (type) {
         case 'nil':
@@ -32,9 +32,9 @@ const ComponentTag: React.FC<ComponentTagProps> = ({ type }) => {
             never = type;
             return never;
     }
-};
+}
 
-export interface ComponentViewProps {
+interface ComponentViewProps {
     /**
      * Background color.
      */
@@ -44,7 +44,7 @@ export interface ComponentViewProps {
     type?: InspectedFCType;
 }
 
-export const ComponentView: React.FC<ComponentViewProps> = (props) => {
+export function ComponentView(props: React.PropsWithChildren<ComponentViewProps>): JSX.Element {
     const { children, color, desc, name, type = 'nil' } = props;
 
     const renderCount = useRenderCount();
@@ -63,4 +63,4 @@ export const ComponentView: React.FC<ComponentViewProps> = (props) => {
             {children}
         </div>
     );
-};
+}

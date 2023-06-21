@@ -39,7 +39,7 @@ function CorrectRoute() {
 
 const renderController = () => <Controller />;
 
-const RouterPage: React.FC = () => {
+function RouterPage(): JSX.Element {
     return (
         <TestPage onRenderController={renderController}>
             <Inspector group="PTC">
@@ -48,6 +48,6 @@ const RouterPage: React.FC = () => {
             <CorrectRoute />
         </TestPage>
     );
-};
+}
 
 export default RouterPage;

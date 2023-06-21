@@ -1,7 +1,7 @@
 import { Introduction } from 'src/components/Introduction';
 
-const HomePage: React.FC = () => {
+function HomePage(): JSX.Element {
     return <Introduction />;
-};
+}
 
 export default HomePage;

@@ -3,13 +3,13 @@ import { Button } from 'antd';
 
 import css from './GroupSelector.module.scss';
 
-export interface GroupSelectorProps {
+interface GroupSelectorProps {
     group: string;
     toggleNext?: () => void;
     togglePrev?: () => void;
 }
 
-export const GroupSelector: React.FC<GroupSelectorProps> = ({ group, toggleNext, togglePrev }) => {
+export function GroupSelector({ group, toggleNext, togglePrev }: GroupSelectorProps): JSX.Element {
     return (
         <div className={css.root}>
             <Button onClick={togglePrev}>
@@ -21,4 +21,4 @@ export const GroupSelector: React.FC<GroupSelectorProps> = ({ group, toggleNext,
             </Button>
         </div>
     );
-};
+}

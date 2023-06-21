@@ -8,11 +8,11 @@ import { RenderOrderList } from '../RenderOrderList';
 
 import css from './TestPage.module.scss';
 
-export interface TestPageProps {
+interface TestPageProps {
     onRenderController?: () => React.ReactNode;
 }
 
-export const TestPage: React.FC<TestPageProps> = ({ children, onRenderController }) => {
+export function TestPage({ children, onRenderController }: React.PropsWithChildren<TestPageProps>): JSX.Element {
     return (
         <Layout.Content className={css.root}>
             <InspectionProvider>
@@ -29,4 +29,4 @@ export const TestPage: React.FC<TestPageProps> = ({ children, onRenderController
             </InspectionProvider>
         </Layout.Content>
     );
-};
+}

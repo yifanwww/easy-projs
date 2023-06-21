@@ -9,9 +9,9 @@ export interface PageOverviewInfo {
     url: string;
 }
 
-export interface PageOverviewItemProps extends PageOverviewInfo {}
+interface PageOverviewItemProps extends PageOverviewInfo {}
 
-export const PageOverviewItem: React.FC<PageOverviewItemProps> = (props: PageOverviewItemProps) => {
+export function PageOverviewItem(props: PageOverviewItemProps): JSX.Element {
     const { title, url } = props;
 
     const navigate = useNavigate();
@@ -22,14 +22,14 @@ export const PageOverviewItem: React.FC<PageOverviewItemProps> = (props: PageOve
             <code className={css.url}>{url}</code>
         </Button>
     );
-};
+}
 
-export interface PageOverviewProps {
+interface PageOverviewProps {
     overviews: PageOverviewInfo[];
 }
 
-export const PageOverview: React.FC<PageOverviewProps> = ({ overviews }) => {
+export function PageOverview({ overviews }: PageOverviewProps): JSX.Element {
     const elements = overviews.map((overview) => <PageOverviewItem key={overview.url} {...overview} />);
 
     return <div className={css.root}>{elements}</div>;
-};
+}

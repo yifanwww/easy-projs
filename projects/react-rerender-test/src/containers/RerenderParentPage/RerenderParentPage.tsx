@@ -24,7 +24,7 @@ const ParentPtc = makeInspectedFC('Parent', ({ children }) => {
 
 const renderController = () => <Controller />;
 
-const RerenderParentPage: React.FC = () => {
+function RerenderParentPage(): JSX.Element {
     return (
         <TestPage onRenderController={renderController}>
             <Inspector group="PRC">
@@ -37,6 +37,6 @@ const RerenderParentPage: React.FC = () => {
             </Inspector>
         </TestPage>
     );
-};
+}
 
 export default RerenderParentPage;

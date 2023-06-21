@@ -35,13 +35,13 @@ Here is an example about how to use hook `useIsHovered`.
 ```tsx
 import { useIsHovered } from '@easy-pkg/hooks';
 
-export const Component: React.FC () => {
+export function Component(): JSX.Element {
     const ref = useRef<SubComponent>(null);
 
     const isHovered = useIsHovered(ref);
 
     return <SubComponent className={isHovered ? 'sub-component-hover' : 'sub-component'} ref={ref} />;
-};
+}
 ```
 
 ## Develop this package

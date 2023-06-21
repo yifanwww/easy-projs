@@ -1096,6 +1096,9 @@ importers:
 
   projects/react-canvas-resize:
     dependencies:
+      '@easy-pkg/utils-react':
+        specifier: workspace:*
+        version: link:../../packages/utils-react
       '@easy-pkg/utils-react-router':
         specifier: workspace:*
         version: link:../../packages/utils-react-router

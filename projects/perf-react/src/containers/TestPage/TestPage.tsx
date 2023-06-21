@@ -13,7 +13,7 @@ import { useComponentNames, useGroupTest, useTest } from 'src/hooks';
 
 import css from './TestPage.module.scss';
 
-const TestPage: React.FC = () => {
+export function TestPage(): JSX.Element {
     const { totalResults } = useContext(BenchmarkContext);
     const updaters = useContext(BenchmarkContextUpdater);
 
@@ -148,6 +148,4 @@ const TestPage: React.FC = () => {
             </div>
         </div>
     );
-};
-
-export default TestPage;
+}

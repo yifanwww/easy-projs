@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import css from './styles.module.scss';
 
-const HomePage: React.FC = () => {
+function HomePage(): JSX.Element {
     const ref = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
@@ -36,6 +36,6 @@ const HomePage: React.FC = () => {
             </div>
         </div>
     );
-};
+}
 
 export default HomePage;

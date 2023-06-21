@@ -28,6 +28,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
+        "@easy-pkg/utils-react": "workspace:*",
         "@easy-pkg/utils-react-router": "workspace:*",
         "@easy-pkg/utils-type": "workspace:*",
         "react": "^17.0.2",

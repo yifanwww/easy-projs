@@ -1,5 +1,6 @@
 import { useForceUpdate } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
+import type { ReactChildrenProps } from '@easy-pkg/utils-react';
 import { createContext, useCallback, useMemo, useRef } from 'react';
 
 import { useDoubleRenderSign } from 'src/hooks/useDoubleRenderSign';
@@ -23,7 +24,7 @@ export const InspectionContextUpdater = createContext<InspectionContextUpdaters>
     toggleGroup: abstractFn,
 });
 
-export const InspectionProvider: React.FC = ({ children }) => {
+export function InspectionProvider({ children }: ReactChildrenProps): JSX.Element {
     const ref = useRef(initialState);
 
     const { sign } = useDoubleRenderSign();
@@ -55,4 +56,4 @@ export const InspectionProvider: React.FC = ({ children }) => {
             <InspectionContext.Provider value={ref.current}>{children}</InspectionContext.Provider>
         </InspectionContextUpdater.Provider>
     );
-};
+}

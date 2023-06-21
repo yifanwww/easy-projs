@@ -8,25 +8,27 @@ A package that contains React utilities.
 ```tsx
 import { defaultOnRender, renderFactory, RenderFn } from '@easy-pkg/utils-react';
 
-export interface PageHeaderProps {
+interface PageHeaderProps {
     title: string;
 }
 
-export const PageHeader: React.FC<PageHeaderProps> = ({ title }) => (
-    <div>
-        {title}
-        {/* ... */}
-    </div>
-);
+export function PageHeader({ title }: PageHeaderProps): JSX.Element {
+    return (
+        <div>
+            {title}
+            {/* ... */}
+        </div>
+    );
+}
 
 const renderHeader = renderFactory(PageHeader);
 
-export interface PageProps {
+interface PageProps {
     onRenderHeader?: RenderFn<PageHeaderProps>;
     title: string;
 }
 
-export const Page: React.FC<PageProps> = (props) => {
+export function Page(props: PageProps): JSX.Element {
     const { onRenderHeader = defaultOnRender, title } = props;
 
     return (

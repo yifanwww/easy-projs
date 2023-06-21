@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { RenderContextUpdater } from 'src/contexts/RenderContext';
 
-export const Controller: React.FC = () => {
+export function Controller(): JSX.Element {
     const { forceUpdate } = useContext(RenderContextUpdater);
 
     return (
@@ -11,4 +11,4 @@ export const Controller: React.FC = () => {
             Force Update
         </Button>
     );
-};
+}
