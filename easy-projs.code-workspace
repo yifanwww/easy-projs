@@ -138,10 +138,6 @@
             "path": "packages/random-string"
         },
         {
-            "name": "@easy-pkg/react-hooks-nodom",
-            "path": "packages/react-hooks-nodom"
-        },
-        {
             "name": "@easy-pkg/template-nodejs",
             "path": "packages/template-nodejs"
         },
