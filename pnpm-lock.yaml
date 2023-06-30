@@ -446,39 +446,6 @@ importers:
         specifier: 5.1.3
         version: 5.1.3
 
-  packages/react-hooks-nodom:
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@easy-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      concurrently:
-        specifier: ^7.4.0
-        version: 7.4.0
-      eslint:
-        specifier: ^8.24.0
-        version: 8.24.0
-      lint-staged:
-        specifier: ^13.0.3
-        version: 13.0.3
-      prettier:
-        specifier: 2.8.0
-        version: 2.8.0
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-
   packages/template-nodejs:
     devDependencies:
       '@easy-config/eslint-config':

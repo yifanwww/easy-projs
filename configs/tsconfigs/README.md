@@ -8,13 +8,12 @@ Your typescript configurations can be extended from
 - `@easy-config/tsconfigs/tsconfig.base.json`
 - `@easy-config/tsconfigs/tsconfig.eslint.node.json`
 - `@easy-config/tsconfigs/tsconfig.eslint.react.json`
-- `@easy-config/tsconfigs/tsconfig.node.json`
+- `@easy-config/tsconfigs/tsconfig.node.bundler.json`
+- `@easy-config/tsconfigs/tsconfig.node.bundler.types.json`
 - `@easy-config/tsconfigs/tsconfig.node.cjs.json`
 - `@easy-config/tsconfigs/tsconfig.node.esm.json`
-- `@easy-config/tsconfigs/tsconfig.node.types.json`
+- `@easy-config/tsconfigs/tsconfig.node.esm.types.json`
 - `@easy-config/tsconfigs/tsconfig.react.json`
-- `@easy-config/tsconfigs/tsconfig.react.cjs.json`
-- `@easy-config/tsconfigs/tsconfig.react.esm.json`
 - `@easy-config/tsconfigs/tsconfig.react.types.json`
 
 Then you need to specify the following options if need
