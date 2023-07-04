@@ -31,7 +31,7 @@ export function useToggle<I extends ToggleState = ToggleState, R extends ToggleS
     const setRight = useCallback(() => setValue(defaultReverseValue), [defaultReverseValue]);
 
     const toggle = useCallback(
-        (_value) => {
+        (_value?: I | R) => {
             if (_value !== undefined) {
                 setValue(_value);
             } else {

@@ -1,3 +1,4 @@
+import { assert } from '@easy-pkg/utils';
 import type { Optional } from '@easy-pkg/utils-type';
 import { render } from '@testing-library/react';
 
@@ -5,7 +6,7 @@ import { useIsMounted } from '../useIsMounted';
 
 describe(`Test react hook \`${useIsMounted.name}\``, () => {
     it('should return whether the component is mounted', () => {
-        let isMounted: Optional<() => boolean> = null;
+        let isMounted = null as Optional<() => boolean>;
         function TestComponent() {
             isMounted = useIsMounted();
             return <div />;
@@ -13,9 +14,13 @@ describe(`Test react hook \`${useIsMounted.name}\``, () => {
 
         expect(isMounted).toBeNull();
         const { unmount } = render(<TestComponent />);
-        expect(isMounted!()).toBeTruthy();
+
+        expect(isMounted).toBeInstanceOf(Function);
+        assert(typeof isMounted === 'function');
+
+        expect(isMounted()).toBeTruthy();
 
         unmount();
-        expect(isMounted!()).toBeFalsy();
+        expect(isMounted()).toBeFalsy();
     });
 });

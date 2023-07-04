@@ -7,7 +7,9 @@ describe(`Test react hook \`${useMount.name}\``, () => {
         const onMount = jest.fn();
 
         function TestComponent() {
-            useMount(() => onMount());
+            useMount(() => {
+                onMount();
+            });
             return <div />;
         }
 

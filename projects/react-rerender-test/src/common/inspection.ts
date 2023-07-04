@@ -29,11 +29,11 @@ export interface InspectionData {
 
 export type InspectedFCType = 'nil' | 'prc' | 'ptc';
 
-export interface InspectedFC<P = {}> extends React.FC<P> {
+export interface InspectedFC<P = NonNullable<unknown>> extends React.FC<P> {
     inspected?: string;
 }
 
-export interface InspectedFCMaker<P = {}> extends InspectedFC<P> {
+export interface InspectedFCMaker<P = NonNullable<unknown>> extends InspectedFC<P> {
     color: (color: string) => this;
     desc: (desc: string) => this;
     type: (type: InspectedFCType) => this;

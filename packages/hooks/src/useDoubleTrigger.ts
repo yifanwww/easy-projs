@@ -10,7 +10,7 @@ import { useCallback, useRef } from 'react';
  * between the current trigger time and the last trigger time is less than the delay limit. Default is `500`.
  * @returns The trigger.
  */
-export function useDoubleTrigger<T extends UnknownFn>(doubleTrigger?: T, delayLimit: number = 500): VoidReturn<T> {
+export function useDoubleTrigger<T extends UnknownFn>(doubleTrigger?: T, delayLimit = 500): VoidReturn<T> {
     const timeRef = useRef(0);
 
     const trigger = useCallback(

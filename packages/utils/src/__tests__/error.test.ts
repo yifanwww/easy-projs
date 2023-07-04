@@ -12,6 +12,6 @@ describe(`Test fn ${tryCatch.name}`, () => {
         const [result, error] = await tryCatch(Promise.reject(new Error('error here')));
 
         expect(result).toBeNull();
-        expect(error!.message).toBe('error here');
+        expect(error?.message).toBe('error here');
     });
 });

@@ -24,33 +24,39 @@ function LineChartPage(): JSX.Element {
     const [componentName, { setComponentName }] = useComponentNames();
 
     useEffect(() => {
-        const group = { mount, unmount, update }[benchmarkType];
+        let chart: echarts.ECharts | undefined;
 
-        const chart = echarts.init(ref.current!);
+        if (ref.current) {
+            const group = { mount, unmount, update }[benchmarkType];
 
-        const options: EChartsOption = {
-            xAxis: {
-                type: 'category',
-                data: benchmarkResultSelector.selectIds(group[componentName]),
-            },
-            yAxis: { type: 'value' },
-            series: [
-                {
-                    data: benchmarkResultSelector.selectAll(group[componentName]).map((result) => result.stats.mean),
-                    type: 'line',
+            chart = echarts.init(ref.current);
+
+            const options: EChartsOption = {
+                xAxis: {
+                    type: 'category',
+                    data: benchmarkResultSelector.selectIds(group[componentName]),
                 },
-            ],
-        };
+                yAxis: { type: 'value' },
+                series: [
+                    {
+                        data: benchmarkResultSelector
+                            .selectAll(group[componentName])
+                            .map((result) => result.stats.mean),
+                        type: 'line',
+                    },
+                ],
+            };
 
-        chart.setOption(options);
+            chart.setOption(options);
+        }
 
-        const resize = () => chart.resize();
+        const resize = () => chart?.resize();
 
         window.addEventListener('resize', resize);
 
         return () => {
             // See https://echarts.apache.org/handbook/en/concepts/chart-size/#dispose-and-rebuild-of-the-container-node
-            chart.dispose();
+            chart?.dispose();
 
             window.removeEventListener('resize', resize);
         };

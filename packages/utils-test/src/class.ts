@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/ban-types */
+
 import type { UnknownFn } from '@easy-pkg/utils-type';
 import type { ConditionalKeys } from 'type-fest';
 
 export function buildMethodName<T extends Function>($class: T, method: ConditionalKeys<T['prototype'], UnknownFn>) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     return `${$class.name}.prototype.${($class.prototype[method] as Function).name}`;
 }
 

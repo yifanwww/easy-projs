@@ -42,7 +42,7 @@ export function UseState() {
 }
 
 export function UseReducer() {
-    const [obj, dispatch] = useReducer((prev) => ({ ...prev }), {});
+    const [obj, dispatch] = useReducer((prev: object) => ({ ...prev }), {});
 
     return <ComponentView obj={obj} callback={dispatch} />;
 }

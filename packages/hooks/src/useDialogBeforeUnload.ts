@@ -19,7 +19,7 @@ function listener(event: BeforeUnloadEvent) {
  *
  * @param enabled Enable the confirmation dialog or not.
  */
-export function useDialogBeforeUnload(enabled: boolean = true) {
+export function useDialogBeforeUnload(enabled = true) {
     useEffect(() => {
         if (!enabled) return undefined;
 

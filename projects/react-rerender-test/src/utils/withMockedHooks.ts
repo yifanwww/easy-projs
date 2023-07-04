@@ -16,7 +16,9 @@ export function withMockedHooks<T extends UnknownFn>(fn: T): T {
         const _useState = React.useState;
 
         React.useCallback = (callback) => callback;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         React.useContext = (context) => context._currentValue;
         React.useDebugValue = noop;
         React.useEffect = noop;

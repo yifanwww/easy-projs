@@ -1,3 +1,4 @@
+import { assertIsString } from '@easy-pkg/utils';
 import type { PickProp } from '@easy-pkg/utils-type';
 import { List } from 'antd';
 import type { ListProps } from 'antd';
@@ -15,6 +16,8 @@ export function RenderOrderList() {
     const { data, groups, selectedGroup } = useContext(InspectionContext);
     const { toggleGroup } = useContext(InspectionContextUpdater);
 
+    assertIsString(selectedGroup, 'selectedGroup');
+
     const showGroupSelector = groups.length > 1;
 
     const togglePrev = () => toggleGroup('prev');
@@ -27,7 +30,7 @@ export function RenderOrderList() {
             <div className={css.header}>
                 <span className={css.title}>Render Order</span>
                 {showGroupSelector && (
-                    <GroupSelector group={selectedGroup!} toggleNext={toggleNext} togglePrev={togglePrev} />
+                    <GroupSelector group={selectedGroup} toggleNext={toggleNext} togglePrev={togglePrev} />
                 )}
             </div>
             <Scrollbars>

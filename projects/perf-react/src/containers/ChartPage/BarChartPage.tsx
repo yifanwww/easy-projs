@@ -22,45 +22,49 @@ function BarChartPage(): JSX.Element {
     const [benchmarkType, setBenchmarkType] = useState<BenchmarkTypes>('mount');
 
     useEffect(() => {
-        const group = { mount: mount.average, unmount: unmount.average, update: update.average }[benchmarkType];
+        let chart: echarts.ECharts | undefined;
 
-        const chart = echarts.init(ref.current!);
+        if (ref.current) {
+            const group = { mount: mount.average, unmount: unmount.average, update: update.average }[benchmarkType];
 
-        const options: EChartsOption = {
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: { type: 'shadow' },
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true,
-            },
-            xAxis: {
-                type: 'category',
-                data: componentNames,
-            },
-            yAxis: { type: 'value' },
-            series: [
-                {
-                    name: 'Direct',
-                    data: componentNames.map((name) => group[name]),
-                    type: 'bar',
-                    barWidth: '60%',
+            chart = echarts.init(ref.current);
+
+            const options: EChartsOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' },
                 },
-            ],
-        };
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true,
+                },
+                xAxis: {
+                    type: 'category',
+                    data: componentNames,
+                },
+                yAxis: { type: 'value' },
+                series: [
+                    {
+                        name: 'Direct',
+                        data: componentNames.map((name) => group[name]),
+                        type: 'bar',
+                        barWidth: '60%',
+                    },
+                ],
+            };
 
-        chart.setOption(options);
+            chart.setOption(options);
+        }
 
-        const resize = () => chart.resize();
+        const resize = () => chart?.resize();
 
         window.addEventListener('resize', resize);
 
         return () => {
             // See https://echarts.apache.org/handbook/en/concepts/chart-size/#dispose-and-rebuild-of-the-container-node
-            chart.dispose();
+            chart?.dispose();
 
             window.removeEventListener('resize', resize);
         };

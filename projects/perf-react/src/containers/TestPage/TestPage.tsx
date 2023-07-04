@@ -49,6 +49,7 @@ export function TestPage(): JSX.Element {
                 stdDev: result.stdDev,
                 p95: result.p95,
                 p99: result.p99,
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 layout: result.layout!.mean,
             },
         });

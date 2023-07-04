@@ -67,7 +67,7 @@ describe(`Test react hook \`${useSingleInterval.name}\``, () => {
         jest.advanceTimersByTime(time);
         expect(timesCalled).toStrictEqual(1);
 
-        ref.current!.clearInterval();
+        ref.current?.clearInterval();
 
         jest.runOnlyPendingTimers();
         expect(timesCalled).toStrictEqual(1);

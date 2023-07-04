@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import type { FetchOptions, FetchResponse, Method } from './types';
 import { appendURL, buildURL } from './url';
 
@@ -6,7 +9,7 @@ type AnyObject = Record<string, any>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isPlainJsonObject(obj: any): boolean {
-    return !!obj && typeof obj === 'object' && typeof obj.append !== 'function';
+    return !!obj && typeof obj === 'object' && typeof (obj as { append?: unknown }).append !== 'function';
 }
 
 function deepMerge(options?: AnyObject, overrides?: AnyObject, lowercase = false) {
@@ -31,7 +34,7 @@ function deepMerge(options?: AnyObject, overrides?: AnyObject, lowercase = false
 }
 
 export interface Fetcher {
-    <Data, Payload extends BodyInit | {} = {}>(
+    <Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         method?: Method | undefined,
         config?: FetchOptions<Payload> | undefined,
@@ -42,22 +45,22 @@ export interface Fetcher {
     head: <Data>(url: string, config?: FetchOptions | undefined) => Promise<FetchResponse<Data>>;
     options: <Data>(url: string, config?: FetchOptions | undefined) => Promise<FetchResponse<Data>>;
 
-    post: <Data, Payload extends BodyInit | {} = {}>(
+    post: <Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         data?: Payload | undefined,
         config?: FetchOptions<Payload> | undefined,
     ) => Promise<FetchResponse<Data>>;
-    delete: <Data, Payload extends BodyInit | {} = {}>(
+    delete: <Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         data?: Payload | undefined,
         config?: FetchOptions<Payload> | undefined,
     ) => Promise<FetchResponse<Data>>;
-    put: <Data, Payload extends BodyInit | {} = {}>(
+    put: <Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         data?: Payload | undefined,
         config?: FetchOptions<Payload> | undefined,
     ) => Promise<FetchResponse<Data>>;
-    patch: <Data, Payload extends BodyInit | {} = {}>(
+    patch: <Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         data?: Payload | undefined,
         config?: FetchOptions<Payload> | undefined,
@@ -65,7 +68,7 @@ export interface Fetcher {
 }
 
 export function createFetcher(defaults?: FetchOptions): Fetcher {
-    function fetcher<Data, Payload extends BodyInit | {} = {}>(
+    async function fetcher<Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         method?: Method,
         config?: FetchOptions<Payload>,
@@ -107,63 +110,59 @@ export function createFetcher(defaults?: FetchOptions): Fetcher {
         const _url = getRealURL();
         const customHeaders = getCustomHeaders();
 
-        return fetch(_url, {
+        const resp = await fetch(_url, {
             method,
             body: isPlainJsonObject(data) ? JSON.stringify(data) : (data as unknown as string),
             headers: deepMerge(customHeaders, headers, true),
             credentials: withCredentials ? 'include' : 'same-origin',
             signal,
-        }).then((resp) => {
-            const ok = validateStatus ? validateStatus(resp.status) : resp.ok;
-
-            return resp[responseType ?? 'json']()
-                .then((respData) => {
-                    const response: FetchResponse<Data> = {
-                        data: respData,
-                        headers: resp.headers,
-                        redirected: resp.redirected,
-                        status: resp.status,
-                        statusText: resp.statusText,
-                        type: resp.type,
-                        url: resp.url,
-                    };
-
-                    try {
-                        // response.data will be the unparsed value if it fails
-                        response.data = JSON.parse(respData);
-                    } catch {
-                        // do nothing
-                    }
-
-                    return response;
-                })
-                .then((response) => (ok ? response : Promise.reject(response)));
         });
+
+        const ok = validateStatus ? validateStatus(resp.status) : resp.ok;
+
+        const respData = (await resp[responseType ?? 'json']()) as Data;
+        const response: FetchResponse<Data> = {
+            data: respData,
+            headers: resp.headers,
+            redirected: resp.redirected,
+            status: resp.status,
+            statusText: resp.statusText,
+            type: resp.type,
+            url: resp.url,
+        };
+
+        try {
+            // response.data will be the unparsed value if it fails
+            response.data = JSON.parse(respData as string);
+        } catch {
+            // do nothing
+        }
+        return ok ? response : Promise.reject(response);
     }
 
     fetcher.get = <Data>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'get', config);
     fetcher.head = <Data>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'head', config);
     fetcher.options = <Data>(url: string, config?: FetchOptions) => fetcher<Data>(url, 'options', config);
 
-    fetcher.post = <Data, Payload extends BodyInit | {} = {}>(
+    fetcher.post = <Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
     ) => fetcher<Data, Payload>(url, 'post', config, data);
 
-    fetcher.delete = <Data, Payload extends BodyInit | {} = {}>(
+    fetcher.delete = <Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
     ) => fetcher<Data, Payload>(url, 'delete', config, data);
 
-    fetcher.put = <Data, Payload extends BodyInit | {} = {}>(
+    fetcher.put = <Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
     ) => fetcher<Data, Payload>(url, 'put', config, data);
 
-    fetcher.patch = <Data, Payload extends BodyInit | {} = {}>(
+    fetcher.patch = <Data, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         data?: Payload,
         config?: FetchOptions<Payload>,
