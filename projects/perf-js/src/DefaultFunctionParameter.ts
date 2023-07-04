@@ -6,7 +6,7 @@ function es5default(options?: string) {
     return options;
 }
 
-function es6default(options: string = 'hello world') {
+function es6default(options = 'hello world') {
     return options;
 }
 

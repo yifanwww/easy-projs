@@ -36,7 +36,7 @@ export interface InspectedOptions {
     type?: InspectedFCType;
 }
 
-interface InternalInspectedFCMaker<P = {}> extends InspectedFCMaker<P> {
+interface InternalInspectedFCMaker<P = NonNullable<unknown>> extends InspectedFCMaker<P> {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     _inspectedColor?: string;
     // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -49,7 +49,7 @@ interface InternalInspectedFCMaker<P = {}> extends InspectedFCMaker<P> {
  * @param name The name of this function component.
  * @param fc The function component itself, default is `(props) => <>{props.children}</>`.
  */
-export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
+export function makeInspectedFC<P = NonNullable<unknown>>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
     const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
 
     const _inspectedFC: InternalInspectedFCMaker<P> = (props) => {
@@ -98,7 +98,7 @@ export function makeInspectedFC<P = {}>(name: string, fc?: React.FC<P>): Inspect
     return _inspectedFC;
 }
 
-export function usePersistInspectedFC<P = {}>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
+export function usePersistInspectedFC<P = NonNullable<unknown>>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
     const inspectedFC = makeInspectedFC(name, fc);
 
     const persistFC = usePersistFn(inspectedFC);

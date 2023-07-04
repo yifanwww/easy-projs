@@ -1,9 +1,9 @@
 import { RandomGenerator } from '../src/index';
 
 class Stopwatch {
-    private _timeStart: number = 0;
-    private _timeEnd: number = 0;
-    private _totalSeconds: number = 0;
+    private _timeStart = 0;
+    private _timeEnd = 0;
+    private _totalSeconds = 0;
 
     start(): void {
         this._timeStart = Date.now();

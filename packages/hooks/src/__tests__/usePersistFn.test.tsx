@@ -1,3 +1,4 @@
+import { assert } from '@easy-pkg/utils';
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import type { Optional } from '@easy-pkg/utils-type';
 import { act, render } from '@testing-library/react';
@@ -11,7 +12,7 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
 
     it('should call the latest non-persist function', () => {
         let count: Optional<number> = null;
-        let increaseCount: Optional<() => void> = null;
+        let increaseCount = null as Optional<() => void>;
         expect(count).toBeNull();
         expect(increaseCount).toBeNull();
 
@@ -25,10 +26,11 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
         render(<TestComponent />);
         expect(count).toBe(0);
         expect(increaseCount).toBeInstanceOf(Function);
+        assert(typeof increaseCount === 'function');
 
         for (let i = 1; i <= 10; i++) {
-            // eslint-disable-next-line @typescript-eslint/no-loop-func
-            act(() => increaseCount!());
+            const increaseCountRef = increaseCount;
+            act(() => increaseCountRef());
             expect(count).toBe(i);
         }
     });

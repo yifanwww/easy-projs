@@ -1,3 +1,4 @@
+import type { ReactChildrenProps } from '@easy-pkg/utils-react';
 import type { LooseArray, Optional } from '@easy-pkg/utils-type';
 import { useRef } from 'react';
 
@@ -16,18 +17,18 @@ type StackItem = Optional<React.ReactElement>;
  * See how ReactElement is generated:
  * https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactElement.js#L348
  */
-function dfs(element: React.ReactElement): InspectedFCType {
+function dfs(element: JSX.Element): InspectedFCType {
     const stack: StackItem[] = [element];
 
     let res: InspectedFCType = 'nil';
 
     while (stack.length > 0) {
-        const item = stack.pop()!;
+        const item = stack.pop();
 
-        if (item === null) continue;
+        if (item === null || item === undefined) continue;
 
         const { type } = item;
-        const children = item.props.children as LooseArray<React.ReactElement>;
+        const children = (item.props as ReactChildrenProps).children as LooseArray<React.ReactElement>;
 
         if (typeof type === 'function') {
             const fc = type as InspectedFC;
@@ -53,7 +54,10 @@ function dfs(element: React.ReactElement): InspectedFCType {
     return res;
 }
 
-export function useInspectedFCType<P = {}>(fc: React.FC<P>, props: React.PropsWithChildren<P>): InspectedFCType {
+export function useInspectedFCType<P = NonNullable<unknown>>(
+    fc: React.FC<P>,
+    props: React.PropsWithChildren<P>,
+): InspectedFCType {
     const ref = useRef<InspectedFCType>();
 
     if (ref.current === undefined) {

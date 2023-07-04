@@ -5,13 +5,13 @@ import { useImmediateFocus } from '../useImmediateFocus';
 
 describe(`Test react hook \`${useImmediateFocus.name}\``, () => {
     it('should immediately focus the component', () => {
-        let isFocused: boolean = false;
+        let isFocused = false;
 
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
 
             useEffect(() => {
-                ref.current!.addEventListener('focusin', () => {
+                ref.current?.addEventListener('focusin', () => {
                     isFocused = true;
                 });
             }, []);
@@ -28,13 +28,13 @@ describe(`Test react hook \`${useImmediateFocus.name}\``, () => {
     });
 
     it('should not focus the component if `focus` is `false`', () => {
-        let isFocused: boolean = false;
+        let isFocused = false;
 
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
 
             useEffect(() => {
-                ref.current!.addEventListener('focusin', () => {
+                ref.current?.addEventListener('focusin', () => {
                     isFocused = true;
                 });
             }, []);

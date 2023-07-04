@@ -88,7 +88,9 @@ function overridePathsConfigs(_paths: CRAPaths): CRAPaths {
  * Check https://github.com/facebook/create-react-app/blob/v5.0.1/packages/react-scripts/config/webpack.config.js
  */
 function overrideWebpackConfigs(webpack: Configuration): Configuration {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     webpack.module.rules[1].oneOf[3].options.presets.push([
         '@babel/preset-typescript',
         {

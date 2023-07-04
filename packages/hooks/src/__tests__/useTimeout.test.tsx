@@ -72,7 +72,7 @@ describe(`Test react hook \`${useTimeout.name}\``, () => {
         jest.runOnlyPendingTimers();
         expect(timesCalled).toStrictEqual(1);
 
-        ref.current!.clearTimeout();
+        ref.current?.clearTimeout();
 
         jest.runOnlyPendingTimers();
         expect(timesCalled).toStrictEqual(1);

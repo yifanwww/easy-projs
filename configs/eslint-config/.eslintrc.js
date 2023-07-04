@@ -53,12 +53,43 @@ module.exports = {
         jest: true,
         node: true,
     },
-    extends: ['airbnb', 'airbnb-typescript', 'airbnb/hooks', 'prettier', 'prettier/prettier'],
+    extends: [
+        'airbnb',
+        'airbnb/hooks',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        // TODO: may enable this configuration set in the future
+        // 'plugin:@typescript-eslint/strict',
+        'prettier',
+        'prettier/prettier',
+    ],
     ignorePatterns: ['*.cjs', '*.js', '*.mjs'],
     plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
+
     settings: {
+        // Append 'ts' extensions to Airbnb 'import/extensions' setting
+        // Original: ['.js', '.mjs', '.jsx']
+        'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.d.ts'],
+
+        // Resolve type definition packages
+        'import/external-module-folders': ['node_modules', 'node_modules/@types'],
+
         'import/internal-regex': '^src',
+
+        // Apply special parsing for TypeScript files
+        'import/parsers': {
+            '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
+        },
+
+        // Append 'ts' extensions to Airbnb 'import/resolver' setting
+        // Original: ['.js', '.jsx', '.json']
+        'import/resolver': {
+            node: {
+                extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx', '.d.ts'],
+            },
+        },
     },
+
     rules: {
         // -------------------- ESLint Built-In Rules --------------------
 
@@ -67,6 +98,9 @@ module.exports = {
 
         // https://eslint.org/docs/latest/rules/consistent-return
         'consistent-return': 'off',
+
+        // https://eslint.org/docs/latest/rules/default-param-last
+        'default-param-last': 'off',
 
         // Disable and use rule `prettier/prettier` instead.
         // https://eslint.org/docs/latest/rules/function-paren-newline
@@ -77,6 +111,9 @@ module.exports = {
 
         // https://eslint.org/docs/latest/rules/implicit-arrow-linebreak
         'implicit-arrow-linebreak': 'off',
+
+        // https://eslint.org/docs/latest/rules/lines-between-class-members
+        'lines-between-class-members': 'off',
 
         // This rule is disabled by `eslint-config-prettier`, enable it here for better eslint error information.
         // https://github.com/prettier/eslint-config-prettier/#max-len
@@ -105,6 +142,9 @@ module.exports = {
         // https://eslint.org/docs/latest/rules/no-lonely-if
         'no-lonely-if': 'off',
 
+        // https://eslint.org/docs/latest/rules/no-loop-func
+        'no-loop-func': 'off',
+
         // https://github.com/immerjs/immer/issues/189#issuecomment-703083451
         // https://eslint.org/docs/latest/rules/no-param-reassign
         'no-param-reassign': ['error', { props: true, ignorePropertyModificationsForRegex: ['^draft'] }],
@@ -125,6 +165,9 @@ module.exports = {
         // https://eslint.org/docs/latest/rules/no-restricted-syntax
         'no-restricted-syntax': 'off',
 
+        // https://eslint.org/docs/latest/rules/no-shadow
+        'no-shadow': 'off',
+
         // This rule is disabled by `eslint-config-prettier`, enable it here for better eslint error informantion.
         // https://github.com/prettier/eslint-config-prettier/#no-tabs
         // https://eslint.org/docs/latest/rules/no-tabs
@@ -138,6 +181,12 @@ module.exports = {
         // https://github.com/prettier/eslint-config-prettier/#no-unexpected-multiline
         // https://eslint.org/docs/latest/rules/no-unexpected-multiline
         'no-unexpected-multiline': 'error',
+
+        // https://eslint.org/docs/latest/rules/no-unused-expressions
+        'no-unused-expressions': 'off',
+
+        // https://eslint.org/docs/latest/rules/no-use-before-define
+        'no-use-before-define': 'off',
 
         // https://eslint.org/docs/latest/rules/no-void
         'no-void': 'off',
@@ -168,33 +217,17 @@ module.exports = {
 
         // -------------------- TypeScript ESLint Rules --------------------
 
-        // https://typescript-eslint.io/rules/await-thenable
-        '@typescript-eslint/await-thenable': 'error',
-
-        // Disable and use rule `prettier/prettier` instead.
-        // https://typescript-eslint.io/rules/brace-style/
-        '@typescript-eslint/brace-style': 'off',
-
-        // Disable and use rule `prettier/prettier` instead.
-        // https://typescript-eslint.io/rules/comma-dangle
-        '@typescript-eslint/comma-dangle': 'off',
-
         // https://typescript-eslint.io/rules/consistent-type-exports
         '@typescript-eslint/consistent-type-exports': 'error',
 
         // https://typescript-eslint.io/rules/consistent-type-imports
         '@typescript-eslint/consistent-type-imports': ['error', { disallowTypeAnnotations: false }],
 
+        // https://typescript-eslint.io/rules/default-param-last
+        '@typescript-eslint/default-param-last': 'error',
+
         // https://typescript-eslint.io/rules/explicit-member-accessibility
         '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'no-public' }],
-
-        // Disable and use rule `prettier/prettier` instead.
-        // https://typescript-eslint.io/rules/indent
-        '@typescript-eslint/indent': 'off',
-
-        // Disable and use rule `prettier/prettier` instead.
-        // https://typescript-eslint.io/rules/lines-between-class-members
-        '@typescript-eslint/lines-between-class-members': 'off',
 
         // https://typescript-eslint.io/rules/naming-convention
         '@typescript-eslint/naming-convention': naming,
@@ -219,20 +252,11 @@ module.exports = {
         // https://typescript-eslint.io/rules/no-empty-interface
         '@typescript-eslint/no-empty-interface': ['error', { allowSingleExtends: true }],
 
-        // https://typescript-eslint.io/rules/no-explicit-any
-        '@typescript-eslint/no-explicit-any': 'warn',
-
-        // https://typescript-eslint.io/rules/no-extra-non-null-assertion
-        '@typescript-eslint/no-extra-non-null-assertion': 'error',
-
         // https://typescript-eslint.io/rules/no-floating-promises
         '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
 
-        // https://typescript-eslint.io/rules/no-for-in-array
-        '@typescript-eslint/no-for-in-array': 'off',
-
-        // https://typescript-eslint.io/rules/no-misused-new
-        '@typescript-eslint/no-misused-new': 'error',
+        // https://typescript-eslint.io/rules/no-loop-func
+        '@typescript-eslint/no-loop-func': 'error',
 
         // https://typescript-eslint.io/rules/no-misused-promises
         '@typescript-eslint/no-misused-promises': [
@@ -244,14 +268,14 @@ module.exports = {
             },
         ],
 
-        // https://typescript-eslint.io/rules/no-non-null-asserted-optional-chain
-        '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+        // https://typescript-eslint.io/rules/no-shadow
+        '@typescript-eslint/no-shadow': 'error',
 
-        // https://typescript-eslint.io/rules/no-unnecessary-type-assertion
-        '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
+        // https://typescript-eslint.io/rules/no-unused-expressions
+        '@typescript-eslint/no-unused-expressions': 'error',
 
-        // https://typescript-eslint.io/rules/no-unnecessary-type-constraint
-        '@typescript-eslint/no-unnecessary-type-constraint': 'warn',
+        // https://typescript-eslint.io/rules/no-use-before-define
+        '@typescript-eslint/no-use-before-define': 'error',
 
         // https://typescript-eslint.io/rules/restrict-template-expressions
         '@typescript-eslint/restrict-template-expressions': [
@@ -262,13 +286,14 @@ module.exports = {
         // https://typescript-eslint.io/rules/return-await
         '@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
-        // https://typescript-eslint.io/rules/require-await
-        '@typescript-eslint/require-await': 'error',
-
         // -------------------- Eslint-Plugin-Import Rules --------------------
 
         // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
         'import/extensions': 'off',
+
+        // Disabled in TypeScript projects.
+        // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/named.md
+        'import/named': 'off',
 
         // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md
         'import/no-cycle': 'error',
@@ -276,6 +301,13 @@ module.exports = {
         // Disabled for import-statement of dev dependencies.
         // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md
         'import/no-extraneous-dependencies': 'off',
+
+        // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default-member.md
+        'import/no-named-as-default-member': 'off',
+
+        // Disable `import/no-unresolved`, see https://github.com/iamturns/eslint-config-airbnb-typescript#why-is-importno-unresolved-disabled
+        // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unresolved.md
+        'import/no-unresolved': 'off',
 
         // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
         'import/order': [
@@ -320,6 +352,11 @@ module.exports = {
 
         // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
         'react/function-component-definition': 'off',
+
+        // Append 'tsx' to Airbnb 'react/jsx-filename-extension' rule
+        // Original: ['.jsx']
+        // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+        'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
 
         // https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
         'react/jsx-no-useless-fragment': 'off',
@@ -366,6 +403,9 @@ module.exports = {
                         allowIndexSignaturePropertyAccess: true,
                     },
                 ],
+
+                // https://typescript-eslint.io/rules/unbound-method/
+                '@typescript-eslint/unbound-method': 'off',
             },
         },
         {

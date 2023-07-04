@@ -17,7 +17,7 @@ export interface UseBooleanActions {
  * @param initialValue Initial value.
  * @returns Array with the current value and an object containing the updater actions.
  */
-export function useBoolean(initialValue: boolean = false): [boolean, UseBooleanActions] {
+export function useBoolean(initialValue = false): [boolean, UseBooleanActions] {
     const [value, setValue] = useState(initialValue);
 
     const setFalse = useCallback(() => setValue(false), []);

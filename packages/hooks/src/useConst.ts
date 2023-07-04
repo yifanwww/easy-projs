@@ -19,7 +19,7 @@ export function useConst<T>(initialValue: T | (() => T)): T {
     if (ref.current === undefined) {
         // Box the value in an object so we can tell if it's initialized even if the initializer returns/is undefined.
         ref.current = {
-            value: typeof initialValue === 'function' ? (initialValue as Function)() : initialValue,
+            value: typeof initialValue === 'function' ? (initialValue as () => T)() : initialValue,
         };
     }
     return ref.current.value;

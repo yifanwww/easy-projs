@@ -7,6 +7,6 @@ export class ObjectUtil {
      * @returns A reversed plain object: `{ [value]: key }`.
      */
     static reverseKeyValue(obj: object): Record<string, string> {
-        return Object.fromEntries(Object.entries(obj).map((pair) => pair.reverse()));
+        return Object.fromEntries(Object.entries(obj).map((pair) => pair.reverse() as [string, string]));
     }
 }

@@ -10,7 +10,7 @@ export function Controller(): JSX.Element {
 
     const navigate = useNavigate();
 
-    const num = useRouterNum()!;
+    const num = useRouterNum();
 
     return (
         <div style={{ display: 'flex', gap: '24px' }}>

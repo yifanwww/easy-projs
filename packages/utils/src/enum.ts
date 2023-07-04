@@ -4,7 +4,7 @@ export class EnumUtil {
     /**
      * Checks if the value is a member of a certain enum.
      */
-    static is<T extends {}>(value: unknown, enumType: T): value is T[keyof T] {
+    static is<T extends object>(value: unknown, enumType: T): value is T[keyof T] {
         return Object.entries(enumType)
             .filter((pair) => Number.isNaN(Number(pair[0])))
             .some((pair) => value === pair[1]);

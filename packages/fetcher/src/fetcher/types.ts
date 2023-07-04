@@ -18,7 +18,7 @@ export type FetchBody = FormData | string | Record<string, unknown>;
 
 export type FetchResponseType = 'arrayBuffer' | 'blob' | 'formData' | 'json' | 'text';
 
-export interface FetchOptions<Payload extends BodyInit | {} = {}> {
+export interface FetchOptions<Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>> {
     /** Request headers. */
     headers?: Record<string, string>;
     data?: Payload;

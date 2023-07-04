@@ -7,7 +7,9 @@ describe(`Test react hook \`${useUnmount.name}\``, () => {
         const onUnmount = jest.fn();
 
         function TestComponent() {
-            useUnmount(() => onUnmount());
+            useUnmount(() => {
+                onUnmount();
+            });
             return <div />;
         }
 
