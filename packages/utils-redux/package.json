@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "@easy-pkg/utils-type": "workspace:*",
-        "immer": "^9.0.15",
+        "immer": "^9.0.21",
         "react": "^17.0.2"
     },
     "devDependencies": {
@@ -38,13 +38,13 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@reduxjs/toolkit": "^1.8.5",
-        "@types/react": "^17.0.50",
-        "concurrently": "^7.4.0",
-        "eslint": "^8.24.0",
-        "lint-staged": "^13.0.3",
+        "@reduxjs/toolkit": "^1.9.5",
+        "@types/react": "^17.0.62",
+        "concurrently": "^7.6.0",
+        "eslint": "^8.44.0",
+        "lint-staged": "^13.2.3",
         "prettier": "2.8.0",
-        "react-redux": "^8.0.4",
+        "react-redux": "^8.1.1",
         "rimraf": "^3.0.2",
         "typescript": "5.1.3"
     },

@@ -7,8 +7,9 @@ export class SelectUtil {
     static mergeDefaultFieldNames(fieldNames?: FieldNames): Required<FieldNames> {
         return {
             label: fieldNames?.label ?? 'label',
-            options: fieldNames?.options ?? 'options',
             value: fieldNames?.value ?? 'value',
+            options: fieldNames?.options ?? 'options',
+            groupLabel: fieldNames?.groupLabel ?? 'label',
         };
     }
 }

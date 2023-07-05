@@ -31,8 +31,8 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "antd": "^4.23.2",
-        "rc-select": "^14.1.13",
+        "antd": "^4.24.12",
+        "rc-select": "^14.5.2",
         "react": "^17.0.2"
     },
     "devDependencies": {
@@ -40,11 +40,11 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@types/react": "^17.0.50",
-        "@types/jest": "^29.2.3",
-        "concurrently": "^7.4.0",
-        "eslint": "^8.24.0",
-        "lint-staged": "^13.0.3",
+        "@types/jest": "^29.5.2",
+        "@types/react": "^17.0.62",
+        "concurrently": "^7.6.0",
+        "eslint": "^8.44.0",
+        "lint-staged": "^13.2.3",
         "prettier": "2.8.0",
         "rimraf": "^3.0.2",
         "typescript": "5.1.3"
