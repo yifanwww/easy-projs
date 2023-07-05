@@ -574,6 +574,45 @@ importers:
         specifier: 5.1.3
         version: 5.1.3
 
+  packages/utils-browser:
+    devDependencies:
+      '@easy-config/eslint-config':
+        specifier: workspace:*
+        version: link:../../configs/eslint-config
+      '@easy-config/global-types':
+        specifier: workspace:*
+        version: link:../../configs/global-types
+      '@easy-config/scripts':
+        specifier: workspace:*
+        version: link:../../configs/scripts
+      '@easy-config/tsconfigs':
+        specifier: workspace:*
+        version: link:../../configs/tsconfigs
+      '@easy-pkg/utils-test':
+        specifier: workspace:*
+        version: link:../utils-test
+      '@types/jest':
+        specifier: ^29.5.2
+        version: 29.5.2
+      concurrently:
+        specifier: ^7.6.0
+        version: 7.6.0
+      eslint:
+        specifier: ^8.44.0
+        version: 8.44.0
+      lint-staged:
+        specifier: ^13.2.3
+        version: 13.2.3
+      prettier:
+        specifier: 2.8.0
+        version: 2.8.0
+      rimraf:
+        specifier: ^3.0.2
+        version: 3.0.2
+      typescript:
+        specifier: 5.1.3
+        version: 5.1.3
+
   packages/utils-react:
     dependencies:
       '@easy-pkg/utils-type':
