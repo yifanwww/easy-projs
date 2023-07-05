@@ -588,6 +588,9 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      '@easy-pkg/utils-test':
+        specifier: workspace:*
+        version: link:../utils-test
       '@types/jest':
         specifier: ^29.5.2
         version: 29.5.2
