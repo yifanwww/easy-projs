@@ -1,0 +1,46 @@
+{
+    "name": "@easy-pkg/utils-browser",
+    "version": "0.0.0",
+    "description": "A package that contains browser utilities.",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/utils-browser"
+    },
+    "scripts": {
+        "build": "concurrently -n lib,types \"pnpm run build:lib\" \"pnpm run build:types\"",
+        "build:lib": "tsc --project tsconfigs/tsconfig.lib.json",
+        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+        "clean": "rimraf lib tsconfigs/*.tsbuildinfo",
+        "dev": "pnpm run build:lib --watch",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "lint": "eslint .",
+        "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-full": "unit-test",
+        "typecheck": "tsc --project tsconfig.json --noEmit"
+    },
+    "devDependencies": {
+        "@easy-config/eslint-config": "workspace:*",
+        "@easy-config/global-types": "workspace:*",
+        "@easy-config/scripts": "workspace:*",
+        "@easy-config/tsconfigs": "workspace:*",
+        "@types/jest": "^29.5.2",
+        "concurrently": "^7.6.0",
+        "eslint": "^8.44.0",
+        "lint-staged": "^13.2.3",
+        "prettier": "2.8.0",
+        "rimraf": "^3.0.2",
+        "typescript": "5.1.3"
+    }
+}
