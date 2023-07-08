@@ -1,6 +1,6 @@
 {
     "root": true,
-    "extends": "@easy-config/eslint-config",
+    "extends": "@easy-config/eslint-config/.eslintrc.react.js",
     "ignorePatterns": ["/build", "*.cjs", "*.js", "*.mjs"],
     "parserOptions": {
         "project": "./tsconfig.json"

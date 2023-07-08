@@ -34,14 +34,10 @@
         "node": ">=18",
         "pnpm": ">=8"
     },
-    "dependencies": {
+    "devDependencies": {
         "@babel/core": "^7.22.6",
         "@babel/plugin-syntax-flow": "^7.22.5",
         "@babel/plugin-transform-react-jsx": "^7.22.5",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2"
-    },
-    "devDependencies": {
         "browserslist": "^4.21.9",
         "husky": "^8.0.3",
         "prettier": "2.8.0",
