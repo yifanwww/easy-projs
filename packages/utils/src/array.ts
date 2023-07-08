@@ -1,5 +1,5 @@
 export class ArrayUtil {
-    static filterFalsy<T extends object>(arr: (T | undefined | null | false)[]): T[] {
+    static filterFalsy<T>(arr: (T | undefined | null | false)[]): T[] {
         return arr.filter((item): item is T => !!item);
     }
 
