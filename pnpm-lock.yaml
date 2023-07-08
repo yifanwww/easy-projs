@@ -15,7 +15,7 @@ overrides:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@babel/core':
         specifier: ^7.22.6
         version: 7.22.6
@@ -25,13 +25,6 @@ importers:
       '@babel/plugin-transform-react-jsx':
         specifier: ^7.22.5
         version: 7.22.5(@babel/core@7.22.6)
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
-      react-dom:
-        specifier: ^17.0.2
-        version: 17.0.2(react@17.0.2)
-    devDependencies:
       browserslist:
         specifier: ^4.21.9
         version: 4.21.9
@@ -1549,6 +1542,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.22.5
+    dev: true
 
   /@babel/helper-builder-binary-assignment-operator-visitor@7.22.5:
     resolution: {integrity: sha512-m1EP3lVOPptR+2DwD125gziZNcmoNSHGmJROKoy87loWUQyJaVXDgpmruWqDARZSmtYQ+Dl25okU8+qhVzuykw==}
@@ -1974,6 +1968,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.6
       '@babel/helper-plugin-utils': 7.22.5
+    dev: true
 
   /@babel/plugin-syntax-import-assertions@7.22.5(@babel/core@7.22.6):
     resolution: {integrity: sha512-rdV97N7KqsRzeNGoWUOK6yUsWarLjE5Su/Snk9IYPU9CwkWHs4t+rTGOvffTR8XGkJMTAdLfO0xVnXm8wugIJg==}
@@ -2601,6 +2596,7 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.22.6)
       '@babel/types': 7.22.5
+    dev: true
 
   /@babel/plugin-transform-react-pure-annotations@7.22.5(@babel/core@7.22.6):
     resolution: {integrity: sha512-gP4k85wx09q+brArVinTXhWiyzLl9UpmGva0+mWyKxk6JZequ05x3eUcIUE+FyttPKJFRRVtAvQaJ6YF9h1ZpA==}
