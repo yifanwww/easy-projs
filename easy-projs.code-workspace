@@ -201,10 +201,6 @@
             "path": "projects/react-canvas-resize"
         },
         {
-            "name": "@easy-proj/react-rerender-test",
-            "path": "projects/react-rerender-test"
-        },
-        {
             "name": "@easy-proj/template-browser-react",
             "path": "projects/template-browser-react"
         },
