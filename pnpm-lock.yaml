@@ -1411,12 +1411,27 @@ importers:
 
   projects/web-app:
     dependencies:
+      '@ant-design/icons':
+        specifier: ^4.8.0
+        version: 4.8.0(react-dom@17.0.2)(react@17.0.2)
+      '@easy-pkg/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
+      '@easy-pkg/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@easy-pkg/utils-react':
         specifier: workspace:*
         version: link:../../packages/utils-react
       '@easy-pkg/utils-react-router':
         specifier: workspace:*
         version: link:../../packages/utils-react-router
+      '@easy-pkg/utils-type':
+        specifier: workspace:*
+        version: link:../../packages/utils-type
+      antd:
+        specifier: ^4.24.12
+        version: 4.24.12(react-dom@17.0.2)(react@17.0.2)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -1426,6 +1441,9 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      rc-scrollbars:
+        specifier: ^1.1.6
+        version: 1.1.6(react-dom@17.0.2)(react@17.0.2)
       react:
         specifier: ^17.0.2
         version: 17.0.2
@@ -1438,6 +1456,9 @@ importers:
       react-router-dom:
         specifier: ^6.14.1
         version: 6.14.1(react-dom@17.0.2)(react@17.0.2)
+      use-immer:
+        specifier: ^0.8.1
+        version: 0.8.1(immer@9.0.21)(react@17.0.2)
       web-vitals:
         specifier: ^3.3.2
         version: 3.3.2

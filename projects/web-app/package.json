@@ -30,15 +30,22 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
+        "@ant-design/icons": "^4.8.0",
+        "@easy-pkg/hooks": "workspace:*",
+        "@easy-pkg/utils": "workspace:*",
         "@easy-pkg/utils-react": "workspace:*",
         "@easy-pkg/utils-react-router": "workspace:*",
+        "@easy-pkg/utils-type": "workspace:*",
+        "antd": "^4.24.12",
         "clsx": "^1.2.1",
         "immer": "^9.0.21",
         "lodash": "^4.17.21",
+        "rc-scrollbars": "^1.1.6",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-router": "^6.14.1",
         "react-router-dom": "^6.14.1",
+        "use-immer": "^0.8.1",
         "web-vitals": "^3.3.2"
     },
     "devDependencies": {

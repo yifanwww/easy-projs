@@ -1,0 +1,12 @@
+.layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 8px;
+}
+
+.selected {
+    flex: auto;
+    font-size: 18px;
+    text-align: center;
+}
