@@ -736,7 +736,7 @@ importers:
         version: 2.8.0
       react-redux:
         specifier: ^8.1.1
-        version: 8.1.1(@types/react@17.0.62)(react@17.0.2)(redux@4.2.1)
+        version: 8.1.1(@types/react-dom@17.0.20)(@types/react@17.0.62)(react-dom@17.0.2)(react@17.0.2)(redux@4.2.1)
       rimraf:
         specifier: ^3.0.2
         version: 3.0.2
@@ -866,7 +866,7 @@ importers:
         version: 17.0.2
       react-redux:
         specifier: ^8.1.1
-        version: 8.1.1(@types/react@17.0.62)(react@17.0.2)(redux@4.2.1)
+        version: 8.1.1(@types/react-dom@17.0.20)(@types/react@17.0.62)(react-dom@17.0.2)(react@17.0.2)(redux@4.2.1)
       rimraf:
         specifier: ^3.0.2
         version: 3.0.2
@@ -1043,6 +1043,9 @@ importers:
       react-dom:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
+      react-redux:
+        specifier: ^8.1.1
+        version: 8.1.1(@types/react-dom@17.0.20)(@types/react@17.0.62)(react-dom@17.0.2)(react@17.0.2)(redux@4.2.1)
       react-router:
         specifier: ^6.14.1
         version: 6.14.1(react@17.0.2)
@@ -3239,7 +3242,7 @@ packages:
     dependencies:
       immer: 9.0.21
       react: 17.0.2
-      react-redux: 8.1.1(@types/react@17.0.62)(react@17.0.2)(redux@4.2.1)
+      react-redux: 8.1.1(@types/react-dom@17.0.20)(@types/react@17.0.62)(react-dom@17.0.2)(react@17.0.2)(redux@4.2.1)
       redux: 4.2.1
       redux-thunk: 2.4.2(redux@4.2.1)
       reselect: 4.1.8
@@ -5808,7 +5811,6 @@ packages:
     resolution: {integrity: sha512-4pzIjSxDueZZ90F52mU3aPoogkHIoSIDG+oQ+wQK7Cy2B9S+MvOqY0uEA/qawKz381qrEDkvpwyt8Bm31I8sbA==}
     dependencies:
       '@types/react': 17.0.62
-    dev: true
 
   /@types/react-test-renderer@17.0.2:
     resolution: {integrity: sha512-+F1KONQTBHDBBhbHuT2GNydeMpPuviduXIVJRB7Y4nma4NR5DrTJfMMZ+jbhEHbpwL+Uqhs1WXh4KHiyrtYTPg==}
@@ -12558,7 +12560,7 @@ packages:
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
 
-  /react-redux@8.1.1(@types/react@17.0.62)(react@17.0.2)(redux@4.2.1):
+  /react-redux@8.1.1(@types/react-dom@17.0.20)(@types/react@17.0.62)(react-dom@17.0.2)(react@17.0.2)(redux@4.2.1):
     resolution: {integrity: sha512-5W0QaKtEhj+3bC0Nj0NkqkhIv8gLADH/2kYFMTHxCVqQILiWzLv6MaLuV5wJU3BQEdHKzTfcvPN0WMS6SC1oyA==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -12582,9 +12584,11 @@ packages:
       '@babel/runtime': 7.22.6
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 17.0.62
+      '@types/react-dom': 17.0.20
       '@types/use-sync-external-store': 0.0.3
       hoist-non-react-statics: 3.3.2
       react: 17.0.2
+      react-dom: 17.0.2(react@17.0.2)
       react-is: 18.2.0
       redux: 4.2.1
       use-sync-external-store: 1.2.0(react@17.0.2)

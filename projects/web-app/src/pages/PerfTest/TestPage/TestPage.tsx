@@ -1,5 +1,4 @@
 import { Button, InputNumber, message, Select } from 'antd';
-import copy from 'copy-to-clipboard';
 import { useContext, useRef, useState } from 'react';
 import Benchmark, { BenchmarkType } from 'react-component-benchmark';
 import type { BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
@@ -69,7 +68,7 @@ export function TestPage(): JSX.Element {
     const changeTimes = (value: number | null) => value !== null && setTimes(value);
 
     const copyResults = () => {
-        copy(JSON.stringify(totalResults));
+        void window.navigator.clipboard.writeText(JSON.stringify(totalResults));
         void message.info('Copy to clibboard successfully');
     };
 
