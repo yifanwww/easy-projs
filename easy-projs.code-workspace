@@ -193,14 +193,6 @@
             "path": "projects/proving-ground-nodejs"
         },
         {
-            "name": "@easy-proj/template-browser-react",
-            "path": "projects/template-browser-react"
-        },
-        {
-            "name": "@easy-proj/template-nodejs",
-            "path": "projects/template-nodejs"
-        },
-        {
             "name": "@easy-proj/web-app",
             "path": "projects/web-app"
         }
