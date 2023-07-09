@@ -189,10 +189,6 @@
             "path": "projects/perf-js"
         },
         {
-            "name": "@easy-proj/perf-react",
-            "path": "projects/perf-react"
-        },
-        {
             "name": "@easy-proj/proving-ground-nodejs",
             "path": "projects/proving-ground-nodejs"
         },
