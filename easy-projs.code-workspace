@@ -193,10 +193,6 @@
             "path": "projects/proving-ground-nodejs"
         },
         {
-            "name": "@easy-proj/react-canvas-resize",
-            "path": "projects/react-canvas-resize"
-        },
-        {
             "name": "@easy-proj/template-browser-react",
             "path": "projects/template-browser-react"
         },
