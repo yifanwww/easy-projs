@@ -1150,6 +1150,9 @@ importers:
       '@easy-pkg/utils-react-router':
         specifier: workspace:*
         version: link:../../packages/utils-react-router
+      '@easy-pkg/utils-redux':
+        specifier: workspace:*
+        version: link:../../packages/utils-redux
       '@easy-pkg/utils-type':
         specifier: workspace:*
         version: link:../../packages/utils-type

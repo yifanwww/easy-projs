@@ -35,6 +35,7 @@
         "@easy-pkg/utils": "workspace:*",
         "@easy-pkg/utils-react": "workspace:*",
         "@easy-pkg/utils-react-router": "workspace:*",
+        "@easy-pkg/utils-redux": "workspace:*",
         "@easy-pkg/utils-type": "workspace:*",
         "@reduxjs/toolkit": "^1.9.5",
         "antd": "^4.24.12",
