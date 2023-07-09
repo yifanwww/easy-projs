@@ -951,112 +951,6 @@ importers:
         specifier: 5.1.3
         version: 5.1.3
 
-  projects/perf-react:
-    dependencies:
-      '@ant-design/icons':
-        specifier: ^4.8.0
-        version: 4.8.0(react-dom@17.0.2)(react@17.0.2)
-      '@easy-pkg/hooks':
-        specifier: workspace:*
-        version: link:../../packages/hooks
-      '@easy-pkg/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
-      '@easy-pkg/utils-react':
-        specifier: workspace:*
-        version: link:../../packages/utils-react
-      '@easy-pkg/utils-react-router':
-        specifier: workspace:*
-        version: link:../../packages/utils-react-router
-      '@easy-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../../packages/utils-type
-      '@reduxjs/toolkit':
-        specifier: ^1.9.5
-        version: 1.9.5(react-redux@8.1.1)(react@17.0.2)
-      antd:
-        specifier: ^4.24.12
-        version: 4.24.12(react-dom@17.0.2)(react@17.0.2)
-      clsx:
-        specifier: ^1.2.1
-        version: 1.2.1
-      copy-to-clipboard:
-        specifier: ^3.3.3
-        version: 3.3.3
-      echarts:
-        specifier: ^5.4.2
-        version: 5.4.2
-      immer:
-        specifier: ^9.0.21
-        version: 9.0.21
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
-      react-component-benchmark:
-        specifier: ^1.0.0
-        version: 1.0.0(react@17.0.2)
-      react-dom:
-        specifier: ^17.0.2
-        version: 17.0.2(react@17.0.2)
-      react-router:
-        specifier: ^6.14.1
-        version: 6.14.1(react@17.0.2)
-      react-router-dom:
-        specifier: ^6.14.1
-        version: 6.14.1(react-dom@17.0.2)(react@17.0.2)
-      use-immer:
-        specifier: ^0.8.1
-        version: 0.8.1(immer@9.0.21)(react@17.0.2)
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@easy-config/stylelint-config':
-        specifier: workspace:*
-        version: link:../../configs/stylelint-config
-      '@easy-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@types/jest':
-        specifier: ^29.5.2
-        version: 29.5.2
-      '@types/react':
-        specifier: ^17.0.62
-        version: 17.0.62
-      '@types/react-component-benchmark':
-        specifier: ^1.0.0
-        version: 1.0.0
-      '@types/react-dom':
-        specifier: ^17.0.20
-        version: 17.0.20
-      eslint:
-        specifier: ^8.44.0
-        version: 8.44.0
-      lint-staged:
-        specifier: ^13.2.3
-        version: 13.2.3
-      prettier:
-        specifier: 2.8.0
-        version: 2.8.0
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      stylelint:
-        specifier: ^14.16.1
-        version: 14.16.1
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-      typescript-plugin-css-modules:
-        specifier: ^5.0.1
-        version: 5.0.1(typescript@5.1.3)
-
   projects/proving-ground-nodejs:
     devDependencies:
       '@easy-config/eslint-config':
@@ -1093,77 +987,7 @@ importers:
         specifier: 5.1.3
         version: 5.1.3
 
-  projects/react-canvas-resize:
-    dependencies:
-      '@easy-pkg/utils-react':
-        specifier: workspace:*
-        version: link:../../packages/utils-react
-      '@easy-pkg/utils-react-router':
-        specifier: workspace:*
-        version: link:../../packages/utils-react-router
-      '@easy-pkg/utils-type':
-        specifier: workspace:*
-        version: link:../../packages/utils-type
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
-      react-dom:
-        specifier: ^17.0.2
-        version: 17.0.2(react@17.0.2)
-      react-router:
-        specifier: ^6.14.1
-        version: 6.14.1(react@17.0.2)
-      react-router-dom:
-        specifier: ^6.14.1
-        version: 6.14.1(react-dom@17.0.2)(react@17.0.2)
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@easy-config/stylelint-config':
-        specifier: workspace:*
-        version: link:../../configs/stylelint-config
-      '@easy-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@types/jest':
-        specifier: ^29.5.2
-        version: 29.5.2
-      '@types/react':
-        specifier: ^17.0.62
-        version: 17.0.62
-      '@types/react-dom':
-        specifier: ^17.0.20
-        version: 17.0.20
-      eslint:
-        specifier: ^8.44.0
-        version: 8.44.0
-      lint-staged:
-        specifier: ^13.2.3
-        version: 13.2.3
-      prettier:
-        specifier: 2.8.0
-        version: 2.8.0
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      stylelint:
-        specifier: ^14.16.1
-        version: 14.16.1
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-      typescript-plugin-css-modules:
-        specifier: ^5.0.1
-        version: 5.0.1(typescript@5.1.3)
-
-  projects/react-rerender-test:
+  projects/web-app:
     dependencies:
       '@ant-design/icons':
         specifier: ^4.8.0
@@ -1174,21 +998,33 @@ importers:
       '@easy-pkg/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+      '@easy-pkg/utils-browser':
+        specifier: workspace:*
+        version: link:../../packages/utils-browser
       '@easy-pkg/utils-react':
         specifier: workspace:*
         version: link:../../packages/utils-react
       '@easy-pkg/utils-react-router':
         specifier: workspace:*
         version: link:../../packages/utils-react-router
+      '@easy-pkg/utils-redux':
+        specifier: workspace:*
+        version: link:../../packages/utils-redux
       '@easy-pkg/utils-type':
         specifier: workspace:*
         version: link:../../packages/utils-type
+      '@reduxjs/toolkit':
+        specifier: ^1.9.5
+        version: 1.9.5(react-redux@8.1.1)(react@17.0.2)
       antd:
         specifier: ^4.24.12
         version: 4.24.12(react-dom@17.0.2)(react@17.0.2)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
+      echarts:
+        specifier: ^5.4.2
+        version: 5.4.2
       immer:
         specifier: ^9.0.21
         version: 9.0.21
@@ -1201,88 +1037,9 @@ importers:
       react:
         specifier: ^17.0.2
         version: 17.0.2
-      react-dom:
-        specifier: ^17.0.2
-        version: 17.0.2(react@17.0.2)
-      react-router:
-        specifier: ^6.14.1
-        version: 6.14.1(react@17.0.2)
-      react-router-dom:
-        specifier: ^6.14.1
-        version: 6.14.1(react-dom@17.0.2)(react@17.0.2)
-      use-immer:
-        specifier: ^0.8.1
-        version: 0.8.1(immer@9.0.21)(react@17.0.2)
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@easy-config/stylelint-config':
-        specifier: workspace:*
-        version: link:../../configs/stylelint-config
-      '@easy-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@types/jest':
-        specifier: ^29.5.2
-        version: 29.5.2
-      '@types/lodash':
-        specifier: ^4.14.195
-        version: 4.14.195
-      '@types/react':
-        specifier: ^17.0.62
-        version: 17.0.62
-      '@types/react-dom':
-        specifier: ^17.0.20
-        version: 17.0.20
-      eslint:
-        specifier: ^8.44.0
-        version: 8.44.0
-      lint-staged:
-        specifier: ^13.2.3
-        version: 13.2.3
-      prettier:
-        specifier: 2.8.0
-        version: 2.8.0
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      stylelint:
-        specifier: ^14.16.1
-        version: 14.16.1
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
-      typescript-plugin-css-modules:
-        specifier: ^5.0.1
-        version: 5.0.1(typescript@5.1.3)
-
-  projects/template-browser-react:
-    dependencies:
-      '@easy-pkg/assets':
-        specifier: workspace:*
-        version: link:../../packages/assets
-      '@easy-pkg/utils-react':
-        specifier: workspace:*
-        version: link:../../packages/utils-react
-      '@easy-pkg/utils-react-router':
-        specifier: workspace:*
-        version: link:../../packages/utils-react-router
-      '@easy-pkg/utils-redux':
-        specifier: workspace:*
-        version: link:../../packages/utils-redux
-      '@reduxjs/toolkit':
-        specifier: ^1.9.5
-        version: 1.9.5(react-redux@8.1.1)(react@17.0.2)
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
+      react-component-benchmark:
+        specifier: ^1.0.0
+        version: 1.0.0(react@17.0.2)
       react-dom:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
@@ -1295,6 +1052,9 @@ importers:
       react-router-dom:
         specifier: ^6.14.1
         version: 6.14.1(react-dom@17.0.2)(react@17.0.2)
+      use-immer:
+        specifier: ^0.8.1
+        version: 0.8.1(immer@9.0.21)(react@17.0.2)
       web-vitals:
         specifier: ^3.3.2
         version: 3.3.2
@@ -1320,6 +1080,9 @@ importers:
       '@testing-library/dom':
         specifier: ^8.20.1
         version: 8.20.1
+      '@testing-library/jest-dom':
+        specifier: ^5.16.5
+        version: 5.16.5
       '@testing-library/react':
         specifier: ^12.1.5
         version: 12.1.5(react-dom@17.0.2)(react@17.0.2)
@@ -1332,9 +1095,15 @@ importers:
       '@types/jest':
         specifier: ^29.5.2
         version: 29.5.2
+      '@types/lodash':
+        specifier: ^4.14.195
+        version: 4.14.195
       '@types/react':
         specifier: ^17.0.62
         version: 17.0.62
+      '@types/react-component-benchmark':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@types/react-dom':
         specifier: ^17.0.20
         version: 17.0.20
@@ -1368,46 +1137,6 @@ importers:
       typescript-plugin-css-modules:
         specifier: ^5.0.1
         version: 5.0.1(typescript@5.1.3)
-
-  projects/template-nodejs:
-    dependencies:
-      chalk:
-        specifier: ^4.1.2
-        version: 4.1.2
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
-      '@easy-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@easy-pkg/utils-test':
-        specifier: workspace:*
-        version: link:../../packages/utils-test
-      '@types/node':
-        specifier: ^18.16.19
-        version: 18.16.19
-      eslint:
-        specifier: ^8.44.0
-        version: 8.44.0
-      lint-staged:
-        specifier: ^13.2.3
-        version: 13.2.3
-      prettier:
-        specifier: 2.8.0
-        version: 2.8.0
-      rimraf:
-        specifier: ^3.0.2
-        version: 3.0.2
-      typescript:
-        specifier: 5.1.3
-        version: 5.1.3
 
 packages:
 

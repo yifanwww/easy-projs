@@ -189,28 +189,12 @@
             "path": "projects/perf-js"
         },
         {
-            "name": "@easy-proj/perf-react",
-            "path": "projects/perf-react"
-        },
-        {
             "name": "@easy-proj/proving-ground-nodejs",
             "path": "projects/proving-ground-nodejs"
         },
         {
-            "name": "@easy-proj/react-canvas-resize",
-            "path": "projects/react-canvas-resize"
-        },
-        {
-            "name": "@easy-proj/react-rerender-test",
-            "path": "projects/react-rerender-test"
-        },
-        {
-            "name": "@easy-proj/template-browser-react",
-            "path": "projects/template-browser-react"
-        },
-        {
-            "name": "@easy-proj/template-nodejs",
-            "path": "projects/template-nodejs"
+            "name": "@easy-proj/web-app",
+            "path": "projects/web-app"
         }
     ]
 }
