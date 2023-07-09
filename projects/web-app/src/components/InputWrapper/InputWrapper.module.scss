@@ -1,0 +1,12 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout.auto {
+    flex: auto;
+}
+
+.title {
+    height: 24px;
+}

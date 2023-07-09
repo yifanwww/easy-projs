@@ -10,4 +10,11 @@ export const RoutePath = {
     RERENDER_TEST_RERENDER_PARENT: '/react-rerender-test/rerender-parent',
     RERENDER_TEST_ROUTE: '/react-rerender-test/router',
     RERENDER_TEST_ROUTE_DETAIL: '/react-rerender-test/router/:num',
+
+    // -------------------- React Performance Test --------------------
+
+    PERF_TEST_HOME: '/react-perf-test',
+    PERF_TEST_BAR_CHART: '/react-perf-test/bar-chart',
+    PERF_TEST_LINE_CHART: '/react-perf-test/line-chart',
+    PERF_TEST_TEST: '/react-perf-test/test',
 } as const;

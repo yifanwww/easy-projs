@@ -1,0 +1,554 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test reducer fn \`reducer\` should add new benchmark results 1`] = `
+{
+  "mount": {
+    "average": {
+      "noHooks": 10,
+      "useCallback": NaN,
+      "useMemo": NaN,
+      "useReducer": NaN,
+      "useRef": NaN,
+      "useState": 12,
+    },
+    "noHooks": {
+      "entities": {
+        "10": {
+          "name": "noHooks",
+          "order": 10,
+          "samples": 10,
+          "stats": {
+            "layout": 10,
+            "mean": 10,
+            "p95": 10,
+            "p99": 10,
+            "stdDev": 10,
+          },
+          "type": "mount",
+        },
+      },
+      "ids": [
+        10,
+      ],
+    },
+    "useCallback": {
+      "entities": {},
+      "ids": [],
+    },
+    "useMemo": {
+      "entities": {},
+      "ids": [],
+    },
+    "useReducer": {
+      "entities": {},
+      "ids": [],
+    },
+    "useRef": {
+      "entities": {},
+      "ids": [],
+    },
+    "useState": {
+      "entities": {
+        "12": {
+          "name": "useState",
+          "order": 12,
+          "samples": 12,
+          "stats": {
+            "layout": 12,
+            "mean": 12,
+            "p95": 12,
+            "p99": 12,
+            "stdDev": 12,
+          },
+          "type": "mount",
+        },
+      },
+      "ids": [
+        12,
+      ],
+    },
+  },
+  "totalResults": {
+    "entities": {
+      "10": {
+        "name": "noHooks",
+        "order": 10,
+        "samples": 10,
+        "stats": {
+          "layout": 10,
+          "mean": 10,
+          "p95": 10,
+          "p99": 10,
+          "stdDev": 10,
+        },
+        "type": "mount",
+      },
+      "12": {
+        "name": "useState",
+        "order": 12,
+        "samples": 12,
+        "stats": {
+          "layout": 12,
+          "mean": 12,
+          "p95": 12,
+          "p99": 12,
+          "stdDev": 12,
+        },
+        "type": "mount",
+      },
+      "15": {
+        "name": "useMemo",
+        "order": 15,
+        "samples": 15,
+        "stats": {
+          "layout": 15,
+          "mean": 15,
+          "p95": 15,
+          "p99": 15,
+          "stdDev": 15,
+        },
+        "type": "update",
+      },
+      "20": {
+        "name": "useCallback",
+        "order": 20,
+        "samples": 20,
+        "stats": {
+          "layout": 20,
+          "mean": 20,
+          "p95": 20,
+          "p99": 20,
+          "stdDev": 20,
+        },
+        "type": "unmount",
+      },
+    },
+    "ids": [
+      10,
+      12,
+      15,
+      20,
+    ],
+  },
+  "unmount": {
+    "average": {
+      "noHooks": NaN,
+      "useCallback": 20,
+      "useMemo": NaN,
+      "useReducer": NaN,
+      "useRef": NaN,
+      "useState": NaN,
+    },
+    "noHooks": {
+      "entities": {},
+      "ids": [],
+    },
+    "useCallback": {
+      "entities": {
+        "20": {
+          "name": "useCallback",
+          "order": 20,
+          "samples": 20,
+          "stats": {
+            "layout": 20,
+            "mean": 20,
+            "p95": 20,
+            "p99": 20,
+            "stdDev": 20,
+          },
+          "type": "unmount",
+        },
+      },
+      "ids": [
+        20,
+      ],
+    },
+    "useMemo": {
+      "entities": {},
+      "ids": [],
+    },
+    "useReducer": {
+      "entities": {},
+      "ids": [],
+    },
+    "useRef": {
+      "entities": {},
+      "ids": [],
+    },
+    "useState": {
+      "entities": {},
+      "ids": [],
+    },
+  },
+  "update": {
+    "average": {
+      "noHooks": NaN,
+      "useCallback": NaN,
+      "useMemo": 15,
+      "useReducer": NaN,
+      "useRef": NaN,
+      "useState": NaN,
+    },
+    "noHooks": {
+      "entities": {},
+      "ids": [],
+    },
+    "useCallback": {
+      "entities": {},
+      "ids": [],
+    },
+    "useMemo": {
+      "entities": {
+        "15": {
+          "name": "useMemo",
+          "order": 15,
+          "samples": 15,
+          "stats": {
+            "layout": 15,
+            "mean": 15,
+            "p95": 15,
+            "p99": 15,
+            "stdDev": 15,
+          },
+          "type": "update",
+        },
+      },
+      "ids": [
+        15,
+      ],
+    },
+    "useReducer": {
+      "entities": {},
+      "ids": [],
+    },
+    "useRef": {
+      "entities": {},
+      "ids": [],
+    },
+    "useState": {
+      "entities": {},
+      "ids": [],
+    },
+  },
+}
+`;
+
+exports[`Test reducer fn \`reducer\` should clear all benchmark results 1`] = `
+{
+  "mount": {
+    "average": {
+      "entities": {},
+      "ids": [],
+      "noHooks": NaN,
+      "useCallback": NaN,
+      "useMemo": NaN,
+      "useReducer": NaN,
+      "useRef": NaN,
+      "useState": NaN,
+    },
+    "noHooks": {
+      "entities": {},
+      "ids": [],
+    },
+    "useCallback": {
+      "entities": {},
+      "ids": [],
+    },
+    "useMemo": {
+      "entities": {},
+      "ids": [],
+    },
+    "useReducer": {
+      "entities": {},
+      "ids": [],
+    },
+    "useRef": {
+      "entities": {},
+      "ids": [],
+    },
+    "useState": {
+      "entities": {},
+      "ids": [],
+    },
+  },
+  "totalResults": {
+    "entities": {},
+    "ids": [],
+  },
+  "unmount": {
+    "average": {
+      "entities": {},
+      "ids": [],
+      "noHooks": NaN,
+      "useCallback": NaN,
+      "useMemo": NaN,
+      "useReducer": NaN,
+      "useRef": NaN,
+      "useState": NaN,
+    },
+    "noHooks": {
+      "entities": {},
+      "ids": [],
+    },
+    "useCallback": {
+      "entities": {},
+      "ids": [],
+    },
+    "useMemo": {
+      "entities": {},
+      "ids": [],
+    },
+    "useReducer": {
+      "entities": {},
+      "ids": [],
+    },
+    "useRef": {
+      "entities": {},
+      "ids": [],
+    },
+    "useState": {
+      "entities": {},
+      "ids": [],
+    },
+  },
+  "update": {
+    "average": {
+      "entities": {},
+      "ids": [],
+      "noHooks": NaN,
+      "useCallback": NaN,
+      "useMemo": NaN,
+      "useReducer": NaN,
+      "useRef": NaN,
+      "useState": NaN,
+    },
+    "noHooks": {
+      "entities": {},
+      "ids": [],
+    },
+    "useCallback": {
+      "entities": {},
+      "ids": [],
+    },
+    "useMemo": {
+      "entities": {},
+      "ids": [],
+    },
+    "useReducer": {
+      "entities": {},
+      "ids": [],
+    },
+    "useRef": {
+      "entities": {},
+      "ids": [],
+    },
+    "useState": {
+      "entities": {},
+      "ids": [],
+    },
+  },
+}
+`;
+
+exports[`Test reducer fn \`reducer\` should clear specific benchmark results 1`] = `
+{
+  "mount": {
+    "average": {
+      "noHooks": NaN,
+      "useCallback": NaN,
+      "useMemo": NaN,
+      "useReducer": NaN,
+      "useRef": NaN,
+      "useState": 12,
+    },
+    "noHooks": {
+      "entities": {},
+      "ids": [],
+    },
+    "useCallback": {
+      "entities": {},
+      "ids": [],
+    },
+    "useMemo": {
+      "entities": {},
+      "ids": [],
+    },
+    "useReducer": {
+      "entities": {},
+      "ids": [],
+    },
+    "useRef": {
+      "entities": {},
+      "ids": [],
+    },
+    "useState": {
+      "entities": {
+        "12": {
+          "name": "useState",
+          "order": 12,
+          "samples": 12,
+          "stats": {
+            "layout": 12,
+            "mean": 12,
+            "p95": 12,
+            "p99": 12,
+            "stdDev": 12,
+          },
+          "type": "mount",
+        },
+      },
+      "ids": [
+        12,
+      ],
+    },
+  },
+  "totalResults": {
+    "entities": {
+      "12": {
+        "name": "useState",
+        "order": 12,
+        "samples": 12,
+        "stats": {
+          "layout": 12,
+          "mean": 12,
+          "p95": 12,
+          "p99": 12,
+          "stdDev": 12,
+        },
+        "type": "mount",
+      },
+      "15": {
+        "name": "useMemo",
+        "order": 15,
+        "samples": 15,
+        "stats": {
+          "layout": 15,
+          "mean": 15,
+          "p95": 15,
+          "p99": 15,
+          "stdDev": 15,
+        },
+        "type": "update",
+      },
+      "20": {
+        "name": "useCallback",
+        "order": 20,
+        "samples": 20,
+        "stats": {
+          "layout": 20,
+          "mean": 20,
+          "p95": 20,
+          "p99": 20,
+          "stdDev": 20,
+        },
+        "type": "unmount",
+      },
+    },
+    "ids": [
+      12,
+      15,
+      20,
+    ],
+  },
+  "unmount": {
+    "average": {
+      "noHooks": NaN,
+      "useCallback": 20,
+      "useMemo": NaN,
+      "useReducer": NaN,
+      "useRef": NaN,
+      "useState": NaN,
+    },
+    "noHooks": {
+      "entities": {},
+      "ids": [],
+    },
+    "useCallback": {
+      "entities": {
+        "20": {
+          "name": "useCallback",
+          "order": 20,
+          "samples": 20,
+          "stats": {
+            "layout": 20,
+            "mean": 20,
+            "p95": 20,
+            "p99": 20,
+            "stdDev": 20,
+          },
+          "type": "unmount",
+        },
+      },
+      "ids": [
+        20,
+      ],
+    },
+    "useMemo": {
+      "entities": {},
+      "ids": [],
+    },
+    "useReducer": {
+      "entities": {},
+      "ids": [],
+    },
+    "useRef": {
+      "entities": {},
+      "ids": [],
+    },
+    "useState": {
+      "entities": {},
+      "ids": [],
+    },
+  },
+  "update": {
+    "average": {
+      "noHooks": NaN,
+      "useCallback": NaN,
+      "useMemo": 15,
+      "useReducer": NaN,
+      "useRef": NaN,
+      "useState": NaN,
+    },
+    "noHooks": {
+      "entities": {},
+      "ids": [],
+    },
+    "useCallback": {
+      "entities": {},
+      "ids": [],
+    },
+    "useMemo": {
+      "entities": {
+        "15": {
+          "name": "useMemo",
+          "order": 15,
+          "samples": 15,
+          "stats": {
+            "layout": 15,
+            "mean": 15,
+            "p95": 15,
+            "p99": 15,
+            "stdDev": 15,
+          },
+          "type": "update",
+        },
+      },
+      "ids": [
+        15,
+      ],
+    },
+    "useReducer": {
+      "entities": {},
+      "ids": [],
+    },
+    "useRef": {
+      "entities": {},
+      "ids": [],
+    },
+    "useState": {
+      "entities": {},
+      "ids": [],
+    },
+  },
+}
+`;

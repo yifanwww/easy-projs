@@ -16,7 +16,7 @@ export function Page({ children }: ReactChildrenProps): JSX.Element {
     return (
         <Layout>
             {configs && <PageSider configs={configs} page={pagePath} />}
-            <Layout>{children}</Layout>
+            <Layout style={{ background: 'white' }}>{children}</Layout>
         </Layout>
     );
 }

@@ -51,4 +51,27 @@ export const routes: RouteConfig[] = createRoutes([
         ),
         exact: false,
     },
+
+    // -------------------- React Performance Test --------------------
+
+    {
+        path: RoutePath.PERF_TEST_HOME,
+        component: lazy(() => import(/* webpackChunkName: 'perf-test-home' */ 'src/pages/PerfTest/HomePage')),
+    },
+    {
+        path: RoutePath.PERF_TEST_TEST,
+        component: lazy(() => import(/* webpackChunkName: 'perf-test-test' */ 'src/pages/PerfTest/TestPage')),
+    },
+    {
+        path: RoutePath.PERF_TEST_BAR_CHART,
+        component: lazy(
+            () => import(/* webpackChunkName: 'perf-test-bar-chart' */ 'src/pages/PerfTest/ChartPage/BarChartPage'),
+        ),
+    },
+    {
+        path: RoutePath.PERF_TEST_LINE_CHART,
+        component: lazy(
+            () => import(/* webpackChunkName: 'perf-test-line-chart' */ 'src/pages/PerfTest/ChartPage/LineChartPage'),
+        ),
+    },
 ]);

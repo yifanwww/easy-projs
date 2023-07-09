@@ -5,7 +5,10 @@ import type { PageOverviewInfo } from './components/PageOverview';
 
 import css from './HomePage.module.scss';
 
-const overviews: PageOverviewInfo[] = [{ title: 'React Rerender Test', /*   */ url: RoutePath.RERENDER_TEST_HOME }];
+const overviews: PageOverviewInfo[] = [
+    { title: 'React Rerender Test', /*   */ url: RoutePath.RERENDER_TEST_HOME },
+    { title: 'React Performance Test', /*   */ url: RoutePath.PERF_TEST_HOME },
+];
 
 function HomePage(): JSX.Element {
     return (

@@ -5,12 +5,15 @@ import { Navigate, Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Page } from './components/Page';
+import { BenchmarkProvider } from './contexts/BenchmarkContext';
 import { RoutePath, routes } from './routes';
 
 function GlobalProviders(props: ReactChildrenProps): JSX.Element {
     return (
         <ConfigProvider autoInsertSpaceInButton={false}>
-            <BrowserRouter>{props.children}</BrowserRouter>
+            <BrowserRouter>
+                <BenchmarkProvider>{props.children}</BenchmarkProvider>
+            </BrowserRouter>
         </ConfigProvider>
     );
 }

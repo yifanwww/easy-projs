@@ -13,8 +13,9 @@ interface PageSiderProps {
 
 export function PageSider({ configs, page }: PageSiderProps): JSX.Element {
     const convertConfig = (config: SiderConfig): ItemType => ({
-        label: <Link to={config.path}>{config.title}</Link>,
         key: config.path,
+        label: <Link to={config.path}>{config.title}</Link>,
+        icon: config.icon,
         children: config.children?.map((child) => convertConfig(child)),
     });
 
