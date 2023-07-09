@@ -998,6 +998,9 @@ importers:
       '@easy-pkg/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+      '@easy-pkg/utils-browser':
+        specifier: workspace:*
+        version: link:../../packages/utils-browser
       '@easy-pkg/utils-react':
         specifier: workspace:*
         version: link:../../packages/utils-react
