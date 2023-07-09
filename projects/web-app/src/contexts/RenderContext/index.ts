@@ -1,2 +1,2 @@
-export { RenderContext, RenderContextUpdater, RenderProvider } from './context';
+export { RenderContext, RenderProvider } from './context';
 export * from './types';

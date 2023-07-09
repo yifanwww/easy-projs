@@ -3,7 +3,7 @@ import { useCallback, useContext, useMemo } from 'react';
 
 import { Inspector } from 'src/components/Inspector';
 import { TestPageContainer } from 'src/components/TestPageContainer';
-import { RenderContext, RenderContextUpdater } from 'src/contexts/RenderContext';
+import { RenderContext } from 'src/contexts/RenderContext';
 
 import { makeInspectedFC, usePersistInspectedFC } from '../makeInspectedFC';
 
@@ -38,7 +38,7 @@ const ParentPNC = makeInspectedFC('Parent', () => {
 });
 
 function Controller(): JSX.Element {
-    const { forceUpdate } = useContext(RenderContextUpdater);
+    const { forceUpdate } = useContext(RenderContext);
 
     return (
         <Button onClick={forceUpdate} type="primary">

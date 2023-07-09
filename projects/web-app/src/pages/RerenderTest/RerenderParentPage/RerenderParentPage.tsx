@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { Inspector } from 'src/components/Inspector';
 import { TestPageContainer } from 'src/components/TestPageContainer';
-import { RenderContext, RenderContextUpdater } from 'src/contexts/RenderContext';
+import { RenderContext } from 'src/contexts/RenderContext';
 
 import { makeInspectedFC } from '../makeInspectedFC';
 
@@ -22,7 +22,7 @@ const ParentPtc = makeInspectedFC('Parent', ({ children }) => {
 });
 
 function Controller(): JSX.Element {
-    const { forceUpdate } = useContext(RenderContextUpdater);
+    const { forceUpdate } = useContext(RenderContext);
 
     return (
         <Button onClick={forceUpdate} type="primary">

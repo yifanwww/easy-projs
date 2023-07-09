@@ -4,21 +4,27 @@ import { createContext, useMemo } from 'react';
 import { useImmerReducer } from 'use-immer';
 
 import { reducer } from './reducer';
-import type { RenderContextState, RenderContextUpdaters } from './types';
+import type { RenderContextState, RenderContextUpdaters, RenderContextValues } from './types';
 
-export const initialState: RenderContextState = {
-    forceUpdateNumber: 0,
-    selected: 0,
-};
+export function getInitialState(): RenderContextState {
+    return {
+        forceUpdateNumber: 0,
+        selected: 0,
+    };
+}
 
-export const RenderContext = createContext<RenderContextState>(initialState);
-export const RenderContextUpdater = createContext<RenderContextUpdaters>({
-    forceUpdate: abstractFn,
-    select: abstractFn,
-});
+function getInitialValues(): RenderContextValues {
+    return {
+        ...getInitialState(),
+        forceUpdate: abstractFn,
+        select: abstractFn,
+    };
+}
+
+export const RenderContext = createContext<RenderContextValues>(getInitialValues());
 
 export function RenderProvider({ children }: ReactChildrenProps): JSX.Element {
-    const [context, dispatch] = useImmerReducer(reducer, initialState);
+    const [state, dispatch] = useImmerReducer(reducer, getInitialState());
 
     const updaters = useMemo<RenderContextUpdaters>(
         () => ({
@@ -29,8 +35,8 @@ export function RenderProvider({ children }: ReactChildrenProps): JSX.Element {
     );
 
     return (
-        <RenderContextUpdater.Provider value={updaters}>
-            <RenderContext.Provider value={context}>{children}</RenderContext.Provider>
-        </RenderContextUpdater.Provider>
+        <RenderContext.Provider value={useMemo(() => ({ ...state, ...updaters }), [state, updaters])}>
+            {children}
+        </RenderContext.Provider>
     );
 }

@@ -1,5 +1,5 @@
 import { useForceUpdate } from '@easy-pkg/hooks';
-import { abstractFn } from '@easy-pkg/utils';
+import { abstractFn, assert } from '@easy-pkg/utils';
 import type { ReactChildrenProps } from '@easy-pkg/utils-react';
 import { createContext, useCallback, useMemo, useRef } from 'react';
 
@@ -7,13 +7,15 @@ import { reduce } from './reducer';
 import type { ReducerAction } from './reducer';
 import type { InspectionContextState, InspectionContextUpdaters } from './types';
 
-export const initialState: InspectionContextState = {
-    data: {},
-    groups: [],
-    selectedGroup: undefined,
-};
+export function getInitialState(): InspectionContextState {
+    return {
+        data: {},
+        groups: [],
+        selectedGroup: undefined,
+    };
+}
 
-export const InspectionContext = createContext<InspectionContextState>(initialState);
+export const InspectionContext = createContext<InspectionContextState>(getInitialState());
 
 export const InspectionContextUpdater = createContext<InspectionContextUpdaters>({
     addRecord: abstractFn,
@@ -23,11 +25,15 @@ export const InspectionContextUpdater = createContext<InspectionContextUpdaters>
 });
 
 export function InspectionProvider({ children }: ReactChildrenProps): JSX.Element {
-    const ref = useRef(initialState);
+    const ref = useRef<InspectionContextState>();
+    if (!ref.current) {
+        ref.current = getInitialState();
+    }
 
     const forceUpdate = useForceUpdate();
 
     const dispatch = useCallback<React.Dispatch<ReducerAction>>((action) => {
+        assert(typeof ref.current === 'object');
         ref.current = reduce(ref.current, action);
     }, []);
 

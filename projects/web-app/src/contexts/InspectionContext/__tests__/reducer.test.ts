@@ -1,6 +1,6 @@
 import type { InspectionData } from 'src/types/inspection';
 
-import { initialState } from '../context';
+import { getInitialState } from '../context';
 import { reduce } from '../reducer';
 
 describe(`Test reducer fn \`${reduce.name}\``, () => {
@@ -20,16 +20,15 @@ describe(`Test reducer fn \`${reduce.name}\``, () => {
     ];
 
     it('should register new group', () => {
-        let state = initialState;
+        let state = getInitialState();
         for (const group of groups) {
             state = reduce(state, { type: 'register-group', index: group.index, group: group.group });
         }
-
         expect(state).toMatchSnapshot();
     });
 
     it('should add new record', () => {
-        let state = initialState;
+        let state = getInitialState();
 
         for (const group of groups) {
             state = reduce(state, { type: 'register-group', index: group.index, group: group.group });

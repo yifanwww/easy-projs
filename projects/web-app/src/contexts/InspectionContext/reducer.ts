@@ -34,7 +34,7 @@ export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction
                 };
             }
 
-            if (groups.length > 0 && draft.selectedGroup === null) {
+            if (groups.length > 0 && draft.selectedGroup === undefined) {
                 draft.selectedGroup = groups[0];
             }
 
