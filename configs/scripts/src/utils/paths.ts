@@ -27,10 +27,6 @@ export const paths = {
     pkgs,
     projs,
 
-    // compilation
-
-    reactWebpackConfig: path.resolve(scriptsDist, 'webpack/webpack.config.js'),
-
     // test
 
     jestCache: path.resolve(rootNodeModules, '.cache/jest'),
