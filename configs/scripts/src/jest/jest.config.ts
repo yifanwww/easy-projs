@@ -8,7 +8,7 @@ function getConfig(): Config.InitialOptions {
     const packageJson = process.env.npm_package_json;
     const packageDir = packageJson ? path.dirname(packageJson) : process.cwd();
 
-    const packageOwnTestSetup = path.resolve(packageDir, 'src/setup.tests.ts');
+    const packageOwnTestSetup = path.resolve(packageDir, 'src/test.setup.ts');
     const hasPackageOwnTestSetup = fs.existsSync(packageOwnTestSetup);
 
     return {
@@ -24,7 +24,7 @@ function getConfig(): Config.InitialOptions {
             '!src/**/__tests__/**/*.{ts,tsx}',
             '!src/**/*.{spec.test}.{ts,tsx}',
             '!src/**/*.d.ts',
-            '!src/setup.tests.ts',
+            '!src/test.setup.ts',
         ],
         testMatch: ['<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
         testEnvironment: 'jest-environment-jsdom',

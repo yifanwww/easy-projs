@@ -13,6 +13,6 @@
         "../src/**/*.spec.tsx",
         "../src/**/*.test.ts",
         "../src/**/*.test.tsx",
-        "../src/setup.tests.ts"
+        "../src/test.setup.ts"
     ]
 }

@@ -31,7 +31,7 @@ const craPaths = {
     appTypeDeclarations: resolveProj('src/global.d.ts'),
     proxySetup: resolveProj('src/setup.proxy.js'),
     swSrc: resolveProj('src/serviceWorker.js'),
-    testsSetup: resolveProj('src/setup.tests.ts'),
+    testsSetup: resolveProj('src/test.setup.ts'),
 };
 
 interface CRAPaths {
