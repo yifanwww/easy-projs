@@ -24,3 +24,10 @@ export function assertIsBoolean(value: unknown, varName: string): asserts value 
         throw new Error(`Assertion Error: ${varName} should be boolean`);
     }
 }
+
+/**
+ * The function for asserting whether a value's type is `never` at compile time.
+ */
+export function assertIsNever(value: never): never {
+    return value;
+}
