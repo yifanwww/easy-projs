@@ -1,9 +1,11 @@
 {
     "extends": "@easy-config/tsconfigs/tsconfig.eslint.react.json",
     "compilerOptions": {
+        "allowImportingTsExtensions": true,
         "baseUrl": ".",
         "incremental": false,
-        "rootDir": "src",
+        "noEmit": true,
+        "rootDir": ".",
 
         "plugins": [
             {
@@ -24,5 +26,6 @@
         ]
     },
     "include": ["src/**/*"],
-    "exclude": []
+    "exclude": [],
+    "references": [{ "path": "./tsconfig.node.json" }]
 }

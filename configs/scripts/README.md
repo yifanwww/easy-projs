@@ -4,22 +4,11 @@ Scripts for easy-projs.
 
 ## Binary
 
-This package contains several binary which can be called via `npx` (or `yarn`) directly:
+This package contains the following binaries:
 
-- `react-proj`
-  - `react-proj build`
-    Build react project.
-  - `react-proj build-profile`
-    Build react project with profiling enabled. See [React Profiling].
-  - `react-proj dev`
-    Dev react project.
-
-## Configurations
+- `unit-test`
+  The binary to run unit tests.
 
 ## Build
 
 You will need to build this package before building packages and projects.
-
-<!-- links -->
-
-[react profiling]: https://create-react-app.dev/docs/production-build#profiling
