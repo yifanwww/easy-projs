@@ -993,9 +993,6 @@ importers:
       antd:
         specifier: ^4.24.12
         version: 4.24.12(react-dom@17.0.2)(react@17.0.2)
-      browserslist:
-        specifier: ^4.21.9
-        version: 4.21.9
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -1029,9 +1026,6 @@ importers:
       react-router-dom:
         specifier: ^6.14.1
         version: 6.14.1(react-dom@17.0.2)(react@17.0.2)
-      sass:
-        specifier: ^1.63.6
-        version: 1.63.6
       use-immer:
         specifier: ^0.8.1
         version: 0.8.1(immer@9.0.21)(react@17.0.2)
@@ -1096,6 +1090,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.0.1
         version: 4.0.1(vite@4.4.0)
+      browserslist:
+        specifier: ^4.21.9
+        version: 4.21.9
       eslint:
         specifier: ^8.44.0
         version: 8.44.0
@@ -1111,6 +1108,9 @@ importers:
       rimraf:
         specifier: ^3.0.2
         version: 3.0.2
+      sass:
+        specifier: ^1.63.6
+        version: 1.63.6
       stylelint:
         specifier: ^14.16.1
         version: 14.16.1
@@ -6145,6 +6145,7 @@ packages:
   /binary-extensions@2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
+    dev: true
 
   /brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -6258,6 +6259,7 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /ci-info@3.8.0:
     resolution: {integrity: sha512-eXTggHWSooYhq49F2opQhuHWgzucfF2YgODK4e1566GQs5BIfP30B0oenwBJHfWxAs2fyPB1s7Mg949zLf61Yw==}
@@ -7599,6 +7601,7 @@ packages:
 
   /immutable@4.3.0:
     resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==}
+    dev: true
 
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -7676,6 +7679,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       binary-extensions: 2.2.0
+    dev: true
 
   /is-boolean-object@1.1.2:
     resolution: {integrity: sha512-gDYaKHJmnj4aWxyj6YHyXVpdQawtVLHU5cb+eztPGczf6cjuTdwve5ZIEfgXqH4e57An1D1AKf8CZ3kYrQRqYA==}
@@ -9911,6 +9915,7 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+    dev: true
 
   /redent@3.0.0:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==}
@@ -10103,6 +10108,7 @@ packages:
       chokidar: 3.5.3
       immutable: 4.3.0
       source-map-js: 1.0.2
+    dev: true
 
   /sax@1.2.4:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
