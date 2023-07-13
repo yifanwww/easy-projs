@@ -1,3 +1,4 @@
+import { assertIsNever } from '@easy-pkg/utils';
 import type { Integer } from '@easy-pkg/utils-type';
 import type { ImmerReducer } from 'use-immer';
 
@@ -6,7 +7,6 @@ import type { RenderContextState } from './types';
 type RenderAction = { type: 'forceUpdate' } | { type: 'select'; select: Integer };
 
 export const reducer: ImmerReducer<RenderContextState, RenderAction> = (draft, action) => {
-    let never: never;
     switch (action.type) {
         case 'forceUpdate':
             draft.forceUpdateNumber++;
@@ -18,7 +18,6 @@ export const reducer: ImmerReducer<RenderContextState, RenderAction> = (draft, a
 
         /* istanbul ignore next */
         default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = action;
+            assertIsNever(action);
     }
 };

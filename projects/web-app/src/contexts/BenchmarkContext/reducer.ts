@@ -1,3 +1,4 @@
+import { assertIsNever } from '@easy-pkg/utils';
 import type { Draft } from 'immer';
 import type { ImmerReducer } from 'use-immer';
 
@@ -42,7 +43,6 @@ type ReducerAction =
     | { type: 'clear-all' };
 
 export const reducer: ImmerReducer<BenchmarkContextState, ReducerAction> = (draft, action) => {
-    let never: never;
     switch (action.type) {
         case 'add': {
             const { result } = action;
@@ -77,8 +77,7 @@ export const reducer: ImmerReducer<BenchmarkContextState, ReducerAction> = (draf
 
         /* istanbul ignore next */
         default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = action;
+            assertIsNever(action);
     }
 
     calculateAverageStats(draft);

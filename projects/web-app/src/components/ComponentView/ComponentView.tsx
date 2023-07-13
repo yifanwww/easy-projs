@@ -1,3 +1,4 @@
+import { assertIsNever } from '@easy-pkg/utils';
 import { Tag } from 'antd';
 
 import { useRenderCount } from 'src/hooks';
@@ -10,7 +11,6 @@ interface ComponentTagProps {
 }
 
 function ComponentTag({ type }: ComponentTagProps): JSX.Element | null {
-    let never: never;
     switch (type) {
         case 'nil':
             return null;
@@ -29,8 +29,7 @@ function ComponentTag({ type }: ComponentTagProps): JSX.Element | null {
 
         /* istanbul ignore next */
         default:
-            never = type;
-            return never;
+            assertIsNever(type);
     }
 }
 

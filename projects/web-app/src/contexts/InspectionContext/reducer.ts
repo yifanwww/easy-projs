@@ -1,3 +1,4 @@
+import { assertIsNever } from '@easy-pkg/utils';
 import produce from 'immer';
 import type { ImmerReducer } from 'use-immer';
 
@@ -11,7 +12,6 @@ export type ReducerAction =
     | { type: 'toggle-group'; toggle: 'prev' | 'next' };
 
 export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction>>((draft, action) => {
-    let never: never;
     switch (action.type) {
         case 'add-record': {
             const { groupIndex, record } = action;
@@ -59,7 +59,6 @@ export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction
 
         /* istanbul ignore next */
         default:
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            never = action;
+            assertIsNever(action);
     }
 });
