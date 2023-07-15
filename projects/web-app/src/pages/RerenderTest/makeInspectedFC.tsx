@@ -47,8 +47,11 @@ interface InternalInspectedFCMaker<P = NonNullable<unknown>> extends InspectedFC
  * @param name The name of this function component.
  * @param fc The function component itself, default is `(props) => <>{props.children}</>`.
  */
-export function makeInspectedFC<P = NonNullable<unknown>>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
-    const _fc: React.FC<P> = fc ?? ((props) => <>{props.children}</>);
+export function makeInspectedFC<P = NonNullable<unknown>>(
+    name: string,
+    fc?: React.FC<React.PropsWithChildren<P>>,
+): InspectedFCMaker<P> {
+    const _fc: React.FC<React.PropsWithChildren<P>> = fc ?? ((props) => <>{props.children}</>);
 
     const _inspectedFC: InternalInspectedFCMaker<P> = (props) => {
         const { _inspectedColor, _inspectedDesc, _inspectedType } = _inspectedFC;
@@ -96,7 +99,10 @@ export function makeInspectedFC<P = NonNullable<unknown>>(name: string, fc?: Rea
     return _inspectedFC;
 }
 
-export function usePersistInspectedFC<P = NonNullable<unknown>>(name: string, fc?: React.FC<P>): InspectedFCMaker<P> {
+export function usePersistInspectedFC<P = NonNullable<unknown>>(
+    name: string,
+    fc?: React.FC<React.PropsWithChildren<P>>,
+): InspectedFCMaker<P> {
     const inspectedFC = makeInspectedFC(name, fc);
 
     const persistFC = usePersistFn(inspectedFC);
