@@ -33,7 +33,7 @@
     "dependencies": {
         "@easy-pkg/utils": "workspace:*",
         "@easy-pkg/utils-type": "workspace:*",
-        "react": "^17.0.2"
+        "react": "^18.2.0"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
@@ -41,17 +41,16 @@
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@easy-pkg/utils-test": "workspace:*",
-        "@testing-library/react": "^12.1.5",
-        "@testing-library/react-hooks": "^8.0.1",
+        "@testing-library/react": "^14.0.0",
         "@types/jest": "^29.5.2",
         "@types/lodash": "^4.14.195",
-        "@types/react": "^17.0.62",
+        "@types/react": "^18.2.15",
         "concurrently": "^7.6.0",
         "eslint": "^8.44.0",
         "lint-staged": "^13.2.3",
         "lodash": "^4.17.21",
         "prettier": "2.8.0",
-        "react-dom": "^17.0.2",
+        "react-dom": "^18.2.0",
         "rimraf": "^3.0.2",
         "typescript": "5.1.3"
     }

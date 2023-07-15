@@ -29,7 +29,7 @@ export interface InspectionData {
 
 export type InspectedFCType = 'nil' | 'prc' | 'ptc';
 
-export interface InspectedFC<P = NonNullable<unknown>> extends React.FC<P> {
+export interface InspectedFC<P = NonNullable<unknown>> extends React.FC<React.PropsWithChildren<P>> {
     inspected?: string;
 }
 

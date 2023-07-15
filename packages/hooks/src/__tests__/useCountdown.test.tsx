@@ -35,7 +35,7 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
     function spyOnUseState() {
         const _useState = (initialState: unknown) => {
             const [state, setState] = useState(initialState);
-            return [state, useCallback((_) => act(() => setState(_)), [])];
+            return [state, useCallback((_: unknown) => act(() => setState(_)), [])];
         };
 
         jest.spyOn(React, 'useState').mockImplementation(_useState as never);

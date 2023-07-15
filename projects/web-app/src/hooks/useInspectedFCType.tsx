@@ -55,17 +55,17 @@ function dfs(element: JSX.Element): InspectedFCType {
 }
 
 export function useInspectedFCType<P = NonNullable<unknown>>(
-    fc: React.FC<P>,
+    fc: React.FC<React.PropsWithChildren<P>>,
     props: React.PropsWithChildren<P>,
 ): InspectedFCType {
     const ref = useRef<InspectedFCType>();
 
     if (ref.current === undefined) {
         const element = withMockedHooks(fc)({ ...props, children: <InspectionTest /> });
-        if (element === null) {
+        if (element === null || element === undefined) {
             ref.current = 'nil';
         } else {
-            ref.current = dfs(element);
+            ref.current = dfs(element as JSX.Element);
         }
     }
 
