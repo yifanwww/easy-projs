@@ -31,7 +31,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "antd": "^4.24.12",
+        "antd": "^5.7.0",
         "rc-select": "^14.5.2",
         "react": "^18.2.0"
     },

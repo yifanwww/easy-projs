@@ -30,7 +30,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "@ant-design/icons": "^4.8.0",
+        "@ant-design/icons": "^5.1.4",
         "@easy-pkg/hooks": "workspace:*",
         "@easy-pkg/utils": "workspace:*",
         "@easy-pkg/utils-browser": "workspace:*",
@@ -39,7 +39,7 @@
         "@easy-pkg/utils-redux": "workspace:*",
         "@easy-pkg/utils-type": "workspace:*",
         "@reduxjs/toolkit": "^1.9.5",
-        "antd": "^4.24.12",
+        "antd": "^5.7.0",
         "clsx": "^1.2.1",
         "echarts": "^5.4.2",
         "immer": "^9.0.21",

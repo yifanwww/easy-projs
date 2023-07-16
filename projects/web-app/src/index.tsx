@@ -2,8 +2,6 @@ import { assert } from '@easy-pkg/utils';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import 'antd/dist/antd.css';
-
 import { AppContainer } from './app';
 import { reportWebVitals } from './reportWebVitals';
 
