@@ -1,7 +1,5 @@
 import type { UnknownFn } from './function';
 
-export type Optional<T> = T | null;
-
 export type ValueOf<T> = T[keyof T];
 
 export type LooseArray<T> = T | readonly T[];

@@ -1,9 +1,7 @@
-import type { Optional } from '@easy-pkg/utils-type';
-
 export interface InspectionNode {
     index: number;
     children?: InspectionNode[];
-    key: Optional<string>;
+    key: string | null;
     name: string;
 }
 
@@ -16,13 +14,13 @@ export interface InspectionTree {
 
 export interface InspectionParent {
     index: number;
-    // key: Optional<string>;
+    // key: string | null;
     // name: string;
 }
 
 export interface InspectionData {
     index: number;
-    key: Optional<string>;
+    key: string | null;
     name: string;
     parents: InspectionParent[];
 }

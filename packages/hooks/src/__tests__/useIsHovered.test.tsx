@@ -1,4 +1,3 @@
-import type { Optional } from '@easy-pkg/utils-type';
 import { fireEvent, render } from '@testing-library/react';
 import { useRef } from 'react';
 
@@ -6,7 +5,7 @@ import { useIsHovered } from '../useIsHovered';
 
 describe(`Test react hook \`${useIsHovered.name}\``, () => {
     it('should return whether the component is hovered', () => {
-        let isHovered: Optional<boolean> = null;
+        let isHovered: boolean | null = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isHovered = useIsHovered(ref);
@@ -30,7 +29,7 @@ describe(`Test react hook \`${useIsHovered.name}\``, () => {
     });
 
     it('should not work if disabled', () => {
-        let isFocused: Optional<boolean> = null;
+        let isFocused: boolean | null = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isFocused = useIsHovered(ref, false);

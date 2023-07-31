@@ -1,5 +1,5 @@
 import type { ReactChildrenProps } from '@easy-pkg/utils-react';
-import type { LooseArray, Optional } from '@easy-pkg/utils-type';
+import type { LooseArray } from '@easy-pkg/utils-type';
 import { useRef } from 'react';
 
 import type { InspectedFC, InspectedFCType } from 'src/types/inspection';
@@ -11,7 +11,7 @@ const InspectionTest: InspectedFC = (props) => <>{props.children}</>;
 InspectionTest.displayName = inspectionTestName;
 InspectionTest.inspected = inspectionTestName;
 
-type StackItem = Optional<React.ReactElement>;
+type StackItem = React.ReactElement | null;
 
 /**
  * See how ReactElement is generated:
