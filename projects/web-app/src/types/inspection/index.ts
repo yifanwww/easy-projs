@@ -1,7 +1,9 @@
+import type { Nullable } from '@easy-pkg/utils-type';
+
 export interface InspectionNode {
     index: number;
     children?: InspectionNode[];
-    key: string | null;
+    key: Nullable<string>;
     name: string;
 }
 
@@ -14,13 +16,13 @@ export interface InspectionTree {
 
 export interface InspectionParent {
     index: number;
-    // key: string | null;
+    // key: Nullable<string>;
     // name: string;
 }
 
 export interface InspectionData {
     index: number;
-    key: string | null;
+    key: Nullable<string>;
     name: string;
     parents: InspectionParent[];
 }

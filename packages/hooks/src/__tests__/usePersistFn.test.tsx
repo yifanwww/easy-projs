@@ -1,5 +1,6 @@
 import { assert } from '@easy-pkg/utils';
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
+import type { Nullable } from '@easy-pkg/utils-type';
 import { act, render } from '@testing-library/react';
 import { noop } from 'lodash';
 import { useState } from 'react';
@@ -10,8 +11,8 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);
 
     it('should call the latest non-persist function', () => {
-        let count: number | null = null;
-        let increaseCount = null as (() => void) | null;
+        let count: Nullable<number> = null;
+        let increaseCount = null as Nullable<() => void>;
         expect(count).toBeNull();
         expect(increaseCount).toBeNull();
 
