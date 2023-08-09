@@ -43,6 +43,7 @@
         "clsx": "^1.2.1",
         "echarts": "^5.4.2",
         "immer": "^9.0.21",
+        "radash": "^11.0.0",
         "rc-scrollbars": "^1.1.6",
         "react": "^18.2.0",
         "react-component-benchmark": "^1.0.0",
