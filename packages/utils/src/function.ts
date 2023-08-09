@@ -5,3 +5,7 @@ export function abstractFn(): never {
 export function abstractAsyncFn(): Promise<never> {
     return Promise.reject(new Error('Not Implemented'));
 }
+
+export function noop(): void {
+    // No operation performed.
+}
