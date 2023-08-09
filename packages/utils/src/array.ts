@@ -10,4 +10,18 @@ export class ArrayUtil {
     static includes<T>(arr: T[], searchElement: T | undefined | null, fromIndex?: number): boolean {
         return (arr as (T | undefined | null)[]).includes(searchElement, fromIndex);
     }
+
+    /**
+     * Checks if an array equals to another array.
+     */
+    static equal<T extends unknown[]>(a: T, b: T): boolean {
+        if (a.length !== b.length) return false;
+
+        const len = a.length;
+        for (let i = 0; i < len; i++) {
+            if (a[i] !== b[i]) return false;
+        }
+
+        return true;
+    }
 }
