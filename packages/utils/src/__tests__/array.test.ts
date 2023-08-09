@@ -28,3 +28,17 @@ describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.includes.name}\``, 
         expect(spy).toHaveBeenCalledTimes(4);
     });
 });
+
+describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.equal.name}\``, () => {
+    it('should return true if an array equals to another array', () => {
+        expect(ArrayUtil.equal([], [])).toBe(true);
+        expect(ArrayUtil.equal([1, 2, 3], [1, 2, 3])).toBe(true);
+        expect(ArrayUtil.equal(['hello', 'world'], ['hello', 'world'])).toBe(true);
+    });
+
+    it('should return false if an array does not equal to another array', () => {
+        expect(ArrayUtil.equal([1], [2, 3])).toBe(false);
+        expect(ArrayUtil.equal([1, 2], [2, 3])).toBe(false);
+        expect(ArrayUtil.equal(['hello', 'world'], ['hello', 'javascript'])).toBe(false);
+    });
+});
