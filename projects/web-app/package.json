@@ -19,7 +19,7 @@
     ],
     "scripts": {
         "build": "vite build",
-        "clean": "rimraf coverage build",
+        "clean": "rimraf coverage dist",
         "dev": "vite dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
