@@ -1,4 +1,5 @@
-import { assert, noop } from '@easy-pkg/utils';
+import { noop } from '@easy-pkg/utils';
+import { assert } from '@easy-pkg/utils-browser';
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import type { Nullable } from '@easy-pkg/utils-type';
 import { act, render } from '@testing-library/react';
