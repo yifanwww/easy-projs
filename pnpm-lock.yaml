@@ -261,9 +261,6 @@ importers:
 
   packages/hooks:
     dependencies:
-      '@easy-pkg/utils':
-        specifier: workspace:*
-        version: link:../utils
       '@easy-pkg/utils-browser':
         specifier: workspace:*
         version: link:../utils-browser
