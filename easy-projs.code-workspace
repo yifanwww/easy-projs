@@ -154,6 +154,10 @@
             "path": "packages/utils-browser"
         },
         {
+            "name": "@easy-pkg/utils-node",
+            "path": "packages/utils-node"
+        },
+        {
             "name": "@easy-pkg/utils-react",
             "path": "packages/utils-react"
         },

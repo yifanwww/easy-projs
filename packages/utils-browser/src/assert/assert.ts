@@ -25,5 +25,5 @@ export function assertIsBoolean(value: unknown, varName: string): asserts value 
  * The function for asserting whether a value's type is `never`.
  */
 export function assertIsNever(value: never): never {
-    throw new AssertionError(`${String(value)} should be "never" type.`);
+    throw new AssertionError(`"${String(value)}" should be "never" type.`);
 }
