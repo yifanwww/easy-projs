@@ -1,11 +1,12 @@
-import { assert, assertIsBoolean, assertIsNever, assertIsNumber, assertIsString } from '../assert';
+import { AssertionError, assert, assertIsBoolean, assertIsNever, assertIsNumber, assertIsString } from '../assert';
 
 describe(`Test fn \`${assert.name}\``, () => {
     it('should assert an expression', () => {
         const str = 'hello world';
 
         expect(() => assert(typeof str === 'string')).not.toThrow();
-        expect(() => assert(typeof str === 'number')).toThrow();
+        expect(() => assert(typeof str === 'number')).toThrow(AssertionError);
+        expect(() => assert(typeof str === 'number')).toThrowErrorMatchingSnapshot();
     });
 });
 
@@ -15,7 +16,8 @@ describe(`Test fn \`${assertIsBoolean.name}\``, () => {
         const num = 0;
 
         expect(() => assertIsBoolean(bool, 'bool')).not.toThrow();
-        expect(() => assertIsBoolean(num, 'num')).toThrow();
+        expect(() => assertIsBoolean(num, 'num')).toThrow(AssertionError);
+        expect(() => assertIsBoolean(num, 'num')).toThrowErrorMatchingSnapshot();
     });
 });
 
@@ -25,7 +27,8 @@ describe(`Test fn \`${assertIsNumber.name}\``, () => {
         const str = 'hello world';
 
         expect(() => assertIsNumber(num, 'num')).not.toThrow();
-        expect(() => assertIsNumber(str, 'str')).toThrow();
+        expect(() => assertIsNumber(str, 'str')).toThrow(AssertionError);
+        expect(() => assertIsNumber(str, 'str')).toThrowErrorMatchingSnapshot();
     });
 });
 
@@ -35,12 +38,14 @@ describe(`Test fn \`${assertIsString.name}\``, () => {
         const num = 0;
 
         expect(() => assertIsString(str, 'str')).not.toThrow();
-        expect(() => assertIsString(num, 'num')).toThrow();
+        expect(() => assertIsString(num, 'num')).toThrow(AssertionError);
+        expect(() => assertIsString(num, 'num')).toThrowErrorMatchingSnapshot();
     });
 });
 
 describe(`Test fn \`${assertIsNever.name}\``, () => {
     it('should throw an error', () => {
-        expect(() => assertIsNever('hello world' as never)).toThrow();
+        expect(() => assertIsNever('hello world' as never)).toThrow(AssertionError);
+        expect(() => assertIsNever('hello world' as never)).toThrowErrorMatchingSnapshot();
     });
 });

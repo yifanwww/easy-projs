@@ -1,4 +1,4 @@
-import { assert } from '@easy-pkg/utils';
+import { assert } from '@easy-pkg/utils-browser';
 import type { Nullable } from '@easy-pkg/utils-type';
 import { render } from '@testing-library/react';
 

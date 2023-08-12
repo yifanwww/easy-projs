@@ -1,4 +1,4 @@
-import { assertIsNumber } from '@easy-pkg/utils';
+import { assertIsNumber } from '@easy-pkg/utils-browser';
 import { Button } from 'antd';
 import { useEffect } from 'react';
 import { generatePath, Route, Routes, useNavigate } from 'react-router';

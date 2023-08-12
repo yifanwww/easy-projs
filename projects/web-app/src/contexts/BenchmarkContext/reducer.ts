@@ -1,4 +1,4 @@
-import { assertIsNever } from '@easy-pkg/utils';
+import { assertIsNever } from '@easy-pkg/utils-browser';
 import type { Draft } from 'immer';
 import type { ImmerReducer } from 'use-immer';
 

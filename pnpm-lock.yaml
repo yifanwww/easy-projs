@@ -264,6 +264,9 @@ importers:
       '@easy-pkg/utils':
         specifier: workspace:*
         version: link:../utils
+      '@easy-pkg/utils-browser':
+        specifier: workspace:*
+        version: link:../utils-browser
       '@easy-pkg/utils-type':
         specifier: workspace:*
         version: link:../utils-type

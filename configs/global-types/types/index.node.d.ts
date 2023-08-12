@@ -1,1 +1,1 @@
-/// <reference types="./typescript/lib.es5" />
+/// <reference types="./index.typescript" />

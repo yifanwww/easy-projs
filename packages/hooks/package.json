@@ -32,6 +32,7 @@
     },
     "dependencies": {
         "@easy-pkg/utils": "workspace:*",
+        "@easy-pkg/utils-browser": "workspace:*",
         "@easy-pkg/utils-type": "workspace:*",
         "react": "^18.2.0"
     },

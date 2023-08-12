@@ -1,4 +1,4 @@
-import { assertIsNever } from '@easy-pkg/utils';
+import { assertIsNever } from '@easy-pkg/utils-browser';
 import { Tag } from 'antd';
 
 import { useRenderCount } from 'src/hooks';

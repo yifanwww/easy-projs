@@ -1,4 +1,4 @@
-import { assert } from '@easy-pkg/utils';
+import { assert } from '@easy-pkg/utils-browser';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
