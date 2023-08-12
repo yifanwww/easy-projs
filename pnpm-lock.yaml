@@ -270,6 +270,9 @@ importers:
       '@easy-pkg/utils-type':
         specifier: workspace:*
         version: link:../utils-type
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -295,6 +298,9 @@ importers:
       '@types/jest':
         specifier: ^29.5.2
         version: 29.5.2
+      '@types/lodash':
+        specifier: ^4.14.197
+        version: 4.14.197
       '@types/react':
         specifier: ^18.2.15
         version: 18.2.15

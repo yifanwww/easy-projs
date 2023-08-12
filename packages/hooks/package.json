@@ -31,9 +31,9 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "@easy-pkg/utils": "workspace:*",
         "@easy-pkg/utils-browser": "workspace:*",
         "@easy-pkg/utils-type": "workspace:*",
+        "lodash": "^4.17.21",
         "react": "^18.2.0"
     },
     "devDependencies": {
@@ -44,6 +44,7 @@
         "@easy-pkg/utils-test": "workspace:*",
         "@testing-library/react": "^14.0.0",
         "@types/jest": "^29.5.2",
+        "@types/lodash": "^4.14.197",
         "@types/react": "^18.2.15",
         "concurrently": "^7.6.0",
         "eslint": "^8.44.0",

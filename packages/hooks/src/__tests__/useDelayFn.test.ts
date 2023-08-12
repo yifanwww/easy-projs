@@ -1,6 +1,6 @@
-import { noop } from '@easy-pkg/utils';
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { act, renderHook } from '@testing-library/react';
+import { noop } from 'lodash';
 
 import { useDelayFn } from '../useDelayFn';
 
