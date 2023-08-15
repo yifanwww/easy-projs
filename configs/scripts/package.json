@@ -19,7 +19,7 @@
     },
     "scripts": {
         "build-scripts": "tsc --project tsconfig.json",
-        "clean-scripts": "rimraf dist tsconfig.tsbuildinfo",
+        "clean-scripts": "rimraf --glob dist tsconfig.tsbuildinfo",
         "dev": "pnpm run build-scripts --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
@@ -47,7 +47,7 @@
         "eslint": "^8.44.0",
         "lint-staged": "^13.2.3",
         "prettier": "2.8.0",
-        "rimraf": "^3.0.2",
+        "rimraf": "^5.0.1",
         "typescript": "5.1.3"
     }
 }

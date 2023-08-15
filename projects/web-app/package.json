@@ -19,7 +19,7 @@
     ],
     "scripts": {
         "build": "vite build",
-        "clean": "rimraf coverage dist",
+        "clean": "rimraf --glob coverage dist",
         "dev": "vite dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
@@ -81,7 +81,7 @@
         "lint-staged": "^13.2.3",
         "prettier": "2.8.0",
         "react-test-renderer": "^18.2.0",
-        "rimraf": "^3.0.2",
+        "rimraf": "^5.0.1",
         "sass": "^1.63.6",
         "stylelint": "^14.16.1",
         "typescript": "5.1.3",
