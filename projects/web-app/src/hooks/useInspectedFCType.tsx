@@ -1,4 +1,4 @@
-import type { ReactChildrenProps } from '@easy-pkg/utils-react';
+import type { ReactChildrenProps } from '@easy-pkg/helpers-react';
 import type { LooseArray, Nullable } from '@easy-pkg/utils-type';
 import { useRef } from 'react';
 

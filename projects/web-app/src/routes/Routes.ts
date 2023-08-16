@@ -1,5 +1,5 @@
-import { createRoutes } from '@easy-pkg/utils-react-router';
-import type { RouteConfig } from '@easy-pkg/utils-react-router';
+import { createRoutes } from '@easy-pkg/helpers-react-router';
+import type { RouteConfig } from '@easy-pkg/helpers-react-router';
 import { lazy } from 'react';
 
 import { RoutePath } from './RoutePath';

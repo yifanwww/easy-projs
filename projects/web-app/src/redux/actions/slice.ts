@@ -1,4 +1,4 @@
-import { omitUnderscorePrefixActions } from '@easy-pkg/utils-redux';
+import { omitUnderscorePrefixActions } from '@easy-pkg/helpers-redux';
 import { createSlice } from '@reduxjs/toolkit';
 
 import type { StoreState } from '../types';

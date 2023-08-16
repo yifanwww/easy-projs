@@ -1,4 +1,4 @@
-import type { ReactChildrenProps } from '@easy-pkg/utils-react';
+import type { ReactChildrenProps } from '@easy-pkg/helpers-react';
 import { ConfigProvider } from 'antd';
 import { Suspense } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';

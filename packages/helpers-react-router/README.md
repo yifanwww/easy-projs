@@ -1,6 +1,6 @@
-# @easy-pkg/utils-antd
+# @easy-pkg/helpers-react-router
 
-A package that contains Ant-Design utilities.
+A package that contains react-router helpers.
 
 ## Develop this package
 

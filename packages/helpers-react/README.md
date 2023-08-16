@@ -1,12 +1,12 @@
-# @easy-pkg/utils-react
+# @easy-pkg/helpers-react
 
-A package that contains React utilities.
+A package that contains React helpers.
 
 ## Usage
 ### `renderFactory` && `defaultOnRender`
 
 ```tsx
-import { defaultOnRender, renderFactory, RenderFn } from '@easy-pkg/utils-react';
+import { defaultOnRender, renderFactory, RenderFn } from '@easy-pkg/helpers-react';
 
 interface PageHeaderProps {
     title: string;

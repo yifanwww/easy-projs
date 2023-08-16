@@ -1,4 +1,4 @@
-import { thunkCreatorFactory } from '@easy-pkg/utils-redux';
+import { thunkCreatorFactory } from '@easy-pkg/helpers-redux';
 
 import type { StoreState } from '../types';
 

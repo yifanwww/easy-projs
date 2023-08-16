@@ -1,7 +1,7 @@
+import type { ReactChildrenProps } from '@easy-pkg/helpers-react';
 import { useForceUpdate } from '@easy-pkg/hooks';
 import { abstractFn } from '@easy-pkg/utils';
 import { assert } from '@easy-pkg/utils-browser';
-import type { ReactChildrenProps } from '@easy-pkg/utils-react';
 import { createContext, useCallback, useMemo, useRef } from 'react';
 
 import { reduce } from './reducer';
