@@ -1,7 +1,7 @@
 {
-    "name": "@easy-pkg/utils-antd",
+    "name": "@easy-pkg/helpers-react-router",
     "version": "0.1.0",
-    "description": "A package that contains React utilities.",
+    "description": "A package that contains React helpers.",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "typings": "lib/index.d.ts",
@@ -15,7 +15,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/utils-antd"
+        "directory": "packages/helpers-react-router"
     },
     "scripts": {
         "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
@@ -26,13 +26,9 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
-        "test": "unit-test",
-        "test-full": "unit-test",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "antd": "^5.7.0",
-        "rc-select": "^14.5.2",
         "react": "^18.2.0"
     },
     "devDependencies": {
@@ -40,7 +36,6 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@types/jest": "^29.5.2",
         "@types/react": "^18.2.15",
         "concurrently": "^7.6.0",
         "eslint": "^8.44.0",

@@ -1,4 +1,4 @@
-import { useDispatchingActions, useDispatchingThunks } from '@easy-pkg/utils-redux';
+import { useDispatchingActions, useDispatchingThunks } from '@easy-pkg/helpers-redux';
 
 import { actions } from '../actions';
 import { thunks } from '../thunks';

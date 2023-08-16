@@ -1,7 +1,7 @@
 {
-    "name": "@easy-pkg/utils-react",
-    "version": "0.1.0",
-    "description": "A package that contains React utilities.",
+    "name": "@easy-pkg/helpers-redux",
+    "version": "1.0.0",
+    "description": "Redux helpers for easy-projs.",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "typings": "lib/index.d.ts",
@@ -15,7 +15,7 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/utils-react"
+        "directory": "packages/helpers-redux"
     },
     "scripts": {
         "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
@@ -38,12 +38,18 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
+        "@reduxjs/toolkit": "^1.9.5",
         "@types/react": "^18.2.15",
         "concurrently": "^7.6.0",
         "eslint": "^8.44.0",
         "lint-staged": "^13.2.3",
         "prettier": "2.8.0",
+        "react-redux": "^8.1.1",
         "rimraf": "^5.0.1",
         "typescript": "5.1.3"
+    },
+    "peerDependencies": {
+        "@reduxjs/toolkit": "^1.8.5",
+        "react-redux": "^8.1.1"
     }
 }

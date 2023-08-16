@@ -1,7 +1,7 @@
 {
-    "name": "@easy-pkg/utils-react-router",
+    "name": "@easy-pkg/helpers-react",
     "version": "0.1.0",
-    "description": "A package that contains React utilities.",
+    "description": "A package that contains React helpers.",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "typings": "lib/index.d.ts",
@@ -15,13 +15,13 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/utils-react-router"
+        "directory": "packages/helpers-react"
     },
     "scripts": {
         "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
+        "clean": "rimraf --glob lib tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build:esm --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
@@ -29,6 +29,8 @@
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
+        "@easy-pkg/utils-type": "workspace:*",
+        "immer": "^9.0.21",
         "react": "^18.2.0"
     },
     "devDependencies": {

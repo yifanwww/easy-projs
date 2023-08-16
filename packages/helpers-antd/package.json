@@ -1,7 +1,7 @@
 {
-    "name": "@easy-pkg/utils-redux",
-    "version": "1.0.0",
-    "description": "Redux utils for easy-projs.",
+    "name": "@easy-pkg/helpers-antd",
+    "version": "0.1.0",
+    "description": "A package that contains React helpers.",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "typings": "lib/index.d.ts",
@@ -15,22 +15,24 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/utils-redux"
+        "directory": "packages/helpers-antd"
     },
     "scripts": {
         "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
         "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "clean": "rimraf --glob lib tsconfigs/*.tsbuildinfo",
+        "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build:esm --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "pre-commit": "lint-staged",
+        "test": "unit-test",
+        "test-full": "unit-test",
         "typecheck": "tsc --project tsconfig.json --noEmit"
     },
     "dependencies": {
-        "@easy-pkg/utils-type": "workspace:*",
-        "immer": "^9.0.21",
+        "antd": "^5.7.0",
+        "rc-select": "^14.5.2",
         "react": "^18.2.0"
     },
     "devDependencies": {
@@ -38,18 +40,13 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@reduxjs/toolkit": "^1.9.5",
+        "@types/jest": "^29.5.2",
         "@types/react": "^18.2.15",
         "concurrently": "^7.6.0",
         "eslint": "^8.44.0",
         "lint-staged": "^13.2.3",
         "prettier": "2.8.0",
-        "react-redux": "^8.1.1",
         "rimraf": "^5.0.1",
         "typescript": "5.1.3"
-    },
-    "peerDependencies": {
-        "@reduxjs/toolkit": "^1.8.5",
-        "react-redux": "^8.1.1"
     }
 }

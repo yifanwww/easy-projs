@@ -142,12 +142,24 @@
             "path": "packages/template-nodejs"
         },
         {
-            "name": "@easy-pkg/utils",
-            "path": "packages/utils"
+            "name": "@easy-pkg/helpers-antd",
+            "path": "packages/helpers-antd"
         },
         {
-            "name": "@easy-pkg/utils-antd",
-            "path": "packages/utils-antd"
+            "name": "@easy-pkg/helpers-react",
+            "path": "packages/helpers-react"
+        },
+        {
+            "name": "@easy-pkg/helpers-react-router",
+            "path": "packages/helpers-react-router"
+        },
+        {
+            "name": "@easy-pkg/helpers-redux",
+            "path": "packages/helpers-redux"
+        },
+        {
+            "name": "@easy-pkg/utils",
+            "path": "packages/utils"
         },
         {
             "name": "@easy-pkg/utils-browser",
@@ -156,18 +168,6 @@
         {
             "name": "@easy-pkg/utils-node",
             "path": "packages/utils-node"
-        },
-        {
-            "name": "@easy-pkg/utils-react",
-            "path": "packages/utils-react"
-        },
-        {
-            "name": "@easy-pkg/utils-react-router",
-            "path": "packages/utils-react-router"
-        },
-        {
-            "name": "@easy-pkg/utils-redux",
-            "path": "packages/utils-redux"
         },
         {
             "name": "@easy-pkg/utils-test",
