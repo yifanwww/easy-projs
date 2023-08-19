@@ -1,8 +1,6 @@
 {
     "extends": "@easy-config/tsconfigs/tsconfig.node.cjs.json",
     "compilerOptions": {
-        // disable `incremental` for NPM script `typecheck`
-        "incremental": false,
         "inlineSources": false,
         "outDir": "dist",
         "rootDir": "src",

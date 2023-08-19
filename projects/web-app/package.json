@@ -28,7 +28,7 @@
         "preview": "vite preview",
         "test": "unit-test",
         "test-full": "unit-test",
-        "typecheck": "tsc --project tsconfig.json --noEmit"
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
         "@ant-design/icons": "^5.1.4",

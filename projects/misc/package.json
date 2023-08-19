@@ -24,7 +24,7 @@
         "lint:fix": "eslint . --fix",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "pre-commit": "lint-staged",
-        "typecheck": "tsc --project tsconfig.json --noEmit"
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",

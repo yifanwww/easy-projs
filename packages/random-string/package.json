@@ -33,7 +33,7 @@
         "test": "unit-test",
         "test-full": "unit-test",
         "test-perf": "node dist/test/performance.js",
-        "typecheck": "tsc --project tsconfig.json --noEmit"
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
