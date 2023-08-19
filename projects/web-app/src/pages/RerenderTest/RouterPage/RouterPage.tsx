@@ -1,7 +1,7 @@
 import { assertIsNumber } from '@easy-pkg/utils-browser';
 import { Button } from 'antd';
 import { useEffect } from 'react';
-import { generatePath, Route, Routes, useNavigate } from 'react-router';
+import { generatePath, Route, Routes, useNavigate } from 'react-router-dom';
 
 import { Inspector } from 'src/components/Inspector';
 import { TestPageContainer } from 'src/components/TestPageContainer';
