@@ -1,6 +1,6 @@
 import type { ReactChildrenProps } from '@easy-pkg/helpers-react';
 import { Layout } from 'antd';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 import { RoutePath } from 'src/routes';
 

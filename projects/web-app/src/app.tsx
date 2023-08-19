@@ -2,8 +2,7 @@ import type { ReactChildrenProps } from '@easy-pkg/helpers-react';
 import { ConfigProvider } from 'antd';
 import { Suspense } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
-import { Navigate, Route, Routes } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { Page } from './components/Page';
 import { BenchmarkProvider } from './contexts/BenchmarkContext';

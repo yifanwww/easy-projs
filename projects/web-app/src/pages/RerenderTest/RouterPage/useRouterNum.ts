@@ -1,5 +1,5 @@
 import { assertIsString } from '@easy-pkg/utils-browser';
-import { useMatch } from 'react-router';
+import { useMatch } from 'react-router-dom';
 
 import { RoutePath } from 'src/routes';
 
