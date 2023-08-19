@@ -1,6 +1,6 @@
 import child from 'node:child_process';
 
-import { paths } from './utils/paths';
+import { paths } from './utils/index.js';
 
 const genCommand = (...params: (string | false | undefined | null)[]) => params.filter(Boolean).join(' ');
 

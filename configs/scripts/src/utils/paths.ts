@@ -1,10 +1,13 @@
 import path from 'node:path';
+import url from 'node:url';
 
-// `..` points to `<repo>/packages/scripts/src`
-// `../..` points to `<repo>/packages/scripts`
-// `../../..` points to `<repo>/packages`
+const _dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+// `..` points to `<repo>/configs/scripts/src`
+// `../..` points to `<repo>/configs/scripts`
+// `../../..` points to `<repo>/configs`
 // `../../../..` points to `<repo>`
-const repo = path.join(__dirname, '../../../..');
+const repo = path.join(_dirname, '../../../..');
 
 const rootNodeModules = path.join(repo, 'node_modules');
 

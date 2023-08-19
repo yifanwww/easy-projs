@@ -1,8 +1,11 @@
 import type { Config } from '@jest/types';
 import fs from 'node:fs';
+import { createRequire } from 'node:module';
 import path from 'node:path';
 
-import { paths } from '../utils';
+import { paths } from '../utils/index.js';
+
+const require = createRequire(import.meta.url);
 
 function getConfig(): Config.InitialOptions {
     const packageJson = process.env.npm_package_json;
@@ -56,4 +59,4 @@ function getConfig(): Config.InitialOptions {
     };
 }
 
-export = getConfig();
+export default getConfig();

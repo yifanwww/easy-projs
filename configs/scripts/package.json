@@ -2,6 +2,7 @@
     "name": "@easy-config/scripts",
     "version": "0.0.0",
     "description": "Scripts for easy-projs.",
+    "type": "module",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -18,8 +19,8 @@
         "unit-test": "./bin/unit-test.js"
     },
     "scripts": {
-        "build-scripts": "tsc --project tsconfig.json",
-        "clean-scripts": "rimraf --glob dist tsconfig.tsbuildinfo",
+        "build-scripts": "tsc --project tsconfigs/tsconfig.build.json",
+        "clean-scripts": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build-scripts --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",

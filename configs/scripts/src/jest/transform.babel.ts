@@ -1,6 +1,9 @@
 import babelJest from 'babel-jest';
+import { createRequire } from 'node:module';
 
-export = babelJest.createTransformer({
+const require = createRequire(import.meta.url);
+
+export default babelJest.createTransformer({
     presets: [
         [require.resolve('babel-preset-react-app'), { runtime: 'automatic' }],
         [
