@@ -1,4 +1,4 @@
-import { ObjectUtil } from './object';
+import { ObjectUtil } from './object.js';
 
 export class EnumUtil {
     /**

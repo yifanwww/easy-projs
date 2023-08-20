@@ -1,4 +1,4 @@
-import { RandomGenerator } from './index';
+import { RandomGenerator } from './index.js';
 
 describe(`Test class \`${RandomGenerator.name}\``, () => {
     it('should generate random strings', () => {

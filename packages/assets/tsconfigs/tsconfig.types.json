@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.node.esm.types.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.bundler.types.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

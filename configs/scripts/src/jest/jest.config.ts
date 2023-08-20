@@ -1,4 +1,4 @@
-import type { Config } from '@jest/types';
+import type { Config } from 'jest';
 import fs from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
@@ -7,7 +7,7 @@ import { paths } from '../utils/index.js';
 
 const require = createRequire(import.meta.url);
 
-function getConfig(): Config.InitialOptions {
+function getConfig(): Config {
     const packageJson = process.env.npm_package_json;
     const packageDir = packageJson ? path.dirname(packageJson) : process.cwd();
 
@@ -47,6 +47,7 @@ function getConfig(): Config.InitialOptions {
             '^react-native$': 'react-native-web',
             '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
             '^src/(.*)$': '<rootDir>/src/$1',
+            '^(.*).js$': ['$1.js', '$1.ts'],
         },
         moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'ts', 'tsx', 'web.js', 'web.jsx', 'web.ts', 'web.tsx'],
 
