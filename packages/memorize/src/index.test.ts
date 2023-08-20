@@ -1,4 +1,4 @@
-import { memorize } from './index';
+import { memorize } from './index.js';
 
 describe(`Test function \`${memorize.name}\``, () => {
     it('should work with default diff', () => {

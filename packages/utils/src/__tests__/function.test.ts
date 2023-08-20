@@ -1,4 +1,4 @@
-import { abstractAsyncFn, abstractFn } from '../function';
+import { abstractAsyncFn, abstractFn } from '../function.js';
 
 describe(`Test fn ${abstractFn.name}`, () => {
     it('should throw an error', () => {

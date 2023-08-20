@@ -2,6 +2,7 @@
     "name": "@easy-proj/misc",
     "version": "0.0.0",
     "description": "Misc.",
+    "type": "module",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -16,15 +17,15 @@
     },
     "scripts": {
         "build": "pnpm run build:ts",
-        "build:ts": "concurrently -n esm,types \"pnpm run build:ts:esm\" \"pnpm run build:ts:types\"",
-        "build:ts:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build:ts": "concurrently -n lib,types \"pnpm run build:ts:lib\" \"pnpm run build:ts:types\"",
+        "build:ts:lib": "tsc --project tsconfigs/tsconfig.lib.json",
         "build:ts:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "clean": "rimraf --glob lib tsconfigs/*.tsbuildinfo",
+        "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "pre-commit": "lint-staged",
-        "typecheck": "tsc --project tsconfig.json --noEmit"
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",

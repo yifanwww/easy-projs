@@ -1,7 +1,4 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.eslint.react.json",
-    "compilerOptions": {
-        "incremental": false
-    },
+    "extends": "@easy-config/tsconfigs/tsconfig.react.eslint.json",
     "include": ["types/**/*"]
 }

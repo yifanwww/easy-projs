@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.node.esm.types.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.node16.types.json",
     "compilerOptions": {
         "declarationDir": "../lib",
         "rootDir": "../ts"

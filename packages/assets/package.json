@@ -2,9 +2,12 @@
     "name": "@easy-pkg/assets",
     "version": "0.0.0",
     "description": "A package that contains assets.",
-    "main": "lib/index.js",
-    "module": "lib/index.js",
-    "typings": "lib/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./lib/index.d.ts",
+            "default": "./lib/index.js"
+        }
+    },
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -18,15 +21,15 @@
         "directory": "packages/assets"
     },
     "scripts": {
-        "build": "concurrently -n esm,types \"pnpm run build:esm\" \"pnpm run build:types\"",
-        "build:esm": "tsc --project tsconfigs/tsconfig.esm.json",
+        "build": "concurrently -n lib,types \"pnpm run build:lib\" \"pnpm run build:types\"",
+        "build:lib": "tsc --project tsconfigs/tsconfig.lib.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
-        "typecheck": "tsc --project tsconfig.json --noEmit"
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",

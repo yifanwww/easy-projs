@@ -1,4 +1,4 @@
-import { RandomGenerator } from '../src/index';
+import { RandomGenerator } from '../index.js';
 
 class Stopwatch {
     private _timeStart = 0;
@@ -36,7 +36,9 @@ function main() {
     }
     sw.stop();
 
+    // eslint-disable-next-line no-console
     console.info(`Time:  ${sw.totalSeconds} s`);
+    // eslint-disable-next-line no-console
     console.info(`Speed: ${totalSize / sw.totalSeconds} MB/s`);
 }
 

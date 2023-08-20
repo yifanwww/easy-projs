@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.node.esm.json",
+    "extends": "./tsconfig.node16.json",
     "compilerOptions": {
         "declaration": true,
         "emitDeclarationOnly": true,

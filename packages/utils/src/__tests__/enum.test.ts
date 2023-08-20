@@ -1,5 +1,5 @@
-import { EnumUtil } from '../enum';
-import { ObjectUtil } from '../object';
+import { EnumUtil } from '../enum.js';
+import { ObjectUtil } from '../object.js';
 
 describe(`Test static method ${EnumUtil.name}.${EnumUtil.is.name}`, () => {
     it('should check if a value is a string enum value', () => {

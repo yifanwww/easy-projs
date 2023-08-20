@@ -26,8 +26,6 @@ node_modules
 
 /configs/*/dist
 /packages/*/lib
-/packages/*/lib-commonjs
-/projects/*/build
 /projects/*/dist
 /projects/*/lib
 /projects/*/release

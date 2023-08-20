@@ -2,6 +2,7 @@
     "name": "@easy-proj/perf-js",
     "version": "0.0.0",
     "description": "This package contains some performance benchmark results of javascript.",
+    "type": "module",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -16,13 +17,13 @@
     },
     "scripts": {
         "build": "tsc --project tsconfig.node.json",
-        "clean": "rimraf --glob build ./*.tsbuildinfo",
+        "clean": "rimraf --glob coverage dist *.tsbuildinfo",
         "dev": "pnpm run build --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
-        "typecheck": "tsc --project tsconfig.json --noEmit"
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
         "benchmark-node": "^0.7.3"
