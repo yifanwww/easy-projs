@@ -92,7 +92,7 @@ module.exports = {
         // -------------------- ESLint Built-In Rules --------------------
 
         // https://eslint.org/docs/latest/rules/camelcase
-        'camelcase': 'off',
+        camelcase: 'off',
 
         // https://eslint.org/docs/latest/rules/class-methods-use-this
         'class-methods-use-this': 'off',
