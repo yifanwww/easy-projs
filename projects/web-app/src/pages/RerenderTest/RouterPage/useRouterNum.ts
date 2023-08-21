@@ -1,7 +1,7 @@
 import { assertIsString } from '@easy-pkg/utils-browser';
 import { useMatch } from 'react-router-dom';
 
-import { RoutePath } from 'src/routes';
+import { RoutePath } from 'src/routes/path';
 
 export function useRouterNum(): number | null {
     const match = useMatch(RoutePath.RERENDER_TEST_ROUTE_DETAIL);

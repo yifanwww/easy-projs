@@ -1,4 +1,4 @@
-import { RoutePath } from 'src/routes';
+import { RoutePath } from 'src/routes/path';
 
 import { PageOverview } from './components/PageOverview';
 import type { PageOverviewInfo } from './components/PageOverview';

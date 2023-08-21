@@ -1,6 +1,6 @@
 import { BarChartOutlined, ExperimentOutlined, LineChartOutlined } from '@ant-design/icons';
 
-import { RoutePath } from 'src/routes';
+import { RoutePath } from 'src/routes/path';
 
 export interface SiderConfig {
     path: string;
