@@ -7,7 +7,8 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Page } from './components/Page';
 import { BenchmarkProvider } from './contexts/BenchmarkContext';
 import { reduxStore } from './redux';
-import { RoutePath, routes } from './routes';
+import { routes } from './routes/configs';
+import { RoutePath } from './routes/path';
 
 function GlobalProviders(props: ReactChildrenProps): JSX.Element {
     return (

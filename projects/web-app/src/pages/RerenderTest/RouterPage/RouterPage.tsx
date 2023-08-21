@@ -5,7 +5,7 @@ import { generatePath, Route, Routes, useNavigate } from 'react-router-dom';
 
 import { Inspector } from 'src/components/Inspector';
 import { TestPageContainer } from 'src/components/TestPageContainer';
-import { RoutePath } from 'src/routes';
+import { RoutePath } from 'src/routes/path';
 
 import { makeInspectedFC } from '../makeInspectedFC';
 

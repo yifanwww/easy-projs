@@ -2,7 +2,7 @@ import type { ReactChildrenProps } from '@easy-pkg/helpers-react';
 import { Layout } from 'antd';
 import { useLocation } from 'react-router-dom';
 
-import { RoutePath } from 'src/routes';
+import { RoutePath } from 'src/routes/path';
 
 import { siderConfigs } from './configs';
 import { PageSider } from './PageSider';

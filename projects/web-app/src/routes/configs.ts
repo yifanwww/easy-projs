@@ -2,7 +2,7 @@ import { createRoutes } from '@easy-pkg/helpers-react-router';
 import type { RouteConfig } from '@easy-pkg/helpers-react-router';
 import { lazy } from 'react';
 
-import { RoutePath } from './RoutePath';
+import { RoutePath } from './path';
 
 export const routes: RouteConfig[] = createRoutes([
     {
