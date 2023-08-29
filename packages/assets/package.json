@@ -36,7 +36,7 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "concurrently": "^7.6.0",
+        "concurrently": "^8.2.1",
         "eslint": "^8.44.0",
         "lint-staged": "^13.2.3",
         "prettier": "2.8.0",
