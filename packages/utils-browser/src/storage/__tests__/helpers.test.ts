@@ -7,7 +7,7 @@ mockStorage(window.localStorage);
 mockStorage(window.sessionStorage);
 
 describe(`Test fn ${createStorageLoader.name}`, () => {
-    function testLoad1(storage: Storage) {
+    function _expectLoad1(storage: Storage) {
         const KEY = 'key';
         const VALUE = 'value';
 
@@ -18,7 +18,7 @@ describe(`Test fn ${createStorageLoader.name}`, () => {
         expect(loadValue({ main: KEY })).toBe(VALUE);
     }
 
-    function testLoad2(storage: Storage) {
+    function _expectLoad2(storage: Storage) {
         const KEY = {
             main: 'key',
             fallbacks: ['fallback1', 'fallback2'],
@@ -33,24 +33,24 @@ describe(`Test fn ${createStorageLoader.name}`, () => {
     }
 
     it('should load local storage values #1', () => {
-        testLoad1(window.localStorage);
+        _expectLoad1(window.localStorage);
     });
 
     it('should load local storage values #2', () => {
-        testLoad2(window.localStorage);
+        _expectLoad2(window.localStorage);
     });
 
     it('should load session storage values #1', () => {
-        testLoad1(window.sessionStorage);
+        _expectLoad1(window.sessionStorage);
     });
 
     it('should load session storage values #2', () => {
-        testLoad2(window.sessionStorage);
+        _expectLoad2(window.sessionStorage);
     });
 });
 
 describe(`Test fn ${createStorageRemover.name}`, () => {
-    function testRemove(storage: Storage) {
+    function _expectRemove(storage: Storage) {
         const KEY = {
             main: 'key',
             fallbacks: ['fallback1', 'fallback2'],
@@ -75,16 +75,16 @@ describe(`Test fn ${createStorageRemover.name}`, () => {
     }
 
     it('should remove local storage values', () => {
-        testRemove(window.localStorage);
+        _expectRemove(window.localStorage);
     });
 
     it('should remove session storage values', () => {
-        testRemove(window.sessionStorage);
+        _expectRemove(window.sessionStorage);
     });
 });
 
 describe(`Test fn ${createStorageSaver.name}`, () => {
-    function testSave(storage: Storage) {
+    function _expectSave(storage: Storage) {
         const KEY = {
             main: 'key',
             fallbacks: ['fallback1', 'fallback2'],
@@ -108,10 +108,10 @@ describe(`Test fn ${createStorageSaver.name}`, () => {
     }
 
     it('should save local storage values and remove fallback key values', () => {
-        testSave(window.localStorage);
+        _expectSave(window.localStorage);
     });
 
     it('should save session storage values and remove fallback key values', () => {
-        testSave(window.sessionStorage);
+        _expectSave(window.sessionStorage);
     });
 });

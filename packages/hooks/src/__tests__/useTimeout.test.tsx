@@ -46,23 +46,23 @@ describe(`Test react hook \`${useTimeout.name}\``, () => {
 
     it('should update value when mounted', () => {
         render(<TestComponent />);
-        expect(timesCalled).toStrictEqual(0);
+        expect(timesCalled).toBe(0);
 
         jest.runOnlyPendingTimers();
-        expect(timesCalled).toStrictEqual(1);
+        expect(timesCalled).toBe(1);
 
         jest.runOnlyPendingTimers();
-        expect(timesCalled).toStrictEqual(1);
+        expect(timesCalled).toBe(1);
     });
 
     it('should not execute the timeout when unmounted', () => {
         const { unmount } = render(<TestComponent />);
-        expect(timesCalled).toStrictEqual(0);
+        expect(timesCalled).toBe(0);
 
         unmount();
 
         jest.runOnlyPendingTimers();
-        expect(timesCalled).toStrictEqual(0);
+        expect(timesCalled).toBe(0);
     });
 
     it('should cancel timeout', () => {
@@ -70,11 +70,11 @@ describe(`Test react hook \`${useTimeout.name}\``, () => {
         render(<TestComponent ref={ref} />);
 
         jest.runOnlyPendingTimers();
-        expect(timesCalled).toStrictEqual(1);
+        expect(timesCalled).toBe(1);
 
         ref.current?.clearTimeout();
 
         jest.runOnlyPendingTimers();
-        expect(timesCalled).toStrictEqual(1);
+        expect(timesCalled).toBe(1);
     });
 });

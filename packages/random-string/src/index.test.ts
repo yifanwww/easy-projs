@@ -5,6 +5,6 @@ describe(`Test class \`${RandomGenerator.name}\``, () => {
         const rg = new RandomGenerator();
 
         const str = rg.string(16);
-        expect(str.length).toBe(16);
+        expect(str).toHaveLength(16);
     });
 });

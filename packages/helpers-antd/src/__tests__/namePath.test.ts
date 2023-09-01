@@ -49,7 +49,7 @@ describe(`Test static method \`${NamePathUtil.name}.${NamePathUtil.includes.name
 
 describe(`Test static method \`${NamePathUtil.name}.${NamePathUtil.merge.name}\``, () => {
     it('should merge two name paths', () => {
-        expect(NamePathUtil.merge('value')).toStrictEqual('value');
+        expect(NamePathUtil.merge('value')).toBe('value');
         expect(NamePathUtil.merge(['value'])).toStrictEqual(['value']);
 
         expect(NamePathUtil.merge('value1', 'value2')).toStrictEqual(['value2', 'value1']);

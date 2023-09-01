@@ -63,7 +63,9 @@ describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
     });
 
     it('should work with no function', () => {
-        const { result } = renderHook(() => useDoubleTrigger());
-        act(() => result.current());
+        expect(() => {
+            const { result } = renderHook(() => useDoubleTrigger());
+            act(() => result.current());
+        }).not.toThrow();
     });
 });

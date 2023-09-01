@@ -41,23 +41,23 @@ describe(`Test react hook \`${useSingleInterval.name}\``, () => {
 
     it('should update value when mounted', () => {
         render(<TestComponent />);
-        expect(timesCalled).toStrictEqual(0);
+        expect(timesCalled).toBe(0);
 
         jest.advanceTimersByTime(time);
-        expect(timesCalled).toStrictEqual(1);
+        expect(timesCalled).toBe(1);
 
         jest.advanceTimersByTime(time);
-        expect(timesCalled).toStrictEqual(2);
+        expect(timesCalled).toBe(2);
     });
 
     it('should not execute the interval when unmounted', () => {
         const { unmount } = render(<TestComponent />);
-        expect(timesCalled).toStrictEqual(0);
+        expect(timesCalled).toBe(0);
 
         unmount();
 
         jest.runOnlyPendingTimers();
-        expect(timesCalled).toStrictEqual(0);
+        expect(timesCalled).toBe(0);
     });
 
     it('should cancel intervals', () => {
@@ -65,11 +65,11 @@ describe(`Test react hook \`${useSingleInterval.name}\``, () => {
         render(<TestComponent ref={ref} />);
 
         jest.advanceTimersByTime(time);
-        expect(timesCalled).toStrictEqual(1);
+        expect(timesCalled).toBe(1);
 
         ref.current?.clearInterval();
 
         jest.runOnlyPendingTimers();
-        expect(timesCalled).toStrictEqual(1);
+        expect(timesCalled).toBe(1);
     });
 });
