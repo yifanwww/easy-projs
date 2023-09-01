@@ -50,8 +50,10 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
     });
 
     it('should work with no delay function', () => {
-        const { result } = renderHook(() => useDelayFn());
-        act(() => result.current());
+        expect(() => {
+            const { result } = renderHook(() => useDelayFn());
+            act(() => result.current());
+        }).not.toThrow();
     });
 
     it('should not execute fn after unmount', () => {

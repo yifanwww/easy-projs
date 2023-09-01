@@ -19,10 +19,12 @@ describe(`Test react hook \`${useWhyDidYouUpdate.name}\``, () => {
             return <div />;
         }
 
-        const { rerender } = render(<TestComponent fontSize="20px" title="title" />);
-        rerender(<TestComponent fontSize={20} title="title" />);
-        rerender(<TestComponent fontSize={20} title="new-title" />);
-        rerender(<TestComponent fontSize="28px" title="new-title" />);
+        expect(() => {
+            const { rerender } = render(<TestComponent fontSize="20px" title="title" />);
+            rerender(<TestComponent fontSize={20} title="title" />);
+            rerender(<TestComponent fontSize={20} title="new-title" />);
+            rerender(<TestComponent fontSize="28px" title="new-title" />);
+        }).not.toThrow();
     });
 
     it('should work with complex props', () => {
@@ -37,9 +39,11 @@ describe(`Test react hook \`${useWhyDidYouUpdate.name}\``, () => {
             return <div />;
         }
 
-        const { rerender } = render(<TestComponent color="red" title="title" />);
-        rerender(<TestComponent color="red" title="title" style={{ fontSize: '28px' }} />);
-        rerender(<TestComponent color="red" title="new-title" style={{ fontSize: '28px', margin: '8px 0px' }} />);
-        rerender(<TestComponent color="green" title="new-title" style={{ fontSize: '28px', margin: '8px 0px' }} />);
+        expect(() => {
+            const { rerender } = render(<TestComponent color="red" title="title" />);
+            rerender(<TestComponent color="red" title="title" style={{ fontSize: '28px' }} />);
+            rerender(<TestComponent color="red" title="new-title" style={{ fontSize: '28px', margin: '8px 0px' }} />);
+            rerender(<TestComponent color="green" title="new-title" style={{ fontSize: '28px', margin: '8px 0px' }} />);
+        }).not.toThrow();
     });
 });

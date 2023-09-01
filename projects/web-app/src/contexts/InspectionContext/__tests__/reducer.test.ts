@@ -41,7 +41,6 @@ describe(`Test reducer fn \`${reduce.name}\``, () => {
         expect(state).toMatchSnapshot();
     });
 
-    it('should toggle a group', () => {
-        // TODO
-    });
+    // TODO
+    // it('should toggle a group', () => {});
 });
