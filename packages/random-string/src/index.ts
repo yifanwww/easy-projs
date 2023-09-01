@@ -1,8 +1,8 @@
 import crypto from 'node:crypto';
 
 export class RandomGenerator {
-    private static _chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 \n';
-    private static _charbytes = Buffer.from(RandomGenerator._chars, 'ascii');
+    private static readonly _chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 \n';
+    private static readonly _charbytes = Buffer.from(RandomGenerator._chars, 'ascii');
 
     string(length: number): string {
         const bytes = crypto.randomBytes(length);
