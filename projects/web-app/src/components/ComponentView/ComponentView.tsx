@@ -1,5 +1,5 @@
-import { assertIsNever } from '@easy-pkg/utils-browser';
 import { Tag } from 'antd';
+import { match } from 'ts-pattern';
 
 import { useRenderCount } from 'src/hooks';
 import type { InspectedFCType } from 'src/types/inspection';
@@ -11,26 +11,19 @@ interface ComponentTagProps {
 }
 
 function ComponentTag({ type }: ComponentTagProps): JSX.Element | null {
-    switch (type) {
-        case 'nil':
-            return null;
-        case 'prc':
-            return (
-                <Tag className={css.tag} color="green">
-                    <span>prc</span>
-                </Tag>
-            );
-        case 'ptc':
-            return (
-                <Tag className={css.tag} color="blue">
-                    <span>ptc</span>
-                </Tag>
-            );
-
-        /* istanbul ignore next */
-        default:
-            assertIsNever(type);
-    }
+    return match(type)
+        .with('nil', () => null)
+        .with('prc', () => (
+            <Tag className={css.tag} color="green">
+                <span>prc</span>
+            </Tag>
+        ))
+        .with('ptc', () => (
+            <Tag className={css.tag} color="blue">
+                <span>ptc</span>
+            </Tag>
+        ))
+        .exhaustive();
 }
 
 interface ComponentViewProps {
