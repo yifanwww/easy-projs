@@ -121,7 +121,16 @@ module.exports = {
         // This rule is disabled by `eslint-config-prettier`, enable it here for better eslint error information.
         // https://github.com/prettier/eslint-config-prettier/#max-len
         // https://eslint.org/docs/latest/rules/max-len
-        'max-len': ['error', { code: 120, ignoreUrls: true }],
+        'max-len': [
+            'error',
+            {
+                code: 120,
+                ignoreUrls: true,
+                ignoreStrings: true,
+                ignoreTemplateLiterals: true,
+                ignoreRegExpLiterals: true,
+            },
+        ],
 
         // https://eslint.org/docs/latest/rules/no-await-in-loop
         'no-await-in-loop': 'off',
