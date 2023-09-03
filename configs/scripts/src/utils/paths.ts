@@ -37,7 +37,6 @@ export const paths = {
     jestConfig: path.resolve(scriptsDist, 'jest/jest.config.js'),
     testSetup: path.resolve(pkgs, 'utils-test/src/setup.ts'),
     transforms: {
-        babel: path.resolve(scriptsDist, 'jest/transform.babel.js'),
         css: path.resolve(scriptsDist, 'jest/transform.css.js'),
         file: path.resolve(scriptsDist, 'jest/transform.file.js'),
     },
