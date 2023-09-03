@@ -374,6 +374,10 @@ module.exports = {
         {
             files: ['src/**/__tests__/*.{ts,tsx}', 'src/**/*.{spec,test}.{ts,tsx}', 'test/**/*.{ts,tsx}'],
             rules: {
+                // Disabled for the need of `obj['property']` to access private/protected properties.
+                // https://eslint.org/docs/latest/rules/dot-notation
+                'dot-notation': 'off',
+
                 // https://typescript-eslint.io/rules/dot-notation
                 '@typescript-eslint/dot-notation': [
                     'error',
