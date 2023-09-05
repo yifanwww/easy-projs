@@ -1,4 +1,10 @@
-import type { NamePath } from 'antd/lib/form/interface';
+/**
+ * The `NamePath` type provided from `antd` now does a complicated calculation
+ * to get the final name path possibilities from the type of form object.
+ * We have to use a customized `NamePath` to use the legacy type definition.
+ * ref: https://ant.design/components/form#namepath
+ */
+type NamePath = string | number | (string | number)[];
 
 export class NamePathUtil {
     static equal(left: NamePath, right: NamePath) {
