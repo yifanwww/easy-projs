@@ -54,7 +54,9 @@ describe(`Test static method ${ObjectUtil.name}.${ObjectUtil.reverseKeyValue.nam
 
         enum Enum2 {
             A = 'asdf',
+            // eslint-disable-next-line @typescript-eslint/no-duplicate-enum-values
             B = 'asdf',
+            // eslint-disable-next-line @typescript-eslint/no-duplicate-enum-values
             C = 'asdf',
         }
         expect(ObjectUtil.reverseKeyValue(Enum2)).toStrictEqual({ asdf: 'C' });
@@ -77,6 +79,7 @@ describe(`Test static method ${ObjectUtil.name}.${ObjectUtil.reverseKeyValue.nam
 
         enum Enum2 {
             A = 1,
+            // eslint-disable-next-line @typescript-eslint/no-duplicate-enum-values
             B = 1,
             C = 2,
             D = 300,

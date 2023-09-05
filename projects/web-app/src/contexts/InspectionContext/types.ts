@@ -1,12 +1,13 @@
 import type { InspectionData, InspectionTree } from 'src/types/inspection';
 
 export interface InspectionContextState {
-    data: {
-        [Group: string]: {
+    data: Record<
+        string,
+        {
             records: InspectionData[];
             tree: InspectionTree;
-        };
-    };
+        }
+    >;
     groups: string[];
     selectedGroup?: string;
 }

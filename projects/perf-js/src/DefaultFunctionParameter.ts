@@ -1,7 +1,7 @@
 import { Arguments, BenchmarkJob } from 'benchmark-node';
 
 function es5default(options?: string) {
-    // eslint-disable-next-line no-param-reassign
+    // eslint-disable-next-line no-param-reassign, @typescript-eslint/prefer-nullish-coalescing
     options || (options = 'hello world');
     return options;
 }

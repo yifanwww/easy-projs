@@ -5,11 +5,11 @@ export class NamePathUtil {
         return typeof left === typeof right && String(left) === String(right);
     }
 
-    static includes(list: ReadonlyArray<NamePath> | undefined | null, searchElement: NamePath, fromIndex?: number) {
+    static includes(list: readonly NamePath[] | undefined | null, searchElement: NamePath, fromIndex?: number) {
         return this.indexOf(list, searchElement, fromIndex) !== -1;
     }
 
-    static indexOf(list: ReadonlyArray<NamePath> | undefined | null, searchElement: NamePath, fromIndex?: number) {
+    static indexOf(list: readonly NamePath[] | undefined | null, searchElement: NamePath, fromIndex?: number) {
         if (!list) return -1;
 
         for (let i = fromIndex ?? 0; i < list.length; i++) {

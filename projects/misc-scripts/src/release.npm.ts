@@ -1,3 +1,4 @@
+import type { Nullable } from '@easy-pkg/utils-type';
 import child from 'node:child_process';
 import semver from 'semver';
 
@@ -10,12 +11,9 @@ function getGitTag(): string | null {
     }
 }
 
-function getVersionTag(prerelease: ReadonlyArray<string | number> | null): string {
+function getVersionTag(prerelease: Nullable<readonly (string | number)[]>): string {
     const _pre =
-        prerelease === null ||
-        typeof prerelease[0] === 'undefined' ||
-        prerelease[0] === null ||
-        typeof prerelease[0] === 'number'
+        typeof prerelease?.[0] === 'undefined' || prerelease[0] === null || typeof prerelease[0] === 'number'
             ? null
             : prerelease[0];
 

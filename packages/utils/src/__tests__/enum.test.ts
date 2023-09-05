@@ -41,7 +41,9 @@ describe(`Test static method ${EnumUtil.name}.${EnumUtil.reverseKeyValue.name}`,
     it(`should call ${ObjectUtil.name}.${ObjectUtil.reverseKeyValue.name}`, () => {
         enum Enum {
             A = 'asdf',
+            // eslint-disable-next-line @typescript-eslint/no-duplicate-enum-values
             B = 'asdf',
+            // eslint-disable-next-line @typescript-eslint/no-duplicate-enum-values
             C = 'asdf',
         }
         expect(ObjectUtil.reverseKeyValue).toHaveBeenCalledTimes(0);

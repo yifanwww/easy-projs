@@ -26,6 +26,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
+        "@easy-pkg/utils-type": "workspace:*",
         "semver": "^7.5.3"
     },
     "devDependencies": {

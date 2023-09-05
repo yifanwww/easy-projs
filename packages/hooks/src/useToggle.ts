@@ -25,7 +25,7 @@ export function useToggle<I extends ToggleState = ToggleState, R extends ToggleS
 ): [I | R, UseToggleActions<I | R>] {
     const [value, setValue] = useState<I | R>(initialValue);
 
-    const defaultReverseValue = (reverseValue === undefined ? !initialValue : reverseValue) as I | R;
+    const defaultReverseValue = (reverseValue ?? !initialValue) as I | R;
 
     const setLeft = useCallback(() => setValue(initialValue), [initialValue]);
     const setRight = useCallback(() => setValue(defaultReverseValue), [defaultReverseValue]);

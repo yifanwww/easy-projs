@@ -54,8 +54,8 @@ module.exports = {
     },
     extends: [
         'airbnb-base',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:@typescript-eslint/recommended-type-checked',
+        'plugin:@typescript-eslint/stylistic-type-checked',
         // TODO: may enable this configuration set in the future
         // 'plugin:@typescript-eslint/strict',
         'prettier',
@@ -264,9 +264,6 @@ module.exports = {
         // https://typescript-eslint.io/rules/no-empty-interface
         '@typescript-eslint/no-empty-interface': ['error', { allowSingleExtends: true }],
 
-        // https://typescript-eslint.io/rules/no-floating-promises
-        '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
-
         // https://typescript-eslint.io/rules/no-loop-func
         '@typescript-eslint/no-loop-func': 'error',
 
@@ -292,11 +289,11 @@ module.exports = {
         // https://typescript-eslint.io/rules/restrict-template-expressions
         '@typescript-eslint/restrict-template-expressions': [
             'error',
-            { allowNumber: true, allowBoolean: true, allowAny: false, allowNullish: true, allowRegExp: true },
+            { allowAny: false, allowBoolean: true, allowNullish: true, allowNumber: true, allowRegExp: true },
         ],
 
         // https://typescript-eslint.io/rules/return-await
-        '@typescript-eslint/return-await': ['error', 'in-try-catch'],
+        '@typescript-eslint/return-await': 'error',
 
         // -------------------- Eslint-Plugin-Import Rules --------------------
 
@@ -374,10 +371,6 @@ module.exports = {
         {
             files: ['src/**/__tests__/*.{ts,tsx}', 'src/**/*.{spec,test}.{ts,tsx}', 'test/**/*.{ts,tsx}'],
             rules: {
-                // Disabled for the need of `obj['property']` to access private/protected properties.
-                // https://eslint.org/docs/latest/rules/dot-notation
-                'dot-notation': 'off',
-
                 // https://typescript-eslint.io/rules/dot-notation
                 '@typescript-eslint/dot-notation': [
                     'error',
