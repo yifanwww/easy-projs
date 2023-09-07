@@ -36,7 +36,8 @@
         "jest": "^29.6.4",
         "jest-environment-jsdom": "^29.6.4",
         "jest-resolve": "^29.6.4",
-        "jest-watch-typeahead": "^2.2.2"
+        "jest-watch-typeahead": "^2.2.2",
+        "whatwg-fetch": "^3.6.18"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
