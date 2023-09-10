@@ -5,11 +5,5 @@
         "rootDir": "../ts"
     },
     "include": ["../ts/**/*"],
-    "exclude": [
-        "../ts/**/__tests__/**/*",
-        "../ts/**/*.spec.ts",
-        "../ts/**/*.spec.tsx",
-        "../ts/**/*.test.ts",
-        "../ts/**/*.test.tsx"
-    ]
+    "exclude": ["../ts/**/__mocks__/**/*", "../ts/**/__tests__/**/*", "../ts/**/*.spec.ts", "../ts/**/*.test.ts"]
 }
