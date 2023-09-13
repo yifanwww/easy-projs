@@ -15,41 +15,41 @@ describe(`Test react hook \`${useIsHovered.name}\``, () => {
 
         expect(isHovered).toBeNull();
         const { getByText } = render(<TestComponent />);
-        expect(isHovered).toBeFalsy();
+        expect(isHovered).toBe(false);
 
         const component = getByText('Test-Component');
 
         fireEvent.mouseOver(component);
-        expect(isHovered).toBeTruthy();
+        expect(isHovered).toBe(true);
 
         fireEvent.mouseOut(component);
-        expect(isHovered).toBeFalsy();
+        expect(isHovered).toBe(false);
 
         fireEvent.mouseEnter(component);
-        expect(isHovered).toBeTruthy();
+        expect(isHovered).toBe(true);
     });
 
     it('should not work if disabled', () => {
-        let isFocused: Nullable<boolean> = null;
+        let isHovered: Nullable<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
-            isFocused = useIsHovered(ref, false);
+            isHovered = useIsHovered(ref, false);
             return <div ref={ref}>Test-Component</div>;
         }
 
-        expect(isFocused).toBeNull();
+        expect(isHovered).toBeNull();
         const { getByText } = render(<TestComponent />);
-        expect(isFocused).toBeFalsy();
+        expect(isHovered).toBe(false);
 
         const component = getByText('Test-Component');
 
         fireEvent.mouseOver(component);
-        expect(isFocused).toBeFalsy();
+        expect(isHovered).toBe(false);
 
         fireEvent.mouseOut(component);
-        expect(isFocused).toBeFalsy();
+        expect(isHovered).toBe(false);
 
         fireEvent.mouseEnter(component);
-        expect(isFocused).toBeFalsy();
+        expect(isHovered).toBe(false);
     });
 });

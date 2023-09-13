@@ -15,18 +15,18 @@ describe(`Test react hook \`${useIsFocused.name}\``, () => {
 
         expect(isFocused).toBeNull();
         const { getByText } = render(<TestComponent />);
-        expect(isFocused).toBeFalsy();
+        expect(isFocused).toBe(false);
 
         const component = getByText('Test-Component');
 
         fireEvent.focus(component);
-        expect(isFocused).toBeTruthy();
+        expect(isFocused).toBe(true);
 
         fireEvent.focusOut(component);
-        expect(isFocused).toBeFalsy();
+        expect(isFocused).toBe(false);
 
         fireEvent.focusIn(component);
-        expect(isFocused).toBeTruthy();
+        expect(isFocused).toBe(true);
     });
 
     it('should not work if disabled', () => {
@@ -39,17 +39,17 @@ describe(`Test react hook \`${useIsFocused.name}\``, () => {
 
         expect(isFocused).toBeNull();
         const { getByText } = render(<TestComponent />);
-        expect(isFocused).toBeFalsy();
+        expect(isFocused).toBe(false);
 
         const component = getByText('Test-Component');
 
         fireEvent.focus(component);
-        expect(isFocused).toBeFalsy();
+        expect(isFocused).toBe(false);
 
         fireEvent.focusOut(component);
-        expect(isFocused).toBeFalsy();
+        expect(isFocused).toBe(false);
 
         fireEvent.focusIn(component);
-        expect(isFocused).toBeFalsy();
+        expect(isFocused).toBe(false);
     });
 });
