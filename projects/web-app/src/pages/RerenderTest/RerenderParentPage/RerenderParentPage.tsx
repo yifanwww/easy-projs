@@ -21,7 +21,7 @@ const ParentPtc = makeInspectedFC('Parent', ({ children }) => {
     return <>{children}</>;
 });
 
-function Controller(): JSX.Element {
+function Controller(): React.ReactNode {
     const { forceUpdate } = useContext(RenderContext);
 
     return (
@@ -33,7 +33,7 @@ function Controller(): JSX.Element {
 
 const renderController = () => <Controller />;
 
-function RerenderParentPage(): JSX.Element {
+function RerenderParentPage(): React.ReactNode {
     return (
         <TestPageContainer onRenderController={renderController}>
             <Inspector group="PRC">

@@ -11,7 +11,7 @@ const overviews: PageOverviewInfo[] = [
     { title: 'Line Chart', url: RoutePath.PERF_TEST_LINE_CHART },
 ];
 
-export function HomePage(): JSX.Element {
+export function HomePage(): React.ReactNode {
     return (
         <div className={css.layout}>
             <div className={css.content}>

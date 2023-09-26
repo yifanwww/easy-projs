@@ -12,7 +12,7 @@
     "TS React FC": {
         "prefix": "rfc",
         "body": [
-            "export function ${1:Component}(props: ${2:Props}): JSX.Element {",
+            "export function ${1:Component}(props: ${2:Props}): React.ReactNode {",
             "    return <div />;",
             "}"
         ],
@@ -24,7 +24,7 @@
         "body": [
             "interface ${1:Component}Props {}",
             "",
-            "export function ${1:Component}(props: ${1:Component}Props): JSX.Element {",
+            "export function ${1:Component}(props: ${1:Component}Props): React.ReactNode {",
             "    return <div />;",
             "}"
         ],

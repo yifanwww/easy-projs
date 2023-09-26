@@ -10,7 +10,7 @@ export interface PageOverviewInfo {
 
 interface PageOverviewItemProps extends PageOverviewInfo {}
 
-export function PageOverviewItem(props: PageOverviewItemProps): JSX.Element {
+export function PageOverviewItem(props: PageOverviewItemProps): React.ReactNode {
     const { title, url } = props;
 
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ interface PageOverviewProps {
     overviews: PageOverviewInfo[];
 }
 
-export function PageOverview({ overviews }: PageOverviewProps): JSX.Element {
+export function PageOverview({ overviews }: PageOverviewProps): React.ReactNode {
     return (
         <div className={css.layout}>
             {overviews.map((overview) => (

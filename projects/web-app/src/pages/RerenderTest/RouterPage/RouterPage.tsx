@@ -38,7 +38,7 @@ function CorrectRoute() {
     return null;
 }
 
-function Controller(): JSX.Element {
+function Controller(): React.ReactNode {
     const path = RoutePath.RERENDER_TEST_ROUTE_DETAIL;
 
     const navigate = useNavigate();
@@ -73,7 +73,7 @@ function Controller(): JSX.Element {
 
 const renderController = () => <Controller />;
 
-function RouterPage(): JSX.Element {
+function RouterPage(): React.ReactNode {
     return (
         <TestPageContainer onRenderController={renderController}>
             <Inspector group="PTC">

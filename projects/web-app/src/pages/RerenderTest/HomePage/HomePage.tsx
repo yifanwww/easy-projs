@@ -13,7 +13,7 @@ const overviews: PageOverviewInfo[] = [
     { title: 'Router', /*         */ url: RoutePath.RERENDER_TEST_ROUTE },
 ];
 
-export function HomePage(): JSX.Element {
+export function HomePage(): React.ReactNode {
     return (
         <div className={css.root}>
             <div className={css.title}>React Rerender Test</div>

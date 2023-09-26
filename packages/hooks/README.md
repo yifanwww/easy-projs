@@ -35,7 +35,7 @@ Here is an example about how to use hook `useIsHovered`.
 ```tsx
 import { useIsHovered } from '@easy-pkg/hooks';
 
-export function Component(): JSX.Element {
+export function Component(): React.ReactNode {
     const ref = useRef<SubComponent>(null);
 
     const isHovered = useIsHovered(ref);

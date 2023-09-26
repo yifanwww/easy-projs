@@ -38,7 +38,7 @@ const ParentPtc = makeInspectedFC('Parent', ({ children }) => {
     );
 });
 
-function Controller(): JSX.Element {
+function Controller(): React.ReactNode {
     const { select, selected } = useContext(RenderContext);
 
     return (
@@ -50,7 +50,7 @@ function Controller(): JSX.Element {
 
 const renderController = () => <Controller />;
 
-export function ChangeLevelPage(): JSX.Element {
+export function ChangeLevelPage(): React.ReactNode {
     return (
         <TestPageContainer onRenderController={renderController}>
             <Inspector group="PRC">

@@ -25,7 +25,7 @@ export const InspectionContextUpdater = createContext<InspectionContextUpdaters>
     toggleGroup: abstractFn,
 });
 
-export function InspectionProvider({ children }: ReactChildrenProps): JSX.Element {
+export function InspectionProvider({ children }: ReactChildrenProps): React.ReactNode {
     const ref = useRef<InspectionContextState>();
     if (!ref.current) {
         ref.current = getInitialState();

@@ -46,7 +46,7 @@ export const BenchmarkContextUpdater = createContext<BenchmarkContextUpdaters>({
     clearAll: abstractFn,
 });
 
-export function BenchmarkProvider({ children }: ReactChildrenProps): JSX.Element {
+export function BenchmarkProvider({ children }: ReactChildrenProps): React.ReactNode {
     const [context, dispatch] = useImmerReducer(reducer, initialState);
 
     const updaters = useMemo<BenchmarkContextUpdaters>(

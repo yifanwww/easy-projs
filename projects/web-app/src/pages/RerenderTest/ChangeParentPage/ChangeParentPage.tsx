@@ -35,7 +35,7 @@ function ParentSelectorPtc() {
     );
 }
 
-function Controller(): JSX.Element {
+function Controller(): React.ReactNode {
     const { select, selected } = useContext(RenderContext);
 
     return (
@@ -47,7 +47,7 @@ function Controller(): JSX.Element {
 
 const renderController = () => <Controller />;
 
-function ChangeParentPage(): JSX.Element {
+function ChangeParentPage(): React.ReactNode {
     return (
         <TestPageContainer onRenderController={renderController}>
             <Inspector group="PRC">

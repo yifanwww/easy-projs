@@ -11,7 +11,7 @@ interface PageSiderProps {
     page: string;
 }
 
-export function PageSider({ configs, page }: PageSiderProps): JSX.Element {
+export function PageSider({ configs, page }: PageSiderProps): React.ReactNode {
     const convertConfig = (config: SiderConfig): ItemType => ({
         key: config.path,
         label: <Link to={config.path}>{config.title}</Link>,

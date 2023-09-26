@@ -23,7 +23,7 @@ function getInitialValues(): RenderContextValues {
 
 export const RenderContext = createContext<RenderContextValues>(getInitialValues());
 
-export function RenderProvider({ children }: ReactChildrenProps): JSX.Element {
+export function RenderProvider({ children }: ReactChildrenProps): React.ReactNode {
     const [state, dispatch] = useImmerReducer(reducer, getInitialState());
 
     const updaters = useMemo<RenderContextUpdaters>(

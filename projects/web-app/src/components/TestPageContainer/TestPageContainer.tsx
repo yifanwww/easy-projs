@@ -13,7 +13,7 @@ interface TestPageContainerProps {
     onRenderController?: () => React.ReactNode;
 }
 
-export function TestPageContainer(props: React.PropsWithChildren<TestPageContainerProps>): JSX.Element {
+export function TestPageContainer(props: React.PropsWithChildren<TestPageContainerProps>): React.ReactNode {
     const { children, onRenderController } = props;
 
     return (

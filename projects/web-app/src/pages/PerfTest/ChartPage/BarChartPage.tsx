@@ -14,7 +14,7 @@ import css from './Charts.module.scss';
 
 type EChartsOption = echarts.ComposeOption<BarSeriesOption | GridComponentOption | TooltipComponentOption>;
 
-function BarChartPage(): JSX.Element {
+function BarChartPage(): React.ReactNode {
     const ref = useRef<HTMLDivElement>(null);
 
     const { mount, unmount, update } = useContext(BenchmarkContext);

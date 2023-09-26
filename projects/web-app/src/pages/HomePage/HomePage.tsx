@@ -10,7 +10,7 @@ const overviews: PageOverviewInfo[] = [
     { title: 'React Performance Test', /*   */ url: RoutePath.PERF_TEST_HOME },
 ];
 
-function HomePage(): JSX.Element {
+function HomePage(): React.ReactNode {
     return (
         <div className={css.layout}>
             <div className={css.title}>Easy-Projs</div>

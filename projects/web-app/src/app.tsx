@@ -10,7 +10,7 @@ import { reduxStore } from './redux';
 import { routes } from './routes/configs';
 import { RoutePath } from './routes/path';
 
-function GlobalProviders(props: ReactChildrenProps): JSX.Element {
+function GlobalProviders(props: ReactChildrenProps): React.ReactNode {
     return (
         <ConfigProvider autoInsertSpaceInButton={false}>
             <BrowserRouter>
@@ -22,7 +22,7 @@ function GlobalProviders(props: ReactChildrenProps): JSX.Element {
     );
 }
 
-function App(): JSX.Element {
+function App(): React.ReactNode {
     return (
         <Page>
             <Suspense fallback={<div>Loading...</div>}>
@@ -41,7 +41,7 @@ function App(): JSX.Element {
     );
 }
 
-export function AppContainer(): JSX.Element {
+export function AppContainer(): React.ReactNode {
     return (
         <GlobalProviders>
             <App />

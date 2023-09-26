@@ -12,7 +12,7 @@ interface PageHeaderProps {
     title: string;
 }
 
-export function PageHeader({ title }: PageHeaderProps): JSX.Element {
+export function PageHeader({ title }: PageHeaderProps): React.ReactNode {
     return (
         <div>
             {title}
@@ -28,7 +28,7 @@ interface PageProps {
     title: string;
 }
 
-export function Page(props: PageProps): JSX.Element {
+export function Page(props: PageProps): React.ReactNode {
     const { onRenderHeader = defaultOnRender, title } = props;
 
     return (

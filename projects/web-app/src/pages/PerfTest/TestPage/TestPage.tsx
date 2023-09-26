@@ -14,7 +14,7 @@ import { useGroupTest, useTest } from './hooks';
 
 import css from './TestPage.module.scss';
 
-export function TestPage(): JSX.Element {
+export function TestPage(): React.ReactNode {
     const { totalResults } = useContext(BenchmarkContext);
     const updaters = useContext(BenchmarkContextUpdater);
 

@@ -8,7 +8,7 @@ interface InputWrapperProps {
     title?: string;
 }
 
-export function InputWrapper(props: React.PropsWithChildren<InputWrapperProps>): JSX.Element {
+export function InputWrapper(props: React.PropsWithChildren<InputWrapperProps>): React.ReactNode {
     const { children, className, flexAuto, title } = props;
     return (
         <div className={clsx(css.layout, flexAuto && css.auto, className)}>

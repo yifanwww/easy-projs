@@ -9,7 +9,7 @@ interface GroupSelectorProps {
     togglePrev?: () => void;
 }
 
-export function GroupSelector({ group, toggleNext, togglePrev }: GroupSelectorProps): JSX.Element {
+export function GroupSelector({ group, toggleNext, togglePrev }: GroupSelectorProps): React.ReactNode {
     return (
         <div className={css.layout}>
             <Button onClick={togglePrev}>

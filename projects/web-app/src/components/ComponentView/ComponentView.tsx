@@ -10,7 +10,7 @@ interface ComponentTagProps {
     type: InspectedFCType;
 }
 
-function ComponentTag({ type }: ComponentTagProps): JSX.Element | null {
+function ComponentTag({ type }: ComponentTagProps): React.ReactNode | null {
     return match(type)
         .with('nil', () => null)
         .with('prc', () => (
@@ -36,7 +36,7 @@ interface ComponentViewProps {
     type?: InspectedFCType;
 }
 
-export function ComponentView(props: React.PropsWithChildren<ComponentViewProps>): JSX.Element {
+export function ComponentView(props: React.PropsWithChildren<ComponentViewProps>): React.ReactNode {
     const { children, color, desc, name, type = 'nil' } = props;
 
     const renderCount = useRenderCount();

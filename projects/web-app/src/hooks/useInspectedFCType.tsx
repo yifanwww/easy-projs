@@ -17,7 +17,7 @@ type StackItem = Optional<React.ReactElement>;
  * See how ReactElement is generated:
  * https://github.com/facebook/react/blob/v17.0.2/packages/react/src/ReactElement.js#L348
  */
-function dfs(element: JSX.Element): InspectedFCType {
+function dfs(element: React.ReactElement): InspectedFCType {
     const stack: StackItem[] = [element];
 
     let res: InspectedFCType = 'nil';
@@ -62,10 +62,10 @@ export function useInspectedFCType<P = NonNullable<unknown>>(
 
     if (ref.current === undefined) {
         const element = withMockedHooks(fc)({ ...props, children: <InspectionTest /> });
-        if (element === null || element === undefined) {
+        if (typeof element !== 'object' || element === null) {
             ref.current = 'nil';
         } else {
-            ref.current = dfs(element as JSX.Element);
+            ref.current = dfs(element as React.ReactElement);
         }
     }
 

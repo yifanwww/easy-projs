@@ -7,7 +7,7 @@ import { RoutePath } from 'src/routes/path';
 import { siderConfigs } from './configs';
 import { PageSider } from './PageSider';
 
-export function Page({ children }: ReactChildrenProps): JSX.Element {
+export function Page({ children }: ReactChildrenProps): React.ReactNode {
     let pagePath = useLocation().pathname;
     if (pagePath.startsWith(RoutePath.RERENDER_TEST_ROUTE)) pagePath = RoutePath.RERENDER_TEST_ROUTE;
 

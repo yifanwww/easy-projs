@@ -1,6 +1,6 @@
 import css from './Note.module.scss';
 
-export function Note(): JSX.Element {
+export function Note(): React.ReactNode {
     return (
         <div className={css.layout}>
             <span className={css.title}>Note</span>
