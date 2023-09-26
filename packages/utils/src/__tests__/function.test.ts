@@ -1,4 +1,4 @@
-import { abstractAsyncFn, abstractFn, noAsync } from '../function.js';
+import { abstractAsyncFn, abstractFn, makeFn, noAsync } from '../function.js';
 
 describe(`Test fn ${abstractFn.name}`, () => {
     it('should throw an error', () => {
@@ -20,5 +20,12 @@ describe(`Test fn ${noAsync.name}`, () => {
 
         await expect(fn()).resolves.toBeUndefined();
         expect(noAsync(fn)()).toBeUndefined();
+    });
+});
+
+describe(`Test fn \`${makeFn.name}\``, () => {
+    it('should return the fn that it receives', () => {
+        const fn = () => {};
+        expect(makeFn(fn)).toBe(fn);
     });
 });

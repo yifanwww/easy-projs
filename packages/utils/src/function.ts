@@ -1,3 +1,5 @@
+import type { UnknownFn } from '@easy-pkg/utils-type';
+
 export function abstractFn(): never {
     throw new Error('Not Implemented');
 }
@@ -16,4 +18,8 @@ export function abstractAsyncFn(): Promise<never> {
  */
 export function noAsync<T extends (...args: never[]) => unknown>(fn: T): (...args: Parameters<T>) => void {
     return (...args: Parameters<T>) => void fn(...args);
+}
+
+export function makeFn<T extends UnknownFn>(fn: T): T {
+    return fn;
 }
