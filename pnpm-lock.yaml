@@ -587,6 +587,9 @@ importers:
       '@ant-design/icons':
         specifier: ^5.2.6
         version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
+      '@easy-pkg/utils-type':
+        specifier: workspace:*
+        version: link:../utils-type
       antd:
         specifier: ^5.8.6
         version: 5.8.6(react-dom@18.2.0)(react@18.2.0)
