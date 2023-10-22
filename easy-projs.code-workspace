@@ -158,6 +158,10 @@
             "path": "packages/helpers-redux"
         },
         {
+            "name": "@easy-pkg/rc-antd",
+            "path": "packages/rc-antd"
+        },
+        {
             "name": "@easy-pkg/utils",
             "path": "packages/utils"
         },

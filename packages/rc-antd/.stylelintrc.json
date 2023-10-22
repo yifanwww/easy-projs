@@ -1,0 +1,4 @@
+{
+    "extends": "@easy-config/stylelint-config",
+    "ignoreFiles": ["coverage/**/*", "node_modules/**/*"]
+}

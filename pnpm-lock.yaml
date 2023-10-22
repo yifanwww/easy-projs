@@ -582,6 +582,61 @@ importers:
         specifier: 5.2.2
         version: 5.2.2
 
+  packages/rc-antd:
+    dependencies:
+      antd:
+        specifier: ^5.8.6
+        version: 5.8.6(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+    devDependencies:
+      '@easy-config/eslint-config':
+        specifier: workspace:*
+        version: link:../../configs/eslint-config
+      '@easy-config/global-types':
+        specifier: workspace:*
+        version: link:../../configs/global-types
+      '@easy-config/scripts':
+        specifier: workspace:*
+        version: link:../../configs/scripts
+      '@easy-config/stylelint-config':
+        specifier: workspace:*
+        version: link:../../configs/stylelint-config
+      '@easy-config/tsconfigs':
+        specifier: workspace:*
+        version: link:../../configs/tsconfigs
+      '@types/jest':
+        specifier: ^29.5.4
+        version: 29.5.4
+      '@types/react':
+        specifier: ^18.2.21
+        version: 18.2.21
+      eslint:
+        specifier: ^8.48.0
+        version: 8.48.0
+      lint-staged:
+        specifier: ^14.0.1
+        version: 14.0.1
+      prettier:
+        specifier: 3.0.3
+        version: 3.0.3
+      rimraf:
+        specifier: ^5.0.1
+        version: 5.0.1
+      sass:
+        specifier: ^1.66.1
+        version: 1.66.1
+      stylelint:
+        specifier: ^15.10.3
+        version: 15.10.3(typescript@5.2.2)
+      typescript:
+        specifier: 5.2.2
+        version: 5.2.2
+      typescript-plugin-css-modules:
+        specifier: ^5.0.1
+        version: 5.0.1(typescript@5.2.2)
+
   packages/template-nodejs:
     devDependencies:
       '@easy-config/eslint-config':
