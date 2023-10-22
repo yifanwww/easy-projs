@@ -35,7 +35,6 @@
     "dependencies": {
         "@ant-design/icons": "^5.2.6",
         "@easy-pkg/helpers-react": "workspace:*",
-        "@easy-pkg/helpers-react-router": "workspace:*",
         "@easy-pkg/helpers-redux": "workspace:*",
         "@easy-pkg/hooks": "workspace:*",
         "@easy-pkg/utils": "workspace:*",

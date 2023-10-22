@@ -150,10 +150,6 @@
             "path": "packages/helpers-react"
         },
         {
-            "name": "@easy-pkg/helpers-react-router",
-            "path": "packages/helpers-react-router"
-        },
-        {
             "name": "@easy-pkg/helpers-redux",
             "path": "packages/helpers-redux"
         },
