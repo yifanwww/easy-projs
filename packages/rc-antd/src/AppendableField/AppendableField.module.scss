@@ -1,0 +1,26 @@
+.delete {
+    position: relative;
+    top: 2px;
+    font-size: 20px;
+    line-height: 30px;
+    color: #ccc;
+
+    &:hover {
+        color: #777;
+    }
+}
+
+.deleteHidden {
+    width: 20px;
+}
+
+.space {
+    display: flex;
+    margin-bottom: 8px;
+
+    > :global(.ant-space-item):first-child {
+        flex: auto;
+        /* By default `min-width` is `auto`, which may cause list item to exceed the allowed width. */
+        min-width: 0;
+    }
+}
