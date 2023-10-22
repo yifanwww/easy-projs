@@ -1,0 +1,56 @@
+{
+    "name": "@easy-pkg/rc-antd",
+    "version": "0.1.0",
+    "description": "A package that contains React components based on ant-design.",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/rc-antd"
+    },
+    "scripts": {
+        "build": "",
+        "clean": "rimraf --glob coverage",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
+        "lint:fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
+        "pre-commit": "lint-staged",
+        "test": "",
+        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
+    },
+    "dependencies": {
+        "@ant-design/icons": "^5.2.6",
+        "@easy-pkg/utils-type": "workspace:*",
+        "antd": "^5.8.6",
+        "react": "^18.2.0",
+        "react-is": "^18.2.0",
+        "type-fest": "^4.3.1"
+    },
+    "devDependencies": {
+        "@easy-config/eslint-config": "workspace:*",
+        "@easy-config/global-types": "workspace:*",
+        "@easy-config/scripts": "workspace:*",
+        "@easy-config/stylelint-config": "workspace:*",
+        "@easy-config/tsconfigs": "workspace:*",
+        "@types/jest": "^29.5.4",
+        "@types/react": "^18.2.21",
+        "@types/react-is": "^18.2.3",
+        "eslint": "^8.48.0",
+        "lint-staged": "^14.0.1",
+        "prettier": "3.0.3",
+        "rimraf": "^5.0.1",
+        "sass": "^1.66.1",
+        "stylelint": "^15.10.3",
+        "typescript": "5.2.2",
+        "typescript-plugin-css-modules": "^5.0.1"
+    }
+}

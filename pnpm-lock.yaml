@@ -582,6 +582,76 @@ importers:
         specifier: 5.2.2
         version: 5.2.2
 
+  packages/rc-antd:
+    dependencies:
+      '@ant-design/icons':
+        specifier: ^5.2.6
+        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
+      '@easy-pkg/utils-type':
+        specifier: workspace:*
+        version: link:../utils-type
+      antd:
+        specifier: ^5.8.6
+        version: 5.8.6(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-is:
+        specifier: ^18.2.0
+        version: 18.2.0
+      type-fest:
+        specifier: ^4.3.1
+        version: 4.3.1
+    devDependencies:
+      '@easy-config/eslint-config':
+        specifier: workspace:*
+        version: link:../../configs/eslint-config
+      '@easy-config/global-types':
+        specifier: workspace:*
+        version: link:../../configs/global-types
+      '@easy-config/scripts':
+        specifier: workspace:*
+        version: link:../../configs/scripts
+      '@easy-config/stylelint-config':
+        specifier: workspace:*
+        version: link:../../configs/stylelint-config
+      '@easy-config/tsconfigs':
+        specifier: workspace:*
+        version: link:../../configs/tsconfigs
+      '@types/jest':
+        specifier: ^29.5.4
+        version: 29.5.4
+      '@types/react':
+        specifier: ^18.2.21
+        version: 18.2.21
+      '@types/react-is':
+        specifier: ^18.2.3
+        version: 18.2.3
+      eslint:
+        specifier: ^8.48.0
+        version: 8.48.0
+      lint-staged:
+        specifier: ^14.0.1
+        version: 14.0.1
+      prettier:
+        specifier: 3.0.3
+        version: 3.0.3
+      rimraf:
+        specifier: ^5.0.1
+        version: 5.0.1
+      sass:
+        specifier: ^1.66.1
+        version: 1.66.1
+      stylelint:
+        specifier: ^15.10.3
+        version: 15.10.3(typescript@5.2.2)
+      typescript:
+        specifier: 5.2.2
+        version: 5.2.2
+      typescript-plugin-css-modules:
+        specifier: ^5.0.1
+        version: 5.0.1(typescript@5.2.2)
+
   packages/template-nodejs:
     devDependencies:
       '@easy-config/eslint-config':
@@ -4713,6 +4783,12 @@ packages:
     resolution: {integrity: sha512-GRaAEriuT4zp9N4p1i8BDBYmEyfo+xQ3yHjJU4eiK5NDa1RmUZG+unZABUTK4/Ox/M+GaHwb6Ow8rUITrtjszA==}
     dependencies:
       '@types/react': 18.2.21
+
+  /@types/react-is@18.2.3:
+    resolution: {integrity: sha512-w45BV1PsuELGu0P+y7sy+w2sY7qMfDVFrf4+30smfViAxgnOV6MGwdCTAmz32BdYRr0E87xH6L6k6qBB2jjRvA==}
+    dependencies:
+      '@types/react': 18.2.21
+    dev: true
 
   /@types/react-test-renderer@18.0.1:
     resolution: {integrity: sha512-LjEF+jTUCjzd+Qq4eWqsmZvEWPA/l4L0my+YWN5US8Fo3wZOMiyrpBshHDFbkO8usjdO1B430mEWNU/i1MF7Qg==}
@@ -10194,7 +10270,6 @@ packages:
   /type-fest@4.3.1:
     resolution: {integrity: sha512-pphNW/msgOUSkJbH58x8sqpq8uQj6b0ZKGxEsLKMUnGorRcDjrUaLS+39+/ub41JNTwrrMyJcUB8+YZs3mbwqw==}
     engines: {node: '>=16'}
-    dev: true
 
   /typed-array-buffer@1.0.0:
     resolution: {integrity: sha512-Y8KTSIglk9OZEr8zywiIHG/kmQ7KWyjseXs1CbSo8vC42w7hg2HgYTxSWwP0+is7bWDc1H+Fo026CpHFwm8tkw==}
