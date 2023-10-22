@@ -4,7 +4,7 @@ import type { ListProps } from 'antd';
 import Scrollbars from 'rc-scrollbars';
 import { useContext } from 'react';
 
-import { InspectionContext, InspectionContextUpdater } from 'src/contexts/InspectionContext';
+import { InspectionContext, InspectionUpdaterContext } from 'src/contexts/InspectionContext';
 import type { InspectionData } from 'src/types/inspection';
 
 import { GroupSelector } from './GroupSelector';
@@ -13,7 +13,7 @@ import css from './RenderOrderList.module.scss';
 
 export function RenderOrderList() {
     const { data, groups, selectedGroup } = useContext(InspectionContext);
-    const { toggleGroup } = useContext(InspectionContextUpdater);
+    const { toggleGroup } = useContext(InspectionUpdaterContext);
 
     const showGroupSelector = groups.length > 1;
 

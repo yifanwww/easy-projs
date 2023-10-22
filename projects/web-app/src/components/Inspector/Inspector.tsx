@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useContext } from 'react';
 
-import { InspectionContext, InspectionContextUpdater } from 'src/contexts/InspectionContext';
+import { InspectionContext, InspectionUpdaterContext } from 'src/contexts/InspectionContext';
 import { useInspectorPosition } from 'src/hooks';
 import type { InspectedFC } from 'src/types/inspection';
 
@@ -20,7 +20,7 @@ export const Inspector: InspectedFC<InspectorProps> = (props) => {
     const { children, group = 'default' } = props;
 
     const { groups, selectedGroup } = useContext(InspectionContext);
-    const { registerGroup } = useContext(InspectionContextUpdater);
+    const { registerGroup } = useContext(InspectionUpdaterContext);
 
     const hasMultiGroups = groups.length > 1;
 

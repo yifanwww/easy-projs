@@ -40,7 +40,7 @@ export const initialState: BenchmarkContextState = {
 
 export const BenchmarkContext = createContext<BenchmarkContextState>(initialState);
 
-export const BenchmarkContextUpdater = createContext<BenchmarkContextUpdaters>({
+export const BenchmarkUpdaterContext = createContext<BenchmarkContextUpdaters>({
     add: abstractFn,
     clear: abstractFn,
     clearAll: abstractFn,
@@ -59,8 +59,8 @@ export function BenchmarkProvider({ children }: ReactChildrenProps): React.React
     );
 
     return (
-        <BenchmarkContextUpdater.Provider value={updaters}>
+        <BenchmarkUpdaterContext.Provider value={updaters}>
             <BenchmarkContext.Provider value={context}>{children}</BenchmarkContext.Provider>
-        </BenchmarkContextUpdater.Provider>
+        </BenchmarkUpdaterContext.Provider>
     );
 }

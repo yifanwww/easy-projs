@@ -1,2 +1,2 @@
-export { InspectionContext, InspectionContextUpdater, InspectionProvider } from './context';
+export { InspectionContext, InspectionUpdaterContext, InspectionProvider } from './context';
 export * from './types';

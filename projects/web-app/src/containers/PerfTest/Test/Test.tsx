@@ -6,7 +6,7 @@ import type { BenchmarkRef, BenchResultsType } from 'react-component-benchmark';
 import { InputWrapper } from 'src/components/InputWrapper';
 import { ResultTable } from 'src/components/ResultTable';
 import { componentInfos, componentNames } from 'src/components/tests';
-import { BenchmarkContext, BenchmarkContextUpdater, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
+import { BenchmarkContext, BenchmarkUpdaterContext, benchmarkResultSelector } from 'src/contexts/BenchmarkContext';
 import { useComponentNames } from 'src/hooks';
 import type { BenchmarkTypes, ComponentName } from 'src/types/benchmark';
 
@@ -16,7 +16,7 @@ import css from './Test.module.scss';
 
 export function Test(): React.ReactNode {
     const { totalResults } = useContext(BenchmarkContext);
-    const updaters = useContext(BenchmarkContextUpdater);
+    const updaters = useContext(BenchmarkUpdaterContext);
 
     const benchmarkRef = useRef<BenchmarkRef>(null);
 

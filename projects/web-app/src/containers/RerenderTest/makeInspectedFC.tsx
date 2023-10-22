@@ -2,7 +2,7 @@ import { usePersistFn } from '@easy-pkg/hooks';
 import { useContext, useEffect } from 'react';
 
 import { ComponentView } from 'src/components/ComponentView';
-import { InspectionContextUpdater } from 'src/contexts/InspectionContext';
+import { InspectionUpdaterContext } from 'src/contexts/InspectionContext';
 import { useInspectedFCData, useInspectedFCType, useInspectorPosition } from 'src/hooks';
 import type { InspectedFCMaker, InspectedFCType } from 'src/types/inspection';
 
@@ -56,7 +56,7 @@ export function makeInspectedFC<P = NonNullable<unknown>>(
     const _inspectedFC: InternalInspectedFCMaker<P> = (props) => {
         const { _inspectedColor, _inspectedDesc, _inspectedType } = _inspectedFC;
 
-        const { addRecord, forceUpdate } = useContext(InspectionContextUpdater);
+        const { addRecord, forceUpdate } = useContext(InspectionUpdaterContext);
 
         const data = useInspectedFCData();
         const level = data.parents.length;

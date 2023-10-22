@@ -18,7 +18,7 @@ export function getInitialState(): InspectionContextState {
 
 export const InspectionContext = createContext<InspectionContextState>(getInitialState());
 
-export const InspectionContextUpdater = createContext<InspectionContextUpdaters>({
+export const InspectionUpdaterContext = createContext<InspectionContextUpdaters>({
     addRecord: abstractFn,
     forceUpdate: abstractFn,
     registerGroup: abstractFn,
@@ -54,8 +54,8 @@ export function InspectionProvider({ children }: ReactChildrenProps): React.Reac
     );
 
     return (
-        <InspectionContextUpdater.Provider value={updaters}>
+        <InspectionUpdaterContext.Provider value={updaters}>
             <InspectionContext.Provider value={ref.current}>{children}</InspectionContext.Provider>
-        </InspectionContextUpdater.Provider>
+        </InspectionUpdaterContext.Provider>
     );
 }
