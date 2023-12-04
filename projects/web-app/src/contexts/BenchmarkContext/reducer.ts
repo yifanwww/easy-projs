@@ -5,9 +5,9 @@ import type { ImmerReducer } from 'use-immer';
 import type { BenchmarkResult, BenchmarkTypes, ComponentName } from 'src/types/benchmark';
 
 import { benchmarkResultAdapter, benchmarkResultSelector } from './adapters';
-import type { BenchmarkContextState, GroupBenchmarkResults } from './types';
+import type { BenchmarkContextValue, GroupBenchmarkResults } from './types';
 
-function calculateAverageStats(draft: Draft<BenchmarkContextState>): void {
+function calculateAverageStats(draft: Draft<BenchmarkContextValue>): void {
     function _calculate(draftGroup: GroupBenchmarkResults, name: ComponentName): void {
         const total = benchmarkResultSelector
             .selectAll(draftGroup[name])
@@ -42,7 +42,7 @@ type ReducerAction =
     | { type: 'clear'; benchmarkType: BenchmarkTypes; componentName: ComponentName }
     | { type: 'clear-all' };
 
-export const reducer: ImmerReducer<BenchmarkContextState, ReducerAction> = (draft, action) => {
+export const reducer: ImmerReducer<BenchmarkContextValue, ReducerAction> = (draft, action) => {
     switch (action.type) {
         case 'add': {
             const { result } = action;

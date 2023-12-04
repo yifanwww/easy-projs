@@ -4,14 +4,14 @@ import type { ImmerReducer } from 'use-immer';
 
 import type { InspectionData } from 'src/types/inspection';
 
-import type { InspectionContextState } from './types';
+import type { InspectionContextValue } from './types';
 
 export type ReducerAction =
     | { type: 'add-record'; groupIndex: number; record: InspectionData }
     | { type: 'register-group'; index: number; group: string }
     | { type: 'toggle-group'; toggle: 'prev' | 'next' };
 
-export const reduce = produce<ImmerReducer<InspectionContextState, ReducerAction>>((draft, action) => {
+export const reduce = produce<ImmerReducer<InspectionContextValue, ReducerAction>>((draft, action) => {
     switch (action.type) {
         case 'add-record': {
             const { groupIndex, record } = action;

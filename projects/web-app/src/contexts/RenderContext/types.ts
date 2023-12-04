@@ -10,4 +10,4 @@ export interface RenderContextUpdaters {
     select: (select: Integer) => void;
 }
 
-export type RenderContextValues = RenderContextState & RenderContextUpdaters;
+export type RenderContextValue = RenderContextState & RenderContextUpdaters;

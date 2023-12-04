@@ -4,14 +4,14 @@ export type GroupBenchmarkResults = Record<ComponentName, BenchmarkResultState> 
     average: Record<ComponentName, number>;
 };
 
-export interface BenchmarkContextState {
+export interface BenchmarkContextValue {
     mount: GroupBenchmarkResults;
     unmount: GroupBenchmarkResults;
     update: GroupBenchmarkResults;
     totalResults: BenchmarkResultState;
 }
 
-export interface BenchmarkContextUpdaters {
+export interface BenchmarkUpdaterContextValue {
     add: (record: BenchmarkResult) => void;
     clear: (benchmarkType: BenchmarkTypes, componentName: ComponentName) => void;
     clearAll: () => void;

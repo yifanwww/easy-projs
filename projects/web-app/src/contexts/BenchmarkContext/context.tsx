@@ -5,9 +5,9 @@ import { useImmerReducer } from 'use-immer';
 
 import { benchmarkResultAdapter } from './adapters';
 import { reducer } from './reducer';
-import type { BenchmarkContextState, BenchmarkContextUpdaters } from './types';
+import type { BenchmarkContextValue, BenchmarkUpdaterContextValue } from './types';
 
-export const initialState: BenchmarkContextState = {
+export const initialState: BenchmarkContextValue = {
     mount: {
         average: { noHooks: 0, useCallback: 0, useMemo: 0, useReducer: 0, useRef: 0, useState: 0 },
         noHooks: benchmarkResultAdapter.getInitialState(),
@@ -38,9 +38,9 @@ export const initialState: BenchmarkContextState = {
     totalResults: benchmarkResultAdapter.getInitialState(),
 };
 
-export const BenchmarkContext = createContext<BenchmarkContextState>(initialState);
+export const BenchmarkContext = createContext<BenchmarkContextValue>(initialState);
 
-export const BenchmarkUpdaterContext = createContext<BenchmarkContextUpdaters>({
+export const BenchmarkUpdaterContext = createContext<BenchmarkUpdaterContextValue>({
     add: abstractFn,
     clear: abstractFn,
     clearAll: abstractFn,
@@ -49,7 +49,7 @@ export const BenchmarkUpdaterContext = createContext<BenchmarkContextUpdaters>({
 export function BenchmarkProvider({ children }: ReactChildrenProps): React.ReactNode {
     const [context, dispatch] = useImmerReducer(reducer, initialState);
 
-    const updaters = useMemo<BenchmarkContextUpdaters>(
+    const updaters = useMemo<BenchmarkUpdaterContextValue>(
         () => ({
             add: (result) => dispatch({ type: 'add', result }),
             clear: (benchmarkType, componentName) => dispatch({ type: 'clear', benchmarkType, componentName }),

@@ -1,6 +1,6 @@
 import type { InspectionData, InspectionTree } from 'src/types/inspection';
 
-export interface InspectionContextState {
+export interface InspectionContextValue {
     data: Record<
         string,
         {
@@ -12,7 +12,7 @@ export interface InspectionContextState {
     selectedGroup?: string;
 }
 
-export interface InspectionContextUpdaters {
+export interface InspectionUpdaterContextValue {
     addRecord: (record: InspectionData, groupIndex: number) => void;
     forceUpdate: () => void;
     registerGroup: (group: string, index: number) => void;

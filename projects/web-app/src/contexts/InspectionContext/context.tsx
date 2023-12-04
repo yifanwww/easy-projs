@@ -6,9 +6,9 @@ import { createContext, useCallback, useMemo, useRef } from 'react';
 
 import { reduce } from './reducer';
 import type { ReducerAction } from './reducer';
-import type { InspectionContextState, InspectionContextUpdaters } from './types';
+import type { InspectionContextValue, InspectionUpdaterContextValue } from './types';
 
-export function getInitialState(): InspectionContextState {
+export function getInitialState(): InspectionContextValue {
     return {
         data: {},
         groups: [],
@@ -16,9 +16,9 @@ export function getInitialState(): InspectionContextState {
     };
 }
 
-export const InspectionContext = createContext<InspectionContextState>(getInitialState());
+export const InspectionContext = createContext<InspectionContextValue>(getInitialState());
 
-export const InspectionUpdaterContext = createContext<InspectionContextUpdaters>({
+export const InspectionUpdaterContext = createContext<InspectionUpdaterContextValue>({
     addRecord: abstractFn,
     forceUpdate: abstractFn,
     registerGroup: abstractFn,
@@ -26,7 +26,7 @@ export const InspectionUpdaterContext = createContext<InspectionContextUpdaters>
 });
 
 export function InspectionProvider({ children }: ReactChildrenProps): React.ReactNode {
-    const ref = useRef<InspectionContextState>();
+    const ref = useRef<InspectionContextValue>();
     if (!ref.current) {
         ref.current = getInitialState();
     }
@@ -38,7 +38,7 @@ export function InspectionProvider({ children }: ReactChildrenProps): React.Reac
         ref.current = reduce(ref.current, action);
     }, []);
 
-    const updaters = useMemo<InspectionContextUpdaters>(
+    const updaters = useMemo<InspectionUpdaterContextValue>(
         () => ({
             addRecord: (record, groupIndex) => {
                 dispatch({ type: 'add-record', groupIndex, record });

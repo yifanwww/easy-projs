@@ -4,7 +4,7 @@ import { createContext, useMemo } from 'react';
 import { useImmerReducer } from 'use-immer';
 
 import { reducer } from './reducer';
-import type { RenderContextState, RenderContextUpdaters, RenderContextValues } from './types';
+import type { RenderContextState, RenderContextUpdaters, RenderContextValue } from './types';
 
 export function getInitialState(): RenderContextState {
     return {
@@ -13,7 +13,7 @@ export function getInitialState(): RenderContextState {
     };
 }
 
-function getInitialValues(): RenderContextValues {
+function getInitialValues(): RenderContextValue {
     return {
         ...getInitialState(),
         forceUpdate: abstractFn,
@@ -21,7 +21,7 @@ function getInitialValues(): RenderContextValues {
     };
 }
 
-export const RenderContext = createContext<RenderContextValues>(getInitialValues());
+export const RenderContext = createContext<RenderContextValue>(getInitialValues());
 
 export function RenderProvider({ children }: ReactChildrenProps): React.ReactNode {
     const [state, dispatch] = useImmerReducer(reducer, getInitialState());
