@@ -6,13 +6,11 @@ import { useCallback } from 'react';
 import { isElement } from 'react-is';
 import type { PartialDeep } from 'type-fest';
 
-import type { NamePath } from '../types';
-
 import css from './AppendableField.module.scss';
 
 export interface AppendableItemProps extends Omit<FormListFieldData, 'key'> {}
 
-export interface AppendableFieldProps<T> {
+export interface AppendableFieldProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
     addButtonOptions?: {
         disableBlock?: boolean;
         /**
@@ -49,7 +47,6 @@ export interface AppendableFieldProps<T> {
     getDeletable?: (fieldName: number, fieldsLength: number) => boolean;
     initialValue?: Partial<T>[];
     limit?: number;
-    name: NamePath;
     /**
      * Customized how to add a new list value. This takes higher priority than `getAdd`.
      */
@@ -68,7 +65,6 @@ export interface AppendableFieldProps<T> {
      * The render function to render extra items of appendable field before the normal fields.
      */
     renderExtraItemsBefore?: (fieldsLength: number) => React.ReactNode[] | undefined | null;
-    rules?: FormListProps['rules'];
     value?: T[];
 }
 
