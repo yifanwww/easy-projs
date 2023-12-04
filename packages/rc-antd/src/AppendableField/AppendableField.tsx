@@ -35,6 +35,10 @@ export interface AppendableFieldProps<T> {
      * Get the new item to be added.
      */
     getAdd?: () => PartialDeep<T>;
+    /**
+     * Specifies if a list field is deletable.
+     */
+    getDeletable?: (fieldName: number, fieldsLength: number) => boolean;
     initialValue?: Partial<T>[];
     limit?: number;
     name: NamePath;
@@ -81,6 +85,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         disableDeleteFirst,
         disabled,
         getAdd,
+        getDeletable,
         initialValue,
         limit = Number.MAX_SAFE_INTEGER,
         name,
@@ -121,26 +126,31 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
             const extraItemsBefore = renderExtraItemsBefore?.(fieldsLength)?.map(renderExtraItem);
             const extraItemsAfter = renderExtraItemsAfter?.(fieldsLength)?.map(renderExtraItem);
 
+            const renderDeleteElement = (fieldName: number) => {
+                if (!!readonly || !!disabled) return null;
+
+                return (getDeletable?.(fieldName, fieldsLength) ?? true) && (!disableDeleteFirst || fieldName > 0) ? (
+                    <MinusCircleOutlined
+                        className={css.delete}
+                        onClick={() => {
+                            remove(fieldName);
+                            onRemove?.();
+                        }}
+                    />
+                ) : (
+                    <div className={css.deleteHidden} />
+                );
+            };
+
             return (
                 <div className={contentClassName}>
                     {extraItemsBefore}
 
-                    {fields.map(({ key, name: fieldName }, index) => (
+                    {fields.map(({ key, name: fieldName }) => (
                         <Space key={key} className={css.space} align="baseline">
                             {render?.({ name: fieldName }, fieldsLength) ??
                                 (Component ? <Component name={fieldName} /> : null)}
-                            {!readonly &&
-                                (!disabled && (!disableDeleteFirst || index > 0) ? (
-                                    <MinusCircleOutlined
-                                        className={css.delete}
-                                        onClick={() => {
-                                            remove(fieldName);
-                                            onRemove?.();
-                                        }}
-                                    />
-                                ) : (
-                                    <div className={css.deleteHidden} />
-                                ))}
+                            {renderDeleteElement(fieldName)}
                         </Space>
                     ))}
 
@@ -180,6 +190,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
             disableDeleteFirst,
             disabled,
             getAdd,
+            getDeletable,
             limit,
             onAdd,
             onRemove,
