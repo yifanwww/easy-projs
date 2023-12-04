@@ -1,15 +1,24 @@
 import { NamePathUtil } from '../namePath';
 
+describe(`Test static method \`${NamePathUtil.name}.${NamePathUtil['_toArray'].name}\``, () => {
+    it('should convert a non-array name path to a array name path', () => {
+        expect(NamePathUtil['_toArray'](1)).toStrictEqual([1]);
+        expect(NamePathUtil['_toArray']('value')).toStrictEqual(['value']);
+        expect(NamePathUtil['_toArray']([])).toStrictEqual([]);
+        expect(NamePathUtil['_toArray'](['value', 'value'])).toStrictEqual(['value', 'value']);
+    });
+});
+
 describe(`Test static method \`${NamePathUtil.name}.${NamePathUtil.equal.name}\``, () => {
     it('should check if two name paths equal', () => {
-        expect(NamePathUtil.equal('value', 'value')).toBeTruthy();
-        expect(NamePathUtil.equal([], [])).toBeTruthy();
-        expect(NamePathUtil.equal(['value', 'value'], ['value', 'value'])).toBeTruthy();
+        expect(NamePathUtil.equal('value', 'value')).toBe(true);
+        expect(NamePathUtil.equal([], [])).toBe(true);
+        expect(NamePathUtil.equal(['value', 'value'], ['value', 'value'])).toBe(true);
 
-        expect(NamePathUtil.equal('value1', 'value2')).toBeFalsy();
-        expect(NamePathUtil.equal([], 'value')).toBeFalsy();
-        expect(NamePathUtil.equal('value', [])).toBeFalsy();
-        expect(NamePathUtil.equal(['value1'], ['value2'])).toBeFalsy();
+        expect(NamePathUtil.equal('value1', 'value2')).toBe(false);
+        expect(NamePathUtil.equal([], 'value')).toBe(false);
+        expect(NamePathUtil.equal('value', [])).toBe(false);
+        expect(NamePathUtil.equal(['value1'], ['value2'])).toBe(false);
     });
 });
 
@@ -33,17 +42,17 @@ describe(`Test static method \`${NamePathUtil.name}.${NamePathUtil.indexOf.name}
 
 describe(`Test static method \`${NamePathUtil.name}.${NamePathUtil.includes.name}\``, () => {
     it('should return if the name path contains the search element', () => {
-        expect(NamePathUtil.includes(['value'], 'value')).toBeTruthy();
-        expect(NamePathUtil.includes(['value1', 'value2', 'value3'], 'value3')).toBeTruthy();
-        expect(NamePathUtil.includes([['value1'], 'value2', ['value3']], ['value3'])).toBeTruthy();
-        expect(NamePathUtil.includes(['value1', ['value2', 'value3']], ['value2', 'value3'])).toBeTruthy();
+        expect(NamePathUtil.includes(['value'], 'value')).toBe(true);
+        expect(NamePathUtil.includes(['value1', 'value2', 'value3'], 'value3')).toBe(true);
+        expect(NamePathUtil.includes([['value1'], 'value2', ['value3']], ['value3'])).toBe(true);
+        expect(NamePathUtil.includes(['value1', ['value2', 'value3']], ['value2', 'value3'])).toBe(true);
 
-        expect(NamePathUtil.includes(undefined, 'value')).toBeFalsy();
-        expect(NamePathUtil.includes(null, 'value')).toBeFalsy();
-        expect(NamePathUtil.includes([], 'value')).toBeFalsy();
-        expect(NamePathUtil.includes(['value1', 'value2'], 'value3')).toBeFalsy();
-        expect(NamePathUtil.includes([['value1'], 'value2', ['value3']], 'value3')).toBeFalsy();
-        expect(NamePathUtil.includes(['value1', ['value2', 'value3']], ['value1', 'value3'])).toBeFalsy();
+        expect(NamePathUtil.includes(undefined, 'value')).toBe(false);
+        expect(NamePathUtil.includes(null, 'value')).toBe(false);
+        expect(NamePathUtil.includes([], 'value')).toBe(false);
+        expect(NamePathUtil.includes(['value1', 'value2'], 'value3')).toBe(false);
+        expect(NamePathUtil.includes([['value1'], 'value2', ['value3']], 'value3')).toBe(false);
+        expect(NamePathUtil.includes(['value1', ['value2', 'value3']], ['value1', 'value3'])).toBe(false);
     });
 });
 
@@ -56,5 +65,20 @@ describe(`Test static method \`${NamePathUtil.name}.${NamePathUtil.merge.name}\`
         expect(NamePathUtil.merge(['value1'], ['value2'])).toStrictEqual(['value2', 'value1']);
         expect(NamePathUtil.merge([], 'value')).toStrictEqual(['value']);
         expect(NamePathUtil.merge([], ['value'])).toStrictEqual(['value']);
+    });
+});
+
+describe(`Test static method \`${NamePathUtil.name}.${NamePathUtil.startsWith.name}\``, () => {
+    it('should check if the name path starts with a certain subsequence', () => {
+        expect(NamePathUtil.startsWith('value', 'value')).toBe(true);
+        expect(NamePathUtil.startsWith('value', 'value1')).toBe(false);
+        expect(NamePathUtil.startsWith(['value'], 'value')).toBe(true);
+        expect(NamePathUtil.startsWith(['value'], 'value1')).toBe(false);
+        expect(NamePathUtil.startsWith(['value'], ['value'])).toBe(true);
+        expect(NamePathUtil.startsWith(['value'], ['value1'])).toBe(false);
+        expect(NamePathUtil.startsWith(['value', 'foo'], ['value'])).toBe(true);
+        expect(NamePathUtil.startsWith(['value', 'foo', 'bar'], ['value'])).toBe(true);
+        expect(NamePathUtil.startsWith([], 'value')).toBe(false);
+        expect(NamePathUtil.startsWith([], ['value'])).toBe(false);
     });
 });
