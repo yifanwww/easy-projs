@@ -13,11 +13,14 @@ import css from './AppendableField.module.scss';
 export interface AppendableItemProps extends Omit<FormListFieldData, 'key'> {}
 
 export interface AppendableFieldProps<T> {
-    /**
-     * Default is `Add`.
-     */
-    addText?: string;
-    addTooltip?: React.ReactNode | (() => React.ReactNode);
+    addButtonOptions?: {
+        disableBlock?: boolean;
+        /**
+         * Default is `Add`.
+         */
+        text?: string;
+        tooltip?: React.ReactNode | (() => React.ReactNode);
+    };
     /**
      * The component to be rendered as the item of appendable field.
      * This prop won't be used if also provide `render`.
@@ -25,7 +28,6 @@ export interface AppendableFieldProps<T> {
     component?: React.JSXElementConstructor<AppendableItemProps>;
     contentClassName?: string;
     disableAdd?: boolean;
-    disableButtonBlock?: boolean;
     disabled?: boolean;
     /**
      * Specifies whether it's allowed to delete the first item.
@@ -76,12 +78,10 @@ export interface AppendableFieldProps<T> {
  */
 export function AppendableField<T>(props: AppendableFieldProps<T>) {
     const {
-        addText = 'Add',
-        addTooltip,
+        addButtonOptions,
         component: Component,
         contentClassName,
         disableAdd,
-        disableButtonBlock,
         disableDeleteFirst,
         disabled,
         getAddValue,
@@ -98,6 +98,8 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         rules,
         value: values = [],
     } = props;
+
+    const { disableBlock: disableButtonBlock, text: addText = 'Add', tooltip: addTooltip } = addButtonOptions ?? {};
 
     const reactLimit = values.length >= limit;
 
