@@ -51,7 +51,7 @@ export interface AppendableFieldProps<T> extends Pick<FormListProps, 'name' | 'r
      * Customized how to add a new list value. This takes higher priority than `getAdd`.
      */
     onAdd?: (add: FormListOperation['add'], fieldsLength: number) => void;
-    onRemove?: () => void;
+    onRemoved?: () => void;
     readonly?: boolean;
     /**
      * The render function to render the items of appendable field.
@@ -92,7 +92,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         limit = Number.MAX_SAFE_INTEGER,
         name,
         onAdd,
-        onRemove,
+        onRemoved,
         readonly,
         render,
         renderExtraItemsAfter,
@@ -143,7 +143,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
                         className={css.delete}
                         onClick={() => {
                             remove(fieldName);
-                            onRemove?.();
+                            onRemoved?.();
                         }}
                     />
                 ) : (
@@ -214,7 +214,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
             getDeletable,
             limit,
             onAdd,
-            onRemove,
+            onRemoved,
             reactLimit,
             readonly,
             render,
