@@ -43,7 +43,7 @@ export interface AppendableFieldProps<T> {
     /**
      * The render function to render the items of appendable field.
      */
-    render?: (props: AppendableItemProps) => React.ReactNode;
+    render?: (props: AppendableItemProps, fieldsLength: number) => React.ReactNode;
     /**
      * The render function to render extra items of appendable field after the normal fields.
      */
@@ -122,7 +122,8 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
 
                     {fields.map(({ key, name: fieldName }, index) => (
                         <Space key={key} className={css.space} align="baseline">
-                            {render?.({ name: fieldName }) ?? (Component ? <Component name={fieldName} /> : null)}
+                            {render?.({ name: fieldName }, fieldsLength) ??
+                                (Component ? <Component name={fieldName} /> : null)}
                             {!readonly &&
                                 (!disabled && (!disableDeleteFirst || index > 0) ? (
                                     <MinusCircleOutlined
