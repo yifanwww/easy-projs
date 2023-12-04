@@ -1,7 +1,7 @@
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import type { FormListFieldData } from 'antd';
 import { Form, Space, Tooltip, Button } from 'antd';
-import type { FormListProps } from 'antd/es/form';
+import type { FormListOperation, FormListProps } from 'antd/es/form';
 import { useCallback } from 'react';
 import { isElement } from 'react-is';
 import type { PartialDeep } from 'type-fest';
@@ -38,6 +38,10 @@ export interface AppendableFieldProps<T> {
     initialValue?: Partial<T>[];
     limit?: number;
     name: NamePath;
+    /**
+     * Customized how to add a new list value. This takes higher priority than `getAdd`.
+     */
+    onAdd?: (add: FormListOperation['add'], fieldsLength: number) => void;
     onRemove?: () => void;
     readonly?: boolean;
     /**
@@ -80,6 +84,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         initialValue,
         limit = Number.MAX_SAFE_INTEGER,
         name,
+        onAdd,
         onRemove,
         readonly,
         render,
@@ -147,7 +152,13 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
                                 block={!disableButtonBlock}
                                 disabled={!!disabled || !!disableAdd || reactLimit}
                                 icon={<PlusOutlined />}
-                                onClick={() => add(getAdd?.())}
+                                onClick={() => {
+                                    if (onAdd) {
+                                        onAdd(add, fieldsLength);
+                                    } else {
+                                        add(getAdd?.());
+                                    }
+                                }}
                                 type="dashed"
                             >
                                 {`${addText}${reactLimit ? ` (React limit ${limit})` : ''}`}
@@ -170,6 +181,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
             disabled,
             getAdd,
             limit,
+            onAdd,
             onRemove,
             reactLimit,
             readonly,
