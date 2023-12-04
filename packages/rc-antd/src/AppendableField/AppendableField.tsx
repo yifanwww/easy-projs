@@ -16,6 +16,12 @@ export interface AppendableFieldProps<T> {
     addButtonOptions?: {
         disableBlock?: boolean;
         /**
+         * Changes the position of add button.
+         * The add button will be placed after [n-th] item if positive number or zero,
+         * otherwise it will be placed before [(length - abs(n)-th)] item.
+         */
+        position?: number;
+        /**
          * Default is `Add`.
          */
         text?: string;
@@ -99,7 +105,12 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         value: values = [],
     } = props;
 
-    const { disableBlock: disableButtonBlock, text: addText = 'Add', tooltip: addTooltip } = addButtonOptions ?? {};
+    const {
+        disableBlock: disableButtonBlock,
+        position: addButtonPosition,
+        text: addText = 'Add',
+        tooltip: addTooltip,
+    } = addButtonOptions ?? {};
 
     const reactLimit = values.length >= limit;
 
@@ -144,39 +155,50 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
                 );
             };
 
+            const renderAddButton = () => (
+                <Tooltip title={addTooltip}>
+                    <Button
+                        block={!disableButtonBlock}
+                        disabled={!!disabled || !!disableAdd || reactLimit}
+                        icon={<PlusOutlined />}
+                        onClick={() => {
+                            if (onAdd) {
+                                onAdd(add, fieldsLength);
+                            } else {
+                                add(getAddValue?.());
+                            }
+                        }}
+                        type="dashed"
+                        style={{ marginBottom: addButtonPosition !== undefined ? 8 : undefined }}
+                    >
+                        {`${addText}${reactLimit ? ` (React limit ${limit})` : ''}`}
+                    </Button>
+                </Tooltip>
+            );
+
+            const renderItem = ({ key, name: fieldName }: FormListFieldData) => (
+                <Space key={key} className={css.space} align="baseline">
+                    {render?.({ name: fieldName }, fieldsLength) ?? (Component ? <Component name={fieldName} /> : null)}
+                    {renderDeleteElement(fieldName)}
+                </Space>
+            );
+
             return (
                 <div className={contentClassName}>
                     {extraItemsBefore}
 
-                    {fields.map(({ key, name: fieldName }) => (
-                        <Space key={key} className={css.space} align="baseline">
-                            {render?.({ name: fieldName }, fieldsLength) ??
-                                (Component ? <Component name={fieldName} /> : null)}
-                            {renderDeleteElement(fieldName)}
-                        </Space>
-                    ))}
+                    {(addButtonPosition === undefined || readonly) && fields.map(renderItem)}
+                    {addButtonPosition !== undefined && !readonly && (
+                        <>
+                            {fields.slice(0, addButtonPosition).map(renderItem)}
+                            {renderAddButton()}
+                            {fields.slice(addButtonPosition).map(renderItem)}
+                        </>
+                    )}
 
                     {extraItemsAfter}
 
-                    {!readonly && (
-                        <Tooltip title={addTooltip}>
-                            <Button
-                                block={!disableButtonBlock}
-                                disabled={!!disabled || !!disableAdd || reactLimit}
-                                icon={<PlusOutlined />}
-                                onClick={() => {
-                                    if (onAdd) {
-                                        onAdd(add, fieldsLength);
-                                    } else {
-                                        add(getAddValue?.());
-                                    }
-                                }}
-                                type="dashed"
-                            >
-                                {`${addText}${reactLimit ? ` (React limit ${limit})` : ''}`}
-                            </Button>
-                        </Tooltip>
-                    )}
+                    {addButtonPosition === undefined && !readonly && renderAddButton()}
 
                     <Form.ErrorList errors={errors} />
                 </div>
@@ -184,6 +206,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         },
         [
             Component,
+            addButtonPosition,
             addText,
             addTooltip,
             contentClassName,
