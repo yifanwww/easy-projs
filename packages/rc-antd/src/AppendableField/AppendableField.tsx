@@ -34,7 +34,7 @@ export interface AppendableFieldProps<T> {
     /**
      * Get the new item to be added.
      */
-    getAdd?: () => PartialDeep<T>;
+    getAddValue?: () => PartialDeep<T>;
     /**
      * Specifies if a list field is deletable.
      */
@@ -84,7 +84,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         disableButtonBlock,
         disableDeleteFirst,
         disabled,
-        getAdd,
+        getAddValue,
         getDeletable,
         initialValue,
         limit = Number.MAX_SAFE_INTEGER,
@@ -166,7 +166,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
                                     if (onAdd) {
                                         onAdd(add, fieldsLength);
                                     } else {
-                                        add(getAdd?.());
+                                        add(getAddValue?.());
                                     }
                                 }}
                                 type="dashed"
@@ -189,7 +189,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
             disableButtonBlock,
             disableDeleteFirst,
             disabled,
-            getAdd,
+            getAddValue,
             getDeletable,
             limit,
             onAdd,
