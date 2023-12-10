@@ -42,7 +42,7 @@
         "@easy-config/tsconfigs": "workspace:*",
         "@easy-pkg/utils-test": "workspace:*",
         "@types/jest": "^29.5.4",
-        "@types/node": "^18.17.14",
+        "@types/node": "^20.10.4",
         "concurrently": "^8.2.1",
         "eslint": "^8.48.0",
         "lint-staged": "^14.0.1",
