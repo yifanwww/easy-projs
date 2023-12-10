@@ -42,7 +42,7 @@
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@jest/types": "^29.6.3",
-        "@types/node": "^18.17.14",
+        "@types/node": "^20.10.4",
         "eslint": "^8.48.0",
         "lint-staged": "^14.0.1",
         "prettier": "3.0.3",

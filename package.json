@@ -32,7 +32,7 @@
         "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
     },
     "engines": {
-        "node": ">=18",
+        "node": ">=20",
         "pnpm": ">=8"
     },
     "devDependencies": {
