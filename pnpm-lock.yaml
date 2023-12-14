@@ -1018,7 +1018,7 @@ importers:
         specifier: 5.2.2
         version: 5.2.2
 
-  projects/web-app:
+  projects/webapp:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.2.6

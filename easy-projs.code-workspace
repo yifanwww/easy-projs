@@ -197,8 +197,8 @@
             "path": "projects/proving-ground-nodejs"
         },
         {
-            "name": "@easy-proj/web-app",
-            "path": "projects/web-app"
+            "name": "@easy-proj/webapp",
+            "path": "projects/webapp"
         }
     ]
 }
