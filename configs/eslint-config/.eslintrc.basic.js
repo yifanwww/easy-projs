@@ -47,7 +47,7 @@ const naming = [
 
 module.exports = {
     env: {
-        es2017: true,
+        es2020: true,
         jest: true,
     },
     extends: [
