@@ -3,7 +3,6 @@ module.exports = {
         browser: true,
         es2017: true,
         jest: true,
-        node: true,
     },
     extends: [
         'airbnb',
@@ -19,7 +18,7 @@ module.exports = {
         './.eslintrc.basic.js',
     ],
     ignorePatterns: ['*.cjs', '*.js', '*.mjs'],
-    plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'node', 'prettier', 'react', 'react-hooks'],
+    plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'prettier', 'react', 'react-hooks'],
 
     rules: {
         // -------------------- Eslint-Plugin-React Rules --------------------
