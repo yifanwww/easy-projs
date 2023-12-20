@@ -185,6 +185,10 @@
             "path": "projects/proving-ground-nodejs"
         },
         {
+            "name": "@easy-proj/server",
+            "path": "projects/server"
+        },
+        {
             "name": "@easy-proj/webapp",
             "path": "projects/webapp"
         }
