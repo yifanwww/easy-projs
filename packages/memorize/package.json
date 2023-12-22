@@ -1,6 +1,6 @@
 {
     "name": "@easy-pkg/memorize",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "Memorize functions.",
     "type": "module",
     "exports": {
