@@ -1,0 +1,8 @@
+upstream mysql {
+    server localhost:3306;
+}
+
+server {
+    listen 3000 so_keepalive=on;
+    proxy_pass mysql;
+}
