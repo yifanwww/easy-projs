@@ -1,4 +1,4 @@
-import type { AnyFn, UnknownFn } from '@easy-pkg/utils-type';
+import type { AnyFn, UnknownFn } from '@easy-pkg/types/fn';
 import { useMemo, useRef } from 'react';
 import { shallowEqual, useDispatch } from 'react-redux';
 

@@ -35,7 +35,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/utils-type": "workspace:*",
+        "@easy-pkg/types": "workspace:*",
         "@testing-library/react": "^14.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"

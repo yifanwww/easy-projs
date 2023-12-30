@@ -1,4 +1,4 @@
-import type { UnknownFn } from '@easy-pkg/utils-type';
+import type { UnknownFn } from '@easy-pkg/types/fn';
 import { noop } from 'lodash';
 import React from 'react';
 

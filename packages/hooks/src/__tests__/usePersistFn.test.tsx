@@ -1,6 +1,6 @@
+import type { Nullable, Optional } from '@easy-pkg/types/utils';
 import { assert } from '@easy-pkg/utils-browser';
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
-import type { Nullable, Optional } from '@easy-pkg/utils-type';
 import { act, render } from '@testing-library/react';
 import { noop } from 'lodash';
 import { useState } from 'react';

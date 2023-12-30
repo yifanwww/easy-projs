@@ -1,4 +1,4 @@
-import type { Integer } from '@easy-pkg/utils-type';
+import type { Integer } from '@easy-pkg/types/primitives';
 
 export interface RenderContextState {
     forceUpdateNumber: Integer;

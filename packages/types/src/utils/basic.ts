@@ -1,5 +1,3 @@
-import type { UnknownFn } from './function';
-
 export type Nullable<T> = T | null;
 export type Optional<T> = T | undefined;
 
@@ -19,8 +17,6 @@ export type LooseArray<T> = T | readonly T[];
  * the result of `PickProp<Props, 'b'>` is not `string | undefined` but `string`.
  */
 export type PickProp<P, K extends keyof P> = NonNullable<P[K]>;
-
-export type VoidReturn<T extends UnknownFn> = (...args: Parameters<T>) => void;
 
 /**
  * T must contains all the properties of U.

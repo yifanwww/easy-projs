@@ -33,7 +33,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/utils-type": "workspace:*",
+        "@easy-pkg/types": "workspace:*",
         "immer": "^9.0.21",
         "react": "^18.2.0"
     },

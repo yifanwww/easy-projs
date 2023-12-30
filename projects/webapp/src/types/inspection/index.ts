@@ -1,4 +1,4 @@
-import type { Nullable } from '@easy-pkg/utils-type';
+import type { Nullable } from '@easy-pkg/types/utils';
 
 export interface InspectionNode {
     index: number;

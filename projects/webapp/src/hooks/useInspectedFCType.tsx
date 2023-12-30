@@ -1,5 +1,5 @@
 import type { ReactChildrenProps } from '@easy-pkg/helpers-react';
-import type { LooseArray, Optional } from '@easy-pkg/utils-type';
+import type { LooseArray, Optional } from '@easy-pkg/types/utils';
 import { useRef } from 'react';
 
 import type { InspectedFC, InspectedFCType } from 'src/types/inspection';

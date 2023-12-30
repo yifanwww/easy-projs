@@ -1,4 +1,4 @@
-import type { UnknownFn, VoidReturn } from '@easy-pkg/utils-type';
+import type { UnknownFn, VoidReturn } from '@easy-pkg/types/fn';
 import { useCallback } from 'react';
 
 import { useSingleTimeout } from './useSingleTimeout';

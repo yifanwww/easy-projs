@@ -1,21 +1,33 @@
 {
-    "name": "@easy-pkg/utils-type",
+    "name": "@easy-pkg/types",
     "version": "0.0.0",
-    "description": "Type utilities.",
-    "main": "lib/index.js",
-    "module": "lib/index.js",
-    "typings": "lib/index.d.ts",
-    "homepage": "https://github.com/YSoftwareRepo/template-electron-cra#readme",
+    "description": "Types library.",
+    "type": "module",
+    "exports": {
+        "./fn": {
+            "types": "./lib/fn.d.ts",
+            "default": "./lib/fn.js"
+        },
+        "./primitives": {
+            "types": "./lib/primitives.d.ts",
+            "default": "./lib/primitives.js"
+        },
+        "./utils": {
+            "types": "./lib/utils/index.d.ts",
+            "default": "./lib/utils/index.js"
+        }
+    },
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
     "bugs": {
-        "url": "https://github.com/YSoftwareRepo/template-electron-cra/issues"
+        "url": "https://github.com/yifanwww/easy-projs/issues"
     },
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/YSoftwareRepo/template-electron-cra.git",
-        "directory": "packages/utils-type"
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "packages/types"
     },
     "scripts": {
         "build": "concurrently -n lib,types \"pnpm run build:lib\" \"pnpm run build:types\"",

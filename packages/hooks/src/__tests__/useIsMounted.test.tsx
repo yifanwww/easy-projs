@@ -1,5 +1,5 @@
+import type { Nullable } from '@easy-pkg/types/utils';
 import { assert } from '@easy-pkg/utils-browser';
-import type { Nullable } from '@easy-pkg/utils-type';
 import { render } from '@testing-library/react';
 
 import { useIsMounted } from '../useIsMounted';

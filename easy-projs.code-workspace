@@ -146,6 +146,10 @@
             "path": "packages/rc-antd"
         },
         {
+            "name": "@easy-pkg/types",
+            "path": "packages/types"
+        },
+        {
             "name": "@easy-pkg/utils",
             "path": "packages/utils"
         },
@@ -160,10 +164,6 @@
         {
             "name": "@easy-pkg/utils-test",
             "path": "packages/utils-test"
-        },
-        {
-            "name": "@easy-pkg/utils-type",
-            "path": "packages/utils-type"
         },
 
         // projects

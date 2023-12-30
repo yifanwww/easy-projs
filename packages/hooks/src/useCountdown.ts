@@ -1,4 +1,4 @@
-import type { Integer } from '@easy-pkg/utils-type';
+import type { Integer } from '@easy-pkg/types/primitives';
 import { useCallback, useEffect, useRef } from 'react';
 
 import { useForceUpdate } from './useForceUpdate';

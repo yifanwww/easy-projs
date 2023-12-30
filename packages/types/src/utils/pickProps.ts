@@ -5,7 +5,7 @@ import type {
     PickNullableKeys,
     PickNullishKeys,
     PickUndefinableKeys,
-} from './pickKeys';
+} from './pickKeys.js';
 
 /**
  * From T, pick a set of properties that are nullable.

@@ -32,8 +32,8 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
+        "@easy-pkg/types": "workspace:*",
         "@easy-pkg/utils-browser": "workspace:*",
-        "@easy-pkg/utils-type": "workspace:*",
         "lodash": "^4.17.21",
         "react": "^18.2.0"
     },

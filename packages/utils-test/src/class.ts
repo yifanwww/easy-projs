@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
-import type { UnknownFn } from '@easy-pkg/utils-type';
+import type { UnknownFn } from '@easy-pkg/types/fn';
 import type { ConditionalKeys } from 'type-fest';
 
 export function buildMethodName<T extends Function>($class: T, method: ConditionalKeys<T['prototype'], UnknownFn>) {

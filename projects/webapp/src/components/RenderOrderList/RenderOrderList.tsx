@@ -1,4 +1,4 @@
-import type { PickProp } from '@easy-pkg/utils-type';
+import type { PickProp } from '@easy-pkg/types/utils';
 import { List } from 'antd';
 import type { ListProps } from 'antd';
 import Scrollbars from 'rc-scrollbars';

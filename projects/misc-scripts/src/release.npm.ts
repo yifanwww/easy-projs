@@ -1,4 +1,4 @@
-import type { Nullable } from '@easy-pkg/utils-type';
+import type { Nullable } from '@easy-pkg/types/utils';
 import child from 'node:child_process';
 import semver from 'semver';
 

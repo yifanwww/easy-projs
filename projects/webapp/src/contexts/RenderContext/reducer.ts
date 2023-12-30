@@ -1,5 +1,5 @@
+import type { Integer } from '@easy-pkg/types/primitives';
 import { assertIsNever } from '@easy-pkg/utils-browser';
-import type { Integer } from '@easy-pkg/utils-type';
 import type { ImmerReducer } from 'use-immer';
 
 import type { RenderContextState } from './types';

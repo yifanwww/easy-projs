@@ -1,4 +1,4 @@
-import type { ValueOf } from '@easy-pkg/utils-type';
+import type { ValueOf } from '@easy-pkg/types/utils';
 import type { EntityState } from '@reduxjs/toolkit';
 import type { BenchmarkType } from 'react-component-benchmark';
 

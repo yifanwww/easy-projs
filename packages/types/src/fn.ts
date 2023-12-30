@@ -10,3 +10,5 @@ export type AnyFn = (...args: unknown[]) => unknown;
  * ```
  */
 export type UnknownFn = (...args: never[]) => unknown;
+
+export type VoidReturn<T extends UnknownFn> = (...args: Parameters<T>) => void;

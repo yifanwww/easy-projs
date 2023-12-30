@@ -1,4 +1,5 @@
-import type { OmitUnderscorePrefix, UnknownFn } from '@easy-pkg/utils-type';
+import type { UnknownFn } from '@easy-pkg/types/fn';
+import type { OmitUnderscorePrefix } from '@easy-pkg/types/utils';
 
 import type { ReduxActions } from './types';
 
