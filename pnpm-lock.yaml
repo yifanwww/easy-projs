@@ -85,7 +85,7 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
 
-  configs/scripts:
+  configs/jest-config:
     dependencies:
       '@swc/jest':
         specifier: ^0.2.29
@@ -96,6 +96,9 @@ importers:
       chalk:
         specifier: ^5.3.0
         version: 5.3.0
+      commander:
+        specifier: ^11.1.0
+        version: 11.1.0
       identity-obj-proxy:
         specifier: ^3.0.0
         version: 3.0.0
@@ -179,9 +182,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -222,9 +222,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -268,9 +265,9 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
+      '@easy-config/jest-config':
         specifier: workspace:*
-        version: link:../../configs/scripts
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -317,9 +314,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -363,9 +357,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -418,9 +409,9 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
+      '@easy-config/jest-config':
         specifier: workspace:*
-        version: link:../../configs/scripts
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -469,9 +460,9 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
+      '@easy-config/jest-config':
         specifier: workspace:*
-        version: link:../../configs/scripts
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -508,9 +499,9 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
+      '@easy-config/jest-config':
         specifier: workspace:*
-        version: link:../../configs/scripts
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -569,9 +560,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/stylelint-config':
         specifier: workspace:*
         version: link:../../configs/stylelint-config
@@ -620,9 +608,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -659,9 +644,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -696,9 +678,9 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
+      '@easy-config/jest-config':
         specifier: workspace:*
-        version: link:../../configs/scripts
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -732,9 +714,9 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
+      '@easy-config/jest-config':
         specifier: workspace:*
-        version: link:../../configs/scripts
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -771,9 +753,9 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
+      '@easy-config/jest-config':
         specifier: workspace:*
-        version: link:../../configs/scripts
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -826,9 +808,9 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
+      '@easy-config/jest-config':
         specifier: workspace:*
-        version: link:../../configs/scripts
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -868,9 +850,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -917,9 +896,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -957,9 +933,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -990,9 +963,6 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
-        specifier: workspace:*
-        version: link:../../configs/scripts
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
@@ -1099,9 +1069,9 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
-      '@easy-config/scripts':
+      '@easy-config/jest-config':
         specifier: workspace:*
-        version: link:../../configs/scripts
+        version: link:../../configs/jest-config
       '@easy-config/stylelint-config':
         specifier: workspace:*
         version: link:../../configs/stylelint-config
@@ -5008,6 +4978,7 @@ packages:
 
   /abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
+    deprecated: Use your platform's native atob() and btoa() methods instead
     dev: false
 
   /acorn-globals@7.0.1:
@@ -5646,6 +5617,11 @@ packages:
     engines: {node: '>=16'}
     dev: true
 
+  /commander@11.1.0:
+    resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
+    engines: {node: '>=16'}
+    dev: false
+
   /commander@8.3.0:
     resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
     engines: {node: '>= 12'}
@@ -5957,6 +5933,7 @@ packages:
   /domexception@4.0.0:
     resolution: {integrity: sha512-A2is4PLG+eeSfoTMA95/s4pvAoSo2mKtiM5jlHkAVewmiO8ISFTFKZjH7UAM1Atli/OT/7JHOrJRJiMKUZKYBw==}
     engines: {node: '>=12'}
+    deprecated: Use your platform's native DOMException instead
     dependencies:
       webidl-conversions: 7.0.0
     dev: false

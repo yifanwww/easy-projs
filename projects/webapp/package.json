@@ -26,8 +26,8 @@
         "lint:fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
         "pre-commit": "lint-staged",
         "preview": "vite preview",
-        "test": "unit-test",
-        "test-full": "unit-test",
+        "test": "unit-test webapp-cjs --watch",
+        "test-full": "unit-test webapp-cjs --coverage",
         "typecheck": "pnpm run typecheck:vite && pnpm run typecheck:src",
         "typecheck:src": "tsc --project tsconfig.json --noEmit --incremental false",
         "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"
@@ -61,7 +61,7 @@
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
-        "@easy-config/scripts": "workspace:*",
+        "@easy-config/jest-config": "workspace:*",
         "@easy-config/stylelint-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@easy-pkg/utils-test": "workspace:*",

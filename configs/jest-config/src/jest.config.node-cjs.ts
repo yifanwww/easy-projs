@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
 
-import { paths } from '../utils/index.js';
+import { paths } from './paths.js';
 
 const require = createRequire(import.meta.url);
 

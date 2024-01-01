@@ -10,10 +10,6 @@ It's very easy to use there assets.
 import Assets from '@easy-pkg/assets';
 ```
 
-## Develop this package
-
-You need to build package `@easy-config/scripts` before building or testing this package.
-
 ### Build this package
 
 Execute `pnpm run build` to build this package.

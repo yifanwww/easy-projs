@@ -91,8 +91,8 @@
             "path": "configs/global-types"
         },
         {
-            "name": "@easy-config/scripts",
-            "path": "configs/scripts"
+            "name": "@easy-config/jest-config",
+            "path": "configs/jest-config"
         },
         {
             "name": "@easy-config/stylelint-config",
@@ -114,22 +114,6 @@
             "path": "packages/fetcher"
         },
         {
-            "name": "@easy-pkg/hooks",
-            "path": "packages/hooks"
-        },
-        {
-            "name": "@easy-pkg/memorize",
-            "path": "packages/memorize"
-        },
-        {
-            "name": "@easy-pkg/random-string",
-            "path": "packages/random-string"
-        },
-        {
-            "name": "@easy-pkg/template-nodejs",
-            "path": "packages/template-nodejs"
-        },
-        {
             "name": "@easy-pkg/helpers-antd",
             "path": "packages/helpers-antd"
         },
@@ -142,8 +126,24 @@
             "path": "packages/helpers-redux"
         },
         {
+            "name": "@easy-pkg/hooks",
+            "path": "packages/hooks"
+        },
+        {
+            "name": "@easy-pkg/memorize",
+            "path": "packages/memorize"
+        },
+        {
+            "name": "@easy-pkg/random-string",
+            "path": "packages/random-string"
+        },
+        {
             "name": "@easy-pkg/rc-antd",
             "path": "packages/rc-antd"
+        },
+        {
+            "name": "@easy-pkg/template-nodejs",
+            "path": "packages/template-nodejs"
         },
         {
             "name": "@easy-pkg/types",
