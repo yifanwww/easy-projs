@@ -1,8 +1,11 @@
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
+import { jest } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
-import { noop } from 'lodash';
+import lodash from 'lodash';
 
 import { useDoubleTrigger } from '../useDoubleTrigger.js';
+
+const { noop } = lodash;
 
 describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
     validateHookValueNotChanged('should return the same function', () => [useDoubleTrigger(noop)]);

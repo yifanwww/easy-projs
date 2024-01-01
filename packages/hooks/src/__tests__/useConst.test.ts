@@ -1,4 +1,5 @@
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
+import { jest } from '@jest/globals';
 import { renderHook } from '@testing-library/react';
 
 import { useConst } from '../useConst.js';

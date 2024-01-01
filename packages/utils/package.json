@@ -43,6 +43,7 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/jest-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
+        "@jest/globals": "^29.6.4",
         "@types/jest": "^29.5.4",
         "concurrently": "^8.2.1",
         "eslint": "^8.48.0",

@@ -1,4 +1,5 @@
 import type { UnknownFn } from '@easy-pkg/types/fn';
+import { jest } from '@jest/globals';
 import type { ConditionalKeys } from 'type-fest';
 
 function spyOn(method: ConditionalKeys<Console, UnknownFn>) {

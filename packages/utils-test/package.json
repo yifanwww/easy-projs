@@ -46,6 +46,7 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/jest-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
+        "@jest/globals": "^29.6.4",
         "@testing-library/jest-dom": "^5.16.5",
         "@types/jest": "^29.5.4",
         "concurrently": "^8.2.1",

@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals';
+
 import { ArrayUtil } from '../array.js';
 
 describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.filterFalsy.name}\``, () => {

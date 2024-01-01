@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals';
+
 import { memorize } from './index.js';
 
 describe(`Test function \`${memorize.name}\``, () => {
