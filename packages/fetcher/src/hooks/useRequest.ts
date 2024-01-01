@@ -1,10 +1,10 @@
 import { useIsMounted, usePersistFn } from '@easy-pkg/hooks';
 import { useCallback, useRef, useState } from 'react';
 
-import type { FetchOptions } from '../fetcher';
+import type { FetchOptions } from '../fetcher/index.js';
 
-import type { HookFetcher } from './types';
-import { uid } from './uid';
+import type { HookFetcher } from './types.js';
+import { uid } from './uid.js';
 
 interface State<Data, Err> {
     data: Data | undefined;
