@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.react-new.eslint.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.react.eslint.json",
     "compilerOptions": {
         "rootDir": "src"
     },

@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.react-new.json",
+    "extends": "./tsconfig.react-legacy.json",
     "compilerOptions": {
         "declaration": true,
         "emitDeclarationOnly": true,

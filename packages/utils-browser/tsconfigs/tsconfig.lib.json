@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.browser-new.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.browser.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

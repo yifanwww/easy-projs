@@ -1,7 +1,0 @@
-{
-    "extends": "./tsconfig.react-new.json",
-    "compilerOptions": {
-        "incremental": false,
-        "noEmit": true
-    }
-}

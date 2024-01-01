@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.react-new.types.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.react.types.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

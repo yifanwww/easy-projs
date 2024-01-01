@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.react-new.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.react.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

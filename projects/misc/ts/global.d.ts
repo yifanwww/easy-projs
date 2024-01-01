@@ -1,1 +1,1 @@
-/// <reference types="@easy-config/global-types/types/index.node" />
+/// <reference types="@easy-config/global-types/types/index.node.d.ts" />
