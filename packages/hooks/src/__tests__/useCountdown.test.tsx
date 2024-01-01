@@ -1,8 +1,9 @@
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
+import { jest } from '@jest/globals';
 import { act, render } from '@testing-library/react';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-import { useCountdown } from '../useCountdown';
+import { useCountdown } from '../useCountdown.js';
 
 describe(`Test react hook \`${useCountdown.name}\``, () => {
     validateHookValueNotChanged('should return the same function', () => [useCountdown()[1]]);
@@ -32,18 +33,7 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
         dateTime = 0;
     });
 
-    function spyOnUseState() {
-        const _useState = (initialState: unknown) => {
-            const [state, setState] = useState(initialState);
-            return [state, useCallback((_: unknown) => act(() => setState(_)), [])];
-        };
-
-        jest.spyOn(React, 'useState').mockImplementation(_useState as never);
-    }
-
     it('should rerender while counting down', () => {
-        spyOnUseState();
-
         let renderCount = 0;
 
         function TestComponent() {
@@ -57,28 +47,28 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
         render(<TestComponent />);
         expect(renderCount).toBe(2);
 
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(3);
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(4);
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(5);
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(6);
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(7);
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(7);
     });
 
     it('should not rerender after unmount', () => {
-        spyOnUseState();
-
         let renderCount = 0;
 
         function TestComponent() {
             const [, setCountdown] = useCountdown();
-            useEffect(() => setCountdown(5_000), [setCountdown]);
+            useEffect(() => {
+                setCountdown(5_000);
+            }, [setCountdown]);
             renderCount++;
             return <div />;
         }
@@ -87,18 +77,18 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
         const { unmount } = render(<TestComponent />);
         expect(renderCount).toBe(2);
 
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(3);
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(4);
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(5);
 
         unmount();
 
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(5);
-        jest.advanceTimersByTime(1000);
+        act(() => jest.advanceTimersByTime(1000));
         expect(renderCount).toBe(5);
     });
 });

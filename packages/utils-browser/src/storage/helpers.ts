@@ -1,4 +1,4 @@
-import type { StorageKey } from './types';
+import type { StorageKey } from './types.js';
 
 export function createStorageLoader(storage: Storage) {
     function loadStorageValue(key: StorageKey): string | null {

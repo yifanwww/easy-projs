@@ -1,3 +1,3 @@
-export * from './fetcher';
-export * from './types';
-export { buildURL } from './url';
+export * from './fetcher.js';
+export * from './types.js';
+export { buildURL } from './url.js';

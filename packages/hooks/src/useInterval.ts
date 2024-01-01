@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 
-import { useConst } from './useConst';
+import { useConst } from './useConst.js';
 
 export interface UseIntervalActions {
     readonly setInterval: (callback: () => void, duration?: number) => number;

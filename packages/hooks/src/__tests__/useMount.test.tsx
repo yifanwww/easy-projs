@@ -1,6 +1,7 @@
+import { jest } from '@jest/globals';
 import { render } from '@testing-library/react';
 
-import { useMount } from '../useMount';
+import { useMount } from '../useMount.js';
 
 describe(`Test react hook \`${useMount.name}\``, () => {
     it('should fire the callback', () => {

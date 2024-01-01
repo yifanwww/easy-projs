@@ -1,6 +1,7 @@
+import { jest } from '@jest/globals';
 import { render } from '@testing-library/react';
 
-import { useUnmount } from '../useUnmount';
+import { useUnmount } from '../useUnmount.js';
 
 describe(`Test react hook \`${useUnmount.name}\``, () => {
     it('should fire the callback', () => {

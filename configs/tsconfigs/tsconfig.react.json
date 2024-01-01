@@ -3,6 +3,7 @@
     "compilerOptions": {
         "jsx": "react-jsx",
         "lib": ["DOM", "DOM.Iterable", "ESNext"],
-        "moduleResolution": "Bundler"
+        "module": "Node16",
+        "moduleResolution": "Node16"
     }
 }

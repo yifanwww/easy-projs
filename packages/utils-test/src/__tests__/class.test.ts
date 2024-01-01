@@ -1,4 +1,4 @@
-import { createClassJestHelper } from '../class';
+import { createClassJestHelper } from '../class.js';
 
 describe(`Test fn \`${createClassJestHelper.name}\``, () => {
     class Example {

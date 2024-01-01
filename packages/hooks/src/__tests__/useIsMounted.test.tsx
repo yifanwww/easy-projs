@@ -2,7 +2,7 @@ import type { Nullable } from '@easy-pkg/types/utils';
 import { assert } from '@easy-pkg/utils-browser';
 import { render } from '@testing-library/react';
 
-import { useIsMounted } from '../useIsMounted';
+import { useIsMounted } from '../useIsMounted.js';
 
 describe(`Test react hook \`${useIsMounted.name}\``, () => {
     it('should return whether the component is mounted', () => {

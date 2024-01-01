@@ -1,8 +1,8 @@
 import type { Integer } from '@easy-pkg/types/primitives';
 import { useCallback, useEffect, useRef } from 'react';
 
-import { useForceUpdate } from './useForceUpdate';
-import { useSingleInterval } from './useSingleInterval';
+import { useForceUpdate } from './useForceUpdate.js';
+import { useSingleInterval } from './useSingleInterval.js';
 
 /**
  * @param countdown The unit is `second`. If the parameter `countdown` is less than `0`, will stop the countdown.

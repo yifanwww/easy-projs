@@ -8,7 +8,7 @@ function getConfig(): Config {
     return {
         ...config,
 
-        extensionsToTreatAsEsm: ['.ts', 'tsx'],
+        extensionsToTreatAsEsm: ['.ts', '.tsx'],
     };
 }
 

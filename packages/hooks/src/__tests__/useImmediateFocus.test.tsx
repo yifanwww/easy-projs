@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { useEffect, useRef } from 'react';
 
-import { useImmediateFocus } from '../useImmediateFocus';
+import { useImmediateFocus } from '../useImmediateFocus.js';
 
 describe(`Test react hook \`${useImmediateFocus.name}\``, () => {
     it('should immediately focus the component', () => {

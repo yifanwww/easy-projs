@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals';
+
 /**
  * Mock implementation of local storage.
  */
@@ -10,6 +12,8 @@ export function mockStorage(storage: Storage): void {
 
         // properties
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         jest.spyOn(prototype, 'length', 'get').mockImplementation(() => Object.keys(store).length);
 
         // methods

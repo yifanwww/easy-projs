@@ -2,6 +2,7 @@
     "name": "@easy-pkg/utils-test",
     "version": "0.0.0",
     "description": "Test utils used for easy-projs.",
+    "type": "module",
     "exports": {
         ".": {
             "types": "./lib/index.d.ts",
@@ -30,8 +31,8 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
-        "test": "unit-test webapp-cjs --watch",
-        "test-full": "unit-test webapp-cjs --coverage",
+        "test": "unit-test webapp-esm --watch",
+        "test-full": "unit-test webapp-esm --coverage",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
@@ -45,6 +46,7 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/jest-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
+        "@jest/globals": "^29.6.4",
         "@testing-library/jest-dom": "^5.16.5",
         "@types/jest": "^29.5.4",
         "concurrently": "^8.2.1",

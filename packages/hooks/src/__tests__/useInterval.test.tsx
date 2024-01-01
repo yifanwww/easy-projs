@@ -1,8 +1,9 @@
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
+import { jest } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { createRef, forwardRef, useImperativeHandle, useRef } from 'react';
 
-import { useInterval } from '../useInterval';
+import { useInterval } from '../useInterval.js';
 
 const time = 10;
 

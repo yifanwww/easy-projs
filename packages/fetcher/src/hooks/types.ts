@@ -1,4 +1,4 @@
-import type { FetchOptions } from '../fetcher';
+import type { FetchOptions } from '../fetcher/index.js';
 
 export type HookFetcher<Data> = (config: FetchOptions) => Promise<Data>;
 

@@ -2,9 +2,13 @@
     "name": "@easy-pkg/hooks",
     "version": "0.0.0",
     "description": "React hooks for easy-projs.",
-    "main": "lib/index.js",
-    "module": "lib/index.js",
-    "typings": "lib/index.d.ts",
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./lib/index.d.ts",
+            "default": "./lib/index.js"
+        }
+    },
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -27,8 +31,8 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
-        "test": "unit-test webapp-cjs --watch",
-        "test-full": "unit-test webapp-cjs --coverage",
+        "test": "unit-test webapp-esm --watch",
+        "test-full": "unit-test webapp-esm --coverage",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
@@ -43,6 +47,7 @@
         "@easy-config/jest-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@easy-pkg/utils-test": "workspace:*",
+        "@jest/globals": "^29.6.4",
         "@testing-library/react": "^14.0.0",
         "@types/jest": "^29.5.4",
         "@types/lodash": "^4.14.197",

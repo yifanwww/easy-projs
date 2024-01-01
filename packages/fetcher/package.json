@@ -2,6 +2,7 @@
     "name": "@easy-pkg/fetcher",
     "version": "0.0.0",
     "description": "",
+    "type": "module",
     "exports": {
         ".": {
             "types": "./lib/index.d.ts",

@@ -30,13 +30,33 @@ function getJestConfig(type: TestType) {
     }
 }
 
+function getExtraEnv(type: TestType): Record<string, string> {
+    switch (type) {
+        case TestType.NODE_CJS:
+        case TestType.WEBAPP_CJS:
+            return {};
+        case TestType.NODE_ESM:
+        case TestType.WEBAPP_ESM:
+            return {
+                NODE_OPTIONS: [process.env.NODE_OPTIONS, '--experimental-vm-modules'].filter(Boolean).join(' '),
+            };
+
+        default: {
+            const never: never = type;
+            return never;
+        }
+    }
+}
+
 function exec(type: TestType, extraArgs: string[]): void {
     const jestConfig = getJestConfig(type);
+    const extraEnv = getExtraEnv(type);
 
     const command = ['jest', '--config', jestConfig, ...extraArgs].join(' ');
 
     const env = {
         ...process.env,
+        ...extraEnv,
         BABEL_ENV: 'test',
         NODE_ENV: 'test',
     };

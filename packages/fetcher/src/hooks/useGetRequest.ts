@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import useSWR from 'swr';
 import type { Key, SWRConfiguration, SWRResponse } from 'swr';
 
-import type { GetHookFetcher, HookFetcher } from './types';
+import type { GetHookFetcher, HookFetcher } from './types.js';
 
 export type GetRequestResponse<Data, Err> = SWRResponse<Data, Err> & { loading: boolean; abort: () => void };
 

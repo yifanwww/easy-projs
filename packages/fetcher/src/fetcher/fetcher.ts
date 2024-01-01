@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import type { FetchOptions, FetchResponse, Method } from './types';
-import { appendURL, buildURL } from './url';
+import type { FetchOptions, FetchResponse, Method } from './types.js';
+import { appendURL, buildURL } from './url.js';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyObject = Record<string, any>;

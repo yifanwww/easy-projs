@@ -1,7 +1,7 @@
 import type { RenderResult } from '@testing-library/react';
 import { render, renderHook } from '@testing-library/react';
 
-import { usePrevious } from '../usePrevious';
+import { usePrevious } from '../usePrevious.js';
 
 interface Props {
     value: string;
