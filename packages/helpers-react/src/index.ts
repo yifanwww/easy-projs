@@ -1,2 +1,2 @@
-export * from './onRender';
-export * from './types';
+export * from './onRender.js';
+export * from './types.js';
