@@ -1,7 +1,7 @@
 import { mockStorage } from '@easy-pkg/utils-test';
 
-import { createStorageLoader, createStorageRemover, createStorageSaver } from '../helpers';
-import type { StorageKey } from '../types';
+import { createStorageLoader, createStorageRemover, createStorageSaver } from '../helpers.js';
+import type { StorageKey } from '../types.js';
 
 mockStorage(window.localStorage);
 mockStorage(window.sessionStorage);

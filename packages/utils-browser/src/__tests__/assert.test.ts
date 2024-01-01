@@ -1,4 +1,4 @@
-import { AssertionError, assert, assertIsBoolean, assertIsNever, assertIsNumber, assertIsString } from '../assert';
+import { AssertionError, assert, assertIsBoolean, assertIsNever, assertIsNumber, assertIsString } from '../assert.js';
 
 describe(`Test fn \`${assert.name}\``, () => {
     it('should assert an expression', () => {
