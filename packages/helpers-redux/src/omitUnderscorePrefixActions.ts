@@ -1,7 +1,7 @@
 import type { UnknownFn } from '@easy-pkg/types/fn';
 import type { OmitUnderscorePrefix } from '@easy-pkg/types/utils';
 
-import type { ReduxActions } from './types';
+import type { ReduxActions } from './types.js';
 
 export function omitUnderscorePrefixActions<T extends ReduxActions>(internalActions: T): OmitUnderscorePrefix<T> {
     const actions: Record<string, UnknownFn> = {};
