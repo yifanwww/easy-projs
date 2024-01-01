@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     extends: ['stylelint-config-sass-guidelines', 'stylelint-config-recess-order'],
     rules: {
         // https://stylelint.io/user-guide/rules/max-nesting-depth/

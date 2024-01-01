@@ -2,6 +2,7 @@
     "name": "@easy-config/stylelint-config",
     "version": "0.0.0",
     "description": "Stylelint configurations for easy-projs.",
+    "type": "module",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -18,16 +19,16 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\""
     },
     "dependencies": {
-        "postcss": "^8.4.29",
-        "stylelint-config-recess-order": "^4.3.0",
-        "stylelint-config-sass-guidelines": "^10.0.0"
+        "postcss": "^8.4.32",
+        "stylelint-config-recess-order": "^4.4.0",
+        "stylelint-config-sass-guidelines": "^11.0.0"
     },
     "devDependencies": {
         "prettier": "3.0.3",
-        "stylelint": "^15.10.3",
+        "stylelint": "^16.1.0",
         "typescript": "5.3.3"
     },
     "peerDependencies": {
-        "stylelint": "^15.10.3"
+        "stylelint": "^16.1.0"
     }
 }
