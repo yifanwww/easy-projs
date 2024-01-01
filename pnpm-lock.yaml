@@ -174,36 +174,6 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
 
-  packages/assets:
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@easy-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      concurrently:
-        specifier: ^8.2.1
-        version: 8.2.1
-      eslint:
-        specifier: ^8.48.0
-        version: 8.48.0
-      lint-staged:
-        specifier: ^14.0.1
-        version: 14.0.1
-      prettier:
-        specifier: 3.0.3
-        version: 3.0.3
-      rimraf:
-        specifier: ^5.0.1
-        version: 5.0.1
-      typescript:
-        specifier: 5.3.3
-        version: 5.3.3
-
   packages/fetcher:
     dependencies:
       '@easy-pkg/hooks':

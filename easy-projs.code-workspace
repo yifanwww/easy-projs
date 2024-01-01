@@ -106,10 +106,6 @@
         // packages
 
         {
-            "name": "@easy-pkg/assets",
-            "path": "packages/assets"
-        },
-        {
             "name": "@easy-pkg/fetcher",
             "path": "packages/fetcher"
         },
