@@ -1,7 +1,7 @@
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { act, renderHook } from '@testing-library/react';
 
-import { useToggle } from '../useToggle';
+import { useToggle } from '../useToggle.js';
 
 describe(`Test react hook \`${useToggle.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => {

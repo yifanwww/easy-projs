@@ -1,7 +1,7 @@
 import { mockConsoleToMatchSnapshot } from '@easy-pkg/utils-test';
 import { render } from '@testing-library/react';
 
-import { useWhyDidYouUpdate } from '../useWhyDidYouUpdate';
+import { useWhyDidYouUpdate } from '../useWhyDidYouUpdate.js';
 
 beforeEach(() => {
     mockConsoleToMatchSnapshot();

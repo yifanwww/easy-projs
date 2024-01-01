@@ -2,7 +2,7 @@ import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { render } from '@testing-library/react';
 import { createRef, forwardRef, useImperativeHandle } from 'react';
 
-import { useSingleTimeout } from '../useSingleTimeout';
+import { useSingleTimeout } from '../useSingleTimeout.js';
 
 describe(`Test react hook \`${useSingleTimeout.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => {

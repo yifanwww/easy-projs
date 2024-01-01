@@ -2,7 +2,7 @@ import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { act, render } from '@testing-library/react';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { useCountdown } from '../useCountdown';
+import { useCountdown } from '../useCountdown.js';
 
 describe(`Test react hook \`${useCountdown.name}\``, () => {
     validateHookValueNotChanged('should return the same function', () => [useCountdown()[1]]);

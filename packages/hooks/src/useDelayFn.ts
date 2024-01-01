@@ -1,7 +1,7 @@
 import type { UnknownFn, VoidReturn } from '@easy-pkg/types/fn';
 import { useCallback } from 'react';
 
-import { useSingleTimeout } from './useSingleTimeout';
+import { useSingleTimeout } from './useSingleTimeout.js';
 
 /**
  * Hook to generate a delayed execution function.

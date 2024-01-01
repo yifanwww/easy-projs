@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import type { RefObject } from 'react';
 
-import { useBoolean } from './useBoolean';
+import { useBoolean } from './useBoolean.js';
 
 export function useIsFocused<T extends RefObject<HTMLElement>>(ref: T, enabled = true): boolean {
     const [isFocused, { setFalse: focusOut, setTrue: focusIn }] = useBoolean(false);

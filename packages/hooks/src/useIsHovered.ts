@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import type { RefObject } from 'react';
 
-import { useBoolean } from './useBoolean';
+import { useBoolean } from './useBoolean.js';
 
 export function useIsHovered<T extends RefObject<HTMLElement>>(ref: T, enabled = true): boolean {
     const [isHovered, { setFalse: mouseOut, setTrue: mouseOver }] = useBoolean(false);

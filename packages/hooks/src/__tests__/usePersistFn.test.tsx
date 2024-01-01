@@ -5,7 +5,7 @@ import { act, render } from '@testing-library/react';
 import { noop } from 'lodash';
 import { useState } from 'react';
 
-import { usePersistFn } from '../usePersistFn';
+import { usePersistFn } from '../usePersistFn.js';
 
 describe(`Test react hook \`${usePersistFn.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);

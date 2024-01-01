@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import { usePersistFn } from './usePersistFn';
+import { usePersistFn } from './usePersistFn.js';
 
 /**
  * Hook to check whether this component is mounted.

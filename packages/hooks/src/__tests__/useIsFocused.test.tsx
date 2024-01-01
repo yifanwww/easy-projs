@@ -2,7 +2,7 @@ import type { Nullable } from '@easy-pkg/types/utils';
 import { fireEvent, render } from '@testing-library/react';
 import { useRef } from 'react';
 
-import { useIsFocused } from '../useIsFocused';
+import { useIsFocused } from '../useIsFocused.js';
 
 describe(`Test react hook \`${useIsFocused.name}\``, () => {
     it('should return whether the component is focused', () => {

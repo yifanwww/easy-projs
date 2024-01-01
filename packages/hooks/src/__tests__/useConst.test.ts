@@ -1,7 +1,7 @@
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { renderHook } from '@testing-library/react';
 
-import { useConst } from '../useConst';
+import { useConst } from '../useConst.js';
 
 describe(`Test react hook \`${useConst.name}\``, () => {
     validateHookValueNotChanged('should return the same value with value initializer', () => [useConst(Math.random())]);

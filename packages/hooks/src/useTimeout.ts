@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
 
-import { useConst } from './useConst';
+import { useConst } from './useConst.js';
 
 export interface UseTimeoutActions {
     readonly setTimeout: (callback: () => void, duration?: number) => number;
