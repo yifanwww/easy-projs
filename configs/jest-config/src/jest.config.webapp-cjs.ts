@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
 
-import { paths } from '../utils/index.js';
+import { paths } from './paths.js';
 
 const require = createRequire(import.meta.url);
 
@@ -59,6 +59,7 @@ function getConfig(): Config {
             '^react-native$': 'react-native-web',
             '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
             '^src/(.*)$': '<rootDir>/src/$1',
+            // Pure ESM packages needs this, to make the relative import works with TypeScript source files
             '^(.*)\\.js$': ['$1.js', '$1.ts'],
         },
         moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'ts', 'tsx', 'web.js', 'web.jsx', 'web.ts', 'web.tsx'],

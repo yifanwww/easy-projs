@@ -30,14 +30,14 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "pre-commit": "lint-staged",
-        "test": "unit-test",
-        "test-full": "unit-test",
+        "test": "unit-test webapp-cjs --watch",
+        "test-full": "unit-test webapp-cjs --coverage",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
-        "@easy-config/scripts": "workspace:*",
+        "@easy-config/jest-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@easy-pkg/utils-test": "workspace:*",
         "@types/jest": "^29.5.4",

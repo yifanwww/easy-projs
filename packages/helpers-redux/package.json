@@ -40,7 +40,6 @@
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
-        "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@reduxjs/toolkit": "^1.9.5",
         "@types/react": "^18.2.21",

@@ -32,7 +32,6 @@
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
-        "@easy-config/scripts": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@types/node": "^20.10.4",
         "@types/semver": "^7.5.1",

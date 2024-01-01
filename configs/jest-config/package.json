@@ -1,7 +1,7 @@
 {
-    "name": "@easy-config/scripts",
+    "name": "@easy-config/jest-config",
     "version": "0.0.0",
-    "description": "Scripts for easy-projs.",
+    "description": "Jest configurations for easy-projs.",
     "type": "module",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
@@ -9,19 +9,20 @@
     "bugs": {
         "url": "https://github.com/yifanwww/easy-projs/issues"
     },
+    "private": true,
     "repository": {
         "type": "git",
         "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "configs/scripts"
+        "directory": "configs/jest-config"
     },
     "bin": {
         "jest": "./node_modules/jest/bin/jest.js",
         "unit-test": "./bin/unit-test.js"
     },
     "scripts": {
-        "build-scripts": "tsc --project tsconfigs/tsconfig.build.json",
-        "clean-scripts": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build-scripts --watch",
+        "build": "tsc --project tsconfigs/tsconfig.build.json",
+        "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
+        "dev": "pnpm run build --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
@@ -32,6 +33,7 @@
         "@swc/jest": "^0.2.29",
         "camelcase": "^8.0.0",
         "chalk": "^5.3.0",
+        "commander": "^11.1.0",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^29.6.4",
         "jest-environment-jsdom": "^29.6.4",
