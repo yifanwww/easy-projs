@@ -142,10 +142,6 @@
             "path": "packages/rc-antd"
         },
         {
-            "name": "@easy-pkg/template-nodejs",
-            "path": "packages/template-nodejs"
-        },
-        {
             "name": "@easy-pkg/types",
             "path": "packages/types"
         },
@@ -179,10 +175,6 @@
         {
             "name": "@easy-proj/perf-js",
             "path": "projects/perf-js"
-        },
-        {
-            "name": "@easy-proj/proving-ground-nodejs",
-            "path": "projects/proving-ground-nodejs"
         },
         {
             "name": "@easy-proj/server",
