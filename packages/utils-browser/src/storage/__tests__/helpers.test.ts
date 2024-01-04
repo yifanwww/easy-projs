@@ -6,7 +6,7 @@ import type { StorageKey } from '../types.js';
 mockStorage(window.localStorage);
 mockStorage(window.sessionStorage);
 
-describe(`Test fn ${createStorageLoader.name}`, () => {
+describe(`Test fn \`${createStorageLoader.name}\``, () => {
     function _expectLoad1(storage: Storage) {
         const KEY = 'key';
         const VALUE = 'value';
@@ -49,7 +49,7 @@ describe(`Test fn ${createStorageLoader.name}`, () => {
     });
 });
 
-describe(`Test fn ${createStorageRemover.name}`, () => {
+describe(`Test fn \`${createStorageRemover.name}\``, () => {
     function _expectRemove(storage: Storage) {
         const KEY = {
             main: 'key',

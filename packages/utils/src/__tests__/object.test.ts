@@ -1,6 +1,6 @@
 import { ObjectUtil } from '../object.js';
 
-describe(`Test static method ${ObjectUtil.name}.${ObjectUtil.reverseKeyValue.name}`, () => {
+describe(`Test static method \`${ObjectUtil.name}.${ObjectUtil.reverseKeyValue.name}\``, () => {
     it('should reverse an empty object', () => {
         expect(ObjectUtil.reverseKeyValue({})).toStrictEqual({});
     });

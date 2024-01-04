@@ -1,6 +1,6 @@
 import { StringUtil } from '../string.js';
 
-describe(`Test static method ${StringUtil.name}.${StringUtil.isNilOrEmpty.name}`, () => {
+describe(`Test static method \`${StringUtil.name}.${StringUtil.isNilOrEmpty.name}\``, () => {
     it('should return true when checks null or undefined', () => {
         expect(StringUtil.isNilOrEmpty(null)).toBeTruthy();
         expect(StringUtil.isNilOrEmpty(undefined)).toBeTruthy();

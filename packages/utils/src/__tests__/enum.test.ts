@@ -3,7 +3,7 @@ import { jest } from '@jest/globals';
 import { EnumUtil } from '../enum.js';
 import { ObjectUtil } from '../object.js';
 
-describe(`Test static method ${EnumUtil.name}.${EnumUtil.is.name}`, () => {
+describe(`Test static method \`${EnumUtil.name}.${EnumUtil.is.name}\``, () => {
     it('should check if a value is a string enum value', () => {
         enum StrEnum {
             FOO = 'foo',
@@ -35,7 +35,7 @@ describe(`Test static method ${EnumUtil.name}.${EnumUtil.is.name}`, () => {
     });
 });
 
-describe(`Test static method ${EnumUtil.name}.${EnumUtil.reverseKeyValue.name}`, () => {
+describe(`Test static method \`${EnumUtil.name}.${EnumUtil.reverseKeyValue.name}\``, () => {
     beforeEach(() => {
         jest.spyOn(ObjectUtil, 'reverseKeyValue');
     });
