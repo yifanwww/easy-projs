@@ -1,3 +1,5 @@
+import { describe, expect, it } from '@jest/globals';
+
 import { NamePathUtil } from '../namePath';
 
 describe(`Test static method \`${NamePathUtil.name}.${NamePathUtil['_toArray'].name}\``, () => {

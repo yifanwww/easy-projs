@@ -1,3 +1,5 @@
+import { describe, expect, it } from '@jest/globals';
+
 import { abstractAsyncFn, abstractFn, makeFn, noAsync } from '../function.js';
 
 describe(`Test fn \`${abstractFn.name}\``, () => {

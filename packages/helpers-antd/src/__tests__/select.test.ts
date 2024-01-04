@@ -1,3 +1,4 @@
+import { describe, expect, it } from '@jest/globals';
 import type { FieldNames } from 'rc-select/lib/Select';
 
 import { SelectUtil } from '../select';

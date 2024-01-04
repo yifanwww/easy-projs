@@ -1,3 +1,5 @@
+import { describe, expect, it } from '@jest/globals';
+
 import type { InspectionData } from 'src/types/inspection';
 
 import { getInitialState } from '../context';

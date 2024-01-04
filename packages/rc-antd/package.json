@@ -40,7 +40,6 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/stylelint-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@types/jest": "^29.5.4",
         "@types/react": "^18.2.21",
         "@types/react-is": "^18.2.3",
         "eslint": "^8.48.0",

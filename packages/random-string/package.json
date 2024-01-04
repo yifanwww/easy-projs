@@ -42,7 +42,7 @@
         "@easy-config/jest-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@easy-pkg/utils-test": "workspace:*",
-        "@types/jest": "^29.5.4",
+        "@jest/globals": "^29.6.4",
         "@types/node": "^20.10.4",
         "concurrently": "^8.2.1",
         "eslint": "^8.48.0",

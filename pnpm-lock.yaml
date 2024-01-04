@@ -241,9 +241,9 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
+      '@jest/globals':
+        specifier: ^29.6.4
+        version: 29.6.4
       '@types/react':
         specifier: ^18.2.21
         version: 18.2.21
@@ -394,9 +394,6 @@ importers:
       '@testing-library/react':
         specifier: ^14.0.0
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
       '@types/lodash':
         specifier: ^4.14.197
         version: 4.14.197
@@ -445,9 +442,6 @@ importers:
       '@jest/globals':
         specifier: ^29.6.4
         version: 29.6.4
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
       concurrently:
         specifier: ^8.2.1
         version: 8.2.1
@@ -484,9 +478,9 @@ importers:
       '@easy-pkg/utils-test':
         specifier: workspace:*
         version: link:../utils-test
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
+      '@jest/globals':
+        specifier: ^29.6.4
+        version: 29.6.4
       '@types/node':
         specifier: ^20.10.4
         version: 20.10.4
@@ -542,9 +536,6 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
       '@types/react':
         specifier: ^18.2.21
         version: 18.2.21
@@ -627,9 +618,6 @@ importers:
       '@jest/globals':
         specifier: ^29.6.4
         version: 29.6.4
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
       concurrently:
         specifier: ^8.2.1
         version: 8.2.1
@@ -666,9 +654,9 @@ importers:
       '@easy-pkg/utils-test':
         specifier: workspace:*
         version: link:../utils-test
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
+      '@jest/globals':
+        specifier: ^29.6.4
+        version: 29.6.4
       concurrently:
         specifier: ^8.2.1
         version: 8.2.1
@@ -705,9 +693,9 @@ importers:
       '@easy-pkg/utils-test':
         specifier: workspace:*
         version: link:../utils-test
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
+      '@jest/globals':
+        specifier: ^29.6.4
+        version: 29.6.4
       '@types/node':
         specifier: ^20.10.4
         version: 20.10.4
@@ -735,6 +723,9 @@ importers:
       '@easy-pkg/types':
         specifier: workspace:*
         version: link:../types
+      '@jest/globals':
+        specifier: ^29.6.4
+        version: 29.6.4
       '@testing-library/react':
         specifier: ^14.0.0
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -757,15 +748,9 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
-      '@jest/globals':
-        specifier: ^29.6.4
-        version: 29.6.4
       '@testing-library/jest-dom':
         specifier: ^5.16.5
         version: 5.17.0
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
       concurrently:
         specifier: ^8.2.1
         version: 8.2.1
@@ -994,21 +979,21 @@ importers:
       '@easy-pkg/utils-test':
         specifier: workspace:*
         version: link:../../packages/utils-test
+      '@jest/globals':
+        specifier: ^29.6.4
+        version: 29.6.4
       '@testing-library/dom':
         specifier: ^9.3.1
         version: 9.3.1
       '@testing-library/jest-dom':
         specifier: ^6.1.2
-        version: 6.1.2(@types/jest@29.5.4)
+        version: 6.1.2(@jest/globals@29.6.4)
       '@testing-library/react':
         specifier: ^14.0.0
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
       '@testing-library/user-event':
         specifier: ^14.4.3
         version: 14.4.3(@testing-library/dom@9.3.1)
-      '@types/jest':
-        specifier: ^29.5.4
-        version: 29.5.4
       '@types/lodash':
         specifier: ^4.14.197
         version: 4.14.197
@@ -4418,7 +4403,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/jest-dom@6.1.2(@types/jest@29.5.4):
+  /@testing-library/jest-dom@6.1.2(@jest/globals@29.6.4):
     resolution: {integrity: sha512-NP9jl1Q2qDDtx+cqogowtQtmgD2OVs37iMSIsTv5eN5ETRkf26Kj6ugVwA93/gZzzFWQAsgkKkcftDe91BJCkQ==}
     engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
     peerDependencies:
@@ -4438,7 +4423,7 @@ packages:
     dependencies:
       '@adobe/css-tools': 4.3.1
       '@babel/runtime': 7.22.15
-      '@types/jest': 29.5.4
+      '@jest/globals': 29.6.4
       aria-query: 5.3.0
       chalk: 3.0.0
       css.escape: 1.5.1

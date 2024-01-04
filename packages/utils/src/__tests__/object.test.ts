@@ -1,3 +1,5 @@
+import { describe, expect, it } from '@jest/globals';
+
 import { ObjectUtil } from '../object.js';
 
 describe(`Test static method \`${ObjectUtil.name}.${ObjectUtil.reverseKeyValue.name}\``, () => {

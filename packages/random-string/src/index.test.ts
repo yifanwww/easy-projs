@@ -1,3 +1,5 @@
+import { describe, expect, it } from '@jest/globals';
+
 import { RandomGenerator } from './index.js';
 
 describe(`Test class \`${RandomGenerator.name}\``, () => {
