@@ -26,6 +26,6 @@ export function buildURL<Params extends URLParams>(
         return params;
     };
 
-    const query = paramsSerializer ? paramsSerializer(params) : new URLSearchParams(normalizeParams());
-    return url + divider + query.toString();
+    const query = paramsSerializer ? paramsSerializer(params) : new URLSearchParams(normalizeParams()).toString();
+    return url + divider + query;
 }

@@ -75,7 +75,7 @@ export function useRequest<Data = unknown, Payload extends BodyInit = BodyInit, 
         }
     });
 
-    const execute = useCallback((payload?: Payload) => trigger({ payload }), [trigger]);
+    const execute = useCallback((data?: Payload) => trigger({ data }), [trigger]);
 
     const reset = useCallback(() => {
         latestRequestRef.current = uid();
