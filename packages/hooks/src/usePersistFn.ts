@@ -1,10 +1,5 @@
 import type { UnknownFn } from '@easy-pkg/types/fn';
-import { useRef } from 'react';
-
-interface PersistFnRef<T> {
-    fn: T;
-    persistFn: T;
-}
+import { useMemo, useRef } from 'react';
 
 /**
  * Hook to return a persist function.
@@ -15,14 +10,15 @@ interface PersistFnRef<T> {
  * @returns The function. The identity of this function will never change.
  */
 export function usePersistFn<T extends UnknownFn>(fn: T): T {
-    const ref = useRef<PersistFnRef<T>>();
-    if (!ref.current) {
-        ref.current = {
-            fn,
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            persistFn: ((...args) => ref.current!.fn(...args)) as T,
-        };
+    const fnRef = useRef<T>(fn);
+
+    // why not write `fnRef.current = fn`?
+    // https://github.com/alibaba/hooks/issues/728
+    fnRef.current = useMemo(() => fn, [fn]);
+
+    const persistFnRef = useRef<T>();
+    if (!persistFnRef.current) {
+        persistFnRef.current = ((...args) => fnRef.current(...args)) as T;
     }
-    ref.current.fn = fn;
-    return ref.current.persistFn;
+    return persistFnRef.current;
 }

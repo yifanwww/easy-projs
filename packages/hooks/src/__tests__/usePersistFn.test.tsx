@@ -2,18 +2,17 @@ import type { Nullable, Optional } from '@easy-pkg/types/utils';
 import { assert } from '@easy-pkg/utils-browser';
 import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { describe, expect, it } from '@jest/globals';
-import { act, render } from '@testing-library/react';
-import lodash from 'lodash';
+import { act, render, renderHook } from '@testing-library/react';
 import { useState } from 'react';
 
 import { usePersistFn } from '../usePersistFn.js';
 
-const { noop } = lodash;
+import { noop } from './noop.js';
 
 describe(`Test react hook \`${usePersistFn.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);
 
-    it('should call the latest non-persist function', () => {
+    it('should call the latest non-persist function #1', () => {
         let count: Optional<number>;
         let increaseCount = null as Nullable<() => void>;
         expect(count).toBeUndefined();
@@ -36,5 +35,24 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
             act(() => increaseCountRef());
             expect(count).toBe(i);
         }
+    });
+
+    it('should call the latest non-persist function #2', () => {
+        function useCount() {
+            const [count, setCount] = useState(0);
+
+            return {
+                increaseCount: () => setCount((prev) => prev + 1),
+                getCount: usePersistFn(() => count),
+            };
+        }
+
+        const hook = renderHook(useCount);
+        expect(hook.result.current.getCount()).toBe(0);
+
+        act(() => {
+            hook.result.current.increaseCount();
+        });
+        expect(hook.result.current.getCount()).toBe(1);
     });
 });
