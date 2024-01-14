@@ -1,8 +1,10 @@
 import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
+import { RoutePath } from './path';
+
 const reactRerenderTestRoutes: RouteObject = {
-    path: 'react-rerender-test',
+    path: RoutePath.RERENDER_TEST_HOME,
     children: [
         {
             index: true,
@@ -12,28 +14,28 @@ const reactRerenderTestRoutes: RouteObject = {
             },
         },
         {
-            path: 'change-level',
+            path: RoutePath.RERENDER_TEST_CHANGE_LEVEL,
             lazy: async () => {
                 const module = await import('../containers/RerenderTest/ChangeLevel');
                 return { element: <module.ChangeLevel /> };
             },
         },
         {
-            path: 'change-parent',
+            path: RoutePath.RERENDER_TEST_CHANGE_PARENT,
             lazy: async () => {
                 const module = await import('../containers/RerenderTest/ChangeParent');
                 return { element: <module.ChangeParent /> };
             },
         },
         {
-            path: 'nested-fc',
+            path: RoutePath.RERENDER_TEST_NESTED_FC,
             lazy: async () => {
                 const module = await import('../containers/RerenderTest/NestedFC');
                 return { element: <module.NestedFC /> };
             },
         },
         {
-            path: 'rerender-parent',
+            path: RoutePath.RERENDER_TEST_RERENDER_PARENT,
             lazy: async () => {
                 const module = await import('../containers/RerenderTest/RerenderParent');
                 return { element: <module.RerenderParent /> };
@@ -43,7 +45,7 @@ const reactRerenderTestRoutes: RouteObject = {
 };
 
 const reactPerfTestRoutes: RouteObject = {
-    path: 'react-perf-test',
+    path: RoutePath.PERF_TEST_HOME,
     children: [
         {
             index: true,
@@ -53,21 +55,21 @@ const reactPerfTestRoutes: RouteObject = {
             },
         },
         {
-            path: 'test',
+            path: RoutePath.PERF_TEST_TEST,
             lazy: async () => {
                 const module = await import('../containers/PerfTest/Test');
                 return { element: <module.Test /> };
             },
         },
         {
-            path: 'bar-chart',
+            path: RoutePath.PERF_TEST_BAR_CHART,
             lazy: async () => {
                 const module = await import('../containers/PerfTest/Chart/BarChart');
                 return { element: <module.BarChart /> };
             },
         },
         {
-            path: 'line-chart',
+            path: RoutePath.PERF_TEST_LINE_CHART,
             lazy: async () => {
                 const module = await import('../containers/PerfTest/Chart/LineChart');
                 return { element: <module.LineChart /> };
@@ -78,7 +80,7 @@ const reactPerfTestRoutes: RouteObject = {
 
 export const routes: RouteObject[] = [
     {
-        path: '/',
+        path: RoutePath.HOME,
         lazy: async () => {
             const module = await import('../containers/ClientArea');
             return { element: <module.ClientArea /> };
@@ -97,6 +99,6 @@ export const routes: RouteObject[] = [
     },
     {
         path: '/*',
-        element: <Navigate to="/" replace />,
+        element: <Navigate to={RoutePath.HOME} replace />,
     },
 ];
