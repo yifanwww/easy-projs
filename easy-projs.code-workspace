@@ -114,6 +114,10 @@
             "path": "packages/helpers-antd"
         },
         {
+            "name": "@easy-pkg/helpers-class-validator",
+            "path": "packages/helpers-class-validator"
+        },
+        {
             "name": "@easy-pkg/helpers-react",
             "path": "packages/helpers-react"
         },
