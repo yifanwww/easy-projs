@@ -1,3 +1,6 @@
+import type { Result } from 'rustlike-result';
+import { Err, Ok } from 'rustlike-result';
+
 import type { FetchFactoryOptions, FetchOptions, FetchResponse } from './types.js';
 import { buildURL } from './url.js';
 
@@ -6,47 +9,56 @@ function isPlainJsonObject(obj: unknown): boolean {
 }
 
 export interface Fetcher {
-    <Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         options?: FetchOptions<Req>,
-    ): Promise<FetchResponse<Resp>>;
+    ): Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
 
-    get: <Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) => Promise<FetchResponse<Resp>>;
-
-    head: <Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) => Promise<FetchResponse<Resp>>;
-
-    options: <Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) => Promise<FetchResponse<Resp>>;
-
-    post: <Resp, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    get: <Resp, ErrResp = Resp>(
         url: string,
-        data?: Payload,
-        config?: Omit<FetchOptions<Payload>, 'data' | 'method'>,
-    ) => Promise<FetchResponse<Resp>>;
+        options?: Omit<FetchOptions, 'data' | 'method'>,
+    ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
 
-    delete: <Resp, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    head: <Resp, ErrResp = Resp>(
         url: string,
-        data?: Payload,
-        config?: Omit<FetchOptions<Payload>, 'data' | 'method'>,
-    ) => Promise<FetchResponse<Resp>>;
+        options?: Omit<FetchOptions, 'data' | 'method'>,
+    ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
 
-    put: <Resp, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    options: <Resp, ErrResp = Resp>(
         url: string,
-        data?: Payload,
-        config?: Omit<FetchOptions<Payload>, 'data' | 'method'>,
-    ) => Promise<FetchResponse<Resp>>;
+        options?: Omit<FetchOptions, 'data' | 'method'>,
+    ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
 
-    patch: <Resp, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    post: <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
-        data?: Payload,
-        config?: Omit<FetchOptions<Payload>, 'data' | 'method'>,
-    ) => Promise<FetchResponse<Resp>>;
+        data?: Req,
+        config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
+    ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
+
+    delete: <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+        url: string,
+        data?: Req,
+        config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
+    ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
+
+    put: <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+        url: string,
+        data?: Req,
+        config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
+    ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
+
+    patch: <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+        url: string,
+        data?: Req,
+        config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
+    ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
 }
 
 export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
-    async function fetcher<Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    async function fetcher<Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
         options?: FetchOptions<Req>,
-    ): Promise<FetchResponse<Resp>> {
+    ): Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>> {
         const { baseURL } = factoryOptions ?? {};
         const { method, params, responseType, signal } = options ?? {};
         const auth = options?.auth ?? factoryOptions?.auth;
@@ -92,7 +104,7 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
         const ok = validateStatus ? validateStatus(resp.status) : resp.ok;
 
         const respData = (await resp[responseType ?? 'json']()) as Resp;
-        const response: FetchResponse<Resp> = {
+        const response: FetchResponse<Resp | ErrResp> = {
             data: respData,
             headers: resp.headers,
             redirected: resp.redirected,
@@ -104,45 +116,45 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
 
         try {
             // response.data will be the unparsed value if it fails
-            response.data = JSON.parse(respData as string) as Resp;
+            response.data = JSON.parse(respData as string) as Resp | ErrResp;
         } catch {
             // do nothing
         }
-        return ok ? response : Promise.reject(response);
+        return ok ? Ok(response as FetchResponse<Resp>) : Err(response as FetchResponse<ErrResp>);
     }
 
-    fetcher.get = <Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) =>
-        fetcher<Resp>(url, { ...options, method: 'get' });
+    fetcher.get = <Resp, ErrResp = Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) =>
+        fetcher<Resp, ErrResp>(url, { ...options, method: 'get' });
 
-    fetcher.head = <Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) =>
-        fetcher<Resp>(url, { ...options, method: 'head' });
+    fetcher.head = <Resp, ErrResp = Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) =>
+        fetcher<Resp, ErrResp>(url, { ...options, method: 'head' });
 
-    fetcher.options = <Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) =>
-        fetcher<Resp>(url, { ...options, method: 'options' });
+    fetcher.options = <Resp, ErrResp = Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) =>
+        fetcher<Resp, ErrResp>(url, { ...options, method: 'options' });
 
-    fetcher.post = <Resp, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    fetcher.post = <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
-        data?: Payload,
-        config?: Omit<FetchOptions<Payload>, 'data' | 'method'>,
-    ) => fetcher<Resp, Payload>(url, { ...config, data, method: 'post' });
+        data?: Req,
+        config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
+    ) => fetcher<Resp, ErrResp, Req>(url, { ...config, data, method: 'post' });
 
-    fetcher.delete = <Resp, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    fetcher.delete = <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
-        data?: Payload,
-        config?: Omit<FetchOptions<Payload>, 'data' | 'method'>,
-    ) => fetcher<Resp, Payload>(url, { ...config, data, method: 'delete' });
+        data?: Req,
+        config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
+    ) => fetcher<Resp, ErrResp, Req>(url, { ...config, data, method: 'delete' });
 
-    fetcher.put = <Resp, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    fetcher.put = <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
-        data?: Payload,
-        config?: Omit<FetchOptions<Payload>, 'data' | 'method'>,
-    ) => fetcher<Resp, Payload>(url, { ...config, data, method: 'put' });
+        data?: Req,
+        config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
+    ) => fetcher<Resp, ErrResp, Req>(url, { ...config, data, method: 'put' });
 
-    fetcher.patch = <Resp, Payload extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    fetcher.patch = <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
         url: string,
-        data?: Payload,
-        config?: Omit<FetchOptions<Payload>, 'data' | 'method'>,
-    ) => fetcher<Resp, Payload>(url, { ...config, data, method: 'patch' });
+        data?: Req,
+        config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
+    ) => fetcher<Resp, ErrResp, Req>(url, { ...config, data, method: 'patch' });
 
     return fetcher;
 }
