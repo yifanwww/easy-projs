@@ -1,5 +1,10 @@
 export default {
-    extends: ['stylelint-config-sass-guidelines', 'stylelint-config-recess-order'],
+    extends: [
+        'stylelint-config-standard',
+        'stylelint-config-standard-scss',
+        'stylelint-config-sass-guidelines',
+        'stylelint-config-recess-order',
+    ],
     rules: {
         // https://stylelint.io/user-guide/rules/max-nesting-depth/
         'max-nesting-depth': null,
@@ -9,6 +14,15 @@ export default {
 
         // https://stylelint.io/user-guide/rules/selector-max-id/
         'selector-max-id': null,
+
+        // https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown/
+        // https://github.com/stylelint/stylelint/issues/2208#issuecomment-269245751
+        'selector-pseudo-class-no-unknown': [
+            true,
+            {
+                ignorePseudoClasses: ['global'],
+            },
+        ],
 
         // https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-alphabetical-order/README.md
         'order/properties-alphabetical-order': null,

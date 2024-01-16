@@ -20,6 +20,7 @@
 
     > :global(.ant-space-item):first-child {
         flex: auto;
+
         /* By default `min-width` is `auto`, which may cause list item to exceed the allowed width. */
         min-width: 0;
     }
