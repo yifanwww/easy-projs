@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import produce from 'immer';
+import { produce } from 'immer';
 
 import { getInitialState } from '../context';
 import { reducer } from '../reducer';

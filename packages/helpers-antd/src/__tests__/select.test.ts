@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
-import type { FieldNames } from 'rc-select/lib/Select';
 
 import { SelectUtil } from '../select';
+import type { FieldNames } from '../types';
 
 describe(`Test static method \`${SelectUtil.name}.${SelectUtil.mergeDefaultFieldNames.name}\``, () => {
     it('should merge default field names', () => {

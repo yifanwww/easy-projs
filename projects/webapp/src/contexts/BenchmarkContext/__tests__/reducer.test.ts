@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import produce from 'immer';
+import { produce } from 'immer';
 
 import type { BenchmarkResult } from 'src/types/benchmark';
 

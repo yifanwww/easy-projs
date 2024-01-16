@@ -1,4 +1,4 @@
-import type { FieldNames } from 'rc-select/lib/Select';
+import type { FieldNames } from './types';
 
 export class SelectUtil {
     /**

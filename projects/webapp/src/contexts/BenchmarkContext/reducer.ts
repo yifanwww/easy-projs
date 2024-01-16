@@ -58,7 +58,7 @@ export const reducer: ImmerReducer<BenchmarkContextValue, ReducerAction> = (draf
 
             const selectIds = benchmarkResultSelector.selectIds(draft.totalResults).filter((id) => {
                 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                const result = benchmarkResultSelector.selectById(draft.totalResults, id)!;
+                const result = benchmarkResultSelector.selectById(draft.totalResults, id);
                 return result.name === componentName && result.type === benchmarkType;
             });
 

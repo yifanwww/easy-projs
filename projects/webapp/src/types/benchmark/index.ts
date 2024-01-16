@@ -22,4 +22,4 @@ export interface BenchmarkResult {
     stats: BenchmarkStats;
 }
 
-export type BenchmarkResultState = EntityState<BenchmarkResult>;
+export type BenchmarkResultState = EntityState<BenchmarkResult, number>;

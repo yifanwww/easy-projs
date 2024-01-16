@@ -1,5 +1,5 @@
 import { assertIsNever } from '@easy-pkg/utils-browser';
-import produce from 'immer';
+import { produce } from 'immer';
 import type { ImmerReducer } from 'use-immer';
 
 import type { InspectionData } from 'src/types/inspection';
