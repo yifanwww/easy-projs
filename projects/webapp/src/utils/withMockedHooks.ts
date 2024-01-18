@@ -1,5 +1,5 @@
 import type { UnknownFn } from '@easy-pkg/types/fn';
-import { noop } from 'lodash';
+import { noop } from '@easy-pkg/utils';
 import React from 'react';
 
 export function withMockedHooks<T extends UnknownFn>(fn: T): T {
