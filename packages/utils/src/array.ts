@@ -24,4 +24,18 @@ export class ArrayUtil {
 
         return true;
     }
+
+    static startsWith<T>(origin: T[], test: T[]): boolean {
+        if (test.length > origin.length) return false;
+
+        const minLen = Math.min(origin.length, test.length);
+
+        for (let i = 0; i < minLen; i++) {
+            if (origin[i] !== test[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

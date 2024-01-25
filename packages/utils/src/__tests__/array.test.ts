@@ -44,3 +44,28 @@ describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.equal.name}\``, () 
         expect(ArrayUtil.equal(['hello', 'world'], ['hello', 'javascript'])).toBe(false);
     });
 });
+
+describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.startsWith.name}\``, () => {
+    it('should return true if an array starts with another array', () => {
+        expect(ArrayUtil.startsWith([], [])).toBe(true);
+
+        expect(ArrayUtil.startsWith([1, 2, 3], [])).toBe(true);
+        expect(ArrayUtil.startsWith([1, 2, 3], [1, 2])).toBe(true);
+        expect(ArrayUtil.startsWith([1, 2, 3], [1, 2, 3])).toBe(true);
+
+        expect(ArrayUtil.startsWith(['hello', 'world'], ['hello'])).toBe(true);
+        expect(ArrayUtil.startsWith(['hello', 'world'], ['hello', 'world'])).toBe(true);
+    });
+
+    it("should return false if an array doesn't start with another array", () => {
+        expect(ArrayUtil.startsWith([], [1])).toBe(false);
+
+        expect(ArrayUtil.startsWith([1], [1, 2])).toBe(false);
+        expect(ArrayUtil.startsWith([1], [2, 3])).toBe(false);
+        expect(ArrayUtil.startsWith([1, 2], [2, 3])).toBe(false);
+
+        expect(ArrayUtil.startsWith(['hello', 'world'], ['helloo'])).toBe(false);
+        expect(ArrayUtil.startsWith(['hello', 'world'], ['world'])).toBe(false);
+        expect(ArrayUtil.startsWith(['hello', 'world'], ['hello', 'javascript'])).toBe(false);
+    });
+});
