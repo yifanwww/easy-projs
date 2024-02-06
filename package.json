@@ -24,7 +24,7 @@
         "lint": "pnpm run --recursive --no-sort --stream lint",
         "lint:fix": "pnpm run --recursive --no-sort --stream lint:fix",
         "pre-commit": "pnpm run --recursive --workspace-concurrency=1 pre-commit",
-        "prepare": "husky install",
+        "prepare": "husky",
         "test-full": "pnpm run --recursive --no-sort --stream test-full",
         "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
     },
@@ -33,7 +33,7 @@
         "pnpm": ">=8"
     },
     "devDependencies": {
-        "husky": "^8.0.3",
+        "husky": "^9.0.10",
         "prettier": "3.2.2",
         "typescript": "5.3.3"
     }
