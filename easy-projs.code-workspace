@@ -177,12 +177,15 @@
             "path": "projects/perf-js"
         },
         {
-            "name": "@easy-proj/server",
-            "path": "projects/server"
-        },
-        {
             "name": "@easy-proj/webapp",
             "path": "projects/webapp"
-        }
+        },
+
+        // templates
+
+        {
+            "name": "@easy-template/server",
+            "path": "templates/server"
+        },
     ]
 }
