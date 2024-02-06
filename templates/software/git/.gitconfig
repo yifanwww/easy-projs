@@ -1,0 +1,18 @@
+[i18n]
+	commitencoding = utf-8
+	logoutputencoding = utf-8
+[gui]
+	encoding = utf-8
+[svn]
+	pathnameencoding = utf-8
+[alias]
+	count = rev-list --all --count
+	lastchange = !git --no-pager diff head~ head --stat
+	lastag = ! git describe --tags $(git rev-list --tags --max-count=1)
+	profetch = fetch origin --verbose --prune
+	progc= gc --prune=now --aggressive
+	prolog = log --all --graph --oneline --date-order -n
+	propull = pull origin --verbose --prune
+	prorepack = repack -a -d -f --depth=250 --window=250 --threads=3
+	proxyset = config --global http.proxy 'socks5h://127.0.0.1:10808'
+	proxyunset = config --global --unset http.proxy

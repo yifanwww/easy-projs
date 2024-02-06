@@ -1,0 +1,326 @@
+{
+    // ----------------------------------------------------------------------------------------------- Built-in Settings
+
+    "breadcrumbs.enabled": false,
+
+    "css.lint.unknownAtRules": "ignore",
+
+    "diffEditor.renderSideBySide": false,
+
+    "editor.accessibilitySupport": "off",
+    "editor.detectIndentation": false,
+    "editor.fontFamily": "Fira code, Source Han Sans SC, MesloLGM NF",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
+    "editor.fontWeight": "500",
+    "editor.insertSpaces": true,
+    "editor.lineNumbers": "on",
+    "editor.minimap.enabled": false,
+    "editor.minimap.side": "left",
+    "editor.mouseWheelScrollSensitivity": 4,
+    "editor.multiCursorModifier": "alt",
+    "editor.suggestSelection": "first",
+    "editor.renderControlCharacters": false,
+    "editor.renderWhitespace": "all",
+    "editor.tabSize": 4,
+    "editor.wordWrap": "on",
+
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    "files.eol": "\n",
+    "files.refactoring.autoSave": false,
+
+    "git.enabled": true,
+    "git.autofetch": true,
+    "git.autofetchPeriod": 300,
+
+    "scm.diffDecorations": "none",
+
+    "search.useIgnoreFiles": true,
+    "search.useParentIgnoreFiles": true,
+
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "path": "bash",
+            "args": ["-l"],
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh",
+            "args": ["-l"]
+        },
+        "fish": {
+            "path": "fish",
+            "args": ["-l"]
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "path": "pwsh",
+            "args": ["-Nologo"],
+            "icon": "terminal-powershell"
+        }
+    },
+
+    "typescript.inlayHints.enumMemberValues.enabled": true,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "typescript.inlayHints.parameterNames.enabled": "none",
+    "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+
+    "window.commandCenter": false,
+    "window.newWindowDimensions": "default",
+    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+
+    "workbench.colorTheme": "Quiet Light",
+
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
+        "editor.wordWrap": "on"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.suggest.insertMode": "replace"
+    },
+    "[yaml]": {
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+
+    // -------------------------------------------------------------------------------------------------- Theme Settings
+
+    "editor.tokenColorCustomizations": {
+        "[Quiet Light]": {
+            "textMateRules": [
+                {
+                    "name": "Comments",
+                    "scope": ["comment", "punctuation.definition.comment"],
+                    "settings": { "fontStyle": "", "foreground": "#8a8a8a" }
+                },
+                {
+                    "name": "Other Operators",
+                    "scope": ["keyword.operator.expression", "keyword.operator.new"],
+                    "settings": { "foreground": "#7b00bd" }
+                },
+                {
+                    "name": "Keywords",
+                    "scope": ["keyword", "storage"],
+                    "settings": { "foreground": "#2064d9" }
+                },
+                {
+                    "name": "Types",
+                    "scope": ["storage.modifier", "storage.type"],
+                    "settings": { "foreground": "#7b00bd" }
+                },
+                {
+                    "name": "Types declaration and references",
+                    "scope": [
+                        "support.class",
+                        "support.type",
+                        "entity.name.type",
+                        "entity.name.namespace",
+                        "entity.other.attribute",
+                        "entity.name.scope-resolution",
+                        "entity.name.class",
+                        "storage.type.numeric.go",
+                        "storage.type.byte.go",
+                        "storage.type.boolean.go",
+                        "storage.type.string.go",
+                        "storage.type.uintptr.go",
+                        "storage.type.error.go",
+                        "storage.type.rune.go",
+                        "storage.type.cs",
+                        "storage.type.generic.cs",
+                        "storage.type.modifier.cs",
+                        "storage.type.variable.cs",
+                        "storage.type.annotation.java",
+                        "storage.type.generic.java",
+                        "storage.type.java",
+                        "storage.type.object.array.java",
+                        "storage.type.primitive.array.java",
+                        "storage.type.primitive.java",
+                        "storage.type.token.java",
+                        "storage.type.groovy",
+                        "storage.type.annotation.groovy",
+                        "storage.type.parameters.groovy",
+                        "storage.type.generic.groovy",
+                        "storage.type.object.array.groovy",
+                        "storage.type.primitive.array.groovy",
+                        "storage.type.primitive.groovy"
+                    ],
+                    "settings": { "foreground": "#c05bbe" }
+                },
+                {
+                    "name": "Language Constants",
+                    "scope": ["constant.language", "support.constant", "variable.language"],
+                    "settings": { "foreground": "#7b00bd" }
+                },
+                {
+                    "name": "Variables",
+                    "scope": ["variable", "support.variable"],
+                    "settings": { "foreground": "#3a005c" }
+                },
+                {
+                    "name": "Constants and enums",
+                    "scope": ["variable.other.constant", "variable.other.enummember"],
+                    "settings": { "foreground": "#a93abc" }
+                },
+                {
+                    "name": "Functions",
+                    "scope": ["entity.name.function", "support.function"],
+                    "settings": { "fontStyle": "" }
+                },
+                {
+                    "name": "Classes",
+                    "scope": [
+                        "entity.name.type",
+                        "entity.name.namespace",
+                        "entity.name.scope-resolution",
+                        "entity.other.inherited-class",
+                        "support.class"
+                    ],
+                    "settings": { "fontStyle": "" }
+                },
+                {
+                    "name": "HTML: Attribute Names",
+                    "scope": [
+                        "meta.tag entity.other.attribute-name",
+                        "entity.other.attribute-name.html",
+                        "meta.property-name",
+                        "support.type.property-name"
+                    ],
+                    "settings": { "fontStyle": "", "foreground": "#e50000" }
+                },
+                {
+                    "name": "HTML: Meta Tags",
+                    "scope": ["meta.tag"],
+                    "settings": { "foreground": "#000000" }
+                },
+                {
+                    "name": "CSS Tags in Selectors, XML Tags",
+                    "scope": ["entity.name.tag"],
+                    "settings": { "foreground": "#800000" }
+                },
+                {
+                    "name": "CSS: Selectors",
+                    "scope": [
+                        "meta.selector",
+                        "meta.selector entity",
+                        "meta.selector entity punctuation",
+                        "entity.name.tag.css",
+                        "entity.other.attribute-name.class.css",
+                        "entity.other.attribute-name.pseudo-class.css"
+                    ],
+                    "settings": { "foreground": "#7a3e9d" }
+                },
+                {
+                    "name": "JSX: Tags",
+                    "scope": [
+                        "punctuation.definition.tag.js",
+                        "punctuation.definition.tag.begin.js",
+                        "punctuation.definition.tag.end.js"
+                    ],
+                    "settings": { "foreground": "#1961be" }
+                }
+            ]
+        }
+    },
+    "workbench.colorCustomizations": {
+        "[Default Light+]": {
+            "editor.lineHighlightBackground": "#fcfcfc",
+            "editor.lineHighlightBorder": "#ebebeb",
+            "editorInlayHint.background": "#e0e0e0",
+            "editorInlayHint.foreground": "#2d2d2d"
+        },
+        "[Quiet Light]": {
+            "editor.background": "#ffffff",
+            "editor.inactiveSelectionBackground": "#f0eaf4",
+            "editor.lineHighlightBackground": "#fcfcfc",
+            "editor.lineHighlightBorder": "#ebebeb",
+            "editor.selectionBackground": "#e8def0",
+            "editor.selectionHighlightBackground": "#f2eff6",
+            "editorInlayHint.background": "#e0e0e0",
+            "editorInlayHint.foreground": "#2d2d2d",
+            "editorWhitespace.foreground": "#d5d5d5",
+            "panel.background": "#fafafa"
+        }
+    },
+
+    // ---------------------------------------------------------------------------------------------- Extension Settings
+
+    "markdown-preview-enhanced.liveUpdate": false,
+    "markdown-preview-enhanced.breakOnSingleNewLine": true,
+
+    "prettier.arrowParens": "always",
+    "prettier.endOfLine": "lf",
+    "prettier.printWidth": 120,
+    "prettier.semi": true,
+    "prettier.singleQuote": true,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "all",
+    "prettier.useTabs": false,
+
+    "todo-tree.general.showActivityBarBadge": true,
+    "todo-tree.general.tags": ["BUG", "FIXME", "HACK", "TODO", "UNDONE", "XXX", "[ ]"],
+    "todo-tree.highlights.defaultHighlight": {
+        "type": "tag",
+        "icon": "zap",
+        "iconColour": "#cc2222",
+        "foreground": "#000000",
+        "background": "#ffff22"
+    },
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^\\s*\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.tree.showCountsInTree": true,
+
+    "xml.java.home": "C:/compilers/java-bellsoft-21.0.2"
+}

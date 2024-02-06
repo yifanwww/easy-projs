@@ -187,5 +187,9 @@
             "name": "@easy-template/server",
             "path": "templates/server"
         },
+        {
+            "name": "@easy-template/software",
+            "path": "templates/software"
+        }
     ]
 }

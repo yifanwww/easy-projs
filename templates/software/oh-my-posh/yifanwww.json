@@ -1,0 +1,100 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "final_space": true,
+    "osc99": true,
+    "console_title": true,
+    "console_title_style": "template",
+    "console_title_template": "{{ .Shell }} > {{ .Folder }}",
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "root",
+                    "style": "plain",
+                    "foreground": "yellow",
+                    "properties": { "root_icon": "" }
+                },
+                {
+                    "type": "path",
+                    "style": "diamond",
+                    "foreground": "#303030",
+                    "background": "lightCyan",
+                    "leading_diamond": "",
+                    "properties": {
+                        "folder_separator_icon": "/",
+                        "home_icon": "C:/Users/YF",
+                        "mixed_threshold": 8,
+                        "style": "mixed"
+                    }
+                },
+                {
+                    "type": "git",
+                    "style": "powerline",
+                    "powerline_symbol": "",
+                    "foreground": "#303030",
+                    "background": "lightGreen",
+                    "properties": {
+                        "display_stash_count": false,
+                        "display_status": false,
+                        "display_status_detail": false,
+                        "display_upstream_icon": false,
+                        "branch_icon": " ",
+                        "branch_identical_icon": "≡",
+                        "branch_ahead_icon": "↑",
+                        "branch_behind_icon": "↓",
+                        "branch_gone": "≢",
+                        "local_working_icon": "",
+                        "local_staged_icon": "",
+                        "stash_count_icon": "\uF692 ",
+                        "commit_icon": "▷ ",
+                        "tag_icon": "▶ ",
+                        "rebase_icon": "Ɫ ",
+                        "cherry_pick_icon": "✓ ",
+                        "merge_icon": "◴ ",
+                        "no_commits_icon": "[no commits]",
+                        "status_separator_icon": " │",
+                        "status_colors_enabled": true,
+                        "color_background": true,
+                        "local_changes_color": "lightYellow"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "right",
+            "segments": [
+                {
+                    "type": "time",
+                    "style": "powerline",
+                    "invert_powerline": true,
+                    "powerline_symbol": "",
+                    "foreground": "#303030",
+                    "background": "lightMagenta",
+                    "properties": { "prefix": "  " }
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "exit",
+                    "style": "plain",
+                    "foreground": "lightYellow",
+                    "properties": {
+                        "prefix": "❯",
+                        "always_enabled": true,
+                        "error_color": "lightRight",
+                        "display_exit_code": false,
+                        "postfix": ""
+                    }
+                }
+            ]
+        }
+    ]
+}
