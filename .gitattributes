@@ -34,16 +34,21 @@ pre-commit                  text eol=lf
 *.user                      text eol=lf
 *.vcxproj                   text eol=lf
 
-## mysql
+## Unix / Linux
+### mysql
 
 *.cnf                       text eol=lf
 
-## nginx
+### nginx
 
 mysql                       text eol=lf
 redis                       text eol=lf
 *.com                       text eol=lf
 *.conf                      text eol=lf
+
+### systemd
+
+*.service                   text eol=lf
 
 ## others
 

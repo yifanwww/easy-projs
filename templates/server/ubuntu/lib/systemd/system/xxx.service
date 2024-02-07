@@ -1,0 +1,10 @@
+# XXX systemd service file
+
+[Unit]
+StartLimitBurst=5
+StartLimitIntervalSec=30
+
+[Service]
+TimeoutSec=infinity
+Restart=on-failure
+RestartSec=5
