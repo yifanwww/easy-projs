@@ -1,49 +1,4 @@
-const naming = [
-    'error',
-    { selector: 'accessor', modifiers: ['static'], format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
-    { selector: 'accessor', format: ['camelCase'], leadingUnderscore: 'forbid' },
-
-    {
-        selector: ['class', 'enum', 'interface', 'typeAlias', 'typeParameter'],
-        format: ['PascalCase'],
-        leadingUnderscore: 'forbid',
-    },
-
-    { selector: 'enumMember', format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
-
-    { selector: 'function', format: ['camelCase', 'PascalCase'], leadingUnderscore: 'allow' },
-
-    { selector: 'method', modifiers: ['private'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'method', modifiers: ['protected'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'method', format: ['camelCase'], leadingUnderscore: 'forbid' },
-
-    { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
-
-    {
-        selector: 'property',
-        modifiers: ['private', 'static'],
-        format: ['camelCase', 'UPPER_CASE'],
-        leadingUnderscore: 'require',
-    },
-    {
-        selector: 'property',
-        modifiers: ['protected', 'static'],
-        format: ['camelCase', 'UPPER_CASE'],
-        leadingUnderscore: 'require',
-    },
-    { selector: 'property', modifiers: ['private'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'property', modifiers: ['protected'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'property', modifiers: ['static'], format: ['camelCase', 'UPPER_CASE'], leadingUnderscore: 'forbid' },
-    { selector: 'property', format: ['camelCase'], leadingUnderscore: 'forbid' },
-
-    { selector: 'objectLiteralProperty', format: null },
-
-    {
-        selector: 'variable',
-        format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
-        leadingUnderscore: 'allow',
-    },
-];
+const { basicNaming } = require('./naming');
 
 module.exports = {
     env: {
@@ -237,7 +192,7 @@ module.exports = {
         '@typescript-eslint/explicit-member-accessibility': ['error', { accessibility: 'no-public' }],
 
         // https://typescript-eslint.io/rules/naming-convention
-        '@typescript-eslint/naming-convention': naming,
+        '@typescript-eslint/naming-convention': basicNaming,
 
         // https://typescript-eslint.io/rules/no-empty-function
         '@typescript-eslint/no-empty-function': [

@@ -1,3 +1,5 @@
+const { apiNaming } = require('./naming');
+
 module.exports = {
     env: {
         es2020: true,
@@ -20,4 +22,13 @@ module.exports = {
     plugins: ['@typescript-eslint', 'import', 'jest', 'node', 'prettier'],
 
     rules: {},
+    overrides: [
+        {
+            files: ['*.dto.ts'],
+            rules: {
+                // https://typescript-eslint.io/rules/naming-convention
+                '@typescript-eslint/naming-convention': apiNaming,
+            },
+        },
+    ],
 };
