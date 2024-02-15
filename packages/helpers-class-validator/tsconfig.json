@@ -1,6 +1,7 @@
 {
     "extends": "@easy-config/tsconfigs/tsconfig.node16.eslint.json",
     "compilerOptions": {
+        "experimentalDecorators": true,
         "rootDir": "src"
     },
     "include": ["src/**/*"],
