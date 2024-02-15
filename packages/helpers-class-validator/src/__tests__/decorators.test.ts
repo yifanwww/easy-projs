@@ -1,5 +1,3 @@
-/* eslint-disable max-classes-per-file */
-
 import { describe, expect, it } from '@jest/globals';
 import { Equals, Validator } from 'class-validator';
 

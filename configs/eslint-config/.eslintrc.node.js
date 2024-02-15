@@ -26,6 +26,9 @@ module.exports = {
         {
             files: ['*.dto.ts'],
             rules: {
+                // https://eslint.org/docs/latest/rules/max-classes-per-file
+                'max-classes-per-file': 'off',
+
                 // https://typescript-eslint.io/rules/naming-convention
                 '@typescript-eslint/naming-convention': apiNaming,
             },
