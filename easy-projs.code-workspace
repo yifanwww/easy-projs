@@ -126,6 +126,10 @@
             "path": "packages/helpers-redux"
         },
         {
+            "name": "@easy-pkg/helpers-typeorm",
+            "path": "packages/helpers-typeorm"
+        },
+        {
             "name": "@easy-pkg/hooks",
             "path": "packages/hooks"
         },
