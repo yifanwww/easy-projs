@@ -1,5 +1,7 @@
 import dayjs from 'dayjs';
-import { Between, type FindOperator, LessThan, LessThanOrEqual, MoreThan, MoreThanOrEqual } from 'typeorm';
+import { Between, type FindOperator, LessThan, LessThanOrEqual, MoreThan, MoreThanOrEqual, Raw } from 'typeorm';
+
+import { type MysqlCollation } from './sql.js';
 
 const DateTemplate = 'YYYY-MM-DD HH:mm:ss';
 
@@ -41,4 +43,8 @@ export function PartiallyBetweenDate(from?: Date, to?: Date) {
     if (from) return MoreThanOrEqualDate(from);
     if (to) return LessThanOrEqualDate(to);
     return undefined;
+}
+
+export function LikeByCollation(value: string, collation: MysqlCollation) {
+    return Raw((alias) => `${alias} COLLATE ${collation} LIKE :value`, { value: `%${value}%` });
 }
