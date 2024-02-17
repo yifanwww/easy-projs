@@ -1,6 +1,7 @@
 import type { ReactChildrenProps } from '@easy-pkg/helpers-react';
-import type { LooseArray, Optional } from '@easy-pkg/types/utils';
+import type { Optional } from '@easy-pkg/types/utils';
 import { useRef } from 'react';
+import type { ReadonlyArrayOrSingle } from 'ts-essentials';
 
 import type { InspectedFC, InspectedFCType } from 'src/types/inspection';
 import { withMockedHooks } from 'src/utils/withMockedHooks';
@@ -28,7 +29,7 @@ function dfs(element: React.ReactElement): InspectedFCType {
         if (item === undefined) continue;
 
         const { type } = item;
-        const children = (item.props as ReactChildrenProps).children as LooseArray<React.ReactElement>;
+        const children = (item.props as ReactChildrenProps).children as ReadonlyArrayOrSingle<React.ReactElement>;
 
         if (typeof type === 'function') {
             const fc = type as InspectedFC;

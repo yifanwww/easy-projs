@@ -1159,6 +1159,9 @@ importers:
       stylelint:
         specifier: ^16.1.0
         version: 16.1.0(typescript@5.3.3)
+      ts-essentials:
+        specifier: ^9.4.1
+        version: 9.4.1(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -10333,6 +10336,17 @@ packages:
     dependencies:
       typescript: 5.3.3
     dev: false
+
+  /ts-essentials@9.4.1(typescript@5.3.3):
+    resolution: {integrity: sha512-oke0rI2EN9pzHsesdmrOrnqv1eQODmJpd/noJjwj2ZPC3Z4N2wbjrOEqnsEgmvlO2+4fBb0a794DCna2elEVIQ==}
+    peerDependencies:
+      typescript: '>=4.1.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      typescript: 5.3.3
+    dev: true
 
   /ts-pattern@5.0.6:
     resolution: {integrity: sha512-Y+jOjihlFriWzcBjncPCf2/am+Hgz7LtsWs77pWg5vQQKLQj07oNrJryo/wK2G0ndNaoVn2ownFMeoeAuReu3Q==}

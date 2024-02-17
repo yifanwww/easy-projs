@@ -3,8 +3,6 @@ export type Optional<T> = T | undefined;
 
 export type ValueOf<T> = T[keyof T];
 
-export type LooseArray<T> = T | readonly T[];
-
 /**
  * Pick the non-nullable type of a certain property of interface `P`.
  *
