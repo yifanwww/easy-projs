@@ -409,6 +409,9 @@ importers:
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
+      rustlike-result:
+        specifier: ^0.3.2
+        version: 0.3.2
       typeorm:
         specifier: ^0.3.20
         version: 0.3.20
@@ -9439,6 +9442,15 @@ packages:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
       queue-microtask: 1.2.3
+
+  /rustlike-result@0.3.2:
+    resolution: {integrity: sha512-nXCz5dWLvQTbXynsJjWE7w9rQmVoT4uoaSp8f3Hc2A8NliYR9hqUYVxJs+IBki3m2xNa7xbF7EEXCFed+6VZqQ==}
+    peerDependencies:
+      serializr: ^3.0.0
+    peerDependenciesMeta:
+      serializr:
+        optional: true
+    dev: false
 
   /rxjs@7.8.1:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
