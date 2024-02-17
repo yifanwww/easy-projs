@@ -118,6 +118,10 @@
             "path": "packages/helpers-class-validator"
         },
         {
+            "name": "@easy-pkg/helpers-nestjs",
+            "path": "packages/helpers-nestjs"
+        },
+        {
             "name": "@easy-pkg/helpers-react",
             "path": "packages/helpers-react"
         },
