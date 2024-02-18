@@ -363,6 +363,9 @@ importers:
       '@easy-pkg/types':
         specifier: workspace:*
         version: link:../types
+      '@easy-pkg/utils-browser':
+        specifier: workspace:*
+        version: link:../utils-browser
       immer:
         specifier: ^10.0.3
         version: 10.0.3
@@ -376,9 +379,18 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
+      '@easy-config/jest-config':
+        specifier: workspace:*
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      '@jest/globals':
+        specifier: ^29.7.0
+        version: 29.7.0
+      '@testing-library/react':
+        specifier: ^14.1.2
+        version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
         specifier: ^18.2.48
         version: 18.2.48
