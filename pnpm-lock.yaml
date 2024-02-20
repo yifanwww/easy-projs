@@ -563,45 +563,6 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
 
-  packages/memorize:
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@easy-config/jest-config':
-        specifier: workspace:*
-        version: link:../../configs/jest-config
-      '@easy-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@easy-pkg/utils-test':
-        specifier: workspace:*
-        version: link:../utils-test
-      '@jest/globals':
-        specifier: ^29.7.0
-        version: 29.7.0
-      concurrently:
-        specifier: ^8.2.2
-        version: 8.2.2
-      eslint:
-        specifier: ^8.56.0
-        version: 8.56.0
-      lint-staged:
-        specifier: ^15.2.0
-        version: 15.2.0
-      prettier:
-        specifier: 3.2.2
-        version: 3.2.2
-      rimraf:
-        specifier: ^5.0.5
-        version: 5.0.5
-      typescript:
-        specifier: 5.3.3
-        version: 5.3.3
-
   packages/random-string:
     devDependencies:
       '@easy-config/eslint-config':

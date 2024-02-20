@@ -138,10 +138,6 @@
             "path": "packages/hooks"
         },
         {
-            "name": "@easy-pkg/memorize",
-            "path": "packages/memorize"
-        },
-        {
             "name": "@easy-pkg/random-string",
             "path": "packages/random-string"
         },
