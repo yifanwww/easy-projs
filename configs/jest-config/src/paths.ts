@@ -10,6 +10,4 @@ const repo = path.join(_dirname, '../../..');
 
 export const paths = {
     jestCache: path.resolve(repo, 'node_modules', '.cache/jest'),
-
-    testSetup: path.resolve(repo, 'packages', 'utils-test/src/setup.ts'),
 };

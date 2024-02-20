@@ -20,7 +20,7 @@ function getConfig(): Config {
         cacheDirectory: paths.jestCache,
 
         setupFiles: [require.resolve('./jest.setup.js')],
-        setupFilesAfterEnv: hasPackageOwnTestSetup ? [paths.testSetup, packageOwnTestSetup] : [paths.testSetup],
+        setupFilesAfterEnv: hasPackageOwnTestSetup ? [packageOwnTestSetup] : [],
 
         collectCoverageFrom: [
             'src/**/*.{ts,tsx}',

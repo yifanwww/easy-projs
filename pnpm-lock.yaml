@@ -889,9 +889,6 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
-      '@testing-library/jest-dom':
-        specifier: ^6.2.0
-        version: 6.2.0(@jest/globals@29.7.0)
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2

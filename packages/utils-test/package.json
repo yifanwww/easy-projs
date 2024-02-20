@@ -47,7 +47,6 @@
         "@easy-config/global-types": "workspace:*",
         "@easy-config/jest-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@testing-library/jest-dom": "^6.2.0",
         "concurrently": "^8.2.2",
         "eslint": "^8.56.0",
         "lint-staged": "^15.2.0",
