@@ -2,7 +2,7 @@ import { assert } from '@easy-pkg/utils-browser';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { AppContainer } from './app';
+import { App } from './app';
 import { reportWebVitals } from './reportWebVitals';
 
 import './index.css';
@@ -14,7 +14,7 @@ function main(): void {
     const root = createRoot(appElement);
     root.render(
         <StrictMode>
-            <AppContainer />
+            <App />
         </StrictMode>,
     );
 

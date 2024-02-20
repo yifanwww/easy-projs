@@ -1029,9 +1029,6 @@ importers:
 
   projects/webapp:
     dependencies:
-      '@ant-design/icons':
-        specifier: ^5.2.6
-        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@easy-pkg/helpers-react':
         specifier: workspace:*
         version: link:../../packages/helpers-react
@@ -1053,15 +1050,9 @@ importers:
       '@reduxjs/toolkit':
         specifier: ^2.0.1
         version: 2.0.1(react-redux@9.1.0)(react@18.2.0)
-      antd:
-        specifier: ^5.13.1
-        version: 5.13.1(react-dom@18.2.0)(react@18.2.0)
       clsx:
         specifier: ^2.1.0
         version: 2.1.0
-      echarts:
-        specifier: ^5.4.3
-        version: 5.4.3
       immer:
         specifier: ^10.0.3
         version: 10.0.3
@@ -1074,9 +1065,6 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
-      react-component-benchmark:
-        specifier: ^1.0.0
-        version: 1.0.0(react@18.2.0)
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
@@ -1086,9 +1074,6 @@ importers:
       react-router-dom:
         specifier: ^6.21.2
         version: 6.21.2(react-dom@18.2.0)(react@18.2.0)
-      ts-pattern:
-        specifier: ^5.0.6
-        version: 5.0.6
       use-immer:
         specifier: ^0.9.0
         version: 0.9.0(immer@10.0.3)(react@18.2.0)
@@ -1135,9 +1120,6 @@ importers:
       '@types/react':
         specifier: ^18.2.48
         version: 18.2.48
-      '@types/react-component-benchmark':
-        specifier: ^1.0.0
-        version: 1.0.3
       '@types/react-dom':
         specifier: ^18.2.18
         version: 18.2.18
@@ -1171,9 +1153,6 @@ importers:
       stylelint:
         specifier: ^16.1.0
         version: 16.1.0(typescript@5.3.3)
-      ts-essentials:
-        specifier: ^9.4.1
-        version: 9.4.1(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -4823,12 +4802,6 @@ packages:
       types-ramda: 0.29.6
     dev: true
 
-  /@types/react-component-benchmark@1.0.3:
-    resolution: {integrity: sha512-yPogmivwGXZlygSwO3e/q69nh4My9wSnwSdWJdeUsthBF+dDDPeXELsYk4NpvObifLvzBEFX8mdjoUU+4T/8eQ==}
-    dependencies:
-      '@types/react': 18.2.48
-    dev: true
-
   /@types/react-dom@18.2.18:
     resolution: {integrity: sha512-TJxDm6OfAX2KJWJdMEVTwWke5Sc/E/RlnPGvGfS0W7+6ocy2xhDVQVh/KvC2Uf7kACs+gDytdusDSdWfWkaNzw==}
     dependencies:
@@ -6083,13 +6056,6 @@ packages:
 
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
-
-  /echarts@5.4.3:
-    resolution: {integrity: sha512-mYKxLxhzy6zyTi/FaEbJMOZU1ULGEQHaeIeuMR5L+JnJTpz+YR03mnnpBhbR4+UYJAgiXgpyTVLffPAjOTLkZA==}
-    dependencies:
-      tslib: 2.3.0
-      zrender: 5.4.4
-    dev: false
 
   /electron-to-chromium@1.4.632:
     resolution: {integrity: sha512-JGmudTwg7yxMYvR/gWbalqqQiyu7WTFv2Xu3vw4cJHXPFxNgAk0oy8UHaer8nLF4lZJa+rNoj6GsrKIVJTV6Tw==}
@@ -9351,14 +9317,6 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-component-benchmark@1.0.0(react@18.2.0):
-    resolution: {integrity: sha512-YC+PPhfevw1NHYjgb8NeFXdH9gq1D0bG1zcLUxetQ1PregdBwX3t9LTU4fJviDI4IgU/bL3xR6BB3ZID59Sprw==}
-    peerDependencies:
-      react: '>= 16.8.0'
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -10349,21 +10307,6 @@ packages:
       typescript: 5.3.3
     dev: false
 
-  /ts-essentials@9.4.1(typescript@5.3.3):
-    resolution: {integrity: sha512-oke0rI2EN9pzHsesdmrOrnqv1eQODmJpd/noJjwj2ZPC3Z4N2wbjrOEqnsEgmvlO2+4fBb0a794DCna2elEVIQ==}
-    peerDependencies:
-      typescript: '>=4.1.0'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      typescript: 5.3.3
-    dev: true
-
-  /ts-pattern@5.0.6:
-    resolution: {integrity: sha512-Y+jOjihlFriWzcBjncPCf2/am+Hgz7LtsWs77pWg5vQQKLQj07oNrJryo/wK2G0ndNaoVn2ownFMeoeAuReu3Q==}
-    dev: false
-
   /ts-toolbelt@9.6.0:
     resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
     dev: true
@@ -10401,10 +10344,6 @@ packages:
 
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-    dev: false
-
-  /tslib@2.3.0:
-    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
     dev: false
 
   /tslib@2.6.2:
@@ -11099,9 +11038,3 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-
-  /zrender@5.4.4:
-    resolution: {integrity: sha512-0VxCNJ7AGOMCWeHVyTrGzUgrK4asT4ml9PEkeGirAkKNYXYzoPJCLvmyfdoOXcjTHPs10OZVMfD1Rwg16AZyYw==}
-    dependencies:
-      tslib: 2.3.0
-    dev: false
