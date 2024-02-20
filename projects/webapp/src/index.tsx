@@ -23,6 +23,9 @@ function main(): void {
     // Learn more: https://bit.ly/CRA-vitals
     // eslint-disable-next-line no-console
     reportWebVitals(console.info);
+
+    // eslint-disable-next-line no-console
+    console.info(`[version]: "${__APP_VERSION__}", [hash]: "${__APP_HASH__}"`);
 }
 
 main();
