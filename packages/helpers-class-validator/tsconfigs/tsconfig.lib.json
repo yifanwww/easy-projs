@@ -1,6 +1,8 @@
 {
     "extends": "@easy-config/tsconfigs/tsconfig.node16.json",
     "compilerOptions": {
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
         "outDir": "../lib",
         "rootDir": "../src"
     },

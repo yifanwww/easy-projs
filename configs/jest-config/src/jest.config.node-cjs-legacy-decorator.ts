@@ -21,7 +21,7 @@ function getConfig(): Config {
                         },
                         transform: {
                             legacyDecorator: true,
-                            decoratorMetadata: false,
+                            decoratorMetadata: true,
                             useDefineForClassFields: true,
                         },
                     },
