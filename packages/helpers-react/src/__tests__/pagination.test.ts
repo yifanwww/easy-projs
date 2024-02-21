@@ -1,7 +1,8 @@
+import { UspKey } from '@easy-pkg/utils-browser';
 import { describe, expect, it } from '@jest/globals';
 import { renderHook } from '@testing-library/react';
 
-import { UspKey, updatePaginationUsp, usePaginationUsp } from '../pagination.js';
+import { usePaginationUsp } from '../pagination.js';
 
 describe(`Test react hook \`${usePaginationUsp.name}\``, () => {
     it('should return pagination search params from USP', () => {
@@ -30,38 +31,6 @@ describe(`Test react hook \`${usePaginationUsp.name}\``, () => {
             ]);
             const { result } = renderHook(() => usePaginationUsp(usp));
             expect(result.current).toStrictEqual({ page: 1, pageSize: 10 });
-        }
-    });
-});
-
-describe(`Test fn \`${updatePaginationUsp.name}\``, () => {
-    it('should update pagination search params', () => {
-        {
-            const usp = new URLSearchParams();
-            updatePaginationUsp(usp, {});
-            expect(usp.getAll(UspKey.PAGE)).toStrictEqual([]);
-            expect(usp.getAll(UspKey.PAGE_SIZE)).toStrictEqual([]);
-        }
-
-        {
-            const usp = new URLSearchParams();
-            updatePaginationUsp(usp, { page: 1 });
-            expect(usp.getAll(UspKey.PAGE)).toStrictEqual(['1']);
-            expect(usp.getAll(UspKey.PAGE_SIZE)).toStrictEqual([]);
-        }
-
-        {
-            const usp = new URLSearchParams();
-            updatePaginationUsp(usp, { pageSize: 10 });
-            expect(usp.getAll(UspKey.PAGE)).toStrictEqual([]);
-            expect(usp.getAll(UspKey.PAGE_SIZE)).toStrictEqual(['10']);
-        }
-
-        {
-            const usp = new URLSearchParams();
-            updatePaginationUsp(usp, { page: 1, pageSize: 10 });
-            expect(usp.getAll(UspKey.PAGE)).toStrictEqual(['1']);
-            expect(usp.getAll(UspKey.PAGE_SIZE)).toStrictEqual(['10']);
         }
     });
 });
