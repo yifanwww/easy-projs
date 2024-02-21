@@ -336,9 +336,15 @@ importers:
       '@easy-config/global-types':
         specifier: workspace:*
         version: link:../../configs/global-types
+      '@easy-config/jest-config':
+        specifier: workspace:*
+        version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
         specifier: workspace:*
         version: link:../../configs/tsconfigs
+      '@jest/globals':
+        specifier: ^29.7.0
+        version: 29.7.0
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
