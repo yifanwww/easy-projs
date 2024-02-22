@@ -36,6 +36,7 @@
         "strict": true,
         "stripInternal": true,
         "target": "ES2020",
-        "useDefineForClassFields": true
+        "useDefineForClassFields": true,
+        "verbatimModuleSyntax": true,
     }
 }
