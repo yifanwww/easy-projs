@@ -12,6 +12,7 @@ export default defineConfig(() => ({
     define: {
         __APP_VERSION__: JSON.stringify(packageJson.version),
         __APP_HASH__: JSON.stringify(child.execSync('git rev-parse HEAD').toString().trim()),
+        __ENABLE_EXPERIMENTAL_FEATURES__: JSON.stringify(process.env.ENABLE_EXPERIMENTAL_FEATURES === 'true'),
     },
     server: {
         port: 3000,
