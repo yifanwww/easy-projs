@@ -1,1 +1,1 @@
-/// <reference types="@easy-config/global-types/types/index.react.d.ts" />
+/// <reference types="@easy-config/global-types/types/env.d.ts" />

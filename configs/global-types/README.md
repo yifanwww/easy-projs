@@ -11,11 +11,5 @@ For example:
 ```ts
 // global.d.ts
 
-/// <reference types="@easy-config/global-types/types/index.node" />
-```
-
-```ts
-// global.d.ts
-
-/// <reference types="@easy-config/global-types/types/index.react" />
+/// <reference types="@easy-config/global-types/types/typescript.d.ts" />
 ```
