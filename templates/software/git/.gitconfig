@@ -5,6 +5,8 @@
 	encoding = utf-8
 [svn]
 	pathnameencoding = utf-8
+[pull]
+	ff = only
 [alias]
 	count = rev-list --all --count
 	lastchange = !git --no-pager diff head~ head --stat
@@ -13,6 +15,6 @@
 	progc= gc --prune=now --aggressive
 	prolog = log --all --graph --oneline --date-order -n
 	propull = pull origin --verbose --prune
-	prorepack = repack -a -d -f --depth=250 --window=250 --threads=3
+	prorepack = repack -a -d -f --depth=250 --window=250 --threads=12 # 75% threads
 	proxyset = config --global http.proxy 'socks5h://127.0.0.1:10808'
 	proxyunset = config --global --unset http.proxy
