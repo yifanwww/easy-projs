@@ -1,3 +1,5 @@
+import type { QueryURLParamsInit } from './url.js';
+
 type Method =
     | 'get'
     | 'post'
@@ -32,7 +34,7 @@ export interface FetchFactoryOptions {
     /**
      * Customized function to stringify querystring parameters.
      */
-    paramsSerializer?: (params: Record<string, string | undefined> | URLSearchParams) => string;
+    paramsSerializer?: (params: QueryURLParamsInit) => string;
     /**
      * Customized function to handle status code. By default 200-399 is success.
      */
@@ -57,7 +59,7 @@ export interface FetchOptions<T extends BodyInit | NonNullable<unknown> = NonNul
     /**
      * querystring parameters.
      */
-    params?: Record<string, string | undefined> | URLSearchParams;
+    params?: QueryURLParamsInit;
     /**
      * An encoding to use for the response. Default is `json`.
      */
@@ -65,7 +67,7 @@ export interface FetchOptions<T extends BodyInit | NonNullable<unknown> = NonNul
     /**
      * Customized function to stringify querystring parameters.
      */
-    paramsSerializer?: (params: Record<string, string | undefined> | URLSearchParams) => string;
+    paramsSerializer?: (params: QueryURLParamsInit) => string;
     /**
      * Abort signal.
      */

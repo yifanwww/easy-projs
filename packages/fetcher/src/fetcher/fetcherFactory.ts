@@ -2,7 +2,7 @@ import type { Result } from 'rustlike-result';
 import { Err, Ok } from 'rustlike-result';
 
 import type { FetchFactoryOptions, FetchOptions, FetchResponse } from './types.js';
-import { buildURL } from './url.js';
+import { buildQueryURL } from './url.js';
 
 function isPlainJsonObject(obj: unknown): boolean {
     return !!obj && typeof obj === 'object' && typeof (obj as { append?: unknown }).append !== 'function';
@@ -71,7 +71,7 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
         const getRealURL = () => {
             const formattedURL = url.startsWith('/') ? url : `/${url}`;
             const finalURL = baseURL ? baseURL + formattedURL : formattedURL;
-            return params ? buildURL(finalURL, params, paramsSerializer) : finalURL;
+            return params ? buildQueryURL(finalURL, params, paramsSerializer) : finalURL;
         };
 
         const getExtraHeaders = () => {
