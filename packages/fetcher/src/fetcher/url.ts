@@ -1,11 +1,16 @@
-export function appendURL(baseURL: string, url: string) {
-    const _url = url.startsWith('/') ? url : `/${url}`;
-    return baseURL + _url;
+type QueryParamValue = string | number | boolean;
+
+function convertQueryParamValue(pair: [string, QueryParamValue]): [string, string] {
+    return [pair[0], pair[1].toString()];
 }
 
-type URLParams = [string, string | undefined][] | Record<string, string | undefined> | string | URLSearchParams;
+export type QueryURLParamsInit =
+    | [string, QueryParamValue | undefined][]
+    | Record<string, QueryParamValue | undefined>
+    | string
+    | URLSearchParams;
 
-export function buildURL<Params extends URLParams>(
+export function buildQueryURL<Params extends QueryURLParamsInit>(
     url: string,
     params?: Params,
     paramsSerializer?: (params: Params) => string,
@@ -16,16 +21,20 @@ export function buildURL<Params extends URLParams>(
 
     const normalizeParams = (): [string, string][] | string | URLSearchParams => {
         if (Array.isArray(params)) {
-            return params.filter((pair): pair is [string, string] => pair[1] !== undefined);
+            return params
+                .filter((pair): pair is [string, QueryParamValue] => pair[1] !== undefined)
+                .map(convertQueryParamValue);
         }
 
         if (typeof params !== 'string' && !(params instanceof URLSearchParams)) {
-            return Object.entries(params).filter((pair): pair is [string, string] => pair[1] !== undefined);
+            return Object.entries(params)
+                .filter((pair): pair is [string, QueryParamValue] => pair[1] !== undefined)
+                .map(convertQueryParamValue);
         }
 
         return params;
     };
 
-    const query = paramsSerializer ? paramsSerializer(params) : new URLSearchParams(normalizeParams());
-    return url + divider + query.toString();
+    const query = paramsSerializer ? paramsSerializer(params) : new URLSearchParams(normalizeParams()).toString();
+    return query ? url + divider + query : url;
 }
