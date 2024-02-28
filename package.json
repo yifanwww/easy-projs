@@ -22,7 +22,7 @@
         "format:root": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "format:workspaces": "pnpm run --recursive --no-sort --stream format",
         "lint": "pnpm run --recursive --no-sort --stream lint",
-        "lint:fix": "pnpm run --recursive --no-sort --stream lint:fix",
+        "lint-fix": "pnpm run --recursive --no-sort --stream lint-fix",
         "pre-commit": "pnpm run --recursive --workspace-concurrency=1 pre-commit",
         "prepare": "husky",
         "test-full": "pnpm run --recursive --no-sort --stream test-full",

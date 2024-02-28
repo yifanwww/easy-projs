@@ -22,7 +22,7 @@
         "clean": "rimraf --glob coverage",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
-        "lint:fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
+        "lint-fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
         "pre-commit": "lint-staged",
         "test": "",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"

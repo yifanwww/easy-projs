@@ -28,7 +28,7 @@
         "dev": "pnpm run build:lib --watch",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
-        "lint:fix": "eslint . --fix",
+        "lint-fix": "eslint . --fix",
         "pre-commit": "lint-staged",
         "test": "unit-test webapp-cjs --watch",
         "test-full": "unit-test webapp-cjs --coverage",
