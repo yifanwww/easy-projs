@@ -16,7 +16,7 @@ export interface AppendableFieldProps<T> extends Pick<FormListProps, 'name' | 'r
         /**
          * Changes the position of add button.
          * The add button will be placed after [n-th] item if positive number or zero,
-         * otherwise it will be placed before [(length - abs(n)-th)] item.
+         * otherwise it will be placed before [(length - abs(n))-th] item.
          */
         position?: number;
         /**
@@ -74,7 +74,7 @@ export interface AppendableFieldProps<T> extends Pick<FormListProps, 'name' | 'r
  * Usage:
  * ```tsx
  * <Form.Item label={...}>
- *   <AppendableFormField name={...} component={...} />
+ *   <AppendableField name={...} component={...} />
  * </Form.Item>
  * ```
  */
@@ -108,7 +108,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         tooltip: addTooltip,
     } = addButtonOptions ?? {};
 
-    const reactLimit = values.length >= limit;
+    const reachLimit = values.length >= limit;
 
     const renderExtraItem = useCallback(
         (item: React.ReactNode) => {
@@ -155,7 +155,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
                 <Tooltip title={addTooltip}>
                     <Button
                         block={!disableButtonBlock}
-                        disabled={!!disabled || !!disableAdd || reactLimit}
+                        disabled={!!disabled || !!disableAdd || reachLimit}
                         icon={<PlusOutlined />}
                         onClick={() => {
                             if (onAdd) {
@@ -167,7 +167,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
                         type="dashed"
                         style={{ marginBottom: addButtonPosition !== undefined ? 8 : undefined }}
                     >
-                        {`${addText}${reactLimit ? ` (React limit ${limit})` : ''}`}
+                        {`${addText}${reachLimit ? ` (React limit ${limit})` : ''}`}
                     </Button>
                 </Tooltip>
             );
@@ -215,7 +215,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
             limit,
             onAdd,
             onRemoved,
-            reactLimit,
+            reachLimit,
             readonly,
             render,
             renderExtraItem,
