@@ -1,6 +1,8 @@
 # @easy-pkg/hooks
 
-React hooks for easy-projs.
+Some useful React hooks.
+
+Consider open-source React hooks library first, for example [`react-use`](https://github.com/streamich/react-use).
 
 ## Hooks List
 
@@ -15,15 +17,12 @@ React hooks for easy-projs.
 - `useInterval`
 - `useIsFocused`
 - `useIsHovered`
-- `useIsMounted`
-- `useMount`
 - `usePersistFn`
 - `usePrevious`
 - `useSingleInterval`
 - `useSingleTimeout`
 - `useTimeout`
 - `useToggle`
-- `useUnmount`
 - `useWhyDidYouUpdate`
 
 ## Usage

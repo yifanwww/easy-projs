@@ -1,5 +1,6 @@
-import { useIsMounted, usePersistFn } from '@easy-pkg/hooks';
+import { usePersistFn } from '@easy-pkg/hooks';
 import { useCallback, useRef, useState } from 'react';
+import { useMountedState } from 'react-use';
 
 import type { FetchOptions } from '../fetcher/index.js';
 
@@ -38,7 +39,7 @@ export function useRequest<Data = unknown, Payload extends BodyInit = BodyInit, 
 
     const latestRequestRef = useRef<number>();
 
-    const isMounted = useIsMounted();
+    const isMounted = useMountedState();
 
     const abortController = new AbortController();
 
