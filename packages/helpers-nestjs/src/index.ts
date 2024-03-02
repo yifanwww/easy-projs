@@ -1,3 +1,3 @@
-export * from './auth/password.js';
-export * from './logger/logger.module.js';
-export * from './logger/logger.service.js';
+export * from './auth/index.js';
+export * from './dto/index.js';
+export * from './logger/index.js';
