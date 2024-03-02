@@ -1,6 +1,14 @@
 import { describe, expect, it } from '@jest/globals';
 
-import { AssertionError, assert, assertIsBoolean, assertIsNever, assertIsNumber, assertIsString } from '../assert.js';
+import {
+    AssertionError,
+    assert,
+    assertIsBoolean,
+    assertIsDefined,
+    assertIsNever,
+    assertIsNumber,
+    assertIsString,
+} from '../assert.js';
 
 describe(`Test fn \`${assert.name}\``, () => {
     it('should assert an expression', () => {
@@ -49,5 +57,14 @@ describe(`Test fn \`${assertIsNever.name}\``, () => {
     it('should throw an error', () => {
         expect(() => assertIsNever('hello world' as never)).toThrow(AssertionError);
         expect(() => assertIsNever('hello world' as never)).toThrowErrorMatchingSnapshot();
+    });
+});
+
+describe(`Test fn \`${assertIsDefined.name}\``, () => {
+    it('should throw an error if assertion failes', () => {
+        expect(() => assertIsDefined(null)).toThrow(AssertionError);
+        expect(() => assertIsDefined(undefined)).toThrow(AssertionError);
+        expect(() => assertIsDefined(null)).toThrowErrorMatchingSnapshot();
+        expect(() => assertIsDefined(undefined)).toThrowErrorMatchingSnapshot();
     });
 });

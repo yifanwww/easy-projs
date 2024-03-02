@@ -27,3 +27,12 @@ export function assertIsBoolean(value: unknown, varName: string): asserts value 
 export function assertIsNever(value: never): never {
     throw new AssertionError(`"${String(value)}" should be "never" type.`);
 }
+
+/**
+ * The function for asserting whether a value is defined (!== `undefined` && !== `null`).
+ */
+export function assertIsDefined<T>(value: T): asserts value is NonNullable<T> {
+    if (value === undefined || value === null) {
+        throw new AssertionError(`Expected 'value' to be defined, but received \`${value as null | undefined}\``);
+    }
+}

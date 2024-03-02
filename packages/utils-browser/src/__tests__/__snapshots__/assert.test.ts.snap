@@ -4,6 +4,10 @@ exports[`Test fn \`assert\` should assert an expression 1`] = `"Assertion Error.
 
 exports[`Test fn \`assertIsBoolean\` should assert a value is boolean 1`] = `"num should be boolean."`;
 
+exports[`Test fn \`assertIsDefined\` should throw an error if assertion failes 1`] = `"Expected 'value' to be defined, but received \`null\`"`;
+
+exports[`Test fn \`assertIsDefined\` should throw an error if assertion failes 2`] = `"Expected 'value' to be defined, but received \`undefined\`"`;
+
 exports[`Test fn \`assertIsNever\` should throw an error 1`] = `""hello world" should be "never" type."`;
 
 exports[`Test fn \`assertIsNumber\` should assert a value is number 1`] = `"str should be number."`;
