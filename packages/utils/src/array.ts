@@ -1,5 +1,5 @@
 export class ArrayUtil {
-    static filterFalsy<T>(arr: (T | undefined | null | false)[]): T[] {
+    static filterFalsy<T>(arr: readonly (T | undefined | null | false)[]): T[] {
         return arr.filter((item): item is T => !!item);
     }
 
@@ -7,14 +7,14 @@ export class ArrayUtil {
      * The TypeScript official signature of Array.prototype.includes doesn't allow `undefined` or `null`,
      * this method does.
      */
-    static includes<T>(arr: T[], searchElement: T | undefined | null, fromIndex?: number): boolean {
+    static includes<T>(arr: readonly T[], searchElement: T | undefined | null, fromIndex?: number): boolean {
         return (arr as (T | undefined | null)[]).includes(searchElement, fromIndex);
     }
 
     /**
      * Checks if an array equals to another array.
      */
-    static equal<T extends unknown[]>(a: T, b: T): boolean {
+    static equal<T>(a: readonly T[], b: readonly T[]): boolean {
         if (a.length !== b.length) return false;
 
         const len = a.length;
@@ -25,7 +25,7 @@ export class ArrayUtil {
         return true;
     }
 
-    static startsWith<T>(origin: T[], test: T[]): boolean {
+    static startsWith<T>(origin: readonly T[], test: readonly T[]): boolean {
         if (test.length > origin.length) return false;
 
         const minLen = Math.min(origin.length, test.length);
