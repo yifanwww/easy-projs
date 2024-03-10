@@ -6,20 +6,15 @@ import { PaginationQueryDto } from '../pagination.dto.js';
 
 describe(`Test dto class \`${PaginationQueryDto.name}}\``, () => {
     it('should pass validation when request is valid', async () => {
-        {
-            const model = plainToInstance(PaginationQueryDto, {});
-            const errors = await new Validator().validate(model);
-            expect(errors).toHaveLength(0);
-        }
-
-        {
-            const model = plainToInstance(PaginationQueryDto, {
+        const model = plainToInstance(PaginationQueryDto, [
+            {},
+            {
                 page: '1',
                 page_size: '10',
-            });
-            const errors = await new Validator().validate(model);
-            expect(errors).toHaveLength(0);
-        }
+            },
+        ]);
+        const errors = await new Validator().validate(model);
+        expect(errors).toHaveLength(0);
     });
 
     function testFields(field: 'page' | 'page_size') {
