@@ -1,14 +1,15 @@
+import { IsUndefinable } from '@easy-pkg/helpers-class-validator';
 import { Type } from 'class-transformer';
-import { IsInt, IsOptional, IsPositive } from 'class-validator';
+import { IsInt, IsPositive } from 'class-validator';
 
 export class PaginationQueryDto {
-    @IsOptional()
+    @IsUndefinable()
     @Type(() => Number)
     @IsInt()
     @IsPositive()
     page?: number;
 
-    @IsOptional()
+    @IsUndefinable()
     @Type(() => Number)
     @IsInt()
     @IsPositive()
