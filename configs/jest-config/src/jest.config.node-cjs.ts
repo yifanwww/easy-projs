@@ -26,7 +26,7 @@ function getConfig(): Config {
             'src/**/*.ts',
             '!src/**/__mocks__/**/*.ts',
             '!src/**/__tests__/**/*.ts',
-            '!src/**/*.{spec.test}.ts',
+            '!src/**/*.{spec,test}.ts',
             '!src/**/*.d.ts',
             '!src/test.setup.ts',
         ],
