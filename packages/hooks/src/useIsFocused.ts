@@ -1,15 +1,16 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { RefObject } from 'react';
 
-import { useBoolean } from './useBoolean.js';
-
 export function useIsFocused<T extends RefObject<HTMLElement>>(ref: T, enabled = true): boolean {
-    const [isFocused, { setFalse: focusOut, setTrue: focusIn }] = useBoolean(false);
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleFocusIn = useCallback(() => setIsFocused(true), []);
+    const handleFocusOut = useCallback(() => setIsFocused(false), []);
 
     useEffect(() => {
         if (enabled && ref.current) {
-            ref.current.addEventListener('focusin', focusIn);
-            ref.current.addEventListener('focusout', focusOut);
+            ref.current.addEventListener('focusin', handleFocusIn);
+            ref.current.addEventListener('focusout', handleFocusOut);
         }
 
         // fixes react-hooks/exhaustive-deps warning about stale ref elements
@@ -17,11 +18,11 @@ export function useIsFocused<T extends RefObject<HTMLElement>>(ref: T, enabled =
 
         return () => {
             if (enabled && current) {
-                current.removeEventListener('focusin', focusIn);
-                current.removeEventListener('focusout', focusOut);
+                current.removeEventListener('focusin', handleFocusIn);
+                current.removeEventListener('focusout', handleFocusOut);
             }
         };
-    }, [enabled, focusIn, focusOut, ref]);
+    }, [enabled, handleFocusIn, handleFocusOut, ref]);
 
     return isFocused;
 }

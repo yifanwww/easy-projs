@@ -1,15 +1,16 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { RefObject } from 'react';
 
-import { useBoolean } from './useBoolean.js';
-
 export function useIsHovered<T extends RefObject<HTMLElement>>(ref: T, enabled = true): boolean {
-    const [isHovered, { setFalse: mouseOut, setTrue: mouseOver }] = useBoolean(false);
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseOver = useCallback(() => setIsHovered(true), []);
+    const handleMouseOut = useCallback(() => setIsHovered(false), []);
 
     useEffect(() => {
         if (enabled && ref.current) {
-            ref.current.addEventListener('mouseover', mouseOver);
-            ref.current.addEventListener('mouseout', mouseOut);
+            ref.current.addEventListener('mouseover', handleMouseOver);
+            ref.current.addEventListener('mouseout', handleMouseOut);
         }
 
         // fixes react-hooks/exhaustive-deps warning about stale ref elements
@@ -17,11 +18,11 @@ export function useIsHovered<T extends RefObject<HTMLElement>>(ref: T, enabled =
 
         return () => {
             if (enabled && current) {
-                current.removeEventListener('mouseover', mouseOver);
-                current.removeEventListener('mouseout', mouseOut);
+                current.removeEventListener('mouseover', handleMouseOver);
+                current.removeEventListener('mouseout', handleMouseOut);
             }
         };
-    }, [enabled, mouseOut, mouseOver, ref]);
+    }, [enabled, handleMouseOut, handleMouseOver, ref]);
 
     return isHovered;
 }

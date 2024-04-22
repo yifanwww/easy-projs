@@ -6,7 +6,6 @@ Consider open-source React hooks library first, for example [`react-use`](https:
 
 ## Hooks List
 
-- `useBoolean`
 - `useConst`
 - `useCountdown`
 - `useDelayFn`
