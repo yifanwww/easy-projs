@@ -12,9 +12,14 @@ describe(`Test fn \`${assertIsNever.name}\``, () => {
 
 describe(`Test fn \`${assertIsDefined.name}\``, () => {
     it('should throw an error if assertion failes', () => {
-        expect(() => assertIsDefined(null)).toThrow(AssertionError);
-        expect(() => assertIsDefined(undefined)).toThrow(AssertionError);
-        expect(() => assertIsDefined(null)).toThrowErrorMatchingSnapshot();
-        expect(() => assertIsDefined(undefined)).toThrowErrorMatchingSnapshot();
+        let variable: unknown;
+
+        variable = null;
+        expect(() => assertIsDefined(variable)).toThrow(AssertionError);
+        expect(() => assertIsDefined(variable)).toThrowErrorMatchingSnapshot();
+
+        variable = undefined;
+        expect(() => assertIsDefined(variable, 'variable')).toThrow(AssertionError);
+        expect(() => assertIsDefined(variable, 'variable')).toThrowErrorMatchingSnapshot();
     });
 });

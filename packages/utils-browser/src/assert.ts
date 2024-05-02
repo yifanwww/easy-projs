@@ -31,8 +31,8 @@ export function assertIsNever(value: never): never {
 /**
  * The function for asserting whether a value is defined (!== `undefined` && !== `null`).
  */
-export function assertIsDefined<T>(value: T): asserts value is NonNullable<T> {
+export function assertIsDefined<T>(value: T, varName = 'value'): asserts value is NonNullable<T> {
     if (value === undefined || value === null) {
-        throw new AssertionError(`Expected 'value' to be defined, but received \`${value as null | undefined}\``);
+        throw new AssertionError(`Expected '${varName}' to be defined, but received \`${value as null | undefined}\``);
     }
 }
