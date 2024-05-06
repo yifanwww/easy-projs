@@ -1,0 +1,58 @@
+{
+    "name": "@easy-proj/bundlesize-antd",
+    "version": "0.0.0",
+    "description": "A project detects bundle size of AntD.",
+    "homepage": "https://github.com/yifanwww/easy-projs#readme",
+    "license": "MIT",
+    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+    "bugs": {
+        "url": "https://github.com/yifanwww/easy-projs/issues"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yifanwww/easy-projs.git",
+        "directory": "projects/bundlesize-antd"
+    },
+    "browserslist": [
+        "> 0.5% and last 9 versions"
+    ],
+    "scripts": {
+        "build": "vite build",
+        "clean": "rimraf coverage dist node_modules/.vite",
+        "dev": "cross-env vite dev",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "lint": "eslint .",
+        "lint-fix": "eslint . --fix",
+        "pre-commit": "lint-staged",
+        "preview": "vite preview",
+        "typecheck": "pnpm run typecheck:vite && pnpm run typecheck:src",
+        "typecheck:src": "tsc --project tsconfig.json --noEmit --incremental false",
+        "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"
+    },
+    "dependencies": {
+        "antd": "^5.13.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@easy-config/eslint-config": "workspace:*",
+        "@easy-config/global-types": "workspace:*",
+        "@easy-config/tsconfigs": "workspace:*",
+        "@types/react": "^18.2.48",
+        "@types/react-dom": "^18.2.18",
+        "@vitejs/plugin-react": "^4.2.1",
+        "browserslist": "^4.22.2",
+        "cross-env": "^7.0.3",
+        "eslint": "^8.56.0",
+        "lint-staged": "^15.2.0",
+        "prettier": "3.2.5",
+        "rimraf": "^5.0.5",
+        "sass": "^1.69.7",
+        "typescript": "5.4.2",
+        "typescript-plugin-css-modules": "^5.0.2",
+        "vite": "^5.0.11",
+        "vite-plugin-checker": "^0.6.2",
+        "vite-tsconfig-paths": "^4.2.3"
+    }
+}

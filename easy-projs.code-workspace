@@ -169,6 +169,14 @@
         // projects
 
         {
+            "name": "@easy-proj/bundlesize-antd",
+            "path": "projects/bundlesize-antd"
+        },
+        {
+            "name": "@easy-proj/bundlesize-fluentui",
+            "path": "projects/bundlesize-fluentui"
+        },
+        {
             "name": "@easy-proj/misc",
             "path": "projects/misc"
         },
