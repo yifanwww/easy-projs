@@ -36,8 +36,8 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "dayjs": "^1.11.10",
-        "rustlike-result": "^0.3.2",
+        "dayjs": "^1.11.11",
+        "rustlike-result": "^0.4.3",
         "typeorm": "^0.3.20"
     },
     "devDependencies": {
@@ -47,10 +47,10 @@
         "@easy-config/tsconfigs": "workspace:*",
         "@jest/globals": "^29.7.0",
         "concurrently": "^8.2.2",
-        "eslint": "^8.56.0",
-        "lint-staged": "^15.2.0",
+        "eslint": "^8.57.0",
+        "lint-staged": "^15.2.2",
         "prettier": "3.2.5",
-        "rimraf": "^5.0.5",
-        "typescript": "5.4.2"
+        "rimraf": "^5.0.6",
+        "typescript": "5.4.5"
     }
 }

@@ -35,8 +35,8 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "antd": "^5.13.1",
-        "react": "^18.2.0"
+        "antd": "^5.17.0",
+        "react": "^18.3.1"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
@@ -44,12 +44,12 @@
         "@easy-config/jest-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
         "@jest/globals": "^29.7.0",
-        "@types/react": "^18.2.48",
+        "@types/react": "^18.3.2",
         "concurrently": "^8.2.2",
-        "eslint": "^8.56.0",
-        "lint-staged": "^15.2.0",
+        "eslint": "^8.57.0",
+        "lint-staged": "^15.2.2",
         "prettier": "3.2.5",
-        "rimraf": "^5.0.5",
-        "typescript": "5.4.2"
+        "rimraf": "^5.0.6",
+        "typescript": "5.4.5"
     }
 }

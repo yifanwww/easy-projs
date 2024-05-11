@@ -20,7 +20,7 @@
     "scripts": {
         "build": "vite build",
         "clean": "rimraf coverage dist node_modules/.vite",
-        "dev": "cross-env vite dev",
+        "dev": "vite dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint-fix": "eslint . --fix",
@@ -31,28 +31,25 @@
         "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"
     },
     "dependencies": {
-        "antd": "^5.13.1",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "antd": "^5.17.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@types/react": "^18.2.48",
-        "@types/react-dom": "^18.2.18",
+        "@types/react": "^18.3.2",
+        "@types/react-dom": "^18.3.0",
         "@vitejs/plugin-react": "^4.2.1",
-        "browserslist": "^4.22.2",
-        "cross-env": "^7.0.3",
-        "eslint": "^8.56.0",
-        "lint-staged": "^15.2.0",
+        "browserslist": "^4.23.0",
+        "eslint": "^8.57.0",
+        "lint-staged": "^15.2.2",
         "prettier": "3.2.5",
-        "rimraf": "^5.0.5",
-        "sass": "^1.69.7",
-        "typescript": "5.4.2",
-        "typescript-plugin-css-modules": "^5.0.2",
-        "vite": "^5.0.11",
-        "vite-plugin-checker": "^0.6.2",
-        "vite-tsconfig-paths": "^4.2.3"
+        "rimraf": "^5.0.6",
+        "sass": "^1.77.1",
+        "typescript": "5.4.5",
+        "typescript-plugin-css-modules": "^5.1.0",
+        "vite": "^5.2.11"
     }
 }

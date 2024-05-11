@@ -38,13 +38,13 @@
     "dependencies": {
         "@easy-pkg/helpers-class-validator": "workspace:*",
         "@easy-pkg/utils": "workspace:*",
-        "@nestjs/common": "^10.3.3",
+        "@nestjs/common": "^10.3.8",
         "chalk": "^5.3.0",
         "class-transformer": "^0.5.1",
         "class-validator": "^0.14.1",
-        "reflect-metadata": "^0.2.1",
-        "winston": "^3.11.0",
-        "winston-daily-rotate-file": "^4.7.1"
+        "reflect-metadata": "^0.2.2",
+        "winston": "^3.13.0",
+        "winston-daily-rotate-file": "^5.0.0"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
@@ -53,10 +53,10 @@
         "@easy-config/tsconfigs": "workspace:*",
         "@jest/globals": "^29.7.0",
         "concurrently": "^8.2.2",
-        "eslint": "^8.56.0",
-        "lint-staged": "^15.2.0",
+        "eslint": "^8.57.0",
+        "lint-staged": "^15.2.2",
         "prettier": "3.2.5",
-        "rimraf": "^5.0.5",
-        "typescript": "5.4.2"
+        "rimraf": "^5.0.6",
+        "typescript": "5.4.5"
     }
 }

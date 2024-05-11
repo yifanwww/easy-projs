@@ -35,25 +35,25 @@
     },
     "dependencies": {
         "@easy-pkg/types": "workspace:*",
-        "immer": "^10.0.3",
-        "react": "^18.2.0"
+        "immer": "^10.1.1",
+        "react": "^18.3.1"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@reduxjs/toolkit": "^2.0.1",
-        "@types/react": "^18.2.48",
+        "@reduxjs/toolkit": "^2.2.4",
+        "@types/react": "^18.3.2",
         "concurrently": "^8.2.2",
-        "eslint": "^8.56.0",
-        "lint-staged": "^15.2.0",
+        "eslint": "^8.57.0",
+        "lint-staged": "^15.2.2",
         "prettier": "3.2.5",
-        "react-redux": "^9.1.0",
-        "rimraf": "^5.0.5",
-        "typescript": "5.4.2"
+        "react-redux": "^9.1.2",
+        "rimraf": "^5.0.6",
+        "typescript": "5.4.5"
     },
     "peerDependencies": {
-        "@reduxjs/toolkit": "^2.0.1",
-        "react-redux": "^9.1.0"
+        "@reduxjs/toolkit": "^2.2.4",
+        "react-redux": "^9.1.2"
     }
 }
