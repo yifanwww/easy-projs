@@ -38,4 +38,13 @@ export class ArrayUtil {
 
         return true;
     }
+
+    static avoidEmpty<T>(arr: T[]): T[] | undefined {
+        return arr.length === 0 ? undefined : arr;
+    }
+
+    static toArray<T>(value?: T | T[]): T[] {
+        if (value === undefined) return [];
+        return Array.isArray(value) ? value : [value];
+    }
 }

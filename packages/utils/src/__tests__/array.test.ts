@@ -69,3 +69,22 @@ describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.startsWith.name}\``
         expect(ArrayUtil.startsWith(['hello', 'world'], ['hello', 'javascript'])).toBe(false);
     });
 });
+
+describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.avoidEmpty.name}\``, () => {
+    it('should avoid empty arrays', () => {
+        expect(ArrayUtil.avoidEmpty([])).toBeUndefined();
+        expect(ArrayUtil.avoidEmpty([1])).toStrictEqual([1]);
+    });
+});
+
+describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.toArray.name}\``, () => {
+    it('should avoid empty arrays', () => {
+        expect(ArrayUtil.toArray(undefined)).toStrictEqual([]);
+        expect(ArrayUtil.toArray(true)).toStrictEqual([true]);
+        expect(ArrayUtil.toArray(false)).toStrictEqual([false]);
+        expect(ArrayUtil.toArray('')).toStrictEqual(['']);
+        expect(ArrayUtil.toArray(0)).toStrictEqual([0]);
+        expect(ArrayUtil.toArray([])).toStrictEqual([]);
+        expect(ArrayUtil.toArray(['value'])).toStrictEqual(['value']);
+    });
+});
