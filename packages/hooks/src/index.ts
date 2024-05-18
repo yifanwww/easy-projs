@@ -1,3 +1,4 @@
+export * from './useCompositeRef.js';
 export * from './useConst.js';
 export * from './useCountdown.js';
 export * from './useDelayFn.js';

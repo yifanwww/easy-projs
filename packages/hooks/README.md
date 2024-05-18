@@ -4,26 +4,6 @@ Some useful React hooks.
 
 Consider open-source React hooks library first, for example [`react-use`](https://github.com/streamich/react-use).
 
-## Hooks List
-
-- `useConst`
-- `useCountdown`
-- `useDelayFn`
-- `useDialogBeforeUnload`
-- `useDoubleTrigger`
-- `useForceUpdate`
-- `useImmediateFocus`
-- `useInterval`
-- `useIsFocused`
-- `useIsHovered`
-- `usePersistFn`
-- `usePrevious`
-- `useSingleInterval`
-- `useSingleTimeout`
-- `useTimeout`
-- `useToggle`
-- `useWhyDidYouUpdate`
-
 ## Usage
 
 It's very easy to use these custom React hooks.
