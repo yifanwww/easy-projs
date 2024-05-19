@@ -1,9 +1,10 @@
-import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { describe, expect, it } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
 import { createRef } from 'react';
 
 import { useCompositeRef } from '../useCompositeRef.js';
+
+import { validateHookValueNotChanged } from './helpers.js';
 
 describe(`Test react hook \`${useCompositeRef.name}\``, () => {
     {

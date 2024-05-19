@@ -1,9 +1,10 @@
 import { noop } from '@easy-pkg/utils';
-import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
 
 import { useDelayFn } from '../useDelayFn.js';
+
+import { validateHookValueNotChanged } from './helpers.js';
 
 describe(`Test react hook \`${useDelayFn.name}\``, () => {
     validateHookValueNotChanged('should return the same function', () => [useDelayFn(noop)]);

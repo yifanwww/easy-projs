@@ -1,12 +1,13 @@
 import type { Nullable, Optional } from '@easy-pkg/types/utils';
 import { noop } from '@easy-pkg/utils';
 import { assert } from '@easy-pkg/utils-browser';
-import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { describe, expect, it } from '@jest/globals';
 import { act, render, renderHook } from '@testing-library/react';
 import { useState } from 'react';
 
 import { usePersistFn } from '../usePersistFn.js';
+
+import { validateHookValueNotChanged } from './helpers.js';
 
 describe(`Test react hook \`${usePersistFn.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);

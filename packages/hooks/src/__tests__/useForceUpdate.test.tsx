@@ -1,9 +1,10 @@
-import { validateHookValueNotChanged } from '@easy-pkg/utils-test';
 import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { useEffect } from 'react';
 
 import { useForceUpdate } from '../useForceUpdate.js';
+
+import { validateHookValueNotChanged } from './helpers.js';
 
 describe(`Test react hook \`${useForceUpdate.name}\``, () => {
     validateHookValueNotChanged('should return the same callback each time', () => [useForceUpdate()]);
