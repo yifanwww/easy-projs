@@ -5,7 +5,7 @@ import { AssertionError } from 'node:assert';
  */
 export function assertIsNever(value: never): never {
     throw new AssertionError({
-        message: `"${String(value)}" should be "never" type.`,
+        message: `"${String(value)}" should be \`never\` type`,
         actual: value,
     });
 }
@@ -16,7 +16,7 @@ export function assertIsNever(value: never): never {
 export function assertIsDefined<T>(value: T, varName = 'value'): asserts value is NonNullable<T> {
     if (value === undefined || value === null) {
         throw new AssertionError({
-            message: `Expected '${varName}' to be defined, but received \`${value as null | undefined}\``,
+            message: `Expected \`${varName}\` to be defined, but received \`${value as null | undefined}\``,
             actual: value,
         });
     }

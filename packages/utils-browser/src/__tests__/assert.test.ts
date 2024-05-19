@@ -12,51 +12,38 @@ import {
 
 describe(`Test fn \`${assert.name}\``, () => {
     it('should assert an expression', () => {
-        const str = 'hello world';
-
-        expect(() => assert(typeof str === 'string')).not.toThrow();
-        expect(() => assert(typeof str === 'number')).toThrow(AssertionError);
-        expect(() => assert(typeof str === 'number')).toThrowErrorMatchingSnapshot();
+        expect(() => assert(true)).not.toThrow();
+        expect(() => assert(false)).toThrow(new AssertionError('Assertion Error'));
+        expect(() => assert(false, 'custom error message')).toThrow(new AssertionError('custom error message'));
     });
 });
 
 describe(`Test fn \`${assertIsBoolean.name}\``, () => {
     it('should assert a value is boolean', () => {
-        const bool = true;
-        const num = 0;
-
-        expect(() => assertIsBoolean(bool, 'bool')).not.toThrow();
-        expect(() => assertIsBoolean(num, 'num')).toThrow(AssertionError);
-        expect(() => assertIsBoolean(num, 'num')).toThrowErrorMatchingSnapshot();
+        expect(() => assertIsBoolean(true, 'bool')).not.toThrow();
+        expect(() => assertIsBoolean(0, 'bool')).toThrow(new AssertionError('`bool` should be boolean'));
     });
 });
 
 describe(`Test fn \`${assertIsNumber.name}\``, () => {
     it('should assert a value is number', () => {
-        const num = 0;
-        const str = 'hello world';
-
-        expect(() => assertIsNumber(num, 'num')).not.toThrow();
-        expect(() => assertIsNumber(str, 'str')).toThrow(AssertionError);
-        expect(() => assertIsNumber(str, 'str')).toThrowErrorMatchingSnapshot();
+        expect(() => assertIsNumber(0, 'num')).not.toThrow();
+        expect(() => assertIsNumber('hello world', 'num')).toThrow(new AssertionError('`num` should be number'));
     });
 });
 
 describe(`Test fn \`${assertIsString.name}\``, () => {
     it('should assert a value is string', () => {
-        const str = 'hello world';
-        const num = 0;
-
-        expect(() => assertIsString(str, 'str')).not.toThrow();
-        expect(() => assertIsString(num, 'num')).toThrow(AssertionError);
-        expect(() => assertIsString(num, 'num')).toThrowErrorMatchingSnapshot();
+        expect(() => assertIsString('hello world', 'str')).not.toThrow();
+        expect(() => assertIsString(0, 'str')).toThrow(new AssertionError('`str` should be string'));
     });
 });
 
 describe(`Test fn \`${assertIsNever.name}\``, () => {
     it('should throw an error', () => {
-        expect(() => assertIsNever('hello world' as never)).toThrow(AssertionError);
-        expect(() => assertIsNever('hello world' as never)).toThrowErrorMatchingSnapshot();
+        expect(() => assertIsNever('hello world' as never)).toThrow(
+            new AssertionError('"hello world" should be `never` type'),
+        );
     });
 });
 
@@ -65,11 +52,13 @@ describe(`Test fn \`${assertIsDefined.name}\``, () => {
         let variable: unknown;
 
         variable = null;
-        expect(() => assertIsDefined(variable)).toThrow(AssertionError);
-        expect(() => assertIsDefined(variable)).toThrowErrorMatchingSnapshot();
+        expect(() => assertIsDefined(variable)).toThrow(
+            new AssertionError('Expected `value` to be defined, but received `null`'),
+        );
 
         variable = undefined;
-        expect(() => assertIsDefined(variable, 'variable')).toThrow(AssertionError);
-        expect(() => assertIsDefined(variable, 'variable')).toThrowErrorMatchingSnapshot();
+        expect(() => assertIsDefined(variable, 'variable')).toThrow(
+            new AssertionError('Expected `variable` to be defined, but received `undefined`'),
+        );
     });
 });

@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Test fn \`assertIsDefined\` should throw an error if assertion failes 1`] = `"Expected 'value' to be defined, but received \`null\`"`;
-
-exports[`Test fn \`assertIsDefined\` should throw an error if assertion failes 2`] = `"Expected 'variable' to be defined, but received \`undefined\`"`;
-
-exports[`Test fn \`assertIsNever\` should throw an error 1`] = `""hello world" should be "never" type."`;
