@@ -1,4 +1,5 @@
-// reference: https://github.com/microsoft/fluentui/blob/%40fluentui/react-components_v9.51.1/packages/react-hooks/src/useMergedRefs.ts#L15
+// reference:
+// - https://github.com/microsoft/fluentui/blob/%40fluentui/react-hooks_v8.8.1/packages/react-hooks/src/useMergedRefs.ts
 
 import { useCallback } from 'react';
 

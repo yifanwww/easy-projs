@@ -1,3 +1,7 @@
+// reference:
+// - https://github.com/alibaba/hooks/blob/v3.7.11/packages/hooks/src/useMemoizedFn/index.ts
+// - https://github.com/microsoft/fluentui/blob/%40fluentui/react-hooks_v8.8.1/packages/react-hooks/src/useEventCallback.ts
+
 import type { UnknownFn } from '@easy-pkg/types/fn';
 import { useMemo, useRef } from 'react';
 
