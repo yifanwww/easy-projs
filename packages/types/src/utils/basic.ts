@@ -47,10 +47,10 @@ export type Contain<T, U> = keyof U extends keyof T ? T : never;
 export type Contained<T, U> = keyof T extends keyof U ? T : never;
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type ExcludeFunction<T> = Exclude<T, Function>;
+export type ExcludeFn<T> = Exclude<T, Function>;
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type ExtractFunction<T> = Extract<T, Function>;
+export type ExtractFn<T> = Extract<T, Function>;
 
 /**
  * Exclude from T those types that start with underscore.
