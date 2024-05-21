@@ -38,7 +38,6 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint-fix": "eslint . --fix",
-        "pre-commit": "lint-staged",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
@@ -47,7 +46,6 @@
         "@easy-config/tsconfigs": "workspace:*",
         "concurrently": "^8.2.2",
         "eslint": "^8.57.0",
-        "lint-staged": "^15.2.2",
         "prettier": "3.2.5",
         "rimraf": "^5.0.6",
         "typescript": "5.4.5"

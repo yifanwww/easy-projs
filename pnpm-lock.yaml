@@ -11,6 +11,9 @@ importers:
       husky:
         specifier: ^9.0.11
         version: 9.0.11
+      lint-staged:
+        specifier: ^15.2.2
+        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -75,9 +78,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -130,9 +130,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -216,9 +213,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -262,9 +256,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -305,9 +296,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -369,9 +357,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -421,9 +406,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -467,9 +449,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -516,9 +495,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -574,9 +550,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -619,9 +592,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -674,9 +644,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -713,9 +680,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -753,9 +717,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -792,9 +753,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -834,9 +792,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -883,9 +838,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -935,9 +887,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -993,9 +942,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -1035,9 +981,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -1081,9 +1024,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -1115,9 +1055,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5
@@ -1206,9 +1143,6 @@ importers:
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
-      lint-staged:
-        specifier: ^15.2.2
-        version: 15.2.2
       prettier:
         specifier: 3.2.5
         version: 3.2.5

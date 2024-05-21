@@ -24,7 +24,6 @@
         "lint": "eslint .",
         "lint-fix": "eslint . --fix",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
-        "pre-commit": "lint-staged",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
@@ -34,7 +33,6 @@
         "@types/node": "^20.12.11",
         "concurrently": "^8.2.2",
         "eslint": "^8.57.0",
-        "lint-staged": "^15.2.2",
         "prettier": "3.2.5",
         "react": "^18.3.1",
         "react-redux": "^9.1.2",
