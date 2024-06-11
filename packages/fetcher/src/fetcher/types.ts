@@ -16,40 +16,32 @@ type Method =
     | 'DELETE'
     | 'HEAD';
 
-type FetchResponseType = 'arrayBuffer' | 'blob' | 'formData' | 'json' | 'text';
+type FetchResponseType = 'arrayBuffer' | 'blob' | 'formData' | 'json' | 'stream' | 'text';
 
 export interface FetchFactoryOptions {
-    /**
-     * Authorization header value to send with the request.
-     */
-    auth?: string;
     /**
      * A base URL from which to resolve all URLs.
      */
     baseURL?: string;
     /**
+     * Default is `same-origin`.
+     */
+    credentials?: RequestCredentials;
+    /**
      * Request headers.
      */
     headers?: Record<string, string>;
     /**
-     * Customized function to stringify querystring parameters.
-     */
-    paramsSerializer?: (params: QueryURLParamsInit) => string;
-    /**
      * Customized function to handle status code. By default 200-399 is success.
      */
     validateStatus?: (status: number) => boolean;
-    /**
-     * Send the request with credentials like cookies.
-     */
-    withCredentials?: boolean;
 }
 
-export interface FetchOptions<T extends BodyInit | NonNullable<unknown> = NonNullable<unknown>> {
+export interface FetchOptions<T extends BodyInit | object = object> {
     /**
-     * Authorization header value to send with the request.
+     * Default is `same-origin`.
      */
-    auth?: string;
+    credentials?: RequestCredentials;
     /**
      * Request headers.
      */
@@ -65,10 +57,6 @@ export interface FetchOptions<T extends BodyInit | NonNullable<unknown> = NonNul
      */
     responseType?: FetchResponseType;
     /**
-     * Customized function to stringify querystring parameters.
-     */
-    paramsSerializer?: (params: QueryURLParamsInit) => string;
-    /**
      * Abort signal.
      */
     signal?: AbortSignal;
@@ -76,10 +64,6 @@ export interface FetchOptions<T extends BodyInit | NonNullable<unknown> = NonNul
      * Customized function to handle status code. By default 200-399 is success.
      */
     validateStatus?: (status: number) => boolean;
-    /**
-     * Send the request with credentials like cookies.
-     */
-    withCredentials?: boolean;
 }
 
 export interface FetchResponse<Data = unknown> {

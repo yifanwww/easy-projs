@@ -10,11 +10,7 @@ export type QueryURLParamsInit =
     | string
     | URLSearchParams;
 
-export function buildQueryURL<Params extends QueryURLParamsInit>(
-    url: string,
-    params?: Params,
-    paramsSerializer?: (params: Params) => string,
-) {
+export function buildQueryURL<Params extends QueryURLParamsInit>(url: string, params?: Params) {
     if (!params) return url;
 
     const divider = ~url.indexOf('?') ? '&' : '?';
@@ -35,6 +31,6 @@ export function buildQueryURL<Params extends QueryURLParamsInit>(
         return params;
     };
 
-    const query = paramsSerializer ? paramsSerializer(params) : new URLSearchParams(normalizeParams()).toString();
+    const query = new URLSearchParams(normalizeParams()).toString();
     return query ? url + divider + query : url;
 }
