@@ -13,13 +13,13 @@ interface State<Data, Err> {
     loading: boolean;
 }
 
-export interface RequestConfiguration<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown> {
+export interface RequestConfiguration<Data = unknown, Payload extends BodyInit | object = object, Err = unknown> {
     onSuccess?: (data: Data, fetchArgs: Partial<FetchOptions<Payload>> | undefined) => void;
     onError?: (error: Err, fetchArgs: Partial<FetchOptions<Payload>> | undefined) => void;
     shouldThrowOnError?: boolean;
 }
 
-export interface RequestResponse<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown> {
+export interface RequestResponse<Data = unknown, Payload extends BodyInit | object = object, Err = unknown> {
     data: Data | undefined;
     error: Err | undefined;
     loading: boolean;
@@ -29,7 +29,7 @@ export interface RequestResponse<Data = unknown, Payload extends BodyInit = Body
     reset: () => void;
 }
 
-export function useRequest<Data = unknown, Payload extends BodyInit = BodyInit, Err = unknown>(
+export function useRequest<Data = unknown, Payload extends BodyInit | object = object, Err = unknown>(
     fetcher: HookFetcher<Data>,
     config?: RequestConfiguration<Data, Payload, Err>,
 ): RequestResponse<Data, Payload, Err> {
