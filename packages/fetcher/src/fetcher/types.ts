@@ -45,7 +45,7 @@ export interface FetchFactoryOptions {
     withCredentials?: boolean;
 }
 
-export interface FetchOptions<T extends BodyInit | NonNullable<unknown> = NonNullable<unknown>> {
+export interface FetchOptions<T extends BodyInit | object = object> {
     /**
      * Authorization header value to send with the request.
      */

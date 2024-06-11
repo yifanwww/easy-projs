@@ -9,7 +9,7 @@ function isPlainJsonObject(obj: unknown): boolean {
 }
 
 export interface Fetcher {
-    <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    <Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         options?: FetchOptions<Req>,
     ): Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
@@ -29,25 +29,25 @@ export interface Fetcher {
         options?: Omit<FetchOptions, 'data' | 'method'>,
     ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
 
-    post: <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    post: <Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         data?: Req,
         config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
     ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
 
-    delete: <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    delete: <Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         data?: Req,
         config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
     ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
 
-    put: <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    put: <Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         data?: Req,
         config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
     ) => Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>>;
 
-    patch: <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    patch: <Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         data?: Req,
         config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
@@ -55,7 +55,7 @@ export interface Fetcher {
 }
 
 export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
-    async function fetcher<Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    async function fetcher<Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         options?: FetchOptions<Req>,
     ): Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>> {
@@ -132,25 +132,25 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
     fetcher.options = <Resp, ErrResp = Resp>(url: string, options?: Omit<FetchOptions, 'data' | 'method'>) =>
         fetcher<Resp, ErrResp>(url, { ...options, method: 'options' });
 
-    fetcher.post = <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    fetcher.post = <Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         data?: Req,
         config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
     ) => fetcher<Resp, ErrResp, Req>(url, { ...config, data, method: 'post' });
 
-    fetcher.delete = <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    fetcher.delete = <Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         data?: Req,
         config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
     ) => fetcher<Resp, ErrResp, Req>(url, { ...config, data, method: 'delete' });
 
-    fetcher.put = <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    fetcher.put = <Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         data?: Req,
         config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
     ) => fetcher<Resp, ErrResp, Req>(url, { ...config, data, method: 'put' });
 
-    fetcher.patch = <Resp, ErrResp = Resp, Req extends BodyInit | NonNullable<unknown> = NonNullable<unknown>>(
+    fetcher.patch = <Resp, ErrResp = Resp, Req extends BodyInit | object = object>(
         url: string,
         data?: Req,
         config?: Omit<FetchOptions<Req>, 'data' | 'method'>,
