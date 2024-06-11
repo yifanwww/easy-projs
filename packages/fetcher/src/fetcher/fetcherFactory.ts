@@ -74,7 +74,6 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
         const paramsSerializer = options?.paramsSerializer ?? factoryOptions?.paramsSerializer;
         const payload = options?.data;
         const validateStatus = options?.validateStatus ?? factoryOptions?.validateStatus;
-        const withCredentials = options?.withCredentials ?? factoryOptions?.withCredentials;
 
         const getRealURL = () => {
             const formattedURL = url.startsWith('/') ? url : `/${url}`;
@@ -102,7 +101,9 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
                 ...extraHeaders,
                 ...Object.fromEntries(Object.entries(headers).map(([key, value]) => [key.toLowerCase(), value])),
             },
-            credentials: withCredentials ? 'include' : 'same-origin',
+            // Old browsers use `omit` as the default value, we need to manually set the default value to `same-origin`
+            // https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials#browser_compatibility
+            credentials: options?.credentials ?? factoryOptions?.credentials ?? 'same-origin',
             signal,
         });
 

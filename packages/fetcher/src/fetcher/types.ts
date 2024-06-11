@@ -24,6 +24,10 @@ export interface FetchFactoryOptions {
      */
     baseURL?: string;
     /**
+     * Default is `same-origin`.
+     */
+    credentials?: RequestCredentials;
+    /**
      * Request headers.
      */
     headers?: Record<string, string>;
@@ -35,13 +39,13 @@ export interface FetchFactoryOptions {
      * Customized function to handle status code. By default 200-399 is success.
      */
     validateStatus?: (status: number) => boolean;
-    /**
-     * Send the request with credentials like cookies.
-     */
-    withCredentials?: boolean;
 }
 
 export interface FetchOptions<T extends BodyInit | object = object> {
+    /**
+     * Default is `same-origin`.
+     */
+    credentials?: RequestCredentials;
     /**
      * Request headers.
      */
@@ -68,10 +72,6 @@ export interface FetchOptions<T extends BodyInit | object = object> {
      * Customized function to handle status code. By default 200-399 is success.
      */
     validateStatus?: (status: number) => boolean;
-    /**
-     * Send the request with credentials like cookies.
-     */
-    withCredentials?: boolean;
 }
 
 export interface FetchResponse<Data = unknown> {
