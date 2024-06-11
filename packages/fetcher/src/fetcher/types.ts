@@ -32,10 +32,6 @@ export interface FetchFactoryOptions {
      */
     headers?: Record<string, string>;
     /**
-     * Customized function to stringify querystring parameters.
-     */
-    paramsSerializer?: (params: QueryURLParamsInit) => string;
-    /**
      * Customized function to handle status code. By default 200-399 is success.
      */
     validateStatus?: (status: number) => boolean;
@@ -60,10 +56,6 @@ export interface FetchOptions<T extends BodyInit | object = object> {
      * An encoding to use for the response. Default is `json`.
      */
     responseType?: FetchResponseType;
-    /**
-     * Customized function to stringify querystring parameters.
-     */
-    paramsSerializer?: (params: QueryURLParamsInit) => string;
     /**
      * Abort signal.
      */

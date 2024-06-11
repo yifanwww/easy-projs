@@ -71,14 +71,13 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
         const { baseURL } = factoryOptions ?? {};
         const { method, params, responseType = 'json', signal } = options ?? {};
         const headers = { ...options?.headers, ...factoryOptions?.headers };
-        const paramsSerializer = options?.paramsSerializer ?? factoryOptions?.paramsSerializer;
         const payload = options?.data;
         const validateStatus = options?.validateStatus ?? factoryOptions?.validateStatus;
 
-        const getRealURL = () => {
-            const formattedURL = url.startsWith('/') ? url : `/${url}`;
-            const finalURL = baseURL ? baseURL + formattedURL : formattedURL;
-            return params ? buildQueryURL(finalURL, params, paramsSerializer) : finalURL;
+        const processUrl = () => {
+            const formattedUrl = url.startsWith('/') ? url : `/${url}`;
+            const mergedUrl = baseURL ? baseURL + formattedUrl : formattedUrl;
+            return params ? buildQueryURL(mergedUrl, params) : mergedUrl;
         };
 
         const getExtraHeaders = () => {
@@ -91,10 +90,10 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
             return extraHeaders;
         };
 
-        const realURL = getRealURL();
+        const processedUrl = processUrl();
         const extraHeaders = getExtraHeaders();
 
-        const resp = await fetch(realURL, {
+        const resp = await fetch(processedUrl, {
             method,
             body: isUnstringifiable(payload) ? payload : JSON.stringify(payload),
             headers: {
