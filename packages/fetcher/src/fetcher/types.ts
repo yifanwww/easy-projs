@@ -16,7 +16,7 @@ type Method =
     | 'DELETE'
     | 'HEAD';
 
-type FetchResponseType = 'arrayBuffer' | 'blob' | 'formData' | 'json' | 'text';
+type FetchResponseType = 'arrayBuffer' | 'blob' | 'formData' | 'json' | 'stream' | 'text';
 
 export interface FetchFactoryOptions {
     /**

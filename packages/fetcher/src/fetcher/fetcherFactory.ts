@@ -112,7 +112,7 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
 
         const ok = validateStatus ? validateStatus(resp.status) : resp.ok;
 
-        const respData = (await resp[responseType]()) as Resp;
+        const respData = responseType === 'stream' ? (resp.body as Resp) : ((await resp[responseType]()) as Resp);
         const response: FetchResponse<Resp | ErrResp> = {
             data: respData,
             headers: resp.headers,
