@@ -20,10 +20,6 @@ type FetchResponseType = 'arrayBuffer' | 'blob' | 'formData' | 'json' | 'stream'
 
 export interface FetchFactoryOptions {
     /**
-     * Authorization header value to send with the request.
-     */
-    auth?: string;
-    /**
      * A base URL from which to resolve all URLs.
      */
     baseURL?: string;
@@ -46,10 +42,6 @@ export interface FetchFactoryOptions {
 }
 
 export interface FetchOptions<T extends BodyInit | object = object> {
-    /**
-     * Authorization header value to send with the request.
-     */
-    auth?: string;
     /**
      * Request headers.
      */

@@ -70,7 +70,6 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
     ): Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>> {
         const { baseURL } = factoryOptions ?? {};
         const { method, params, responseType = 'json', signal } = options ?? {};
-        const auth = options?.auth ?? factoryOptions?.auth;
         const headers = { ...options?.headers, ...factoryOptions?.headers };
         const paramsSerializer = options?.paramsSerializer ?? factoryOptions?.paramsSerializer;
         const payload = options?.data;
@@ -88,9 +87,6 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
 
             if (!isUnstringifiable(payload)) {
                 extraHeaders['content-type'] = 'application/json; charset=utf-8';
-            }
-            if (auth) {
-                extraHeaders.authorization = auth;
             }
 
             return extraHeaders;
