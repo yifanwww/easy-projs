@@ -69,7 +69,7 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
         options?: FetchOptions<Req>,
     ): Promise<Result<FetchResponse<Resp>, FetchResponse<ErrResp>>> {
         const { baseURL } = factoryOptions ?? {};
-        const { method, params, responseType, signal } = options ?? {};
+        const { method, params, responseType = 'json', signal } = options ?? {};
         const auth = options?.auth ?? factoryOptions?.auth;
         const headers = { ...options?.headers, ...factoryOptions?.headers };
         const paramsSerializer = options?.paramsSerializer ?? factoryOptions?.paramsSerializer;
@@ -112,7 +112,7 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
 
         const ok = validateStatus ? validateStatus(resp.status) : resp.ok;
 
-        const respData = (await resp[responseType ?? 'json']()) as Resp;
+        const respData = (await resp[responseType]()) as Resp;
         const response: FetchResponse<Resp | ErrResp> = {
             data: respData,
             headers: resp.headers,
@@ -123,12 +123,6 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
             url: resp.url,
         };
 
-        try {
-            // response.data will be the unparsed value if it fails
-            response.data = JSON.parse(respData as string) as Resp | ErrResp;
-        } catch {
-            // do nothing
-        }
         return ok ? Ok(response as FetchResponse<Resp>) : Err(response as FetchResponse<ErrResp>);
     }
 
