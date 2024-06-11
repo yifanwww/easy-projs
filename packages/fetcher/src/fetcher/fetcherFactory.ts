@@ -4,8 +4,17 @@ import { Err, Ok } from 'rustlike-result';
 import type { FetchFactoryOptions, FetchOptions, FetchResponse } from './types.js';
 import { buildQueryURL } from './url.js';
 
-function isPlainJsonObject(obj: unknown): boolean {
-    return !!obj && typeof obj === 'object' && typeof (obj as { append?: unknown }).append !== 'function';
+function isUnstringifiable(value: BodyInit | object | undefined): value is BodyInit | undefined {
+    return (
+        !value ||
+        typeof value === 'string' ||
+        value instanceof ArrayBuffer ||
+        ArrayBuffer.isView(value) ||
+        value instanceof Blob ||
+        value instanceof FormData ||
+        value instanceof ReadableStream ||
+        value instanceof URLSearchParams
+    );
 }
 
 export interface Fetcher {
@@ -77,7 +86,7 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
         const getExtraHeaders = () => {
             const extraHeaders: Record<string, string> = {};
 
-            if (isPlainJsonObject(payload)) {
+            if (!isUnstringifiable(payload)) {
                 extraHeaders['content-type'] = 'application/json; charset=utf-8';
             }
             if (auth) {
@@ -92,7 +101,7 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
 
         const resp = await fetch(realURL, {
             method,
-            body: isPlainJsonObject(payload) ? JSON.stringify(payload) : (payload as unknown as string),
+            body: isUnstringifiable(payload) ? payload : JSON.stringify(payload),
             headers: {
                 ...extraHeaders,
                 ...Object.fromEntries(Object.entries(headers).map(([key, value]) => [key.toLowerCase(), value])),
