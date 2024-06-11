@@ -1,4 +1,4 @@
-export class UspUtil {
+export class URLSearchParamsUtil {
     private static _appendMulti(usp: URLSearchParams, name: string, values: string[]) {
         for (const item of values) {
             usp.append(name, item);
@@ -10,18 +10,18 @@ export class UspUtil {
             usp.set(name, values[0]);
         } else if (values.length > 1) {
             usp.delete(name);
-            UspUtil._appendMulti(usp, name, values);
+            URLSearchParamsUtil._appendMulti(usp, name, values);
         }
     }
 
     static append(usp: URLSearchParams, name: string, value?: string | string[]) {
         if (value === undefined) return;
-        UspUtil._appendMulti(usp, name, typeof value === 'string' ? [value] : value);
+        URLSearchParamsUtil._appendMulti(usp, name, typeof value === 'string' ? [value] : value);
     }
 
     static set(usp: URLSearchParams, name: string, value?: string | string[]) {
         if (value === undefined) return;
-        UspUtil._set(usp, name, typeof value === 'string' ? [value] : value);
+        URLSearchParamsUtil._set(usp, name, typeof value === 'string' ? [value] : value);
     }
 
     static setOrDelete(usp: URLSearchParams, name: string, value?: string | string[]) {
@@ -29,7 +29,7 @@ export class UspUtil {
         if (values === undefined || values.length === 0) {
             usp.delete(name);
         } else {
-            UspUtil._set(usp, name, values);
+            URLSearchParamsUtil._set(usp, name, values);
         }
     }
 }

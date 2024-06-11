@@ -1,75 +1,75 @@
 import { describe, expect, it } from '@jest/globals';
 
-import { UspUtil } from '../usp.js';
+import { URLSearchParamsUtil } from '../URLSearchParams.js';
 
-describe(`Test static method \`${UspUtil.name}.${UspUtil['_appendMulti'].name}\``, () => {
+describe(`Test static method \`${URLSearchParamsUtil.name}.${URLSearchParamsUtil['_appendMulti'].name}\``, () => {
     it('should be able to append multi values', () => {
         const usp = new URLSearchParams();
-        UspUtil['_appendMulti'](usp, 'key', ['foo']);
+        URLSearchParamsUtil['_appendMulti'](usp, 'key', ['foo']);
         expect(usp.getAll('key')).toStrictEqual(['foo']);
-        UspUtil['_appendMulti'](usp, 'key', []);
+        URLSearchParamsUtil['_appendMulti'](usp, 'key', []);
         expect(usp.getAll('key')).toStrictEqual(['foo']);
-        UspUtil['_appendMulti'](usp, 'key', ['bar1', 'bar2']);
+        URLSearchParamsUtil['_appendMulti'](usp, 'key', ['bar1', 'bar2']);
         expect(usp.getAll('key')).toStrictEqual(['foo', 'bar1', 'bar2']);
     });
 });
 
-describe(`Test static method \`${UspUtil.name}.${UspUtil['_set'].name}\``, () => {
+describe(`Test static method \`${URLSearchParamsUtil.name}.${URLSearchParamsUtil['_set'].name}\``, () => {
     it('should be able to set multi values', () => {
         const usp = new URLSearchParams();
-        UspUtil['_set'](usp, 'key', ['foo']);
+        URLSearchParamsUtil['_set'](usp, 'key', ['foo']);
         expect(usp.getAll('key')).toStrictEqual(['foo']);
-        UspUtil['_set'](usp, 'key', []);
+        URLSearchParamsUtil['_set'](usp, 'key', []);
         expect(usp.getAll('key')).toStrictEqual(['foo']);
-        UspUtil['_set'](usp, 'key', ['bar1', 'bar2']);
+        URLSearchParamsUtil['_set'](usp, 'key', ['bar1', 'bar2']);
         expect(usp.getAll('key')).toStrictEqual(['bar1', 'bar2']);
     });
 });
 
-describe(`Test static method \`${UspUtil.name}.${UspUtil.append.name}\``, () => {
+describe(`Test static method \`${URLSearchParamsUtil.name}.${URLSearchParamsUtil.append.name}\``, () => {
     it('should be able to append multi values', () => {
         const usp = new URLSearchParams();
-        UspUtil.append(usp, 'key', 'foo');
+        URLSearchParamsUtil.append(usp, 'key', 'foo');
         expect(usp.getAll('key')).toStrictEqual(['foo']);
-        UspUtil.append(usp, 'key', ['bar']);
+        URLSearchParamsUtil.append(usp, 'key', ['bar']);
         expect(usp.getAll('key')).toStrictEqual(['foo', 'bar']);
-        UspUtil.append(usp, 'key');
+        URLSearchParamsUtil.append(usp, 'key');
         expect(usp.getAll('key')).toStrictEqual(['foo', 'bar']);
-        UspUtil.append(usp, 'key', []);
+        URLSearchParamsUtil.append(usp, 'key', []);
         expect(usp.getAll('key')).toStrictEqual(['foo', 'bar']);
-        UspUtil.append(usp, 'key', ['bar1', 'bar2']);
+        URLSearchParamsUtil.append(usp, 'key', ['bar1', 'bar2']);
         expect(usp.getAll('key')).toStrictEqual(['foo', 'bar', 'bar1', 'bar2']);
     });
 });
 
-describe(`Test static method \`${UspUtil.name}.${UspUtil.set.name}\``, () => {
+describe(`Test static method \`${URLSearchParamsUtil.name}.${URLSearchParamsUtil.set.name}\``, () => {
     it('should be able to set multi values', () => {
         const usp = new URLSearchParams();
-        UspUtil.set(usp, 'key', 'foo');
+        URLSearchParamsUtil.set(usp, 'key', 'foo');
         expect(usp.getAll('key')).toStrictEqual(['foo']);
-        UspUtil.set(usp, 'key', ['bar']);
+        URLSearchParamsUtil.set(usp, 'key', ['bar']);
         expect(usp.getAll('key')).toStrictEqual(['bar']);
-        UspUtil.set(usp, 'key');
+        URLSearchParamsUtil.set(usp, 'key');
         expect(usp.getAll('key')).toStrictEqual(['bar']);
-        UspUtil.set(usp, 'key', []);
+        URLSearchParamsUtil.set(usp, 'key', []);
         expect(usp.getAll('key')).toStrictEqual(['bar']);
-        UspUtil.set(usp, 'key', ['bar1', 'bar2']);
+        URLSearchParamsUtil.set(usp, 'key', ['bar1', 'bar2']);
         expect(usp.getAll('key')).toStrictEqual(['bar1', 'bar2']);
     });
 });
 
-describe(`Test static method \`${UspUtil.name}.${UspUtil.setOrDelete.name}\``, () => {
+describe(`Test static method \`${URLSearchParamsUtil.name}.${URLSearchParamsUtil.setOrDelete.name}\``, () => {
     it('should be able to set multi values or delete it', () => {
         const usp = new URLSearchParams();
-        UspUtil.setOrDelete(usp, 'key', 'foo');
+        URLSearchParamsUtil.setOrDelete(usp, 'key', 'foo');
         expect(usp.getAll('key')).toStrictEqual(['foo']);
-        UspUtil.setOrDelete(usp, 'key', ['bar']);
+        URLSearchParamsUtil.setOrDelete(usp, 'key', ['bar']);
         expect(usp.getAll('key')).toStrictEqual(['bar']);
-        UspUtil.setOrDelete(usp, 'key');
+        URLSearchParamsUtil.setOrDelete(usp, 'key');
         expect(usp.getAll('key')).toStrictEqual([]);
-        UspUtil.setOrDelete(usp, 'key', ['bar1', 'bar2']);
+        URLSearchParamsUtil.setOrDelete(usp, 'key', ['bar1', 'bar2']);
         expect(usp.getAll('key')).toStrictEqual(['bar1', 'bar2']);
-        UspUtil.setOrDelete(usp, 'key', []);
+        URLSearchParamsUtil.setOrDelete(usp, 'key', []);
         expect(usp.getAll('key')).toStrictEqual([]);
     });
 });

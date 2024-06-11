@@ -1,4 +1,4 @@
-import { UspUtil } from './usp.js';
+import { URLSearchParamsUtil } from './URLSearchParams.js';
 
 export enum UspKey {
     PAGE = 'page',
@@ -21,7 +21,7 @@ export function getPaginationUsp(usp: URLSearchParams): PaginationUsp {
 
 export function updatePaginationUsp(usp: URLSearchParams, pagination: PaginationUsp): URLSearchParams {
     const { page, pageSize } = pagination;
-    UspUtil.set(usp, UspKey.PAGE, page?.toString());
-    UspUtil.set(usp, UspKey.PAGE_SIZE, pageSize?.toString());
+    URLSearchParamsUtil.set(usp, UspKey.PAGE, page?.toString());
+    URLSearchParamsUtil.set(usp, UspKey.PAGE_SIZE, pageSize?.toString());
     return usp;
 }
