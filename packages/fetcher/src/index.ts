@@ -1,2 +1,3 @@
-export * from './fetcher/index.js';
-export * from './hooks/index.js';
+export * from './fetcherFactory.js';
+export * from './types.js';
+export * from './url.js';
