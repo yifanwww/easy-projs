@@ -30,20 +30,20 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "lint-fix": "eslint . --fix",
+        "test": "unit-test webapp-esm --watch",
+        "test-full": "unit-test webapp-esm --coverage",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/hooks": "workspace:*",
-        "react": "^18.3.1",
-        "react-use": "^17.5.0",
-        "rustlike-result": "^0.4.3",
-        "swr": "^2.2.5"
+        "@easy-pkg/utils-browser": "workspace:*",
+        "rustlike-result": "^0.4.6"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:*",
         "@easy-config/global-types": "workspace:*",
+        "@easy-config/jest-config": "workspace:*",
         "@easy-config/tsconfigs": "workspace:*",
-        "@types/react": "^18.3.2",
+        "@jest/globals": "^29.7.0",
         "concurrently": "^8.2.2",
         "eslint": "^8.57.0",
         "prettier": "3.2.5",

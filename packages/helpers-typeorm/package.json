@@ -36,7 +36,7 @@
     },
     "dependencies": {
         "dayjs": "^1.11.11",
-        "rustlike-result": "^0.4.3",
+        "rustlike-result": "^0.4.6",
         "typeorm": "^0.3.20"
     },
     "devDependencies": {

@@ -31,7 +31,7 @@ function getConfig(): Config {
             '!src/test.setup.ts',
         ],
         testMatch: ['<rootDir>/src/**/*.{spec,test}.{ts,tsx}'],
-        testEnvironment: 'jest-environment-jsdom',
+        testEnvironment: 'jsdom',
 
         transform: {
             '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': [
@@ -49,13 +49,12 @@ function getConfig(): Config {
             '^.+\\.css$': require.resolve('./transform.css.js'),
             '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': require.resolve('./transform.file.js'),
         },
-        transformIgnorePatterns: [
-            '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$',
-            '^.+\\.module\\.(css|sass|scss)$',
-        ],
+        transformIgnorePatterns: ['/node_modules/', '\\.pnp\\.[^\\/]+$', '^.+\\.module\\.(css|sass|scss)$'],
 
         modulePaths: [],
         moduleNameMapper: {
+            '^rustlike-result$': 'rustlike-result/cjs',
+
             '^react-native$': 'react-native-web',
             '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
             '^src/(.*)$': '<rootDir>/src/$1',

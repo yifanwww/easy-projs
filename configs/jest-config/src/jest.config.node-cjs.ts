@@ -53,7 +53,6 @@ function getConfig(): Config {
                 },
             ],
         },
-        transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$'],
 
         modulePaths: [],
         moduleNameMapper: {
