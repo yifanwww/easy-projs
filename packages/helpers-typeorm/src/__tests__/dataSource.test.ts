@@ -1,5 +1,5 @@
 import { describe, expect, it, jest } from '@jest/globals';
-import { Err, Ok } from 'rustlike-result';
+import { Err, ErrAsync, Ok, OkAsync } from 'rustlike-result';
 import type { DataSource, EntityManager, QueryRunner } from 'typeorm';
 import type { IsolationLevel } from 'typeorm/driver/types/IsolationLevel.js';
 
@@ -60,7 +60,7 @@ describe(`Test static method \`${DataSourceHelper.name}.${DataSourceHelper.trans
         expect(spiedRollbackTransaction).toHaveBeenCalledTimes(0);
         expect(spiedRelease).toHaveBeenCalledTimes(0);
 
-        // when isolation level is not specified
+        // when isolation level is not specified (Promise<Result>)
         {
             const result = await DataSourceHelper.transaction(new MockedDataSource() as DataSource, () =>
                 Promise.resolve(Ok(null)),
@@ -75,17 +75,10 @@ describe(`Test static method \`${DataSourceHelper.name}.${DataSourceHelper.trans
             expect(spiedRelease).toHaveBeenCalledTimes(1);
         }
 
-        // when isolation level is specified
+        // when isolation level is not specified (ResultAsync)
         {
-            spiedStartTransaction.mockImplementationOnce((value?: IsolationLevel) => {
-                expect(value).toBe('SERIALIZABLE');
-                return Promise.resolve();
-            });
-
-            const result = await DataSourceHelper.transaction(
-                new MockedDataSource() as DataSource,
-                'SERIALIZABLE',
-                () => Promise.resolve(Ok(null)),
+            const result = await DataSourceHelper.transaction(new MockedDataSource() as DataSource, () =>
+                OkAsync(null),
             );
             expect(result).toStrictEqual(Ok(null));
 
@@ -95,6 +88,45 @@ describe(`Test static method \`${DataSourceHelper.name}.${DataSourceHelper.trans
             expect(spiedCommitTransaction).toHaveBeenCalledTimes(2);
             expect(spiedRollbackTransaction).toHaveBeenCalledTimes(0);
             expect(spiedRelease).toHaveBeenCalledTimes(2);
+        }
+
+        spiedStartTransaction.mockImplementation((value?: IsolationLevel) => {
+            expect(value).toBe('SERIALIZABLE');
+            return Promise.resolve();
+        });
+
+        // when isolation level is specified (Promise<Result>)
+        {
+            const result = await DataSourceHelper.transaction(
+                new MockedDataSource() as DataSource,
+                'SERIALIZABLE',
+                () => Promise.resolve(Ok(null)),
+            );
+            expect(result).toStrictEqual(Ok(null));
+
+            expect(spiedCreateQueryRunner).toHaveBeenCalledTimes(3);
+            expect(spiedConnect).toHaveBeenCalledTimes(3);
+            expect(spiedStartTransaction).toHaveBeenCalledTimes(3);
+            expect(spiedCommitTransaction).toHaveBeenCalledTimes(3);
+            expect(spiedRollbackTransaction).toHaveBeenCalledTimes(0);
+            expect(spiedRelease).toHaveBeenCalledTimes(3);
+        }
+
+        // when isolation level is specified (ResultAsync)
+        {
+            const result = await DataSourceHelper.transaction(
+                new MockedDataSource() as DataSource,
+                'SERIALIZABLE',
+                () => OkAsync(null),
+            );
+            expect(result).toStrictEqual(Ok(null));
+
+            expect(spiedCreateQueryRunner).toHaveBeenCalledTimes(4);
+            expect(spiedConnect).toHaveBeenCalledTimes(4);
+            expect(spiedStartTransaction).toHaveBeenCalledTimes(4);
+            expect(spiedCommitTransaction).toHaveBeenCalledTimes(4);
+            expect(spiedRollbackTransaction).toHaveBeenCalledTimes(0);
+            expect(spiedRelease).toHaveBeenCalledTimes(4);
         }
     });
 
@@ -113,17 +145,33 @@ describe(`Test static method \`${DataSourceHelper.name}.${DataSourceHelper.trans
         expect(spiedRollbackTransaction).toHaveBeenCalledTimes(0);
         expect(spiedRelease).toHaveBeenCalledTimes(0);
 
-        const result = await DataSourceHelper.transaction(new MockedDataSource() as DataSource, () =>
-            Promise.resolve(Err(null)),
-        );
-        expect(result).toStrictEqual(Err(null));
+        {
+            const result = await DataSourceHelper.transaction(new MockedDataSource() as DataSource, () =>
+                Promise.resolve(Err(null)),
+            );
+            expect(result).toStrictEqual(Err(null));
 
-        expect(spiedCreateQueryRunner).toHaveBeenCalledTimes(1);
-        expect(spiedConnect).toHaveBeenCalledTimes(1);
-        expect(spiedStartTransaction).toHaveBeenCalledTimes(1);
-        expect(spiedCommitTransaction).toHaveBeenCalledTimes(0);
-        expect(spiedRollbackTransaction).toHaveBeenCalledTimes(1);
-        expect(spiedRelease).toHaveBeenCalledTimes(1);
+            expect(spiedCreateQueryRunner).toHaveBeenCalledTimes(1);
+            expect(spiedConnect).toHaveBeenCalledTimes(1);
+            expect(spiedStartTransaction).toHaveBeenCalledTimes(1);
+            expect(spiedCommitTransaction).toHaveBeenCalledTimes(0);
+            expect(spiedRollbackTransaction).toHaveBeenCalledTimes(1);
+            expect(spiedRelease).toHaveBeenCalledTimes(1);
+        }
+
+        {
+            const result = await DataSourceHelper.transaction(new MockedDataSource() as DataSource, () =>
+                ErrAsync(null),
+            );
+            expect(result).toStrictEqual(Err(null));
+
+            expect(spiedCreateQueryRunner).toHaveBeenCalledTimes(2);
+            expect(spiedConnect).toHaveBeenCalledTimes(2);
+            expect(spiedStartTransaction).toHaveBeenCalledTimes(2);
+            expect(spiedCommitTransaction).toHaveBeenCalledTimes(0);
+            expect(spiedRollbackTransaction).toHaveBeenCalledTimes(2);
+            expect(spiedRelease).toHaveBeenCalledTimes(2);
+        }
     });
 
     it('should rollback if transaction failes (throwing Error)', async () => {
@@ -175,7 +223,7 @@ describe(`Test static method \`${DataSourceHelper.name}.${DataSourceHelper.trans
                 // eslint-disable-next-line no-throw-literal
                 throw false;
             });
-            expect(result).toStrictEqual(Err(new Error('unknown error')));
+            expect(result).toStrictEqual(Err(new Error('false')));
 
             expect(spiedCreateQueryRunner).toHaveBeenCalledTimes(3);
             expect(spiedConnect).toHaveBeenCalledTimes(3);

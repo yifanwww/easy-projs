@@ -9,7 +9,7 @@ export class DataSourceHelper {
      */
     static transaction<Res, Err>(
         dataSource: DataSource,
-        runInTransaction: (entityManager: EntityManager) => Promise<Result<Res, Err>>,
+        runInTransaction: (entityManager: EntityManager) => Promise<Result<Res, Err>> | ResultAsync<Res, Err>,
     ): ResultAsync<Res, Err | Error>;
 
     /**
@@ -19,14 +19,14 @@ export class DataSourceHelper {
     static transaction<Res, Err>(
         dataSource: DataSource,
         isolationLevel: IsolationLevel,
-        runInTransaction: (entityManager: EntityManager) => Promise<Result<Res, Err>>,
+        runInTransaction: (entityManager: EntityManager) => Promise<Result<Res, Err>> | ResultAsync<Res, Err>,
     ): ResultAsync<Res, Err | Error>;
 
     static transaction<Res, Err>(
         dataSource: DataSource,
         ...params:
-            | [(entityManager: EntityManager) => Promise<Result<Res, Err>>]
-            | [IsolationLevel, (entityManager: EntityManager) => Promise<Result<Res, Err>>]
+            | [(entityManager: EntityManager) => Promise<Result<Res, Err>> | ResultAsync<Res, Err>]
+            | [IsolationLevel, (entityManager: EntityManager) => Promise<Result<Res, Err>> | ResultAsync<Res, Err>]
     ): ResultAsync<Res, Err | Error> {
         const isolation = typeof params[0] === 'string' ? params[0] : undefined;
         const runInTransaction = typeof params[0] === 'function' ? params[0] : params[1];
@@ -54,9 +54,7 @@ export class DataSourceHelper {
                 } catch {
                     // ignore rollback errors
                 }
-                return err instanceof Error
-                    ? Err(err)
-                    : Err(new Error(typeof err === 'string' ? err : 'unknown error'));
+                return err instanceof Error ? Err(err) : Err(new Error(String(err)));
             } finally {
                 await queryRunner.release();
             }
