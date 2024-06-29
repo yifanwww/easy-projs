@@ -4,4 +4,4 @@
 declare const __APP_VERSION__: string;
 declare const __APP_HASH__: string;
 
-declare const __ENABLE_EXPERIMENTAL_FEATURES__: boolean;
+declare const __EXPERIMENTAL__: boolean;

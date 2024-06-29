@@ -20,7 +20,7 @@
     "scripts": {
         "build": "vite build",
         "clean": "rimraf coverage dist node_modules/.vite",
-        "dev": "cross-env ENABLE_EXPERIMENTAL_FEATURES=true vite dev",
+        "dev": "cross-env EXPERIMENTAL=true vite dev",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
         "lint-fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
