@@ -1,2 +1,3 @@
 export * from './dataSource.js';
-export * from './mysql/index.js';
+export * from './mysql/operators.js';
+export * from './mysql/types.js';
