@@ -4,8 +4,8 @@ import css from './Home.module.scss';
 
 export function Home() {
     return (
-        <div className={css.home}>
+        <main className={css.main}>
             <Introduction />
-        </div>
+        </main>
     );
 }

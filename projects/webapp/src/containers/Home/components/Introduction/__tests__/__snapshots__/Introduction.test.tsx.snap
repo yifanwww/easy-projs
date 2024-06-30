@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test component \`Introduction\` should render 1`] = `
-<header
+<div
   className="introduction"
 >
   <img
@@ -24,5 +24,5 @@ exports[`Test component \`Introduction\` should render 1`] = `
   >
     Learn easy-projs
   </a>
-</header>
+</div>
 `;

@@ -4,7 +4,7 @@ import css from './Introduction.module.scss';
 
 export function Introduction() {
     return (
-        <header className={css.introduction}>
+        <div className={css.introduction}>
             <img className={css.logo} src={Assets.logo} alt="logo" />
             <p>
                 Edit <code>src/containers/Home/components/Introduction/Introduction.tsx</code> and save to reload.
@@ -17,6 +17,6 @@ export function Introduction() {
             >
                 Learn easy-projs
             </a>
-        </header>
+        </div>
     );
 }
