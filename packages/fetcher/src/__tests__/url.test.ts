@@ -50,5 +50,13 @@ describe(`Test fn \`${buildQueryURL.name}\``, () => {
 
         expect(buildQueryURL('/search?', { key: 'key-2' })).toBe('/search?&key=key-2');
         expect(buildQueryURL('/search?key=key-1', { key: 'key-2' })).toBe('/search?key=key-1&key=key-2');
+
+        expect(
+            buildQueryURL('/search', [
+                ['user', 'A'],
+                ['user', 'B'],
+                ['params', JSON.stringify({ all: false, enabled: false })],
+            ]),
+        ).toBe('/search?user=A&user=B&params=%7B%22all%22%3Afalse%2C%22enabled%22%3Afalse%7D');
     });
 });
