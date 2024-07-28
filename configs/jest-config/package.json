@@ -16,7 +16,6 @@
         "directory": "configs/jest-config"
     },
     "bin": {
-        "jest": "./node_modules/jest/bin/jest.js",
         "unit-test": "./bin/unit-test.js"
     },
     "scripts": {

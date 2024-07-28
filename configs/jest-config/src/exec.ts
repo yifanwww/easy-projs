@@ -1,9 +1,13 @@
 import chalk from 'chalk';
 import { Command, program } from 'commander';
 import child from 'node:child_process';
-import { createRequire } from 'node:module';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const require = createRequire(import.meta.url);
+// use import.meta.dirname after node 20.11 / 21.2
+const _dirname = path.dirname(fileURLToPath(import.meta.url));
+const pkgRoot = path.join(_dirname, '..');
+const jestBin = path.join(pkgRoot, 'node_modules/.bin/jest');
 
 enum TestType {
     NODE_CJS,
@@ -17,17 +21,17 @@ enum TestType {
 function getJestConfig(type: TestType) {
     switch (type) {
         case TestType.NODE_CJS:
-            return require.resolve('./jest.config.node-cjs.js');
+            return path.join(pkgRoot, 'dist/jest.config.node-cjs.js');
         case TestType.NODE_ESM:
-            return require.resolve('./jest.config.node-esm.js');
+            return path.join(pkgRoot, 'dist/jest.config.node-esm.js');
         case TestType.NODE_CJS_LEGACY_DECORATOR:
-            return require.resolve('./jest.config.node-cjs-legacy-decorator.js');
+            return path.join(pkgRoot, 'dist/jest.config.node-cjs-legacy-decorator.js');
         case TestType.NODE_ESM_LEGACY_DECORATOR:
-            return require.resolve('./jest.config.node-esm-legacy-decorator.js');
+            return path.join(pkgRoot, 'dist/jest.config.node-esm-legacy-decorator.js');
         case TestType.WEBAPP_CJS:
-            return require.resolve('./jest.config.webapp-cjs.js');
+            return path.join(pkgRoot, 'dist/jest.config.webapp-cjs.js');
         case TestType.WEBAPP_ESM:
-            return require.resolve('./jest.config.webapp-esm.js');
+            return path.join(pkgRoot, 'dist/jest.config.webapp-esm.js');
 
         default: {
             const never: never = type;
@@ -60,7 +64,7 @@ function exec(type: TestType, extraArgs: string[]): void {
     const jestConfig = getJestConfig(type);
     const extraEnv = getExtraEnv(type);
 
-    const command = ['jest', '--config', jestConfig, ...extraArgs].join(' ');
+    const command = [jestBin, '--config', jestConfig, ...extraArgs].join(' ');
 
     const env = {
         ...process.env,
