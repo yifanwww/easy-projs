@@ -321,7 +321,5 @@
         "background": "#ffff22"
     },
     "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^\\s*\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "todo-tree.tree.showCountsInTree": true,
-
-    "xml.java.home": "C:/compilers/java-bellsoft-21.0.2"
+    "todo-tree.tree.showCountsInTree": true
 }

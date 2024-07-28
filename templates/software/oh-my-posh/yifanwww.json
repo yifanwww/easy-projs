@@ -24,7 +24,7 @@
                     "leading_diamond": "",
                     "properties": {
                         "folder_separator_icon": "/",
-                        "home_icon": "C:/Users/YF",
+                        "home_icon": "<home-icon>",
                         "mixed_threshold": 8,
                         "style": "mixed"
                     }
