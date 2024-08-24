@@ -1,0 +1,37 @@
+name: BundleMon
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [synchronize, opened, reopened]
+
+jobs:
+  bundlemon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM environment
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build project
+        run: pnpm run build
+
+      - name: BundleMon
+        uses: lironer/bundlemon-action@v1
