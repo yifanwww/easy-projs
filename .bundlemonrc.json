@@ -1,9 +1,4 @@
 {
-    "files": [
-        {
-            "path": "chrome-extension/dist/content.cjs"
-        }
-    ],
     "groups": [
         {
             "path": "packages/fetcher/lib/**/*.js"
