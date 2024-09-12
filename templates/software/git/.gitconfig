@@ -5,12 +5,15 @@
 	encoding = utf-8
 [svn]
 	pathnameencoding = utf-8
+[color "status"]
+	added = green
+	changed = red strike
+	untracked = red strike
+	branch = yellow black ul
 [pull]
 	ff = only
 [alias]
 	count = rev-list --all --count
-	lastchange = !git --no-pager diff head~ head --stat
-	lastag = ! git describe --tags $(git rev-list --tags --max-count=1)
 	profetch = fetch origin --verbose --prune
 	progc= gc --prune=now --aggressive
 	prolog = log --all --graph --oneline --date-order -n
