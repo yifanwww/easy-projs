@@ -2,11 +2,11 @@ import { describe, expect, it } from '@jest/globals';
 import { plainToInstance } from 'class-transformer';
 import { Validator } from 'class-validator';
 
-import { PaginationQueryDto } from '../pagination.dto.js';
+import { ApiPaginationQueryDto } from '../ApiPagination.dto.js';
 
-describe(`Test dto class \`${PaginationQueryDto.name}}\``, () => {
+describe(`Test dto class \`${ApiPaginationQueryDto.name}}\``, () => {
     it('should pass validation when request is valid', async () => {
-        const model = plainToInstance(PaginationQueryDto, [
+        const model = plainToInstance(ApiPaginationQueryDto, [
             {},
             {
                 page: '1',
@@ -19,7 +19,7 @@ describe(`Test dto class \`${PaginationQueryDto.name}}\``, () => {
 
     function testFields(field: 'page' | 'page_size') {
         it(`should not pass validation when request is invalid [${field}="bad value"]`, async () => {
-            const model = plainToInstance(PaginationQueryDto, {
+            const model = plainToInstance(ApiPaginationQueryDto, {
                 page: '1',
                 page_size: '10',
                 [field]: 'bad value',
@@ -37,7 +37,7 @@ describe(`Test dto class \`${PaginationQueryDto.name}}\``, () => {
         });
 
         it(`should not pass validation when request is invalid [${field}="Infinity"]`, async () => {
-            const model = plainToInstance(PaginationQueryDto, {
+            const model = plainToInstance(ApiPaginationQueryDto, {
                 page: '1',
                 page_size: '10',
                 [field]: 'Infinity',
@@ -54,7 +54,7 @@ describe(`Test dto class \`${PaginationQueryDto.name}}\``, () => {
         });
 
         it(`should not pass validation when request is invalid [${field}="1.2"]`, async () => {
-            const model = plainToInstance(PaginationQueryDto, {
+            const model = plainToInstance(ApiPaginationQueryDto, {
                 page: '1',
                 page_size: '10',
                 [field]: '1.2',
@@ -71,7 +71,7 @@ describe(`Test dto class \`${PaginationQueryDto.name}}\``, () => {
         });
 
         it(`should not pass validation when request is invalid [${field}="0"]`, async () => {
-            const model = plainToInstance(PaginationQueryDto, {
+            const model = plainToInstance(ApiPaginationQueryDto, {
                 page: '1',
                 page_size: '10',
                 [field]: '0',

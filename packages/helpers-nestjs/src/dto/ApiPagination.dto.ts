@@ -2,7 +2,7 @@ import { IsUndefinable } from '@easy-pkg/helpers-class-validator';
 import { Type } from 'class-transformer';
 import { IsInt, IsPositive } from 'class-validator';
 
-export class PaginationQueryDto {
+export class ApiPaginationQueryDto {
     @IsUndefinable()
     @Type(() => Number)
     @IsInt()
