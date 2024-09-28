@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 
 import type { UnknownFn } from '@easy-pkg/types/fn';
 import type { ConditionalKeys } from 'type-fest';

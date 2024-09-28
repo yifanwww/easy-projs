@@ -38,7 +38,7 @@ export function validateHookValueNotChanged<TValues extends NonNullable<unknown>
         for (let i = 0; i < latestValues.length; i++) {
             try {
                 expect(latestValues[i]).toBe(firstValues[i]);
-            } catch (err) {
+            } catch {
                 // Make a more informative error message
                 // eslint-disable-next-line jest/no-conditional-expect
                 expect('').toBe(

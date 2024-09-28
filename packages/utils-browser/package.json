@@ -43,8 +43,8 @@
         "@jest/globals": "^29.7.0",
         "concurrently": "^8.2.2",
         "eslint": "^8.57.0",
-        "prettier": "3.2.5",
+        "prettier": "3.3.3",
         "rimraf": "^5.0.6",
-        "typescript": "5.4.5"
+        "typescript": "5.5.4"
     }
 }

@@ -205,7 +205,7 @@ describe(`Test static method \`${DataSourceHelper.name}.${DataSourceHelper.trans
 
         {
             const result = await DataSourceHelper.transaction(new MockedDataSource() as DataSource, () => {
-                // eslint-disable-next-line no-throw-literal
+                // eslint-disable-next-line @typescript-eslint/only-throw-error
                 throw 'error';
             });
             expect(result).toStrictEqual(Err(new Error('error')));
@@ -220,7 +220,7 @@ describe(`Test static method \`${DataSourceHelper.name}.${DataSourceHelper.trans
 
         {
             const result = await DataSourceHelper.transaction(new MockedDataSource() as DataSource, () => {
-                // eslint-disable-next-line no-throw-literal
+                // eslint-disable-next-line @typescript-eslint/only-throw-error
                 throw false;
             });
             expect(result).toStrictEqual(Err(new Error('false')));

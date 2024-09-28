@@ -1,3 +1,3 @@
-export * from './basic.js';
-export * from './pickKeys.js';
-export * from './pickProps.js';
+export type * from './basic.js';
+export type * from './pickKeys.js';
+export type * from './pickProps.js';
