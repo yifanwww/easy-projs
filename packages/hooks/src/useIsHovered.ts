@@ -1,28 +1,28 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { RefObject } from 'react';
 
-export function useIsHovered<T extends RefObject<HTMLElement>>(ref: T, enabled = true): boolean {
+export function useIsHovered(ref: RefObject<HTMLElement>, maskRef?: RefObject<HTMLElement>, enabled = true): boolean {
     const [isHovered, setIsHovered] = useState(false);
 
-    const handleMouseOver = useCallback(() => setIsHovered(true), []);
-    const handleMouseOut = useCallback(() => setIsHovered(false), []);
-
     useEffect(() => {
-        if (enabled && ref.current) {
-            ref.current.addEventListener('mouseover', handleMouseOver);
-            ref.current.addEventListener('mouseout', handleMouseOut);
+        const handleMouseOver = () => setIsHovered(true);
+        const handleMouseOut = () => setIsHovered(false);
+
+        if (enabled) {
+            ref.current?.addEventListener('mouseover', handleMouseOver);
+            (maskRef ?? ref).current?.addEventListener('mouseout', handleMouseOut);
         }
 
-        // fixes react-hooks/exhaustive-deps warning about stale ref elements
-        const { current } = ref;
+        const refCurrent = ref.current;
+        const maskRefCurrent = maskRef?.current;
 
         return () => {
-            if (enabled && current) {
-                current.removeEventListener('mouseover', handleMouseOver);
-                current.removeEventListener('mouseout', handleMouseOut);
+            if (enabled) {
+                refCurrent?.removeEventListener('mouseover', handleMouseOver);
+                (maskRefCurrent ?? refCurrent)?.removeEventListener('mouseout', handleMouseOut);
             }
         };
-    }, [enabled, handleMouseOut, handleMouseOver, ref]);
+    }, [enabled, maskRef, ref]);
 
     return isHovered;
 }
