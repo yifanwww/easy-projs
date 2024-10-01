@@ -11,22 +11,53 @@ describe(`Test react hook \`${useIsHovered.name}\``, () => {
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isHovered = useIsHovered(ref);
-            return <div ref={ref}>Test-Component</div>;
+            return <div ref={ref}>target</div>;
         }
 
         expect(isHovered).toBeNull();
         const { getByText } = render(<TestComponent />);
         expect(isHovered).toBe(false);
 
-        const component = getByText('Test-Component');
+        const target = getByText('target');
 
-        fireEvent.mouseOver(component);
+        fireEvent.mouseOver(target);
         expect(isHovered).toBe(true);
 
-        fireEvent.mouseOut(component);
+        fireEvent.mouseOut(target);
         expect(isHovered).toBe(false);
 
-        fireEvent.mouseEnter(component);
+        fireEvent.mouseEnter(target);
+        expect(isHovered).toBe(true);
+    });
+
+    it('should return whether the component is hovered even if there is a mask', () => {
+        let isHovered: Nullable<boolean> = null;
+        function TestComponent() {
+            const ref = useRef<HTMLDivElement>(null);
+            const maskRef = useRef<HTMLDivElement>(null);
+            isHovered = useIsHovered(ref, maskRef);
+            return (
+                <div>
+                    <div ref={ref}>target</div>
+                    <div ref={maskRef}>mask</div>
+                </div>
+            );
+        }
+
+        expect(isHovered).toBeNull();
+        const { getByText } = render(<TestComponent />);
+        expect(isHovered).toBe(false);
+
+        const target = getByText('target');
+        const mask = getByText('mask');
+
+        fireEvent.mouseOver(target);
+        expect(isHovered).toBe(true);
+
+        fireEvent.mouseOut(mask);
+        expect(isHovered).toBe(false);
+
+        fireEvent.mouseEnter(target);
         expect(isHovered).toBe(true);
     });
 
@@ -34,23 +65,23 @@ describe(`Test react hook \`${useIsHovered.name}\``, () => {
         let isHovered: Nullable<boolean> = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
-            isHovered = useIsHovered(ref, false);
-            return <div ref={ref}>Test-Component</div>;
+            isHovered = useIsHovered(ref, undefined, false);
+            return <div ref={ref}>target</div>;
         }
 
         expect(isHovered).toBeNull();
         const { getByText } = render(<TestComponent />);
         expect(isHovered).toBe(false);
 
-        const component = getByText('Test-Component');
+        const target = getByText('target');
 
-        fireEvent.mouseOver(component);
+        fireEvent.mouseOver(target);
         expect(isHovered).toBe(false);
 
-        fireEvent.mouseOut(component);
+        fireEvent.mouseOut(target);
         expect(isHovered).toBe(false);
 
-        fireEvent.mouseEnter(component);
+        fireEvent.mouseEnter(target);
         expect(isHovered).toBe(false);
     });
 });
