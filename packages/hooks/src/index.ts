@@ -15,5 +15,4 @@ export * from './usePrevious.js';
 export * from './useSingleInterval.js';
 export * from './useSingleTimeout.js';
 export * from './useTimeout.js';
-export * from './useToggle.js';
 export * from './useWhyDidYouUpdate.js';
