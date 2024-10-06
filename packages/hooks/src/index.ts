@@ -1,6 +1,7 @@
 export * from './__tests__/helpers.js';
 export * from './useCompositeRef.js';
 export * from './useConst.js';
+export * from './useControllableState.js';
 export * from './useCountdown.js';
 export * from './useDelayFn.js';
 export * from './useDialogBeforeUnload.js';
