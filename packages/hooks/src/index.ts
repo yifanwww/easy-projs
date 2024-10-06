@@ -10,6 +10,7 @@ export * from './useImmediateFocus.js';
 export * from './useInterval.js';
 export * from './useIsFocused.js';
 export * from './useIsHovered.js';
+export * from './useLayoutUpdateEffect.js';
 export * from './usePersistFn.js';
 export * from './usePrevious.js';
 export * from './useSingleInterval.js';
