@@ -5,6 +5,7 @@ The website application of easy-projs.
 ## Some Recommended Libraries
 
 - [`clsx`](https://github.com/lukeed/clsx)
+- [`es-toolkit`](https://github.com/toss/es-toolkit)
 - [`immer`](https://github.com/immerjs/immer)
 - [`ramda`](https://github.com/ramda/ramda)
 - [`react-use`](https://github.com/streamich/react-use)
