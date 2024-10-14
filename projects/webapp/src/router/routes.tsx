@@ -10,8 +10,8 @@ export const routes: RouteObject[] = [
             {
                 index: true,
                 lazy: async () => {
-                    const module = await import('../containers/Home');
-                    return { element: <module.Home /> };
+                    const { Home } = await import('../containers/Home');
+                    return { element: <Home /> };
                 },
             },
         ],
