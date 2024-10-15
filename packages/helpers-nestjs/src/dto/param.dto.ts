@@ -6,3 +6,8 @@ export class IntegerIdParamDto {
     @IsInt()
     id!: number;
 }
+
+export class IntegerIdBodyDto {
+    @IsInt()
+    id!: number;
+}
