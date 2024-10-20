@@ -1,4 +1,5 @@
 export * from './__tests__/helpers.js';
+export * from './useClientPagination.js';
 export * from './useCompositeRef.js';
 export * from './useConst.js';
 export * from './useCountdown.js';
