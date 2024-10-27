@@ -6,3 +6,14 @@ export class IntegerIdParamDto {
     @IsInt()
     id!: number;
 }
+
+export class IntegerIdQueryDto {
+    @Type(() => Number)
+    @IsInt()
+    id!: number;
+}
+
+export class IntegerIdBodyDto {
+    @IsInt()
+    id!: number;
+}
