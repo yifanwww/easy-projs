@@ -2,7 +2,7 @@ import { describe, expect, it } from '@jest/globals';
 import { plainToInstance } from 'class-transformer';
 import { Validator } from 'class-validator';
 
-import { IntegerIdParamDto } from '../param.dto.js';
+import { IntegerIdParamDto } from '../IntegerId.dto.js';
 
 describe(`Test dto class \`${IntegerIdParamDto.name}}\``, () => {
     it('should pass validation when request is valid', async () => {
