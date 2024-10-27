@@ -3,7 +3,7 @@ import { Injectable, SetMetadata } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import type { Request } from 'express';
 
-import { UserRole, UserRoleHelper } from '../role.js';
+import { checkUserRole, UserRole } from '../role.js';
 
 import { getJwtUserPayload } from './AuthenticationGuard.js';
 import { NO_AUTHENTICATION } from './constants.js';
@@ -35,7 +35,7 @@ export class RoleGuard implements CanActivate {
             return false;
         }
 
-        return UserRoleHelper.satisify(user.role, requiredRole);
+        return checkUserRole(user.role, requiredRole);
     }
 }
 
