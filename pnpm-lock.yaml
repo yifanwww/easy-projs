@@ -186,8 +186,8 @@ importers:
         specifier: workspace:*
         version: link:../utils-browser
       rustlike-result:
-        specifier: ^0.4.6
-        version: 0.4.6
+        specifier: ^0.5.1
+        version: 0.5.1(typeorm@0.3.20)
     devDependencies:
       '@easy-config/eslint-config':
         specifier: workspace:*
@@ -479,9 +479,6 @@ importers:
       dayjs:
         specifier: ^1.11.11
         version: 1.11.11
-      rustlike-result:
-        specifier: ^0.4.6
-        version: 0.4.6
       typeorm:
         specifier: ^0.3.20
         version: 0.3.20
@@ -6446,12 +6443,15 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  rustlike-result@0.4.6:
-    resolution: {integrity: sha512-JzD8O7RjT2ZZfLe6cK3F5PcluOlhLrJJPXByBYWhpfPG8hBlO3q/L5ipQcoVs/DRp6I8E354H0Ly7+/cZaW/lA==}
+  rustlike-result@0.5.1:
+    resolution: {integrity: sha512-eQUEYxDVRTcQRbwOgrYqw66jM4b19aIuIVcdEvXiVs8tHXwP7lWnVDMtFQkPSSFRMFYrGWHCFt0BrveSiShRDQ==}
     peerDependencies:
       serializr: ^3.0.2
+      typeorm: ^0.3.0
     peerDependenciesMeta:
       serializr:
+        optional: true
+      typeorm:
         optional: true
 
   rxjs@7.8.1:
@@ -14213,7 +14213,9 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  rustlike-result@0.4.6: {}
+  rustlike-result@0.5.1(typeorm@0.3.20):
+    optionalDependencies:
+      typeorm: 0.3.20
 
   rxjs@7.8.1:
     dependencies:
