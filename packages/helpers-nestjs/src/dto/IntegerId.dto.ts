@@ -1,4 +1,4 @@
-import { Type } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 import { IsInt } from 'class-validator';
 
 export class IntegerIdParamDto {
@@ -8,7 +8,7 @@ export class IntegerIdParamDto {
 }
 
 export class IntegerIdQueryDto {
-    @Type(() => Number)
+    @Transform(({ value }) => (value === '' ? undefined : Number(value)))
     @IsInt()
     id!: number;
 }

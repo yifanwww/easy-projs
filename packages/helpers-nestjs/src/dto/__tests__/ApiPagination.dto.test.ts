@@ -2,19 +2,32 @@ import { describe, expect, it } from '@jest/globals';
 import { plainToInstance } from 'class-transformer';
 import { Validator } from 'class-validator';
 
-import { ApiPaginationQueryDto } from '../ApiPagination.dto.js';
+import { ApiPaginationQueryDto, type ApiPagination } from '../ApiPagination.dto.js';
+import { dtoFactory } from '../dtoFactory.js';
 
 describe(`Test dto class \`${ApiPaginationQueryDto.name}}\``, () => {
     it('should pass validation when request is valid', async () => {
-        const model = plainToInstance(ApiPaginationQueryDto, [
+        const models = plainToInstance(ApiPaginationQueryDto, [
             {},
+            {
+                page: '',
+                page_size: '',
+            },
             {
                 page: '1',
                 page_size: '10',
             },
         ]);
-        const errors = await new Validator().validate(model);
-        expect(errors).toHaveLength(0);
+        expect(models).toStrictEqual([
+            dtoFactory<ApiPagination>(ApiPaginationQueryDto, {}),
+            dtoFactory<ApiPagination>(ApiPaginationQueryDto, {}),
+            dtoFactory<ApiPagination>(ApiPaginationQueryDto, { page: 1, page_size: 10 }),
+        ]);
+
+        for (const model of models) {
+            const errors = await new Validator().validate(model);
+            expect(errors).toHaveLength(0);
+        }
     });
 
     function testFields(field: 'page' | 'page_size') {
