@@ -2,6 +2,7 @@ import { describe, expect, it } from '@jest/globals';
 import { plainToInstance } from 'class-transformer';
 import { Validator } from 'class-validator';
 
+import { dtoFactory } from '../dtoFactory.js';
 import { IntegerIdBodyDto, IntegerIdParamDto, IntegerIdQueryDto } from '../IntegerId.dto.js';
 
 describe(`Test dto class \`${IntegerIdParamDto.name}}\``, () => {
@@ -9,6 +10,8 @@ describe(`Test dto class \`${IntegerIdParamDto.name}}\``, () => {
         const model = plainToInstance(IntegerIdParamDto, {
             id: '0',
         });
+        expect(model).toStrictEqual(dtoFactory(IntegerIdParamDto, { id: 0 }));
+
         const errors = await new Validator().validate(model);
         expect(errors).toHaveLength(0);
     });
@@ -64,8 +67,55 @@ describe(`Test dto class \`${IntegerIdQueryDto.name}}\``, () => {
         const model = plainToInstance(IntegerIdQueryDto, {
             id: '0',
         });
+        expect(model).toStrictEqual(dtoFactory(IntegerIdQueryDto, { id: 0 }));
+
         const errors = await new Validator().validate(model);
         expect(errors).toHaveLength(0);
+    });
+
+    it('should not pass validation when request is invalid [id=undefined]', async () => {
+        {
+            const model = plainToInstance(IntegerIdQueryDto, {});
+
+            const errors = await new Validator().validate(model);
+            expect(errors).toHaveLength(1);
+            expect(errors[0].property).toBe('id');
+            expect(errors[0].constraints).toStrictEqual({
+                isInt: 'id must be an integer number',
+            });
+            expect(errors[0].value).toBeUndefined();
+            expect(errors[0].children).toHaveLength(0);
+        }
+
+        {
+            const model = plainToInstance(IntegerIdQueryDto, {
+                id: undefined,
+            });
+
+            const errors = await new Validator().validate(model);
+            expect(errors).toHaveLength(1);
+            expect(errors[0].property).toBe('id');
+            expect(errors[0].constraints).toStrictEqual({
+                isInt: 'id must be an integer number',
+            });
+            expect(errors[0].value).toBeNaN();
+            expect(errors[0].children).toHaveLength(0);
+        }
+    });
+
+    it('should not pass validation when request is invalid [id=""]', async () => {
+        const model = plainToInstance(IntegerIdQueryDto, {
+            id: '',
+        });
+
+        const errors = await new Validator().validate(model);
+        expect(errors).toHaveLength(1);
+        expect(errors[0].property).toBe('id');
+        expect(errors[0].constraints).toStrictEqual({
+            isInt: 'id must be an integer number',
+        });
+        expect(errors[0].value).toBeUndefined();
+        expect(errors[0].children).toHaveLength(0);
     });
 
     it('should not pass validation when request is invalid [id="bad value"]', async () => {
@@ -119,23 +169,40 @@ describe(`Test dto class \`${IntegerIdBodyDto.name}}\``, () => {
         const model = plainToInstance(IntegerIdBodyDto, {
             id: 0,
         });
+        expect(model).toStrictEqual(dtoFactory(IntegerIdBodyDto, { id: 0 }));
+
         const errors = await new Validator().validate(model);
         expect(errors).toHaveLength(0);
     });
 
     it('should not pass validation when request is invalid [id=undefined]', async () => {
-        const model = plainToInstance(IntegerIdBodyDto, {
-            id: undefined,
-        });
+        {
+            const model = plainToInstance(IntegerIdBodyDto, {});
 
-        const errors = await new Validator().validate(model);
-        expect(errors).toHaveLength(1);
-        expect(errors[0].property).toBe('id');
-        expect(errors[0].constraints).toStrictEqual({
-            isInt: 'id must be an integer number',
-        });
-        expect(errors[0].value).toBeUndefined();
-        expect(errors[0].children).toHaveLength(0);
+            const errors = await new Validator().validate(model);
+            expect(errors).toHaveLength(1);
+            expect(errors[0].property).toBe('id');
+            expect(errors[0].constraints).toStrictEqual({
+                isInt: 'id must be an integer number',
+            });
+            expect(errors[0].value).toBeUndefined();
+            expect(errors[0].children).toHaveLength(0);
+        }
+
+        {
+            const model = plainToInstance(IntegerIdBodyDto, {
+                id: undefined,
+            });
+
+            const errors = await new Validator().validate(model);
+            expect(errors).toHaveLength(1);
+            expect(errors[0].property).toBe('id');
+            expect(errors[0].constraints).toStrictEqual({
+                isInt: 'id must be an integer number',
+            });
+            expect(errors[0].value).toBeUndefined();
+            expect(errors[0].children).toHaveLength(0);
+        }
     });
 
     it('should not pass validation when request is invalid [id=null]', async () => {
