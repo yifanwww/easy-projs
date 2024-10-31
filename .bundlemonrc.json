@@ -1,39 +1,6 @@
 {
     "groups": [
         {
-            "path": "packages/fetcher/lib/**/*.js"
-        },
-        {
-            "path": "packages/helpers-antd/lib/**/*.js"
-        },
-        {
-            "path": "packages/helpers-class-validator/lib/**/*.js"
-        },
-        {
-            "path": "packages/helpers-nestjs/lib/**/*.js"
-        },
-        {
-            "path": "packages/helpers-react/lib/**/*.js"
-        },
-        {
-            "path": "packages/helpers-redux/lib/**/*.js"
-        },
-        {
-            "path": "packages/helpers-typeorm/lib/**/*.js"
-        },
-        {
-            "path": "packages/hooks/lib/**/*.js"
-        },
-        {
-            "path": "packages/utils/lib/**/*.js"
-        },
-        {
-            "path": "packages/utils-browser/lib/**/*.js"
-        },
-        {
-            "path": "packages/utils-node/lib/**/*.js"
-        },
-        {
             "path": "projects/bundlesize-antd/dist/assets/*.js"
         },
         {
