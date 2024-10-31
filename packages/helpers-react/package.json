@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/helpers-react",
     "version": "0.0.0",
-    "description": "A package that contains React helpers.",
+    "description": "React helpers.",
     "type": "module",
     "exports": {
         ".": {

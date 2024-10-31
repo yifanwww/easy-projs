@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/utils-node",
     "version": "0.0.0",
-    "description": "A package that contains node utilities.",
+    "description": "Node utilities.",
     "type": "module",
     "exports": {
         ".": {

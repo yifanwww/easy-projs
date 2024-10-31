@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/utils-browser",
     "version": "0.0.0",
-    "description": "A package that contains browser utilities.",
+    "description": "Browser utilities.",
     "type": "module",
     "exports": {
         ".": {

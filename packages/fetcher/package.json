@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/fetcher",
     "version": "0.0.0",
-    "description": "",
+    "description": "A simple fetcher implementation.",
     "type": "module",
     "exports": {
         ".": {

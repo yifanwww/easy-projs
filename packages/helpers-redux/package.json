@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/helpers-redux",
     "version": "0.0.0",
-    "description": "Redux helpers for easy-projs.",
+    "description": "Redux helpers.",
     "type": "module",
     "exports": {
         ".": {

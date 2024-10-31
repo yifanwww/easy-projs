@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/rc-antd",
     "version": "0.0.0",
-    "description": "A package that contains React components based on ant-design.",
+    "description": "React components based on ant-design.",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "typings": "lib/index.d.ts",

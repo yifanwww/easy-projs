@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/helpers-nestjs",
     "version": "0.0.0",
-    "description": "A package that contains Nest.js helpers.",
+    "description": "Nest.js helpers.",
     "type": "module",
     "exports": {
         ".": {

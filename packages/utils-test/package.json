@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/utils-test",
     "version": "0.0.0",
-    "description": "Test utils used for easy-projs.",
+    "description": "Unit test utilities.",
     "type": "module",
     "exports": {
         ".": {

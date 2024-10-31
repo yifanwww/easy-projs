@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/utils",
     "version": "0.0.0",
-    "description": "Utilities for easy-projs.",
+    "description": "JavaScript utilities.",
     "type": "module",
     "exports": {
         ".": {

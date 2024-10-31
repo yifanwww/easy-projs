@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/helpers-typeorm",
     "version": "0.0.0",
-    "description": "A package that contains TypeORM helpers.",
+    "description": "TypeORM helpers.",
     "type": "module",
     "exports": {
         ".": {

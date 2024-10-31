@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/helpers-antd",
     "version": "0.0.0",
-    "description": "A package that contains React helpers.",
+    "description": "ant-design helpers.",
     "exports": {
         ".": {
             "types": "./lib/index.d.ts",

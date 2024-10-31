@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/hooks",
     "version": "0.0.0",
-    "description": "React hooks for easy-projs.",
+    "description": "React hooks.",
     "type": "module",
     "exports": {
         ".": {

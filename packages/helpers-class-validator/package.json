@@ -1,7 +1,7 @@
 {
     "name": "@easy-pkg/helpers-class-validator",
     "version": "0.0.0",
-    "description": "A package that contains class-validator helpers.",
+    "description": "class-validator helpers.",
     "type": "module",
     "exports": {
         ".": {

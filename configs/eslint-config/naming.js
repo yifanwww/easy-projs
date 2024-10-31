@@ -1,96 +1,65 @@
-const basicNaming = [
-    'error',
-    { selector: 'accessor', modifiers: ['static'], format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
-    { selector: 'accessor', format: ['camelCase'], leadingUnderscore: 'forbid' },
+function buildNamingConvention(options) {
+    const { api } = options ?? {};
 
-    {
-        selector: ['class', 'enum', 'interface', 'typeAlias', 'typeParameter'],
-        format: ['PascalCase'],
-        leadingUnderscore: 'forbid',
-    },
+    return [
+        'error',
+        { selector: 'accessor', modifiers: ['static'], format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
+        { selector: 'accessor', format: ['camelCase'], leadingUnderscore: 'forbid' },
 
-    { selector: 'enumMember', format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
+        {
+            selector: ['class', 'enum', 'interface', 'typeAlias', 'typeParameter'],
+            format: ['PascalCase'],
+            leadingUnderscore: 'forbid',
+        },
 
-    { selector: 'function', format: ['camelCase', 'PascalCase'], leadingUnderscore: 'allow' },
+        { selector: 'enumMember', format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
 
-    { selector: 'method', modifiers: ['private'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'method', modifiers: ['protected'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'method', format: ['camelCase'], leadingUnderscore: 'forbid' },
+        { selector: 'function', format: ['camelCase', 'PascalCase'], leadingUnderscore: 'allow' },
 
-    { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
+        { selector: 'method', modifiers: ['private'], format: ['camelCase'], leadingUnderscore: 'require' },
+        { selector: 'method', modifiers: ['protected'], format: ['camelCase'], leadingUnderscore: 'require' },
+        { selector: 'method', format: ['camelCase'], leadingUnderscore: 'forbid' },
 
-    {
-        selector: 'property',
-        modifiers: ['private', 'static'],
-        format: ['camelCase', 'UPPER_CASE'],
-        leadingUnderscore: 'require',
-    },
-    {
-        selector: 'property',
-        modifiers: ['protected', 'static'],
-        format: ['camelCase', 'UPPER_CASE'],
-        leadingUnderscore: 'require',
-    },
-    { selector: 'property', modifiers: ['private'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'property', modifiers: ['protected'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'property', modifiers: ['static'], format: ['camelCase', 'UPPER_CASE'], leadingUnderscore: 'forbid' },
-    { selector: 'property', format: ['camelCase'], leadingUnderscore: 'forbid' },
+        { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
 
-    { selector: 'objectLiteralProperty', format: null },
+        {
+            selector: 'property',
+            modifiers: ['private', 'static'],
+            format: ['camelCase', 'UPPER_CASE'],
+            leadingUnderscore: 'require',
+        },
+        {
+            selector: 'property',
+            modifiers: ['protected', 'static'],
+            format: ['camelCase', 'UPPER_CASE'],
+            leadingUnderscore: 'require',
+        },
+        { selector: 'property', modifiers: ['private'], format: ['camelCase'], leadingUnderscore: 'require' },
+        { selector: 'property', modifiers: ['protected'], format: ['camelCase'], leadingUnderscore: 'require' },
+        {
+            selector: 'property',
+            modifiers: ['static'],
+            format: ['camelCase', 'UPPER_CASE'],
+            leadingUnderscore: 'forbid',
+        },
+        {
+            selector: 'property',
+            format: ['camelCase', api && 'snake_case'].filter(Boolean),
+            leadingUnderscore: 'forbid',
+        },
 
-    {
-        selector: 'variable',
-        format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
-        leadingUnderscore: 'allow',
-    },
-];
+        { selector: 'objectLiteralProperty', format: null },
 
-const apiNaming = [
-    'error',
-    { selector: 'accessor', modifiers: ['static'], format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
-    { selector: 'accessor', format: ['camelCase'], leadingUnderscore: 'forbid' },
+        {
+            selector: 'variable',
+            format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+            leadingUnderscore: 'allow',
+        },
+    ];
+}
 
-    {
-        selector: ['class', 'enum', 'interface', 'typeAlias', 'typeParameter'],
-        format: ['PascalCase'],
-        leadingUnderscore: 'forbid',
-    },
-
-    { selector: 'enumMember', format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
-
-    { selector: 'function', format: ['camelCase'], leadingUnderscore: 'allow' },
-
-    { selector: 'method', modifiers: ['private'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'method', modifiers: ['protected'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'method', format: ['camelCase'], leadingUnderscore: 'forbid' },
-
-    { selector: 'parameter', format: ['camelCase'], leadingUnderscore: 'allow' },
-
-    {
-        selector: 'property',
-        modifiers: ['private', 'static'],
-        format: ['camelCase', 'UPPER_CASE'],
-        leadingUnderscore: 'require',
-    },
-    {
-        selector: 'property',
-        modifiers: ['protected', 'static'],
-        format: ['camelCase', 'UPPER_CASE'],
-        leadingUnderscore: 'require',
-    },
-    { selector: 'property', modifiers: ['private'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'property', modifiers: ['protected'], format: ['camelCase'], leadingUnderscore: 'require' },
-    { selector: 'property', modifiers: ['static'], format: ['camelCase', 'UPPER_CASE'], leadingUnderscore: 'forbid' },
-    { selector: 'property', format: ['camelCase', 'snake_case'], leadingUnderscore: 'forbid' },
-
-    { selector: 'objectLiteralProperty', format: null },
-
-    {
-        selector: 'variable',
-        format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
-        leadingUnderscore: 'allow',
-    },
-];
+const basicNaming = buildNamingConvention();
+const apiNaming = buildNamingConvention({ api: true });
 
 module.exports = {
     basicNaming,
