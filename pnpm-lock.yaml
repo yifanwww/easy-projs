@@ -180,6 +180,39 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
 
+  packages/apis:
+    devDependencies:
+      '@easy-config/eslint-config':
+        specifier: workspace:*
+        version: link:../../configs/eslint-config
+      '@easy-config/global-types':
+        specifier: workspace:*
+        version: link:../../configs/global-types
+      '@easy-config/jest-config':
+        specifier: workspace:*
+        version: link:../../configs/jest-config
+      '@easy-config/tsconfigs':
+        specifier: workspace:*
+        version: link:../../configs/tsconfigs
+      '@jest/globals':
+        specifier: ^29.7.0
+        version: 29.7.0
+      concurrently:
+        specifier: ^8.2.2
+        version: 8.2.2
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.0
+      prettier:
+        specifier: 3.3.3
+        version: 3.3.3
+      rimraf:
+        specifier: ^5.0.6
+        version: 5.0.6
+      typescript:
+        specifier: 5.5.4
+        version: 5.5.4
+
   packages/fetcher:
     dependencies:
       '@easy-pkg/utils-browser':
@@ -305,6 +338,9 @@ importers:
 
   packages/helpers-nestjs:
     dependencies:
+      '@easy-pkg/apis':
+        specifier: workspace:*
+        version: link:../apis
       '@easy-pkg/helpers-class-validator':
         specifier: workspace:*
         version: link:../helpers-class-validator

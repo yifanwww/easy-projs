@@ -105,6 +105,10 @@
         // packages
 
         {
+            "name": "@easy-pkg/apis",
+            "path": "packages/apis"
+        },
+        {
             "name": "@easy-pkg/fetcher",
             "path": "packages/fetcher"
         },
