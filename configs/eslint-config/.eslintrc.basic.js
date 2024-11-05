@@ -282,11 +282,16 @@ module.exports = {
         'import/order': [
             'error',
             {
-                groups: [['builtin', 'external'], 'internal', 'parent', 'sibling'],
+                groups: [['builtin', 'external'], 'internal', 'parent', 'sibling', 'unknown'],
                 pathGroups: [
                     {
-                        pattern: './*.{css,scss}',
-                        group: 'sibling',
+                        pattern: 'src/**/*.{css,scss}',
+                        group: 'unknown',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**/*.{css,scss}',
+                        group: 'unknown',
                         position: 'after',
                     },
                 ],
@@ -294,6 +299,7 @@ module.exports = {
                     caseInsensitive: true,
                     order: 'asc',
                 },
+                distinctGroup: false,
                 'newlines-between': 'always',
             },
         ],
