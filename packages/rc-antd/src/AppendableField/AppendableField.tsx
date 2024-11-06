@@ -114,9 +114,9 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         (item: React.ReactNode) => {
             if (isElement(item)) {
                 return (
-                    <Space key={item.key} className={css.space} align="baseline">
+                    <Space key={item.key} className={css.item_container} align="baseline">
                         {item}
-                        {!readonly && <div className={css.deleteHidden} />}
+                        {!readonly && <div className={css['item_delete-hidden']} />}
                     </Space>
                 );
             }
@@ -140,14 +140,14 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
 
                 return (getDeletable?.(fieldName, fieldsLength) ?? true) && (!disableDeleteFirst || fieldName > 0) ? (
                     <MinusCircleOutlined
-                        className={css.delete}
+                        className={css.item_delete}
                         onClick={() => {
                             remove(fieldName);
                             onRemoved?.();
                         }}
                     />
                 ) : (
-                    <div className={css.deleteHidden} />
+                    <div className={css['item_delete-hidden']} />
                 );
             };
 
@@ -173,7 +173,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
             );
 
             const renderItem = ({ key, name: fieldName }: FormListFieldData) => (
-                <Space key={key} className={css.space} align="baseline">
+                <Space key={key} className={css.item_container} align="baseline">
                     {render?.({ name: fieldName }, fieldsLength) ?? (Component ? <Component name={fieldName} /> : null)}
                     {renderDeleteElement(fieldName)}
                 </Space>
