@@ -5,6 +5,11 @@
     "parserOptions": {
         "project": "./tsconfig.json"
     },
+    "settings": {
+        "typescript": {
+            "project": "./tsconfig.json"
+        }
+    },
     "rules": {
         "prefer-const": "off",
 

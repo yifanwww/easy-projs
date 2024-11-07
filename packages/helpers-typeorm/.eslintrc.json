@@ -4,5 +4,10 @@
     "ignorePatterns": ["/coverage", "/lib", "*.cjs", "*.js", "*.mjs"],
     "parserOptions": {
         "project": "./tsconfig.json"
+    },
+    "settings": {
+        "typescript": {
+            "project": "./tsconfig.json"
+        }
     }
 }

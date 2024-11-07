@@ -3,6 +3,11 @@
     "version": "0.0.0",
     "description": "Stylelint configurations for easy-projs.",
     "type": "module",
+    "exports": {
+        ".": {
+            "default": "./index.js"
+        }
+    },
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",

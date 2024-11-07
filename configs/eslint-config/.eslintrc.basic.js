@@ -20,25 +20,20 @@ module.exports = {
     plugins: ['@typescript-eslint', 'import', 'jest', 'prettier'],
 
     settings: {
-        // Append 'ts' extensions to Airbnb 'import/extensions' setting
-        // Original: ['.js', '.mjs', '.jsx']
-        'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.d.ts'],
-
-        // Resolve type definition packages
-        'import/external-module-folders': ['node_modules', 'node_modules/@types'],
+        // Override Airbnb's 'import/extensions'
+        'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
 
         'import/internal-regex': '^src',
 
         // Apply special parsing for TypeScript files
         'import/parsers': {
-            '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
+            '@typescript-eslint/parser': ['.ts', '.tsx'],
         },
 
-        // Append 'ts' extensions to Airbnb 'import/resolver' setting
-        // Original: ['.js', '.jsx', '.json']
+        // Override Airbnb's 'import/resolver'
         'import/resolver': {
             node: {
-                extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx', '.d.ts'],
+                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
             },
         },
     },
