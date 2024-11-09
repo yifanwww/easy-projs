@@ -43,7 +43,7 @@ function release(): void {
     const prerelease = semver.prerelease(version);
     const npmTag = getNpmTag(prerelease);
 
-    const cmd = `pnpm publish --filter ${packageName} --tag ${npmTag} --no-git-checks`;
+    const cmd = `pnpm publish --filter ${packageName} --tag ${npmTag} --access public --no-git-checks`;
     console.info(cmd);
     child.execSync(cmd, { encoding: 'utf-8', stdio: 'inherit' });
 }

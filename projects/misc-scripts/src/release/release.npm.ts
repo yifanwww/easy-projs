@@ -35,7 +35,7 @@ function release(): void {
     const prerelease = semver.prerelease(version);
     const npmTag = getNpmTag(prerelease);
 
-    const cmd = `npm publish --tag ${npmTag}`;
+    const cmd = `npm publish --tag ${npmTag} --access public`;
     console.info(cmd);
     child.execSync(cmd, { encoding: 'utf-8', stdio: 'inherit' });
 }
