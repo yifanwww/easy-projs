@@ -1,9 +1,0 @@
-{
-    "extends": "@easy-config/tsconfigs/tsconfig.node16.json",
-    "compilerOptions": {
-        "outDir": "../lib",
-        "rootDir": "../ts"
-    },
-    "include": ["../ts/**/*"],
-    "exclude": ["../ts/**/__mocks__/**/*", "../ts/**/__tests__/**/*", "../ts/**/*.spec.ts", "../ts/**/*.test.ts"]
-}

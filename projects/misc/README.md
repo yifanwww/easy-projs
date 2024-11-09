@@ -1,3 +1,0 @@
-# @easy-proj/misc
-
-Misc.

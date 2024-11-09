@@ -180,10 +180,6 @@
             "path": "projects/bundlesize-fluentui"
         },
         {
-            "name": "@easy-proj/misc",
-            "path": "projects/misc"
-        },
-        {
             "name": "@easy-proj/misc-scripts",
             "path": "projects/misc-scripts"
         },
