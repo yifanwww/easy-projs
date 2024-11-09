@@ -35,9 +35,9 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/apis": "workspace:*",
-        "@easy-pkg/helpers-class-validator": "workspace:*",
-        "@easy-pkg/utils": "workspace:*",
+        "@easy-pkg/apis": "workspace:^",
+        "@easy-pkg/helpers-class-validator": "workspace:^",
+        "@easy-pkg/utils": "workspace:^",
         "@nestjs/common": "^10.3.8",
         "@nestjs/core": "^10.4.4",
         "@nestjs/jwt": "^10.2.0",
@@ -50,10 +50,10 @@
         "winston-daily-rotate-file": "^5.0.0"
     },
     "devDependencies": {
-        "@easy-config/eslint-config": "workspace:*",
-        "@easy-config/global-types": "workspace:*",
-        "@easy-config/jest-config": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*",
+        "@easy-config/eslint-config": "workspace:^",
+        "@easy-config/global-types": "workspace:^",
+        "@easy-config/jest-config": "workspace:^",
+        "@easy-config/tsconfigs": "workspace:^",
         "@jest/globals": "^29.7.0",
         "@types/express": "^5.0.0",
         "concurrently": "^8.2.2",

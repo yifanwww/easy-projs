@@ -35,13 +35,13 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/types": "workspace:*"
+        "@easy-pkg/types": "workspace:^"
     },
     "devDependencies": {
-        "@easy-config/eslint-config": "workspace:*",
-        "@easy-config/global-types": "workspace:*",
-        "@easy-config/jest-config": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*",
+        "@easy-config/eslint-config": "workspace:^",
+        "@easy-config/global-types": "workspace:^",
+        "@easy-config/jest-config": "workspace:^",
+        "@easy-config/tsconfigs": "workspace:^",
         "@jest/globals": "^29.7.0",
         "concurrently": "^8.2.2",
         "eslint": "^8.57.0",

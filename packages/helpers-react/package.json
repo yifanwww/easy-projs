@@ -33,15 +33,15 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/types": "workspace:*",
-        "@easy-pkg/utils-browser": "workspace:*",
+        "@easy-pkg/types": "workspace:^",
+        "@easy-pkg/utils-browser": "workspace:^",
         "react": "^18.3.1"
     },
     "devDependencies": {
-        "@easy-config/eslint-config": "workspace:*",
-        "@easy-config/global-types": "workspace:*",
-        "@easy-config/jest-config": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*",
+        "@easy-config/eslint-config": "workspace:^",
+        "@easy-config/global-types": "workspace:^",
+        "@easy-config/jest-config": "workspace:^",
+        "@easy-config/tsconfigs": "workspace:^",
         "@jest/globals": "^29.7.0",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/react": "^16.0.1",

@@ -28,9 +28,9 @@
         "benchmark-node": "^0.7.3"
     },
     "devDependencies": {
-        "@easy-config/eslint-config": "workspace:*",
-        "@easy-config/global-types": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*",
+        "@easy-config/eslint-config": "workspace:^",
+        "@easy-config/global-types": "workspace:^",
+        "@easy-config/tsconfigs": "workspace:^",
         "@types/node": "^20.12.11",
         "eslint": "^8.57.0",
         "prettier": "3.3.3",

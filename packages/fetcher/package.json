@@ -35,14 +35,14 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/utils-browser": "workspace:*",
+        "@easy-pkg/utils-browser": "workspace:^",
         "rustlike-result": "^0.5.1"
     },
     "devDependencies": {
-        "@easy-config/eslint-config": "workspace:*",
-        "@easy-config/global-types": "workspace:*",
-        "@easy-config/jest-config": "workspace:*",
-        "@easy-config/tsconfigs": "workspace:*",
+        "@easy-config/eslint-config": "workspace:^",
+        "@easy-config/global-types": "workspace:^",
+        "@easy-config/jest-config": "workspace:^",
+        "@easy-config/tsconfigs": "workspace:^",
         "@jest/globals": "^29.7.0",
         "concurrently": "^8.2.2",
         "eslint": "^8.57.0",

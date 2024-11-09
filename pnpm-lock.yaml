@@ -76,10 +76,10 @@ importers:
   configs/global-types:
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../eslint-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../tsconfigs
       eslint:
         specifier: ^8.57.0
@@ -122,10 +122,10 @@ importers:
         version: 3.6.20
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../eslint-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../tsconfigs
       '@jest/types':
         specifier: ^29.6.3
@@ -186,16 +186,16 @@ importers:
   packages/apis:
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
         specifier: ^29.7.0
@@ -219,23 +219,23 @@ importers:
   packages/fetcher:
     dependencies:
       '@easy-pkg/utils-browser':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../utils-browser
       rustlike-result:
         specifier: ^0.5.1
         version: 0.5.1(typeorm@0.3.20)
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
         specifier: ^29.7.0
@@ -266,16 +266,16 @@ importers:
         version: 18.3.1
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
         specifier: ^29.7.0
@@ -302,23 +302,23 @@ importers:
   packages/helpers-class-validator:
     dependencies:
       '@easy-pkg/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../types
       class-validator:
         specifier: ^0.14.1
         version: 0.14.1
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
         specifier: ^29.7.0
@@ -342,13 +342,13 @@ importers:
   packages/helpers-nestjs:
     dependencies:
       '@easy-pkg/apis':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../apis
       '@easy-pkg/helpers-class-validator':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../helpers-class-validator
       '@easy-pkg/utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../utils
       '@nestjs/common':
         specifier: ^10.3.8
@@ -382,16 +382,16 @@ importers:
         version: 5.0.0(winston@3.13.0)
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
         specifier: ^29.7.0
@@ -418,26 +418,26 @@ importers:
   packages/helpers-react:
     dependencies:
       '@easy-pkg/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../types
       '@easy-pkg/utils-browser':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../utils-browser
       react:
         specifier: ^18.3.1
         version: 18.3.1
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
         specifier: ^29.7.0
@@ -470,7 +470,7 @@ importers:
   packages/helpers-redux:
     dependencies:
       '@easy-pkg/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../types
       immer:
         specifier: ^10.1.1
@@ -480,13 +480,13 @@ importers:
         version: 18.3.1
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@reduxjs/toolkit':
         specifier: ^2.2.4
@@ -516,7 +516,7 @@ importers:
   packages/helpers-typeorm:
     dependencies:
       '@easy-pkg/apis':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../apis
       dayjs:
         specifier: ^1.11.11
@@ -526,16 +526,16 @@ importers:
         version: 0.3.20
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
         specifier: ^29.7.0
@@ -559,13 +559,13 @@ importers:
   packages/hooks:
     dependencies:
       '@easy-pkg/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../types
       '@easy-pkg/utils':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../utils
       '@easy-pkg/utils-browser':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../utils-browser
       react:
         specifier: ^18.3.1
@@ -578,19 +578,19 @@ importers:
         version: 17.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@easy-pkg/utils-test':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
         specifier: ^29.7.0
@@ -626,19 +626,19 @@ importers:
   packages/random-string:
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@easy-pkg/utils-test':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
         specifier: ^29.7.0
@@ -668,7 +668,7 @@ importers:
         specifier: ^5.3.7
         version: 5.3.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@easy-pkg/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../types
       antd:
         specifier: ^5.19.3
@@ -684,16 +684,16 @@ importers:
         version: 4.18.2
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/stylelint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/stylelint-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/react':
         specifier: ^18.3.2
@@ -726,13 +726,13 @@ importers:
   packages/types:
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       concurrently:
         specifier: ^8.2.2
@@ -753,20 +753,20 @@ importers:
   packages/utils:
     dependencies:
       '@easy-pkg/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../types
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
         specifier: ^29.7.0
@@ -790,19 +790,19 @@ importers:
   packages/utils-browser:
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@easy-pkg/utils-test':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
         specifier: ^29.7.0
@@ -826,19 +826,19 @@ importers:
   packages/utils-node:
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@easy-pkg/utils-test':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
         specifier: ^29.7.0
@@ -865,7 +865,7 @@ importers:
   packages/utils-test:
     dependencies:
       '@easy-pkg/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../types
       '@jest/globals':
         specifier: ^29.7.0
@@ -884,16 +884,16 @@ importers:
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       concurrently:
         specifier: ^8.2.2
@@ -927,13 +927,13 @@ importers:
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/react':
         specifier: ^18.3.2
@@ -982,13 +982,13 @@ importers:
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/react':
         specifier: ^18.3.2
@@ -1024,59 +1024,23 @@ importers:
         specifier: ^5.2.11
         version: 5.2.11(@types/node@20.12.11)(less@4.2.0)(sass@1.77.1)(stylus@0.62.0)
 
-  projects/misc:
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:*
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:*
-        version: link:../../configs/global-types
-      '@easy-config/tsconfigs':
-        specifier: workspace:*
-        version: link:../../configs/tsconfigs
-      '@types/node':
-        specifier: ^20.12.11
-        version: 20.12.11
-      concurrently:
-        specifier: ^8.2.2
-        version: 8.2.2
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      prettier:
-        specifier: 3.3.3
-        version: 3.3.3
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-redux:
-        specifier: ^9.1.2
-        version: 9.1.2(@types/react@18.3.2)(react@18.3.1)(redux@5.0.1)
-      rimraf:
-        specifier: ^5.0.6
-        version: 5.0.6
-      typescript:
-        specifier: 5.5.4
-        version: 5.5.4
-
   projects/misc-scripts:
     dependencies:
       '@easy-pkg/types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/types
       semver:
         specifier: ^7.6.2
         version: 7.6.3
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/node':
         specifier: ^20.12.11
@@ -1104,13 +1068,13 @@ importers:
         version: 0.7.3
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/node':
         specifier: ^20.12.11
@@ -1131,10 +1095,10 @@ importers:
   projects/webapp:
     dependencies:
       '@easy-pkg/helpers-redux':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/helpers-redux
       '@easy-pkg/utils-browser':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/utils-browser
       '@reduxjs/toolkit':
         specifier: ^2.2.4
@@ -1156,19 +1120,19 @@ importers:
         version: 3.5.2
     devDependencies:
       '@easy-config/eslint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/eslint-config
       '@easy-config/global-types':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/global-types
       '@easy-config/jest-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/jest-config
       '@easy-config/stylelint-config':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/stylelint-config
       '@easy-config/tsconfigs':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
         specifier: ^29.7.0
