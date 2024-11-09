@@ -1,4 +1,4 @@
-import type { Nullable, Optional } from '@easy-pkg/types/utils';
+import type { Nullable, Optional } from '@easy-pkg/types';
 import { noop } from '@easy-pkg/utils';
 import { assert } from '@easy-pkg/utils-browser';
 import { describe, expect, it } from '@jest/globals';

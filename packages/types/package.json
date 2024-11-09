@@ -4,17 +4,9 @@
     "description": "Types library.",
     "type": "module",
     "exports": {
-        "./fn": {
-            "types": "./lib/fn.d.ts",
-            "default": "./lib/fn.js"
-        },
-        "./primitives": {
-            "types": "./lib/primitives.d.ts",
-            "default": "./lib/primitives.js"
-        },
-        "./utils": {
-            "types": "./lib/utils/index.d.ts",
-            "default": "./lib/utils/index.js"
+        ".": {
+            "types": "./lib/index.d.ts",
+            "default": "./lib/index.js"
         }
     },
     "homepage": "https://github.com/yifanwww/easy-projs#readme",

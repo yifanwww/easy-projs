@@ -1,4 +1,4 @@
-import type { UnknownFn } from '@easy-pkg/types/fn';
+import type { UnknownFn } from '@easy-pkg/types';
 
 export function abstractFn(): never {
     throw new Error('Not Implemented');

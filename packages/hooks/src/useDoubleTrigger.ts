@@ -1,4 +1,4 @@
-import type { UnknownFn, VoidReturn } from '@easy-pkg/types/fn';
+import type { UnknownFn, VoidReturn } from '@easy-pkg/types';
 import { useCallback, useRef } from 'react';
 
 /**

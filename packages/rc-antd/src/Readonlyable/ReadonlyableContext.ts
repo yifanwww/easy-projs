@@ -1,4 +1,4 @@
-import type { Nullable } from '@easy-pkg/types/utils';
+import type { Nullable } from '@easy-pkg/types';
 import { createContext } from 'react';
 
 export interface ReadonlyableContextValue {

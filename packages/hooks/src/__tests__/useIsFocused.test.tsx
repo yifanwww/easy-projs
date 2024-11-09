@@ -1,4 +1,4 @@
-import type { Nullable } from '@easy-pkg/types/utils';
+import type { Nullable } from '@easy-pkg/types';
 import { describe, expect, it } from '@jest/globals';
 import { fireEvent, render } from '@testing-library/react';
 import { useRef } from 'react';
