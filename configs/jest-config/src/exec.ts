@@ -69,7 +69,6 @@ function exec(type: TestType, extraArgs: string[]): void {
     const env = {
         ...process.env,
         ...extraEnv,
-        BABEL_ENV: 'test',
         NODE_ENV: 'test',
     };
 
