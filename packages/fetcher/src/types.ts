@@ -1,4 +1,4 @@
-import type { QueryURLParamsInit } from './url.js';
+import type { QueryURLParamsInit } from '@easy-pkg/utils-browser';
 
 type Method =
     | 'get'

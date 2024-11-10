@@ -1,8 +1,8 @@
+import { buildQueryURL } from '@easy-pkg/utils-browser';
 import type { Result, ResultAsync } from 'rustlike-result';
 import { Err, Ok, fromPromiseableResult, resultifyAsync } from 'rustlike-result';
 
 import type { FetchFactoryOptions, FetchOptions, FetchResponse } from './types.js';
-import { buildQueryURL } from './url.js';
 
 function isUnstringifiable(value: BodyInit | object | undefined): value is BodyInit | undefined {
     return (
