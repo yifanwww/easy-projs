@@ -53,7 +53,7 @@ function getConfig(): Config {
 
         modulePaths: [],
         moduleNameMapper: {
-            '^rustlike-result$': 'rustlike-result/cjs',
+            '^@rustresult/result$': '@rustresult/result/cjs',
 
             '^react-native$': 'react-native-web',
             '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',

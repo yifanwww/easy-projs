@@ -1,6 +1,6 @@
 import { assert } from '@easy-pkg/utils-browser';
 import { describe, expect, it, jest } from '@jest/globals';
-import { ErrAsync, OkAsync } from 'rustlike-result';
+import { ErrAsync, OkAsync } from '@rustresult/result';
 
 import { fetcherFactory } from '../fetcherFactory.js';
 

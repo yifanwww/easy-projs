@@ -221,9 +221,9 @@ importers:
       '@easy-pkg/utils-browser':
         specifier: workspace:^
         version: link:../utils-browser
-      rustlike-result:
-        specifier: ^0.5.1
-        version: 0.5.1(typeorm@0.3.20)
+      '@rustresult/result':
+        specifier: ^0.6.0
+        version: 0.6.0
     devDependencies:
       '@easy-config/eslint-config':
         specifier: workspace:^
@@ -2459,6 +2459,9 @@ packages:
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
+
+  '@rustresult/result@0.6.0':
+    resolution: {integrity: sha512-9NFAkVSnEfsGc00io/2Usf5msjTNmhpOVQZ21zrwJ0fmjcZqorxlWZy9Fl2l1kJZuRZaEZdmt3y672PGQ2afWw==}
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
@@ -6488,17 +6491,6 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
-  rustlike-result@0.5.1:
-    resolution: {integrity: sha512-eQUEYxDVRTcQRbwOgrYqw66jM4b19aIuIVcdEvXiVs8tHXwP7lWnVDMtFQkPSSFRMFYrGWHCFt0BrveSiShRDQ==}
-    peerDependencies:
-      serializr: ^3.0.2
-      typeorm: ^0.3.0
-    peerDependenciesMeta:
-      serializr:
-        optional: true
-      typeorm:
-        optional: true
-
   rxjs@7.8.1:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
 
@@ -9268,6 +9260,8 @@ snapshots:
     optional: true
 
   '@rtsao/scc@1.1.0': {}
+
+  '@rustresult/result@0.6.0': {}
 
   '@sinclair/typebox@0.27.8': {}
 
@@ -14303,10 +14297,6 @@ snapshots:
   run-parallel@1.2.0:
     dependencies:
       queue-microtask: 1.2.3
-
-  rustlike-result@0.5.1(typeorm@0.3.20):
-    optionalDependencies:
-      typeorm: 0.3.20
 
   rxjs@7.8.1:
     dependencies:
