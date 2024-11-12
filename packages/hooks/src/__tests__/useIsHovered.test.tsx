@@ -1,4 +1,3 @@
-import type { Nullable } from '@easy-pkg/types';
 import { describe, expect, it } from '@jest/globals';
 import { fireEvent, render } from '@testing-library/react';
 import { useRef } from 'react';
@@ -7,7 +6,7 @@ import { useIsHovered } from '../useIsHovered.js';
 
 describe(`Test react hook \`${useIsHovered.name}\``, () => {
     it('should return whether the component is hovered', () => {
-        let isHovered: Nullable<boolean> = null;
+        let isHovered: boolean | null = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isHovered = useIsHovered(ref);
@@ -31,7 +30,7 @@ describe(`Test react hook \`${useIsHovered.name}\``, () => {
     });
 
     it('should return whether the component is hovered even if there is a mask', () => {
-        let isHovered: Nullable<boolean> = null;
+        let isHovered: boolean | null = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             const maskRef = useRef<HTMLDivElement>(null);
@@ -62,7 +61,7 @@ describe(`Test react hook \`${useIsHovered.name}\``, () => {
     });
 
     it('should not work if disabled', () => {
-        let isHovered: Nullable<boolean> = null;
+        let isHovered: boolean | null = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isHovered = useIsHovered(ref, undefined, false);

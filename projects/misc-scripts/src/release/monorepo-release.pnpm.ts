@@ -1,8 +1,7 @@
-import type { Nullable } from '@easy-pkg/types';
 import child from 'node:child_process';
 import semver from 'semver';
 
-function getNpmTag(prerelease: Nullable<readonly (string | number)[]>): string {
+function getNpmTag(prerelease: readonly (string | number)[] | null): string {
     const type = typeof prerelease?.[0] !== 'string' ? null : prerelease[0];
 
     switch (type) {

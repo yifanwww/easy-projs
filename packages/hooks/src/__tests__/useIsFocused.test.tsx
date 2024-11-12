@@ -1,4 +1,3 @@
-import type { Nullable } from '@easy-pkg/types';
 import { describe, expect, it } from '@jest/globals';
 import { fireEvent, render } from '@testing-library/react';
 import { useRef } from 'react';
@@ -7,7 +6,7 @@ import { useIsFocused } from '../useIsFocused.js';
 
 describe(`Test react hook \`${useIsFocused.name}\``, () => {
     it('should return whether the component is focused', () => {
-        let isFocused: Nullable<boolean> = null;
+        let isFocused: boolean | null = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isFocused = useIsFocused(ref);
@@ -31,7 +30,7 @@ describe(`Test react hook \`${useIsFocused.name}\``, () => {
     });
 
     it('should not work if disabled', () => {
-        let isFocused: Nullable<boolean> = null;
+        let isFocused: boolean | null = null;
         function TestComponent() {
             const ref = useRef<HTMLDivElement>(null);
             isFocused = useIsFocused(ref, false);

@@ -1,4 +1,3 @@
-import type { Nullable, Optional } from '@easy-pkg/types';
 import { noop } from '@easy-pkg/utils';
 import { assert } from '@easy-pkg/utils-browser';
 import { describe, expect, it } from '@jest/globals';
@@ -13,8 +12,8 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);
 
     it('should call the latest non-persist function #1', () => {
-        let count: Optional<number>;
-        let increaseCount = null as Nullable<() => void>;
+        let count: number | undefined;
+        let increaseCount = null as (() => void) | null;
         expect(count).toBeUndefined();
         expect(increaseCount).toBeNull();
 
