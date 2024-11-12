@@ -9,7 +9,7 @@ import { renderHook } from '@testing-library/react';
  * you can pass this second callback which calls the hook differently.
  */
 // eslint-disable-next-line jest/no-export
-export function validateHookValueNotChanged<TValues extends NonNullable<unknown>[]>(
+export function validateHookValueNotChanged<TValues extends unknown[]>(
     testDescription: string,
     useHook: () => TValues,
     useHookAgain?: () => TValues,
