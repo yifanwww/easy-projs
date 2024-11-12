@@ -415,58 +415,6 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
 
-  packages/helpers-react:
-    dependencies:
-      '@easy-pkg/types':
-        specifier: workspace:^
-        version: link:../types
-      '@easy-pkg/utils-browser':
-        specifier: workspace:^
-        version: link:../utils-browser
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:^
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:^
-        version: link:../../configs/global-types
-      '@easy-config/jest-config':
-        specifier: workspace:^
-        version: link:../../configs/jest-config
-      '@easy-config/tsconfigs':
-        specifier: workspace:^
-        version: link:../../configs/tsconfigs
-      '@jest/globals':
-        specifier: ^29.7.0
-        version: 29.7.0
-      '@testing-library/dom':
-        specifier: ^10.4.0
-        version: 10.4.0
-      '@testing-library/react':
-        specifier: ^16.0.1
-        version: 16.0.1(@testing-library/dom@10.4.0)(@types/react-dom@18.3.0)(@types/react@18.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@types/react':
-        specifier: ^18.3.2
-        version: 18.3.2
-      concurrently:
-        specifier: ^8.2.2
-        version: 8.2.2
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      prettier:
-        specifier: 3.3.3
-        version: 3.3.3
-      rimraf:
-        specifier: ^5.0.6
-        version: 5.0.6
-      typescript:
-        specifier: 5.5.4
-        version: 5.5.4
-
   packages/helpers-redux:
     dependencies:
       '@easy-pkg/types':

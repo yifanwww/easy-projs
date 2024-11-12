@@ -125,10 +125,6 @@
             "path": "packages/helpers-nestjs"
         },
         {
-            "name": "@easy-pkg/helpers-react",
-            "path": "packages/helpers-react"
-        },
-        {
             "name": "@easy-pkg/helpers-redux",
             "path": "packages/helpers-redux"
         },
