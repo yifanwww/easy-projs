@@ -39,8 +39,8 @@ export class ArrayUtil {
         return true;
     }
 
-    static avoidEmpty<T>(arr: T[]): T[] | undefined {
-        return arr.length === 0 ? undefined : arr;
+    static avoidEmpty<T extends unknown[]>(arr: T | undefined): T | undefined {
+        return arr?.length === 0 ? undefined : arr;
     }
 
     static toArray<T>(value?: T | T[]): T[] {

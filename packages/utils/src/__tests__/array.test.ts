@@ -72,6 +72,7 @@ describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.startsWith.name}\``
 
 describe(`Test static method \`${ArrayUtil.name}.${ArrayUtil.avoidEmpty.name}\``, () => {
     it('should avoid empty arrays', () => {
+        expect(ArrayUtil.avoidEmpty(undefined)).toBeUndefined();
         expect(ArrayUtil.avoidEmpty([])).toBeUndefined();
         expect(ArrayUtil.avoidEmpty([1])).toStrictEqual([1]);
     });
