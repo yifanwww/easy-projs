@@ -420,12 +420,18 @@ importers:
       '@easy-pkg/types':
         specifier: workspace:^
         version: link:../types
+      '@reduxjs/toolkit':
+        specifier: ^2.2.4
+        version: 2.2.4(react-redux@9.1.2(@types/react@18.3.2)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
       immer:
         specifier: ^10.1.1
         version: 10.1.1
       react:
         specifier: ^18.3.1
         version: 18.3.1
+      react-redux:
+        specifier: ^9.1.2
+        version: 9.1.2(@types/react@18.3.2)(react@18.3.1)(redux@5.0.1)
     devDependencies:
       '@easy-config/eslint-config':
         specifier: workspace:^
@@ -436,9 +442,6 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:^
         version: link:../../configs/tsconfigs
-      '@reduxjs/toolkit':
-        specifier: ^2.2.4
-        version: 2.2.4(react-redux@9.1.2(@types/react@18.3.2)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
       '@types/react':
         specifier: ^18.3.2
         version: 18.3.2
@@ -451,9 +454,6 @@ importers:
       prettier:
         specifier: 3.3.3
         version: 3.3.3
-      react-redux:
-        specifier: ^9.1.2
-        version: 9.1.2(@types/react@18.3.2)(react@18.3.1)(redux@5.0.1)
       rimraf:
         specifier: ^5.0.6
         version: 5.0.6
@@ -1040,26 +1040,66 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
 
-  projects/webapp:
+  projects/redux-usage-demo:
     dependencies:
       '@easy-pkg/helpers-redux':
         specifier: workspace:^
         version: link:../../packages/helpers-redux
-      '@easy-pkg/utils-browser':
-        specifier: workspace:^
-        version: link:../../packages/utils-browser
       '@reduxjs/toolkit':
         specifier: ^2.2.4
         version: 2.2.4(react-redux@9.1.2(@types/react@18.3.2)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
-      react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
       react-redux:
         specifier: ^9.1.2
         version: 9.1.2(@types/react@18.3.2)(react@18.3.1)(redux@5.0.1)
+    devDependencies:
+      '@easy-config/eslint-config':
+        specifier: workspace:^
+        version: link:../../configs/eslint-config
+      '@easy-config/global-types':
+        specifier: workspace:^
+        version: link:../../configs/global-types
+      '@easy-config/jest-config':
+        specifier: workspace:^
+        version: link:../../configs/jest-config
+      '@easy-config/tsconfigs':
+        specifier: workspace:^
+        version: link:../../configs/tsconfigs
+      '@jest/globals':
+        specifier: ^29.7.0
+        version: 29.7.0
+      '@testing-library/dom':
+        specifier: ^10.4.0
+        version: 10.4.0
+      concurrently:
+        specifier: ^8.2.2
+        version: 8.2.2
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.0
+      prettier:
+        specifier: 3.3.3
+        version: 3.3.3
+      rimraf:
+        specifier: ^5.0.6
+        version: 5.0.6
+      typescript:
+        specifier: 5.5.4
+        version: 5.5.4
+
+  projects/webapp:
+    dependencies:
+      '@easy-pkg/utils-browser':
+        specifier: workspace:^
+        version: link:../../packages/utils-browser
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
       react-router-dom:
         specifier: ^6.23.1
         version: 6.23.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

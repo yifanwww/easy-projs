@@ -184,6 +184,10 @@
             "path": "projects/perf-js"
         },
         {
+            "name": "@easy-proj/redux-usage-demo",
+            "path": "projects/redux-usage-demo"
+        },
+        {
             "name": "@easy-proj/webapp",
             "path": "projects/webapp"
         },

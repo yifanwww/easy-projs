@@ -1,7 +1,7 @@
 import { omitUnderscorePrefixActions } from '@easy-pkg/helpers-redux';
 import { createSlice } from '@reduxjs/toolkit';
 
-import type { StoreState } from '../types';
+import type { StoreState } from '../types.js';
 
 export function getInitialState(): StoreState {
     return {};
