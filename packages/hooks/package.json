@@ -39,7 +39,7 @@
         "@easy-pkg/utils": "workspace:^",
         "@easy-pkg/utils-browser": "workspace:^",
         "react": "^18.3.1",
-        "react-router-dom": "^6.23.1",
+        "react-router-dom": "^6.28.0",
         "react-use": "^17.5.1"
     },
     "devDependencies": {
@@ -50,13 +50,13 @@
         "@easy-pkg/utils-test": "workspace:^",
         "@jest/globals": "^29.7.0",
         "@testing-library/dom": "^10.4.0",
-        "@testing-library/react": "^16.0.1",
-        "@types/react": "^18.3.2",
-        "concurrently": "^8.2.2",
-        "eslint": "^8.57.0",
-        "prettier": "3.3.3",
+        "@testing-library/react": "^16.1.0",
+        "@types/react": "^18.3.4",
+        "concurrently": "^9.1.0",
+        "eslint": "^8.57.1",
+        "prettier": "3.4.2",
         "react-dom": "^18.3.1",
-        "rimraf": "^5.0.6",
-        "typescript": "5.5.4"
+        "rimraf": "^6.0.1",
+        "typescript": "5.7.2"
     }
 }

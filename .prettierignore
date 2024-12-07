@@ -1,5 +1,6 @@
 /configs
 /packages
 /projects
+/templates
 
 pnpm-lock.yaml

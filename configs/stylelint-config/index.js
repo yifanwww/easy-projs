@@ -24,6 +24,9 @@ export default {
             },
         ],
 
+        // https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/indentation/README.md
+        '@stylistic/indentation': 4,
+
         // https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-alphabetical-order/README.md
         'order/properties-alphabetical-order': null,
     },

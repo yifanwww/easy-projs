@@ -18,26 +18,26 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\""
     },
     "dependencies": {
-        "@typescript-eslint/eslint-plugin": "^8.7.0",
-        "@typescript-eslint/parser": "^8.7.0",
+        "@typescript-eslint/eslint-plugin": "^8.17.0",
+        "@typescript-eslint/parser": "^8.17.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^9.1.0",
-        "eslint-import-resolver-typescript": "^3.6.3",
+        "eslint-import-resolver-typescript": "^3.7.0",
         "eslint-plugin-import": "^2.31.0",
-        "eslint-plugin-jest": "^28.8.3",
-        "eslint-plugin-jsx-a11y": "^6.10.0",
+        "eslint-plugin-jest": "^28.9.0",
+        "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^5.2.1",
-        "eslint-plugin-react": "^7.37.0",
-        "eslint-plugin-react-hooks": "^4.6.2"
+        "eslint-plugin-react": "^7.37.2",
+        "eslint-plugin-react-hooks": "^5.1.0"
     },
     "devDependencies": {
-        "eslint": "^8.57.0",
-        "prettier": "3.3.3",
-        "typescript": "5.5.4"
+        "eslint": "^8.57.1",
+        "prettier": "3.4.2",
+        "typescript": "5.7.2"
     },
     "peerDependencies": {
-        "eslint": "^8.57.0",
-        "prettier": "3.3.3"
+        "eslint": "^8.57.1",
+        "prettier": "3.4.2"
     }
 }
