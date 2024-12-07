@@ -38,6 +38,11 @@ function getConfig(): Config {
                 require.resolve('@swc/jest'),
                 {
                     jsc: {
+                        parser: {
+                            syntax: 'typescript',
+                            decorators: false,
+                            dynamicImport: true,
+                        },
                         transform: {
                             react: { runtime: 'automatic' },
                             useDefineForClassFields: true,
