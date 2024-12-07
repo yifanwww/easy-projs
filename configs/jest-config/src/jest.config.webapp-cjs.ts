@@ -42,6 +42,7 @@ function getConfig(): Config {
                             react: { runtime: 'automatic' },
                             useDefineForClassFields: true,
                         },
+                        target: 'es2020',
                     },
                     isModule: true,
                 },

@@ -48,6 +48,7 @@ function getConfig(): Config {
                             decoratorMetadata: false,
                             useDefineForClassFields: true,
                         },
+                        target: 'es2020',
                     },
                     isModule: true,
                 },
