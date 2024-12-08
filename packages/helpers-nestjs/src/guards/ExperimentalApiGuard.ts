@@ -12,7 +12,7 @@ export class ExperimentalApiGuard implements CanActivate {
             context.getHandler(),
             context.getClass(),
         ]);
-        return !experimentalApi || process.env.EXPERIMENTAL === 'true';
+        return !experimentalApi || __EXPERIMENTAL__;
     }
 }
 
