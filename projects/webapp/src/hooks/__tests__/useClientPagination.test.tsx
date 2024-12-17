@@ -2,7 +2,8 @@ import { describe, expect, it } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 
-import type { ClientPagination } from '../useClientPagination.js';
+import type { ClientPagination } from 'src/types/app.js';
+
 import { useClientPagination } from '../useClientPagination.js';
 
 describe(`Test react hook \`${useClientPagination.name}\``, () => {

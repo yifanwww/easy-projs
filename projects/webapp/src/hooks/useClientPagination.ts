@@ -1,14 +1,11 @@
 import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+import type { ClientPagination } from 'src/types/app';
+
 enum ClientPaginationKey {
     PAGE = 'page',
     PAGE_SIZE = 'page_size',
-}
-
-export interface ClientPagination {
-    page?: number;
-    pageSize?: number;
 }
 
 function getClientPagination(usp: URLSearchParams): ClientPagination {
