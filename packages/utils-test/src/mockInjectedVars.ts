@@ -1,10 +1,10 @@
-interface ExtraGlobalThis {
+interface InjectedVars {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     __EXPERIMENTAL__: boolean;
 }
 
 export function createExperimentalVarMocker(global: typeof globalThis) {
-    const typedGlobal = global as typeof globalThis & ExtraGlobalThis;
+    const typedGlobal = global as typeof globalThis & InjectedVars;
 
     const INITIAL_EXPERIMENTAL = typedGlobal.__EXPERIMENTAL__;
 
