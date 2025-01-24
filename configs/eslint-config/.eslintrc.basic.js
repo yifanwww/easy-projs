@@ -23,7 +23,7 @@ module.exports = {
         // Override Airbnb's 'import/extensions'
         'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
 
-        'import/internal-regex': '^src',
+        'import/internal-regex': '^src/',
 
         // Apply special parsing for TypeScript files
         'import/parsers': {
