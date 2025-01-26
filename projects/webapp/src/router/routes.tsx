@@ -17,7 +17,7 @@ export const routes: RouteObject[] = [
         ],
     },
     {
-        path: '/*',
+        path: `${RoutePath.HOME}*`,
         element: <Navigate to={RoutePath.HOME} replace />,
     },
 ];
