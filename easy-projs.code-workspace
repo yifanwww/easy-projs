@@ -1,6 +1,6 @@
 {
     "settings": {
-        // --------------------------------------------------------------------------------- Visual Studio Code Settings
+        // ----------------------------------------- Visual Studio Code Settings
 
         "editor.insertSpaces": true,
         "editor.rulers": [120],
@@ -58,7 +58,7 @@
             "editor.tabSize": 2
         },
 
-        // ------------------------------------------------------------------------------------------ Extension Settings
+        // -------------------------------------------------- Extension Settings
 
         "stylelint.validate": [
             "css",

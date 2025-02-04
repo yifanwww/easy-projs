@@ -10,7 +10,7 @@ import type { Draft } from 'immer';
 
 export type ReduxReducer<State extends object, Payload> = (draft: Draft<State>, action: PayloadAction<Payload>) => void;
 
-// ------------------------------------------------------------------------------------------------------------- ThunkFn
+// --------------------------------------------------------------------- ThunkFn
 
 export type ReduxThunkAction<ReturnType, State> = ThunkAction<ReturnType, State, unknown, AnyAction>;
 
@@ -20,7 +20,7 @@ export type ThunkFn<ReturnType, State, ThunkArgs extends unknown[]> = (
     ...thunkArgs: ThunkArgs
 ) => ReturnType;
 
-// -------------------------------------------------------------------------------------------------- DispatchingActions
+// ---------------------------------------------------------- DispatchingActions
 
 export type ReduxActions = Readonly<Record<string, ActionCreator>>;
 
@@ -37,7 +37,7 @@ export type DispatchingActions<TActions extends ReduxActions> = {
     readonly [ReducerName in keyof TActions]: DispatchAction<TActions[ReducerName]>;
 };
 
-// --------------------------------------------------------------------------------------------------- DispatchingThunks
+// ----------------------------------------------------------- DispatchingThunks
 
 export type ReduxThunks = Readonly<Record<string, (...args: never[]) => ReduxThunkAction<unknown, never>>>;
 
