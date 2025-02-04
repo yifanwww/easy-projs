@@ -2,7 +2,9 @@
 
 Some useful React hooks.
 
-Consider open-source React hooks library first, for example [`react-use`](https://github.com/streamich/react-use).
+Consider open-source React hooks library first:
+- [`react-use`](https://github.com/streamich/react-use).
+- [`use-callback-ref`](https://github.com/theKashey/use-callback-ref)
 
 ## Usage
 
