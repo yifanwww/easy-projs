@@ -29,5 +29,8 @@ export default {
 
         // https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-alphabetical-order/README.md
         'order/properties-alphabetical-order': null,
+
+        // https://github.com/stylelint-scss/stylelint-scss/tree/master/src/rules/dollar-variable-colon-space-after
+        'scss/dollar-variable-colon-space-after': 'always-single-line',
     },
 };
