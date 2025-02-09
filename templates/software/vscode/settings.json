@@ -15,17 +15,20 @@
     "editor.fontWeight": "500",
     "editor.insertSpaces": true,
     "editor.lineNumbers": "on",
+    "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
     "editor.minimap.side": "left",
     "editor.mouseWheelScrollSensitivity": 4,
     "editor.multiCursorModifier": "alt",
-    "editor.suggestSelection": "first",
+    "editor.pasteAs.preferences": [],
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "all",
     "editor.stickyScroll.enabled": false,
+    "editor.suggestSelection": "first",
     "editor.tabSize": 4,
     "editor.wordWrap": "on",
 
+    "explorer.compactFolders": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
 
@@ -85,6 +88,7 @@
     "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
 
     "workbench.colorTheme": "Quiet Light",
+    "workbench.localHistory.enabled": false,
 
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -299,8 +303,15 @@
 
     // ------------------------------------------------------ Extension Settings
 
+    "hexeditor.columnWidth": 32,
+    "hexeditor.showDecodedText": true,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+
     "markdown-preview-enhanced.liveUpdate": false,
     "markdown-preview-enhanced.breakOnSingleNewLine": true,
+
+    "markdown.extension.toc.levels": "2..1",
 
     "prettier.arrowParens": "always",
     "prettier.endOfLine": "lf",
