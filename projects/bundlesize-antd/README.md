@@ -4,6 +4,8 @@ A project detects bundle size of AntD.
 
 ## Bundle Size History
 
+- `5.23.4`: 1663.24 KB (gzip: 522.03 KB)
+- `5.22.7`: 1664.14 KB (gzip: 522.98 KB)
 - `5.21.6`: 1655.96 KB (gzip: 520.19 KB)
 - `5.20.6`: 1639.89 KB (gzip: 514.29 KB)
 - `5.19.4`: 1621.24 KB (gzip: 509.95 KB)
