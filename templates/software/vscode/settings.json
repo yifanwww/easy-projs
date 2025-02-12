@@ -20,7 +20,7 @@
     "editor.minimap.side": "left",
     "editor.mouseWheelScrollSensitivity": 4,
     "editor.multiCursorModifier": "alt",
-    "editor.pasteAs.preferences": [],
+    "editor.pasteAs.enabled": false,
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "all",
     "editor.stickyScroll.enabled": false,
