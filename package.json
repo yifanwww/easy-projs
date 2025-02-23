@@ -37,5 +37,15 @@
         "lint-staged": "^15.2.10",
         "prettier": "3.4.2",
         "typescript": "5.7.2"
+    },
+    "pnpm": {
+        "ignoredBuiltDependencies": [
+            "@parcel/watcher"
+        ],
+        "onlyBuiltDependencies": [
+            "@nestjs/core",
+            "@swc/core",
+            "esbuild"
+        ]
     }
 }
