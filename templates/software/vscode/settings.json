@@ -39,6 +39,13 @@
     "git.autofetch": true,
     "git.autofetchPeriod": 300,
 
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+
     "scm.diffDecorations": "none",
 
     "search.useIgnoreFiles": true,

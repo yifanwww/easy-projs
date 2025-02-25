@@ -23,5 +23,10 @@
         "key": "alt+f8",
         "command": "-editor.action.marker.next",
         "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-inlineChat.start",
+        "when": "editorFocus && inlineChatHasProvider && inlineChatPossible && !editorReadonly && !editorSimpleInput"
     }
 ]
