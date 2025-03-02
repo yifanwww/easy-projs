@@ -1,7 +1,7 @@
 import type { UnknownFn, VoidReturn } from '@easy-pkg/types';
 import { useCallback } from 'react';
 
-import { useSingleTimeout } from './useSingleTimeout.js';
+import { useTimeout } from './useTimeout.js';
 
 /**
  * Hook to generate a delayed execution function.
@@ -13,7 +13,7 @@ import { useSingleTimeout } from './useSingleTimeout.js';
  * @returns The trigger.
  */
 export function useDelayFn<T extends UnknownFn>(fn?: T, delay = 1000): VoidReturn<T> {
-    const { clearTimeout, setTimeout } = useSingleTimeout();
+    const { clearTimeout, setTimeout } = useTimeout();
 
     const _fn = useCallback(
         (...args: never[]) => {

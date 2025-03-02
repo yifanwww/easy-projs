@@ -1,43 +1,32 @@
-import { useCallback, useEffect } from 'react';
-
-import { useConst } from './useConst.js';
+import { useCallback, useEffect, useRef } from 'react';
 
 export interface UseIntervalActions {
-    readonly setInterval: (callback: () => void, duration?: number) => number;
-    readonly clearInterval: (id: number) => void;
+    readonly isWorking: () => boolean;
+    readonly setInterval: (callback: () => void, duration?: number) => void;
+    readonly clearInterval: () => void;
 }
 
 /**
  *  Returns a wrapper function for `setInterval` which automatically handles disposal.
  */
 export function useInterval(): UseIntervalActions {
-    const intervalIds = useConst<Record<number, number>>(() => ({}));
+    const intervalIdRef = useRef<number>();
 
     // Cleanup function.
     useEffect(() => {
-        // Here runs only when this component did unmount.
-        return () => {
-            // Clear the interval timers if they exist.
-            for (const id of Object.keys(intervalIds)) window.clearInterval(id as unknown as number);
-        };
-    }, [intervalIds]);
+        // Here runs only when this component did unmount. Clear the interval timer if it exists.
+        return () => window.clearInterval(intervalIdRef.current);
+    }, []);
 
-    const setInterval = useCallback(
-        (callback: () => void, duration?: number): number => {
-            const id = window.setInterval(callback, duration) as unknown as number;
-            intervalIds[id] = 1;
-            return id;
-        },
-        [intervalIds],
-    );
+    const isWorking = useCallback(() => intervalIdRef.current !== undefined, []);
 
-    const clearInterval = useCallback(
-        (id: number): void => {
-            delete intervalIds[id];
-            window.clearInterval(id);
-        },
-        [intervalIds],
-    );
+    const setInterval = useCallback((callback: () => void, duration?: number): void => {
+        window.clearInterval(intervalIdRef.current);
 
-    return { setInterval, clearInterval };
+        intervalIdRef.current = window.setInterval(callback, duration) as unknown as number;
+    }, []);
+
+    const clearInterval = useCallback(() => window.clearInterval(intervalIdRef.current), []);
+
+    return { isWorking, setInterval, clearInterval };
 }

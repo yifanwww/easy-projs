@@ -1,16 +1,16 @@
 import { afterAll, afterEach, beforeAll, describe, expect, it, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
-import { createRef, forwardRef, useImperativeHandle } from 'react';
+import { createRef, forwardRef, useImperativeHandle, useRef } from 'react';
 
-import { useSingleInterval } from '../useSingleInterval.js';
+import { useIntervals } from '../useIntervals.js';
 
 import { validateHookValueNotChanged } from './helpers.js';
 
 const time = 10;
 
-describe(`Test react hook \`${useSingleInterval.name}\``, () => {
+describe(`Test react hook \`${useIntervals.name}\``, () => {
     validateHookValueNotChanged('should return the same callbacks', () => {
-        const { setInterval, clearInterval } = useSingleInterval();
+        const { setInterval, clearInterval } = useIntervals();
         return [setInterval, clearInterval];
     });
 
@@ -30,11 +30,18 @@ describe(`Test react hook \`${useSingleInterval.name}\``, () => {
     });
 
     const TestComponent = forwardRef((props: unknown, ref: React.Ref<{ clearInterval: () => void }>) => {
-        const { setInterval, clearInterval } = useSingleInterval();
+        const { setInterval, clearInterval } = useIntervals();
+        const { current: state } = useRef<{ id: number }>({ id: 0 });
 
-        useImperativeHandle(ref, () => ({ clearInterval }), [clearInterval]);
+        useImperativeHandle(
+            ref,
+            () => ({
+                clearInterval: () => clearInterval(state.id),
+            }),
+            [clearInterval, state],
+        );
 
-        setInterval(() => {
+        state.id = setInterval(() => {
             timesCalled++;
         }, time);
 

@@ -1,6 +1,6 @@
 import { afterAll, afterEach, beforeAll, describe, expect, it, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
-import { createRef, forwardRef, useImperativeHandle, useRef } from 'react';
+import { createRef, forwardRef, useImperativeHandle } from 'react';
 
 import { useInterval } from '../useInterval.js';
 
@@ -31,17 +31,10 @@ describe(`Test react hook \`${useInterval.name}\``, () => {
 
     const TestComponent = forwardRef((props: unknown, ref: React.Ref<{ clearInterval: () => void }>) => {
         const { setInterval, clearInterval } = useInterval();
-        const { current: state } = useRef<{ id: number }>({ id: 0 });
 
-        useImperativeHandle(
-            ref,
-            () => ({
-                clearInterval: () => clearInterval(state.id),
-            }),
-            [clearInterval, state],
-        );
+        useImperativeHandle(ref, () => ({ clearInterval }), [clearInterval]);
 
-        state.id = setInterval(() => {
+        setInterval(() => {
             timesCalled++;
         }, time);
 

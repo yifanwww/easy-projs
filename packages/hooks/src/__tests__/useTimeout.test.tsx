@@ -1,6 +1,6 @@
 import { afterAll, afterEach, beforeAll, describe, expect, it, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
-import { createRef, forwardRef, useImperativeHandle, useRef } from 'react';
+import { createRef, forwardRef, useImperativeHandle } from 'react';
 
 import { useTimeout } from '../useTimeout.js';
 
@@ -29,17 +29,10 @@ describe(`Test react hook \`${useTimeout.name}\``, () => {
 
     const TestComponent = forwardRef((props: unknown, ref: React.Ref<{ clearTimeout: () => void }>) => {
         const { setTimeout, clearTimeout } = useTimeout();
-        const { current: state } = useRef<{ id: number }>({ id: 0 });
 
-        useImperativeHandle(
-            ref,
-            () => ({
-                clearTimeout: () => clearTimeout(state.id),
-            }),
-            [clearTimeout, state],
-        );
+        useImperativeHandle(ref, () => ({ clearTimeout }), [clearTimeout]);
 
-        state.id = setTimeout(() => {
+        setTimeout(() => {
             timesCalled++;
         }, 0);
 

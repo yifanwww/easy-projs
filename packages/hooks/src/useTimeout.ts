@@ -1,43 +1,35 @@
-import { useCallback, useEffect } from 'react';
-
-import { useConst } from './useConst.js';
+import { useCallback, useEffect, useRef } from 'react';
 
 export interface UseTimeoutActions {
-    readonly setTimeout: (callback: () => void, duration?: number) => number;
-    readonly clearTimeout: (id: number) => void;
+    readonly isWorking: () => boolean;
+    readonly setTimeout: (callback: () => void, duration?: number) => void;
+    readonly clearTimeout: () => void;
 }
 
 /**
  *  Returns a wrapper function for `setTimeout` which automatically handles disposal.
  */
 export function useTimeout(): UseTimeoutActions {
-    const timeoutIds = useConst<Record<number, number>>({});
+    const timeoutIdRef = useRef<number>();
 
     // Cleanup function.
     useEffect(() => {
-        // Here runs only when this component did unmount.
-        return () => {
-            // Clear the timeout timers if they exist.
-            for (const id of Object.keys(timeoutIds)) window.clearTimeout(id as unknown as number);
-        };
-    }, [timeoutIds]);
+        // Here runs only when this component did unmount. Clear the timeout timer if it exists.
+        return () => window.clearTimeout(timeoutIdRef.current);
+    }, []);
 
-    const setTimeout = useCallback(
-        (callback: () => void, duration?: number): number => {
-            const id = window.setTimeout(callback, duration) as unknown as number;
-            timeoutIds[id] = 1;
-            return id;
-        },
-        [timeoutIds],
-    );
+    const isWorking = useCallback(() => timeoutIdRef.current !== undefined, []);
 
-    const clearTimeout = useCallback(
-        (id: number): void => {
-            delete timeoutIds[id];
-            window.clearTimeout(id);
-        },
-        [timeoutIds],
-    );
+    const setTimeout = useCallback((callback: () => void, duration?: number): void => {
+        window.clearTimeout(timeoutIdRef.current);
 
-    return { setTimeout, clearTimeout };
+        timeoutIdRef.current = window.setTimeout(() => {
+            timeoutIdRef.current = undefined;
+            callback();
+        }, duration);
+    }, []);
+
+    const clearTimeout = useCallback(() => window.clearTimeout(timeoutIdRef.current), []);
+
+    return { isWorking, setTimeout, clearTimeout };
 }

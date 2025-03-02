@@ -2,7 +2,7 @@ import type { Integer } from '@easy-pkg/types';
 import { useCallback, useEffect, useRef } from 'react';
 
 import { useForceUpdate } from './useForceUpdate.js';
-import { useSingleInterval } from './useSingleInterval.js';
+import { useInterval } from './useInterval.js';
 
 /**
  * @param countdown The unit is `second`. If the parameter `countdown` is less than `0`, will stop the countdown.
@@ -14,7 +14,7 @@ export function useCountdown(): [Integer, SetCountdown] {
     const remainTimeRef = useRef(0);
 
     const forceUpdate = useForceUpdate();
-    const { clearInterval, setInterval } = useSingleInterval();
+    const { clearInterval, setInterval } = useInterval();
 
     const setCountdown = useCallback(
         (countdown: number) => {
