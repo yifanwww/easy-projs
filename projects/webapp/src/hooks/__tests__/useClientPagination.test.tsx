@@ -107,7 +107,10 @@ describe(`Test react hook \`${useClientPagination.name}\``, () => {
 
         act(() => {
             result.current.searchParams[1]((prev) => {
-                result.current.pagination[1].mutatePagination(prev, (_prev) => ({ page: _prev.page! + 1 }));
+                result.current.pagination[1].mutatePagination(
+                    prev,
+                    (_prev): ClientPagination => ({ page: _prev.page! + 1 }),
+                );
                 return prev;
             });
         });
@@ -115,7 +118,10 @@ describe(`Test react hook \`${useClientPagination.name}\``, () => {
 
         act(() => {
             result.current.searchParams[1]((prev) => {
-                result.current.pagination[1].mutatePagination(prev, (_prev) => ({ ..._prev, pageSize: 20 }));
+                result.current.pagination[1].mutatePagination(
+                    prev,
+                    (_prev): ClientPagination => ({ ..._prev, pageSize: 20 }),
+                );
                 return prev;
             });
         });
@@ -123,8 +129,14 @@ describe(`Test react hook \`${useClientPagination.name}\``, () => {
 
         act(() => {
             result.current.searchParams[1]((prev) => {
-                result.current.pagination[1].mutatePagination(prev, (_prev) => ({ ..._prev, pageSize: 30 }));
-                result.current.pagination[1].mutatePagination(prev, (_prev) => ({ ..._prev, page: 10 }));
+                result.current.pagination[1].mutatePagination(
+                    prev,
+                    (_prev): ClientPagination => ({ ..._prev, pageSize: 30 }),
+                );
+                result.current.pagination[1].mutatePagination(
+                    prev,
+                    (_prev): ClientPagination => ({ ..._prev, page: 10 }),
+                );
                 return prev;
             });
         });

@@ -19,7 +19,7 @@ function getClientPagination(usp: URLSearchParams): ClientPagination {
 
 type MutateClientPagination = (
     prev: URLSearchParams,
-    value: ClientPagination | ((prev: ClientPagination) => ClientPagination),
+    value: ClientPagination | ((_prev: ClientPagination) => ClientPagination),
 ) => void;
 type SetClientPagination = (value: ClientPagination | ((prev: ClientPagination) => ClientPagination)) => void;
 
