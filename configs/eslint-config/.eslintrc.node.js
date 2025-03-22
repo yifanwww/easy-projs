@@ -8,7 +8,7 @@ module.exports = {
     },
     extends: ['./.eslintrc.basic.js'],
     ignorePatterns: ['*.cjs', '*.js', '*.mjs'],
-    plugins: ['@typescript-eslint', 'import', 'jest', 'node', 'prettier'],
+    plugins: ['@typescript-eslint', 'import', 'jest', 'n', 'prettier'],
 
     rules: {},
     overrides: [
