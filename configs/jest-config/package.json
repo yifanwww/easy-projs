@@ -42,7 +42,7 @@
         "@easy-config/eslint-config": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
         "@jest/types": "^29.6.3",
-        "@types/node": "^20.17.9",
+        "@types/node": "^22.13.11",
         "eslint": "^8.57.1",
         "prettier": "3.4.2",
         "rimraf": "^6.0.1",
