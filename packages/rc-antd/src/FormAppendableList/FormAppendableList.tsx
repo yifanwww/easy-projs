@@ -6,11 +6,11 @@ import { useCallback } from 'react';
 import { isElement } from 'react-is';
 import type { PartialDeep } from 'type-fest';
 
-import css from './AppendableField.module.scss';
+import css from './FormAppendableList.module.scss';
 
-export interface AppendableItemProps extends Omit<FormListFieldData, 'key'> {}
+export interface FormAppendableListItemProps extends Omit<FormListFieldData, 'key'> {}
 
-export interface AppendableFieldProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
+export interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
     addButtonOptions?: {
         disableBlock?: boolean;
         /**
@@ -29,7 +29,7 @@ export interface AppendableFieldProps<T> extends Pick<FormListProps, 'name' | 'r
      * The component to be rendered as the item of appendable field.
      * This prop won't be used if also provide `render`.
      */
-    component?: React.JSXElementConstructor<AppendableItemProps>;
+    component?: React.JSXElementConstructor<FormAppendableListItemProps>;
     contentClassName?: string;
     disableAdd?: boolean;
     disabled?: boolean;
@@ -54,31 +54,30 @@ export interface AppendableFieldProps<T> extends Pick<FormListProps, 'name' | 'r
     onRemoved?: () => void;
     readonly?: boolean;
     /**
-     * The render function to render the items of appendable field.
+     * The render function to render the items of appendable list.
      */
-    render?: (props: AppendableItemProps, fieldsLength: number) => React.ReactNode;
+    render?: (props: FormAppendableListItemProps, fieldsLength: number) => React.ReactNode;
     /**
-     * The render function to render extra items of appendable field after the normal fields.
+     * The render function to render extra items of appendable list after the normal fields.
      */
     renderExtraItemsAfter?: (fieldsLength: number) => React.ReactNode[] | undefined | null;
     /**
-     * The render function to render extra items of appendable field before the normal fields.
+     * The render function to render extra items of appendable list before the normal fields.
      */
     renderExtraItemsBefore?: (fieldsLength: number) => React.ReactNode[] | undefined | null;
-    value?: T[];
 }
 
 /**
- * The component for appendable list of form fiels, using Form.List.
+ * The component for appendable list of form fields, using Form.List.
  *
  * Usage:
  * ```tsx
  * <Form.Item label={...}>
- *   <AppendableField name={...} component={...} />
+ *   <FormAppendableList name={...} component={...} />
  * </Form.Item>
  * ```
  */
-export function AppendableField<T>(props: AppendableFieldProps<T>) {
+export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
     const {
         addButtonOptions,
         component: Component,
@@ -98,7 +97,6 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         renderExtraItemsAfter,
         renderExtraItemsBefore,
         rules,
-        value: values = [],
     } = props;
 
     const {
@@ -108,15 +106,13 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
         tooltip: addTooltip,
     } = addButtonOptions ?? {};
 
-    const reachLimit = values.length >= limit;
-
     const renderExtraItem = useCallback(
         (item: React.ReactNode) => {
             if (isElement(item)) {
                 return (
-                    <Space key={item.key} className={css.space} align="baseline">
+                    <Space key={item.key} className={css.item_container} align="baseline">
                         {item}
-                        {!readonly && <div className={css.deleteHidden} />}
+                        {!readonly && <div className={css['item_delete-hidden']} />}
                     </Space>
                 );
             }
@@ -131,6 +127,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
     const renderItems: FormListProps['children'] = useCallback(
         (fields, { add, remove }, { errors }) => {
             const fieldsLength = fields.length;
+            const reachLimit = fieldsLength >= limit;
 
             const extraItemsBefore = renderExtraItemsBefore?.(fieldsLength)?.map(renderExtraItem);
             const extraItemsAfter = renderExtraItemsAfter?.(fieldsLength)?.map(renderExtraItem);
@@ -140,14 +137,14 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
 
                 return (getDeletable?.(fieldName, fieldsLength) ?? true) && (!disableDeleteFirst || fieldName > 0) ? (
                     <MinusCircleOutlined
-                        className={css.delete}
+                        className={css.item_delete}
                         onClick={() => {
                             remove(fieldName);
                             onRemoved?.();
                         }}
                     />
                 ) : (
-                    <div className={css.deleteHidden} />
+                    <div className={css['item_delete-hidden']} />
                 );
             };
 
@@ -173,7 +170,7 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
             );
 
             const renderItem = ({ key, name: fieldName }: FormListFieldData) => (
-                <Space key={key} className={css.space} align="baseline">
+                <Space key={key} className={css.item_container} align="baseline">
                     {render?.({ name: fieldName }, fieldsLength) ?? (Component ? <Component name={fieldName} /> : null)}
                     {renderDeleteElement(fieldName)}
                 </Space>
@@ -215,7 +212,6 @@ export function AppendableField<T>(props: AppendableFieldProps<T>) {
             limit,
             onAdd,
             onRemoved,
-            reachLimit,
             readonly,
             render,
             renderExtraItem,

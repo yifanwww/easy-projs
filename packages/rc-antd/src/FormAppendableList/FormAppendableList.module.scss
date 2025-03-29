@@ -1,4 +1,4 @@
-.delete {
+.item_delete {
     position: relative;
     top: 2px;
     font-size: 20px;
@@ -10,13 +10,12 @@
     }
 }
 
-.deleteHidden {
+.item_delete-hidden {
     width: 20px;
 }
 
-.space {
+.item_container {
     display: flex;
-    margin-bottom: 8px;
 
     > :global(.ant-space-item):first-child {
         flex: auto;
