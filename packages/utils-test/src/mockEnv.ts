@@ -30,6 +30,7 @@ export function createWindowLocationMocker() {
     function resetWindowLocation() {
         // @ts-ignore
         delete window.location;
+        // @ts-ignore
         window.location = INITIAL_WINDOW_LOCATION;
     }
 

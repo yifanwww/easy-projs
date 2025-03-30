@@ -4,7 +4,7 @@ A project detects bundle size of FluentUI.
 
 ## Bundle Size History
 
-- `9.60.1`: 1315.43 KB (gzip: 342.39 KB)
+- `9.60.1`: 1316.79 KB (gzip: 343.44 KB)
 - `9.59.0`: 1309.63 KB (gzip: 341.04 KB)
 - `9.58.3`: 1308.84 KB (gzip: 340.93 KB)
 - `9.57.0`: 1302.67 KB (gzip: 339.29 KB)

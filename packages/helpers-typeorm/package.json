@@ -37,7 +37,7 @@
     "dependencies": {
         "@easy-pkg/apis": "workspace:^",
         "dayjs": "^1.11.13",
-        "typeorm": "^0.3.20"
+        "typeorm": "^0.3.21"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:^",
@@ -45,10 +45,10 @@
         "@easy-config/jest-config": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
         "@jest/globals": "^29.7.0",
-        "concurrently": "^9.1.0",
+        "concurrently": "^9.1.2",
         "eslint": "^8.57.1",
-        "prettier": "3.4.2",
+        "prettier": "3.5.3",
         "rimraf": "^6.0.1",
-        "typescript": "5.7.2"
+        "typescript": "5.8.2"
     }
 }

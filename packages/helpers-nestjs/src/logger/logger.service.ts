@@ -73,9 +73,7 @@ export class ServerLoggerService implements LoggerService {
     private static _logger?: ServerLogger;
 
     private static get LOGGER(): ServerLogger {
-        if (!ServerLoggerService._logger) {
-            ServerLoggerService._logger = ServerLoggerService._createLogger();
-        }
+        ServerLoggerService._logger ??= ServerLoggerService._createLogger();
         return ServerLoggerService._logger;
     }
 

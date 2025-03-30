@@ -21,8 +21,6 @@ export function usePersistFn<T extends UnknownFn>(fn: T): T {
     fnRef.current = useMemo(() => fn, [fn]);
 
     const persistFnRef = useRef<T>();
-    if (!persistFnRef.current) {
-        persistFnRef.current = ((...args) => fnRef.current(...args)) as T;
-    }
+    persistFnRef.current ??= ((...args) => fnRef.current(...args)) as T;
     return persistFnRef.current;
 }

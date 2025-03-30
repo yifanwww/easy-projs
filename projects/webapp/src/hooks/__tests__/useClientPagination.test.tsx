@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
-import { MemoryRouter, Routes, Route, useSearchParams } from 'react-router-dom';
+import { MemoryRouter, Routes, Route, useSearchParams } from 'react-router';
 
 import type { ClientPagination } from 'src/types/app.js';
 

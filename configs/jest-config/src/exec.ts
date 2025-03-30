@@ -78,21 +78,27 @@ function exec(type: TestType, extraArgs: string[]): void {
 
 export function main() {
     const nodeCjsCommand = new Command('node-cjs')
+        .allowExcessArguments()
         .allowUnknownOption()
         .action((_, command: Command) => exec(TestType.NODE_CJS, command.args));
     const nodeEsmCommand = new Command('node-esm')
+        .allowExcessArguments()
         .allowUnknownOption()
         .action((_, command: Command) => exec(TestType.NODE_ESM, command.args));
     const nodeCjsLegacyDecoratorCommand = new Command('node-cjs-legacy-decorator')
+        .allowExcessArguments()
         .allowUnknownOption()
         .action((_, command: Command) => exec(TestType.NODE_CJS_LEGACY_DECORATOR, command.args));
     const nodeEsmLegacyDecoratorCommand = new Command('node-esm-legacy-decorator')
+        .allowExcessArguments()
         .allowUnknownOption()
         .action((_, command: Command) => exec(TestType.NODE_ESM_LEGACY_DECORATOR, command.args));
     const webappCjsCommand = new Command('webapp-cjs')
+        .allowExcessArguments()
         .allowUnknownOption()
         .action((_, command: Command) => exec(TestType.WEBAPP_CJS, command.args));
     const webappEsmCommand = new Command('webapp-esm')
+        .allowExcessArguments()
         .allowUnknownOption()
         .action((_, command: Command) => exec(TestType.WEBAPP_ESM, command.args));
 

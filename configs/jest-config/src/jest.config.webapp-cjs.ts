@@ -19,7 +19,7 @@ function getConfig(): Config {
         roots: ['<rootDir>/src'],
         cacheDirectory: paths.jestCache,
 
-        setupFiles: [require.resolve('./jest.setup.js')],
+        setupFiles: [require.resolve('./jest.setup.cjs.js')],
         setupFilesAfterEnv: hasPackageOwnTestSetup ? [packageOwnTestSetup] : [],
 
         collectCoverageFrom: [
