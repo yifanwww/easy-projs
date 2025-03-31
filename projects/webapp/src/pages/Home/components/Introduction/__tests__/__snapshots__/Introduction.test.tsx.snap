@@ -1,28 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test component \`Introduction\` should render 1`] = `
-<div
-  className="introduction"
->
-  <img
-    alt="logo"
-    className="logo"
-    src="logo.svg"
-  />
-  <p>
-    Edit 
-    <code>
-      src/containers/Home/components/Introduction/Introduction.tsx
-    </code>
-     and save to reload.
-  </p>
-  <a
-    className="link"
-    href="https://github.com/yifanwww/easy-projs"
-    rel="noopener noreferrer"
-    target="_blank"
+<DocumentFragment>
+  <div
+    class="introduction"
   >
-    Learn easy-projs
-  </a>
-</div>
+    <img
+      alt="logo"
+      class="logo"
+      src="logo.svg"
+    />
+    <p>
+      Edit 
+      <code>
+        src/containers/Home/components/Introduction/Introduction.tsx
+      </code>
+       and save to reload.
+    </p>
+    <a
+      class="link"
+      href="https://github.com/yifanwww/easy-projs"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Learn easy-projs
+    </a>
+    <a
+      class="link"
+      data-discover="true"
+      href="/demo"
+    >
+      Component Demos
+    </a>
+  </div>
+</DocumentFragment>
 `;

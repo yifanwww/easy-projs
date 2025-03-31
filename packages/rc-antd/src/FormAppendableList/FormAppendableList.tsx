@@ -133,18 +133,23 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
             const extraItemsAfter = renderExtraItemsAfter?.(fieldsLength)?.map(renderExtraItem);
 
             const renderDeleteElement = (fieldName: number) => {
-                if (!!readonly || !!disabled) return null;
+                if (readonly) return null;
 
-                return (getDeletable?.(fieldName, fieldsLength) ?? true) && (!disableDeleteFirst || fieldName > 0) ? (
-                    <MinusCircleOutlined
-                        className={css.item_delete}
+                return (
+                    <Button
+                        type="text"
+                        disabled={
+                            !!disabled ||
+                            !!getDeletable?.(fieldName, fieldsLength) ||
+                            (!!disableDeleteFirst && fieldName === 0)
+                        }
+                        icon={<MinusCircleOutlined />}
                         onClick={() => {
                             remove(fieldName);
                             onRemoved?.();
                         }}
+                        className={css.item_delete}
                     />
-                ) : (
-                    <div className={css['item_delete-hidden']} />
                 );
             };
 

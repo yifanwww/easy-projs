@@ -1,17 +1,9 @@
 .item_delete {
-    position: relative;
-    top: 2px;
-    font-size: 20px;
-    line-height: 30px;
-    color: #ccc;
-
-    &:hover {
-        color: #777;
-    }
+    color: #666;
 }
 
 .item_delete-hidden {
-    width: 20px;
+    width: 32px;
 }
 
 .item_container {

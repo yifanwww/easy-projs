@@ -1,16 +1,23 @@
 import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
-import renderer from 'react-test-renderer';
+import { MemoryRouter, Route, Routes } from 'react-router';
 
 import { Introduction } from '../Introduction';
 
 describe(`Test component \`${Introduction.name}\``, () => {
+    function Wrapper({ children }: React.PropsWithChildren) {
+        return (
+            <MemoryRouter initialEntries={['/']}>
+                <Routes>
+                    <Route path="/" element={children} />
+                </Routes>
+            </MemoryRouter>
+        );
+    }
+
     it('should render', () => {
-        const element = <Introduction />;
-
-        expect(renderer.create(element).toJSON()).toMatchSnapshot();
-
-        const { getByText } = render(element);
+        const { asFragment, getByText } = render(<Introduction />, { wrapper: Wrapper });
+        expect(asFragment()).toMatchSnapshot();
         const linkElement = getByText(/Learn easy-projs/i);
         expect(linkElement).toBeInTheDocument();
     });

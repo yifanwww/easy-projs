@@ -1,4 +1,7 @@
+import { Link } from 'react-router';
+
 import { Assets } from 'src/assets';
+import { RoutePath } from 'src/router/path';
 
 import css from './Introduction.module.scss';
 
@@ -17,6 +20,9 @@ export function Introduction() {
             >
                 Learn easy-projs
             </a>
+            <Link className={css.link} to={RoutePath.DEMO}>
+                Component Demos
+            </Link>
         </div>
     );
 }
