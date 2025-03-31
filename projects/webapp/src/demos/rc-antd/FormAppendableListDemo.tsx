@@ -1,4 +1,5 @@
-import { FormAppendableList, type FormAppendableListItemProps } from '@easy-pkg/rc-antd';
+import type { FormAppendableListItemProps } from '@easy-pkg/rc-antd';
+import { FormAppendableList } from '@easy-pkg/rc-antd';
 import { Flex, Form, Input, Select } from 'antd';
 
 import { DemoLayout } from '../components/DemoLayout';

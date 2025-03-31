@@ -10,7 +10,7 @@ import css from './FormAppendableList.module.scss';
 
 export interface FormAppendableListItemProps extends Omit<FormListFieldData, 'key'> {}
 
-export interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
+interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
     addButtonOptions?: {
         disableBlock?: boolean;
         /**
@@ -48,7 +48,7 @@ export interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' |
     initialValue?: Partial<T>[];
     limit?: number;
     /**
-     * Customized how to add a new list value. This takes higher priority than `getAdd`.
+     * Customized how to add a new item. This takes higher priority than `getAdd`.
      */
     onAdd?: (add: FormListOperation['add'], fieldsLength: number) => void;
     onRemoved?: () => void;
@@ -169,7 +169,7 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
                         type="dashed"
                         style={{ marginBottom: addButtonPosition !== undefined ? 8 : undefined }}
                     >
-                        {`${addText}${reachLimit ? ` (React limit ${limit})` : ''}`}
+                        {`${addText}${reachLimit ? ` (Reach limit ${limit})` : ''}`}
                     </Button>
                 </Tooltip>
             );

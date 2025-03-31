@@ -20,6 +20,10 @@ const menuItems: MenuItem[] = [
         key: RoutePath.DEMO_ANTD_FORM_APPENDABLE_LIST,
         label: <Link to={RoutePath.DEMO_ANTD_FORM_APPENDABLE_LIST}>FormAppendableList</Link>,
     },
+    {
+        key: RoutePath.DEMO_ANTD_FORM_APPENDABLE_TABLE,
+        label: <Link to={RoutePath.DEMO_ANTD_FORM_APPENDABLE_TABLE}>FormAppendableTable</Link>,
+    },
     { key: RoutePath.DEMO_ANTD_READONLYABLE, label: <Link to={RoutePath.DEMO_ANTD_READONLYABLE}>Readonlyable</Link> },
 ];
 

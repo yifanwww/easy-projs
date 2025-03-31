@@ -14,6 +14,13 @@ const DemoRoutes: RouteObject[] = [
         },
     },
     {
+        path: RoutePath.DEMO_ANTD_FORM_APPENDABLE_TABLE,
+        lazy: async () => {
+            const { FormAppendableTableDemo } = await import('../demos/rc-antd/FormAppendableTableDemo');
+            return { element: <FormAppendableTableDemo /> };
+        },
+    },
+    {
         path: RoutePath.DEMO_ANTD_READONLYABLE,
         lazy: async () => {
             const { ReadonlyableDemo } = await import('../demos/rc-antd/ReadonlyableDemo');
