@@ -103,7 +103,7 @@ export class ServerLoggerService implements LoggerService {
                 new winston.transports.DailyRotateFile({
                     level: process.env.NODE_ENV === 'development' ? 'debug' : 'verbose',
                     dirname: process.env.SERVER_LOG_DIR ?? path.join(process.cwd(), 'logs'),
-                    filename: 'karinfan-%DATE%.log',
+                    filename: 'server-%DATE%.log',
                     datePattern: 'YYYY-MM-DD',
                     maxSize: '20m',
                     maxFiles: '30d',
