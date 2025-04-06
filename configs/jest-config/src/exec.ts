@@ -2,11 +2,9 @@ import chalk from 'chalk';
 import { Command, program } from 'commander';
 import child from 'node:child_process';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import url from 'node:url';
 
-// use import.meta.dirname after node 20.11 / 21.2
-const _dirname = path.dirname(fileURLToPath(import.meta.url));
-const pkgRoot = path.join(_dirname, '..');
+const pkgRoot = path.join(import.meta.dirname, '..');
 const jestBin = path.join(pkgRoot, 'node_modules/.bin/jest');
 
 enum TestType {
@@ -21,17 +19,17 @@ enum TestType {
 function getJestConfig(type: TestType) {
     switch (type) {
         case TestType.NODE_CJS:
-            return path.join(pkgRoot, 'dist/jest.config.node-cjs.js');
+            return url.fileURLToPath(import.meta.resolve('./jest.config.node-cjs.js'));
         case TestType.NODE_ESM:
-            return path.join(pkgRoot, 'dist/jest.config.node-esm.js');
+            return url.fileURLToPath(import.meta.resolve('./jest.config.node-esm.js'));
         case TestType.NODE_CJS_LEGACY_DECORATOR:
-            return path.join(pkgRoot, 'dist/jest.config.node-cjs-legacy-decorator.js');
+            return url.fileURLToPath(import.meta.resolve('./jest.config.node-cjs-legacy-decorator.js'));
         case TestType.NODE_ESM_LEGACY_DECORATOR:
-            return path.join(pkgRoot, 'dist/jest.config.node-esm-legacy-decorator.js');
+            return url.fileURLToPath(import.meta.resolve('./jest.config.node-esm-legacy-decorator.js'));
         case TestType.WEBAPP_CJS:
-            return path.join(pkgRoot, 'dist/jest.config.webapp-cjs.js');
+            return url.fileURLToPath(import.meta.resolve('./jest.config.webapp-cjs.js'));
         case TestType.WEBAPP_ESM:
-            return path.join(pkgRoot, 'dist/jest.config.webapp-esm.js');
+            return url.fileURLToPath(import.meta.resolve('./jest.config.webapp-esm.js'));
 
         default: {
             const never: never = type;
