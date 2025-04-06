@@ -5,7 +5,7 @@ const EXPERIMENTAL_API = 'EXPERIMENTAL_API';
 
 @Injectable()
 export class ExperimentalApiGuard implements CanActivate {
-    constructor(private reflector: Reflector) {}
+    constructor(private readonly reflector: Reflector) {}
 
     canActivate(context: ExecutionContext): boolean {
         const experimentalApi = this.reflector.getAllAndOverride<boolean | undefined>(EXPERIMENTAL_API, [
