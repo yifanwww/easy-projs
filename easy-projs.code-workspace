@@ -161,6 +161,10 @@
             "path": "packages/utils-node"
         },
         {
+            "name": "@easy-pkg/utils-server",
+            "path": "packages/utils-server"
+        },
+        {
             "name": "@easy-pkg/utils-test",
             "path": "packages/utils-test"
         },

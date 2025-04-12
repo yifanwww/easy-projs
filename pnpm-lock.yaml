@@ -813,6 +813,39 @@ importers:
         specifier: 5.8.2
         version: 5.8.2
 
+  packages/utils-server:
+    devDependencies:
+      '@easy-config/eslint-config':
+        specifier: workspace:^
+        version: link:../../configs/eslint-config
+      '@easy-config/global-types':
+        specifier: workspace:^
+        version: link:../../configs/global-types
+      '@easy-config/jest-config':
+        specifier: workspace:^
+        version: link:../../configs/jest-config
+      '@easy-config/tsconfigs':
+        specifier: workspace:^
+        version: link:../../configs/tsconfigs
+      '@jest/globals':
+        specifier: ^29.7.0
+        version: 29.7.0
+      concurrently:
+        specifier: ^9.1.2
+        version: 9.1.2
+      eslint:
+        specifier: ^8.57.1
+        version: 8.57.1
+      prettier:
+        specifier: 3.5.3
+        version: 3.5.3
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
+      typescript:
+        specifier: 5.8.2
+        version: 5.8.2
+
   packages/utils-test:
     dependencies:
       '@easy-pkg/types':
