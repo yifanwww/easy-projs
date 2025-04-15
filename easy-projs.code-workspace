@@ -1,7 +1,5 @@
 {
     "settings": {
-        // ----------------------------------------- Visual Studio Code Settings
-
         "editor.insertSpaces": true,
         "editor.rulers": [120],
         "editor.tabSize": 4,
@@ -56,22 +54,7 @@
             "editor.autoIndent": "advanced",
             "editor.defaultFormatter": "esbenp.prettier-vscode",
             "editor.tabSize": 2
-        },
-
-        // -------------------------------------------------- Extension Settings
-
-        "stylelint.validate": [
-            "css",
-            "less",
-            "postcss",
-            "sass",
-            "scss",
-            "source.css.styled",
-            "styled-css",
-            "vue",
-            "vue-html",
-            "vue-postcss"
-        ]
+        }
     },
     "folders": [
         {

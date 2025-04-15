@@ -310,6 +310,8 @@
 
     // ------------------------------------------------------ Extension Settings
 
+    "gitlens.launchpad.indicator.enabled": false,
+
     "hexeditor.columnWidth": 32,
     "hexeditor.showDecodedText": true,
     "hexeditor.defaultEndianness": "little",
@@ -328,6 +330,19 @@
     "prettier.tabWidth": 4,
     "prettier.trailingComma": "all",
     "prettier.useTabs": false,
+
+    "stylelint.validate": [
+        "css",
+        "less",
+        "postcss",
+        "sass",
+        "scss",
+        "source.css.styled",
+        "styled-css",
+        "vue",
+        "vue-html",
+        "vue-postcss"
+    ],
 
     "todo-tree.general.showActivityBarBadge": true,
     "todo-tree.general.tags": ["BUG", "FIXME", "HACK", "TODO", "UNDONE", "XXX", "[ ]"],
