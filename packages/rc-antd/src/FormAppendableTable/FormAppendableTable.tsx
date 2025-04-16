@@ -1,6 +1,7 @@
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { ArrayUtil } from '@easy-pkg/utils';
-import { Button, Form, Table, Tooltip, type FormListFieldData, type TableColumnType } from 'antd';
+import type { FormListFieldData, TableColumnType, TooltipProps } from 'antd';
+import { Button, Form, Table, Tooltip } from 'antd';
 import type { FormListOperation, FormListProps } from 'antd/es/form';
 import { useCallback } from 'react';
 import type { PartialDeep } from 'type-fest';
@@ -16,8 +17,8 @@ interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rule
         /**
          * Default is `Add`.
          */
-        text?: string;
-        tooltip?: React.ReactNode | (() => React.ReactNode);
+        text?: string | ((fieldsLength: number) => string);
+        tooltip?: React.ReactNode | ((fieldsLength: number) => React.ReactNode);
     };
     columns: TableColumnType<FormAppendableTableItem>[];
     disableAdd?: boolean;
@@ -62,12 +63,19 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
         rules,
     } = props;
 
-    const { text: addText = 'Add', tooltip: addTooltip } = addButtonOptions ?? {};
+    const { text: outerAddText = 'Add', tooltip: outerAddTooltip } = addButtonOptions ?? {};
 
     const renderTable: FormListProps['children'] = useCallback(
         (fields, { add, remove }, { errors }) => {
             const fieldsLength = fields.length;
             const reachLimit = fieldsLength >= limit;
+
+            const addText =
+                typeof outerAddText === 'function'
+                    ? outerAddText(fieldsLength)
+                    : `${outerAddText}${reachLimit ? ` (Reach limit ${limit})` : ''}`;
+            const addTooltip: TooltipProps['title'] =
+                typeof outerAddTooltip === 'function' ? outerAddTooltip(fieldsLength) : outerAddTooltip;
 
             const tableColumns = ArrayUtil.filterFalsy<TableColumnType<InternalTableItem>>([
                 ...(columns as unknown as TableColumnType<InternalTableItem>[]).map(
@@ -98,7 +106,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                                                 }
                                             }}
                                         >
-                                            {`${addText}${reachLimit ? ` (Reach limit ${limit})` : ''}`}
+                                            {addText}
                                         </Button>
                                     </Tooltip>
                                 );
@@ -153,7 +161,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                 </div>
             );
         },
-        [addText, addTooltip, columns, disableAdd, disabled, getAddValue, limit, onAdd, onRemoved, readonly],
+        [columns, disableAdd, disabled, getAddValue, limit, onAdd, onRemoved, outerAddText, outerAddTooltip, readonly],
     );
 
     return (

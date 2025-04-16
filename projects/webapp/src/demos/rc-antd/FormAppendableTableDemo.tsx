@@ -105,6 +105,19 @@ export function FormAppendableTableDemo() {
                     <FormAppendableTable name="table" columns={MultiInputColumns} limit={3} />
                 </Form.Item>
             </Form>
+            <h3>Customize Add Button Text</h3>
+            <Form>
+                <Form.Item label="Table">
+                    <FormAppendableTable
+                        name="table"
+                        columns={MultiInputColumns}
+                        addButtonOptions={{
+                            text: (fieldsLength) => `Add (${fieldsLength}/3)`,
+                        }}
+                        limit={3}
+                    />
+                </Form.Item>
+            </Form>
         </DemoLayout>
     );
 }
