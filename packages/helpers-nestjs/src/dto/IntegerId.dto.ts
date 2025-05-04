@@ -1,5 +1,5 @@
 import { Transform, Type } from 'class-transformer';
-import { IsInt } from 'class-validator';
+import { ArrayNotEmpty, IsArray, IsInt } from 'class-validator';
 
 export class IntegerIdParamDto {
     @Type(() => Number)
@@ -16,4 +16,11 @@ export class IntegerIdQueryDto {
 export class IntegerIdBodyDto {
     @IsInt()
     id!: number;
+}
+
+export class IntegerIdsBodyDto {
+    @IsArray()
+    @ArrayNotEmpty()
+    @IsInt({ each: true })
+    ids!: number[];
 }
