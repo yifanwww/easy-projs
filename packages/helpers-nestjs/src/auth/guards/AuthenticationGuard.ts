@@ -7,12 +7,9 @@ import assert from 'node:assert';
 
 import { AUTH_ACCESS_TOKEN_KEY } from '../constants.js';
 import type { JwtUserPayload } from '../types/jwt.js';
+import type { AttachedJwtUserPayload } from '../types/request.js';
 
-import { NO_AUTHENTICATION } from './constants.js';
-
-interface AttachedJwtUserPayload {
-    user?: JwtUserPayload;
-}
+import { NO_AUTHENTICATION, USER_PROPERTY_KEY } from './constants.js';
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {
@@ -42,7 +39,7 @@ export class AuthenticationGuard implements CanActivate {
                 secret: process.env.SERVER_JWT_SECRET,
             });
             // We're assigning the payload to the request object here so that we can access it in our route handlers
-            request.user = payload;
+            request[USER_PROPERTY_KEY] = payload;
         } catch {
             throw new UnauthorizedException();
         }
@@ -55,7 +52,7 @@ export function NoAuthentication() {
     return SetMetadata(NO_AUTHENTICATION, true);
 }
 
-export function getJwtUserPayload(req: Request & AttachedJwtUserPayload) {
-    assert(req.user !== undefined);
-    return req.user;
+export function getJwtUserPayload(request: Request & AttachedJwtUserPayload): JwtUserPayload {
+    assert(request[USER_PROPERTY_KEY] !== undefined);
+    return request[USER_PROPERTY_KEY];
 }

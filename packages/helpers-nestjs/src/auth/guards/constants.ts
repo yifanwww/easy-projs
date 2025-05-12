@@ -1,1 +1,5 @@
-export const NO_AUTHENTICATION = 'NO_AUTHENTICATION';
+export const NO_AUTHENTICATION = Symbol('__SERVER__NO_AUTHENTICATION');
+
+export const REQUIRED_ROLE = Symbol('__SERVER__REQUIRED_ROLE');
+
+export const USER_PROPERTY_KEY = Symbol('__SERVER__USER_PROPERTY_KEY');

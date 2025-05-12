@@ -4,11 +4,10 @@ import { Reflector } from '@nestjs/core';
 import type { Request } from 'express';
 
 import { checkUserRole, UserRole } from '../role.js';
+import type { AttachedJwtUserPayload } from '../types/request.js';
 
 import { getJwtUserPayload } from './AuthenticationGuard.js';
-import { NO_AUTHENTICATION } from './constants.js';
-
-const REQUIRED_ROLE = 'REQUIRED_ROLE';
+import { NO_AUTHENTICATION, REQUIRED_ROLE } from './constants.js';
 
 @Injectable()
 export class RoleGuard implements CanActivate {
@@ -29,7 +28,7 @@ export class RoleGuard implements CanActivate {
                 context.getClass(),
             ]) ?? UserRole.ROOT; // by default we only allow ROOT role
 
-        const request = context.switchToHttp().getRequest<Request>();
+        const request = context.switchToHttp().getRequest<Request & AttachedJwtUserPayload>();
         const user = getJwtUserPayload(request);
         if (!user) {
             return false;

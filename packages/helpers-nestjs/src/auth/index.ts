@@ -1,4 +1,5 @@
 export * from './constants.js';
+export * from './decorator.js';
 export * from './guards/AuthenticationGuard.js';
 export * from './guards/RoleGuard.js';
 export * from './password.js';
