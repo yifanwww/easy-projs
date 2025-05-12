@@ -1,10 +1,40 @@
 import { describe, expect, it } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
-import { MemoryRouter, Routes, Route, useSearchParams } from 'react-router';
+import { MemoryRouter, Routes, Route } from 'react-router';
 
 import type { ClientPagination } from 'src/types/app.js';
 
-import { useClientPagination } from '../useClientPagination.js';
+import { mutateClientPagination, useClientPagination } from '../useClientPagination.js';
+
+describe(`Test fn \`${mutateClientPagination.name}\``, () => {
+    it('should update URLSearchParams', () => {
+        const usp = new URLSearchParams({ page: '2', page_size: '15' });
+
+        mutateClientPagination(usp, { page: 3 });
+        expect(usp.toString()).toBe('page=3');
+
+        mutateClientPagination(usp, { pageSize: 20 });
+        expect(usp.toString()).toBe('page_size=20');
+
+        mutateClientPagination(usp, { page: 1 });
+        mutateClientPagination(usp, { pageSize: 10 });
+        expect(usp.toString()).toBe('page_size=10');
+    });
+
+    it('should update URLSearchParams (functional updates)', () => {
+        const usp = new URLSearchParams({ page: '2', page_size: '15' });
+
+        mutateClientPagination(usp, (prev): ClientPagination => ({ page: prev.page! + 1 }));
+        expect(usp.toString()).toBe('page=3');
+
+        mutateClientPagination(usp, (prev): ClientPagination => ({ ...prev, pageSize: 20 }));
+        expect(usp.toString()).toBe('page=3&page_size=20');
+
+        mutateClientPagination(usp, (prev): ClientPagination => ({ ...prev, pageSize: 30 }));
+        mutateClientPagination(usp, (prev): ClientPagination => ({ ...prev, page: 10 }));
+        expect(usp.toString()).toBe('page=10&page_size=30');
+    });
+});
 
 describe(`Test react hook \`${useClientPagination.name}\``, () => {
     function Wrapper({ children }: React.PropsWithChildren) {
@@ -22,18 +52,18 @@ describe(`Test react hook \`${useClientPagination.name}\``, () => {
         expect(result.current[0]).toStrictEqual({ page: 2, pageSize: 15 });
 
         act(() => {
-            result.current[1].setPagination({ page: 3 });
+            result.current[1]({ page: 3 });
         });
         expect(result.current[0]).toStrictEqual({ page: 3, pageSize: undefined });
 
         act(() => {
-            result.current[1].setPagination({ pageSize: 20 });
+            result.current[1]({ pageSize: 20 });
         });
         expect(result.current[0]).toStrictEqual({ page: undefined, pageSize: 20 });
 
         act(() => {
-            result.current[1].setPagination({ page: 1 });
-            result.current[1].setPagination({ pageSize: 10 });
+            result.current[1]({ page: 1 });
+            result.current[1]({ pageSize: 10 });
         });
         expect(result.current[0]).toStrictEqual({ page: undefined, pageSize: 10 });
     });
@@ -43,103 +73,19 @@ describe(`Test react hook \`${useClientPagination.name}\``, () => {
         expect(result.current[0]).toStrictEqual({ page: 2, pageSize: 15 });
 
         act(() => {
-            result.current[1].setPagination((prev): ClientPagination => ({ page: prev.page! + 1 }));
+            result.current[1]((prev): ClientPagination => ({ page: prev.page! + 1 }));
         });
         expect(result.current[0]).toStrictEqual({ page: 3, pageSize: undefined });
 
         act(() => {
-            result.current[1].setPagination((prev): ClientPagination => ({ ...prev, pageSize: 20 }));
+            result.current[1]((prev): ClientPagination => ({ ...prev, pageSize: 20 }));
         });
         expect(result.current[0]).toStrictEqual({ page: 3, pageSize: 20 });
 
         act(() => {
-            result.current[1].setPagination((prev): ClientPagination => ({ ...prev, pageSize: 30 }));
-            result.current[1].setPagination((prev): ClientPagination => ({ ...prev, page: 10 }));
+            result.current[1]((prev): ClientPagination => ({ ...prev, pageSize: 30 }));
+            result.current[1]((prev): ClientPagination => ({ ...prev, page: 10 }));
         });
         expect(result.current[0]).toStrictEqual({ page: 10, pageSize: 30 });
-    });
-
-    it('should update the client pagination by setSearchParams', () => {
-        const { result } = renderHook(
-            () => ({
-                searchParams: useSearchParams(),
-                pagination: useClientPagination(),
-            }),
-            { wrapper: Wrapper },
-        );
-        expect(result.current.pagination[0]).toStrictEqual({ page: 2, pageSize: 15 });
-
-        act(() => {
-            result.current.searchParams[1]((prev) => {
-                result.current.pagination[1].mutatePagination(prev, { page: 3 });
-                return prev;
-            });
-        });
-        expect(result.current.pagination[0]).toStrictEqual({ page: 3, pageSize: undefined });
-
-        act(() => {
-            result.current.searchParams[1]((prev) => {
-                result.current.pagination[1].mutatePagination(prev, { pageSize: 20 });
-                return prev;
-            });
-        });
-        expect(result.current.pagination[0]).toStrictEqual({ page: undefined, pageSize: 20 });
-
-        act(() => {
-            result.current.searchParams[1]((prev) => {
-                result.current.pagination[1].mutatePagination(prev, { page: 1 });
-                result.current.pagination[1].mutatePagination(prev, { pageSize: 10 });
-                return prev;
-            });
-        });
-        expect(result.current.pagination[0]).toStrictEqual({ page: undefined, pageSize: 10 });
-    });
-
-    it('should update the client pagination by setSearchParams (functional updates)', () => {
-        const { result } = renderHook(
-            () => ({
-                searchParams: useSearchParams(),
-                pagination: useClientPagination(),
-            }),
-            { wrapper: Wrapper },
-        );
-        expect(result.current.pagination[0]).toStrictEqual({ page: 2, pageSize: 15 });
-
-        act(() => {
-            result.current.searchParams[1]((prev) => {
-                result.current.pagination[1].mutatePagination(
-                    prev,
-                    (_prev): ClientPagination => ({ page: _prev.page! + 1 }),
-                );
-                return prev;
-            });
-        });
-        expect(result.current.pagination[0]).toStrictEqual({ page: 3, pageSize: undefined });
-
-        act(() => {
-            result.current.searchParams[1]((prev) => {
-                result.current.pagination[1].mutatePagination(
-                    prev,
-                    (_prev): ClientPagination => ({ ..._prev, pageSize: 20 }),
-                );
-                return prev;
-            });
-        });
-        expect(result.current.pagination[0]).toStrictEqual({ page: 3, pageSize: 20 });
-
-        act(() => {
-            result.current.searchParams[1]((prev) => {
-                result.current.pagination[1].mutatePagination(
-                    prev,
-                    (_prev): ClientPagination => ({ ..._prev, pageSize: 30 }),
-                );
-                result.current.pagination[1].mutatePagination(
-                    prev,
-                    (_prev): ClientPagination => ({ ..._prev, page: 10 }),
-                );
-                return prev;
-            });
-        });
-        expect(result.current.pagination[0]).toStrictEqual({ page: 10, pageSize: 30 });
     });
 });

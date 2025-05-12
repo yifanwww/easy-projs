@@ -17,47 +17,41 @@ function getClientPagination(usp: URLSearchParams): ClientPagination {
     };
 }
 
-type MutateClientPagination = (
-    prev: URLSearchParams,
-    value: ClientPagination | ((_prev: ClientPagination) => ClientPagination),
-) => void;
-type SetClientPagination = (value: ClientPagination | ((prev: ClientPagination) => ClientPagination)) => void;
+export function mutateClientPagination(
+    usp: URLSearchParams,
+    value: ClientPagination | ((prev: ClientPagination) => ClientPagination),
+) {
+    const { page, pageSize } = typeof value === 'function' ? value(getClientPagination(usp)) : value;
 
-interface ClientPaginationActions {
-    mutatePagination: MutateClientPagination;
-    setPagination: SetClientPagination;
+    if (page !== undefined) {
+        usp.set(ClientPaginationKey.PAGE, page.toString());
+    } else {
+        usp.delete(ClientPaginationKey.PAGE);
+    }
+
+    if (pageSize !== undefined) {
+        usp.set(ClientPaginationKey.PAGE_SIZE, pageSize.toString());
+    } else {
+        usp.delete(ClientPaginationKey.PAGE_SIZE);
+    }
 }
 
-export function useClientPagination(): [ClientPagination, ClientPaginationActions] {
+type SetClientPagination = (value: ClientPagination | ((prev: ClientPagination) => ClientPagination)) => void;
+
+export function useClientPagination(): [ClientPagination, SetClientPagination] {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const clientPagination = useMemo(() => getClientPagination(searchParams), [searchParams]);
 
-    const mutatePagination = useCallback<MutateClientPagination>((prev, value) => {
-        const { page, pageSize } = typeof value === 'function' ? value(getClientPagination(prev)) : value;
-
-        if (page !== undefined) {
-            prev.set(ClientPaginationKey.PAGE, page.toString());
-        } else {
-            prev.delete(ClientPaginationKey.PAGE);
-        }
-
-        if (pageSize !== undefined) {
-            prev.set(ClientPaginationKey.PAGE_SIZE, pageSize.toString());
-        } else {
-            prev.delete(ClientPaginationKey.PAGE_SIZE);
-        }
-    }, []);
-
     const setPagination = useCallback<SetClientPagination>(
         (value) => {
             setSearchParams((prev) => {
-                mutatePagination(prev, value);
+                mutateClientPagination(prev, value);
                 return prev;
             });
         },
-        [mutatePagination, setSearchParams],
+        [setSearchParams],
     );
 
-    return [clientPagination, { mutatePagination, setPagination }];
+    return [clientPagination, setPagination];
 }
