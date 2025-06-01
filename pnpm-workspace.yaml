@@ -2,3 +2,8 @@ packages:
   - 'configs/*'
   - 'packages/*'
   - 'projects/*'
+
+workspaceConcurrency: 0
+
+publicHoistPattern:
+- "*eslint*"
