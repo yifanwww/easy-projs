@@ -25,12 +25,12 @@ interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' | 'rules
         text?: string;
         tooltip?: React.ReactNode | (() => React.ReactNode);
     };
+    className?: string;
     /**
      * The component to be rendered as the item of appendable field.
      * This prop won't be used if also provide `render`.
      */
     component?: React.JSXElementConstructor<FormAppendableListItemProps>;
-    contentClassName?: string;
     disableAdd?: boolean;
     disabled?: boolean;
     /**
@@ -80,8 +80,8 @@ interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' | 'rules
 export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
     const {
         addButtonOptions,
+        className,
         component: Component,
-        contentClassName,
         disableAdd,
         disableDeleteFirst,
         disabled,
@@ -182,7 +182,7 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
             );
 
             return (
-                <div className={contentClassName}>
+                <div className={className}>
                     {extraItemsBefore}
 
                     {(addButtonPosition === undefined || readonly) && fields.map(renderItem)}
@@ -207,7 +207,7 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
             addButtonPosition,
             addText,
             addTooltip,
-            contentClassName,
+            className,
             disableAdd,
             disableButtonBlock,
             disableDeleteFirst,

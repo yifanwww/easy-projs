@@ -10,8 +10,6 @@ import css from './FormAppendableTable.module.scss';
 
 export interface FormAppendableTableItem extends Omit<FormListFieldData, 'key'> {}
 
-type InternalTableItem = ({ type: 'data' } & FormAppendableTableItem) | { type: 'add-button' };
-
 interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
     addButtonOptions?: {
         /**
@@ -20,6 +18,8 @@ interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rule
         text?: string | ((fieldsLength: number) => string);
         tooltip?: React.ReactNode | ((fieldsLength: number) => React.ReactNode);
     };
+    bordered?: boolean;
+    className?: string;
     columns: TableColumnType<FormAppendableTableItem>[];
     disableAdd?: boolean;
     disabled?: boolean;
@@ -50,6 +50,8 @@ interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rule
 export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
     const {
         addButtonOptions,
+        bordered,
+        className,
         columns,
         disableAdd,
         disabled,
@@ -77,42 +79,11 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
             const addTooltip: TooltipProps['title'] =
                 typeof outerAddTooltip === 'function' ? outerAddTooltip(fieldsLength) : outerAddTooltip;
 
-            const tableColumns = ArrayUtil.filterFalsy<TableColumnType<InternalTableItem>>([
-                ...(columns as unknown as TableColumnType<InternalTableItem>[]).map(
-                    (column, colIndex): TableColumnType<InternalTableItem> => ({
+            const tableColumns = ArrayUtil.filterFalsy<TableColumnType<FormAppendableTableItem>>([
+                ...columns.map(
+                    (column): TableColumnType<FormAppendableTableItem> => ({
                         ...column,
-                        onCell: (record) => {
-                            if (record.type === 'add-button') {
-                                return { colSpan: colIndex === 0 ? columns.length + 1 : 0 };
-                            }
-                            return { colSpan: 1 };
-                        },
-                        render: (value, record, index) => {
-                            if (record.type === 'add-button' && colIndex !== 0) return null;
-
-                            if (record.type === 'add-button') {
-                                return (
-                                    <Tooltip title={addTooltip}>
-                                        <Button
-                                            type="dashed"
-                                            block
-                                            disabled={!!disabled || !!disableAdd || reachLimit}
-                                            icon={<PlusOutlined />}
-                                            onClick={() => {
-                                                if (onAdd) {
-                                                    onAdd(add, fieldsLength);
-                                                } else {
-                                                    add(getAddValue?.());
-                                                }
-                                            }}
-                                        >
-                                            {addText}
-                                        </Button>
-                                    </Tooltip>
-                                );
-                            }
-                            return column.render?.(value, record, index);
-                        },
+                        render: (value, record, index) => column.render?.(value, record, index),
                     }),
                 ),
                 !readonly && {
@@ -120,39 +91,50 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                     title: 'Action',
                     align: 'center',
                     width: 64,
-                    onCell: (record) => ({ colSpan: record.type === 'add-button' ? 0 : 1 }),
-                    render: (_, record) => {
-                        if (record.type === 'add-button') return null;
-                        return (
-                            <Button
-                                type="text"
-                                disabled={disabled}
-                                icon={<DeleteOutlined />}
-                                size="small"
-                                onClick={() => {
-                                    remove(record.name);
-                                    onRemoved?.();
-                                }}
-                            />
-                        );
-                    },
+                    render: (_, record) => (
+                        <Button
+                            type="text"
+                            disabled={disabled}
+                            icon={<DeleteOutlined />}
+                            size="small"
+                            onClick={() => {
+                                remove(record.name);
+                                onRemoved?.();
+                            }}
+                        />
+                    ),
                 },
             ]);
 
-            const dataSource = ArrayUtil.filterFalsy<InternalTableItem>([
-                ...fields.map((field): InternalTableItem => ({ ...field, type: 'data' })),
-                !readonly && { type: 'add-button' },
-            ]);
+            const renderAddButton = () => (
+                <Tooltip title={addTooltip}>
+                    <Button
+                        type="dashed"
+                        block
+                        disabled={!!disabled || !!disableAdd || reachLimit}
+                        icon={<PlusOutlined />}
+                        onClick={() => {
+                            if (onAdd) {
+                                onAdd(add, fieldsLength);
+                            } else {
+                                add(getAddValue?.());
+                            }
+                        }}
+                    >
+                        {addText}
+                    </Button>
+                </Tooltip>
+            );
 
             return (
-                <div>
+                <div className={className}>
                     <Table
+                        bordered={bordered}
                         columns={tableColumns}
-                        dataSource={dataSource}
+                        dataSource={fields}
+                        footer={readonly ? undefined : renderAddButton}
                         pagination={false}
-                        rowKey={(record) =>
-                            record.type === 'add-button' ? record.type : record.type + record.name.toString()
-                        }
+                        rowKey={(record) => record.name}
                         size="small"
                         tableLayout="fixed"
                         className={css.table}
@@ -161,7 +143,20 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                 </div>
             );
         },
-        [columns, disableAdd, disabled, getAddValue, limit, onAdd, onRemoved, outerAddText, outerAddTooltip, readonly],
+        [
+            bordered,
+            className,
+            columns,
+            disableAdd,
+            disabled,
+            getAddValue,
+            limit,
+            onAdd,
+            onRemoved,
+            outerAddText,
+            outerAddTooltip,
+            readonly,
+        ],
     );
 
     return (

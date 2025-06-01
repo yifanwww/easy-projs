@@ -43,6 +43,27 @@ function MultiInputItem({ name }: FormAppendableListItemProps) {
     );
 }
 
+function TaggedInputItem({ name }: FormAppendableListItemProps) {
+    return (
+        <Flex gap={4}>
+            <Form.Item name={[name, 'key']} style={{ flex: 'auto' }}>
+                <Input addonBefore="Key" />
+            </Form.Item>
+            <Form.Item name={[name, 'operator']} initialValue="==" style={{ width: 100 }}>
+                <Select
+                    options={[
+                        { label: '==', value: '==' },
+                        { label: '!=', value: '!=' },
+                    ]}
+                />
+            </Form.Item>
+            <Form.Item name={[name, 'value']} style={{ flex: 'auto' }}>
+                <Input addonBefore="Value" />
+            </Form.Item>
+        </Flex>
+    );
+}
+
 export function FormAppendableListDemo() {
     return (
         <DemoLayout>
@@ -57,7 +78,21 @@ export function FormAppendableListDemo() {
             <h3>Multi Input</h3>
             <Form>
                 <Form.Item label="List">
-                    <FormAppendableList name="list" component={MultiInputItem} />
+                    <FormAppendableList
+                        name="list"
+                        component={MultiInputItem}
+                        initialValue={[{ key: 'foo', operator: '==' }]}
+                    />
+                </Form.Item>
+            </Form>
+            <h3>Tagged Input</h3>
+            <Form>
+                <Form.Item label="List">
+                    <FormAppendableList
+                        name="list"
+                        component={TaggedInputItem}
+                        initialValue={[{ key: 'foo', operator: '==' }]}
+                    />
                 </Form.Item>
             </Form>
             <h3>Disabled</h3>

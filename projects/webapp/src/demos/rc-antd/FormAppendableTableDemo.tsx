@@ -71,6 +71,20 @@ export function FormAppendableTableDemo() {
                     <FormAppendableTable name="table" columns={MultiInputColumns} />
                 </Form.Item>
             </Form>
+            <h3>Bordered</h3>
+            <Form>
+                <Form.Item label="Table">
+                    <FormAppendableTable
+                        name="table"
+                        bordered
+                        columns={MultiInputColumns}
+                        initialValue={[
+                            { key: 'foo', operator: '==' },
+                            { key: 'bar', operator: '!=' },
+                        ]}
+                    />
+                </Form.Item>
+            </Form>
             <h3>Disabled</h3>
             <Form>
                 <Form.Item label="Table">
