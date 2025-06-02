@@ -1,31 +1,41 @@
 import { PlusOutlined } from '@ant-design/icons';
-import type { FormAppendableListItemProps } from '@easy-pkg/rc-antd';
+import type { FormAppendableTableItem } from '@easy-pkg/rc-antd';
 import { resultifyPromise } from '@rustresult/result';
-import { Button, Flex, Form, Input, Modal, Select, type FormListOperation } from 'antd';
+import { Button, Form, Input, Modal, Select, type FormListOperation, type TableColumnType } from 'antd';
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 
-import css from './ReadonlyMultiInputItem.module.scss';
-
-export function ReadonlyMultiInputItem({ name }: FormAppendableListItemProps) {
-    return (
-        <Flex
-            gap={4}
-            className={css.readonly_multi_input}
-            style={{ background: '#f5f5f5', borderRadius: 8, marginBottom: 4 }}
-        >
-            <Form.Item name={[name, 'key']} valuePropName="children" style={{ flex: 'auto' }}>
-                <div style={{ margin: '0 8px' }} />
-            </Form.Item>
-            <Form.Item name={[name, 'operator']} initialValue="==" valuePropName="children" style={{ width: 100 }}>
+export const ReadonlyMultiInputTableColumns: TableColumnType<FormAppendableTableItem>[] = [
+    {
+        key: 'key',
+        title: 'Key',
+        width: '50%',
+        render: (_, record) => (
+            <Form.Item name={[record.name, 'key']} valuePropName="children">
                 <div />
             </Form.Item>
-            <Form.Item name={[name, 'value']} valuePropName="children" style={{ flex: 'auto' }}>
-                <div style={{ margin: '0 8px' }} />
+        ),
+    },
+    {
+        key: 'operator',
+        title: 'Operator',
+        width: 100,
+        render: (_, record) => (
+            <Form.Item name={[record.name, 'operator']} initialValue="==" valuePropName="children">
+                <div />
             </Form.Item>
-        </Flex>
-    );
-}
-ReadonlyMultiInputItem.css = css;
+        ),
+    },
+    {
+        key: 'value',
+        title: 'Value',
+        width: '50%',
+        render: (_, record) => (
+            <Form.Item name={[record.name, 'value']} valuePropName="children">
+                <div />
+            </Form.Item>
+        ),
+    },
+];
 
 interface FormData {
     key: string;
@@ -89,11 +99,11 @@ const AddButtonModal = forwardRef<AddButtonModalRef, AddButtonModalProps>(({ onO
     );
 });
 
-interface ReadonlyMultiInputItemAddButtonProps {
+interface ReadonlyMultiInputTableAddButtonProps {
     onAdd?: FormListOperation['add'];
 }
 
-export function ReadonlyMultiInputItemAddButton({ onAdd }: ReadonlyMultiInputItemAddButtonProps) {
+export function ReadonlyMultiInputTableAddButton({ onAdd }: ReadonlyMultiInputTableAddButtonProps) {
     const modalRef = useRef<AddButtonModalRef>(null);
 
     return (

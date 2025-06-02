@@ -20,7 +20,7 @@ interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' | 'rules
          */
         position?: number;
         /**
-         * Completely replaces the default add button.
+         * Completely customize the add button.
          */
         render?: (add: FormListOperation['add'], fieldsLength: number) => React.ReactNode;
         /**

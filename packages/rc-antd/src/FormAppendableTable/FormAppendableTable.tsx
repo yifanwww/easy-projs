@@ -13,6 +13,10 @@ export interface FormAppendableTableItem extends Omit<FormListFieldData, 'key'> 
 interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
     addButtonOptions?: {
         /**
+         * Completely customize the add button.
+         */
+        render?: (add: FormListOperation['add'], fieldsLength: number) => React.ReactNode;
+        /**
          * Default is `Add`.
          */
         text?: string | ((fieldsLength: number) => string);
@@ -65,7 +69,11 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
         rules,
     } = props;
 
-    const { text: outerAddText = 'Add', tooltip: outerAddTooltip } = addButtonOptions ?? {};
+    const {
+        render: outerRenderAddButton,
+        text: outerAddText = 'Add',
+        tooltip: outerAddTooltip,
+    } = addButtonOptions ?? {};
 
     const renderTable: FormListProps['children'] = useCallback(
         (fields, { add, remove }, { errors }) => {
@@ -106,25 +114,29 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                 },
             ]);
 
-            const renderAddButton = () => (
-                <Tooltip title={addTooltip}>
-                    <Button
-                        type="dashed"
-                        block
-                        disabled={!!disabled || !!disableAdd || reachLimit}
-                        icon={<PlusOutlined />}
-                        onClick={() => {
-                            if (onAdd) {
-                                onAdd(add, fieldsLength);
-                            } else {
-                                add(getAddValue?.());
-                            }
-                        }}
-                    >
-                        {addText}
-                    </Button>
-                </Tooltip>
-            );
+            const renderAddButton = () => {
+                if (outerRenderAddButton) return outerRenderAddButton(add, fieldsLength);
+
+                return (
+                    <Tooltip title={addTooltip}>
+                        <Button
+                            type="dashed"
+                            block
+                            disabled={!!disabled || !!disableAdd || reachLimit}
+                            icon={<PlusOutlined />}
+                            onClick={() => {
+                                if (onAdd) {
+                                    onAdd(add, fieldsLength);
+                                } else {
+                                    add(getAddValue?.());
+                                }
+                            }}
+                        >
+                            {addText}
+                        </Button>
+                    </Tooltip>
+                );
+            };
 
             return (
                 <div className={className}>
@@ -155,6 +167,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
             onRemoved,
             outerAddText,
             outerAddTooltip,
+            outerRenderAddButton,
             readonly,
         ],
     );

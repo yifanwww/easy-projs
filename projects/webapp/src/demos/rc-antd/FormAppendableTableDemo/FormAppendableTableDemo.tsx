@@ -1,58 +1,11 @@
-import type { FormAppendableTableItem } from '@easy-pkg/rc-antd';
 import { FormAppendableTable } from '@easy-pkg/rc-antd';
-import { Form, Input, Select, type TableColumnType } from 'antd';
+import { Form } from 'antd';
 
-import { DemoLayout } from '../components/DemoLayout';
+import { DemoLayout } from '../../components/DemoLayout';
 
-const SingleColumn: TableColumnType<FormAppendableTableItem>[] = [
-    {
-        key: 'value',
-        title: 'Value',
-        render: (_, record) => (
-            <Form.Item name={[record.name, 'value']}>
-                <Input />
-            </Form.Item>
-        ),
-    },
-];
-
-const MultiInputColumns: TableColumnType<FormAppendableTableItem>[] = [
-    {
-        key: 'key',
-        title: 'Key',
-        width: '50%',
-        render: (_, record) => (
-            <Form.Item name={[record.name, 'key']}>
-                <Input placeholder="Key" />
-            </Form.Item>
-        ),
-    },
-    {
-        key: 'operator',
-        title: 'Operator',
-        width: 100,
-        render: (_, record) => (
-            <Form.Item name={[record.name, 'operator']} initialValue="==">
-                <Select
-                    options={[
-                        { label: '==', value: '==' },
-                        { label: '!=', value: '!=' },
-                    ]}
-                />
-            </Form.Item>
-        ),
-    },
-    {
-        key: 'value',
-        title: 'Value',
-        width: '50%',
-        render: (_, record) => (
-            <Form.Item name={[record.name, 'value']}>
-                <Input placeholder="Value" />
-            </Form.Item>
-        ),
-    },
-];
+import { MultiInputTableColumns } from './MultiInputTable';
+import { ReadonlyMultiInputTableAddButton, ReadonlyMultiInputTableColumns } from './ReadonlyMultiInputTable';
+import { SimpleTableColumns } from './SimpleTable';
 
 export function FormAppendableTableDemo() {
     return (
@@ -62,13 +15,13 @@ export function FormAppendableTableDemo() {
             <h3>Basic</h3>
             <Form>
                 <Form.Item label="Table">
-                    <FormAppendableTable name="table" columns={SingleColumn} />
+                    <FormAppendableTable name="table" columns={SimpleTableColumns} />
                 </Form.Item>
             </Form>
             <h3>Multi Input</h3>
             <Form>
                 <Form.Item label="Table">
-                    <FormAppendableTable name="table" columns={MultiInputColumns} />
+                    <FormAppendableTable name="table" columns={MultiInputTableColumns} />
                 </Form.Item>
             </Form>
             <h3>Bordered</h3>
@@ -77,7 +30,7 @@ export function FormAppendableTableDemo() {
                     <FormAppendableTable
                         name="table"
                         bordered
-                        columns={MultiInputColumns}
+                        columns={MultiInputTableColumns}
                         initialValue={[
                             { key: 'foo', operator: '==' },
                             { key: 'bar', operator: '!=' },
@@ -90,7 +43,7 @@ export function FormAppendableTableDemo() {
                 <Form.Item label="Table">
                     <FormAppendableTable
                         name="table"
-                        columns={MultiInputColumns}
+                        columns={MultiInputTableColumns}
                         disabled
                         initialValue={[
                             { key: 'foo', operator: '==' },
@@ -104,7 +57,7 @@ export function FormAppendableTableDemo() {
                 <Form.Item label="Table">
                     <FormAppendableTable
                         name="table"
-                        columns={MultiInputColumns}
+                        columns={MultiInputTableColumns}
                         readonly
                         initialValue={[
                             { key: 'foo', operator: '==' },
@@ -116,7 +69,7 @@ export function FormAppendableTableDemo() {
             <h3>Count Limit</h3>
             <Form>
                 <Form.Item label="Table">
-                    <FormAppendableTable name="table" columns={MultiInputColumns} limit={3} />
+                    <FormAppendableTable name="table" columns={MultiInputTableColumns} limit={3} />
                 </Form.Item>
             </Form>
             <h3>Customize Add Button Text</h3>
@@ -124,11 +77,21 @@ export function FormAppendableTableDemo() {
                 <Form.Item label="Table">
                     <FormAppendableTable
                         name="table"
-                        columns={MultiInputColumns}
+                        columns={MultiInputTableColumns}
                         addButtonOptions={{
                             text: (fieldsLength) => `Add (${fieldsLength}/3)`,
                         }}
                         limit={3}
+                    />
+                </Form.Item>
+            </Form>
+            <h3>Customize Add Button</h3>
+            <Form>
+                <Form.Item label="Table">
+                    <FormAppendableTable
+                        name="table"
+                        columns={ReadonlyMultiInputTableColumns}
+                        addButtonOptions={{ render: (add) => <ReadonlyMultiInputTableAddButton onAdd={add} /> }}
                     />
                 </Form.Item>
             </Form>
