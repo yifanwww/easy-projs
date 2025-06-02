@@ -1,6 +1,6 @@
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import type { FormListFieldData } from 'antd';
-import { Form, Space, Tooltip, Button } from 'antd';
+import { Form, Tooltip, Button } from 'antd';
 import type { FormListOperation, FormListProps } from 'antd/es/form';
 import { useCallback } from 'react';
 import { isElement } from 'react-is';
@@ -19,6 +19,10 @@ interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' | 'rules
          * otherwise it will be placed before [(length - abs(n))-th] item.
          */
         position?: number;
+        /**
+         * Completely replaces the default add button.
+         */
+        render?: (add: FormListOperation['add'], fieldsLength: number) => React.ReactNode;
         /**
          * Default is `Add`.
          */
@@ -102,6 +106,7 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
     const {
         disableBlock: disableButtonBlock,
         position: addButtonPosition,
+        render: outerRenderAddButton,
         text: addText = 'Add',
         tooltip: addTooltip,
     } = addButtonOptions ?? {};
@@ -110,10 +115,10 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
         (item: React.ReactNode) => {
             if (isElement(item)) {
                 return (
-                    <Space key={item.key} className={css.item_container} align="baseline">
-                        {item}
-                        {!readonly && <div className={css['item_delete-hidden']} />}
-                    </Space>
+                    <div key={item.key} className={css.item_container}>
+                        <div className={css.item_input}>{item}</div>
+                        {!readonly && <div className={css.item_hidden_delete} />}
+                    </div>
                 );
             }
 
@@ -132,53 +137,56 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
             const extraItemsBefore = renderExtraItemsBefore?.(fieldsLength)?.map(renderExtraItem);
             const extraItemsAfter = renderExtraItemsAfter?.(fieldsLength)?.map(renderExtraItem);
 
-            const renderDeleteElement = (fieldName: number) => {
-                if (readonly) return null;
+            const renderAddButton = () => {
+                if (outerRenderAddButton) return outerRenderAddButton(add, fieldsLength);
 
                 return (
-                    <Button
-                        type="text"
-                        disabled={
-                            !!disabled ||
-                            !!getDeletable?.(fieldName, fieldsLength) ||
-                            (!!disableDeleteFirst && fieldName === 0)
-                        }
-                        icon={<MinusCircleOutlined />}
-                        onClick={() => {
-                            remove(fieldName);
-                            onRemoved?.();
-                        }}
-                        className={css.item_delete}
-                    />
+                    <Tooltip title={addTooltip}>
+                        <Button
+                            block={!disableButtonBlock}
+                            disabled={!!disabled || !!disableAdd || reachLimit}
+                            icon={<PlusOutlined />}
+                            onClick={() => {
+                                if (onAdd) {
+                                    onAdd(add, fieldsLength);
+                                } else {
+                                    add(getAddValue?.());
+                                }
+                            }}
+                            type="dashed"
+                            style={{ marginBottom: addButtonPosition !== undefined ? 8 : undefined }}
+                        >
+                            {`${addText}${reachLimit ? ` (Reach limit ${limit})` : ''}`}
+                        </Button>
+                    </Tooltip>
                 );
             };
 
-            const renderAddButton = () => (
-                <Tooltip title={addTooltip}>
-                    <Button
-                        block={!disableButtonBlock}
-                        disabled={!!disabled || !!disableAdd || reachLimit}
-                        icon={<PlusOutlined />}
-                        onClick={() => {
-                            if (onAdd) {
-                                onAdd(add, fieldsLength);
-                            } else {
-                                add(getAddValue?.());
-                            }
-                        }}
-                        type="dashed"
-                        style={{ marginBottom: addButtonPosition !== undefined ? 8 : undefined }}
-                    >
-                        {`${addText}${reachLimit ? ` (Reach limit ${limit})` : ''}`}
-                    </Button>
-                </Tooltip>
-            );
-
             const renderItem = ({ key, name: fieldName }: FormListFieldData) => (
-                <Space key={key} className={css.item_container} align="baseline">
-                    {render?.({ name: fieldName }, fieldsLength) ?? (Component ? <Component name={fieldName} /> : null)}
-                    {renderDeleteElement(fieldName)}
-                </Space>
+                <div key={key} className={css.item_container}>
+                    <div className={css.item_input}>
+                        {render?.({ name: fieldName }, fieldsLength) ??
+                            (Component ? <Component name={fieldName} /> : null)}
+                    </div>
+                    {!readonly && (
+                        <Form.Item className={css.item_delete_container}>
+                            <Button
+                                type="text"
+                                disabled={
+                                    !!disabled ||
+                                    !!getDeletable?.(fieldName, fieldsLength) ||
+                                    (!!disableDeleteFirst && fieldName === 0)
+                                }
+                                icon={<MinusCircleOutlined />}
+                                onClick={() => {
+                                    remove(fieldName);
+                                    onRemoved?.();
+                                }}
+                                className={css.item_delete}
+                            />
+                        </Form.Item>
+                    )}
+                </div>
             );
 
             return (
@@ -217,6 +225,7 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
             limit,
             onAdd,
             onRemoved,
+            outerRenderAddButton,
             readonly,
             render,
             renderExtraItem,

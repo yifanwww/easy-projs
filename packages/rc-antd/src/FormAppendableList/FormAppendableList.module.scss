@@ -1,18 +1,25 @@
+.item_container {
+    display: flex;
+    gap: 8px;
+}
+
+.item_input {
+    flex: auto;
+
+    /* By default `min-width` is `auto`, which may cause list item to exceed the allowed width. */
+    min-width: 0;
+}
+
+.item_delete_container {
+    display: flex;
+    align-items: center;
+}
+
 .item_delete {
+    font-size: 16px;
     color: #666;
 }
 
-.item_delete-hidden {
+.item_hidden_delete {
     width: 32px;
-}
-
-.item_container {
-    display: flex;
-
-    > :global(.ant-space-item):first-child {
-        flex: auto;
-
-        /* By default `min-width` is `auto`, which may cause list item to exceed the allowed width. */
-        min-width: 0;
-    }
 }

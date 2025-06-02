@@ -2,46 +2,12 @@ import type { FormAppendableListItemProps } from '@easy-pkg/rc-antd';
 import { FormAppendableList } from '@easy-pkg/rc-antd';
 import { Flex, Form, Input, Select } from 'antd';
 
-import { DemoLayout } from '../components/DemoLayout';
+import { DemoLayout } from '../../components/DemoLayout';
 
-function SingleInputItem({ name }: FormAppendableListItemProps) {
-    return (
-        <Form.Item name={[name, 'value']}>
-            <Input />
-        </Form.Item>
-    );
-}
-
-function MultiInputItemHeader() {
-    return (
-        <Flex align="center" gap={4} style={{ height: 32, marginBottom: 8 }}>
-            <span style={{ flex: 'auto', width: 256 }}>Key</span>
-            <span style={{ width: 100 }}>Operator</span>
-            <span style={{ flex: 'auto', width: 256 }}>Value</span>
-        </Flex>
-    );
-}
-
-function MultiInputItem({ name }: FormAppendableListItemProps) {
-    return (
-        <Flex gap={4}>
-            <Form.Item name={[name, 'key']} style={{ flex: 'auto' }}>
-                <Input placeholder="Key" />
-            </Form.Item>
-            <Form.Item name={[name, 'operator']} initialValue="==" style={{ width: 100 }}>
-                <Select
-                    options={[
-                        { label: '==', value: '==' },
-                        { label: '!=', value: '!=' },
-                    ]}
-                />
-            </Form.Item>
-            <Form.Item name={[name, 'value']} style={{ flex: 'auto' }}>
-                <Input placeholder="Value" />
-            </Form.Item>
-        </Flex>
-    );
-}
+import { BigInputItem } from './BigInputItem';
+import { MultiInputItem, MultiInputItemHeader } from './MultiInputItem';
+import { ReadonlyMultiInputItem, ReadonlyMultiInputItemAddButton } from './ReadonlyMultiInputItem';
+import { SingleInputItem } from './SingleInputItem';
 
 function TaggedInputItem({ name }: FormAppendableListItemProps) {
     return (
@@ -154,6 +120,25 @@ export function FormAppendableListDemo() {
                                 Limit is 3, count: {fieldsLength}
                             </div>,
                         ]}
+                    />
+                </Form.Item>
+            </Form>
+            <h3>Big Item</h3>
+            <Form>
+                <Form.Item label="List">
+                    <FormAppendableList name="list" component={BigInputItem} />
+                </Form.Item>
+            </Form>
+            <h3>Customize Add Button</h3>
+            <Form>
+                <Form.Item label="List">
+                    <FormAppendableList
+                        name="list"
+                        component={ReadonlyMultiInputItem}
+                        addButtonOptions={{
+                            render: (add) => <ReadonlyMultiInputItemAddButton onAdd={add} />,
+                        }}
+                        className={ReadonlyMultiInputItem.css.readonly_multi_input_item}
                     />
                 </Form.Item>
             </Form>

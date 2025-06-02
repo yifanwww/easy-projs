@@ -1,0 +1,9 @@
+.readonly_multi_input_item {
+    :global(.ant-form-item) {
+        margin-bottom: 4px;
+    }
+
+    .readonly_multi_input :global(.ant-form-item) {
+        margin-bottom: 0;
+    }
+}
