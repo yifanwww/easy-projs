@@ -20,10 +20,6 @@ interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' | 'rules
          */
         position?: number;
         /**
-         * Completely customize the add button.
-         */
-        render?: (add: FormListOperation['add'], fieldsLength: number) => React.ReactNode;
-        /**
          * Default is `Add`.
          */
         text?: string;
@@ -62,6 +58,14 @@ interface FormAppendableListProps<T> extends Pick<FormListProps, 'name' | 'rules
      */
     render?: (props: FormAppendableListItemProps, fieldsLength: number) => React.ReactNode;
     /**
+     * Completely customize the add button.
+     */
+    renderAddButton?: (add: FormListOperation['add'], fieldsLength: number) => React.ReactNode;
+    /**
+     * Completely customize the delete button.
+     */
+    renderDeleteButton?: (remove: FormListOperation['remove'], fieldName: number) => React.ReactNode;
+    /**
      * The render function to render extra items of appendable list after the normal fields.
      */
     renderExtraItemsAfter?: (fieldsLength: number) => React.ReactNode[] | undefined | null;
@@ -98,6 +102,8 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
         onRemoved,
         readonly,
         render,
+        renderAddButton: outerRenderAddButton,
+        renderDeleteButton: outerRenderDeleteButton,
         renderExtraItemsAfter,
         renderExtraItemsBefore,
         rules,
@@ -106,7 +112,6 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
     const {
         disableBlock: disableButtonBlock,
         position: addButtonPosition,
-        render: outerRenderAddButton,
         text: addText = 'Add',
         tooltip: addTooltip,
     } = addButtonOptions ?? {};
@@ -129,6 +134,66 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
         [readonly],
     );
 
+    const renderAddButton = useCallback(
+        (add: FormListOperation['add'], fieldsLength: number, reachLimit: boolean) => {
+            if (outerRenderAddButton) return outerRenderAddButton(add, fieldsLength);
+            return (
+                <Tooltip title={addTooltip}>
+                    <Button
+                        block={!disableButtonBlock}
+                        disabled={!!disabled || !!disableAdd || reachLimit}
+                        icon={<PlusOutlined />}
+                        onClick={() => {
+                            if (onAdd) {
+                                onAdd(add, fieldsLength);
+                            } else {
+                                add(getAddValue?.());
+                            }
+                        }}
+                        type="dashed"
+                        style={{ marginBottom: addButtonPosition !== undefined ? 8 : undefined }}
+                    >
+                        {`${addText}${reachLimit ? ` (Reach limit ${limit})` : ''}`}
+                    </Button>
+                </Tooltip>
+            );
+        },
+        [
+            addButtonPosition,
+            addText,
+            addTooltip,
+            disableAdd,
+            disableButtonBlock,
+            disabled,
+            getAddValue,
+            limit,
+            onAdd,
+            outerRenderAddButton,
+        ],
+    );
+
+    const renderDeleteButton = useCallback(
+        (remove: FormListOperation['remove'], fieldName: number, fieldsLength: number) => {
+            if (outerRenderDeleteButton) return outerRenderDeleteButton(remove, fieldName);
+            return (
+                <Button
+                    type="text"
+                    disabled={
+                        !!disabled ||
+                        !!getDeletable?.(fieldName, fieldsLength) ||
+                        (!!disableDeleteFirst && fieldName === 0)
+                    }
+                    icon={<MinusCircleOutlined />}
+                    onClick={() => {
+                        remove(fieldName);
+                        onRemoved?.();
+                    }}
+                />
+            );
+        },
+        [disableDeleteFirst, disabled, getDeletable, onRemoved, outerRenderDeleteButton],
+    );
+
     const renderItems: FormListProps['children'] = useCallback(
         (fields, { add, remove }, { errors }) => {
             const fieldsLength = fields.length;
@@ -136,31 +201,6 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
 
             const extraItemsBefore = renderExtraItemsBefore?.(fieldsLength)?.map(renderExtraItem);
             const extraItemsAfter = renderExtraItemsAfter?.(fieldsLength)?.map(renderExtraItem);
-
-            const renderAddButton = () => {
-                if (outerRenderAddButton) return outerRenderAddButton(add, fieldsLength);
-
-                return (
-                    <Tooltip title={addTooltip}>
-                        <Button
-                            block={!disableButtonBlock}
-                            disabled={!!disabled || !!disableAdd || reachLimit}
-                            icon={<PlusOutlined />}
-                            onClick={() => {
-                                if (onAdd) {
-                                    onAdd(add, fieldsLength);
-                                } else {
-                                    add(getAddValue?.());
-                                }
-                            }}
-                            type="dashed"
-                            style={{ marginBottom: addButtonPosition !== undefined ? 8 : undefined }}
-                        >
-                            {`${addText}${reachLimit ? ` (Reach limit ${limit})` : ''}`}
-                        </Button>
-                    </Tooltip>
-                );
-            };
 
             const renderItem = ({ key, name: fieldName }: FormListFieldData) => (
                 <div key={key} className={css.item_container}>
@@ -170,20 +210,7 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
                     </div>
                     {!readonly && (
                         <Form.Item className={css.item_delete_container}>
-                            <Button
-                                type="text"
-                                disabled={
-                                    !!disabled ||
-                                    !!getDeletable?.(fieldName, fieldsLength) ||
-                                    (!!disableDeleteFirst && fieldName === 0)
-                                }
-                                icon={<MinusCircleOutlined />}
-                                onClick={() => {
-                                    remove(fieldName);
-                                    onRemoved?.();
-                                }}
-                                className={css.item_delete}
-                            />
+                            {renderDeleteButton(remove, fieldName, fieldsLength)}
                         </Form.Item>
                     )}
                 </div>
@@ -197,14 +224,14 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
                     {addButtonPosition !== undefined && !readonly && (
                         <>
                             {fields.slice(0, addButtonPosition).map(renderItem)}
-                            {renderAddButton()}
+                            {renderAddButton(add, fieldsLength, reachLimit)}
                             {fields.slice(addButtonPosition).map(renderItem)}
                         </>
                     )}
 
                     {extraItemsAfter}
 
-                    {addButtonPosition === undefined && !readonly && renderAddButton()}
+                    {addButtonPosition === undefined && !readonly && renderAddButton(add, fieldsLength, reachLimit)}
 
                     <Form.ErrorList errors={errors} />
                 </div>
@@ -213,21 +240,12 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
         [
             Component,
             addButtonPosition,
-            addText,
-            addTooltip,
             className,
-            disableAdd,
-            disableButtonBlock,
-            disableDeleteFirst,
-            disabled,
-            getAddValue,
-            getDeletable,
             limit,
-            onAdd,
-            onRemoved,
-            outerRenderAddButton,
             readonly,
             render,
+            renderAddButton,
+            renderDeleteButton,
             renderExtraItem,
             renderExtraItemsAfter,
             renderExtraItemsBefore,

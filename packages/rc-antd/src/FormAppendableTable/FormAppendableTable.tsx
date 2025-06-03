@@ -13,10 +13,6 @@ export interface FormAppendableTableItem extends Omit<FormListFieldData, 'key'> 
 interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
     addButtonOptions?: {
         /**
-         * Completely customize the add button.
-         */
-        render?: (add: FormListOperation['add'], fieldsLength: number) => React.ReactNode;
-        /**
          * Default is `Add`.
          */
         text?: string | ((fieldsLength: number) => string);
@@ -39,6 +35,14 @@ interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rule
     onAdd?: (add: FormListOperation['add'], fieldsLength: number) => void;
     onRemoved?: () => void;
     readonly?: boolean;
+    /**
+     * Completely customize the add button.
+     */
+    renderAddButton?: (add: FormListOperation['add'], fieldsLength: number) => React.ReactNode;
+    /**
+     * Completely customize the delete button.
+     */
+    renderDeleteButton?: (remove: FormListOperation['remove'], fieldName: number) => React.ReactNode;
 }
 
 /**
@@ -66,19 +70,35 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
         onAdd,
         onRemoved,
         readonly,
+        renderAddButton: outerRenderAddButton,
+        renderDeleteButton: outerRenderDeleteButton,
         rules,
     } = props;
 
-    const {
-        render: outerRenderAddButton,
-        text: outerAddText = 'Add',
-        tooltip: outerAddTooltip,
-    } = addButtonOptions ?? {};
+    const { text: outerAddText = 'Add', tooltip: outerAddTooltip } = addButtonOptions ?? {};
 
-    const renderTable: FormListProps['children'] = useCallback(
-        (fields, { add, remove }, { errors }) => {
-            const fieldsLength = fields.length;
-            const reachLimit = fieldsLength >= limit;
+    const renderDeleteButton = useCallback(
+        (remove: FormListOperation['remove'], fieldName: number) => {
+            if (outerRenderDeleteButton) return outerRenderDeleteButton(remove, fieldName);
+            return (
+                <Button
+                    type="text"
+                    disabled={disabled}
+                    icon={<DeleteOutlined />}
+                    size="small"
+                    onClick={() => {
+                        remove(fieldName);
+                        onRemoved?.();
+                    }}
+                />
+            );
+        },
+        [disabled, onRemoved, outerRenderDeleteButton],
+    );
+
+    const renderAddButton = useCallback(
+        (add: FormListOperation['add'], fieldsLength: number, reachLimit: boolean) => {
+            if (outerRenderAddButton) return outerRenderAddButton(add, fieldsLength);
 
             const addText =
                 typeof outerAddText === 'function'
@@ -86,6 +106,34 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                     : `${outerAddText}${reachLimit ? ` (Reach limit ${limit})` : ''}`;
             const addTooltip: TooltipProps['title'] =
                 typeof outerAddTooltip === 'function' ? outerAddTooltip(fieldsLength) : outerAddTooltip;
+
+            return (
+                <Tooltip title={addTooltip}>
+                    <Button
+                        type="dashed"
+                        block
+                        disabled={!!disabled || !!disableAdd || reachLimit}
+                        icon={<PlusOutlined />}
+                        onClick={() => {
+                            if (onAdd) {
+                                onAdd(add, fieldsLength);
+                            } else {
+                                add(getAddValue?.());
+                            }
+                        }}
+                    >
+                        {addText}
+                    </Button>
+                </Tooltip>
+            );
+        },
+        [disableAdd, disabled, getAddValue, limit, onAdd, outerAddText, outerAddTooltip, outerRenderAddButton],
+    );
+
+    const renderTable: FormListProps['children'] = useCallback(
+        (fields, { add, remove }, { errors }) => {
+            const fieldsLength = fields.length;
+            const reachLimit = fieldsLength >= limit;
 
             const tableColumns = ArrayUtil.filterFalsy<TableColumnType<FormAppendableTableItem>>([
                 ...columns.map(
@@ -99,44 +147,9 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                     title: 'Action',
                     align: 'center',
                     width: 64,
-                    render: (_, record) => (
-                        <Button
-                            type="text"
-                            disabled={disabled}
-                            icon={<DeleteOutlined />}
-                            size="small"
-                            onClick={() => {
-                                remove(record.name);
-                                onRemoved?.();
-                            }}
-                        />
-                    ),
+                    render: (_, record) => renderDeleteButton(remove, record.name),
                 },
             ]);
-
-            const renderAddButton = () => {
-                if (outerRenderAddButton) return outerRenderAddButton(add, fieldsLength);
-
-                return (
-                    <Tooltip title={addTooltip}>
-                        <Button
-                            type="dashed"
-                            block
-                            disabled={!!disabled || !!disableAdd || reachLimit}
-                            icon={<PlusOutlined />}
-                            onClick={() => {
-                                if (onAdd) {
-                                    onAdd(add, fieldsLength);
-                                } else {
-                                    add(getAddValue?.());
-                                }
-                            }}
-                        >
-                            {addText}
-                        </Button>
-                    </Tooltip>
-                );
-            };
 
             return (
                 <div className={className}>
@@ -144,7 +157,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                         bordered={bordered}
                         columns={tableColumns}
                         dataSource={fields}
-                        footer={readonly ? undefined : renderAddButton}
+                        footer={readonly ? undefined : () => renderAddButton(add, fieldsLength, reachLimit)}
                         pagination={false}
                         rowKey={(record) => record.name}
                         size="small"
@@ -155,21 +168,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                 </div>
             );
         },
-        [
-            bordered,
-            className,
-            columns,
-            disableAdd,
-            disabled,
-            getAddValue,
-            limit,
-            onAdd,
-            onRemoved,
-            outerAddText,
-            outerAddTooltip,
-            outerRenderAddButton,
-            readonly,
-        ],
+        [bordered, className, columns, limit, readonly, renderAddButton, renderDeleteButton],
     );
 
     return (

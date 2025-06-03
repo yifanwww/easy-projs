@@ -1,5 +1,6 @@
+import { MinusCircleOutlined } from '@ant-design/icons';
 import { FormAppendableList } from '@easy-pkg/rc-antd';
-import { Form } from 'antd';
+import { Button, Form, Popconfirm } from 'antd';
 
 import { DemoLayout } from '../../components/DemoLayout';
 
@@ -114,9 +115,17 @@ export function FormAppendableListDemo() {
                     <FormAppendableList
                         name="list"
                         component={ReadonlyMultiInputItem}
-                        addButtonOptions={{
-                            render: (add) => <ReadonlyMultiInputItemAddButton onAdd={add} />,
-                        }}
+                        renderAddButton={(add) => <ReadonlyMultiInputItemAddButton onAdd={add} />}
+                        renderDeleteButton={(remove, fieldName) => (
+                            <Popconfirm
+                                title="Are you sure to delete this item?"
+                                cancelText="No"
+                                okText="Yes"
+                                onConfirm={() => remove(fieldName)}
+                            >
+                                <Button type="text" icon={<MinusCircleOutlined />} />
+                            </Popconfirm>
+                        )}
                         className={ReadonlyMultiInputItem.css.readonly_multi_input_item}
                     />
                 </Form.Item>

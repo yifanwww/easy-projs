@@ -1,6 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
 import type { FormAppendableTableItem } from '@easy-pkg/rc-antd';
-import { resultifyPromise } from '@rustresult/result';
+import { resultifyAsync } from '@rustresult/result';
 import { Button, Form, Input, Modal, Select, type FormListOperation, type TableColumnType } from 'antd';
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 
@@ -67,7 +67,7 @@ const AddButtonModal = forwardRef<AddButtonModalRef, AddButtonModalProps>(({ onO
     );
 
     const handleOk = async () => {
-        const validationResult = await resultifyPromise(form.validateFields());
+        const validationResult = await resultifyAsync(form.validateFields)();
         if (validationResult.isErr()) {
             return;
         }
