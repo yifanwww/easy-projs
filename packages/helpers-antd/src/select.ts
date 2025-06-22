@@ -1,6 +1,6 @@
 import type { FieldNames } from './types';
 
-export class SelectUtil {
+export class SelectHelper {
     /**
      * Refer to https://ant.design/components/select#select-props for more information.
      */

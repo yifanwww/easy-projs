@@ -8,7 +8,7 @@ import type { InternalNamePath } from 'antd/es/form/interface';
  */
 export type StaticNamePath = InternalNamePath[number] | InternalNamePath;
 
-export class NamePathUtil {
+export class NamePathHelper {
     private static _toArray(value: StaticNamePath): InternalNamePath {
         return Array.isArray(value) ? value : [value];
     }
@@ -44,14 +44,14 @@ export class NamePathUtil {
     static merge(value: StaticNamePath, prev?: StaticNamePath): StaticNamePath {
         if (prev === undefined) return value;
 
-        const valueArr = NamePathUtil._toArray(value);
-        const prevArr = NamePathUtil._toArray(prev);
+        const valueArr = NamePathHelper._toArray(value);
+        const prevArr = NamePathHelper._toArray(prev);
         return [...prevArr, ...valueArr];
     }
 
     static startsWith(value: StaticNamePath, prefix: StaticNamePath) {
-        const valueArr = NamePathUtil._toArray(value);
-        const prefixArr = NamePathUtil._toArray(prefix);
+        const valueArr = NamePathHelper._toArray(value);
+        const prefixArr = NamePathHelper._toArray(prefix);
 
         if (valueArr.length < prefixArr.length) return false;
 
