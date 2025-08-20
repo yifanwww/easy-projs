@@ -506,9 +506,6 @@ importers:
       '@easy-pkg/types':
         specifier: workspace:^
         version: link:../types
-      '@easy-pkg/utils':
-        specifier: workspace:^
-        version: link:../utils
       '@easy-pkg/utils-browser':
         specifier: workspace:^
         version: link:../utils-browser

@@ -1,4 +1,3 @@
-import { noop } from '@easy-pkg/utils';
 import { assert } from '@easy-pkg/utils-browser';
 import { describe, expect, it } from '@jest/globals';
 import { act, render, renderHook } from '@testing-library/react';
@@ -9,7 +8,7 @@ import { usePersistFn } from '../usePersistFn.js';
 import { validateHookValueNotChanged } from './helpers.js';
 
 describe(`Test react hook \`${usePersistFn.name}\``, () => {
-    validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(noop)]);
+    validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(() => {})]);
 
     it('should call the latest non-persist function #1', () => {
         let count: number | undefined;

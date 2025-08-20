@@ -23,7 +23,3 @@ export function noAsync<T extends (...args: never[]) => unknown>(fn: T): (...arg
 export function makeFn<T extends UnknownFn>(fn: T): T {
     return fn;
 }
-
-export function noop(): void {
-    // do nothing
-}

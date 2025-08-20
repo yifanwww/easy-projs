@@ -1,10 +1,11 @@
-import { noop } from '@easy-pkg/utils';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
 
 import { useDoubleTrigger } from '../useDoubleTrigger.js';
 
 import { validateHookValueNotChanged } from './helpers.js';
+
+const noop = () => {};
 
 describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
     validateHookValueNotChanged('should return the same function', () => [useDoubleTrigger(noop)]);
@@ -35,7 +36,7 @@ describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
     });
 
     it('should trigger only once', () => {
-        const fn = jest.fn(noop);
+        const fn = jest.fn(() => {});
         const { result } = renderHook(() => useDoubleTrigger(fn, 100));
         expect(fn).toHaveBeenCalledTimes(0);
 
@@ -44,7 +45,7 @@ describe(`Test react hook \`${useDoubleTrigger.name}\``, () => {
     });
 
     it('should trigger multiple times', () => {
-        const fn = jest.fn(noop);
+        const fn = jest.fn(() => {});
         const { result } = renderHook(() => useDoubleTrigger(fn, 250));
         expect(fn).toHaveBeenCalledTimes(0);
 

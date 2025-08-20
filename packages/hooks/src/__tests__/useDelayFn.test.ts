@@ -1,10 +1,11 @@
-import { noop } from '@easy-pkg/utils';
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
 
 import { useDelayFn } from '../useDelayFn.js';
 
 import { validateHookValueNotChanged } from './helpers.js';
+
+const noop = () => {};
 
 describe(`Test react hook \`${useDelayFn.name}\``, () => {
     validateHookValueNotChanged('should return the same function', () => [useDelayFn(noop)]);
@@ -18,7 +19,7 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
     });
 
     it('should trigger only once', () => {
-        const fn = jest.fn(noop);
+        const fn = jest.fn(() => {});
         const { result } = renderHook(() => useDelayFn(fn, 500));
         expect(fn).toHaveBeenCalledTimes(0);
 
@@ -32,7 +33,7 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
     });
 
     it('should trigger multiple times', () => {
-        const fn = jest.fn(noop);
+        const fn = jest.fn(() => {});
         const { result } = renderHook(() => useDelayFn(fn, 500));
         expect(fn).toHaveBeenCalledTimes(0);
 
@@ -59,7 +60,7 @@ describe(`Test react hook \`${useDelayFn.name}\``, () => {
     });
 
     it('should not execute fn after unmount', () => {
-        const fn = jest.fn(noop);
+        const fn = jest.fn(() => {});
         const { result, unmount } = renderHook(() => useDelayFn(fn, 500));
 
         act(() => result.current());
