@@ -21,10 +21,13 @@ describe(`Test fn \`${fetcher.name}\``, () => {
         expect(url).toBe('/search');
 
         await fetcher<Record<string, never>>('search');
-        expect(url).toBe('/search');
+        expect(url).toBe('search');
 
         await fetcher<Record<string, never>>('/search', { params: { key: 'a-key' } });
         expect(url).toBe('/search?key=a-key');
+
+        await fetcher<Record<string, never>>('https://www.test.com/search');
+        expect(url).toBe('https://www.test.com/search');
     });
 
     it('should pass headers when fetching', async () => {

@@ -75,8 +75,8 @@ export function fetcherFactory(factoryOptions?: FetchFactoryOptions): Fetcher {
         const validateStatus = options?.validateStatus ?? factoryOptions?.validateStatus;
 
         const processUrl = () => {
-            const formattedUrl = url.startsWith('/') ? url : `/${url}`;
-            const mergedUrl = baseURL ? baseURL + formattedUrl : formattedUrl;
+            const formattedUrl = baseURL && url.startsWith('/') ? url.slice(1) : url;
+            const mergedUrl = baseURL ? `${baseURL}/${formattedUrl}` : formattedUrl;
             return params ? buildQueryURL(mergedUrl, params) : mergedUrl;
         };
 

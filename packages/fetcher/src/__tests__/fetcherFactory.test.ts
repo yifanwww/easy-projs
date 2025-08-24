@@ -16,4 +16,18 @@ describe(`Test fn \`${fetcherFactory.name}\``, () => {
         await fetcher<Record<string, never>>('/search');
         expect(url).toBe('/apis/search');
     });
+
+    it('should fetch correct url (different domain)', async () => {
+        const fetcher = fetcherFactory({ baseURL: 'https://www.test.com/apis' });
+
+        let url: string | undefined;
+
+        jest.spyOn(global, 'fetch').mockImplementation((_url) => {
+            url = _url as string;
+            return Promise.resolve(new Response('{}'));
+        });
+
+        await fetcher<Record<string, never>>('/search');
+        expect(url).toBe('https://www.test.com/apis/search');
+    });
 });
