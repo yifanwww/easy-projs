@@ -59,14 +59,18 @@ describe(`Test static method \`${NamePathHelper.name}.${NamePathHelper.includes.
 });
 
 describe(`Test static method \`${NamePathHelper.name}.${NamePathHelper.merge.name}\``, () => {
-    it('should merge two name paths', () => {
+    it('should merge multiple paths', () => {
         expect(NamePathHelper.merge('value')).toBe('value');
         expect(NamePathHelper.merge(['value'])).toStrictEqual(['value']);
 
-        expect(NamePathHelper.merge('value1', 'value2')).toStrictEqual(['value2', 'value1']);
-        expect(NamePathHelper.merge(['value1'], ['value2'])).toStrictEqual(['value2', 'value1']);
+        expect(NamePathHelper.merge('value1', 'value2')).toStrictEqual(['value1', 'value2']);
+        expect(NamePathHelper.merge(['value1'], ['value2'])).toStrictEqual(['value1', 'value2']);
         expect(NamePathHelper.merge([], 'value')).toStrictEqual(['value']);
         expect(NamePathHelper.merge([], ['value'])).toStrictEqual(['value']);
+
+        expect(NamePathHelper.merge('value1', 'value2', 'value3')).toStrictEqual(['value1', 'value2', 'value3']);
+        expect(NamePathHelper.merge(['value1'], ['value2'], ['value3'])).toStrictEqual(['value1', 'value2', 'value3']);
+        expect(NamePathHelper.merge([], 'value1', ['value2', 'value3'])).toStrictEqual(['value1', 'value2', 'value3']);
     });
 });
 

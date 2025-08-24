@@ -41,12 +41,9 @@ export class NamePathHelper {
         return -1;
     }
 
-    static merge(value: StaticNamePath, prev?: StaticNamePath): StaticNamePath {
-        if (prev === undefined) return value;
-
-        const valueArr = NamePathHelper._toArray(value);
-        const prevArr = NamePathHelper._toArray(prev);
-        return [...prevArr, ...valueArr];
+    static merge(first: StaticNamePath, ...paths: StaticNamePath[]): StaticNamePath {
+        if (paths.length === 0) return first;
+        return [...NamePathHelper._toArray(first), ...paths.map((path) => NamePathHelper._toArray(path)).flat()];
     }
 
     static startsWith(value: StaticNamePath, prefix: StaticNamePath) {
