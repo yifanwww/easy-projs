@@ -11,6 +11,10 @@ import css from './FormAppendableTable.module.scss';
 export interface FormAppendableTableItem extends Omit<FormListFieldData, 'key'> {}
 
 interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
+    /**
+     * Default is `64`.
+     */
+    actionWidth?: number | string;
     addButtonOptions?: {
         /**
          * Default is `Add`.
@@ -57,6 +61,7 @@ interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rule
  */
 export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
     const {
+        actionWidth = 64,
         addButtonOptions,
         bordered,
         className,
@@ -136,17 +141,12 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
             const reachLimit = fieldsLength >= limit;
 
             const tableColumns = ArrayUtil.filterFalsy<TableColumnType<FormAppendableTableItem>>([
-                ...columns.map(
-                    (column): TableColumnType<FormAppendableTableItem> => ({
-                        ...column,
-                        render: (value, record, index) => column.render?.(value, record, index),
-                    }),
-                ),
+                ...columns,
                 !readonly && {
                     key: 'action',
                     title: 'Action',
                     align: 'center',
-                    width: 64,
+                    width: actionWidth,
                     render: (_, record) => renderDeleteButton(remove, record.name),
                 },
             ]);
@@ -168,7 +168,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                 </div>
             );
         },
-        [bordered, className, columns, limit, readonly, renderAddButton, renderDeleteButton],
+        [actionWidth, bordered, className, columns, limit, readonly, renderAddButton, renderDeleteButton],
     );
 
     return (

@@ -4,6 +4,7 @@ import { Button, Form, Popconfirm } from 'antd';
 
 import { DemoLayout } from '../../components/DemoLayout';
 
+import { ComplexTableExample } from './ComplexTable';
 import { MultiInputTableColumns } from './MultiInputTable';
 import { ReadonlyMultiInputTableAddButton, ReadonlyMultiInputTableColumns } from './ReadonlyMultiInputTable';
 import { SimpleTableColumns } from './SimpleTable';
@@ -106,6 +107,8 @@ export function FormAppendableTableDemo() {
                     />
                 </Form.Item>
             </Form>
+            <h3>Complex Table</h3>
+            <ComplexTableExample />
         </DemoLayout>
     );
 }
