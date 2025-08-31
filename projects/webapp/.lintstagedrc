@@ -1,4 +1,4 @@
 {
-    "*.{ts,tsx}": ["eslint --cache"],
+    "*.{ts,tsx}": ["cross-env ESLINT_USE_FLAT_CONFIG=false eslint --cache"],
     "*.{css,sass,scss}": ["stylelint --cache"]
 }
