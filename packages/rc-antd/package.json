@@ -28,8 +28,8 @@
         "build:css": "copyfiles src/**/*.scss lib --up 1",
         "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
-        "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
-        "lint-fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
+        "lint": "stylelint \"**/*.{css,scss}\" && cross-env ESLINT_USE_FLAT_CONFIG=false eslint .",
+        "lint-fix": "stylelint \"**/*.{css,scss}\" --fix && cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --fix",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
@@ -50,7 +50,8 @@
         "@types/react-is": "^18.3.1",
         "concurrently": "^9.1.2",
         "copyfiles": "^2.4.1",
-        "eslint": "^8.57.1",
+        "cross-env": "^10.0.0",
+        "eslint": "^9.34.0",
         "prettier": "3.5.3",
         "rimraf": "^6.0.1",
         "stylelint": "^16.17.0",
