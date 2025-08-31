@@ -11,7 +11,7 @@
     "editor.detectIndentation": false,
     "editor.fontFamily": "Fira code, Source Han Sans SC, MesloLGM NF",
     "editor.fontLigatures": true,
-    "editor.fontSize": 15,
+    "editor.fontSize": 13,
     "editor.fontWeight": "500",
     "editor.insertSpaces": true,
     "editor.lineNumbers": "on",
@@ -45,6 +45,7 @@
         "markdown": false,
         "scminput": false
     },
+    "github.copilot.nextEditSuggestions.enabled": true,
 
     "scm.diffDecorations": "none",
 
