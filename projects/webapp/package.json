@@ -36,7 +36,7 @@
         "@easy-pkg/rc-antd": "workspace:^",
         "@easy-pkg/utils-browser": "workspace:^",
         "@rustresult/result": "^0.6.0",
-        "antd": "5.23.4",
+        "antd": "5.26.7",
         "clsx": "^2.1.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",

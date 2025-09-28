@@ -6,12 +6,7 @@ import { RoutePath } from 'src/router/path';
 
 import css from './ComponentDemoContainer.module.scss';
 
-interface MenuItem {
-    key: string;
-    label: React.ReactNode;
-}
-
-const menuItems: MenuItem[] = [
+const menuItems = [
     {
         key: RoutePath.DEMO,
         label: <Link to={RoutePath.DEMO}>Component Overview</Link>,
