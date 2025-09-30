@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.node16.types.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.node.types.json",
     "compilerOptions": {
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,

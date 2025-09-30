@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.node16.eslint.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.node.eslint.json",
     "compilerOptions": {
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
