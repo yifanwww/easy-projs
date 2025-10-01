@@ -4,10 +4,7 @@
     "description": "Node.js server utils.",
     "type": "module",
     "exports": {
-        ".": {
-            "types": "./lib/index.d.ts",
-            "default": "./lib/index.js"
-        }
+        ".": "./lib/index.js"
     },
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",

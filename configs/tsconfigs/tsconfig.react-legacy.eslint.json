@@ -1,7 +1,0 @@
-{
-    "extends": "./tsconfig.react-legacy.json",
-    "compilerOptions": {
-        "incremental": false,
-        "noEmit": true
-    }
-}

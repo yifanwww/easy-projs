@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.browser.json",
+    "extends": "./tsconfig.browser.base.json",
     "compilerOptions": {
         "declaration": true,
         "emitDeclarationOnly": true,

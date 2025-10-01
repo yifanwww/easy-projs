@@ -1,9 +1,4 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.base.json",
-    "compilerOptions": {
-        "composite": true,
-        "module": "esnext",
-        "moduleResolution": "bundler"
-    },
+    "extends": "@easy-config/tsconfigs/tsconfig.vite.json",
     "include": ["vite.config.mts"]
 }

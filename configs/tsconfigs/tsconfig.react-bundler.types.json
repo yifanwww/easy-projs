@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.react-legacy.json",
+    "extends": "./tsconfig.react-bundler.base.json",
     "compilerOptions": {
         "declaration": true,
         "emitDeclarationOnly": true,

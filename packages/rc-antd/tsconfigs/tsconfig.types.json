@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.react-legacy.types.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.react-bundler.types.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

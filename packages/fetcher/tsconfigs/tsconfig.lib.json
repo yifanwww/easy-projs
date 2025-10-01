@@ -1,5 +1,5 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.react.json",
+    "extends": "@easy-config/tsconfigs/tsconfig.browser.base.json",
     "compilerOptions": {
         "outDir": "../lib",
         "rootDir": "../src"

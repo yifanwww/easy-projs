@@ -1,6 +1,7 @@
 {
-    "extends": "./tsconfig.base.json",
+    "extends": "./tsconfig.browser.base.json",
     "compilerOptions": {
-        "lib": ["DOM", "DOM.Iterable", "ESNext"]
+        "incremental": false,
+        "noEmit": true
     }
 }

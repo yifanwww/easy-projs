@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.browser.json",
+    "extends": "./tsconfig.react-bundler.base.json",
     "compilerOptions": {
         "incremental": false,
         "noEmit": true

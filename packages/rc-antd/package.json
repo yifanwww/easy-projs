@@ -3,10 +3,7 @@
     "version": "0.0.0",
     "description": "React components based on ant-design.",
     "exports": {
-        ".": {
-            "types": "./lib/index.d.ts",
-            "default": "./lib/index.js"
-        }
+        ".": "./lib/index.js"
     },
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",

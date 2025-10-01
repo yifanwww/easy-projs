@@ -10,8 +10,6 @@
         "isolatedModules": true,
         "lib": ["ESNext"],
         "listEmittedFiles": true,
-        "module": "nodenext",
-        "moduleResolution": "nodenext",
         "newLine": "lf",
         "noEmit": false,
         "noEmitOnError": true,
