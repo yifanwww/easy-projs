@@ -67,7 +67,7 @@ function getConfig(): Config {
             // Pure ESM packages needs this, to make the relative import works with TypeScript source files
             '^(.*)\\.js$': ['$1.js', '$1.ts'],
         },
-        moduleFileExtensions: ['js', 'json', 'jsx', 'node', 'ts', 'tsx', 'web.js', 'web.jsx', 'web.ts', 'web.tsx'],
+        moduleFileExtensions: ['tsx', 'ts', 'jsx', 'js', 'json', 'node'],
 
         watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 
