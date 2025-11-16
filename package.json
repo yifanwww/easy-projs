@@ -20,7 +20,7 @@
         "build-libs": "pnpm run --filter \"@easy-pkg/*...\" --stream build",
         "clean": "pnpm run --recursive --no-sort clean",
         "format": "pnpm run format:root && pnpm run format:workspaces",
-        "format:root": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "format:root": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "format:workspaces": "pnpm run --recursive --no-sort --stream format",
         "lint": "pnpm run --recursive --no-sort --stream lint",
         "lint-fix": "pnpm run --recursive --no-sort --stream lint-fix",

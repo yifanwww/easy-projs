@@ -15,7 +15,7 @@
         "directory": "configs/global-types"
     },
     "scripts": {
-        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint .",
         "lint-fix": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --fix",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"

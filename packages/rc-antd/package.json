@@ -24,7 +24,7 @@
         "build:ts:types": "tsc --project tsconfigs/tsconfig.types.json",
         "build:css": "copyfiles src/**/*.scss lib --up 1",
         "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
-        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,less,scss,ts,tsx,yaml,yml}\"",
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && cross-env ESLINT_USE_FLAT_CONFIG=false eslint .",
         "lint-fix": "stylelint \"**/*.{css,scss}\" --fix && cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --fix",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
