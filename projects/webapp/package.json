@@ -32,11 +32,11 @@
         "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"
     },
     "dependencies": {
-        "@ant-design/icons": "^5.6.1",
+        "@ant-design/icons": "^6.1.0",
         "@easy-pkg/rc-antd": "workspace:^",
         "@easy-pkg/utils-browser": "workspace:^",
         "@rustresult/result": "^0.6.0",
-        "antd": "5.26.7",
+        "antd": "6.0.1",
         "clsx": "^2.1.1",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
