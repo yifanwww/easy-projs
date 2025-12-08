@@ -159,7 +159,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
                         dataSource={fields}
                         footer={readonly ? undefined : () => renderAddButton(add, fieldsLength, reachLimit)}
                         pagination={false}
-                        rowKey={(record) => record.name}
+                        rowKey="name"
                         size="small"
                         tableLayout="fixed"
                         className={css.table}
