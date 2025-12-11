@@ -1,12 +1,10 @@
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { ArrayUtil } from '@easy-pkg/utils';
 import type { FormListFieldData, TableColumnType, TooltipProps } from 'antd';
-import { Button, Form, Table, Tooltip } from 'antd';
+import { Button, ConfigProvider, Form, Table, theme, Tooltip } from 'antd';
 import type { FormListOperation, FormListProps } from 'antd/es/form';
 import { useCallback } from 'react';
 import type { PartialDeep } from 'type-fest';
-
-import css from './FormAppendableTable.module.scss';
 
 export interface FormAppendableTableItem extends Omit<FormListFieldData, 'key'> {}
 
@@ -79,6 +77,10 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
         renderDeleteButton: outerRenderDeleteButton,
         rules,
     } = props;
+
+    const {
+        token: { colorBgContainer },
+    } = theme.useToken();
 
     const { text: outerAddText = 'Add', tooltip: outerAddTooltip } = addButtonOptions ?? {};
 
@@ -153,22 +155,40 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
 
             return (
                 <div className={className}>
-                    <Table
-                        bordered={bordered}
-                        columns={tableColumns}
-                        dataSource={fields}
-                        footer={readonly ? undefined : () => renderAddButton(add, fieldsLength, reachLimit)}
-                        pagination={false}
-                        rowKey="name"
-                        size="small"
-                        tableLayout="fixed"
-                        className={css.table}
-                    />
-                    <Form.ErrorList errors={errors} />
+                    <ConfigProvider
+                        theme={{
+                            components: {
+                                Form: { itemMarginBottom: 0 },
+                                Table: { footerBg: colorBgContainer },
+                            },
+                        }}
+                    >
+                        <Table
+                            bordered={bordered}
+                            columns={tableColumns}
+                            dataSource={fields}
+                            footer={readonly ? undefined : () => renderAddButton(add, fieldsLength, reachLimit)}
+                            pagination={false}
+                            rowKey="name"
+                            size="small"
+                            tableLayout="fixed"
+                        />
+                        <Form.ErrorList errors={errors} />
+                    </ConfigProvider>
                 </div>
             );
         },
-        [actionWidth, bordered, className, columns, limit, readonly, renderAddButton, renderDeleteButton],
+        [
+            actionWidth,
+            bordered,
+            className,
+            colorBgContainer,
+            columns,
+            limit,
+            readonly,
+            renderAddButton,
+            renderDeleteButton,
+        ],
     );
 
     return (
