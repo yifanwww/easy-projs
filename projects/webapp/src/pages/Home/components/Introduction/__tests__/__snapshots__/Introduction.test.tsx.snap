@@ -28,9 +28,9 @@ exports[`Test component \`Introduction\` should render 1`] = `
     <a
       class="link"
       data-discover="true"
-      href="/demo"
+      href="/intro"
     >
-      Component Demos
+      Components Intro
     </a>
   </div>
 </DocumentFragment>

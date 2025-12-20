@@ -20,8 +20,8 @@ export function Introduction() {
             >
                 Learn easy-projs
             </a>
-            <Link className={css.link} to={RoutePath.DEMO}>
-                Component Demos
+            <Link className={css.link} to={RoutePath.INTRO}>
+                Components Intro
             </Link>
         </div>
     );

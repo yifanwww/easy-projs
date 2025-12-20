@@ -3,50 +3,46 @@ import { Navigate } from 'react-router';
 
 import { RoutePath } from './path';
 
-// -------------------- Component Demo Pages --------------------
+// -------------------- Components Intro Pages --------------------
 
-const DemoRoutes: RouteObject[] = [
-    {
-        path: RoutePath.DEMO_ANTD_FORM_APPENDABLE_LIST,
-        lazy: async () => {
-            const { FormAppendableListDemo } = await import('../demos/rc-antd/FormAppendableListDemo');
-            return { element: <FormAppendableListDemo /> };
-        },
-    },
-    {
-        path: RoutePath.DEMO_ANTD_FORM_APPENDABLE_TABLE,
-        lazy: async () => {
-            const { FormAppendableTableDemo } = await import('../demos/rc-antd/FormAppendableTableDemo');
-            return { element: <FormAppendableTableDemo /> };
-        },
-    },
-    {
-        path: RoutePath.DEMO_ANTD_READONLYABLE,
-        lazy: async () => {
-            const { ReadonlyableDemo } = await import('../demos/rc-antd/ReadonlyableDemo');
-            return { element: <ReadonlyableDemo /> };
-        },
-    },
-];
-
-const DemoRoute: RouteObject = {
-    path: RoutePath.DEMO,
+const IntroRoute: RouteObject = {
+    path: RoutePath.INTRO,
     lazy: async () => {
-        const { ComponentDemoContainer } = await import('../demos/ComponentDemoContainer');
-        return { element: <ComponentDemoContainer /> };
+        const { IntroContainer } = await import('../intro/IntroContainer');
+        return { element: <IntroContainer /> };
     },
     children: [
         {
             index: true,
             lazy: async () => {
-                const { ComponentDemoOverview } = await import('../demos/ComponentDemoOverview');
-                return { element: <ComponentDemoOverview /> };
+                const { IntroOverview } = await import('../intro/IntroOverview');
+                return { element: <IntroOverview /> };
             },
         },
-        ...DemoRoutes,
         {
-            path: `${RoutePath.DEMO}/*`,
-            element: <Navigate to={RoutePath.DEMO} replace />,
+            path: RoutePath.INTRO_ANTD_FORM_APPENDABLE_LIST,
+            lazy: async () => {
+                const { FormAppendableListIntro } = await import('../intro/rc-antd/FormAppendableListIntro');
+                return { element: <FormAppendableListIntro /> };
+            },
+        },
+        {
+            path: RoutePath.INTRO_ANTD_FORM_APPENDABLE_TABLE,
+            lazy: async () => {
+                const { FormAppendableTableIntro } = await import('../intro/rc-antd/FormAppendableTableIntro');
+                return { element: <FormAppendableTableIntro /> };
+            },
+        },
+        {
+            path: RoutePath.INTRO_ANTD_READONLYABLE,
+            lazy: async () => {
+                const { ReadonlyableIntro } = await import('../intro/rc-antd/ReadonlyableIntro');
+                return { element: <ReadonlyableIntro /> };
+            },
+        },
+        {
+            path: `${RoutePath.INTRO}/*`,
+            element: <Navigate to={RoutePath.INTRO} replace />,
         },
     ],
 };
@@ -54,7 +50,7 @@ const DemoRoute: RouteObject = {
 // -------------------- Route Entry --------------------
 
 export const routes: RouteObject[] = [
-    DemoRoute,
+    IntroRoute,
     {
         path: RoutePath.HOME,
         children: [
