@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { main } from '../dist/exec.js';
+import { main } from '../dist/main.js';
 
 main();
