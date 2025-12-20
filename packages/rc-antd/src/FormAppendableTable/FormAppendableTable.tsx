@@ -21,7 +21,6 @@ interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rule
         tooltip?: React.ReactNode | ((fieldsLength: number) => React.ReactNode);
     };
     bordered?: boolean;
-    className?: string;
     columns: TableColumnType<FormAppendableTableItem>[];
     disableAdd?: boolean;
     disabled?: boolean;
@@ -62,7 +61,6 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
         actionWidth = 64,
         addButtonOptions,
         bordered,
-        className,
         columns,
         disableAdd,
         disabled,
@@ -79,8 +77,9 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
     } = props;
 
     const {
-        token: { colorBgContainer },
+        token: { colorBgContainer, controlHeight, controlHeightLG, controlHeightSM },
     } = theme.useToken();
+    const { componentSize } = ConfigProvider.useConfig();
 
     const { text: outerAddText = 'Add', tooltip: outerAddTooltip } = addButtonOptions ?? {};
 
@@ -137,6 +136,16 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
         [disableAdd, disabled, getAddValue, limit, onAdd, outerAddText, outerAddTooltip, outerRenderAddButton],
     );
 
+    const renderEmtpy = useCallback(() => {
+        let height = controlHeight;
+        if (componentSize === 'large') {
+            height = controlHeightLG;
+        } else if (componentSize === 'small') {
+            height = controlHeightSM;
+        }
+        return <span style={{ lineHeight: `${height}px` }}>No data</span>;
+    }, [componentSize, controlHeight, controlHeightLG, controlHeightSM]);
+
     const renderTable: FormListProps['children'] = useCallback(
         (fields, { add, remove }, { errors }) => {
             const fieldsLength = fields.length;
@@ -154,40 +163,39 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
             ]);
 
             return (
-                <div className={className}>
-                    <ConfigProvider
-                        theme={{
-                            components: {
-                                Form: { itemMarginBottom: 0 },
-                                Table: { footerBg: colorBgContainer },
-                            },
-                        }}
-                    >
-                        <Table
-                            bordered={bordered}
-                            columns={tableColumns}
-                            dataSource={fields}
-                            footer={readonly ? undefined : () => renderAddButton(add, fieldsLength, reachLimit)}
-                            pagination={false}
-                            rowKey="name"
-                            size="small"
-                            tableLayout="fixed"
-                        />
-                        <Form.ErrorList errors={errors} />
-                    </ConfigProvider>
-                </div>
+                <ConfigProvider
+                    theme={{
+                        components: {
+                            Form: { itemMarginBottom: 0 },
+                            Table: { footerBg: colorBgContainer },
+                        },
+                    }}
+                >
+                    <Table
+                        bordered={bordered}
+                        columns={tableColumns}
+                        dataSource={fields}
+                        footer={readonly ? undefined : () => renderAddButton(add, fieldsLength, reachLimit)}
+                        locale={{ emptyText: renderEmtpy }}
+                        pagination={false}
+                        rowKey="name"
+                        size="small"
+                        tableLayout="fixed"
+                    />
+                    <Form.ErrorList errors={errors} />
+                </ConfigProvider>
             );
         },
         [
             actionWidth,
             bordered,
-            className,
             colorBgContainer,
             columns,
             limit,
             readonly,
             renderAddButton,
             renderDeleteButton,
+            renderEmtpy,
         ],
     );
 
