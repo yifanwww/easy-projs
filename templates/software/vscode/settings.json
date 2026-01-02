@@ -3,6 +3,8 @@
 
     "breadcrumbs.enabled": false,
 
+    "chat.viewSessions.orientation": "stacked",
+
     "css.lint.unknownAtRules": "ignore",
 
     "diffEditor.renderSideBySide": false,
@@ -97,6 +99,7 @@
 
     "workbench.colorTheme": "Quiet Light",
     "workbench.localHistory.enabled": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
 
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -292,18 +295,18 @@
         "[Default Light+]": {
             "editor.lineHighlightBackground": "#fcfcfc",
             "editor.lineHighlightBorder": "#ebebeb",
-            "editorInlayHint.background": "#e0e0e0",
-            "editorInlayHint.foreground": "#2d2d2d"
+            "editorInlayHint.background": "#f0f0f0",
+            "editorInlayHint.foreground": "#505050"
         },
         "[Quiet Light]": {
             "editor.background": "#ffffff",
-            "editor.inactiveSelectionBackground": "#f0eaf4",
+            "editor.inactiveSelectionBackground": "#e1d5e980",
             "editor.lineHighlightBackground": "#fcfcfc",
             "editor.lineHighlightBorder": "#ebebeb",
             "editor.selectionBackground": "#e8def0",
-            "editor.selectionHighlightBackground": "#f2eff6",
-            "editorInlayHint.background": "#e0e0e0",
-            "editorInlayHint.foreground": "#2d2d2d",
+            "editor.selectionHighlightBackground": "#e5dfed80",
+            "editorInlayHint.background": "#f0f0f0",
+            "editorInlayHint.foreground": "#505050",
             "editorWhitespace.foreground": "#d5d5d5",
             "panel.background": "#fafafa"
         }
