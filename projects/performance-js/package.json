@@ -1,5 +1,5 @@
 {
-    "name": "@easy-proj/perf-js",
+    "name": "@easy-proj/performance-js",
     "version": "0.0.0",
     "description": "This package contains some performance benchmark results of javascript.",
     "type": "module",
@@ -16,6 +16,7 @@
         "directory": "projects/perf-js"
     },
     "scripts": {
+        "bench": "node dist/bench.js",
         "build": "tsc --project tsconfig.node.json",
         "clean": "rimraf --glob coverage dist *.tsbuildinfo",
         "dev": "pnpm run build --watch",
@@ -25,13 +26,15 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "benchmark-node": "^0.7.3"
+        "prompts": "^2.4.2",
+        "tinybench": "^6.0.0"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:^",
         "@easy-config/global-types": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
         "@types/node": "^24.10.4",
+        "@types/prompts": "^2.4.9",
         "cross-env": "^10.1.0",
         "eslint": "^9.39.2",
         "prettier": "3.7.4",

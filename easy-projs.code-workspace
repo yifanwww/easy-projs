@@ -186,8 +186,8 @@
             "path": "projects/misc-scripts"
         },
         {
-            "name": "@easy-proj/perf-js",
-            "path": "projects/perf-js"
+            "name": "@easy-proj/performance-js",
+            "path": "projects/performance-js"
         },
         {
             "name": "@easy-proj/redux-usage-demo",
