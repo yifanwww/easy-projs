@@ -7,6 +7,8 @@ import url from 'node:url';
 const pkgRoot = path.join(import.meta.dirname, '..');
 const jestBin = path.join(pkgRoot, 'node_modules/.bin/jest');
 
+const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
+
 enum TestType {
     NODE_CJS,
     NODE_ESM,
@@ -79,17 +81,17 @@ function exec(type: TestType, extraArgs: string[]): void {
 function getJestConfig(type: TestType) {
     switch (type) {
         case TestType.NODE_CJS:
-            return url.fileURLToPath(import.meta.resolve('./jest.config.node-cjs.js'));
+            return resolve('./jest.config.node-cjs.js');
         case TestType.NODE_ESM:
-            return url.fileURLToPath(import.meta.resolve('./jest.config.node-esm.js'));
+            return resolve('./jest.config.node-esm.js');
         case TestType.NODE_CJS_LEGACY_DECORATOR:
-            return url.fileURLToPath(import.meta.resolve('./jest.config.node-cjs-legacy-decorator.js'));
+            return resolve('./jest.config.node-cjs-legacy-decorator.js');
         case TestType.NODE_ESM_LEGACY_DECORATOR:
-            return url.fileURLToPath(import.meta.resolve('./jest.config.node-esm-legacy-decorator.js'));
+            return resolve('./jest.config.node-esm-legacy-decorator.js');
         case TestType.WEBAPP_CJS:
-            return url.fileURLToPath(import.meta.resolve('./jest.config.webapp-cjs.js'));
+            return resolve('./jest.config.webapp-cjs.js');
         case TestType.WEBAPP_ESM:
-            return url.fileURLToPath(import.meta.resolve('./jest.config.webapp-esm.js'));
+            return resolve('./jest.config.webapp-esm.js');
 
         default: {
             const never: never = type;

@@ -1,9 +1,9 @@
 import type { Config } from 'jest';
-import { createRequire } from 'node:module';
+import url from 'node:url';
 
 import config from './jest.config.node-cjs.js';
 
-const require = createRequire(import.meta.url);
+const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
 
 function getConfig(): Config {
     return {
@@ -11,7 +11,7 @@ function getConfig(): Config {
 
         transform: {
             '^.+\\.(js|mjs|cjs|ts)$': [
-                require.resolve('@swc/jest'),
+                resolve('@swc/jest'),
                 {
                     jsc: {
                         parser: {

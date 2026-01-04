@@ -1,11 +1,11 @@
 import type { Config } from 'jest';
 import fs from 'node:fs';
-import { createRequire } from 'node:module';
 import path from 'node:path';
+import url from 'node:url';
 
 import { paths } from './paths.js';
 
-const require = createRequire(import.meta.url);
+const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
 
 function getConfig(): Config {
     const packageJson = process.env.npm_package_json;
@@ -35,7 +35,7 @@ function getConfig(): Config {
 
         transform: {
             '^.+\\.(js|mjs|cjs|ts)$': [
-                require.resolve('@swc/jest'),
+                resolve('@swc/jest'),
                 {
                     jsc: {
                         parser: {
