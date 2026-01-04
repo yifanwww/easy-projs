@@ -12,7 +12,7 @@ describe(`Test fn \`${fetcher.name}\``, () => {
     it('should fetch correct url', async () => {
         let url: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_url) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_url) => {
             url = _url as string;
             return Promise.resolve(new Response('{}'));
         });
@@ -33,7 +33,7 @@ describe(`Test fn \`${fetcher.name}\``, () => {
     it('should pass headers when fetching', async () => {
         let headers: Record<string, string> | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_, options) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
             headers = options?.headers as Record<string, string> | undefined;
             return Promise.resolve(new Response('{}'));
         });
@@ -55,7 +55,7 @@ describe(`Test fn \`${fetcher.name}\``, () => {
     // Response
 
     it(`should return ${OkAsync.name} containing response`, async () => {
-        jest.spyOn(global, 'fetch').mockImplementation(() => Promise.resolve(new Response('{}')));
+        jest.spyOn(window, 'fetch').mockImplementation(() => Promise.resolve(new Response('{}')));
 
         const result = await fetcher<Record<string, never>>('/search', { method: 'GET' });
         expect(result.isOk()).toBe(true);
@@ -66,7 +66,7 @@ describe(`Test fn \`${fetcher.name}\``, () => {
     });
 
     it(`should return ${ErrAsync.name} containing error response`, async () => {
-        jest.spyOn(global, 'fetch').mockImplementation(() => Promise.resolve(new Response('{}', { status: 400 })));
+        jest.spyOn(window, 'fetch').mockImplementation(() => Promise.resolve(new Response('{}', { status: 400 })));
 
         const result = await fetcher<Record<string, never>, Record<string, never>>('/search', { method: 'GET' });
         expect(result.isErr()).toBe(true);
@@ -78,7 +78,7 @@ describe(`Test fn \`${fetcher.name}\``, () => {
     });
 
     it(`should return ${ErrAsync.name} containing TypeError`, async () => {
-        jest.spyOn(global, 'fetch').mockImplementation(() => {
+        jest.spyOn(window, 'fetch').mockImplementation(() => {
             throw new TypeError('Failed to fetch');
         });
 
@@ -96,7 +96,7 @@ describe(`Test fn \`${fetcher.name}.get\``, () => {
     it('should call fetch (method=GET)', async () => {
         let method: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_, options) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
             method = options?.method;
             return Promise.resolve(new Response('{}'));
         });
@@ -110,7 +110,7 @@ describe(`Test fn \`${fetcher.name}.head\``, () => {
     it('should call fetch (method=HEAD)', async () => {
         let method: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_, options) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
             method = options?.method;
             return Promise.resolve(new Response('{}'));
         });
@@ -124,7 +124,7 @@ describe(`Test fn \`${fetcher.name}.options\``, () => {
     it('should call fetch (method=OPTIONS)', async () => {
         let method: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_, options) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
             method = options?.method;
             return Promise.resolve(new Response('{}'));
         });
@@ -138,7 +138,7 @@ describe(`Test fn \`${fetcher.name}.post\``, () => {
     it('should call fetch (method=POST)', async () => {
         let method: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_, options) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
             method = options?.method;
             return Promise.resolve(new Response('{}'));
         });
@@ -152,7 +152,7 @@ describe(`Test fn \`${fetcher.name}.delete\``, () => {
     it('should call fetch (method=DELETE)', async () => {
         let method: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_, options) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
             method = options?.method;
             return Promise.resolve(new Response('{}'));
         });
@@ -166,7 +166,7 @@ describe(`Test fn \`${fetcher.name}.put\``, () => {
     it('should call fetch (method=PUT)', async () => {
         let method: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_, options) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
             method = options?.method;
             return Promise.resolve(new Response('{}'));
         });
@@ -180,7 +180,7 @@ describe(`Test fn \`${fetcher.name}.patch\``, () => {
     it('should call fetch (method=PATCH)', async () => {
         let method: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_, options) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
             method = options?.method;
             return Promise.resolve(new Response('{}'));
         });

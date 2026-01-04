@@ -4,6 +4,8 @@ packages:
   - projects/*
 ignoredBuiltDependencies:
   - '@parcel/watcher'
+  - less
+  - unrs-resolver
 onlyBuiltDependencies:
   - '@nestjs/core'
   - '@swc/core'

@@ -4,7 +4,8 @@ A project detects bundle size of FluentUI.
 
 ## Bundle Size History
 
-- `9.71.0`: 1417.56 KB (gzip: 370.65 KB)
+- `9.71.0`: 1412.36 KB (gzip: 370.22 KB)    [vite v7.3.0]
+- `9.71.0`: 1417.56 KB (gzip: 370.65 KB)    [vite v6.2.3]
 - `9.70.0`: 1423.92 KB (gzip: 372.78 KB)
 - `9.69.0`: 1418.03 KB (gzip: 371.16 KB)
 - `9.68.4`: 1417.99 KB (gzip: 371.17 KB)

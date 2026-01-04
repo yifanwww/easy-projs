@@ -36,23 +36,23 @@
         "antd": "6.0.1",
         "react": "^18.3.1",
         "react-is": "^18.3.1",
-        "type-fest": "^4.38.0"
+        "type-fest": "^5.3.1"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:^",
         "@easy-config/global-types": "workspace:^",
         "@easy-config/stylelint-config": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
-        "@types/react": "^18.3.4",
+        "@types/react": "^18.3.27",
         "@types/react-is": "^18.3.1",
-        "concurrently": "^9.1.2",
+        "concurrently": "^9.2.1",
         "copyfiles": "^2.4.1",
-        "cross-env": "^10.0.0",
-        "eslint": "^9.34.0",
-        "prettier": "3.5.3",
-        "rimraf": "^6.0.1",
-        "stylelint": "^16.17.0",
-        "typescript": "5.8.2",
-        "typescript-plugin-css-modules": "^5.1.0"
+        "cross-env": "^10.1.0",
+        "eslint": "^9.39.2",
+        "prettier": "3.7.4",
+        "rimraf": "^6.1.2",
+        "stylelint": "^16.26.1",
+        "typescript": "5.9.3",
+        "typescript-plugin-css-modules": "^5.2.0"
     }
 }

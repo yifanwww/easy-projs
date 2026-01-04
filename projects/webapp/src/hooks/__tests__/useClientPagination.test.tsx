@@ -82,10 +82,12 @@ describe(`Test react hook \`${useClientPagination.name}\``, () => {
         });
         expect(result.current[0]).toStrictEqual({ page: 3, pageSize: 20 });
 
+        // react-router's setSearchParams doesn't support the 'queueing' logic that React's setState does.
+        // ref: https://reactrouter.com/api/hooks/useSearchParams#setsearchparams-function
         act(() => {
             result.current[1]((prev): ClientPagination => ({ ...prev, pageSize: 30 }));
             result.current[1]((prev): ClientPagination => ({ ...prev, page: 10 }));
         });
-        expect(result.current[0]).toStrictEqual({ page: 10, pageSize: 30 });
+        expect(result.current[0]).toStrictEqual({ page: 10, pageSize: 20 });
     });
 });

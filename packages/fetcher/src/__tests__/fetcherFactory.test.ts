@@ -8,7 +8,7 @@ describe(`Test fn \`${fetcherFactory.name}\``, () => {
 
         let url: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_url) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_url) => {
             url = _url as string;
             return Promise.resolve(new Response('{}'));
         });
@@ -22,7 +22,7 @@ describe(`Test fn \`${fetcherFactory.name}\``, () => {
 
         let url: string | undefined;
 
-        jest.spyOn(global, 'fetch').mockImplementation((_url) => {
+        jest.spyOn(window, 'fetch').mockImplementation((_url) => {
             url = _url as string;
             return Promise.resolve(new Response('{}'));
         });
