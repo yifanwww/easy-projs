@@ -13,7 +13,7 @@
     "editor.detectIndentation": false,
     "editor.fontFamily": "Fira code, Source Han Sans SC, MesloLGM NF",
     "editor.fontLigatures": true,
-    "editor.fontSize": 13,
+    "editor.fontSize": 15,
     "editor.fontWeight": "500",
     "editor.insertSpaces": true,
     "editor.lineNumbers": "on",
@@ -47,7 +47,6 @@
         "markdown": false,
         "scminput": false
     },
-    "github.copilot.nextEditSuggestions.enabled": true,
 
     "scm.diffDecorations": "none",
 
@@ -314,7 +313,11 @@
 
     // ------------------------------------------------------ Extension Settings
 
+    "git-graph.repository.commits.initialLoad": 500,
+    "git-graph.repository.commits.loadMore": 500,
+
     "gitlens.launchpad.indicator.enabled": false,
+    "gitlens.rebaseEditor.openOnPausedRebase": false,
 
     "hexeditor.columnWidth": 32,
     "hexeditor.showDecodedText": true,
