@@ -1,14 +1,35 @@
 import type { Config } from 'jest';
+import url from 'node:url';
 
-import config from './jest.config.node-cjs-legacy-decorator.js';
+import config from './jest.config.node-esm.js';
 
-// reference: https://github.com/swc-project/jest?tab=readme-ov-file#q-jest-uses-commonjs-by-default-but-i-want-to-use-esm
+const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
 
 function getConfig(): Config {
     return {
         ...config,
 
-        extensionsToTreatAsEsm: ['.ts'],
+        transform: {
+            '^.+\\.(js|mjs|cjs|ts)$': [
+                resolve('@swc/jest'),
+                {
+                    jsc: {
+                        parser: {
+                            syntax: 'typescript',
+                            decorators: true,
+                            dynamicImport: true,
+                        },
+                        transform: {
+                            legacyDecorator: true,
+                            decoratorMetadata: true,
+                            useDefineForClassFields: true,
+                        },
+                        target: 'es2020',
+                    },
+                    isModule: true,
+                },
+            ],
+        },
     };
 }
 

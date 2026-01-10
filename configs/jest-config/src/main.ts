@@ -10,9 +10,7 @@ const jestBin = path.join(pkgRoot, 'node_modules/.bin/jest');
 const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));
 
 enum TestType {
-    NODE_CJS,
     NODE_ESM,
-    NODE_CJS_LEGACY_DECORATOR,
     NODE_ESM_LEGACY_DECORATOR,
     WEBAPP_CJS,
     WEBAPP_ESM,
@@ -24,22 +22,10 @@ export function main() {
     program.name('unit-test').description('Run unit tests with jest').configureHelp({ sortSubcommands: true });
 
     program
-        .command('node-cjs')
-        .allowExcessArguments()
-        .allowUnknownOption()
-        .action((_, command: Command) => exec(TestType.NODE_CJS, command.args));
-
-    program
         .command('node-esm')
         .allowExcessArguments()
         .allowUnknownOption()
         .action((_, command: Command) => exec(TestType.NODE_ESM, command.args));
-
-    program
-        .command('node-cjs-legacy-decorator')
-        .allowExcessArguments()
-        .allowUnknownOption()
-        .action((_, command: Command) => exec(TestType.NODE_CJS_LEGACY_DECORATOR, command.args));
 
     program
         .command('node-esm-legacy-decorator')
@@ -80,12 +66,8 @@ function exec(type: TestType, extraArgs: string[]): void {
 
 function getJestConfig(type: TestType) {
     switch (type) {
-        case TestType.NODE_CJS:
-            return resolve('./jest.config.node-cjs.js');
         case TestType.NODE_ESM:
             return resolve('./jest.config.node-esm.js');
-        case TestType.NODE_CJS_LEGACY_DECORATOR:
-            return resolve('./jest.config.node-cjs-legacy-decorator.js');
         case TestType.NODE_ESM_LEGACY_DECORATOR:
             return resolve('./jest.config.node-esm-legacy-decorator.js');
         case TestType.WEBAPP_CJS:
@@ -102,8 +84,6 @@ function getJestConfig(type: TestType) {
 
 function getExtraEnv(type: TestType): Record<string, string> {
     switch (type) {
-        case TestType.NODE_CJS:
-        case TestType.NODE_CJS_LEGACY_DECORATOR:
         case TestType.WEBAPP_CJS:
             return {};
         case TestType.NODE_ESM:
