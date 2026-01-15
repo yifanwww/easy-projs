@@ -5,7 +5,10 @@ interface FocusableElement {
     focus(): void;
 }
 
-export function useImmediateFocus<T extends FocusableElement>(element: RefObject<T>, focus = true): void {
+export function useImmediateFocus<T extends FocusableElement>(
+    element: RefObject<T | null | undefined>,
+    focus = true,
+): void {
     useEffect(() => {
         if (focus) {
             element.current?.focus();

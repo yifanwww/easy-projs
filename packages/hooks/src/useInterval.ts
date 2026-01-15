@@ -10,7 +10,7 @@ export interface UseIntervalActions {
  *  Returns a wrapper function for `setInterval` which automatically handles disposal.
  */
 export function useInterval(): UseIntervalActions {
-    const intervalIdRef = useRef<number>();
+    const intervalIdRef = useRef<number>(undefined);
 
     // Cleanup function.
     useEffect(() => {

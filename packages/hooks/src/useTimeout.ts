@@ -10,7 +10,7 @@ export interface UseTimeoutActions {
  *  Returns a wrapper function for `setTimeout` which automatically handles disposal.
  */
 export function useTimeout(): UseTimeoutActions {
-    const timeoutIdRef = useRef<number>();
+    const timeoutIdRef = useRef<number>(undefined);
 
     // Cleanup function.
     useEffect(() => {

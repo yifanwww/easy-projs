@@ -42,7 +42,7 @@ export function Readonlyable<T>(component: React.ComponentType<T>, options?: Rea
                     : (typedProps[readonlyField] as React.ReactNode)}
             </span>
         ) : (
-            <Component {...(restProps as T & JSX.IntrinsicAttributes)} />
+            <Component {...(restProps as T & React.JSX.IntrinsicAttributes)} />
         );
     }
 

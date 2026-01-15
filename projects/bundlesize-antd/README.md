@@ -4,9 +4,10 @@ A project detects bundle size of AntD.
 
 ## Bundle Size History
 
-- `6.1.4`: 1617.64 KB (gzip: 503.22 KB)     [vite v7.3.0]
-- `6.0.1`: 1633.46 KB (gzip: 507.93 KB)     [vite v7.3.0]
-- `6.0.1`: 1658.16 KB (gzip: 514.04 KB)     [vite v6.2.3]
+- `6.1.4`: 1669.31 KB (gzip: 519.13 KB)     [react v18.3.1 -> v19.2.3]
+- `6.1.4`: 1617.64 KB (gzip: 503.22 KB)
+- `6.0.1`: 1633.46 KB (gzip: 507.93 KB)     [vite v6.2.3 -> v7.3.0]
+- `6.0.1`: 1658.16 KB (gzip: 514.04 KB)
 - `5.29.1`: 1673.18 KB (gzip: 524.36 KB)
 - `5.28.1`: 1671.47 KB (gzip: 523.86 KB)
 - `5.27.6`: 1669.02 KB (gzip: 523.21 KB)

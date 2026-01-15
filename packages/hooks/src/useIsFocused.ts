@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { RefObject } from 'react';
 
-export function useIsFocused<T extends RefObject<HTMLElement>>(ref: T, enabled = true): boolean {
+export function useIsFocused(ref: RefObject<HTMLElement | null | undefined>, enabled = true): boolean {
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocusIn = useCallback(() => setIsFocused(true), []);

@@ -20,7 +20,7 @@ export function usePersistFn<T extends UnknownFn>(fn: T): T {
     // https://github.com/alibaba/hooks/issues/728
     fnRef.current = useMemo(() => fn, [fn]);
 
-    const persistFnRef = useRef<T>();
+    const persistFnRef = useRef<T>(undefined);
     persistFnRef.current ??= ((...args) => fnRef.current(...args)) as T;
     return persistFnRef.current;
 }

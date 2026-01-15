@@ -9,7 +9,7 @@ import type { ReduxActions, DispatchingActions, DispatchingThunks, ReduxThunks }
  * simpler code rather than use `useDispatch`.
  */
 export function useDispatchingActions<TActions extends ReduxActions>(actions: TActions): DispatchingActions<TActions> {
-    const actionsRef = useRef<TActions>();
+    const actionsRef = useRef<TActions>(undefined);
 
     const memoActions = useMemo(() => {
         if (actionsRef.current && shallowEqual(actionsRef.current, actions)) {
@@ -37,7 +37,7 @@ export function useDispatchingActions<TActions extends ReduxActions>(actions: TA
  * simpler code rather than use `useDispatch`.
  */
 export function useDispatchingThunks<TThunks extends ReduxThunks>(thunks: TThunks): DispatchingThunks<TThunks> {
-    const thunksRef = useRef<TThunks>();
+    const thunksRef = useRef<TThunks>(undefined);
 
     const memoThunks = useMemo(() => {
         if (thunksRef.current && shallowEqual(thunksRef.current, thunks)) {
