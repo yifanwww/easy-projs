@@ -30,29 +30,29 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@ant-design/icons": "^6.1.0",
+        "@ant-design/icons": "catalog:",
         "@easy-pkg/types": "workspace:^",
         "@easy-pkg/utils": "workspace:^",
-        "antd": "6.0.1",
-        "react": "^18.3.1",
-        "react-is": "^18.3.1",
-        "type-fest": "^5.3.1"
+        "antd": "catalog:",
+        "react": "catalog:",
+        "react-is": "catalog:",
+        "type-fest": "catalog:"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:^",
         "@easy-config/global-types": "workspace:^",
         "@easy-config/stylelint-config": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
-        "@types/react": "^18.3.27",
-        "@types/react-is": "^18.3.1",
-        "concurrently": "^9.2.1",
-        "copyfiles": "^2.4.1",
-        "cross-env": "^10.1.0",
-        "eslint": "^9.39.2",
-        "prettier": "3.7.4",
-        "rimraf": "^6.1.2",
-        "stylelint": "^16.26.1",
-        "typescript": "5.9.3",
-        "typescript-plugin-css-modules": "^5.2.0"
+        "@types/react": "catalog:",
+        "@types/react-is": "catalog:",
+        "concurrently": "catalog:",
+        "copyfiles": "catalog:",
+        "cross-env": "catalog:",
+        "eslint": "catalog:",
+        "prettier": "catalog:",
+        "rimraf": "catalog:",
+        "stylelint": "catalog:",
+        "typescript": "catalog:",
+        "typescript-plugin-css-modules": "catalog:"
     }
 }

@@ -34,8 +34,8 @@
     "dependencies": {
         "@easy-pkg/types": "workspace:^",
         "@easy-pkg/utils-browser": "workspace:^",
-        "react": "^18.3.1",
-        "react-use": "^17.6.0"
+        "react": "catalog:",
+        "react-use": "catalog:"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:^",
@@ -43,16 +43,16 @@
         "@easy-config/jest-config": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
         "@easy-pkg/utils-test": "workspace:^",
-        "@jest/globals": "^30.2.0",
-        "@testing-library/dom": "^10.4.1",
-        "@testing-library/react": "^16.3.1",
-        "@types/react": "^18.3.27",
-        "concurrently": "^9.2.1",
-        "cross-env": "^10.1.0",
-        "eslint": "^9.39.2",
-        "prettier": "3.7.4",
-        "react-dom": "^18.3.1",
-        "rimraf": "^6.1.2",
-        "typescript": "5.9.3"
+        "@jest/globals": "catalog:",
+        "@testing-library/dom": "catalog:",
+        "@testing-library/react": "catalog:",
+        "@types/react": "catalog:",
+        "concurrently": "catalog:",
+        "cross-env": "catalog:",
+        "eslint": "catalog:",
+        "prettier": "catalog:",
+        "react-dom": "catalog:",
+        "rimraf": "catalog:",
+        "typescript": "catalog:"
     }
 }

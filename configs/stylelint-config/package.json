@@ -22,19 +22,19 @@
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\""
     },
     "dependencies": {
-        "postcss": "^8.5.6",
-        "stylelint-config-recess-order": "^7.4.0",
-        "stylelint-config-sass-guidelines": "^12.1.0",
-        "stylelint-config-standard": "^39.0.1",
-        "stylelint-config-standard-scss": "^16.0.0",
-        "stylelint-order": "^7.0.1"
+        "postcss": "catalog:",
+        "stylelint-config-recess-order": "catalog:",
+        "stylelint-config-sass-guidelines": "catalog:",
+        "stylelint-config-standard": "catalog:",
+        "stylelint-config-standard-scss": "catalog:",
+        "stylelint-order": "catalog:"
     },
     "devDependencies": {
-        "prettier": "3.7.4",
-        "stylelint": "^16.26.1",
-        "typescript": "5.9.3"
+        "prettier": "catalog:",
+        "stylelint": "catalog:",
+        "typescript": "catalog:"
     },
     "peerDependencies": {
-        "stylelint": "^16.26.1"
+        "stylelint": "catalog:"
     }
 }

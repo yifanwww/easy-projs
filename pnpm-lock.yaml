@@ -4,73 +4,529 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@ant-design/icons':
+      specifier: ^6.1.0
+      version: 6.1.0
+    '@fluentui/react-accordion':
+      specifier: 9.8.7
+      version: 9.8.7
+    '@fluentui/react-alert':
+      specifier: 9.0.0-beta.124
+      version: 9.0.0-beta.124
+    '@fluentui/react-aria':
+      specifier: 9.17.1
+      version: 9.17.1
+    '@fluentui/react-avatar':
+      specifier: 9.9.7
+      version: 9.9.7
+    '@fluentui/react-badge':
+      specifier: 9.4.6
+      version: 9.4.6
+    '@fluentui/react-breadcrumb':
+      specifier: 9.3.7
+      version: 9.3.7
+    '@fluentui/react-button':
+      specifier: 9.6.7
+      version: 9.6.7
+    '@fluentui/react-card':
+      specifier: 9.5.1
+      version: 9.5.1
+    '@fluentui/react-carousel':
+      specifier: 9.8.7
+      version: 9.8.7
+    '@fluentui/react-checkbox':
+      specifier: 9.5.6
+      version: 9.5.6
+    '@fluentui/react-color-picker':
+      specifier: 9.2.6
+      version: 9.2.6
+    '@fluentui/react-combobox':
+      specifier: 9.16.7
+      version: 9.16.7
+    '@fluentui/react-components':
+      specifier: 9.71.0
+      version: 9.71.0
+    '@fluentui/react-context-selector':
+      specifier: 9.2.8
+      version: 9.2.8
+    '@fluentui/react-dialog':
+      specifier: 9.15.2
+      version: 9.15.2
+    '@fluentui/react-divider':
+      specifier: 9.4.6
+      version: 9.4.6
+    '@fluentui/react-drawer':
+      specifier: 9.10.2
+      version: 9.10.2
+    '@fluentui/react-field':
+      specifier: 9.4.6
+      version: 9.4.6
+    '@fluentui/react-image':
+      specifier: 9.3.6
+      version: 9.3.6
+    '@fluentui/react-infobutton':
+      specifier: 9.0.0-beta.102
+      version: 9.0.0-beta.102
+    '@fluentui/react-infolabel':
+      specifier: 9.4.7
+      version: 9.4.7
+    '@fluentui/react-input':
+      specifier: 9.7.6
+      version: 9.7.6
+    '@fluentui/react-jsx-runtime':
+      specifier: 9.2.1
+      version: 9.2.1
+    '@fluentui/react-label':
+      specifier: 9.3.6
+      version: 9.3.6
+    '@fluentui/react-link':
+      specifier: 9.6.6
+      version: 9.6.6
+    '@fluentui/react-list':
+      specifier: 9.6.1
+      version: 9.6.1
+    '@fluentui/react-menu':
+      specifier: 9.20.0
+      version: 9.20.0
+    '@fluentui/react-message-bar':
+      specifier: 9.6.7
+      version: 9.6.7
+    '@fluentui/react-motion':
+      specifier: 9.11.0
+      version: 9.11.0
+    '@fluentui/react-motion-components-preview':
+      specifier: 0.10.1
+      version: 0.10.1
+    '@fluentui/react-nav':
+      specifier: 9.3.7
+      version: 9.3.7
+    '@fluentui/react-overflow':
+      specifier: 9.6.0
+      version: 9.6.0
+    '@fluentui/react-persona':
+      specifier: 9.5.7
+      version: 9.5.7
+    '@fluentui/react-popover':
+      specifier: 9.12.7
+      version: 9.12.7
+    '@fluentui/react-portal':
+      specifier: 9.8.3
+      version: 9.8.3
+    '@fluentui/react-positioning':
+      specifier: 9.20.6
+      version: 9.20.6
+    '@fluentui/react-progress':
+      specifier: 9.4.6
+      version: 9.4.6
+    '@fluentui/react-provider':
+      specifier: 9.22.6
+      version: 9.22.6
+    '@fluentui/react-radio':
+      specifier: 9.5.6
+      version: 9.5.6
+    '@fluentui/react-rating':
+      specifier: 9.3.6
+      version: 9.3.6
+    '@fluentui/react-search':
+      specifier: 9.3.6
+      version: 9.3.6
+    '@fluentui/react-select':
+      specifier: 9.4.6
+      version: 9.4.6
+    '@fluentui/react-shared-contexts':
+      specifier: 9.25.2
+      version: 9.25.2
+    '@fluentui/react-skeleton':
+      specifier: 9.4.6
+      version: 9.4.6
+    '@fluentui/react-slider':
+      specifier: 9.5.6
+      version: 9.5.6
+    '@fluentui/react-spinbutton':
+      specifier: 9.5.6
+      version: 9.5.6
+    '@fluentui/react-spinner':
+      specifier: 9.7.6
+      version: 9.7.6
+    '@fluentui/react-swatch-picker':
+      specifier: 9.4.6
+      version: 9.4.6
+    '@fluentui/react-switch':
+      specifier: 9.4.6
+      version: 9.4.6
+    '@fluentui/react-table':
+      specifier: 9.19.0
+      version: 9.19.0
+    '@fluentui/react-tabs':
+      specifier: 9.10.2
+      version: 9.10.2
+    '@fluentui/react-tabster':
+      specifier: 9.26.6
+      version: 9.26.6
+    '@fluentui/react-tag-picker':
+      specifier: 9.7.7
+      version: 9.7.7
+    '@fluentui/react-tags':
+      specifier: 9.7.7
+      version: 9.7.7
+    '@fluentui/react-teaching-popover':
+      specifier: 9.6.7
+      version: 9.6.7
+    '@fluentui/react-text':
+      specifier: 9.6.6
+      version: 9.6.6
+    '@fluentui/react-textarea':
+      specifier: 9.6.6
+      version: 9.6.6
+    '@fluentui/react-theme':
+      specifier: 9.2.0
+      version: 9.2.0
+    '@fluentui/react-toast':
+      specifier: 9.7.2
+      version: 9.7.2
+    '@fluentui/react-toolbar':
+      specifier: 9.6.7
+      version: 9.6.7
+    '@fluentui/react-tooltip':
+      specifier: 9.8.6
+      version: 9.8.6
+    '@fluentui/react-tree':
+      specifier: 9.14.0
+      version: 9.14.0
+    '@fluentui/react-utilities':
+      specifier: 9.25.0
+      version: 9.25.0
+    '@fluentui/react-virtualizer':
+      specifier: 9.0.0-alpha.102
+      version: 9.0.0-alpha.102
+    '@griffel/react':
+      specifier: 1.5.22
+      version: 1.5.22
+    '@jest/globals':
+      specifier: ^30.2.0
+      version: 30.2.0
+    '@jest/types':
+      specifier: ^30.2.0
+      version: 30.2.0
+    '@nestjs/common':
+      specifier: ^11.1.11
+      version: 11.1.11
+    '@nestjs/core':
+      specifier: ^11.1.11
+      version: 11.1.11
+    '@nestjs/jwt':
+      specifier: ^11.0.2
+      version: 11.0.2
+    '@reduxjs/toolkit':
+      specifier: ^2.11.2
+      version: 2.11.2
+    '@rustresult/result':
+      specifier: ^0.6.0
+      version: 0.6.0
+    '@swc/helpers':
+      specifier: 0.5.1
+      version: 0.5.1
+    '@swc/jest':
+      specifier: ^0.2.39
+      version: 0.2.39
+    '@testing-library/dom':
+      specifier: ^10.4.1
+      version: 10.4.1
+    '@testing-library/jest-dom':
+      specifier: ^6.9.1
+      version: 6.9.1
+    '@testing-library/react':
+      specifier: ^16.3.1
+      version: 16.3.1
+    '@types/express':
+      specifier: ^5.0.6
+      version: 5.0.6
+    '@types/node':
+      specifier: ^24.10.4
+      version: 24.10.4
+    '@types/prompts':
+      specifier: ^2.4.9
+      version: 2.4.9
+    '@types/react':
+      specifier: ^18.3.27
+      version: 18.3.27
+    '@types/react-dom':
+      specifier: ^18.3.7
+      version: 18.3.7
+    '@types/react-is':
+      specifier: ^18.3.1
+      version: 18.3.1
+    '@types/semver':
+      specifier: ^7.7.1
+      version: 7.7.1
+    '@typescript-eslint/eslint-plugin':
+      specifier: ^8.51.0
+      version: 8.51.0
+    '@typescript-eslint/parser':
+      specifier: ^8.51.0
+      version: 8.51.0
+    '@vitejs/plugin-react':
+      specifier: ^5.1.2
+      version: 5.1.2
+    antd:
+      specifier: 6.0.1
+      version: 6.0.1
+    browserslist:
+      specifier: ^4.28.1
+      version: 4.28.1
+    bundlemon:
+      specifier: ^3.1.0
+      version: 3.1.0
+    camelcase:
+      specifier: ^9.0.0
+      version: 9.0.0
+    chalk:
+      specifier: ^5.6.2
+      version: 5.6.2
+    class-transformer:
+      specifier: ^0.5.1
+      version: 0.5.1
+    class-validator:
+      specifier: ^0.14.3
+      version: 0.14.3
+    clsx:
+      specifier: ^2.1.1
+      version: 2.1.1
+    commander:
+      specifier: ^14.0.2
+      version: 14.0.2
+    concurrently:
+      specifier: ^9.2.1
+      version: 9.2.1
+    copyfiles:
+      specifier: ^2.4.1
+      version: 2.4.1
+    cross-env:
+      specifier: ^10.1.0
+      version: 10.1.0
+    dayjs:
+      specifier: ^1.11.19
+      version: 1.11.19
+    eslint:
+      specifier: ^9.39.2
+      version: 9.39.2
+    eslint-config-airbnb:
+      specifier: ^19.0.4
+      version: 19.0.4
+    eslint-config-airbnb-base:
+      specifier: ^15.0.0
+      version: 15.0.0
+    eslint-config-prettier:
+      specifier: ^10.1.8
+      version: 10.1.8
+    eslint-plugin-import:
+      specifier: ^2.32.0
+      version: 2.32.0
+    eslint-plugin-jest:
+      specifier: ^29.12.1
+      version: 29.12.1
+    eslint-plugin-jsx-a11y:
+      specifier: ^6.10.2
+      version: 6.10.2
+    eslint-plugin-n:
+      specifier: ^17.23.1
+      version: 17.23.1
+    eslint-plugin-prettier:
+      specifier: ^5.5.4
+      version: 5.5.4
+    eslint-plugin-react:
+      specifier: ^7.37.5
+      version: 7.37.5
+    eslint-plugin-react-hooks:
+      specifier: ^7.0.1
+      version: 7.0.1
+    express:
+      specifier: ^5.2.1
+      version: 5.2.1
+    husky:
+      specifier: ^9.1.7
+      version: 9.1.7
+    identity-obj-proxy:
+      specifier: ^3.0.0
+      version: 3.0.0
+    immer:
+      specifier: ^11.1.3
+      version: 11.1.3
+    jest:
+      specifier: ^30.2.0
+      version: 30.2.0
+    jest-environment-jsdom:
+      specifier: ^30.2.0
+      version: 30.2.0
+    jest-watch-typeahead:
+      specifier: ^3.0.1
+      version: 3.0.1
+    lint-staged:
+      specifier: ^16.2.7
+      version: 16.2.7
+    postcss:
+      specifier: ^8.5.6
+      version: 8.5.6
+    prettier:
+      specifier: 3.7.4
+      version: 3.7.4
+    prompts:
+      specifier: ^2.4.2
+      version: 2.4.2
+    react:
+      specifier: ^18.3.1
+      version: 18.3.1
+    react-dom:
+      specifier: ^18.3.1
+      version: 18.3.1
+    react-is:
+      specifier: ^18.3.1
+      version: 18.3.1
+    react-redux:
+      specifier: ^9.2.0
+      version: 9.2.0
+    react-router:
+      specifier: ^7.11.0
+      version: 7.11.0
+    react-use:
+      specifier: ^17.6.0
+      version: 17.6.0
+    reflect-metadata:
+      specifier: ^0.2.2
+      version: 0.2.2
+    rimraf:
+      specifier: ^6.1.2
+      version: 6.1.2
+    sass:
+      specifier: ^1.97.1
+      version: 1.97.1
+    semver:
+      specifier: ^7.7.3
+      version: 7.7.3
+    stylelint:
+      specifier: ^16.26.1
+      version: 16.26.1
+    stylelint-config-recess-order:
+      specifier: ^7.4.0
+      version: 7.4.0
+    stylelint-config-sass-guidelines:
+      specifier: ^12.1.0
+      version: 12.1.0
+    stylelint-config-standard:
+      specifier: ^39.0.1
+      version: 39.0.1
+    stylelint-config-standard-scss:
+      specifier: ^16.0.0
+      version: 16.0.0
+    stylelint-order:
+      specifier: ^7.0.1
+      version: 7.0.1
+    tinybench:
+      specifier: ^6.0.0
+      version: 6.0.0
+    type-fest:
+      specifier: ^5.3.1
+      version: 5.3.1
+    typeorm:
+      specifier: ^0.3.28
+      version: 0.3.28
+    typescript:
+      specifier: 5.9.3
+      version: 5.9.3
+    typescript-plugin-css-modules:
+      specifier: ^5.2.0
+      version: 5.2.0
+    vite:
+      specifier: ^7.3.0
+      version: 7.3.0
+    vite-plugin-checker:
+      specifier: ^0.12.0
+      version: 0.12.0
+    vite-tsconfig-paths:
+      specifier: ^6.0.3
+      version: 6.0.3
+    web-vitals:
+      specifier: ^5.1.0
+      version: 5.1.0
+    whatwg-fetch:
+      specifier: ^3.6.20
+      version: 3.6.20
+    winston:
+      specifier: ^3.19.0
+      version: 3.19.0
+    winston-daily-rotate-file:
+      specifier: ^5.0.0
+      version: 5.0.0
+
 importers:
 
   .:
     devDependencies:
       bundlemon:
-        specifier: ^3.1.0
+        specifier: 'catalog:'
         version: 3.1.0(typescript@5.9.3)
       husky:
-        specifier: ^9.1.7
+        specifier: 'catalog:'
         version: 9.1.7
       lint-staged:
-        specifier: ^16.2.7
+        specifier: 'catalog:'
         version: 16.2.7
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   configs/eslint-config:
     dependencies:
       '@typescript-eslint/eslint-plugin':
-        specifier: ^8.51.0
+        specifier: 'catalog:'
         version: 8.51.0(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)
       '@typescript-eslint/parser':
-        specifier: ^8.51.0
+        specifier: 'catalog:'
         version: 8.51.0(eslint@9.39.2)(typescript@5.9.3)
       eslint-config-airbnb:
-        specifier: ^19.0.4
+        specifier: 'catalog:'
         version: 19.0.4(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.2))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.2))(eslint-plugin-react@7.37.5(eslint@9.39.2))(eslint@9.39.2)
       eslint-config-airbnb-base:
-        specifier: ^15.0.0
+        specifier: 'catalog:'
         version: 15.0.0(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2))(eslint@9.39.2)
       eslint-config-prettier:
-        specifier: ^10.1.8
+        specifier: 'catalog:'
         version: 10.1.8(eslint@9.39.2)
       eslint-plugin-import:
-        specifier: ^2.32.0
+        specifier: 'catalog:'
         version: 2.32.0(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)
       eslint-plugin-jest:
-        specifier: ^29.12.1
+        specifier: 'catalog:'
         version: 29.12.1(@typescript-eslint/eslint-plugin@8.51.0(@typescript-eslint/parser@8.51.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(jest@30.2.0)(typescript@5.9.3)
       eslint-plugin-jsx-a11y:
-        specifier: ^6.10.2
+        specifier: 'catalog:'
         version: 6.10.2(eslint@9.39.2)
       eslint-plugin-n:
-        specifier: ^17.23.1
+        specifier: 'catalog:'
         version: 17.23.1(eslint@9.39.2)(typescript@5.9.3)
       eslint-plugin-prettier:
-        specifier: ^5.5.4
+        specifier: 'catalog:'
         version: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint@9.39.2)(prettier@3.7.4)
       eslint-plugin-react:
-        specifier: ^7.37.5
+        specifier: 'catalog:'
         version: 7.37.5(eslint@9.39.2)
       eslint-plugin-react-hooks:
-        specifier: ^7.0.1
+        specifier: 'catalog:'
         version: 7.0.1(eslint@9.39.2)
     devDependencies:
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   configs/global-types:
@@ -82,46 +538,46 @@ importers:
         specifier: workspace:^
         version: link:../tsconfigs
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   configs/jest-config:
     dependencies:
       '@swc/jest':
-        specifier: ^0.2.39
+        specifier: 'catalog:'
         version: 0.2.39(@swc/core@1.15.8)
       camelcase:
-        specifier: ^9.0.0
+        specifier: 'catalog:'
         version: 9.0.0
       chalk:
-        specifier: ^5.6.2
+        specifier: 'catalog:'
         version: 5.6.2
       commander:
-        specifier: ^14.0.2
+        specifier: 'catalog:'
         version: 14.0.2
       identity-obj-proxy:
-        specifier: ^3.0.0
+        specifier: 'catalog:'
         version: 3.0.0
       jest:
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0(@types/node@24.10.4)
       jest-environment-jsdom:
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       jest-watch-typeahead:
-        specifier: ^3.0.1
+        specifier: 'catalog:'
         version: 3.0.1(jest@30.2.0(@types/node@24.10.4))
       whatwg-fetch:
-        specifier: ^3.6.20
+        specifier: 'catalog:'
         version: 3.6.20
     devDependencies:
       '@easy-config/eslint-config':
@@ -131,65 +587,65 @@ importers:
         specifier: workspace:^
         version: link:../tsconfigs
       '@jest/types':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       '@types/node':
-        specifier: ^24.10.4
+        specifier: 'catalog:'
         version: 24.10.4
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   configs/stylelint-config:
     dependencies:
       postcss:
-        specifier: ^8.5.6
+        specifier: 'catalog:'
         version: 8.5.6
       stylelint-config-recess-order:
-        specifier: ^7.4.0
+        specifier: 'catalog:'
         version: 7.4.0(stylelint-order@7.0.1(stylelint@16.26.1(typescript@5.9.3)))(stylelint@16.26.1(typescript@5.9.3))
       stylelint-config-sass-guidelines:
-        specifier: ^12.1.0
+        specifier: 'catalog:'
         version: 12.1.0(postcss@8.5.6)(stylelint@16.26.1(typescript@5.9.3))
       stylelint-config-standard:
-        specifier: ^39.0.1
+        specifier: 'catalog:'
         version: 39.0.1(stylelint@16.26.1(typescript@5.9.3))
       stylelint-config-standard-scss:
-        specifier: ^16.0.0
+        specifier: 'catalog:'
         version: 16.0.0(postcss@8.5.6)(stylelint@16.26.1(typescript@5.9.3))
       stylelint-order:
-        specifier: ^7.0.1
+        specifier: 'catalog:'
         version: 7.0.1(stylelint@16.26.1(typescript@5.9.3))
     devDependencies:
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       stylelint:
-        specifier: ^16.26.1
+        specifier: 'catalog:'
         version: 16.26.1(typescript@5.9.3)
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   configs/tsconfigs:
     devDependencies:
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/apis:
@@ -207,25 +663,25 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/fetcher:
@@ -234,7 +690,7 @@ importers:
         specifier: workspace:^
         version: link:../utils-browser
       '@rustresult/result':
-        specifier: ^0.6.0
+        specifier: 'catalog:'
         version: 0.6.0
     devDependencies:
       '@easy-config/eslint-config':
@@ -250,34 +706,34 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/helpers-antd:
     dependencies:
       antd:
-        specifier: 6.0.1
+        specifier: 'catalog:'
         version: 6.0.1(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
     devDependencies:
       '@easy-config/eslint-config':
@@ -293,28 +749,28 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       '@types/react':
-        specifier: ^18.3.27
+        specifier: 'catalog:'
         version: 18.3.27
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/helpers-class-validator:
@@ -323,7 +779,7 @@ importers:
         specifier: workspace:^
         version: link:../types
       class-validator:
-        specifier: ^0.14.3
+        specifier: 'catalog:'
         version: 0.14.3
     devDependencies:
       '@easy-config/eslint-config':
@@ -339,25 +795,25 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/helpers-nestjs:
@@ -372,34 +828,34 @@ importers:
         specifier: workspace:^
         version: link:../utils
       '@nestjs/common':
-        specifier: ^11.1.11
+        specifier: 'catalog:'
         version: 11.1.11(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/core':
-        specifier: ^11.1.11
+        specifier: 'catalog:'
         version: 11.1.11(@nestjs/common@11.1.11(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/jwt':
-        specifier: ^11.0.2
+        specifier: 'catalog:'
         version: 11.0.2(@nestjs/common@11.1.11(class-transformer@0.5.1)(class-validator@0.14.3)(reflect-metadata@0.2.2)(rxjs@7.8.2))
       chalk:
-        specifier: ^5.6.2
+        specifier: 'catalog:'
         version: 5.6.2
       class-transformer:
-        specifier: ^0.5.1
+        specifier: 'catalog:'
         version: 0.5.1
       class-validator:
-        specifier: ^0.14.3
+        specifier: 'catalog:'
         version: 0.14.3
       express:
-        specifier: ^5.2.1
+        specifier: 'catalog:'
         version: 5.2.1
       reflect-metadata:
-        specifier: ^0.2.2
+        specifier: 'catalog:'
         version: 0.2.2
       winston:
-        specifier: ^3.19.0
+        specifier: 'catalog:'
         version: 3.19.0
       winston-daily-rotate-file:
-        specifier: ^5.0.0
+        specifier: 'catalog:'
         version: 5.0.0(winston@3.19.0)
     devDependencies:
       '@easy-config/eslint-config':
@@ -415,28 +871,28 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       '@types/express':
-        specifier: ^5.0.6
+        specifier: 'catalog:'
         version: 5.0.6
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/helpers-redux:
@@ -445,16 +901,16 @@ importers:
         specifier: workspace:^
         version: link:../types
       '@reduxjs/toolkit':
-        specifier: ^2.11.2
+        specifier: 'catalog:'
         version: 2.11.2(react-redux@9.2.0(@types/react@18.3.27)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
       immer:
-        specifier: ^11.1.3
+        specifier: 'catalog:'
         version: 11.1.3
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       react-redux:
-        specifier: ^9.2.0
+        specifier: 'catalog:'
         version: 9.2.0(@types/react@18.3.27)(react@18.3.1)(redux@5.0.1)
     devDependencies:
       '@easy-config/eslint-config':
@@ -467,34 +923,34 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/react':
-        specifier: ^18.3.27
+        specifier: 'catalog:'
         version: 18.3.27
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/helpers-typeorm:
     dependencies:
       dayjs:
-        specifier: ^1.11.19
+        specifier: 'catalog:'
         version: 1.11.19
       typeorm:
-        specifier: ^0.3.28
+        specifier: 'catalog:'
         version: 0.3.28
     devDependencies:
       '@easy-config/eslint-config':
@@ -510,25 +966,25 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/hooks:
@@ -540,10 +996,10 @@ importers:
         specifier: workspace:^
         version: link:../utils-browser
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       react-use:
-        specifier: ^17.6.0
+        specifier: 'catalog:'
         version: 17.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@easy-config/eslint-config':
@@ -562,37 +1018,37 @@ importers:
         specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       '@testing-library/dom':
-        specifier: ^10.4.1
+        specifier: 'catalog:'
         version: 10.4.1
       '@testing-library/react':
-        specifier: ^16.3.1
+        specifier: 'catalog:'
         version: 16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/react':
-        specifier: ^18.3.27
+        specifier: 'catalog:'
         version: 18.3.27
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       react-dom:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/random-string:
@@ -613,34 +1069,34 @@ importers:
         specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       '@types/node':
-        specifier: ^24.10.4
+        specifier: 'catalog:'
         version: 24.10.4
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/rc-antd:
     dependencies:
       '@ant-design/icons':
-        specifier: ^6.1.0
+        specifier: 'catalog:'
         version: 6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@easy-pkg/types':
         specifier: workspace:^
@@ -649,16 +1105,16 @@ importers:
         specifier: workspace:^
         version: link:../utils
       antd:
-        specifier: 6.0.1
+        specifier: 'catalog:'
         version: 6.0.1(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       react-is:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       type-fest:
-        specifier: ^5.3.1
+        specifier: 'catalog:'
         version: 5.3.1
     devDependencies:
       '@easy-config/eslint-config':
@@ -674,37 +1130,37 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/react':
-        specifier: ^18.3.27
+        specifier: 'catalog:'
         version: 18.3.27
       '@types/react-is':
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       copyfiles:
-        specifier: ^2.4.1
+        specifier: 'catalog:'
         version: 2.4.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       stylelint:
-        specifier: ^16.26.1
+        specifier: 'catalog:'
         version: 16.26.1(typescript@5.9.3)
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
       typescript-plugin-css-modules:
-        specifier: ^5.2.0
+        specifier: 'catalog:'
         version: 5.2.0(typescript@5.9.3)
 
   packages/types:
@@ -719,22 +1175,22 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/utils:
@@ -756,25 +1212,25 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/utils-browser:
@@ -795,25 +1251,25 @@ importers:
         specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/utils-node:
@@ -834,28 +1290,28 @@ importers:
         specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       '@types/node':
-        specifier: ^24.10.4
+        specifier: 'catalog:'
         version: 24.10.4
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/utils-server:
@@ -873,25 +1329,25 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/utils-test:
@@ -900,22 +1356,22 @@ importers:
         specifier: workspace:^
         version: link:../types
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       '@testing-library/dom':
-        specifier: ^10.4.1
+        specifier: 'catalog:'
         version: 10.4.1
       '@testing-library/react':
-        specifier: ^16.3.1
+        specifier: 'catalog:'
         version: 16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       react-dom:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
       type-fest:
-        specifier: ^5.3.1
+        specifier: 'catalog:'
         version: 5.3.1
     devDependencies:
       '@easy-config/eslint-config':
@@ -931,34 +1387,34 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   projects/bundlesize-antd:
     dependencies:
       antd:
-        specifier: 6.0.1
+        specifier: 'catalog:'
         version: 6.0.1(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       react-dom:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@easy-config/eslint-config':
@@ -971,247 +1427,247 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/react':
-        specifier: ^18.3.27
+        specifier: 'catalog:'
         version: 18.3.27
       '@types/react-dom':
-        specifier: ^18.3.7
+        specifier: 'catalog:'
         version: 18.3.7(@types/react@18.3.27)
       '@vitejs/plugin-react':
-        specifier: ^5.1.2
+        specifier: 'catalog:'
         version: 5.1.2(vite@7.3.0(@types/node@24.10.4)(less@4.5.1)(sass@1.97.1)(stylus@0.62.0)(yaml@2.8.2))
       browserslist:
-        specifier: ^4.28.1
+        specifier: 'catalog:'
         version: 4.28.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       sass:
-        specifier: ^1.97.1
+        specifier: 'catalog:'
         version: 1.97.1
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
       typescript-plugin-css-modules:
-        specifier: ^5.2.0
+        specifier: 'catalog:'
         version: 5.2.0(typescript@5.9.3)
       vite:
-        specifier: ^7.3.0
+        specifier: 'catalog:'
         version: 7.3.0(@types/node@24.10.4)(less@4.5.1)(sass@1.97.1)(stylus@0.62.0)(yaml@2.8.2)
 
   projects/bundlesize-fluentui:
     dependencies:
       '@fluentui/react-accordion':
-        specifier: 9.8.7
+        specifier: 'catalog:'
         version: 9.8.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-alert':
-        specifier: 9.0.0-beta.124
+        specifier: 'catalog:'
         version: 9.0.0-beta.124(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-aria':
-        specifier: 9.17.1
+        specifier: 'catalog:'
         version: 9.17.1(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-avatar':
-        specifier: 9.9.7
+        specifier: 'catalog:'
         version: 9.9.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-badge':
-        specifier: 9.4.6
+        specifier: 'catalog:'
         version: 9.4.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-breadcrumb':
-        specifier: 9.3.7
+        specifier: 'catalog:'
         version: 9.3.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-button':
-        specifier: 9.6.7
+        specifier: 'catalog:'
         version: 9.6.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-card':
-        specifier: 9.5.1
+        specifier: 'catalog:'
         version: 9.5.1(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-carousel':
-        specifier: 9.8.7
+        specifier: 'catalog:'
         version: 9.8.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-checkbox':
-        specifier: 9.5.6
+        specifier: 'catalog:'
         version: 9.5.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-color-picker':
-        specifier: 9.2.6
+        specifier: 'catalog:'
         version: 9.2.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-combobox':
-        specifier: 9.16.7
+        specifier: 'catalog:'
         version: 9.16.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-components':
-        specifier: 9.71.0
+        specifier: 'catalog:'
         version: 9.71.0(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-context-selector':
-        specifier: 9.2.8
+        specifier: 'catalog:'
         version: 9.2.8(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-dialog':
-        specifier: 9.15.2
+        specifier: 'catalog:'
         version: 9.15.2(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-divider':
-        specifier: 9.4.6
+        specifier: 'catalog:'
         version: 9.4.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-drawer':
-        specifier: 9.10.2
+        specifier: 'catalog:'
         version: 9.10.2(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-field':
-        specifier: 9.4.6
+        specifier: 'catalog:'
         version: 9.4.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-image':
-        specifier: 9.3.6
+        specifier: 'catalog:'
         version: 9.3.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-infobutton':
-        specifier: 9.0.0-beta.102
+        specifier: 'catalog:'
         version: 9.0.0-beta.102(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-infolabel':
-        specifier: 9.4.7
+        specifier: 'catalog:'
         version: 9.4.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-input':
-        specifier: 9.7.6
+        specifier: 'catalog:'
         version: 9.7.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-jsx-runtime':
-        specifier: 9.2.1
+        specifier: 'catalog:'
         version: 9.2.1(@types/react@18.3.27)(react@18.3.1)
       '@fluentui/react-label':
-        specifier: 9.3.6
+        specifier: 'catalog:'
         version: 9.3.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-link':
-        specifier: 9.6.6
+        specifier: 'catalog:'
         version: 9.6.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-list':
-        specifier: 9.6.1
+        specifier: 'catalog:'
         version: 9.6.1(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-menu':
-        specifier: 9.20.0
+        specifier: 'catalog:'
         version: 9.20.0(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-message-bar':
-        specifier: 9.6.7
+        specifier: 'catalog:'
         version: 9.6.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-motion':
-        specifier: 9.11.0
+        specifier: 'catalog:'
         version: 9.11.0(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-motion-components-preview':
-        specifier: 0.10.1
+        specifier: 'catalog:'
         version: 0.10.1(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-nav':
-        specifier: 9.3.7
+        specifier: 'catalog:'
         version: 9.3.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-overflow':
-        specifier: 9.6.0
+        specifier: 'catalog:'
         version: 9.6.0(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-persona':
-        specifier: 9.5.7
+        specifier: 'catalog:'
         version: 9.5.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-popover':
-        specifier: 9.12.7
+        specifier: 'catalog:'
         version: 9.12.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-portal':
-        specifier: 9.8.3
+        specifier: 'catalog:'
         version: 9.8.3(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-positioning':
-        specifier: 9.20.6
+        specifier: 'catalog:'
         version: 9.20.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-progress':
-        specifier: 9.4.6
+        specifier: 'catalog:'
         version: 9.4.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-provider':
-        specifier: 9.22.6
+        specifier: 'catalog:'
         version: 9.22.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-radio':
-        specifier: 9.5.6
+        specifier: 'catalog:'
         version: 9.5.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-rating':
-        specifier: 9.3.6
+        specifier: 'catalog:'
         version: 9.3.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-search':
-        specifier: 9.3.6
+        specifier: 'catalog:'
         version: 9.3.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-select':
-        specifier: 9.4.6
+        specifier: 'catalog:'
         version: 9.4.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-shared-contexts':
-        specifier: 9.25.2
+        specifier: 'catalog:'
         version: 9.25.2(@types/react@18.3.27)(react@18.3.1)
       '@fluentui/react-skeleton':
-        specifier: 9.4.6
+        specifier: 'catalog:'
         version: 9.4.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-slider':
-        specifier: 9.5.6
+        specifier: 'catalog:'
         version: 9.5.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-spinbutton':
-        specifier: 9.5.6
+        specifier: 'catalog:'
         version: 9.5.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-spinner':
-        specifier: 9.7.6
+        specifier: 'catalog:'
         version: 9.7.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-swatch-picker':
-        specifier: 9.4.6
+        specifier: 'catalog:'
         version: 9.4.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-switch':
-        specifier: 9.4.6
+        specifier: 'catalog:'
         version: 9.4.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-table':
-        specifier: 9.19.0
+        specifier: 'catalog:'
         version: 9.19.0(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-tabs':
-        specifier: 9.10.2
+        specifier: 'catalog:'
         version: 9.10.2(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-tabster':
-        specifier: 9.26.6
+        specifier: 'catalog:'
         version: 9.26.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-tag-picker':
-        specifier: 9.7.7
+        specifier: 'catalog:'
         version: 9.7.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-tags':
-        specifier: 9.7.7
+        specifier: 'catalog:'
         version: 9.7.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-teaching-popover':
-        specifier: 9.6.7
+        specifier: 'catalog:'
         version: 9.6.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-text':
-        specifier: 9.6.6
+        specifier: 'catalog:'
         version: 9.6.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-textarea':
-        specifier: 9.6.6
+        specifier: 'catalog:'
         version: 9.6.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-theme':
-        specifier: 9.2.0
+        specifier: 'catalog:'
         version: 9.2.0
       '@fluentui/react-toast':
-        specifier: 9.7.2
+        specifier: 'catalog:'
         version: 9.7.2(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-toolbar':
-        specifier: 9.6.7
+        specifier: 'catalog:'
         version: 9.6.7(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-tooltip':
-        specifier: 9.8.6
+        specifier: 'catalog:'
         version: 9.8.6(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@fluentui/react-tree':
-        specifier: 9.14.0
+        specifier: 'catalog:'
         version: 9.14.0(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scheduler@0.23.2)
       '@fluentui/react-utilities':
-        specifier: 9.25.0
+        specifier: 'catalog:'
         version: 9.25.0(@types/react@18.3.27)(react@18.3.1)
       '@fluentui/react-virtualizer':
-        specifier: 9.0.0-alpha.102
+        specifier: 'catalog:'
         version: 9.0.0-alpha.102(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@griffel/react':
-        specifier: 1.5.22
+        specifier: 'catalog:'
         version: 1.5.22(react@18.3.1)
       '@swc/helpers':
-        specifier: 0.5.1
+        specifier: 'catalog:'
         version: 0.5.1
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       react-dom:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@easy-config/eslint-config':
@@ -1224,40 +1680,40 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/react':
-        specifier: ^18.3.27
+        specifier: 'catalog:'
         version: 18.3.27
       '@types/react-dom':
-        specifier: ^18.3.7
+        specifier: 'catalog:'
         version: 18.3.7(@types/react@18.3.27)
       '@vitejs/plugin-react':
-        specifier: ^5.1.2
+        specifier: 'catalog:'
         version: 5.1.2(vite@7.3.0(@types/node@24.10.4)(less@4.5.1)(sass@1.97.1)(stylus@0.62.0)(yaml@2.8.2))
       browserslist:
-        specifier: ^4.28.1
+        specifier: 'catalog:'
         version: 4.28.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       sass:
-        specifier: ^1.97.1
+        specifier: 'catalog:'
         version: 1.97.1
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
       typescript-plugin-css-modules:
-        specifier: ^5.2.0
+        specifier: 'catalog:'
         version: 5.2.0(typescript@5.9.3)
       vite:
-        specifier: ^7.3.0
+        specifier: 'catalog:'
         version: 7.3.0(@types/node@24.10.4)(less@4.5.1)(sass@1.97.1)(stylus@0.62.0)(yaml@2.8.2)
 
   projects/misc-scripts:
@@ -1266,7 +1722,7 @@ importers:
         specifier: workspace:^
         version: link:../../packages/types
       semver:
-        specifier: ^7.7.3
+        specifier: 'catalog:'
         version: 7.7.3
     devDependencies:
       '@easy-config/eslint-config':
@@ -1279,34 +1735,34 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/node':
-        specifier: ^24.10.4
+        specifier: 'catalog:'
         version: 24.10.4
       '@types/semver':
-        specifier: ^7.7.1
+        specifier: 'catalog:'
         version: 7.7.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   projects/performance-js:
     dependencies:
       prompts:
-        specifier: ^2.4.2
+        specifier: 'catalog:'
         version: 2.4.2
       tinybench:
-        specifier: ^6.0.0
+        specifier: 'catalog:'
         version: 6.0.0
     devDependencies:
       '@easy-config/eslint-config':
@@ -1319,25 +1775,25 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@types/node':
-        specifier: ^24.10.4
+        specifier: 'catalog:'
         version: 24.10.4
       '@types/prompts':
-        specifier: ^2.4.9
+        specifier: 'catalog:'
         version: 2.4.9
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   projects/redux-usage-demo:
@@ -1346,13 +1802,13 @@ importers:
         specifier: workspace:^
         version: link:../../packages/helpers-redux
       '@reduxjs/toolkit':
-        specifier: ^2.6.1
+        specifier: 'catalog:'
         version: 2.11.2(react-redux@9.2.0(@types/react@18.3.27)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       react-redux:
-        specifier: ^9.2.0
+        specifier: 'catalog:'
         version: 9.2.0(@types/react@18.3.27)(react@18.3.1)(redux@5.0.1)
     devDependencies:
       '@easy-config/eslint-config':
@@ -1368,34 +1824,34 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       '@testing-library/dom':
-        specifier: ^10.4.1
+        specifier: 'catalog:'
         version: 10.4.1
       concurrently:
-        specifier: ^9.2.1
+        specifier: 'catalog:'
         version: 9.2.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   projects/webapp:
     dependencies:
       '@ant-design/icons':
-        specifier: ^6.1.0
+        specifier: 'catalog:'
         version: 6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@easy-pkg/rc-antd':
         specifier: workspace:^
@@ -1404,25 +1860,25 @@ importers:
         specifier: workspace:^
         version: link:../../packages/utils-browser
       '@rustresult/result':
-        specifier: ^0.6.0
+        specifier: 'catalog:'
         version: 0.6.0
       antd:
-        specifier: 6.0.1
+        specifier: 'catalog:'
         version: 6.0.1(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       react:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1
       react-dom:
-        specifier: ^18.3.1
+        specifier: 'catalog:'
         version: 18.3.1(react@18.3.1)
       react-router:
-        specifier: ^7.11.0
+        specifier: 'catalog:'
         version: 7.11.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       web-vitals:
-        specifier: ^5.1.0
+        specifier: 'catalog:'
         version: 5.1.0
     devDependencies:
       '@easy-config/eslint-config':
@@ -1441,61 +1897,61 @@ importers:
         specifier: workspace:^
         version: link:../../configs/tsconfigs
       '@jest/globals':
-        specifier: ^30.2.0
+        specifier: 'catalog:'
         version: 30.2.0
       '@testing-library/dom':
-        specifier: ^10.4.1
+        specifier: 'catalog:'
         version: 10.4.1
       '@testing-library/jest-dom':
-        specifier: ^6.9.1
+        specifier: 'catalog:'
         version: 6.9.1
       '@testing-library/react':
-        specifier: ^16.3.1
+        specifier: 'catalog:'
         version: 16.3.1(@testing-library/dom@10.4.1)(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/react':
-        specifier: ^18.3.27
+        specifier: 'catalog:'
         version: 18.3.27
       '@types/react-dom':
-        specifier: ^18.3.7
+        specifier: 'catalog:'
         version: 18.3.7(@types/react@18.3.27)
       '@vitejs/plugin-react':
-        specifier: ^5.1.2
+        specifier: 'catalog:'
         version: 5.1.2(vite@7.3.0(@types/node@24.10.4)(less@4.5.1)(sass@1.97.1)(stylus@0.62.0)(yaml@2.8.2))
       browserslist:
-        specifier: ^4.28.1
+        specifier: 'catalog:'
         version: 4.28.1
       cross-env:
-        specifier: ^10.1.0
+        specifier: 'catalog:'
         version: 10.1.0
       eslint:
-        specifier: ^9.39.2
+        specifier: 'catalog:'
         version: 9.39.2
       prettier:
-        specifier: 3.7.4
+        specifier: 'catalog:'
         version: 3.7.4
       rimraf:
-        specifier: ^6.1.2
+        specifier: 'catalog:'
         version: 6.1.2
       sass:
-        specifier: ^1.97.1
+        specifier: 'catalog:'
         version: 1.97.1
       stylelint:
-        specifier: ^16.26.1
+        specifier: 'catalog:'
         version: 16.26.1(typescript@5.9.3)
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
       typescript-plugin-css-modules:
-        specifier: ^5.2.0
+        specifier: 'catalog:'
         version: 5.2.0(typescript@5.9.3)
       vite:
-        specifier: ^7.3.0
+        specifier: 'catalog:'
         version: 7.3.0(@types/node@24.10.4)(less@4.5.1)(sass@1.97.1)(stylus@0.62.0)(yaml@2.8.2)
       vite-plugin-checker:
-        specifier: ^0.12.0
+        specifier: 'catalog:'
         version: 0.12.0(eslint@9.39.2)(meow@13.2.0)(optionator@0.9.4)(stylelint@16.26.1(typescript@5.9.3))(typescript@5.9.3)(vite@7.3.0(@types/node@24.10.4)(less@4.5.1)(sass@1.97.1)(stylus@0.62.0)(yaml@2.8.2))
       vite-tsconfig-paths:
-        specifier: ^6.0.3
+        specifier: 'catalog:'
         version: 6.0.3(typescript@5.9.3)(vite@7.3.0(@types/node@24.10.4)(less@4.5.1)(sass@1.97.1)(stylus@0.62.0)(yaml@2.8.2))
 
 packages:
