@@ -2,6 +2,7 @@
     "name": "@easy-proj/bundlesize-antd",
     "version": "0.0.0",
     "description": "A project detects bundle size of Ant-Design.",
+    "type": "module",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",

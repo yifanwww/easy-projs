@@ -2,6 +2,7 @@
     "name": "@easy-proj/webapp",
     "version": "0.0.0",
     "description": "The website application of easy-projs.",
+    "type": "module",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",

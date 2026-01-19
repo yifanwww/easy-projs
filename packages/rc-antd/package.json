@@ -2,6 +2,7 @@
     "name": "@easy-pkg/rc-antd",
     "version": "0.0.0",
     "description": "React components based on ant-design.",
+    "type": "module",
     "exports": {
         ".": "./lib/index.js"
     },

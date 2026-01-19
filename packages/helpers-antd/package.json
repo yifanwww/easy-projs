@@ -2,6 +2,7 @@
     "name": "@easy-pkg/helpers-antd",
     "version": "0.0.0",
     "description": "ant-design helpers.",
+    "type": "module",
     "exports": {
         ".": "./lib/index.js"
     },
