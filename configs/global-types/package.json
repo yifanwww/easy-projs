@@ -2,6 +2,7 @@
     "name": "@easy-config/global-types",
     "version": "0.0.0",
     "description": "Global type declarations for easy-projs.",
+    "type": "module",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
@@ -16,14 +17,13 @@
     },
     "scripts": {
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
-        "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint .",
-        "lint-fix": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --fix",
+        "lint": "eslint .",
+        "lint-fix": "eslint . --fix",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
-        "cross-env": "catalog:",
         "eslint": "catalog:",
         "prettier": "catalog:",
         "typescript": "catalog:"

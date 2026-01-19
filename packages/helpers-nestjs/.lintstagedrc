@@ -1,3 +1,3 @@
 {
-    "*.{ts,tsx}": ["cross-env ESLINT_USE_FLAT_CONFIG=false eslint --cache"]
+    "*.{ts,tsx}": ["eslint --cache"]
 }

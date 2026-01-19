@@ -60,8 +60,6 @@
 
         // -------------------------------------------------- Extension Settings
 
-        "eslint.useFlatConfig": false,
-
         "stylelint.validate": [
             "css",
             "less",

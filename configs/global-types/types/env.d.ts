@@ -4,7 +4,7 @@ declare namespace NodeJS {
     }
 }
 
-// eslint-disable-next-line vars-on-top, no-var
+// eslint-disable-next-line no-var
 declare var process: {
     env: NodeJS.ProcessEnv;
 };

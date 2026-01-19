@@ -130,7 +130,7 @@ export class ServerLoggerService implements LoggerService {
      */
     log(message: string | ILogObject, context?: string) {
         // eslint-disable-next-line no-param-reassign
-        context = context ?? this._context;
+        context ??= this._context;
 
         const logger = ServerLoggerService.LOGGER;
 
@@ -148,7 +148,7 @@ export class ServerLoggerService implements LoggerService {
      */
     fatal(message: string | ILogObject, context?: string) {
         // eslint-disable-next-line no-param-reassign
-        context = context ?? this._context;
+        context ??= this._context;
 
         const logger = ServerLoggerService.LOGGER;
 
@@ -166,7 +166,7 @@ export class ServerLoggerService implements LoggerService {
      */
     error(message: string | ILogObject | Error, trace?: string, context?: string) {
         // eslint-disable-next-line no-param-reassign
-        context = context ?? this._context;
+        context ??= this._context;
 
         const logger = ServerLoggerService.LOGGER;
 
@@ -190,7 +190,7 @@ export class ServerLoggerService implements LoggerService {
      */
     warn(message: string | ILogObject, context?: string) {
         // eslint-disable-next-line no-param-reassign
-        context = context ?? this._context;
+        context ??= this._context;
 
         const logger = ServerLoggerService.LOGGER;
 
@@ -208,7 +208,7 @@ export class ServerLoggerService implements LoggerService {
      */
     verbose(message: string | ILogObject, context?: string) {
         // eslint-disable-next-line no-param-reassign
-        context = context ?? this._context;
+        context ??= this._context;
 
         const logger = ServerLoggerService.LOGGER;
 
@@ -226,7 +226,7 @@ export class ServerLoggerService implements LoggerService {
      */
     debug(message: string | ILogObject, context?: string) {
         // eslint-disable-next-line no-param-reassign
-        context = context ?? this._context;
+        context ??= this._context;
 
         const logger = ServerLoggerService.LOGGER;
 

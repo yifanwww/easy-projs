@@ -220,7 +220,7 @@ export function FormAppendableList<T>(props: FormAppendableListProps<T>) {
                 <div className={className}>
                     {extraItemsBefore}
 
-                    {(addButtonPosition === undefined || readonly) && fields.map(renderItem)}
+                    {(addButtonPosition === undefined || !!readonly) && fields.map(renderItem)}
                     {addButtonPosition !== undefined && !readonly && (
                         <>
                             {fields.slice(0, addButtonPosition).map(renderItem)}

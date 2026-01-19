@@ -25,8 +25,8 @@
         "clean": "rimraf --glob covarege lib tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build:lib --watch",
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
-        "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint .",
-        "lint-fix": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --fix",
+        "lint": "eslint .",
+        "lint-fix": "eslint . --fix",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
@@ -42,7 +42,6 @@
         "@easy-config/tsconfigs": "workspace:^",
         "@types/react": "catalog:",
         "concurrently": "catalog:",
-        "cross-env": "catalog:",
         "eslint": "catalog:",
         "prettier": "catalog:",
         "rimraf": "catalog:",
