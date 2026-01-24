@@ -149,6 +149,7 @@
         "editor.autoIndent": "advanced",
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.insertSpaces": true,
+        "editor.suggest.insertMode": "replace",
         "editor.tabSize": 2
     },
 
