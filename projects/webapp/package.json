@@ -58,6 +58,7 @@
         "@types/react-dom": "catalog:",
         "@vitejs/plugin-react": "catalog:",
         "browserslist": "catalog:",
+        "browserslist-to-esbuild": "catalog:",
         "cross-env": "catalog:",
         "eslint": "catalog:",
         "prettier": "catalog:",

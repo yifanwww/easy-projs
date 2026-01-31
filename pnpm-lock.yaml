@@ -276,6 +276,9 @@ catalogs:
     browserslist:
       specifier: ^4.28.1
       version: 4.28.1
+    browserslist-to-esbuild:
+      specifier: ^2.1.1
+      version: 2.1.1
     bundlemon:
       specifier: ^3.1.0
       version: 3.1.0
@@ -1381,6 +1384,9 @@ importers:
       browserslist:
         specifier: 'catalog:'
         version: 4.28.1
+      browserslist-to-esbuild:
+        specifier: 'catalog:'
+        version: 2.1.1(browserslist@4.28.1)
       eslint:
         specifier: 'catalog:'
         version: 9.39.2
@@ -1631,6 +1637,9 @@ importers:
       browserslist:
         specifier: 'catalog:'
         version: 4.28.1
+      browserslist-to-esbuild:
+        specifier: 'catalog:'
+        version: 2.1.1(browserslist@4.28.1)
       eslint:
         specifier: 'catalog:'
         version: 9.39.2
@@ -1848,6 +1857,9 @@ importers:
       browserslist:
         specifier: 'catalog:'
         version: 4.28.1
+      browserslist-to-esbuild:
+        specifier: 'catalog:'
+        version: 2.1.1(browserslist@4.28.1)
       cross-env:
         specifier: 'catalog:'
         version: 10.1.0
@@ -4300,6 +4312,13 @@ packages:
   brotli-size@4.0.0:
     resolution: {integrity: sha512-uA9fOtlTRC0iqKfzff1W34DXUA3GyVqbUaeo3Rw3d4gd1eavKVCETXrn3NzO74W+UVkG3UHu8WxUi+XvKI/huA==}
     engines: {node: '>= 10.16.0'}
+
+  browserslist-to-esbuild@2.1.1:
+    resolution: {integrity: sha512-KN+mty6C3e9AN8Z5dI1xeN15ExcRNeISoC3g7V0Kax/MMF9MSoYA2G7lkTTcVUFntiEjkpI0HNgqJC1NjdyNUw==}
+    engines: {node: '>=18'}
+    hasBin: true
+    peerDependencies:
+      browserslist: '*'
 
   browserslist@4.28.1:
     resolution: {integrity: sha512-ZC5Bd0LgJXgwGqUknZY/vkUQ04r8NXnJZ3yYi4vDmSiZmC/pdSN0NbNRPxZpbtO4uAfDUAFffO8IZoM3Gj8IkA==}
@@ -10680,6 +10699,11 @@ snapshots:
   brotli-size@4.0.0:
     dependencies:
       duplexer: 0.1.1
+
+  browserslist-to-esbuild@2.1.1(browserslist@4.28.1):
+    dependencies:
+      browserslist: 4.28.1
+      meow: 13.2.0
 
   browserslist@4.28.1:
     dependencies:

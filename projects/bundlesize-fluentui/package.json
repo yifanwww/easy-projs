@@ -108,6 +108,7 @@
         "@types/react-dom": "catalog:",
         "@vitejs/plugin-react": "catalog:",
         "browserslist": "catalog:",
+        "browserslist-to-esbuild": "catalog:",
         "eslint": "catalog:",
         "prettier": "catalog:",
         "rimraf": "catalog:",
