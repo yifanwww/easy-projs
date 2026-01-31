@@ -3,9 +3,7 @@
     "version": "0.0.0",
     "description": "API definitions.",
     "type": "module",
-    "exports": {
-        ".": "./lib/index.js"
-    },
+    "exports": "./lib/index.js",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",

@@ -3,9 +3,7 @@
     "version": "0.0.0",
     "description": "ESLint configurations for easy-projs.",
     "type": "module",
-    "exports": {
-        ".": "./dist/index.js"
-    },
+    "exports": "./dist/index.js",
     "homepage": "https://github.com/yifanwww/easy-projs#readme",
     "license": "MIT",
     "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
