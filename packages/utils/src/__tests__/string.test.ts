@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { StringUtil } from '../string.js';
 
 describe(`Test static method \`${StringUtil.name}.${StringUtil.isNilOrEmpty.name}\``, () => {

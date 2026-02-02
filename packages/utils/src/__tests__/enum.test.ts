@@ -1,5 +1,4 @@
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
-
 import { EnumUtil } from '../enum.js';
 import { ObjectUtil } from '../object.js';
 

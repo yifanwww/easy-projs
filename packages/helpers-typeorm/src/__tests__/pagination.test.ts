@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { convertPagination, convertServerPagination } from '../pagination.js';
 
 describe(`Test fn \`${convertPagination.name}\``, () => {

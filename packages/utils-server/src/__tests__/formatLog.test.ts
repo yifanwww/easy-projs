@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { formatLog, formatLogFactory } from '../formatLog.js';
 
 describe(`Test fn \`${formatLog.name}\``, () => {

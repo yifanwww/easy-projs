@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { getInitialState } from '../slice.js';
 import { store } from '../store.js';
 

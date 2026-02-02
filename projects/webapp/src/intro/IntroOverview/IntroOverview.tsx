@@ -1,6 +1,5 @@
 import { Button } from 'antd';
 import { useNavigate } from 'react-router';
-
 import { RoutePath } from 'src/router/path';
 
 import css from './IntroOverview.module.scss';

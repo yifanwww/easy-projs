@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { NamePathHelper } from '../namePath';
 
 describe(`Test static method \`${NamePathHelper.name}.${NamePathHelper['_toArray'].name}\``, () => {

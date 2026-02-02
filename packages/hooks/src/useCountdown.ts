@@ -1,6 +1,5 @@
 import type { Integer } from '@easy-pkg/types';
 import { useCallback, useEffect, useRef } from 'react';
-
 import { useForceUpdate } from './useForceUpdate.js';
 import { useInterval } from './useInterval.js';
 

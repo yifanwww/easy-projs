@@ -1,11 +1,10 @@
+import child from 'node:child_process';
 import react from '@vitejs/plugin-react';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
-import child from 'node:child_process';
 import type { UserConfig } from 'vite';
 import { defineConfig } from 'vite';
 import { checker } from 'vite-plugin-checker';
 import tsconfigPaths from 'vite-tsconfig-paths';
-
 import packageJson from './package.json';
 
 // https://vitejs.dev/config/

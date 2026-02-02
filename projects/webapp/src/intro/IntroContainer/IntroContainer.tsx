@@ -1,7 +1,6 @@
 import { ConfigProvider, Layout, Menu, theme } from 'antd';
 import { useMemo } from 'react';
 import { Link, Outlet, useLocation } from 'react-router';
-
 import { RoutePath } from 'src/router/path';
 
 import css from './IntroContainer.module.scss';

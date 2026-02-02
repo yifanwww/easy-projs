@@ -1,6 +1,5 @@
 import type { UnknownFn, VoidReturn } from '@easy-pkg/types';
 import { useCallback } from 'react';
-
 import { useTimeout } from './useTimeout.js';
 
 /**

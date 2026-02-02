@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { SelectHelper } from '../select';
 import type { FieldNames } from '../types';
 

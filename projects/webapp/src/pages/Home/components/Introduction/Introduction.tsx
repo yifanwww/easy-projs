@@ -1,5 +1,4 @@
 import { Link } from 'react-router';
-
 import { Assets } from 'src/assets';
 import { RoutePath } from 'src/router/path';
 

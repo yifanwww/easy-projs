@@ -1,5 +1,4 @@
 import { useCallback, useEffect } from 'react';
-
 import { useConst } from './useConst.js';
 
 export interface UseTimeoutsActions {

@@ -1,5 +1,4 @@
 import { Bench, hrtimeNow } from 'tinybench';
-
 import { formatTinybenchTask } from '../tinybench.js';
 import { formatNum, logEnvironment } from '../utils.js';
 

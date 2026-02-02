@@ -1,8 +1,6 @@
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
-
 import { useDoubleTrigger } from '../useDoubleTrigger.js';
-
 import { validateHookValueNotChanged } from './helpers.js';
 
 const noop = () => {};

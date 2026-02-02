@@ -1,6 +1,5 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import { renderHook } from '@testing-library/react';
-
 import { useLayoutUpdateEffect } from '../useLayoutUpdateEffect.js';
 
 describe(`Test react hook \`${useLayoutUpdateEffect.name}\``, () => {

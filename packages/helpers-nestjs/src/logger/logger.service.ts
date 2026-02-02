@@ -1,9 +1,9 @@
+import path from 'node:path';
 import { ArrayUtil } from '@easy-pkg/utils';
 import type { LoggerService } from '@nestjs/common';
 import { Injectable, Scope } from '@nestjs/common';
 import type { ForegroundColorName } from 'chalk';
 import chalk from 'chalk';
-import path from 'node:path';
 import winston from 'winston';
 import 'winston-daily-rotate-file';
 

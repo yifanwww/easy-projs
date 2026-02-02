@@ -1,6 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
 import { Equals, Validator } from 'class-validator';
-
 import { IsEmptyStringIgnorable, IsUndefinable } from '../decorators.js';
 
 describe(`Test decorator \`${IsUndefinable.name}}\``, () => {

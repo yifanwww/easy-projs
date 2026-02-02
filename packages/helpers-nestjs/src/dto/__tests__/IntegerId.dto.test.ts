@@ -1,7 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import { plainToInstance } from 'class-transformer';
 import { Validator } from 'class-validator';
-
 import { dtoFactory } from '../dtoFactory.js';
 import { IntegerIdBodyDto, IntegerIdParamDto, IntegerIdQueryDto, IntegerIdsBodyDto } from '../IntegerId.dto.js';
 

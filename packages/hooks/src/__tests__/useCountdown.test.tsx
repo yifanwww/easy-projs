@@ -1,9 +1,7 @@
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { act, render } from '@testing-library/react';
 import { useEffect } from 'react';
-
 import { useCountdown } from '../useCountdown.js';
-
 import { validateHookValueNotChanged } from './helpers.js';
 
 describe(`Test react hook \`${useCountdown.name}\``, () => {

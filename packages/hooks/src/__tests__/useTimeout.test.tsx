@@ -1,9 +1,7 @@
 import { afterAll, afterEach, beforeAll, describe, expect, it, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { createRef, forwardRef, useImperativeHandle } from 'react';
-
 import { useTimeout } from '../useTimeout.js';
-
 import { validateHookValueNotChanged } from './helpers.js';
 
 describe(`Test react hook \`${useTimeout.name}\``, () => {

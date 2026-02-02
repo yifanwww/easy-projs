@@ -2,10 +2,8 @@ import type { CanActivate, ExecutionContext } from '@nestjs/common';
 import { Injectable, SetMetadata } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import type { Request } from 'express';
-
 import { checkUserRole, UserRole } from '../role.js';
 import type { AttachedJwtUserPayload } from '../types/request.js';
-
 import { getJwtUserPayload } from './AuthenticationGuard.js';
 import { NO_AUTHENTICATION, REQUIRED_ROLE } from './constants.js';
 

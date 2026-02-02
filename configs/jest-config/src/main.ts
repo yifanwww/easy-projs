@@ -1,8 +1,8 @@
-import chalk from 'chalk';
-import { Command } from 'commander';
 import child from 'node:child_process';
 import path from 'node:path';
 import url from 'node:url';
+import chalk from 'chalk';
+import { Command } from 'commander';
 
 const pkgRoot = path.join(import.meta.dirname, '..');
 const jestBin = path.join(pkgRoot, 'node_modules/.bin/jest');

@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { checkUserRole, UserRole } from '../role.js';
 
 describe(`Test fn \`${checkUserRole.name}\``, () => {

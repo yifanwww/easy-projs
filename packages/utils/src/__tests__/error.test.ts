@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { toError } from '../error.js';
 
 describe(`Test fn \`${toError.name}\``, () => {

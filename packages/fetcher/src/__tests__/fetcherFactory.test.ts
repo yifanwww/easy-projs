@@ -1,5 +1,4 @@
 import { describe, expect, it, jest } from '@jest/globals';
-
 import { fetcherFactory } from '../fetcherFactory.js';
 
 describe(`Test fn \`${fetcherFactory.name}\``, () => {

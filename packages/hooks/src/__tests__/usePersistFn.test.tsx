@@ -2,9 +2,7 @@ import { assert } from '@easy-pkg/utils-browser';
 import { describe, expect, it } from '@jest/globals';
 import { act, render, renderHook } from '@testing-library/react';
 import { useState } from 'react';
-
 import { usePersistFn } from '../usePersistFn.js';
-
 import { validateHookValueNotChanged } from './helpers.js';
 
 describe(`Test react hook \`${usePersistFn.name}\``, () => {

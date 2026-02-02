@@ -1,6 +1,5 @@
 import { createParamDecorator, type ExecutionContext } from '@nestjs/common';
 import type { Request } from 'express';
-
 import { getJwtUserPayload } from './guards/AuthenticationGuard.js';
 import { type AttachedJwtUserPayload } from './types/request.js';
 

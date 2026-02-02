@@ -1,8 +1,6 @@
 import { afterAll, beforeAll, describe, expect, it, jest } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
-
 import { useDelayFn } from '../useDelayFn.js';
-
 import { validateHookValueNotChanged } from './helpers.js';
 
 const noop = () => {};

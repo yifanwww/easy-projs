@@ -1,6 +1,5 @@
-import type { Config } from 'jest';
 import url from 'node:url';
-
+import type { Config } from 'jest';
 import config from './jest.config.node-esm.js';
 
 const resolve = (p: string) => url.fileURLToPath(import.meta.resolve(p));

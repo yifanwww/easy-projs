@@ -1,5 +1,4 @@
 import { DemoLayout } from '../../components/DemoLayout';
-
 import { BasicDemo } from './BasicDemo';
 import { BorderedDemo } from './BorderedDemo';
 import { ComplexTableDemo } from './ComplexTableDemo';

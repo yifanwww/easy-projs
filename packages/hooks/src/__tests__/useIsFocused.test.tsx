@@ -1,7 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import { fireEvent, render } from '@testing-library/react';
 import { useRef } from 'react';
-
 import { useIsFocused } from '../useIsFocused.js';
 
 describe(`Test react hook \`${useIsFocused.name}\``, () => {

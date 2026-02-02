@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { createClassJestHelper } from '../class.js';
 
 describe(`Test fn \`${createClassJestHelper.name}\``, () => {

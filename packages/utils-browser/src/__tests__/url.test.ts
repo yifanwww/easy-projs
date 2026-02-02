@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { buildQueryURL } from '../url.js';
 
 describe(`Test fn \`${buildQueryURL.name}\``, () => {

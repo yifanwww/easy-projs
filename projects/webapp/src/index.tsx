@@ -1,7 +1,6 @@
 import { assert } from '@easy-pkg/utils-browser';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-
 import { App } from './app';
 import { reportWebVitals } from './reportWebVitals';
 

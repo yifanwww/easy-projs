@@ -1,6 +1,5 @@
-import { describe, expect, it, jest } from '@jest/globals';
 import crypto from 'node:crypto';
-
+import { describe, expect, it, jest } from '@jest/globals';
 import { hashPassword, verifyPassword } from '../password.js';
 
 describe(`Test fn \`${hashPassword.name}\``, () => {

@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-
 import { ServerLoggerService } from './logger.service.js';
 
 @Module({

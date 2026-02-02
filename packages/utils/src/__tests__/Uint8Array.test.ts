@@ -1,5 +1,4 @@
 import { describe, expect, it } from '@jest/globals';
-
 import { Uint8ArrayUtil } from '../Uint8Array.js';
 
 describe(`Test static method \`${Uint8ArrayUtil.name}.${Uint8ArrayUtil.merge.name}\``, () => {

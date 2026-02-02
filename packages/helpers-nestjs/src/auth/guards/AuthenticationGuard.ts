@@ -1,14 +1,12 @@
+import assert from 'node:assert';
 import type { CanActivate, ExecutionContext } from '@nestjs/common';
 import { Injectable, SetMetadata, UnauthorizedException } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import type { Request } from 'express';
-import assert from 'node:assert';
-
 import { AUTH_ACCESS_TOKEN_KEY } from '../constants.js';
 import type { JwtUserPayload } from '../types/jwt.js';
 import type { AttachedJwtUserPayload } from '../types/request.js';
-
 import { NO_AUTHENTICATION, USER_PROPERTY_KEY } from './constants.js';
 
 @Injectable()

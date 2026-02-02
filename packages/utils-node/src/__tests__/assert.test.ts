@@ -1,6 +1,5 @@
-import { describe, expect, it } from '@jest/globals';
 import { AssertionError } from 'node:assert';
-
+import { describe, expect, it } from '@jest/globals';
 import { assertIsDefined, assertIsNever } from '../assert.js';
 
 function getThrowedError(fn: () => void) {
