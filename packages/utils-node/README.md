@@ -1,4 +1,4 @@
-# @easy-pkg/utils-node
+# @easy-lib/utils-node
 
 A package that contains node utilities.
 

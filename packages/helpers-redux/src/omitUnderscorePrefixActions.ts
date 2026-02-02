@@ -1,4 +1,4 @@
-import type { UnknownFn, OmitUnderscorePrefix } from '@easy-pkg/types';
+import type { UnknownFn, OmitUnderscorePrefix } from '@easy-lib/types';
 import type { ReduxActions } from './types.js';
 
 export function omitUnderscorePrefixActions<T extends ReduxActions>(internalActions: T): OmitUnderscorePrefix<T> {

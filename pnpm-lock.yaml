@@ -677,7 +677,7 @@ importers:
 
   packages/fetcher:
     dependencies:
-      '@easy-pkg/utils-browser':
+      '@easy-lib/utils-browser':
         specifier: workspace:^
         version: link:../utils-browser
       '@rustresult/result':
@@ -760,7 +760,7 @@ importers:
 
   packages/helpers-class-validator:
     dependencies:
-      '@easy-pkg/types':
+      '@easy-lib/types':
         specifier: workspace:^
         version: link:../types
       class-validator:
@@ -800,13 +800,13 @@ importers:
 
   packages/helpers-nestjs:
     dependencies:
-      '@easy-pkg/apis':
+      '@easy-lib/apis':
         specifier: workspace:^
         version: link:../apis
-      '@easy-pkg/helpers-class-validator':
+      '@easy-lib/helpers-class-validator':
         specifier: workspace:^
         version: link:../helpers-class-validator
-      '@easy-pkg/utils':
+      '@easy-lib/utils':
         specifier: workspace:^
         version: link:../utils
       '@nestjs/common':
@@ -876,7 +876,7 @@ importers:
 
   packages/helpers-redux:
     dependencies:
-      '@easy-pkg/types':
+      '@easy-lib/types':
         specifier: workspace:^
         version: link:../types
       '@reduxjs/toolkit':
@@ -962,10 +962,10 @@ importers:
 
   packages/hooks:
     dependencies:
-      '@easy-pkg/types':
+      '@easy-lib/types':
         specifier: workspace:^
         version: link:../types
-      '@easy-pkg/utils-browser':
+      '@easy-lib/utils-browser':
         specifier: workspace:^
         version: link:../utils-browser
       react:
@@ -987,7 +987,7 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:^
         version: link:../../configs/tsconfigs
-      '@easy-pkg/utils-test':
+      '@easy-lib/utils-test':
         specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
@@ -1035,7 +1035,7 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:^
         version: link:../../configs/tsconfigs
-      '@easy-pkg/utils-test':
+      '@easy-lib/utils-test':
         specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
@@ -1065,10 +1065,10 @@ importers:
       '@ant-design/icons':
         specifier: 'catalog:'
         version: 6.1.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@easy-pkg/types':
+      '@easy-lib/types':
         specifier: workspace:^
         version: link:../types
-      '@easy-pkg/utils':
+      '@easy-lib/utils':
         specifier: workspace:^
         version: link:../utils
       antd:
@@ -1156,7 +1156,7 @@ importers:
 
   packages/utils:
     dependencies:
-      '@easy-pkg/types':
+      '@easy-lib/types':
         specifier: workspace:^
         version: link:../types
     devDependencies:
@@ -1205,7 +1205,7 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:^
         version: link:../../configs/tsconfigs
-      '@easy-pkg/utils-test':
+      '@easy-lib/utils-test':
         specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
@@ -1241,7 +1241,7 @@ importers:
       '@easy-config/tsconfigs':
         specifier: workspace:^
         version: link:../../configs/tsconfigs
-      '@easy-pkg/utils-test':
+      '@easy-lib/utils-test':
         specifier: workspace:^
         version: link:../utils-test
       '@jest/globals':
@@ -1301,7 +1301,7 @@ importers:
 
   packages/utils-test:
     dependencies:
-      '@easy-pkg/types':
+      '@easy-lib/types':
         specifier: workspace:^
         version: link:../types
       '@jest/globals':
@@ -1664,7 +1664,7 @@ importers:
 
   projects/misc-scripts:
     dependencies:
-      '@easy-pkg/types':
+      '@easy-lib/types':
         specifier: workspace:^
         version: link:../../packages/types
       semver:
@@ -1738,7 +1738,7 @@ importers:
 
   projects/redux-usage-demo:
     dependencies:
-      '@easy-pkg/helpers-redux':
+      '@easy-lib/helpers-redux':
         specifier: workspace:^
         version: link:../../packages/helpers-redux
       '@reduxjs/toolkit':
@@ -1790,10 +1790,10 @@ importers:
       '@ant-design/icons':
         specifier: 'catalog:'
         version: 6.1.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      '@easy-pkg/rc-antd':
+      '@easy-lib/rc-antd':
         specifier: workspace:^
         version: link:../../packages/rc-antd
-      '@easy-pkg/utils-browser':
+      '@easy-lib/utils-browser':
         specifier: workspace:^
         version: link:../../packages/utils-browser
       '@rustresult/result':

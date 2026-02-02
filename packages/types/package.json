@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/types",
+    "name": "@easy-lib/types",
     "version": "0.0.0",
     "description": "Types library.",
     "type": "module",

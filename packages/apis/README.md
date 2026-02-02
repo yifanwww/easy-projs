@@ -1,1 +1,1 @@
-# @easy-pkg/apis
+# @easy-lib/apis

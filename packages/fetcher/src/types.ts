@@ -1,4 +1,4 @@
-import type { QueryURLParamsInit } from '@easy-pkg/utils-browser';
+import type { QueryURLParamsInit } from '@easy-lib/utils-browser';
 
 type Method =
     | 'get'

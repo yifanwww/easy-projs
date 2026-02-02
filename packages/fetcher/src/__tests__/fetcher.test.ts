@@ -1,4 +1,4 @@
-import { assert } from '@easy-pkg/utils-browser';
+import { assert } from '@easy-lib/utils-browser';
 import { describe, expect, it, jest } from '@jest/globals';
 import { ErrAsync, OkAsync } from '@rustresult/result';
 import { fetcherFactory } from '../fetcherFactory.js';

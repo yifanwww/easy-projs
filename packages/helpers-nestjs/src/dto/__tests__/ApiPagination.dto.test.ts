@@ -1,4 +1,4 @@
-import type { ApiPagination } from '@easy-pkg/apis';
+import type { ApiPagination } from '@easy-lib/apis';
 import { describe, expect, it } from '@jest/globals';
 import { plainToInstance } from 'class-transformer';
 import { Validator } from 'class-validator';

@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/utils-server",
+    "name": "@easy-lib/utils-server",
     "version": "0.0.0",
     "description": "Node.js server utils.",
     "type": "module",

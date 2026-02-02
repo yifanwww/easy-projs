@@ -1,5 +1,5 @@
-import type { FormAppendableListItemProps } from '@easy-pkg/rc-antd';
-import { FormAppendableList } from '@easy-pkg/rc-antd';
+import type { FormAppendableListItemProps } from '@easy-lib/rc-antd';
+import { FormAppendableList } from '@easy-lib/rc-antd';
 import { Form, Input } from 'antd';
 
 export function BasicDemo() {

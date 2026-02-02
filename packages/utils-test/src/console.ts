@@ -1,4 +1,4 @@
-import type { UnknownFn } from '@easy-pkg/types';
+import type { UnknownFn } from '@easy-lib/types';
 import { expect, jest } from '@jest/globals';
 import type { ConditionalKeys } from 'type-fest';
 

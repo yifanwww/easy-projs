@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/utils-test",
+    "name": "@easy-lib/utils-test",
     "version": "0.0.0",
     "description": "Unit test utilities.",
     "type": "module",
@@ -30,7 +30,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/types": "workspace:^",
+        "@easy-lib/types": "workspace:^",
         "@jest/globals": "catalog:",
         "@testing-library/dom": "catalog:",
         "@testing-library/react": "catalog:",

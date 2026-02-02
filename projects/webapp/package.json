@@ -34,8 +34,8 @@
     },
     "dependencies": {
         "@ant-design/icons": "catalog:",
-        "@easy-pkg/rc-antd": "workspace:^",
-        "@easy-pkg/utils-browser": "workspace:^",
+        "@easy-lib/rc-antd": "workspace:^",
+        "@easy-lib/utils-browser": "workspace:^",
         "@rustresult/result": "catalog:",
         "antd": "catalog:",
         "clsx": "catalog:",

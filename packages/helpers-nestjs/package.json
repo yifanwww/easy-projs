@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/helpers-nestjs",
+    "name": "@easy-lib/helpers-nestjs",
     "version": "0.0.0",
     "description": "Nest.js helpers.",
     "type": "module",
@@ -30,9 +30,9 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/apis": "workspace:^",
-        "@easy-pkg/helpers-class-validator": "workspace:^",
-        "@easy-pkg/utils": "workspace:^",
+        "@easy-lib/apis": "workspace:^",
+        "@easy-lib/helpers-class-validator": "workspace:^",
+        "@easy-lib/utils": "workspace:^",
         "@nestjs/common": "catalog:",
         "@nestjs/core": "catalog:",
         "@nestjs/jwt": "catalog:",

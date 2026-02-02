@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/helpers-redux",
+    "name": "@easy-lib/helpers-redux",
     "version": "0.0.0",
     "description": "Redux helpers.",
     "type": "module",
@@ -28,7 +28,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/types": "workspace:^",
+        "@easy-lib/types": "workspace:^",
         "@reduxjs/toolkit": "catalog:",
         "immer": "catalog:",
         "react": "catalog:",

@@ -1,4 +1,4 @@
-# @easy-pkg/helpers-class-validator
+# @easy-lib/helpers-class-validator
 
 A package that contains class-validator helpers.
 

@@ -1,6 +1,6 @@
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import type { FormAppendableListItemProps } from '@easy-pkg/rc-antd';
-import { FormAppendableList } from '@easy-pkg/rc-antd';
+import type { FormAppendableListItemProps } from '@easy-lib/rc-antd';
+import { FormAppendableList } from '@easy-lib/rc-antd';
 import { resultifyAsync } from '@rustresult/result';
 import { Button, ConfigProvider, Flex, Form, Input, Modal, Popconfirm, Select, type FormListOperation } from 'antd';
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';

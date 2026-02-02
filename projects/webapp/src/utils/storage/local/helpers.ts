@@ -1,5 +1,5 @@
-import type { StorageKey } from '@easy-pkg/utils-browser';
-import { createStorageLoader, createStorageRemover, createStorageSaver } from '@easy-pkg/utils-browser';
+import type { StorageKey } from '@easy-lib/utils-browser';
+import { createStorageLoader, createStorageRemover, createStorageSaver } from '@easy-lib/utils-browser';
 
 export const loadLocalStorageValue = createStorageLoader(window.localStorage);
 export const saveLocalStorageValue = createStorageSaver(window.localStorage);

@@ -1,1 +1,1 @@
-# @easy-pkg/fetcher
+# @easy-lib/fetcher

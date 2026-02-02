@@ -1,4 +1,4 @@
-import { buildQueryURL } from '@easy-pkg/utils-browser';
+import { buildQueryURL } from '@easy-lib/utils-browser';
 import type { Result, ResultAsync } from '@rustresult/result';
 import { Err, Ok, fromPromiseableResult, resultifyAsync } from '@rustresult/result';
 import type { FetchFactoryOptions, FetchOptions, FetchResponse } from './types.js';

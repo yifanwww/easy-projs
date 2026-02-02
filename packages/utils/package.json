@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/utils",
+    "name": "@easy-lib/utils",
     "version": "0.0.0",
     "description": "JavaScript utilities.",
     "type": "module",
@@ -30,7 +30,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/types": "workspace:^"
+        "@easy-lib/types": "workspace:^"
     },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:^",

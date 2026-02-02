@@ -1,5 +1,5 @@
 import { DeleteOutlined } from '@ant-design/icons';
-import { FormAppendableTable } from '@easy-pkg/rc-antd';
+import { FormAppendableTable } from '@easy-lib/rc-antd';
 import { Button, Form, InputNumber } from 'antd';
 
 interface StepConfig {

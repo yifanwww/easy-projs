@@ -1,4 +1,4 @@
-import { FormAppendableTable } from '@easy-pkg/rc-antd';
+import { FormAppendableTable } from '@easy-lib/rc-antd';
 import { Form, Input, Select } from 'antd';
 
 export function BasicDemo() {

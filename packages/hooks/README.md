@@ -1,4 +1,4 @@
-# @easy-pkg/hooks
+# @easy-lib/hooks
 
 Some useful React hooks.
 
@@ -13,7 +13,7 @@ It's very easy to use these custom React hooks.
 Here is an example about how to use hook `useIsHovered`.
 
 ```tsx
-import { useIsHovered } from '@easy-pkg/hooks';
+import { useIsHovered } from '@easy-lib/hooks';
 
 export function Component(): React.ReactNode {
     const ref = useRef<SubComponent>(null);

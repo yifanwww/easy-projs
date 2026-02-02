@@ -1,4 +1,4 @@
-# @easy-pkg/helpers-antd
+# @easy-lib/helpers-antd
 
 A package that contains React components based on ant-design.
 

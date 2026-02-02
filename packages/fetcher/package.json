@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/fetcher",
+    "name": "@easy-lib/fetcher",
     "version": "0.0.0",
     "description": "A simple fetcher implementation.",
     "type": "module",
@@ -30,7 +30,7 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/utils-browser": "workspace:^",
+        "@easy-lib/utils-browser": "workspace:^",
         "@rustresult/result": "catalog:"
     },
     "devDependencies": {

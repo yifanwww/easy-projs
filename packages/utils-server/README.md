@@ -1,4 +1,4 @@
-# @easy-pkg/utils-server
+# @easy-lib/utils-server
 
 A package that contains server utils.
 

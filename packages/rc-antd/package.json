@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/rc-antd",
+    "name": "@easy-lib/rc-antd",
     "version": "0.0.0",
     "description": "React components based on ant-design.",
     "type": "module",
@@ -30,8 +30,8 @@
     },
     "dependencies": {
         "@ant-design/icons": "catalog:",
-        "@easy-pkg/types": "workspace:^",
-        "@easy-pkg/utils": "workspace:^",
+        "@easy-lib/types": "workspace:^",
+        "@easy-lib/utils": "workspace:^",
         "antd": "catalog:",
         "react": "catalog:",
         "react-is": "catalog:",

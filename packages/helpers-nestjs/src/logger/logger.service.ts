@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { ArrayUtil } from '@easy-pkg/utils';
+import { ArrayUtil } from '@easy-lib/utils';
 import type { LoggerService } from '@nestjs/common';
 import { Injectable, Scope } from '@nestjs/common';
 import type { ForegroundColorName } from 'chalk';

@@ -1,4 +1,4 @@
-import type { ReduxReducer } from '@easy-pkg/helpers-redux';
+import type { ReduxReducer } from '@easy-lib/helpers-redux';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface StoreState {}

@@ -1,5 +1,5 @@
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
-import { ArrayUtil } from '@easy-pkg/utils';
+import { ArrayUtil } from '@easy-lib/utils';
 import type { FormListFieldData, TableColumnType, TooltipProps } from 'antd';
 import { Button, ConfigProvider, Form, Table, theme, Tooltip } from 'antd';
 import type { FormListOperation, FormListProps } from 'antd/es/form';

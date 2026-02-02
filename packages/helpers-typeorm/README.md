@@ -1,4 +1,4 @@
-# @easy-pkg/helpers-typeorm
+# @easy-lib/helpers-typeorm
 
 A package that contains TypeORM helpers.
 

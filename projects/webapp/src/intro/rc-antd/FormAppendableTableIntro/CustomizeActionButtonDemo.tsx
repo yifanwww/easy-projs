@@ -1,5 +1,5 @@
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import { FormAppendableTable } from '@easy-pkg/rc-antd';
+import { FormAppendableTable } from '@easy-lib/rc-antd';
 import { resultifyAsync } from '@rustresult/result';
 import { Button, Form, Input, Modal, Popconfirm, Select, type FormListOperation } from 'antd';
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';

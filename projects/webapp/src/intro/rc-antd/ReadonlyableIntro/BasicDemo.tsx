@@ -1,4 +1,4 @@
-import { Readonlyable } from '@easy-pkg/rc-antd';
+import { Readonlyable } from '@easy-lib/rc-antd';
 import { Button, Flex } from 'antd';
 import { useState } from 'react';
 

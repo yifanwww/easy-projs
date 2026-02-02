@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/utils-node",
+    "name": "@easy-lib/utils-node",
     "version": "0.0.0",
     "description": "Node utilities.",
     "type": "module",
@@ -34,7 +34,7 @@
         "@easy-config/global-types": "workspace:^",
         "@easy-config/jest-config": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
-        "@easy-pkg/utils-test": "workspace:^",
+        "@easy-lib/utils-test": "workspace:^",
         "@jest/globals": "catalog:",
         "@types/node": "catalog:",
         "concurrently": "catalog:",

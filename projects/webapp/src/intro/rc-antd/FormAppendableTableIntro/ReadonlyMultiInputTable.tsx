@@ -1,5 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-import type { FormAppendableTableItem } from '@easy-pkg/rc-antd';
+import type { FormAppendableTableItem } from '@easy-lib/rc-antd';
 import { resultifyAsync } from '@rustresult/result';
 import { Button, Form, Input, Modal, Select, type FormListOperation, type TableColumnType } from 'antd';
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';

@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/random-string",
+    "name": "@easy-lib/random-string",
     "version": "0.0.0",
     "description": "A package to generate random strings.",
     "type": "module",
@@ -35,7 +35,7 @@
         "@easy-config/global-types": "workspace:^",
         "@easy-config/jest-config": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
-        "@easy-pkg/utils-test": "workspace:^",
+        "@easy-lib/utils-test": "workspace:^",
         "@jest/globals": "catalog:",
         "@types/node": "catalog:",
         "concurrently": "catalog:",

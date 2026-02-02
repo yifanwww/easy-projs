@@ -1,4 +1,4 @@
-import { FormAppendableTable } from '@easy-pkg/rc-antd';
+import { FormAppendableTable } from '@easy-lib/rc-antd';
 import { Flex, Form, Input, Radio, Select } from 'antd';
 import { useState } from 'react';
 

@@ -1,4 +1,4 @@
-# @easy-pkg/helpers-antd
+# @easy-lib/helpers-antd
 
 A package that contains Ant-Design helpers.
 

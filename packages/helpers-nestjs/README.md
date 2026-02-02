@@ -1,4 +1,4 @@
-# @easy-pkg/helpers-nestjs
+# @easy-lib/helpers-nestjs
 
 A package that contains Nest.js helpers.
 

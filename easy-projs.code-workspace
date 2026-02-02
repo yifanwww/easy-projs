@@ -77,22 +77,22 @@
 
         // packages
 
-        { "name": "@easy-pkg/apis", "path": "packages/apis" },
-        { "name": "@easy-pkg/fetcher", "path": "packages/fetcher" },
-        { "name": "@easy-pkg/helpers-antd", "path": "packages/helpers-antd" },
-        { "name": "@easy-pkg/helpers-class-validator", "path": "packages/helpers-class-validator" },
-        { "name": "@easy-pkg/helpers-nestjs", "path": "packages/helpers-nestjs" },
-        { "name": "@easy-pkg/helpers-redux", "path": "packages/helpers-redux" },
-        { "name": "@easy-pkg/helpers-typeorm", "path": "packages/helpers-typeorm" },
-        { "name": "@easy-pkg/hooks", "path": "packages/hooks" },
-        { "name": "@easy-pkg/random-string", "path": "packages/random-string" },
-        { "name": "@easy-pkg/rc-antd", "path": "packages/rc-antd" },
-        { "name": "@easy-pkg/types", "path": "packages/types" },
-        { "name": "@easy-pkg/utils", "path": "packages/utils" },
-        { "name": "@easy-pkg/utils-browser", "path": "packages/utils-browser" },
-        { "name": "@easy-pkg/utils-node", "path": "packages/utils-node" },
-        { "name": "@easy-pkg/utils-server", "path": "packages/utils-server" },
-        { "name": "@easy-pkg/utils-test", "path": "packages/utils-test" },
+        { "name": "@easy-lib/apis", "path": "packages/apis" },
+        { "name": "@easy-lib/fetcher", "path": "packages/fetcher" },
+        { "name": "@easy-lib/helpers-antd", "path": "packages/helpers-antd" },
+        { "name": "@easy-lib/helpers-class-validator", "path": "packages/helpers-class-validator" },
+        { "name": "@easy-lib/helpers-nestjs", "path": "packages/helpers-nestjs" },
+        { "name": "@easy-lib/helpers-redux", "path": "packages/helpers-redux" },
+        { "name": "@easy-lib/helpers-typeorm", "path": "packages/helpers-typeorm" },
+        { "name": "@easy-lib/hooks", "path": "packages/hooks" },
+        { "name": "@easy-lib/random-string", "path": "packages/random-string" },
+        { "name": "@easy-lib/rc-antd", "path": "packages/rc-antd" },
+        { "name": "@easy-lib/types", "path": "packages/types" },
+        { "name": "@easy-lib/utils", "path": "packages/utils" },
+        { "name": "@easy-lib/utils-browser", "path": "packages/utils-browser" },
+        { "name": "@easy-lib/utils-node", "path": "packages/utils-node" },
+        { "name": "@easy-lib/utils-server", "path": "packages/utils-server" },
+        { "name": "@easy-lib/utils-test", "path": "packages/utils-test" },
 
         // projects
 

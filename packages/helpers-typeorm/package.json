@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/helpers-typeorm",
+    "name": "@easy-lib/helpers-typeorm",
     "version": "0.0.0",
     "description": "TypeORM helpers.",
     "type": "module",

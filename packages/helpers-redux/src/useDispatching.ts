@@ -1,4 +1,4 @@
-import type { AnyFn, UnknownFn } from '@easy-pkg/types';
+import type { AnyFn, UnknownFn } from '@easy-lib/types';
 import { useMemo, useRef } from 'react';
 import { shallowEqual, useDispatch } from 'react-redux';
 import type { ReduxActions, DispatchingActions, DispatchingThunks, ReduxThunks } from './types.js';

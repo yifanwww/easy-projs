@@ -1,4 +1,4 @@
-import { mockConsoleToMatchSnapshot } from '@easy-pkg/utils-test';
+import { mockConsoleToMatchSnapshot } from '@easy-lib/utils-test';
 import { beforeEach, describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { useWhyDidYouUpdate } from '../useWhyDidYouUpdate.js';

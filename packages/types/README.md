@@ -1,4 +1,4 @@
-# @easy-pkg/types
+# @easy-lib/types
 
 Types library.
 

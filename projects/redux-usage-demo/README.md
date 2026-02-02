@@ -1,3 +1,3 @@
-# @easy-pkg/redex-usage-demo
+# @easy-lib/redex-usage-demo
 
 Redux helpers usage demo.

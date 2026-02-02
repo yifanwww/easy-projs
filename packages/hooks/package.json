@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/hooks",
+    "name": "@easy-lib/hooks",
     "version": "0.0.0",
     "description": "React hooks.",
     "type": "module",
@@ -30,8 +30,8 @@
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
-        "@easy-pkg/types": "workspace:^",
-        "@easy-pkg/utils-browser": "workspace:^",
+        "@easy-lib/types": "workspace:^",
+        "@easy-lib/utils-browser": "workspace:^",
         "react": "catalog:",
         "react-use": "catalog:"
     },
@@ -40,7 +40,7 @@
         "@easy-config/global-types": "workspace:^",
         "@easy-config/jest-config": "workspace:^",
         "@easy-config/tsconfigs": "workspace:^",
-        "@easy-pkg/utils-test": "workspace:^",
+        "@easy-lib/utils-test": "workspace:^",
         "@jest/globals": "catalog:",
         "@testing-library/dom": "catalog:",
         "@testing-library/react": "catalog:",

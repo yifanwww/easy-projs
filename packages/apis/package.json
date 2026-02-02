@@ -1,5 +1,5 @@
 {
-    "name": "@easy-pkg/apis",
+    "name": "@easy-lib/apis",
     "version": "0.0.0",
     "description": "API definitions.",
     "type": "module",

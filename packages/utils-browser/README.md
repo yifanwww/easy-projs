@@ -1,4 +1,4 @@
-# @easy-pkg/utils-browser
+# @easy-lib/utils-browser
 
 A package that contains browser utilities.
 

@@ -1,3 +1,3 @@
-import type { StorageKey } from '@easy-pkg/utils-browser';
+import type { StorageKey } from '@easy-lib/utils-browser';
 
 export const LocalStorageKey = {} satisfies Record<string, StorageKey>;

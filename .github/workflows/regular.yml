@@ -58,6 +58,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build configs
+        run: pnpm run build-configs
+
       - name: Build libs
         run: pnpm run build-libs
 
@@ -88,6 +91,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build configs
+        run: pnpm run build-configs
 
       - name: Build libs
         run: pnpm run build-libs

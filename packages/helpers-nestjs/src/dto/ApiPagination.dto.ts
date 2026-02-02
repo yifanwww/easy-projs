@@ -1,5 +1,5 @@
-import type { ApiPagination } from '@easy-pkg/apis';
-import { IsUndefinable } from '@easy-pkg/helpers-class-validator';
+import type { ApiPagination } from '@easy-lib/apis';
+import { IsUndefinable } from '@easy-lib/helpers-class-validator';
 import { Transform } from 'class-transformer';
 import { IsInt, IsPositive } from 'class-validator';
 
