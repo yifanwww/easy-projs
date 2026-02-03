@@ -2,23 +2,19 @@ import { ConfigProvider, Layout, Menu, theme } from 'antd';
 import { useMemo } from 'react';
 import { Link, Outlet, useLocation } from 'react-router';
 import { RoutePath } from 'src/router/path';
+import { IntroConfigs } from '../config';
 
-import css from './IntroContainer.module.scss';
+import css from './IntroContainer.module.css';
 
 const menuItems = [
     {
         key: RoutePath.INTRO,
-        label: <Link to={RoutePath.INTRO}>Component Overview</Link>,
+        label: <Link to={RoutePath.INTRO}>Components Overview</Link>,
     },
-    {
-        key: RoutePath.INTRO_ANTD_FORM_APPENDABLE_LIST,
-        label: <Link to={RoutePath.INTRO_ANTD_FORM_APPENDABLE_LIST}>FormAppendableList</Link>,
-    },
-    {
-        key: RoutePath.INTRO_ANTD_FORM_APPENDABLE_TABLE,
-        label: <Link to={RoutePath.INTRO_ANTD_FORM_APPENDABLE_TABLE}>FormAppendableTable</Link>,
-    },
-    { key: RoutePath.INTRO_ANTD_READONLYABLE, label: <Link to={RoutePath.INTRO_ANTD_READONLYABLE}>Readonlyable</Link> },
+    ...Object.values(IntroConfigs).map((item) => ({
+        key: item.url,
+        label: <Link to={item.url}>{item.label}</Link>,
+    })),
 ];
 
 function IntroContainerCore() {
@@ -32,7 +28,7 @@ function IntroContainerCore() {
 
     return (
         <Layout>
-            <Layout.Sider width={192} className={css.sider}>
+            <Layout.Sider width={216} className={css.sider}>
                 <Menu
                     items={menuItems}
                     selectedKeys={selectedKeys}
@@ -40,7 +36,7 @@ function IntroContainerCore() {
                     style={{ height: '100%', borderRight: 0 }}
                 />
             </Layout.Sider>
-            <Layout className={css['content-container']}>
+            <Layout>
                 <Layout.Content className={css.content} style={{ background: colorBgContainer }}>
                     <Outlet />
                 </Layout.Content>

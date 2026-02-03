@@ -1,0 +1,45 @@
+.demos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.demoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.demoHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.demoTitle {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: rgb(0 0 0 / 88%);
+}
+
+.demoDescription {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.57;
+    color: rgb(0 0 0 / 65%);
+}
+
+.demoContent {
+    padding: 20px;
+    background-color: rgb(255 255 255);
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.demoContent:hover {
+    border-color: #e0e0e0;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+}

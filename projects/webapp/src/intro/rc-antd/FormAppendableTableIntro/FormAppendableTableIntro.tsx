@@ -1,4 +1,6 @@
-import { DemoLayout } from '../../components/DemoLayout';
+import { DemoGrid } from 'src/intro/components/DemoGrid';
+import { PageHeader } from 'src/intro/components/PageHeader';
+import { IntroConfigs } from 'src/intro/config';
 import { BasicDemo } from './BasicDemo';
 import { BorderedDemo } from './BorderedDemo';
 import { ComplexTableDemo } from './ComplexTableDemo';
@@ -6,41 +8,40 @@ import { CountLimitDemo } from './CountLimitDemo';
 import { CustomizeActionButtonDemo } from './CustomizeActionButtonDemo';
 import { CustomizeAddButtonTextDemo } from './CustomizeAddButtonTextDemo';
 import { DisabledDemo } from './DisabledDemo';
-import { ReadonlyDemo } from './ReadableDemo';
+import { ReadonlyDemo } from './ReadonlyDemo';
 import { SizeDemo } from './SizeDemo';
+
+import css from './FormAppendableTableIntro.module.css';
+
+const DEMOS = [
+    { title: 'Basic', description: 'Simple table with default add/remove actions', component: BasicDemo },
+    { title: 'Bordered', description: 'Table with borders around cells', component: BorderedDemo },
+    { title: 'Disabled', description: 'Disabled state preventing modifications', component: DisabledDemo },
+    { title: 'Readonly', description: 'Read-only table with no action buttons', component: ReadonlyDemo },
+    { title: 'Size', description: 'Different size variations for table layout', component: SizeDemo },
+    { title: 'Count Limit', description: 'Table with maximum row count restriction', component: CountLimitDemo },
+    {
+        title: 'Customize Add Button Text',
+        description: 'Custom text for the add button',
+        component: CustomizeAddButtonTextDemo,
+    },
+    {
+        title: 'Customize Action Button',
+        description: 'Custom action buttons for add/remove',
+        component: CustomizeActionButtonDemo,
+    },
+    {
+        title: 'Complex Table',
+        description: 'Advanced table with multiple columns and validations',
+        component: ComplexTableDemo,
+    },
+];
 
 export function FormAppendableTableIntro() {
     return (
-        <DemoLayout>
-            <h1>FormAppendableTable</h1>
-            <h2>Examples</h2>
-
-            <h3>Basic</h3>
-            <BasicDemo />
-
-            <h3>Bordered</h3>
-            <BorderedDemo />
-
-            <h3>Disabled</h3>
-            <DisabledDemo />
-
-            <h3>Readonly</h3>
-            <ReadonlyDemo />
-
-            <h3>Size</h3>
-            <SizeDemo />
-
-            <h3>Count Limit</h3>
-            <CountLimitDemo />
-
-            <h3>Customize Add Button Text</h3>
-            <CustomizeAddButtonTextDemo />
-
-            <h3>Customize Action Button</h3>
-            <CustomizeActionButtonDemo />
-
-            <h3>Complex Table</h3>
-            <ComplexTableDemo />
-        </DemoLayout>
+        <div className={css.container}>
+            <PageHeader title="FormAppendableTable" subtitle={IntroConfigs.FormAppendableTable.description} />
+            <DemoGrid demos={DEMOS} />
+        </div>
     );
 }

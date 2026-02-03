@@ -1,29 +1,51 @@
-import { Button } from 'antd';
+import { Card, Flex } from 'antd';
 import { useNavigate } from 'react-router';
-import { RoutePath } from 'src/router/path';
+import { PageHeader } from '../components/PageHeader';
+import { IntroConfigs } from '../config';
 
-import css from './IntroOverview.module.scss';
+import css from './IntroOverview.module.css';
 
 interface IntroEntryProps {
     href: string;
+    description: string;
 }
 
-function IntroEntry({ children, href }: React.PropsWithChildren<IntroEntryProps>) {
+function IntroEntry({ children, href, description }: React.PropsWithChildren<IntroEntryProps>) {
     const navigate = useNavigate();
 
     return (
-        <Button size="large" onClick={() => navigate(href)} className={css.entry}>
-            {children}
-        </Button>
+        <Card
+            className={css.card}
+            hoverable
+            onClick={() => navigate(href)}
+            styles={{
+                body: { padding: '24px' },
+            }}
+        >
+            <Flex vertical gap="small" style={{ width: '100%' }}>
+                <div className={css.label}>{children}</div>
+                <div className={css.description}>{description}</div>
+            </Flex>
+        </Card>
     );
 }
+
+const menuEntries = Object.values(IntroConfigs);
 
 export function IntroOverview() {
     return (
         <div className={css.overview}>
-            <IntroEntry href={RoutePath.INTRO_ANTD_FORM_APPENDABLE_LIST}>FormAppendableList</IntroEntry>
-            <IntroEntry href={RoutePath.INTRO_ANTD_FORM_APPENDABLE_TABLE}>FormAppendableTable</IntroEntry>
-            <IntroEntry href={RoutePath.INTRO_ANTD_READONLYABLE}>Readonlyable</IntroEntry>
+            <PageHeader
+                title="Component Showcase"
+                subtitle="Explore our collection of enhanced Ant Design components"
+            />
+            <div className={css.grid}>
+                {menuEntries.map((item) => (
+                    <IntroEntry key={item.url} href={item.url} description={item.description}>
+                        {item.label}
+                    </IntroEntry>
+                ))}
+            </div>
         </div>
     );
 }

@@ -1,4 +1,6 @@
-import { DemoLayout } from '../../components/DemoLayout';
+import { DemoGrid } from 'src/intro/components/DemoGrid';
+import { PageHeader } from 'src/intro/components/PageHeader';
+import { IntroConfigs } from 'src/intro/config';
 import { BasicDemo } from './BasicDemo';
 import { BigItemDemo } from './BigItemDemo';
 import { CountLimitDemo } from './CountLimitDemo';
@@ -9,38 +11,29 @@ import { MultiInputsDemo } from './MultiInputsDemo';
 import { ReadonlyDemo } from './ReadonlyDemo';
 import { TaggedInputDemo } from './TaggedInputDemo';
 
+import css from './FormAppendableListIntro.module.css';
+
+const DEMOS = [
+    { title: 'Basic', description: 'Simple list with default add/remove actions', component: BasicDemo },
+    { title: 'Multi Inputs', description: 'List items with multiple input fields', component: MultiInputsDemo },
+    { title: 'Tagged Input', description: 'List with tag-based input fields', component: TaggedInputDemo },
+    { title: 'Disabled', description: 'Disabled state preventing modifications', component: DisabledDemo },
+    { title: 'Readonly', description: 'Read-only list with no action buttons', component: ReadonlyDemo },
+    { title: 'Extra Items', description: 'List with additional custom items', component: ExtraItemsDemo },
+    { title: 'Count Limit', description: 'List with maximum item count restriction', component: CountLimitDemo },
+    { title: 'Big Item', description: 'List with larger item components', component: BigItemDemo },
+    {
+        title: 'Customize Action Button',
+        description: 'Custom action buttons for add/remove',
+        component: CustomizeActionButtonDemo,
+    },
+];
+
 export function FormAppendableListIntro() {
     return (
-        <DemoLayout>
-            <h1>FormAppendableList</h1>
-            <h2>Examples</h2>
-
-            <h3>Basic</h3>
-            <BasicDemo />
-
-            <h3>Multi Inputs</h3>
-            <MultiInputsDemo />
-
-            <h3>Tagged Input</h3>
-            <TaggedInputDemo />
-
-            <h3>Disabled</h3>
-            <DisabledDemo />
-
-            <h3>Readonly</h3>
-            <ReadonlyDemo />
-
-            <h3>Extra Items</h3>
-            <ExtraItemsDemo />
-
-            <h3>Count Limit</h3>
-            <CountLimitDemo />
-
-            <h3>Big Item</h3>
-            <BigItemDemo />
-
-            <h3>Customize Action Button</h3>
-            <CustomizeActionButtonDemo />
-        </DemoLayout>
+        <div className={css.container}>
+            <PageHeader title="FormAppendableList" subtitle={IntroConfigs.FormAppendableList.description} />
+            <DemoGrid demos={DEMOS} />
+        </div>
     );
 }
