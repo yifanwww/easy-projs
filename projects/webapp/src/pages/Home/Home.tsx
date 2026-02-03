@@ -1,6 +1,6 @@
 import { Introduction } from './components/Introduction';
 
-import css from './Home.module.scss';
+import css from './Home.module.css';
 
 export function Home() {
     return (
