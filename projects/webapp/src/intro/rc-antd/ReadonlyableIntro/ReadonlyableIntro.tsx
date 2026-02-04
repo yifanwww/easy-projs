@@ -1,6 +1,6 @@
 import { DemoGrid } from 'src/intro/components/DemoGrid';
 import { PageHeader } from 'src/intro/components/PageHeader';
-import { IntroConfigs } from 'src/intro/config';
+import { ReadonlyableDescription } from 'src/intro/config';
 import { BasicDemo } from './BasicDemo';
 
 import css from './ReadonlyableIntro.module.css';
@@ -16,7 +16,7 @@ const DEMOS = [
 export function ReadonlyableIntro() {
     return (
         <div className={css.container}>
-            <PageHeader title="Readonlyable" subtitle={IntroConfigs.Readonlyable.description} />
+            <PageHeader title="Readonlyable" subtitle={ReadonlyableDescription} />
             <DemoGrid demos={DEMOS} />
         </div>
     );

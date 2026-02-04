@@ -11,9 +11,9 @@ const menuItems = [
         key: RoutePath.INTRO,
         label: <Link to={RoutePath.INTRO}>Components Overview</Link>,
     },
-    ...Object.values(IntroConfigs).map((item) => ({
-        key: item.url,
-        label: <Link to={item.url}>{item.label}</Link>,
+    ...IntroConfigs.map((item) => ({
+        key: item.path,
+        label: <Link to={item.path}>{item.label}</Link>,
     })),
 ];
 
@@ -29,12 +29,7 @@ function IntroContainerCore() {
     return (
         <Layout>
             <Layout.Sider width={216} className={css.sider}>
-                <Menu
-                    items={menuItems}
-                    selectedKeys={selectedKeys}
-                    mode="inline"
-                    style={{ height: '100%', borderRight: 0 }}
-                />
+                <Menu items={menuItems} selectedKeys={selectedKeys} mode="inline" style={{ height: '100%' }} />
             </Layout.Sider>
             <Layout>
                 <Layout.Content className={css.content} style={{ background: colorBgContainer }}>

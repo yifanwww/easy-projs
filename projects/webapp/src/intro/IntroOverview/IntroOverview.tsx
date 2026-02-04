@@ -30,8 +30,6 @@ function IntroEntry({ children, href, description }: React.PropsWithChildren<Int
     );
 }
 
-const menuEntries = Object.values(IntroConfigs);
-
 export function IntroOverview() {
     return (
         <div className={css.overview}>
@@ -40,8 +38,8 @@ export function IntroOverview() {
                 subtitle="Explore our collection of enhanced Ant Design components"
             />
             <div className={css.grid}>
-                {menuEntries.map((item) => (
-                    <IntroEntry key={item.url} href={item.url} description={item.description}>
+                {IntroConfigs.map((item) => (
+                    <IntroEntry key={item.path} href={item.path} description={item.description}>
                         {item.label}
                     </IntroEntry>
                 ))}

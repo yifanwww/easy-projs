@@ -1,6 +1,6 @@
 import { DemoGrid } from 'src/intro/components/DemoGrid';
 import { PageHeader } from 'src/intro/components/PageHeader';
-import { IntroConfigs } from 'src/intro/config';
+import { FormAppendableListDescription } from 'src/intro/config';
 import { BasicDemo } from './BasicDemo';
 import { BigItemDemo } from './BigItemDemo';
 import { CountLimitDemo } from './CountLimitDemo';
@@ -32,7 +32,7 @@ const DEMOS = [
 export function FormAppendableListIntro() {
     return (
         <div className={css.container}>
-            <PageHeader title="FormAppendableList" subtitle={IntroConfigs.FormAppendableList.description} />
+            <PageHeader title="FormAppendableList" subtitle={FormAppendableListDescription} />
             <DemoGrid demos={DEMOS} />
         </div>
     );

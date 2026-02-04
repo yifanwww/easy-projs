@@ -1,6 +1,6 @@
 import { DemoGrid } from 'src/intro/components/DemoGrid';
 import { PageHeader } from 'src/intro/components/PageHeader';
-import { IntroConfigs } from 'src/intro/config';
+import { FormAppendableTableDescription } from 'src/intro/config';
 import { BasicDemo } from './BasicDemo';
 import { BorderedDemo } from './BorderedDemo';
 import { ComplexTableDemo } from './ComplexTableDemo';
@@ -40,7 +40,7 @@ const DEMOS = [
 export function FormAppendableTableIntro() {
     return (
         <div className={css.container}>
-            <PageHeader title="FormAppendableTable" subtitle={IntroConfigs.FormAppendableTable.description} />
+            <PageHeader title="FormAppendableTable" subtitle={FormAppendableTableDescription} />
             <DemoGrid demos={DEMOS} />
         </div>
     );
