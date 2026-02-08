@@ -41,13 +41,6 @@
     "git.autofetch": true,
     "git.autofetchPeriod": 300,
 
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
-    },
-
     "scm.diffDecorations": "none",
 
     "search.useIgnoreFiles": true,
@@ -319,11 +312,6 @@
 
     "gitlens.launchpad.indicator.enabled": false,
     "gitlens.rebaseEditor.openOnPausedRebase": false,
-
-    "hexeditor.columnWidth": 32,
-    "hexeditor.showDecodedText": true,
-    "hexeditor.defaultEndianness": "little",
-    "hexeditor.inspectorType": "aside",
 
     "markdown-preview-enhanced.liveUpdate": false,
     "markdown-preview-enhanced.breakOnSingleNewLine": true,
