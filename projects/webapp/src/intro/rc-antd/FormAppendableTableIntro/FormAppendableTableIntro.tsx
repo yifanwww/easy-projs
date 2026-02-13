@@ -1,5 +1,5 @@
 import { DemoGrid } from 'src/intro/components/DemoGrid';
-import { PageHeader } from 'src/intro/components/PageHeader';
+import { DemoPage } from 'src/intro/components/DemoPage';
 import { FormAppendableTableDescription } from 'src/intro/config';
 import { BasicDemo } from './BasicDemo';
 import { BorderedDemo } from './BorderedDemo';
@@ -10,8 +10,6 @@ import { CustomizeAddButtonTextDemo } from './CustomizeAddButtonTextDemo';
 import { DisabledDemo } from './DisabledDemo';
 import { ReadonlyDemo } from './ReadonlyDemo';
 import { SizeDemo } from './SizeDemo';
-
-import css from './FormAppendableTableIntro.module.css';
 
 const DEMOS = [
     { title: 'Basic', description: 'Simple table with default add/remove actions', component: BasicDemo },
@@ -39,9 +37,8 @@ const DEMOS = [
 
 export function FormAppendableTableIntro() {
     return (
-        <div className={css.container}>
-            <PageHeader title="FormAppendableTable" subtitle={FormAppendableTableDescription} />
+        <DemoPage title="FormAppendableTable" subtitle={FormAppendableTableDescription}>
             <DemoGrid demos={DEMOS} />
-        </div>
+        </DemoPage>
     );
 }

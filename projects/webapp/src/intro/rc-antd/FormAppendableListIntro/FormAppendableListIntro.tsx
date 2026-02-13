@@ -1,5 +1,5 @@
 import { DemoGrid } from 'src/intro/components/DemoGrid';
-import { PageHeader } from 'src/intro/components/PageHeader';
+import { DemoPage } from 'src/intro/components/DemoPage';
 import { FormAppendableListDescription } from 'src/intro/config';
 import { BasicDemo } from './BasicDemo';
 import { BigItemDemo } from './BigItemDemo';
@@ -10,8 +10,6 @@ import { ExtraItemsDemo } from './ExtraItemsDemo';
 import { MultiInputsDemo } from './MultiInputsDemo';
 import { ReadonlyDemo } from './ReadonlyDemo';
 import { TaggedInputDemo } from './TaggedInputDemo';
-
-import css from './FormAppendableListIntro.module.css';
 
 const DEMOS = [
     { title: 'Basic', description: 'Simple list with default add/remove actions', component: BasicDemo },
@@ -31,9 +29,8 @@ const DEMOS = [
 
 export function FormAppendableListIntro() {
     return (
-        <div className={css.container}>
-            <PageHeader title="FormAppendableList" subtitle={FormAppendableListDescription} />
+        <DemoPage title="FormAppendableList" subtitle={FormAppendableListDescription}>
             <DemoGrid demos={DEMOS} />
-        </div>
+        </DemoPage>
     );
 }

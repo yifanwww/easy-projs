@@ -1060,6 +1060,55 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
+  packages/rc:
+    dependencies:
+      clsx:
+        specifier: 'catalog:'
+        version: 2.1.1
+      react:
+        specifier: 'catalog:'
+        version: 19.2.3
+    devDependencies:
+      '@easy-config/eslint-config':
+        specifier: workspace:^
+        version: link:../../configs/eslint-config
+      '@easy-config/global-types':
+        specifier: workspace:^
+        version: link:../../configs/global-types
+      '@easy-config/stylelint-config':
+        specifier: workspace:^
+        version: link:../../configs/stylelint-config
+      '@easy-config/tsconfigs':
+        specifier: workspace:^
+        version: link:../../configs/tsconfigs
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.8
+      concurrently:
+        specifier: 'catalog:'
+        version: 9.2.1
+      copyfiles:
+        specifier: 'catalog:'
+        version: 2.4.1
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.2
+      prettier:
+        specifier: 'catalog:'
+        version: 3.7.4
+      rimraf:
+        specifier: 'catalog:'
+        version: 6.1.2
+      stylelint:
+        specifier: 'catalog:'
+        version: 16.26.1(typescript@5.9.3)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      typescript-plugin-css-modules:
+        specifier: 'catalog:'
+        version: 5.2.0(typescript@5.9.3)
+
   packages/rc-antd:
     dependencies:
       '@ant-design/icons':
@@ -1790,6 +1839,9 @@ importers:
       '@ant-design/icons':
         specifier: 'catalog:'
         version: 6.1.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@easy-lib/rc':
+        specifier: workspace:^
+        version: link:../../packages/rc
       '@easy-lib/rc-antd':
         specifier: workspace:^
         version: link:../../packages/rc-antd

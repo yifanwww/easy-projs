@@ -40,6 +40,13 @@ const IntroRoute: RouteObject = {
             },
         },
         {
+            path: RoutePath.INTRO_RESIZABLE_AREA,
+            lazy: async () => {
+                const { ResizableAreaIntro } = await import('../intro/rc/ResizableArea');
+                return { element: <ResizableAreaIntro /> };
+            },
+        },
+        {
             path: `${RoutePath.INTRO}/*`,
             element: <Navigate to={RoutePath.INTRO} replace />,
         },

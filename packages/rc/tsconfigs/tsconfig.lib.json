@@ -1,0 +1,17 @@
+{
+    "extends": "@easy-config/tsconfigs/tsconfig.react-bundler.base.json",
+    "compilerOptions": {
+        "outDir": "../lib",
+        "rootDir": "../src"
+    },
+    "include": ["../src/**/*"],
+    "exclude": [
+        "../src/**/__mocks__/**/*",
+        "../src/**/__tests__/**/*",
+        "../src/**/*.spec.ts",
+        "../src/**/*.spec.tsx",
+        "../src/**/*.test.ts",
+        "../src/**/*.test.tsx",
+        "../src/test.setup.ts"
+    ]
+}

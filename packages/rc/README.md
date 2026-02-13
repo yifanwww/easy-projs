@@ -1,6 +1,6 @@
-# @easy-lib/rc-antd
+# @easy-lib/rc
 
-A package that contains React components based on ant-design.
+A library that contains some React components.
 
 ### Build this package
 

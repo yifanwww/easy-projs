@@ -86,6 +86,7 @@
         { "name": "@easy-lib/helpers-typeorm", "path": "packages/helpers-typeorm" },
         { "name": "@easy-lib/hooks", "path": "packages/hooks" },
         { "name": "@easy-lib/random-string", "path": "packages/random-string" },
+        { "name": "@easy-lib/rc", "path": "packages/rc" },
         { "name": "@easy-lib/rc-antd", "path": "packages/rc-antd" },
         { "name": "@easy-lib/types", "path": "packages/types" },
         { "name": "@easy-lib/utils", "path": "packages/utils" },

@@ -1,4 +1,4 @@
-import { ConfigProvider, Layout, Menu, theme } from 'antd';
+import { ConfigProvider, Flex, Layout, Menu, Tag, theme } from 'antd';
 import { useMemo } from 'react';
 import { Link, Outlet, useLocation } from 'react-router';
 import { RoutePath } from 'src/router/path';
@@ -13,7 +13,14 @@ const menuItems = [
     },
     ...IntroConfigs.map((item) => ({
         key: item.path,
-        label: <Link to={item.path}>{item.label}</Link>,
+        label: (
+            <Link to={item.path}>
+                <Flex align="center" gap="small">
+                    <span>{item.name}</span>
+                    {!!item.label && <Tag>{item.label}</Tag>}
+                </Flex>
+            </Link>
+        ),
     })),
 ];
 
@@ -28,7 +35,7 @@ function IntroContainerCore() {
 
     return (
         <Layout>
-            <Layout.Sider width={216} className={css.sider}>
+            <Layout.Sider width={256} className={css.sider}>
                 <Menu items={menuItems} selectedKeys={selectedKeys} mode="inline" style={{ height: '100%' }} />
             </Layout.Sider>
             <Layout>
