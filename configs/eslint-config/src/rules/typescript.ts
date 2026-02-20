@@ -69,7 +69,7 @@ export default defineConfig([
             ],
 
             // https://typescript-eslint.io/rules/no-use-before-define
-            '@typescript-eslint/no-use-before-define': ['error', { functions: false }],
+            '@typescript-eslint/no-use-before-define': ['error', { classes: false, functions: false }],
 
             // https://typescript-eslint.io/rules/no-useless-constructor
             '@typescript-eslint/no-useless-constructor': 'error',
