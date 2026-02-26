@@ -310,9 +310,6 @@
     "git-graph.repository.commits.initialLoad": 500,
     "git-graph.repository.commits.loadMore": 500,
 
-    "gitlens.launchpad.indicator.enabled": false,
-    "gitlens.rebaseEditor.openOnPausedRebase": false,
-
     "markdown-preview-enhanced.liveUpdate": false,
     "markdown-preview-enhanced.breakOnSingleNewLine": true,
 
