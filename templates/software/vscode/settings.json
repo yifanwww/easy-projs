@@ -310,6 +310,13 @@
     "git-graph.repository.commits.initialLoad": 500,
     "git-graph.repository.commits.loadMore": 500,
 
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+
     "markdown-preview-enhanced.liveUpdate": false,
     "markdown-preview-enhanced.breakOnSingleNewLine": true,
 
