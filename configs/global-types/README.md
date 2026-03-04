@@ -11,5 +11,5 @@ For example:
 ```ts
 // global.d.ts
 
-/// <reference types="@easy-config/global-types/types/typescript.d.ts" />
+/// <reference types="@easy-config/global-types/types/assets.d.ts" />
 ```

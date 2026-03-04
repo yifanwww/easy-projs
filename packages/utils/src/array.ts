@@ -47,4 +47,8 @@ export class ArrayUtil {
         if (value === undefined) return [];
         return Array.isArray(value) ? value : [value];
     }
+
+    static isReadonlyArray(value: unknown): value is readonly unknown[] {
+        return Array.isArray(value);
+    }
 }
