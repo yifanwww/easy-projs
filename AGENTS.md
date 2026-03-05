@@ -11,3 +11,10 @@
     - When the stylesheet is complex and benefits from SCSS features
   - Keep stylesheets in `.css` if they're simple or don't leverage SCSS capabilities
 
+## TypeScript Usage
+
+- **Prefer `interface` over `type`** for defining object shapes and contracts
+- **Data structure interface naming**: don't prefix with `I`
+  - Example: `interface User { id: string; name: string; }`
+- **Class contract interface naming**: prefix with `I`
+  - Example: `interface ILogger { log(message: string): void; }`
