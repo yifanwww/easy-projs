@@ -26,6 +26,7 @@
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "all",
     "editor.stickyScroll.enabled": false,
+    "editor.suggest.insertMode": "replace",
     "editor.suggestSelection": "first",
     "editor.tabSize": 4,
     "editor.wordWrap": "on",
@@ -40,6 +41,11 @@
     "git.enabled": true,
     "git.autofetch": true,
     "git.autofetchPeriod": 300,
+
+    "js/ts.inlayHints.enumMemberValues.enabled": true,
+    "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
+    "js/ts.inlayHints.parameterNames.enabled": "none",
+    "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
 
     "scm.diffDecorations": "none",
 
@@ -80,11 +86,6 @@
         }
     },
 
-    "typescript.inlayHints.enumMemberValues.enabled": true,
-    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-    "typescript.inlayHints.parameterNames.enabled": "none",
-    "typescript.tsserver.experimental.enableProjectDiagnostics": false,
-
     "window.commandCenter": false,
     "window.newWindowDimensions": "default",
     "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
@@ -92,59 +93,6 @@
     "workbench.colorTheme": "Quiet Light",
     "workbench.localHistory.enabled": false,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
-
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace"
-    },
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
-        "editor.quickSuggestions": {
-            "comments": "off",
-            "strings": "off",
-            "other": "off"
-        },
-        "editor.wordWrap": "on"
-    },
-    "[scss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.suggest.insertMode": "replace"
-    },
-    "[yaml]": {
-        "editor.autoIndent": "advanced",
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.insertSpaces": true,
-        "editor.suggest.insertMode": "replace",
-        "editor.tabSize": 2
-    },
 
     // ---------------------------------------------------------- Theme Settings
 
@@ -303,6 +251,47 @@
             "editorWhitespace.foreground": "#d5d5d5",
             "panel.background": "#fafafa"
         }
+    },
+
+    // ------------------------------------------------------- Language Settings
+
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.trailingComma": "none"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "prettier.trailingComma": "none"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
     },
 
     // ------------------------------------------------------ Extension Settings
