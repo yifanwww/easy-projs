@@ -49,9 +49,6 @@
 
     "scm.diffDecorations": "none",
 
-    "search.useIgnoreFiles": true,
-    "search.useParentIgnoreFiles": true,
-
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.defaultProfile.windows": "PowerShell",
     "terminal.integrated.inheritEnv": false,
