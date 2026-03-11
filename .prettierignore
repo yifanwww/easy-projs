@@ -1,6 +1,7 @@
-/configs
-/packages
-/projects
-/templates
+/configs/*/dist
+/packages/*/coverage
+/packages/*/lib
+/projects/*/coverage
+/projects/*/dist
 
 /pnpm-lock.yaml

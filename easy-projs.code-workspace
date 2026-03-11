@@ -1,4 +1,10 @@
 {
+    "folders": [
+        {
+            "name": "easy-projs",
+            "path": "."
+        }
+    ],
     "settings": {
         // --------------------------------------------------- Built-in Settings
 
@@ -14,11 +20,8 @@
 
         "git.enabled": true,
 
-        "search.useIgnoreFiles": true,
-        "search.useParentIgnoreFiles": true,
-
-        "typescript.enablePromptUseWorkspaceTsdk": true,
-        "typescript.tsdk": "easy-projs/node_modules/typescript/lib",
+        "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+        "js/ts.tsdk.path": "easy-projs/node_modules/typescript/lib",
 
         "[css]": {
             "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -63,50 +66,5 @@
             "vue-html",
             "vue-postcss"
         ]
-    },
-    "folders": [
-        { "name": "easy-projs", "path": "." },
-
-        // configs
-
-        { "name": "@easy-config/eslint-config", "path": "configs/eslint-config" },
-        { "name": "@easy-config/global-types", "path": "configs/global-types" },
-        { "name": "@easy-config/jest-config", "path": "configs/jest-config" },
-        { "name": "@easy-config/stylelint-config", "path": "configs/stylelint-config" },
-        { "name": "@easy-config/tsconfigs", "path": "configs/tsconfigs" },
-
-        // packages
-
-        { "name": "@easy-lib/apis", "path": "packages/apis" },
-        { "name": "@easy-lib/fetcher", "path": "packages/fetcher" },
-        { "name": "@easy-lib/helpers-antd", "path": "packages/helpers-antd" },
-        { "name": "@easy-lib/helpers-class-validator", "path": "packages/helpers-class-validator" },
-        { "name": "@easy-lib/helpers-nestjs", "path": "packages/helpers-nestjs" },
-        { "name": "@easy-lib/helpers-redux", "path": "packages/helpers-redux" },
-        { "name": "@easy-lib/helpers-typeorm", "path": "packages/helpers-typeorm" },
-        { "name": "@easy-lib/hooks", "path": "packages/hooks" },
-        { "name": "@easy-lib/random-string", "path": "packages/random-string" },
-        { "name": "@easy-lib/rc", "path": "packages/rc" },
-        { "name": "@easy-lib/rc-antd", "path": "packages/rc-antd" },
-        { "name": "@easy-lib/types", "path": "packages/types" },
-        { "name": "@easy-lib/utils", "path": "packages/utils" },
-        { "name": "@easy-lib/utils-browser", "path": "packages/utils-browser" },
-        { "name": "@easy-lib/utils-node", "path": "packages/utils-node" },
-        { "name": "@easy-lib/utils-server", "path": "packages/utils-server" },
-        { "name": "@easy-lib/utils-test", "path": "packages/utils-test" },
-
-        // projects
-
-        { "name": "@easy-proj/bundlesize-antd", "path": "projects/bundlesize-antd" },
-        { "name": "@easy-proj/bundlesize-fluentui", "path": "projects/bundlesize-fluentui" },
-        { "name": "@easy-proj/misc-scripts", "path": "projects/misc-scripts" },
-        { "name": "@easy-proj/performance-js", "path": "projects/performance-js" },
-        { "name": "@easy-proj/redux-usage-demo", "path": "projects/redux-usage-demo" },
-        { "name": "@easy-proj/webapp", "path": "projects/webapp" },
-
-        // templates
-
-        { "name": "@easy-template/server", "path": "templates/server" },
-        { "name": "@easy-template/software", "path": "templates/software" }
-    ]
+    }
 }

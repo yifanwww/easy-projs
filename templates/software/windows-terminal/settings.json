@@ -1,11 +1,9 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
-    [
+    "actions": [
         {
-            "command": 
-            {
+            "command": {
                 "action": "copy",
                 "singleLine": false
             },
@@ -16,15 +14,13 @@
             "keys": "ctrl+v"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "newTab"
             },
             "keys": "ctrl+`"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
@@ -32,8 +28,7 @@
             "keys": "alt+shift+d"
         },
         {
-            "command": 
-            {
+            "command": {
                 "action": "closeTab"
             },
             "keys": "ctrl+w"
@@ -44,21 +39,17 @@
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialCols": 130,
     "initialRows": 30,
-    "newTabMenu": 
-    [
+    "newTabMenu": [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
-    {
+    "profiles": {
         "defaults": {},
-        "list": 
-        [
+        "list": [
             {
                 "colorScheme": "yifanwww",
-                "font": 
-                {
+                "font": {
                     "face": "MesloLGM NF",
                     "size": 9.0,
                     "weight": "normal"
@@ -70,8 +61,7 @@
             },
             {
                 "colorScheme": "yifanwww",
-                "font": 
-                {
+                "font": {
                     "face": "Fira Code",
                     "size": 9.0
                 },
@@ -81,8 +71,7 @@
             },
             {
                 "colorScheme": "yifanwww",
-                "font": 
-                {
+                "font": {
                     "face": "Fira Code",
                     "size": 9.0
                 },
@@ -110,8 +99,7 @@
             }
         ]
     },
-    "schemes": 
-    [
+    "schemes": [
         {
             "background": "#0C0C0C",
             "black": "#0C0C0C",
