@@ -10,6 +10,7 @@
     "diffEditor.renderSideBySide": false,
 
     "editor.accessibilitySupport": "off",
+    "editor.aiStats.enabled": true,
     "editor.detectIndentation": false,
     "editor.fontFamily": "Fira code, Source Han Sans SC, MesloLGM NF",
     "editor.fontLigatures": true,
