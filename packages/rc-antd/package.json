@@ -21,7 +21,7 @@
         "build:ts": "concurrently -n lib,types \"pnpm run build:ts:lib\" \"pnpm run build:ts:types\"",
         "build:ts:lib": "tsc --project tsconfigs/tsconfig.lib.json",
         "build:ts:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "build:css": "copyfiles src/**/*.scss lib --up 1",
+        "build:css": "copyfiles src/**/*.css src/**/*.scss lib --up 1",
         "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
         "lint": "stylelint \"**/*.{css,scss}\" && eslint .",

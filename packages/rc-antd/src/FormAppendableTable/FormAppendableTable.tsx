@@ -6,7 +6,13 @@ import type { FormListOperation, FormListProps } from 'antd/es/form';
 import { useCallback } from 'react';
 import type { PartialDeep } from 'type-fest';
 
+import css from './FormAppendableTable.module.css';
+
 export interface FormAppendableTableItem extends Omit<FormListFieldData, 'key'> {}
+
+export interface FormAppendableTableColumnType extends TableColumnType<FormAppendableTableItem> {
+    required?: boolean;
+}
 
 interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rules'> {
     /**
@@ -21,7 +27,7 @@ interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rule
         tooltip?: React.ReactNode | ((fieldsLength: number) => React.ReactNode);
     };
     bordered?: boolean;
-    columns: TableColumnType<FormAppendableTableItem>[];
+    columns: FormAppendableTableColumnType[];
     disableAdd?: boolean;
     disabled?: boolean;
     /**
@@ -151,8 +157,22 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
             const fieldsLength = fields.length;
             const reachLimit = fieldsLength >= limit;
 
-            const tableColumns = ArrayUtil.filterFalsy<TableColumnType<FormAppendableTableItem>>([
-                ...columns,
+            const tableColumns = ArrayUtil.filterFalsy<FormAppendableTableColumnType>([
+                ...columns.map((col): FormAppendableTableColumnType => {
+                    const { required, title, ...rest } = col;
+                    if (!required) {
+                        return { ...rest, title };
+                    }
+                    return {
+                        ...rest,
+                        title:
+                            typeof title === 'function' ? (
+                                (titleProps) => <div className={css.required}>{title(titleProps)}</div>
+                            ) : (
+                                <div className={css.required}>{title}</div>
+                            ),
+                    };
+                }),
                 !readonly && {
                     key: 'action',
                     title: 'Action',

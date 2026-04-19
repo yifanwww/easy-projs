@@ -9,15 +9,40 @@ import { CustomizeActionButtonDemo } from './CustomizeActionButtonDemo';
 import { CustomizeAddButtonTextDemo } from './CustomizeAddButtonTextDemo';
 import { DisabledDemo } from './DisabledDemo';
 import { ReadonlyDemo } from './ReadonlyDemo';
+import { RequiredMarkDemo } from './RequiredMarkDemo';
 import { SizeDemo } from './SizeDemo';
 
 const DEMOS = [
-    { title: 'Basic', description: 'Simple table with default add/remove actions', component: BasicDemo },
-    { title: 'Bordered', description: 'Table with borders around cells', component: BorderedDemo },
-    { title: 'Disabled', description: 'Disabled state preventing modifications', component: DisabledDemo },
-    { title: 'Readonly', description: 'Read-only table with no action buttons', component: ReadonlyDemo },
-    { title: 'Size', description: 'Different size variations for table layout', component: SizeDemo },
-    { title: 'Count Limit', description: 'Table with maximum row count restriction', component: CountLimitDemo },
+    {
+        title: 'Basic',
+        description: 'Simple table with default add/remove actions',
+        component: BasicDemo,
+    },
+    {
+        title: 'Bordered',
+        description: 'Table with borders around cells',
+        component: BorderedDemo,
+    },
+    {
+        title: 'Disabled',
+        description: 'Disabled state preventing modifications',
+        component: DisabledDemo,
+    },
+    {
+        title: 'Readonly',
+        description: 'Read-only table with no action buttons',
+        component: ReadonlyDemo,
+    },
+    {
+        title: 'Size',
+        description: 'Different size variations for table layout',
+        component: SizeDemo,
+    },
+    {
+        title: 'Count Limit',
+        description: 'Table with maximum row count restriction',
+        component: CountLimitDemo,
+    },
     {
         title: 'Customize Add Button Text',
         description: 'Custom text for the add button',
@@ -27,6 +52,11 @@ const DEMOS = [
         title: 'Customize Action Button',
         description: 'Custom action buttons for add/remove',
         component: CustomizeActionButtonDemo,
+    },
+    {
+        title: 'Required Mark',
+        description: 'Display required mark for columns',
+        component: RequiredMarkDemo,
     },
     {
         title: 'Complex Table',
