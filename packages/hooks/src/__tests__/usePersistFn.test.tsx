@@ -1,6 +1,6 @@
-import { assert } from '@easy-lib/utils-browser';
 import { describe, expect, it } from '@jest/globals';
 import { act, render, renderHook } from '@testing-library/react';
+import { assert } from 'es-toolkit';
 import { useState } from 'react';
 import { usePersistFn } from '../usePersistFn.js';
 import { validateHookValueNotChanged } from './helpers.js';
@@ -24,7 +24,7 @@ describe(`Test react hook \`${usePersistFn.name}\``, () => {
         render(<TestComponent />);
         expect(countRef).toBe(0);
         expect(increaseCount).toBeInstanceOf(Function);
-        assert(typeof increaseCount === 'function');
+        assert(typeof increaseCount === 'function', 'Expected increaseCount to be a function');
 
         for (let i = 1; i <= 10; i++) {
             const increaseCountRef = increaseCount;

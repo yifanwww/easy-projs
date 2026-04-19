@@ -315,6 +315,9 @@ catalogs:
     dayjs:
       specifier: ^1.11.19
       version: 1.11.19
+    es-toolkit:
+      specifier: ^1.45.1
+      version: 1.45.1
     eslint:
       specifier: ^9.39.2
       version: 9.39.2
@@ -702,6 +705,9 @@ importers:
       concurrently:
         specifier: 'catalog:'
         version: 9.2.1
+      es-toolkit:
+        specifier: 'catalog:'
+        version: 1.45.1
       eslint:
         specifier: 'catalog:'
         version: 9.39.2
@@ -965,9 +971,6 @@ importers:
       '@easy-lib/types':
         specifier: workspace:^
         version: link:../types
-      '@easy-lib/utils-browser':
-        specifier: workspace:^
-        version: link:../utils-browser
       react:
         specifier: 'catalog:'
         version: 19.2.3
@@ -1005,6 +1008,9 @@ importers:
       concurrently:
         specifier: 'catalog:'
         version: 9.2.1
+      es-toolkit:
+        specifier: 'catalog:'
+        version: 1.45.1
       eslint:
         specifier: 'catalog:'
         version: 9.39.2
@@ -1241,6 +1247,10 @@ importers:
         version: 5.9.3
 
   packages/utils-browser:
+    dependencies:
+      es-toolkit:
+        specifier: 'catalog:'
+        version: 1.45.1
     devDependencies:
       '@easy-config/eslint-config':
         specifier: workspace:^
@@ -4852,6 +4862,9 @@ packages:
   es-to-primitive@1.3.0:
     resolution: {integrity: sha512-w+5mJ3GuFL+NjVtJlvydShqE1eN3h3PbI7/5LAsYJP/2qtuMXjfL2LpHSRqo4b4eSF5K/DH1JXKUAHSB2UW50g==}
     engines: {node: '>= 0.4'}
+
+  es-toolkit@1.45.1:
+    resolution: {integrity: sha512-/jhoOj/Fx+A+IIyDNOvO3TItGmlMKhtX8ISAHKE90c4b/k1tqaqEZ+uUqfpU8DMnW5cgNJv606zS55jGvza0Xw==}
 
   esbuild@0.27.2:
     resolution: {integrity: sha512-HyNQImnsOC7X9PMNaCIeAm4ISCQXs5a5YasTXVliKv4uuBo1dKrG0A+uQS8M5eXjVMnLg3WgXaKvprHlFJQffw==}
@@ -11265,6 +11278,8 @@ snapshots:
       is-callable: 1.2.7
       is-date-object: 1.1.0
       is-symbol: 1.1.1
+
+  es-toolkit@1.45.1: {}
 
   esbuild@0.27.2:
     optionalDependencies:

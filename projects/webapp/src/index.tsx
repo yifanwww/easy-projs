@@ -1,4 +1,4 @@
-import { assert } from '@easy-lib/utils-browser';
+import { assertIsDefined } from '@easy-lib/utils-browser';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './app';
@@ -8,7 +8,7 @@ import './index.css';
 
 function main(): void {
     const appElement = document.getElementById('app');
-    assert(appElement !== null);
+    assertIsDefined(appElement);
 
     const root = createRoot(appElement);
     root.render(

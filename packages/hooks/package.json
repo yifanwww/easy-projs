@@ -31,7 +31,6 @@
     },
     "dependencies": {
         "@easy-lib/types": "workspace:^",
-        "@easy-lib/utils-browser": "workspace:^",
         "react": "catalog:",
         "react-use": "catalog:"
     },
@@ -46,6 +45,7 @@
         "@testing-library/react": "catalog:",
         "@types/react": "catalog:",
         "concurrently": "catalog:",
+        "es-toolkit": "catalog:",
         "eslint": "catalog:",
         "prettier": "catalog:",
         "react-dom": "catalog:",

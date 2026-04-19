@@ -29,6 +29,9 @@
         "test-ci": "unit-test webapp-esm --coverage",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
+    "dependencies": {
+        "es-toolkit": "catalog:"
+    },
     "devDependencies": {
         "@easy-config/eslint-config": "workspace:^",
         "@easy-config/global-types": "workspace:^",

@@ -1,6 +1,6 @@
-import { assert } from '@easy-lib/utils-browser';
 import { describe, expect, it, jest } from '@jest/globals';
 import { ErrAsync, OkAsync } from '@rustresult/result';
+import { assert } from 'es-toolkit';
 import { fetcherFactory } from '../fetcherFactory.js';
 
 const fetcher = fetcherFactory();
@@ -71,7 +71,7 @@ describe(`Test fn \`${fetcher.name}\``, () => {
         expect(result.isErr()).toBe(true);
         const resp = result.unwrapErrUnchecked();
 
-        assert(!(resp instanceof TypeError));
+        assert(!(resp instanceof TypeError), 'Expected response to be an error response, but got a TypeError');
         expect(resp.data).toStrictEqual({});
         expect(resp.status).toBe(400);
     });
@@ -86,7 +86,7 @@ describe(`Test fn \`${fetcher.name}\``, () => {
         const resp = result.unwrapErrUnchecked();
 
         expect(resp).toBeInstanceOf(TypeError);
-        assert(resp instanceof TypeError);
+        assert(resp instanceof TypeError, 'Expected response to be a TypeError');
         expect(resp.message).toBe('Failed to fetch');
     });
 });

@@ -1,13 +1,4 @@
-export class AssertionError extends Error {}
-
-/**
- * @param value The input that is checked for being truthy.
- */
-export function assert(value: unknown, message?: string): asserts value {
-    if (!value) {
-        throw new AssertionError(message ?? 'Assertion Error');
-    }
-}
+import { assert } from 'es-toolkit';
 
 export function assertIsString(value: unknown, varName: string): asserts value is string {
     assert(typeof value === 'string', `\`${varName}\` should be string`);
@@ -25,7 +16,7 @@ export function assertIsBoolean(value: unknown, varName: string): asserts value 
  * The function for asserting whether a value's type is `never`.
  */
 export function assertIsNever(value: never): never {
-    throw new AssertionError(`"${String(value)}" should be \`never\` type`);
+    throw new Error(`The value should be \`never\`, but received "${String(value)}"`);
 }
 
 /**
@@ -33,8 +24,6 @@ export function assertIsNever(value: never): never {
  */
 export function assertIsDefined<T>(value: T, varName = 'value'): asserts value is NonNullable<T> {
     if (value === undefined || value === null) {
-        throw new AssertionError(
-            `Expected \`${varName}\` to be defined, but received \`${value as null | undefined}\``,
-        );
+        throw new Error(`Expected \`${varName}\` to be defined, but received \`${value as null | undefined}\``);
     }
 }
