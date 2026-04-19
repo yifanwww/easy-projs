@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import { abstractAsyncFn, abstractFn, makeFn, noAsync } from '../function.js';
+import { abstractAsyncFn, abstractFn, makeFn, noAsync } from '../fn.js';
 
 describe(`Test fn \`${abstractFn.name}\``, () => {
     it('should throw an error', () => {
