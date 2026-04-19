@@ -24,8 +24,8 @@
         "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build --watch",
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
-        "lint": "eslint .",
-        "lint-fix": "eslint . --fix",
+        "lint": "eslint . --fix",
+        "lint-ci": "eslint .",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {
