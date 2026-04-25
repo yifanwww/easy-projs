@@ -23,7 +23,7 @@ export function useIntervals(): UseIntervalsActions {
 
     const setInterval = useCallback(
         (callback: () => void, duration?: number): number => {
-            const id = window.setInterval(callback, duration) as unknown as number;
+            const id = window.setInterval(callback, duration);
             intervalIds[id] = 1;
             return id;
         },

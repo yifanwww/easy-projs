@@ -23,7 +23,7 @@ export function useTimeouts(): UseTimeoutsActions {
 
     const setTimeout = useCallback(
         (callback: () => void, duration?: number): number => {
-            const id = window.setTimeout(callback, duration) as unknown as number;
+            const id = window.setTimeout(callback, duration);
             timeoutIds[id] = 1;
             return id;
         },

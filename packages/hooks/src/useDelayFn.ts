@@ -25,5 +25,5 @@ export function useDelayFn<T extends UnknownFn>(fn?: T, delay = 1000): VoidRetur
         [clearTimeout, delay, fn, setTimeout],
     );
 
-    return _fn as T;
+    return _fn;
 }

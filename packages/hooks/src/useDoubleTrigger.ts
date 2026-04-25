@@ -28,5 +28,5 @@ export function useDoubleTrigger<T extends UnknownFn>(doubleTrigger?: T, delayLi
         [delayLimit, doubleTrigger],
     );
 
-    return trigger as T;
+    return trigger;
 }

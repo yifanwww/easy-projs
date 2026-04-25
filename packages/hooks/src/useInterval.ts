@@ -23,7 +23,7 @@ export function useInterval(): UseIntervalActions {
     const setInterval = useCallback((callback: () => void, duration?: number): void => {
         window.clearInterval(intervalIdRef.current);
 
-        intervalIdRef.current = window.setInterval(callback, duration) as unknown as number;
+        intervalIdRef.current = window.setInterval(callback, duration);
     }, []);
 
     const clearInterval = useCallback(() => window.clearInterval(intervalIdRef.current), []);
