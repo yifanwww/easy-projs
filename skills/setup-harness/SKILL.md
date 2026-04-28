@@ -243,7 +243,6 @@ Group work into sequential phases where each phase is independently completable 
 - **Backend / Core**: business logic, storage, handlers
 - **Interface / Bridge**: public API, IPC, protocol changes
 - **Frontend / UI**: UI components, user-facing changes
-- **Validation**: tests, lint, typecheck, manual verification
 
 Tailor phases to the actual work. Small tasks may have only 1–2 phases.
 
@@ -277,11 +276,20 @@ One paragraph describing what this plan accomplishes.
 ## Progress Log
 \`\`\`
 
-Steps should be concrete actions, not areas. Each phase must leave the codebase compilable. Include validation steps in the final phase.
+**Writing good steps:**
+- Concrete actions, not areas: "Add `tags` field to `TradeRecord` in `src/shared/trading/types.ts`" not "Update types"
+- Steps within a phase depend only on earlier steps in the same or prior phases
+- If a step is risky or uncertain, note it in Decisions
 
 ### 5. Present the Plan
 
-Show the file path, phase structure, and full step list. Ask: "Does this look right, or do you want to adjust phases or steps before executing?"
+
+After creating the file, show the user:
+1. The file path
+2. The phase structure with step counts
+3. The full step list to review
+
+Ask: "Does this look right, or do you want to adjust phases or steps before executing?"
 ```
 
 #### exec-change template
@@ -359,18 +367,22 @@ For each step:
 - Add a progress log entry: `- **YYYY-MM-DD**: Completed Phase N (<Name>) — <summary>`
 - Update Status: `In Progress` | `Blocked` | `Waiting for Review`
 
-### 6. Report and Prompt
+### 6. Validate the Phase
 
-After the phase:
-- Summarize what was done
-- Report validation status
-- Name the next phase (if any): "Run `/exec-change` to continue with Phase N+1: \<Name\>."
-
-When **all phases complete**, run the full suite:
+After all steps in the phase are complete, run the full validation suite:
 \`\`\`
 {FULL_VALIDATION_COMMAND}
 \`\`\`
-Fix failures, set Status to `Waiting for Review`, then ask: "All phases complete. Move to `docs/exec-plans/completed/`?"
+Fix any failures before proceeding.
+
+### 7. Report and Prompt
+
+After the phase passes validation:
+- Summarize what was done
+- Confirm validation passed
+- Name the next phase (if any): "Run `/exec-change` to continue with Phase N+1: \<Name\>."
+
+When **all phases complete**, set Status to `Waiting for Review`, then ask: "All phases complete. Move to `docs/exec-plans/completed/`?"
 
 ---
 
