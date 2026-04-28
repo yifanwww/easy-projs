@@ -1,4 +1,0 @@
-{
-    "extends": "@easy-config/tsconfigs/tsconfig.vite.json",
-    "include": ["vite.config.ts"]
-}

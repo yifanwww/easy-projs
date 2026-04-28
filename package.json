@@ -31,7 +31,6 @@
         "node": ">=24"
     },
     "devDependencies": {
-        "bundlemon": "catalog:",
         "husky": "catalog:",
         "lint-staged": "catalog:",
         "prettier": "catalog:",
