@@ -277,7 +277,7 @@ One paragraph describing what this plan accomplishes.
 \`\`\`
 
 **Writing good steps:**
-- Concrete actions, not areas: "Add `tags` field to `TradeRecord` in `src/shared/trading/types.ts`" not "Update types"
+- Concrete actions, not areas
 - Steps within a phase depend only on earlier steps in the same or prior phases
 - If a step is risky or uncertain, note it in Decisions
 
