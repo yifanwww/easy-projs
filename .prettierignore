@@ -1,3 +1,4 @@
+/.agents
 /configs/*/dist
 /packages/*/coverage
 /packages/*/lib
@@ -5,3 +6,4 @@
 /projects/*/dist
 
 /pnpm-lock.yaml
+/skills-lock.json
