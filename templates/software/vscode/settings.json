@@ -59,6 +59,17 @@
     "js/ts.inlayHints.parameterNames.enabled": "none",
     "js/ts.tsserver.experimental.enableProjectDiagnostics": false,
 
+    "json.schemaDownload.trustedDomains": {
+        "https://schemastore.azurewebsites.net/": true,
+        "https://raw.githubusercontent.com/microsoft/vscode/": true,
+        "https://raw.githubusercontent.com/devcontainers/spec/": true,
+        "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/": true,
+        "https://www.schemastore.org/": true,
+        "https://json.schemastore.org/": true,
+        "https://json-schema.org/": true,
+        "https://developer.microsoft.com/json-schemas/": true
+    },
+
     "scm.diffDecorations": "none",
 
     "terminal.integrated.defaultProfile.osx": "zsh",
