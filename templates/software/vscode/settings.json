@@ -109,7 +109,7 @@
 
     "window.commandCenter": false,
     "window.newWindowDimensions": "default",
-    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+    "window.title": "${dirty}${rootName}${separator}${activeEditorMedium}${separator}${appName}",
 
     "workbench.colorTheme": "Quiet Light",
     "workbench.localHistory.enabled": false,
