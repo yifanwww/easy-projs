@@ -53,7 +53,11 @@ Create at `docs/exec-plans/active/YYYY-MM-DD-<short-slug>.md`, using the templat
 - Steps within a phase depend only on earlier steps in the same or prior phases
 - If a step is risky or uncertain, note it in Decisions
 
-### 5. Present the Plan
+### 5. Update the Exec Plan Index
+
+Open `docs/exec-plans/active/README.md` and add a row for the new file in the Active table.
+
+### 6. Present the Plan
 
 After creating the file, show the user:
 1. The file path
