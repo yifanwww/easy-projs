@@ -45,33 +45,8 @@ Tailor phases to the actual work. Small tasks may have only 1–2 phases.
 
 ### 4. Write the Plan File
 
-Create at `docs/exec-plans/active/YYYY-MM-DD-<short-slug>.md`:
-
-```markdown
-# Plan: <Title>
-
-**Status**: In Progress
-**Started**: YYYY-MM-DD
-**Design Doc**: [docs/design-docs/<name>.md](../../design-docs/<name>.md) _(if applicable)_
-**Owner**: human | agent | both
-
-## Goal
-
-One paragraph describing what this plan accomplishes.
-
-## Phase 1: <Name>
-
-- [ ] Step 1.1: <concrete action>
-- [ ] Step 1.2: <concrete action>
-
-## Phase 2: <Name>
-
-- [ ] Step 2.1: <concrete action>
-
-## Decisions
-
-## Progress Log
-```
+Create at `docs/exec-plans/active/YYYY-MM-DD-<short-slug>.md`, using the template at
+`docs/exec-plans/template.md`.
 
 **Writing good steps:**
 - Concrete actions, not areas

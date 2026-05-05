@@ -73,7 +73,7 @@ The `skills/` folder contains reusable agent skill workflows — slash commands 
 
 | Skill | Description |
 |---|---|
-| [`/setup-harness`](skills/setup-harness/SKILL.md) | Bootstraps harness engineering in a project: scaffolds a `docs/` knowledge base (`AGENTS.md`, `ARCHITECTURE.md`, design docs, exec plans, product specs) and creates the three workflow skills `/design-change`, `/plan-change`, and `/exec-change` — all adapted to the project's actual tech stack and conventions |
+| [`/setup-openai-harness`](skills/setup-openai-harness/SKILL.md) | Bootstraps harness engineering in a project: scaffolds a `docs/` knowledge base (`AGENTS.md`, `ARCHITECTURE.md`, design docs, exec plans, product specs) and creates the three workflow skills `/design-change`, `/plan-change`, and `/exec-change` — all adapted to the project's actual tech stack and conventions |
 
 ## Development
 

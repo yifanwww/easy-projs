@@ -54,7 +54,9 @@ with meaningful content.
 | `ARCHITECTURE.md` | Process model, source tree, dependency rules, build system |
 | `docs/design-docs/index.md` | Index of design docs |
 | `docs/design-docs/core-beliefs.md` | Engineering principles for this project |
+| `docs/design-docs/template.md` | Design doc template (copy from `templates/design-doc-template.md`) |
 | `docs/exec-plans/active/README.md` | Exec plan format, guidance, and completion workflow (must include a "Completing a Plan" checklist) |
+| `docs/exec-plans/template.md` | Exec plan template (copy from `templates/exec-plan-template.md`) |
 | `docs/exec-plans/completed/README.md` | Single source of truth for completed plans — must include an index table (title, date, summary) |
 | `docs/exec-plans/tech-debt-tracker.md` | Structured debt tracking |
 | `docs/product-specs/index.md` | Product spec index and template |
