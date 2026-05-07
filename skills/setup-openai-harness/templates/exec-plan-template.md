@@ -2,6 +2,7 @@
 
 **Status**: In Progress
 **Started**: YYYY-MM-DD
+**Last Updated**: YYYY-MM-DD
 **Design Doc**: [docs/design-docs/<name>.md](../../design-docs/<name>.md) _(if applicable)_
 **Owner**: human | agent | both
 
