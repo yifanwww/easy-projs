@@ -55,9 +55,8 @@ with meaningful content.
 | `docs/design-docs/index.md` | Index of design docs |
 | `docs/design-docs/core-beliefs.md` | Engineering principles for this project |
 | `docs/design-docs/template.md` | Design doc template (copy from `templates/design-doc-template.md`) |
-| `docs/exec-plans/active/README.md` | Exec plan format, guidance, and completion workflow (must include a "Completing a Plan" checklist) |
+| `docs/exec-plans/index.md` | Exec plan format, guidance, completion workflow, and index of active + completed plans |
 | `docs/exec-plans/template.md` | Exec plan template (copy from `templates/exec-plan-template.md`) |
-| `docs/exec-plans/completed/README.md` | Single source of truth for completed plans — must include an index table (title, date, summary) |
 | `docs/exec-plans/tech-debt-tracker.md` | Structured debt tracking |
 | `docs/product-specs/index.md` | Product spec index and template |
 | `docs/FRONTEND.md` | UI/renderer conventions (skip if no frontend) |
@@ -78,7 +77,7 @@ with meaningful content.
 - Omit frontend/UI docs for backend-only or CLI projects
 - Add domain-specific docs as needed (e.g. `docs/DATABASE.md` for data-heavy projects)
 - `docs/PLANS.md` tracks current focus and backlog only — it must NOT list completed plans;
-  `docs/exec-plans/completed/README.md` is the single source of truth for completed work; having
+  `docs/exec-plans/index.md` is the single source of truth for active and completed plans; having
   both track completions guarantees drift
 
 ### AGENTS.md Requirements

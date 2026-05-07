@@ -58,7 +58,7 @@ encoded as versioned artifacts — markdown, code, schemas, plans.
 This means:
 - Architectural decisions → `ARCHITECTURE.md` and `docs/design-docs/`
 - Engineering principles → `docs/design-docs/core-beliefs.md`
-- Active in-progress work → `docs/exec-plans/active/README.md`
+- Active in-progress work → `docs/exec-plans/index.md`
 - Known debt → `docs/exec-plans/tech-debt-tracker.md`
 - Product decisions → `docs/product-specs/index.md`
 
@@ -96,7 +96,7 @@ verifiable.
 | `ARCHITECTURE.md` | Process model, source tree, dependency rules, build system |
 | `docs/design-docs/core-beliefs.md` | Engineering principles that guide all agent decisions |
 | `docs/design-docs/index.md` | Index of all design docs |
-| `docs/exec-plans/active/README.md` | Active execution plans: format, guidance, and index |
+| `docs/exec-plans/index.md` | Execution plans index: active and completed plans, format, and completion workflow |
 | `docs/exec-plans/tech-debt-tracker.md` | Known tech debt, tracked continuously |
 | `docs/product-specs/index.md` | Feature specs and product decisions |
 | `docs/QUALITY_SCORE.md` | Per-domain quality grades |

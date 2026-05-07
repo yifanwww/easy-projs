@@ -55,7 +55,7 @@ Create at `docs/exec-plans/active/YYYY-MM-DD-<short-slug>.md`, using the templat
 
 ### 5. Update the Exec Plan Index
 
-Open `docs/exec-plans/active/README.md` and add a row for the new file in the Active table.
+Open `docs/exec-plans/index.md` and add a row for the new file in the Active Plans table.
 
 ### 6. Present the Plan
 
