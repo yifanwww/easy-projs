@@ -3,6 +3,7 @@
 
     "breadcrumbs.enabled": false,
 
+    "chat.agent.maxRequests": 100,
     "chat.disableAIFeatures": true,
     "chat.tools.urls.autoApprove": {
         "https://code.visualstudio.com": true,
