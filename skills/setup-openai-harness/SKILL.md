@@ -1,13 +1,13 @@
 ---
 name: setup-openai-harness
-description: Scaffold harness engineering for a project: creates /design-change, /plan-change, /exec-change slash commands and the docs/ knowledge structure, adapted to the project's tech stack and conventions.
+description: Scaffold OpenAI harness engineering for a project
 argument-hint: '[notes or constraints]'
 disable-model-invocation: true
 ---
 
-# /setup-openai-harness — Bootstrap Harness Engineering
+# /setup-openai-harness — Bootstrap OpenAI Harness Engineering
 
-Set up harness engineering infrastructure in the current project:
+Set up OpenAI harness engineering infrastructure in the current project:
 1. Create the `docs/` knowledge base (AGENTS.md, ARCHITECTURE.md, and supporting docs)
 2. Create the three workflow skills: `/design-change`, `/plan-change`, `/exec-change`
 
