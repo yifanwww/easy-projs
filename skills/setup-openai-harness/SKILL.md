@@ -27,5 +27,5 @@ Templates for the three workflow skills:
 - [templates/exec-change.md](./templates/exec-change.md)
 
 Templates to copy into `docs/`:
-- [templates/design-doc-template.md](./templates/design-doc-template.md) → `docs/design-docs/template.md`
-- [templates/exec-plan-template.md](./templates/exec-plan-template.md) → `docs/exec-plans/template.md`
+- [templates/design-doc.md](./templates/design-doc.md) → `docs/design-docs/template.md`
+- [templates/exec-plan.md](./templates/exec-plan.md) → `docs/exec-plans/template.md`

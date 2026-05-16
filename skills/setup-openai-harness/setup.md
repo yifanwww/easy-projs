@@ -52,11 +52,11 @@ with meaningful content.
 |------|---------|
 | `AGENTS.md` | ~100-line table of contents: what the project is, dev commands, repo layout, key doc pointers, working model |
 | `ARCHITECTURE.md` | Process model, source tree, dependency rules, build system |
-| `docs/design-docs/index.md` | Index of design docs |
+| `docs/design-docs/index.md` | Index of design docs with statuses |
 | `docs/design-docs/core-beliefs.md` | Engineering principles for this project |
-| `docs/design-docs/template.md` | Design doc template (copy from `templates/design-doc-template.md`) |
-| `docs/exec-plans/index.md` | Exec plan format, guidance, completion workflow, and index of active + completed plans |
-| `docs/exec-plans/template.md` | Exec plan template (copy from `templates/exec-plan-template.md`) |
+| `docs/design-docs/template.md` | Design doc template (copy from `templates/design-doc.md`) |
+| `docs/exec-plans/index.md` | when-to-use guidance, statuses, completion workflow, and index of active + completed plans |
+| `docs/exec-plans/template.md` | Exec plan template (copy from `templates/exec-plan.md`) |
 | `docs/exec-plans/tech-debt-tracker.md` | Structured debt tracking |
 | `docs/product-specs/index.md` | Product spec index and template |
 | `docs/FRONTEND.md` | UI/renderer conventions (skip if no frontend) |
@@ -79,6 +79,10 @@ with meaningful content.
 - `docs/PLANS.md` tracks current focus and backlog only — it must NOT list completed plans;
   `docs/exec-plans/index.md` is the single source of truth for active and completed plans; having
   both track completions guarantees drift
+- `docs/design-docs/index.md` must include a Statuses table listing the valid statuses for design
+  docs: `Draft`, `Accepted`, `Implemented`, `Superseded`
+- `docs/exec-plans/index.md` must include a Statuses table listing the valid statuses for exec
+  plans: `Active`, `Waiting for Review`, `Completed`, `Blocked`, `Superseded`
 
 ### AGENTS.md Requirements
 

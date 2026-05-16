@@ -1,6 +1,6 @@
 # Plan: <Title>
 
-**Status**: In Progress
+**Status**: Active
 **Started**: YYYY-MM-DD
 **Last Updated**: YYYY-MM-DD
 **Design Doc**: [docs/design-docs/<name>.md](../../design-docs/<name>.md) _(if applicable)_

@@ -77,7 +77,7 @@ For each step:
 - Mark all completed steps `[x]`
 - Add a progress log entry:
   `- **YYYY-MM-DD**: Completed Phase N (<Name>) — <summary>`
-- Update Status: `In Progress` | `Blocked` | `Waiting for Review`
+- Update Status: `Active` | `Blocked` | `Waiting for Review`
 
 ### 6. Validate the Phase
 
@@ -98,7 +98,7 @@ When **all phases complete**, set Status to `Waiting for Review`, then ask: "All
 Move to `docs/exec-plans/completed/`?"
 
 If confirmed:
-1. Set Status to `Done` in the plan file
+1. Set Status to `Completed` in the plan file
 2. Move the file to `docs/exec-plans/completed/`
 3. Remove the row for this plan from the Active Plans table in `docs/exec-plans/index.md`
 4. Add an entry for it in the Completed Plans table in `docs/exec-plans/index.md` (title, date completed, one-line summary)
