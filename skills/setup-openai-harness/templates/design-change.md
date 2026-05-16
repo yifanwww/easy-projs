@@ -41,8 +41,10 @@ Think through the design before writing. Consider:
 
 Create the file at:
 ```
-docs/design-docs/<feature-name>.md
+docs/design-docs/YYYY-MM-DD-<feature-name>.md
 ```
+
+Use the creation date as the prefix and a short, descriptive, lowercase-hyphenated name.
 
 Use the template at `docs/design-docs/template.md`.
 
