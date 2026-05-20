@@ -21,6 +21,7 @@ export default defineConfig([
                     extensions: [...ALL_EXTENSIONS, '.json'],
                 },
             },
+            'import/ignore': ['node_modules'],
         },
         rules: {
             // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/enforce-node-protocol-usage.md
@@ -33,7 +34,7 @@ export default defineConfig([
             'import/newline-after-import': 'error',
 
             // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md
-            'import/no-cycle': ['error', { maxDepth: '∞' }],
+            'import/no-cycle': ['error', { disableScc: false, ignoreExternal: true, maxDepth: '∞' }],
 
             // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md
             'import/no-duplicates': 'error',
