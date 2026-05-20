@@ -33,7 +33,7 @@ export default defineConfig([
             'import/newline-after-import': 'error',
 
             // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md
-            'import/no-cycle': ['error', { maxDepth: '∞' }],
+            'import/no-cycle': ['error', { disableScc: true, ignoreExternal: true, maxDepth: '∞' }],
 
             // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md
             'import/no-duplicates': 'error',
