@@ -10,8 +10,6 @@ disable-model-invocation: true
 Capture the design of a feature or change as a durable document in `docs/design-docs/`.
 Design docs record *what* and *why* — they are permanent reference, not task checklists.
 
----
-
 ## Procedure
 
 ### 1. Understand the Request

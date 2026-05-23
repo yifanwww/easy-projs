@@ -13,8 +13,6 @@ Execute a feature directly, or work through the next incomplete phase of an exec
 - **Without an exec plan** (small feature): execute the full change directly from the design doc or
   description.
 
----
-
 ## Procedure
 
 ### 1. Identify What to Execute
@@ -102,12 +100,11 @@ If confirmed:
 2. Move the file to `docs/exec-plans/completed/`
 3. Remove the row for this plan from the Active Plans table in `docs/exec-plans/index.md`
 4. Add an entry for it in the Completed Plans table in `docs/exec-plans/index.md` (title, date completed, one-line summary)
-
----
+5. If the plan's **Design Doc** field references a design doc, open that file and set its **Status** to `Implemented`
 
 ## Notes
 
 - Plans without explicit phases are treated as a single phase
-- If executing from a design doc with no plan, run full validation at the end and report what was
-  done
+- If executing from a design doc with no plan, run full validation at the end, set the design
+  doc's **Status** to `Implemented`, and report what was done
 - Never skip a step without a documented reason in Decisions

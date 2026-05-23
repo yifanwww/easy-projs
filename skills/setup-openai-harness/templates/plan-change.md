@@ -11,8 +11,6 @@ Turn a design doc (or task description) into a phased execution plan checked int
 `docs/exec-plans/active/`. A plan breaks work into **phases** — logical chunks executed one at a
 time via `/exec-change`.
 
----
-
 ## Procedure
 
 ### 1. Identify the Input

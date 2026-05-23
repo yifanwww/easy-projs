@@ -13,8 +13,6 @@ Set up OpenAI harness engineering infrastructure in the current project:
 
 Run this once in a new project. It adapts everything to the project's actual tech stack and structure.
 
----
-
 ## Procedure
 
 1. Read [harness.md](./harness.md) — understand what harness engineering is and the structure to

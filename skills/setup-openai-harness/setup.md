@@ -4,8 +4,6 @@ Follow these steps to bootstrap harness engineering for a project.
 
 Read [harness.md](./harness.md) first to understand what you're setting up and why.
 
----
-
 ## Step 1. Explore the Project
 
 Read enough to understand the project before generating anything. At minimum:
@@ -28,8 +26,6 @@ Identify:
   frontend/backend)
 - **Docs structure** — what already exists vs. what needs to be created
 
----
-
 ## Step 2. Check What Already Exists
 
 Before creating anything:
@@ -38,8 +34,6 @@ Before creating anything:
   update them if so
 - Check if `docs/`, `AGENTS.md`, `ARCHITECTURE.md` already exist — do not overwrite without noting
   what was preserved
-
----
 
 ## Step 3. Create the docs/ Knowledge Structure
 
@@ -94,8 +88,6 @@ with meaningful content.
   slash commands, explicitly triggered by the user; AI agents reading AGENTS.md should not be
   proactively aware of them
 
----
-
 ## Step 4. Create the Three Workflow Skills
 
 Create these files under `.agents/skills/`:
@@ -121,8 +113,6 @@ Read each template and create the corresponding `SKILL.md`, substituting these p
 
 Add any project-specific layer/boundary rules to the "Staying in bounds" section of exec-change.
 
----
-
 ## Step 5. Report What Was Created
 
 After completing setup, show the user:
@@ -133,8 +123,6 @@ After completing setup, show the user:
    > `/design-change <feature>` → design doc → `/plan-change` (if complex) → `/exec-change` (one
    > phase at a time)
 4. Any files that were skipped because they already existed
-
----
 
 ## Notes
 

@@ -12,8 +12,6 @@ knowledge structures that an agent needs in order to work effectively in a codeb
 harness keeps a worker safe while they do their job, a harness engineering setup keeps an agent
 oriented while it implements, tests, reviews, and ships code.
 
----
-
 ## The Origin
 
 OpenAI's team ran an experiment: build and ship a real internal software product with **zero lines
@@ -28,8 +26,6 @@ The key insight was that slow progress early on wasn't because the agent was inc
 because **the environment was underspecified**. The agent lacked the tools, abstractions, and
 internal structure required to make progress toward high-level goals.
 
----
-
 ## Redefining the Role of the Engineer
 
 In a harness engineering setup, the engineer's job is no longer to write code. It is to:
@@ -43,8 +39,6 @@ In a harness engineering setup, the engineer's job is no longer to write code. I
 When something fails, the fix is almost never "try harder." Because the only way to make progress
 is to get the agent to do the work, engineers always ask: **"What capability is missing, and how do
 we make it both legible and enforceable for the agent?"**
-
----
 
 ## Core Principle: The Repo Is the System of Record
 
@@ -64,8 +58,6 @@ This means:
 
 If a Slack discussion aligned the team on an architectural pattern, and it isn't discoverable to
 the agent, it is effectively unknown — the same as it would be to a new hire joining months later.
-
----
 
 ## Progressive Disclosure: Give Agents a Map, Not a Manual
 
@@ -105,8 +97,6 @@ verifiable.
 | `docs/FRONTEND.md` | UI/renderer conventions (if applicable) |
 | `docs/PLANS.md` | Current focus + backlog |
 | `docs/PRODUCT_SENSE.md` | What the product is, user model, core values |
-
----
 
 ## Workflow: Design → Plan → Execute
 
@@ -154,8 +144,6 @@ One `/exec-change` invocation = one phase. After each phase:
 Small changes may skip `/plan-change` and use `/exec-change` directly from a design doc or
 description.
 
----
-
 ## Enforcing Architecture and Taste
 
 Documentation alone doesn't keep an agent-generated codebase coherent. Invariants must be
@@ -192,8 +180,6 @@ consistent for future agent runs. Examples:
 - Parse data at boundaries — validate shapes before trusting them (don't probe data "YOLO-style")
 - Prefer technologies that are well-represented in training data (composable, stable APIs)
 
----
-
 ## Entropy and Garbage Collection
 
 Full agent autonomy introduces drift. Agents replicate patterns that exist in the repository —
@@ -207,8 +193,6 @@ The solution is **continuous garbage collection**, not periodic manual cleanup:
 
 Technical debt is like a high-interest loan: almost always better to pay it down continuously in
 small increments than to let it compound and tackle it in painful bursts.
-
----
 
 ## Making the Application Legible to Agents
 
@@ -226,8 +210,6 @@ Make the application directly legible to the agent:
 
 When agents can inspect, validate, and modify the system directly, leverage compounds.
 
----
-
 ## Throughput Changes the Merge Philosophy
 
 At high agent throughput, conventional engineering norms become counterproductive:
@@ -238,8 +220,6 @@ At high agent throughput, conventional engineering norms become counterproductiv
 - Agent-to-agent review handles most quality control; human review is reserved for judgment calls
 
 This would be irresponsible at low throughput. At high throughput, it is often the right tradeoff.
-
----
 
 ## What "Agent-Generated" Actually Means
 
@@ -256,8 +236,6 @@ In a full harness engineering setup, agents produce everything:
 Humans remain in the loop but work at a different layer of abstraction: prioritizing work,
 translating user feedback into acceptance criteria, validating outcomes, and — when the agent
 struggles — identifying what is missing and encoding it back into the repository.
-
----
 
 ## Increasing Autonomy
 
@@ -277,8 +255,6 @@ A well-built harness enables a full end-to-end agent loop:
 
 This level of autonomy depends on the specific structure and tooling of the repository. It does not
 happen automatically — it is the result of deliberate investment in the harness.
-
----
 
 ## Key Lessons
 
