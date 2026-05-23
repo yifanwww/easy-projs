@@ -60,8 +60,6 @@ projects/   — Standalone applications and internal tooling
 
 | Project | Description |
 |---|---|
-| [`bundlesize-antd`](projects/bundlesize-antd) | Tracks Ant Design bundle size history across versions |
-| [`bundlesize-fluentui`](projects/bundlesize-fluentui) | Tracks Fluent UI bundle size history across versions |
 | [`misc-scripts`](projects/misc-scripts) | Miscellaneous maintenance scripts |
 | [`performance-js`](projects/performance-js) | JavaScript performance benchmark suite using [tinybench](https://github.com/tinylibs/tinybench) |
 | [`redux-usage-demo`](projects/redux-usage-demo) | Demo app showing how to use `@easy-lib/helpers-redux` |
