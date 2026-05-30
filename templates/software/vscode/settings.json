@@ -8,7 +8,8 @@
     "chat.tools.urls.autoApprove": {
         "https://code.visualstudio.com": true,
         "https://github.com/microsoft/vscode/wiki/*": true,
-        "https://electron-vite.org": true
+        "https://electron-vite.org": true,
+        "https://orm.drizzle.team": true
     },
     "chat.viewSessions.orientation": "stacked",
 
@@ -355,15 +356,15 @@
         "vue-postcss"
     ],
 
-    "todo-tree.general.showActivityBarBadge": true,
-    "todo-tree.general.tags": ["BUG", "FIXME", "HACK", "TODO", "UNDONE", "XXX", "[ ]"],
-    "todo-tree.highlights.defaultHighlight": {
+    "better-todo-tree.general.showActivityBarBadge": true,
+    "better-todo-tree.general.tags": ["BUG", "FIXME", "HACK", "TODO", "UNDONE", "XXX", "[ ]"],
+    "better-todo-tree.highlights.defaultHighlight": {
         "type": "tag",
         "icon": "zap",
         "iconColour": "#cc2222",
         "foreground": "#000000",
         "background": "#ffff22"
     },
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^\\s*\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "todo-tree.tree.showCountsInTree": true
+    "better-todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^\\s*\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "better-todo-tree.tree.showCountsInTree": true
 }
