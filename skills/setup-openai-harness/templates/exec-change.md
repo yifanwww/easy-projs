@@ -23,7 +23,7 @@ Execute a feature directly, or work through the next incomplete phase of an exec
 
 **If given a description (or following `/plan-change` or `/design-change` in context):**
 - Use a plan just created in this conversation, or find one in `docs/exec-plans/active/`
-- If no exec plan exists, use a design doc from `docs/design-docs/` or the description directly
+- If no exec plan exists, use a design doc from `docs/design-docs/active/` or the description directly
 
 **If nothing is found and no context exists:** Ask the user to provide a path or description.
 

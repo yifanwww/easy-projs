@@ -7,7 +7,7 @@ disable-model-invocation: true
 
 # /design-change — Create a Design Doc
 
-Capture the design of a feature or change as a durable document in `docs/design-docs/`.
+Capture the design of a feature or change as a durable document in `docs/design-docs/active/`.
 Design docs record *what* and *why* — they are permanent reference, not task checklists.
 
 ## Procedure
@@ -39,7 +39,7 @@ Think through the design before writing. Consider:
 
 Create the file at:
 ```
-docs/design-docs/YYYY-MM-DD-<feature-name>.md
+docs/design-docs/active/YYYY-MM-DD-<feature-name>.md
 ```
 
 Use the creation date as the prefix and a short, descriptive, lowercase-hyphenated name.
@@ -50,7 +50,7 @@ Omit sections that don't apply.
 
 ### 4. Update the Design Doc Index
 
-Add a row for the new file in `docs/design-docs/index.md`.
+Add a row for the new file in the Active Design Docs table in `docs/design-docs/index.md`.
 
 ### 5. Present and Advise
 

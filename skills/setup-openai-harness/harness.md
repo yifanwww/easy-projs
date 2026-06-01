@@ -88,7 +88,11 @@ verifiable.
 | `ARCHITECTURE.md` | Process model, source tree, dependency rules, build system |
 | `docs/design-docs/core-beliefs.md` | Engineering principles that guide all agent decisions |
 | `docs/design-docs/index.md` | Index of all design docs |
+| `docs/design-docs/active/` | Active design docs (in-progress) |
+| `docs/design-docs/completed/` | Completed design docs (archive) |
 | `docs/exec-plans/index.md` | Execution plans index: active and completed plans, format, and completion workflow |
+| `docs/exec-plans/active/` | Active execution plans (in-progress) |
+| `docs/exec-plans/completed/` | Completed execution plans (archive) |
 | `docs/exec-plans/tech-debt-tracker.md` | Known tech debt, tracked continuously |
 | `docs/product-specs/index.md` | Feature specs and product decisions |
 | `docs/QUALITY_SCORE.md` | Per-domain quality grades |
@@ -103,14 +107,14 @@ verifiable.
 Complex changes flow through three stages. Each stage is a separate agent invocation.
 
 ```
-/design-change <feature>   →   design doc in docs/design-docs/
+/design-change <feature>   →   design doc in docs/design-docs/active/
 /plan-change               →   execution plan in docs/exec-plans/active/
 /exec-change               →   one phase at a time
 ```
 
 ### /design-change — Capture What and Why
 
-Creates a durable design document in `docs/design-docs/`. Design docs record what is changing,
+Creates a durable design document in `docs/design-docs/active/`. Design docs record what is changing,
 why it's changing, the key decisions made, and what is explicitly out of scope. They are permanent
 reference artifacts, not task checklists.
 

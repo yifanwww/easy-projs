@@ -19,7 +19,7 @@ time via `/exec-change`.
 
 **If the user provided a description (or this follows `/design-change` in context):**
 - If a design doc was just created in this conversation, use it
-- Otherwise check `docs/design-docs/` for a matching doc
+- Otherwise check `docs/design-docs/active/` for a matching doc
 - If none exists, read relevant architecture docs and proceed from the description
 
 If ambiguity remains, ask one focused question before continuing.
