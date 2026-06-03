@@ -1,10 +1,12 @@
 # easy-projs
 
-A personal monorepo that collects reusable code patterns, shared configurations, and utility libraries to make starting and maintaining projects easier.
+A personal monorepo that collects reusable code patterns, shared configurations, and utility
+libraries to make starting and maintaining projects easier.
 
 ## Repository Structure
 
-The workspace is managed with [pnpm workspaces](https://pnpm.io/workspaces) and is organized into three top-level sections:
+The workspace is managed with [pnpm workspaces](https://pnpm.io/workspaces) and is organized into
+three top-level sections:
 
 ```
 configs/    — Shared tooling configurations (ESLint, Jest, TypeScript, Stylelint)
@@ -67,11 +69,15 @@ projects/   — Standalone applications and internal tooling
 
 ## Agent Skills
 
-The `skills/` folder contains reusable agent skill workflows — slash commands that can be invoked by any AI agent tool supporting custom skills.
+The `skills/` folder contains reusable agent skill workflows — slash commands that can be invoked
+by any AI agent tool supporting custom skills.
 
-| Skill | Description |
-|---|---|
-| [`/setup-openai-harness`](skills/setup-openai-harness/SKILL.md) | Bootstraps harness engineering in a project: scaffolds a `docs/` knowledge base (`AGENTS.md`, `ARCHITECTURE.md`, design docs, exec plans, product specs) and creates the three workflow skills `/design-change`, `/plan-change`, and `/exec-change` — all adapted to the project's actual tech stack and conventions |
+- [`/setup-openai-harness`](skills/setup-openai-harness/SKILL.md)
+  Bootstraps harness engineering in a project:
+  - Scaffolds a `docs/` knowledge base
+    (`AGENTS.md`, `ARCHITECTURE.md`, design docs, exec plans, product specs)
+  - Creates three workflow skills: `/design-change`, `/plan-change`, `/exec-change`
+  - All adapted to the project's actual tech stack and conventions
 
 ## Development
 
