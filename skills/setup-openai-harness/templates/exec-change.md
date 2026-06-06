@@ -100,7 +100,10 @@ If confirmed:
 2. Move the file to `docs/exec-plans/completed/`
 3. Remove the row for this plan from the Active Plans table in `docs/exec-plans/index.md`
 4. Add an entry for it in the Completed Plans table in `docs/exec-plans/index.md` (title, date completed, one-line summary)
-5. If the plan's **Design Doc** field references a design doc, open that file and set its **Status** to `Implemented`
+5. If the plan's **Design Doc** field references a design doc:
+   - Move the design doc file from `docs/design-docs/active/` to `docs/design-docs/completed/` (same filename)
+   - Update the **Design Doc** field in the plan file to point to the new path: `docs/design-docs/completed/<name>.md`
+   - Open the design doc and set its **Status** to `Implemented`
 
 ## Notes
 
