@@ -113,6 +113,8 @@ If confirmed:
    - Move the design doc file from `docs/design-docs/active/` to `docs/design-docs/completed/` (same filename)
    - Update the **Design Doc** field in the plan file to point to the new path: `docs/design-docs/completed/<name>.md`
    - Open the design doc and set its **Status** to `Implemented`
+   - Remove the row for this design doc from the Active Design Docs table in `docs/design-docs/index.md`
+   - Add an entry for it in the Completed Design Docs table in `docs/design-docs/index.md` (title, date completed, one-line summary)
 
 ## Notes
 
