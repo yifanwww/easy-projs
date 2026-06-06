@@ -33,7 +33,7 @@ Layer-by-layer breakdown of what changes where.
 ## Key Decisions
 
 | Decision | Chosen Approach | Rationale |
-|----------|----------------|-----------|
+| -------- | --------------- | --------- |
 
 ## Out of Scope
 

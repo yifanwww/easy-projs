@@ -3,6 +3,7 @@
 Some useful React hooks.
 
 Consider open-source React hooks library first:
+
 - [`react-use`](https://github.com/streamich/react-use).
 - [`use-callback-ref`](https://github.com/theKashey/use-callback-ref)
 
@@ -16,11 +17,11 @@ Here is an example about how to use hook `useIsHovered`.
 import { useIsHovered } from '@easy-lib/hooks';
 
 export function Component(): React.ReactNode {
-    const ref = useRef<SubComponent>(null);
+  const ref = useRef<SubComponent>(null);
 
-    const isHovered = useIsHovered(ref);
+  const isHovered = useIsHovered(ref);
 
-    return <SubComponent className={isHovered ? 'sub-component-hover' : 'sub-component'} ref={ref} />;
+  return <SubComponent className={isHovered ? 'sub-component-hover' : 'sub-component'} ref={ref} />;
 }
 ```
 

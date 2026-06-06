@@ -18,6 +18,7 @@ time via `/exec-change`.
 **If the user provided a design doc path:** Read that file as the primary source.
 
 **If the user provided a description (or this follows `/design-change` in context):**
+
 - If a design doc was just created in this conversation, use it
 - Otherwise check `docs/design-docs/active/` for a matching doc
 - If none exists, read relevant architecture docs and proceed from the description
@@ -76,6 +77,7 @@ Create at `docs/exec-plans/active/YYYY-MM-DD-<short-slug>.md`, using the templat
 `docs/exec-plans/template.md`.
 
 **Writing good steps:**
+
 - Concrete actions, not areas
 - Steps within a phase depend only on earlier steps in the same or prior phases
 - If a step is risky or uncertain, note it in Decisions
@@ -87,6 +89,7 @@ Open `docs/exec-plans/index.md` and add a row for the new file in the Active Pla
 ### 6. Present the Plan
 
 After creating the file, show the user:
+
 1. The file path
 2. The phase structure with step counts
 3. The full step list to review

@@ -14,15 +14,21 @@
 
     "overrides": [
         {
-            "files": ["*.yaml", "*.yml"],
+            "files": ["*.code-workspace"],
+            "options": {
+                "trailingComma": "none"
+            }
+        },
+        {
+            "files": ["*.md"],
             "options": {
                 "tabWidth": 2
             }
         },
         {
-            "files": ["*.code-workspace"],
+            "files": ["*.yaml", "*.yml"],
             "options": {
-                "trailingComma": "none"
+                "tabWidth": 2
             }
         }
     ]

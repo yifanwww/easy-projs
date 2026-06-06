@@ -8,6 +8,7 @@ disable-model-invocation: true
 # /exec-change — Execute a Feature or Plan Phase
 
 Execute a feature directly, or work through the next incomplete phase of an execution plan.
+
 - **With an exec plan**: one `/exec-change` = one phase. Run `/exec-change` again for the next
   phase.
 - **Without an exec plan** (small feature): execute the full change directly from the design doc or
@@ -18,10 +19,12 @@ Execute a feature directly, or work through the next incomplete phase of an exec
 ### 1. Identify What to Execute
 
 **If given a file path:**
+
 - Exec plan → phase-based execution
 - Design doc → execute directly (no phases)
 
 **If given a description (or following `/plan-change` or `/design-change` in context):**
+
 - Use a plan just created in this conversation, or find one in `docs/exec-plans/active/`
 - If no exec plan exists, use a design doc from `docs/design-docs/active/` or the description directly
 
@@ -54,6 +57,7 @@ and ask for confirmation.
 ### 4. Execute This Phase Only (or the full feature if no plan)
 
 For each step:
+
 1. Do the work
 2. Validate incrementally — after logic changes run:
    {VALIDATION_COMMANDS}
@@ -61,6 +65,7 @@ For each step:
 4. Fix validation failures before moving on — don't accumulate broken states
 
 **Staying in bounds:**
+
 - Follow `docs/design-docs/core-beliefs.md` for all changes
 - [Add any project-specific layer/boundary rules here]
 
@@ -80,14 +85,17 @@ For each step:
 ### 6. Validate the Phase
 
 After all steps in the phase are complete, run the full validation suite:
+
 ```
 {FULL_VALIDATION_COMMAND}
 ```
+
 Fix any failures before proceeding.
 
 ### 7. Report and Prompt
 
 After the phase passes validation:
+
 - Summarize what was done
 - Confirm validation passed
 - Name the next phase (if any): "Run `/exec-change` to continue with Phase N+1: \<Name\>."
@@ -96,6 +104,7 @@ When **all phases complete**, set Status to `Waiting for Review`, then ask: "All
 Move to `docs/exec-plans/completed/`?"
 
 If confirmed:
+
 1. Set Status to `Completed` in the plan file
 2. Move the file to `docs/exec-plans/completed/`
 3. Remove the row for this plan from the Active Plans table in `docs/exec-plans/index.md`

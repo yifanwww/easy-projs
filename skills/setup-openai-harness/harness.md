@@ -7,7 +7,7 @@ Harness engineering is a software development methodology where **humans steer a
 execute**. Engineers do not write code directly. Instead, they define environments, specify intent,
 and build feedback loops that allow AI coding agents to do reliable, high-quality work at scale.
 
-The term comes from the idea of building a *harness* — the scaffolding, tooling, constraints, and
+The term comes from the idea of building a _harness_ — the scaffolding, tooling, constraints, and
 knowledge structures that an agent needs in order to work effectively in a codebase. Just as a
 harness keeps a worker safe while they do their job, a harness engineering setup keeps an agent
 oriented while it implements, tests, reviews, and ships code.
@@ -50,6 +50,7 @@ encoded as versioned artifacts — markdown, code, schemas, plans.
 > doesn't exist."
 
 This means:
+
 - Architectural decisions → `ARCHITECTURE.md` and `docs/design-docs/`
 - Engineering principles → `docs/design-docs/core-beliefs.md`
 - Active in-progress work → `docs/exec-plans/index.md`
@@ -82,25 +83,25 @@ only the context they need for the task at hand.
 The `docs/` directory is the knowledge base. Files are structured, cross-linked, and mechanically
 verifiable.
 
-| File | Purpose |
-|------|---------|
-| `AGENTS.md` | ~100-line table of contents: project overview, commands, repo layout, doc pointers |
-| `ARCHITECTURE.md` | Process model, source tree, dependency rules, build system |
-| `docs/design-docs/core-beliefs.md` | Engineering principles that guide all agent decisions |
-| `docs/design-docs/index.md` | Index of all design docs |
-| `docs/design-docs/active/` | Active design docs (in-progress) |
-| `docs/design-docs/completed/` | Completed design docs (archive) |
-| `docs/exec-plans/index.md` | Execution plans index: active and completed plans, format, and completion workflow |
-| `docs/exec-plans/active/` | Active execution plans (in-progress) |
-| `docs/exec-plans/completed/` | Completed execution plans (archive) |
-| `docs/exec-plans/tech-debt-tracker.md` | Known tech debt, tracked continuously |
-| `docs/product-specs/index.md` | Feature specs and product decisions |
-| `docs/QUALITY_SCORE.md` | Per-domain quality grades |
-| `docs/RELIABILITY.md` | Reliability and data integrity requirements |
-| `docs/SECURITY.md` | Security model and requirements |
-| `docs/FRONTEND.md` | UI/renderer conventions (if applicable) |
-| `docs/PLANS.md` | Current focus + backlog |
-| `docs/PRODUCT_SENSE.md` | What the product is, user model, core values |
+| File                                   | Purpose                                                                            |
+| -------------------------------------- | ---------------------------------------------------------------------------------- |
+| `AGENTS.md`                            | ~100-line table of contents: project overview, commands, repo layout, doc pointers |
+| `ARCHITECTURE.md`                      | Process model, source tree, dependency rules, build system                         |
+| `docs/design-docs/core-beliefs.md`     | Engineering principles that guide all agent decisions                              |
+| `docs/design-docs/index.md`            | Index of all design docs                                                           |
+| `docs/design-docs/active/`             | Active design docs (in-progress)                                                   |
+| `docs/design-docs/completed/`          | Completed design docs (archive)                                                    |
+| `docs/exec-plans/index.md`             | Execution plans index: active and completed plans, format, and completion workflow |
+| `docs/exec-plans/active/`              | Active execution plans (in-progress)                                               |
+| `docs/exec-plans/completed/`           | Completed execution plans (archive)                                                |
+| `docs/exec-plans/tech-debt-tracker.md` | Known tech debt, tracked continuously                                              |
+| `docs/product-specs/index.md`          | Feature specs and product decisions                                                |
+| `docs/QUALITY_SCORE.md`                | Per-domain quality grades                                                          |
+| `docs/RELIABILITY.md`                  | Reliability and data integrity requirements                                        |
+| `docs/SECURITY.md`                     | Security model and requirements                                                    |
+| `docs/FRONTEND.md`                     | UI/renderer conventions (if applicable)                                            |
+| `docs/PLANS.md`                        | Current focus + backlog                                                            |
+| `docs/PRODUCT_SENSE.md`                | What the product is, user model, core values                                       |
 
 ## Workflow: Design → Plan → Execute
 
@@ -128,6 +129,7 @@ Turns a design doc (or a task description) into a phased execution plan in
 independently completable and leaves the codebase in a valid state.
 
 Typical phases for a feature:
+
 - **Foundation** — shared types, data model changes
 - **Backend / Core** — business logic, storage, handlers
 - **Interface / Bridge** — public API, IPC, protocol changes
@@ -140,6 +142,7 @@ plan serves as a decision and history record.
 
 Executes the next incomplete phase of an execution plan — or the full change if no plan exists.
 One `/exec-change` invocation = one phase. After each phase:
+
 1. Validation runs (typecheck, lint, test)
 2. Completed steps are marked `[x]` in the plan
 3. A progress log entry is added
@@ -157,6 +160,7 @@ Documentation alone doesn't keep an agent-generated codebase coherent. Invariant
 
 Agents work best in environments with strict boundaries and predictable structure. Define a rigid
 architectural model:
+
 - Divide the codebase into business domains
 - Each domain has a fixed set of layers (e.g. Types → Config → Repo → Service → Runtime → UI)
 - Enforce valid dependency directions — code can only depend "forward" through layers
@@ -168,6 +172,7 @@ remediation instructions injected into agent context.
 ### Encode Taste as Rules
 
 Human preferences and best practices should be encoded as mechanical rules, not documentation:
+
 - Naming conventions → custom lints
 - File size limits → CI checks
 - Structured logging requirements → static enforcement
@@ -180,6 +185,7 @@ continuously on every line of code.
 
 Define "golden principles" — opinionated, mechanical rules that keep the codebase legible and
 consistent for future agent runs. Examples:
+
 - Prefer shared utility packages over hand-rolled helpers (keeps invariants centralized)
 - Parse data at boundaries — validate shapes before trusting them (don't probe data "YOLO-style")
 - Prefer technologies that are well-represented in training data (composable, stable APIs)
@@ -190,6 +196,7 @@ Full agent autonomy introduces drift. Agents replicate patterns that exist in th
 including uneven or suboptimal ones. Over time this compounds.
 
 The solution is **continuous garbage collection**, not periodic manual cleanup:
+
 - Run background agent tasks that scan for deviations from golden principles
 - Update quality grades on a regular cadence
 - Open targeted refactoring PRs that can be reviewed in under a minute
@@ -228,6 +235,7 @@ This would be irresponsible at low throughput. At high throughput, it is often t
 ## What "Agent-Generated" Actually Means
 
 In a full harness engineering setup, agents produce everything:
+
 - Product code and tests
 - CI configuration and release tooling
 - Internal developer tools

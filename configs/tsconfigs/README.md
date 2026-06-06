@@ -7,6 +7,7 @@ Typescript configurations for easy-projs.
 Your typescript configurations can be extended from this package.
 
 Then you need to specify the following options if need
+
 - `compilerOptions`
   - `baseUrl` (if you have path aliases setup)
   - `outDir`
@@ -18,11 +19,11 @@ For example:
 
 ```json
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.react.json",
-    "compilerOptions": {
-        "rootDir": "..."
-    },
-    "include": [],
-    "exclude": []
+  "extends": "@easy-config/tsconfigs/tsconfig.react.json",
+  "compilerOptions": {
+    "rootDir": "..."
+  },
+  "include": [],
+  "exclude": []
 }
 ```

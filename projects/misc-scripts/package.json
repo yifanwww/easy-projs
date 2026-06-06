@@ -19,7 +19,7 @@
         "build": "tsc --project tsconfig.node.json",
         "clean": "rimraf --glob coverage dist *.tsbuildinfo",
         "dev": "tsc --project tsconfig.node.json --watch",
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,jsx,mjs,mts,json,less,scss,ts,tsx,yaml,yml}\"",
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,mjs,mts,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint . --fix",
         "lint-ci": "eslint .",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"

@@ -8,7 +8,7 @@ disable-model-invocation: true
 # /design-change — Create a Design Doc
 
 Capture the design of a feature or change as a durable document in `docs/design-docs/active/`.
-Design docs record *what* and *why* — they are permanent reference, not task checklists.
+Design docs record _what_ and _why_ — they are permanent reference, not task checklists.
 
 ## Procedure
 
@@ -18,6 +18,7 @@ Read the user's description. Identify what is being added or changed, what probl
 any constraints mentioned.
 
 Then read relevant context:
+
 - `ARCHITECTURE.md` for layer rules and domain structure
 - `docs/design-docs/core-beliefs.md` for applicable principles
 - `docs/product-specs/index.md` for related feature specs
@@ -29,6 +30,7 @@ proceed with reasonable assumptions and document them.
 ### 2. Design the Feature
 
 Think through the design before writing. Consider:
+
 - **What changes** — which types, interfaces, modules, storage structures
 - **Where it lives** — which layer/domain owns each piece
 - **Key decisions** — where multiple approaches exist, pick one and record why
@@ -38,6 +40,7 @@ Think through the design before writing. Consider:
 ### 3. Write the Design Doc
 
 Create the file at:
+
 ```
 docs/design-docs/active/YYYY-MM-DD-<feature-name>.md
 ```
@@ -57,6 +60,7 @@ Add a row for the new file in the Active Design Docs table in `docs/design-docs/
 After creating the file, show the file path, a brief summary, and the key decisions made.
 
 Then explicitly advise:
+
 - **Suggest `/plan-change`** if: the feature spans multiple files/layers, has more than ~3
   implementation steps, or takes more than one session
 - **Skip to `/exec-change`** if: the change is small and clear enough to implement directly

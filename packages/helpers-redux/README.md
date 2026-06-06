@@ -3,6 +3,7 @@
 Redux helpers for easy-projs.
 
 ## Usage
+
 ### `ReduxReducer`
 
 This type is used to create redux reducers in a simpler way.
@@ -11,7 +12,7 @@ This type is used to create redux reducers in a simpler way.
 import { ReduxReducer } from '@easy-lib/helpers-redux';
 
 export interface EasyState {
-    prepared: boolean;
+  prepared: boolean;
 }
 
 type EasyReducer<Payload = undefined> = ReduxReducer<EasyState, Payload>;
@@ -21,7 +22,7 @@ Then you can use `EasyReducer` to create your reducers.
 
 ```ts
 export const _finishPreparing: EasyReducer = (state) => {
-    state.prepared = true;
+  state.prepared = true;
 };
 ```
 
@@ -37,11 +38,11 @@ import { omitUnderscorePrefixActions } from '@easy-lib/helpers-redux';
 const getInitialState = (): EasyState => ({ prepared: false });
 
 const slice = createSlice({
-    name: 'easy-projs',
-    initialState: getInitialState(),
-    reducers: {
-        _finishPreparing,
-    },
+  name: 'easy-projs',
+  initialState: getInitialState(),
+  reducers: {
+    _finishPreparing,
+  },
 });
 
 export const _actions = slice.actions;
@@ -70,13 +71,13 @@ Then you can use this creator to create asynchronous middlewares.
 
 ```ts
 export const prepare = createEasyThunk((dispatch) => {
-    // Do something before users using this application.
+  // Do something before users using this application.
 
-    dispatch(_actions._finishPreparing());
+  dispatch(_actions._finishPreparing());
 });
 
 export const thunks = {
-    prepare,
+  prepare,
 };
 ```
 

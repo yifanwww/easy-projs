@@ -7,8 +7,9 @@ Stylelint configurations for easy-projs.
 Add `"extends": "@easy-config/stylelint-config"` to your Stylelint config file.
 
 For example `.stylelintrc.json`:
+
 ```json
 {
-    "extends": "@easy-config/stylelint-config"
+  "extends": "@easy-config/stylelint-config"
 }
 ```

@@ -42,28 +42,28 @@ with meaningful content.
 
 ### Required Files
 
-| File | Purpose |
-|------|---------|
-| `AGENTS.md` | ~100-line table of contents: what the project is, dev commands, repo layout, key doc pointers, working model |
-| `ARCHITECTURE.md` | Process model, source tree, dependency rules, build system |
-| `docs/design-docs/index.md` | statuses, and index of active + completed design docs |
-| `docs/design-docs/core-beliefs.md` | Engineering principles for this project |
-| `docs/design-docs/template.md` | Design doc template (copy from `templates/design-doc.md`) |
-| `docs/design-docs/active/` | Directory for active (in-progress) design docs |
-| `docs/design-docs/completed/` | Directory for completed design docs (archive) |
-| `docs/exec-plans/index.md` | when-to-use guidance, statuses, completion workflow, and index of active + completed plans |
-| `docs/exec-plans/template.md` | Exec plan template (copy from `templates/exec-plan.md`) |
-| `docs/exec-plans/active/` | Directory for active (in-progress) execution plans |
-| `docs/exec-plans/completed/` | Directory for completed execution plans (archive) |
-| `docs/exec-plans/tech-debt-tracker.md` | Structured debt tracking |
-| `docs/product-specs/index.md` | Product spec index and template |
-| `docs/FRONTEND.md` | UI/renderer conventions (skip if no frontend) |
-| `docs/DESIGN.md` | Visual/component design conventions (skip if no UI) |
-| `docs/PLANS.md` | Current focus + backlog |
-| `docs/PRODUCT_SENSE.md` | What the product is, user model, core values |
-| `docs/QUALITY_SCORE.md` | Per-domain quality grades |
-| `docs/RELIABILITY.md` | Data integrity, startup, error handling requirements |
-| `docs/SECURITY.md` | Security model and requirements |
+| File                                   | Purpose                                                                                                      |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `AGENTS.md`                            | ~100-line table of contents: what the project is, dev commands, repo layout, key doc pointers, working model |
+| `ARCHITECTURE.md`                      | Process model, source tree, dependency rules, build system                                                   |
+| `docs/design-docs/index.md`            | statuses, and index of active + completed design docs                                                        |
+| `docs/design-docs/core-beliefs.md`     | Engineering principles for this project                                                                      |
+| `docs/design-docs/template.md`         | Design doc template (copy from `templates/design-doc.md`)                                                    |
+| `docs/design-docs/active/`             | Directory for active (in-progress) design docs                                                               |
+| `docs/design-docs/completed/`          | Directory for completed design docs (archive)                                                                |
+| `docs/exec-plans/index.md`             | when-to-use guidance, statuses, completion workflow, and index of active + completed plans                   |
+| `docs/exec-plans/template.md`          | Exec plan template (copy from `templates/exec-plan.md`)                                                      |
+| `docs/exec-plans/active/`              | Directory for active (in-progress) execution plans                                                           |
+| `docs/exec-plans/completed/`           | Directory for completed execution plans (archive)                                                            |
+| `docs/exec-plans/tech-debt-tracker.md` | Structured debt tracking                                                                                     |
+| `docs/product-specs/index.md`          | Product spec index and template                                                                              |
+| `docs/FRONTEND.md`                     | UI/renderer conventions (skip if no frontend)                                                                |
+| `docs/DESIGN.md`                       | Visual/component design conventions (skip if no UI)                                                          |
+| `docs/PLANS.md`                        | Current focus + backlog                                                                                      |
+| `docs/PRODUCT_SENSE.md`                | What the product is, user model, core values                                                                 |
+| `docs/QUALITY_SCORE.md`                | Per-domain quality grades                                                                                    |
+| `docs/RELIABILITY.md`                  | Data integrity, startup, error handling requirements                                                         |
+| `docs/SECURITY.md`                     | Security model and requirements                                                                              |
 
 ### Adapting Content
 
