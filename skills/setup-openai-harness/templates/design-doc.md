@@ -32,8 +32,9 @@ Layer-by-layer breakdown of what changes where.
 
 ## Key Decisions
 
-| Decision | Chosen Approach | Rationale |
-| -------- | --------------- | --------- |
+- **_Decision?_**
+  - **Chosen**: _chosen approach_.
+  - **Why**: _why this was chosen._
 
 ## Out of Scope
 
