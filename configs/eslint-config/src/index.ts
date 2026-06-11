@@ -1,13 +1,12 @@
 import pretter from 'eslint-plugin-prettier/recommended';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
-
-import eslint from './rules/eslint.js';
-import $import from './rules/import.js';
-import jest from './rules/jest.js';
-import react from './rules/react.js';
-import reactHooks from './rules/react-hooks.js';
-import typescript from './rules/typescript.js';
+import eslint from './rules.eslint.js';
+import $import from './rules.import.js';
+import jest from './rules.jest.js';
+import react from './rules.react.js';
+import reactHooks from './rules.react-hooks.js';
+import typescript from './rules.typescript.js';
 
 export * from './naming.js';
 

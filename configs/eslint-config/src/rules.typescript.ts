@@ -1,7 +1,6 @@
 import { defineConfig } from 'eslint/config';
 import tseslint from 'typescript-eslint';
-
-import { BASIC_NAMING } from '../naming.js';
+import { BASIC_NAMING } from './naming.js';
 
 export default defineConfig([
     {
