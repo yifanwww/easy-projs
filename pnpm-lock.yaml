@@ -54,9 +54,6 @@ catalogs:
     '@types/node':
       specifier: ^24.10.4
       version: 24.10.4
-    '@types/prompts':
-      specifier: ^2.4.9
-      version: 2.4.9
     '@types/react':
       specifier: ^19.2.8
       version: 19.2.8
@@ -168,9 +165,6 @@ catalogs:
     prettier:
       specifier: 3.7.4
       version: 3.7.4
-    prompts:
-      specifier: ^2.4.2
-      version: 2.4.2
     react:
       specifier: ^19.2.3
       version: 19.2.3
@@ -219,9 +213,6 @@ catalogs:
     stylelint-order:
       specifier: ^7.0.1
       version: 7.0.1
-    tinybench:
-      specifier: ^6.0.0
-      version: 6.0.0
     type-fest:
       specifier: ^5.3.1
       version: 5.3.1
@@ -823,45 +814,6 @@ importers:
         specifier: 'catalog:'
         version: 6.0.3
 
-  packages/random-string:
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:^
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:^
-        version: link:../../configs/global-types
-      '@easy-config/jest-config':
-        specifier: workspace:^
-        version: link:../../configs/jest-config
-      '@easy-config/tsconfigs':
-        specifier: workspace:^
-        version: link:../../configs/tsconfigs
-      '@easy-lib/utils-test':
-        specifier: workspace:^
-        version: link:../utils-test
-      '@jest/globals':
-        specifier: 'catalog:'
-        version: 30.2.0
-      '@types/node':
-        specifier: 'catalog:'
-        version: 24.10.4
-      concurrently:
-        specifier: 'catalog:'
-        version: 9.2.1
-      eslint:
-        specifier: 'catalog:'
-        version: 9.39.2
-      prettier:
-        specifier: 'catalog:'
-        version: 3.7.4
-      rimraf:
-        specifier: 'catalog:'
-        version: 6.1.2
-      typescript:
-        specifier: 'catalog:'
-        version: 6.0.3
-
   packages/rc:
     dependencies:
       clsx:
@@ -1230,43 +1182,6 @@ importers:
       '@types/semver':
         specifier: 'catalog:'
         version: 7.7.1
-      eslint:
-        specifier: 'catalog:'
-        version: 9.39.2
-      prettier:
-        specifier: 'catalog:'
-        version: 3.7.4
-      rimraf:
-        specifier: 'catalog:'
-        version: 6.1.2
-      typescript:
-        specifier: 'catalog:'
-        version: 6.0.3
-
-  projects/performance-js:
-    dependencies:
-      prompts:
-        specifier: 'catalog:'
-        version: 2.4.2
-      tinybench:
-        specifier: 'catalog:'
-        version: 6.0.0
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:^
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:^
-        version: link:../../configs/global-types
-      '@easy-config/tsconfigs':
-        specifier: workspace:^
-        version: link:../../configs/tsconfigs
-      '@types/node':
-        specifier: 'catalog:'
-        version: 24.10.4
-      '@types/prompts':
-        specifier: 'catalog:'
-        version: 2.4.9
       eslint:
         specifier: 'catalog:'
         version: 9.39.2
@@ -2875,9 +2790,6 @@ packages:
 
   '@types/postcss-modules-scope@3.0.4':
     resolution: {integrity: sha512-//ygSisVq9kVI0sqx3UPLzWIMCmtSVrzdljtuaAEJtGoGnpjBikZ2sXO5MpH9SnWX9HRfXxHifDAXcQjupWnIQ==}
-
-  '@types/prompts@2.4.9':
-    resolution: {integrity: sha512-qTxFi6Buiu8+50/+3DGIWLHM6QuWsEKugJnnP6iv2Mc4ncxE4A/OJkjuVOA+5X0X1S/nq5VJRa8Lu+nwcvbrKA==}
 
   '@types/qs@6.14.0':
     resolution: {integrity: sha512-eOunJqu0K1923aExK6y8p6fsihYEn/BYuQ4g0CxAAgFc4b/ZLN4CrsRZ55srTdqoiLzU2B2evC+apEIxprEzkQ==}
@@ -4681,10 +4593,6 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  kleur@3.0.3:
-    resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
-    engines: {node: '>=6'}
-
   known-css-properties@0.37.0:
     resolution: {integrity: sha512-JCDrsP4Z1Sb9JwG0aJ8Eo2r7k4Ou5MwmThS/6lcIe1ICyb7UBJKGRIUUdqc2ASdE/42lgz6zFUnzAIhtXnBVrQ==}
 
@@ -5216,10 +5124,6 @@ packages:
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
 
-  prompts@2.4.2:
-    resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
-    engines: {node: '>= 6'}
-
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
 
@@ -5560,9 +5464,6 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  sisteransi@1.0.5:
-    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
-
   slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
@@ -5849,10 +5750,6 @@ packages:
 
   tiny-invariant@1.3.3:
     resolution: {integrity: sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==}
-
-  tinybench@6.0.0:
-    resolution: {integrity: sha512-BWlWpVbbZXaYjRV0twGLNQO00Zj4HA/sjLOQP2IvzQqGwRGp+2kh7UU3ijyJ3ywFRogYDRbiHDMrUOfaMnN56g==}
-    engines: {node: '>=20.0.0'}
 
   tinyglobby@0.2.15:
     resolution: {integrity: sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==}
@@ -7852,11 +7749,6 @@ snapshots:
   '@types/postcss-modules-scope@3.0.4':
     dependencies:
       postcss: 8.5.6
-
-  '@types/prompts@2.4.9':
-    dependencies:
-      '@types/node': 24.10.4
-      kleur: 3.0.3
 
   '@types/qs@6.14.0': {}
 
@@ -10097,8 +9989,6 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  kleur@3.0.3: {}
-
   known-css-properties@0.37.0: {}
 
   kuler@2.0.0: {}
@@ -10580,11 +10470,6 @@ snapshots:
 
   process-nextick-args@2.0.1: {}
 
-  prompts@2.4.2:
-    dependencies:
-      kleur: 3.0.3
-      sisteransi: 1.0.5
-
   prop-types@15.8.1:
     dependencies:
       loose-envify: 1.4.0
@@ -10993,8 +10878,6 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  sisteransi@1.0.5: {}
-
   slash@3.0.0: {}
 
   slash@5.1.0: {}
@@ -11340,8 +11223,6 @@ snapshots:
       xtend: 4.0.2
 
   tiny-invariant@1.3.3: {}
-
-  tinybench@6.0.0: {}
 
   tinyglobby@0.2.15:
     dependencies:

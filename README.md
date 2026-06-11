@@ -36,7 +36,6 @@ projects/   — Standalone applications and internal tooling
 | [`@easy-lib/utils-node`](packages/utils-node)       | Node.js-specific utility functions                           |
 | [`@easy-lib/utils-server`](packages/utils-server)   | Server-side utility functions                                |
 | [`@easy-lib/utils-test`](packages/utils-test)       | Testing utilities built on top of Jest and Testing Library   |
-| [`@easy-lib/random-string`](packages/random-string) | Random string generation                                     |
 
 ### React
 
@@ -63,7 +62,6 @@ projects/   — Standalone applications and internal tooling
 | Project                                         | Description                                                                                     |
 | ----------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | [`misc-scripts`](projects/misc-scripts)         | Miscellaneous maintenance scripts                                                               |
-| [`performance-js`](projects/performance-js)     | JavaScript performance benchmark suite using [tinybench](https://github.com/tinylibs/tinybench) |
 | [`redux-usage-demo`](projects/redux-usage-demo) | Demo app showing how to use `@easy-lib/helpers-redux`                                           |
 | [`webapp`](projects/webapp)                     | Main web application built with React, Ant Design, and Vite                                     |
 
