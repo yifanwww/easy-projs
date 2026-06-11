@@ -21,6 +21,8 @@ Identify:
 
 - **Package manager / build tool** (pnpm, npm, cargo, uv, etc.)
 - **Validation commands** — how to typecheck, lint, and test (these go into the exec-change skill)
+- **Human-only commands** — scripts the agent must never run: dev servers, watch modes, interactive
+  installers, deployments, destructive operations (these get annotated in AGENTS.md)
 - **Project type** — web app, CLI, library, desktop, API, etc.
 - **Process model** — any multi-process or multi-context concerns (e.g. Electron main/renderer,
   frontend/backend)
@@ -91,6 +93,30 @@ with meaningful content.
 - **Do NOT mention `/design-change`, `/plan-change`, or `/exec-change`** — these are human-facing
   slash commands, explicitly triggered by the user; AI agents reading AGENTS.md should not be
   proactively aware of them
+
+#### Classifying Commands: Agent-Safe vs Human-Only
+
+When writing the dev commands table, scan every script in `package.json` (or equivalent) and
+classify each as **agent-safe** or **human-only**:
+
+**Agent-safe** — the agent may run these freely:
+- Finite execution: the command completes and exits on its own
+- Non-interactive: no prompts, no stdin, no watch mode
+- Non-destructive: no deploys, no releases, no data wiping
+- Examples: `build`, `test`, `lint`, `typecheck`, `format`
+
+**Human-only** — the agent must NEVER run these; annotate them in AGENTS.md:
+- Long-running servers / watch modes (e.g. `dev`, `start`, `serve`, `watch`)
+- Interactive commands (e.g. `init`, `create`, interactive installers)
+- Destructive or release commands (e.g. `deploy`, `publish`, `gen-installer`, `reset-db`)
+- Commands that require human judgment (e.g. `merge`, `approve`)
+
+Mark each human-only command clearly in the AGENTS.md commands table, for example:
+```
+pnpm run dev           # launch in dev mode (HMR) — **human only**, do NOT run via agent
+```
+
+If uncertain about a command, default to **human-only**.
 
 ## Step 4. Create the Three Workflow Skills
 
