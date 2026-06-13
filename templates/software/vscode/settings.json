@@ -31,6 +31,7 @@
     "editor.mouseWheelScrollSensitivity": 4,
     "editor.multiCursorModifier": "alt",
     "editor.pasteAs.enabled": false,
+    "editor.pasteAs.preferences": ["text.plain"],
     "editor.renderControlCharacters": false,
     "editor.renderWhitespace": "all",
     "editor.stickyScroll.enabled": false,
@@ -319,6 +320,18 @@
 
     // ------------------------------------------------------ Extension Settings
 
+    "better-todo-tree.general.showActivityBarBadge": true,
+    "better-todo-tree.general.tags": ["BUG", "FIXME", "HACK", "TODO", "UNDONE", "XXX", "[ ]"],
+    "better-todo-tree.highlights.defaultHighlight": {
+        "type": "tag",
+        "icon": "zap",
+        "iconColour": "#cc2222",
+        "foreground": "#000000",
+        "background": "#ffff22"
+    },
+    "better-todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^\\s*\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "better-todo-tree.tree.showCountsInTree": true,
+
     "git-graph.repository.commits.initialLoad": 500,
     "git-graph.repository.commits.loadMore": 500,
 
@@ -354,17 +367,5 @@
         "vue",
         "vue-html",
         "vue-postcss"
-    ],
-
-    "better-todo-tree.general.showActivityBarBadge": true,
-    "better-todo-tree.general.tags": ["BUG", "FIXME", "HACK", "TODO", "UNDONE", "XXX", "[ ]"],
-    "better-todo-tree.highlights.defaultHighlight": {
-        "type": "tag",
-        "icon": "zap",
-        "iconColour": "#cc2222",
-        "foreground": "#000000",
-        "background": "#ffff22"
-    },
-    "better-todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^\\s*\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "better-todo-tree.tree.showCountsInTree": true
+    ]
 }
