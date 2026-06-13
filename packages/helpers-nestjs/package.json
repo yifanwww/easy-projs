@@ -25,8 +25,7 @@
         "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,mjs,mts,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint . --fix",
         "lint-ci": "eslint .",
-        "test": "unit-test node-esm-legacy-decorator --onlyChanged",
-        "test-ci": "unit-test node-esm-legacy-decorator --coverage",
+        "test": "unit-test node-esm-legacy-decorator",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {

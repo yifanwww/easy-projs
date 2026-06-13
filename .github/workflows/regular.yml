@@ -93,4 +93,4 @@ jobs:
         run: pnpm run build-libs
 
       - name: Do coverage test
-        run: pnpm run test-ci
+        run: pnpm run test --coverage

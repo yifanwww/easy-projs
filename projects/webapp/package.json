@@ -26,8 +26,7 @@
         "lint": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
         "lint-ci": "stylelint \"**/*.{css,scss}\" && eslint .",
         "preview": "vite preview",
-        "test": "unit-test webapp-cjs --onlyChanged",
-        "test-ci": "unit-test webapp-cjs --coverage",
+        "test": "unit-test webapp-cjs",
         "typecheck": "pnpm run typecheck:vite && pnpm run typecheck:src",
         "typecheck:src": "tsc --project tsconfig.json --noEmit --incremental false",
         "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"

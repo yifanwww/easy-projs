@@ -94,8 +94,8 @@ pnpm run build-configs
 # Build only library packages
 pnpm run build-libs
 
-# Run all tests (CI mode)
-pnpm run test-ci
+# Run all tests
+pnpm run test
 
 # Run all linters
 pnpm run lint

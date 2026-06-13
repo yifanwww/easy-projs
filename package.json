@@ -25,7 +25,7 @@
         "lint": "pnpm run --recursive --no-sort --stream lint",
         "lint-ci": "pnpm run --recursive --no-sort --stream lint-ci",
         "prepare": "husky",
-        "test-ci": "pnpm run --recursive --no-sort --stream test-ci",
+        "test": "pnpm run --recursive --no-sort --stream test",
         "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
     },
     "engines": {
