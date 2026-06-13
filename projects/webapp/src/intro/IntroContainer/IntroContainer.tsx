@@ -49,7 +49,7 @@ function IntroContainerCore() {
 
 export function IntroContainer() {
     return (
-        <ConfigProvider button={{ autoInsertSpace: false }}>
+        <ConfigProvider button={{ autoInsertSpace: false }} theme={{ hashed: false }}>
             <IntroContainerCore />
         </ConfigProvider>
     );
