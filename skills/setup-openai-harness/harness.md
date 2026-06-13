@@ -128,12 +128,14 @@ Turns a design doc (or a task description) into a phased execution plan in
 `docs/exec-plans/active/`. A plan breaks work into **phases** — logical chunks where each phase is
 independently completable and leaves the codebase in a valid state.
 
-Typical phases for a feature:
+Phases are grouped by independent function/feature — each phase contains the full stack
+(types → backend → bridge → frontend) for one function. This keeps each phase end-to-end
+testable.
 
-- **Foundation** — shared types, data model changes
-- **Backend / Core** — business logic, storage, handlers
-- **Interface / Bridge** — public API, IPC, protocol changes
-- **Frontend / UI** — UI components, user-facing changes
+Example:
+
+- **Phase 1** — Feature A: types → backend → bridge → UI for A
+- **Phase 2** — Feature B: types → backend → bridge → UI for B
 
 Plans are checked into the repository and updated as work progresses. The Progress Log in each
 plan serves as a decision and history record.

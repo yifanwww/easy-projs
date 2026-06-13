@@ -35,41 +35,13 @@ what constraints apply, what risks exist.
 Group work into sequential phases where each phase is independently completable and leaves the
 codebase in a valid state.
 
-There are two strategies for dividing work. Choose the one that fits the task best.
-
-**If the user specifies a strategy, use it. Otherwise, ask the user to choose before proceeding.**
-
-#### Strategy A: By Scope
-
-Group changes by architectural layer — all shared types first, then all backend logic, then
-bridge, then frontend. Use this when:
-
-- Many functions/features share the same types or backend services
-- You want the data model solid before touching UI
-- The task is tightly coupled (changes in one layer depend on decisions in another)
-
-The general principle is **work inward → outward**: start with the innermost shared layer (types,
-data model, domain contracts), then move through internal logic and services, then integration
-points (APIs, IPC, adapters), then the outermost user-facing layer. The exact phase names and
-count depend on the project's architecture — read the project's architecture docs to identify
-the relevant layers.
-
-#### Strategy B: By Function
-
 Group changes by independent function/feature — each phase contains the full stack (types →
-backend → bridge → frontend) for one function. Use this when:
-
-- Functions are independent of each other
-- You want each phase to deliver a complete, usable feature end-to-end
-- Smaller, independently testable increments are preferred
+backend → bridge → frontend) for one function. This keeps each phase end-to-end testable.
 
 Example:
 
 - **Phase 1** — Function A: types → backend → bridge → UI for A
 - **Phase 2** — Function B: types → backend → bridge → UI for B
-
-Both strategies are valid. Pick the one that makes each phase most coherent and independently
-deployable for the specific task.
 
 ### 4. Write the Plan File
 
