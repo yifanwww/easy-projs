@@ -21,7 +21,7 @@
         "build:dist": "tsc --project tsconfigs/tsconfig.dist.json",
         "build:types": "tsc --project tsconfigs/tsconfig.types.json",
         "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
     },
     "dependencies": {

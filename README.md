@@ -59,11 +59,11 @@ projects/   — Standalone applications and internal tooling
 
 ## Projects
 
-| Project                                         | Description                                                                                     |
-| ----------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| [`misc-scripts`](projects/misc-scripts)         | Miscellaneous maintenance scripts                                                               |
-| [`redux-usage-demo`](projects/redux-usage-demo) | Demo app showing how to use `@easy-lib/helpers-redux`                                           |
-| [`webapp`](projects/webapp)                     | Main web application built with React, Ant Design, and Vite                                     |
+| Project                                         | Description                                                 |
+| ----------------------------------------------- | ----------------------------------------------------------- |
+| [`misc-scripts`](projects/misc-scripts)         | Miscellaneous maintenance scripts                           |
+| [`redux-usage-demo`](projects/redux-usage-demo) | Demo app showing how to use `@easy-lib/helpers-redux`       |
+| [`webapp`](projects/webapp)                     | Main web application built with React, Ant Design, and Vite |
 
 ## Agent Skills
 

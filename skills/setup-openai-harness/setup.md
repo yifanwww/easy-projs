@@ -100,18 +100,21 @@ When writing the dev commands table, scan every script in `package.json` (or equ
 classify each as **agent-safe** or **human-only**:
 
 **Agent-safe** — the agent may run these freely:
+
 - Finite execution: the command completes and exits on its own
 - Non-interactive: no prompts, no stdin, no watch mode
 - Non-destructive: no deploys, no releases, no data wiping
 - Examples: `build`, `test`, `lint`, `typecheck`, `format`
 
 **Human-only** — the agent must NEVER run these; annotate them in AGENTS.md:
+
 - Long-running servers / watch modes (e.g. `dev`, `start`, `serve`, `watch`)
 - Interactive commands (e.g. `init`, `create`, interactive installers)
 - Destructive or release commands (e.g. `deploy`, `publish`, `gen-installer`, `reset-db`)
 - Commands that require human judgment (e.g. `merge`, `approve`)
 
 Mark each human-only command clearly in the AGENTS.md commands table, for example:
+
 ```
 pnpm run dev           # launch in dev mode (HMR) — **human only**, do NOT run via agent
 ```

@@ -1,9 +1,13 @@
-/.agents
+# -------------------- Compilation Outputs & Test
+
 /configs/*/dist
 /packages/*/coverage
 /packages/*/lib
 /projects/*/coverage
 /projects/*/dist
-
 /pnpm-lock.yaml
+
+# -------------------- Agent Skills
+
+/.agents
 /skills-lock.json

@@ -18,20 +18,17 @@
 .pnp.js
 node_modules
 
-# -------------------- Compilation
+# -------------------- Compilation Outputs & Test
 
 *.tsbuildinfo
 
 /configs/*/dist
+/packages/*/coverage
 /packages/*/lib
+/projects/*/coverage
 /projects/*/dist
 /projects/*/lib
 /projects/*/release
-
-# -------------------- Test
-
-/packages/*/coverage
-/projects/*/coverage
 
 # -------------------- Other Program
 

@@ -23,7 +23,7 @@
         "build": "tsc --project tsconfigs/tsconfig.build.json",
         "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
         "dev": "pnpm run build --watch",
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint . --fix",
         "lint-ci": "eslint .",
         "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"

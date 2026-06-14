@@ -17,7 +17,7 @@
         "directory": "configs/stylelint-config"
     },
     "scripts": {
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,mjs,mts,scss,ts,tsx,yaml,yml}\""
+        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\""
     },
     "dependencies": {
         "postcss": "catalog:",
