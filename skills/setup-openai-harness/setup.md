@@ -121,7 +121,7 @@ pnpm run dev           # launch in dev mode (HMR) — **human only**, do NOT run
 
 If uncertain about a command, default to **human-only**.
 
-## Step 4. Create the Three Workflow Skills
+## Step 4. Create Four Workflow Skills
 
 Create these files under `.agents/skills/`:
 
@@ -129,6 +129,7 @@ Create these files under `.agents/skills/`:
 .agents/skills/design-change/SKILL.md
 .agents/skills/plan-change/SKILL.md
 .agents/skills/exec-change/SKILL.md
+.agents/skills/close-change/SKILL.md
 ```
 
 Templates are in `templates/` next to this file:
@@ -136,6 +137,7 @@ Templates are in `templates/` next to this file:
 - [templates/design-change.md](./templates/design-change.md)
 - [templates/plan-change.md](./templates/plan-change.md)
 - [templates/exec-change.md](./templates/exec-change.md)
+- [templates/close-change.md](./templates/close-change.md)
 
 Read each template and create the corresponding `SKILL.md`, substituting these placeholders in
 `exec-change`:
@@ -151,10 +153,10 @@ Add any project-specific layer/boundary rules to the "Staying in bounds" section
 After completing setup, show the user:
 
 1. A list of all files created (docs + skills)
-2. The three slash commands now available: `/design-change`, `/plan-change`, `/exec-change`
+2. The four slash commands now available: `/design-change`, `/plan-change`, `/exec-change`, `/close-change`
 3. The workflow summary:
    > `/design-change <feature>` → design doc → `/plan-change` (if complex) → `/exec-change` (one
-   > phase at a time)
+   > phase at a time) → `/close-change` (archive when done)
 4. Any files that were skipped because they already existed
 
 ## Notes

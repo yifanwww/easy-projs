@@ -103,14 +103,15 @@ verifiable.
 | `docs/PLANS.md`                        | Current focus + backlog                                                            |
 | `docs/PRODUCT_SENSE.md`                | What the product is, user model, core values                                       |
 
-## Workflow: Design → Plan → Execute
+## Workflow: Design → Plan → Execute → Close
 
-Complex changes flow through three stages. Each stage is a separate agent invocation.
+Complex changes flow through four stages. Each stage is a separate agent invocation.
 
 ```
 /design-change <feature>   →   design doc in docs/design-docs/active/
 /plan-change               →   execution plan in docs/exec-plans/active/
 /exec-change               →   one phase at a time
+/close-change              →   archive completed change, update indexes
 ```
 
 ### /design-change — Capture What and Why
@@ -152,6 +153,20 @@ One `/exec-change` invocation = one phase. After each phase:
 
 Small changes may skip `/plan-change` and use `/exec-change` directly from a design doc or
 description.
+
+### /close-change — Archive a Completed Change
+
+Moves a fully-completed change (plan + design doc) from active to completed archives and updates
+all indexes. Closing is a separate step from execution — `/exec-change` builds, the user runs
+`/close-change` when ready to archive. This separation keeps execution focused on building and
+closing focused on bookkeeping.
+
+`/close-change` handles:
+
+- Setting plan status to `Completed` (and design doc to `Implemented`)
+- Moving files from `active/` to `completed/`
+- Updating `docs/exec-plans/index.md` and `docs/design-docs/index.md`
+- Updating the plan's Design Doc field to point to the new completed path
 
 ## Enforcing Architecture and Taste
 

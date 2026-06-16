@@ -100,25 +100,21 @@ After the phase passes validation:
 - Confirm validation passed
 - Name the next phase (if any): "Run `/exec-change` to continue with Phase N+1: \<Name\>."
 
-When **all phases complete**, set Status to `Waiting for Review`, then ask: "All phases complete.
-Move to `docs/exec-plans/completed/`?"
+When **all phases complete**, set Status to `Waiting for Review`, then tell the user:
 
-If confirmed:
+> "All phases complete. Run `/close-change` to archive this change."
 
-1. Set Status to `Completed` in the plan file
-2. Move the file to `docs/exec-plans/completed/`
-3. Remove the row for this plan from the Active Plans table in `docs/exec-plans/index.md`
-4. Add an entry for it in the Completed Plans table in `docs/exec-plans/index.md` (title, date completed, one-line summary)
-5. If the plan's **Design Doc** field references a design doc:
-   - Move the design doc file from `docs/design-docs/active/` to `docs/design-docs/completed/` (same filename)
-   - Update the **Design Doc** field in the plan file to point to the new path: `docs/design-docs/completed/<name>.md`
-   - Open the design doc and set its **Status** to `Implemented`
-   - Remove the row for this design doc from the Active Design Docs table in `docs/design-docs/index.md`
-   - Add an entry for it in the Completed Design Docs table in `docs/design-docs/index.md` (title, date completed, one-line summary)
+### When Executing Without an Exec Plan (Design Doc Only)
+
+If executing directly from a design doc with no plan, after all work is done and validation passes:
+
+1. Set the design doc's **Status** to `Accepted`
+2. Tell the user what was done, and add: "Implementation complete. Run `/close-change` to archive this change."
 
 ## Notes
 
 - Plans without explicit phases are treated as a single phase
 - If executing from a design doc with no plan, run full validation at the end, set the design
-  doc's **Status** to `Implemented`, and report what was done
+  doc's **Status** to `Accepted`, report what was done, and recommend the user run `/close-change` when ready
 - Never skip a step without a documented reason in Decisions
+- **Never close a change inline.** Closing is the job of `/close-change` — just tell the user to run it
