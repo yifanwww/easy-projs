@@ -1,13 +1,13 @@
 .sider {
-    position: sticky;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    overflow: auto;
-    scrollbar-width: thin;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
 .content {
-    min-height: 100vh;
-    padding: 60px 40px;
+  min-height: 100vh;
+  padding: 60px 40px;
 }

@@ -8,14 +8,14 @@ const ITERATIONS = 210_000;
 const DIGEST = 'sha512';
 
 export function hashPassword(password: string) {
-    const salt = crypto.randomBytes(SALT_BYTES).toString('hex');
-    const hash = crypto.pbkdf2Sync(password, salt, ITERATIONS, HASH_BYTES, DIGEST).toString('hex');
-    return salt + hash;
+  const salt = crypto.randomBytes(SALT_BYTES).toString('hex');
+  const hash = crypto.pbkdf2Sync(password, salt, ITERATIONS, HASH_BYTES, DIGEST).toString('hex');
+  return salt + hash;
 }
 
 export function verifyPassword(password: string, combined: string) {
-    const salt = combined.slice(0, SALT_BYTES * 2);
-    const originalHash = combined.slice(SALT_BYTES * 2);
-    const hash = crypto.pbkdf2Sync(password, salt, ITERATIONS, HASH_BYTES, DIGEST).toString('hex');
-    return hash === originalHash;
+  const salt = combined.slice(0, SALT_BYTES * 2);
+  const originalHash = combined.slice(SALT_BYTES * 2);
+  const hash = crypto.pbkdf2Sync(password, salt, ITERATIONS, HASH_BYTES, DIGEST).toString('hex');
+  return hash === originalHash;
 }

@@ -1,42 +1,42 @@
 {
-    "name": "@easy-proj/misc-scripts",
-    "version": "0.0.0",
-    "description": "Misc scripts.",
-    "type": "module",
-    "homepage": "https://github.com/yifanwww/easy-projs#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/easy-projs/issues"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "projects/misc-scripts"
-    },
-    "scripts": {
-        "build": "tsc --project tsconfig.node.json",
-        "clean": "rimraf --glob coverage dist *.tsbuildinfo",
-        "dev": "tsc --project tsconfig.node.json --watch",
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
-        "lint": "eslint . --fix",
-        "lint-ci": "eslint .",
-        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
-    },
-    "dependencies": {
-        "@easy-lib/types": "workspace:^",
-        "semver": "catalog:"
-    },
-    "devDependencies": {
-        "@easy-config/eslint-config": "workspace:^",
-        "@easy-config/global-types": "workspace:^",
-        "@easy-config/tsconfigs": "workspace:^",
-        "@types/node": "catalog:",
-        "@types/semver": "catalog:",
-        "eslint": "catalog:",
-        "prettier": "catalog:",
-        "rimraf": "catalog:",
-        "typescript": "catalog:"
-    }
+  "name": "@easy-proj/misc-scripts",
+  "version": "0.0.0",
+  "description": "Misc scripts.",
+  "type": "module",
+  "homepage": "https://github.com/yifanwww/easy-projs#readme",
+  "license": "MIT",
+  "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+  "bugs": {
+    "url": "https://github.com/yifanwww/easy-projs/issues"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yifanwww/easy-projs.git",
+    "directory": "projects/misc-scripts"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.node.json",
+    "clean": "rimraf --glob coverage dist *.tsbuildinfo",
+    "dev": "tsc --project tsconfig.node.json --watch",
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+    "lint": "eslint . --fix",
+    "lint-ci": "eslint .",
+    "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
+  },
+  "dependencies": {
+    "@easy-lib/types": "workspace:^",
+    "semver": "catalog:"
+  },
+  "devDependencies": {
+    "@easy-config/eslint-config": "workspace:^",
+    "@easy-config/global-types": "workspace:^",
+    "@easy-config/tsconfigs": "workspace:^",
+    "@types/node": "catalog:",
+    "@types/semver": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:"
+  }
 }

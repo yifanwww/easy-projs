@@ -9,33 +9,33 @@ import { NO_AUTHENTICATION, REQUIRED_ROLE } from './constants.js';
 
 @Injectable()
 export class RoleGuard implements CanActivate {
-    constructor(private readonly reflector: Reflector) {}
+  constructor(private readonly reflector: Reflector) {}
 
-    canActivate(context: ExecutionContext): boolean {
-        const noAuthentication = this.reflector.getAllAndOverride<boolean | undefined>(NO_AUTHENTICATION, [
-            context.getHandler(),
-            context.getClass(),
-        ]);
-        if (noAuthentication) {
-            return true;
-        }
-
-        const requiredRole =
-            this.reflector.getAllAndOverride<UserRole | undefined>(REQUIRED_ROLE, [
-                context.getHandler(),
-                context.getClass(),
-            ]) ?? UserRole.ROOT; // by default we only allow ROOT role
-
-        const request = context.switchToHttp().getRequest<Request & AttachedJwtUserPayload>();
-        const user = getJwtUserPayload(request);
-        if (!user) {
-            return false;
-        }
-
-        return checkUserRole(user.role, requiredRole);
+  canActivate(context: ExecutionContext): boolean {
+    const noAuthentication = this.reflector.getAllAndOverride<boolean | undefined>(NO_AUTHENTICATION, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
+    if (noAuthentication) {
+      return true;
     }
+
+    const requiredRole =
+      this.reflector.getAllAndOverride<UserRole | undefined>(REQUIRED_ROLE, [
+        context.getHandler(),
+        context.getClass(),
+      ]) ?? UserRole.ROOT; // by default we only allow ROOT role
+
+    const request = context.switchToHttp().getRequest<Request & AttachedJwtUserPayload>();
+    const user = getJwtUserPayload(request);
+    if (!user) {
+      return false;
+    }
+
+    return checkUserRole(user.role, requiredRole);
+  }
 }
 
 export function RequireRole(role: UserRole) {
-    return SetMetadata(REQUIRED_ROLE, role);
+  return SetMetadata(REQUIRED_ROLE, role);
 }

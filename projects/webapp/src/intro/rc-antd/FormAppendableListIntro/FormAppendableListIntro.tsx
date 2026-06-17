@@ -12,25 +12,25 @@ import { ReadonlyDemo } from './ReadonlyDemo';
 import { TaggedInputDemo } from './TaggedInputDemo';
 
 const DEMOS = [
-    { title: 'Basic', description: 'Simple list with default add/remove actions', component: BasicDemo },
-    { title: 'Multi Inputs', description: 'List items with multiple input fields', component: MultiInputsDemo },
-    { title: 'Tagged Input', description: 'List with tag-based input fields', component: TaggedInputDemo },
-    { title: 'Disabled', description: 'Disabled state preventing modifications', component: DisabledDemo },
-    { title: 'Readonly', description: 'Read-only list with no action buttons', component: ReadonlyDemo },
-    { title: 'Extra Items', description: 'List with additional custom items', component: ExtraItemsDemo },
-    { title: 'Count Limit', description: 'List with maximum item count restriction', component: CountLimitDemo },
-    { title: 'Big Item', description: 'List with larger item components', component: BigItemDemo },
-    {
-        title: 'Customize Action Button',
-        description: 'Custom action buttons for add/remove',
-        component: CustomizeActionButtonDemo,
-    },
+  { title: 'Basic', description: 'Simple list with default add/remove actions', component: BasicDemo },
+  { title: 'Multi Inputs', description: 'List items with multiple input fields', component: MultiInputsDemo },
+  { title: 'Tagged Input', description: 'List with tag-based input fields', component: TaggedInputDemo },
+  { title: 'Disabled', description: 'Disabled state preventing modifications', component: DisabledDemo },
+  { title: 'Readonly', description: 'Read-only list with no action buttons', component: ReadonlyDemo },
+  { title: 'Extra Items', description: 'List with additional custom items', component: ExtraItemsDemo },
+  { title: 'Count Limit', description: 'List with maximum item count restriction', component: CountLimitDemo },
+  { title: 'Big Item', description: 'List with larger item components', component: BigItemDemo },
+  {
+    title: 'Customize Action Button',
+    description: 'Custom action buttons for add/remove',
+    component: CustomizeActionButtonDemo,
+  },
 ];
 
 export function FormAppendableListIntro() {
-    return (
-        <DemoPage title="FormAppendableList" subtitle={FormAppendableListDescription}>
-            <DemoGrid demos={DEMOS} />
-        </DemoPage>
-    );
+  return (
+    <DemoPage title="FormAppendableList" subtitle={FormAppendableListDescription}>
+      <DemoGrid demos={DEMOS} />
+    </DemoPage>
+  );
 }

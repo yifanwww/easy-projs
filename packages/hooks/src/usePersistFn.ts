@@ -14,13 +14,13 @@ import { useMemo, useRef } from 'react';
  * @returns The function. The identity of this function will never change.
  */
 export function usePersistFn<T extends UnknownFn>(fn: T): T {
-    const fnRef = useRef<T>(fn);
+  const fnRef = useRef<T>(fn);
 
-    // why not write `fnRef.current = fn`?
-    // https://github.com/alibaba/hooks/issues/728
-    fnRef.current = useMemo(() => fn, [fn]);
+  // why not write `fnRef.current = fn`?
+  // https://github.com/alibaba/hooks/issues/728
+  fnRef.current = useMemo(() => fn, [fn]);
 
-    const persistFnRef = useRef<T>(undefined);
-    persistFnRef.current ??= ((...args) => fnRef.current(...args)) as T;
-    return persistFnRef.current;
+  const persistFnRef = useRef<T>(undefined);
+  persistFnRef.current ??= ((...args) => fnRef.current(...args)) as T;
+  return persistFnRef.current;
 }

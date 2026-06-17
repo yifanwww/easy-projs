@@ -1,10 +1,10 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.node.json",
-    "compilerOptions": {
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "rootDir": "src"
-    },
-    "include": ["src/**/*"],
-    "exclude": []
+  "extends": "@easy-config/tsconfigs/tsconfig.node.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "rootDir": "src"
+  },
+  "include": ["src/**/*"],
+  "exclude": []
 }

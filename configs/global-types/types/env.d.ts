@@ -1,10 +1,10 @@
 declare namespace NodeJS {
-    interface ProcessEnv {
-        readonly NODE_ENV: 'development' | 'production' | 'test';
-    }
+  interface ProcessEnv {
+    readonly NODE_ENV: 'development' | 'production' | 'test';
+  }
 }
 
 // eslint-disable-next-line no-var
 declare var process: {
-    env: NodeJS.ProcessEnv;
+  env: NodeJS.ProcessEnv;
 };

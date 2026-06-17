@@ -10,9 +10,9 @@ export function usePrevious<T>(value: T, initialValue: T): T;
  * See [React Hooks FAQ](https://reactjs.org/docs/hooks-faq.html#how-to-get-the-previous-props-or-state)
  */
 export function usePrevious<T>(value: T, initialValue: T | null | undefined = undefined): T | null | undefined {
-    const ref = useRef(initialValue);
-    useEffect(() => {
-        ref.current = value;
-    }, [value]);
-    return ref.current;
+  const ref = useRef(initialValue);
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+  return ref.current;
 }

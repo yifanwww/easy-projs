@@ -4,17 +4,17 @@ import { ReadonlyableDescription } from 'src/intro/config';
 import { BasicDemo } from './BasicDemo';
 
 const DEMOS = [
-    {
-        title: 'Basic',
-        description: 'Toggle between read-only and editable states for any component',
-        component: BasicDemo,
-    },
+  {
+    title: 'Basic',
+    description: 'Toggle between read-only and editable states for any component',
+    component: BasicDemo,
+  },
 ];
 
 export function ReadonlyableIntro() {
-    return (
-        <DemoPage title="Readonlyable" subtitle={ReadonlyableDescription}>
-            <DemoGrid demos={DEMOS} />
-        </DemoPage>
-    );
+  return (
+    <DemoPage title="Readonlyable" subtitle={ReadonlyableDescription}>
+      <DemoGrid demos={DEMOS} />
+    </DemoPage>
+  );
 }

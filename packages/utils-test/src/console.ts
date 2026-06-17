@@ -3,15 +3,15 @@ import { expect, jest } from '@jest/globals';
 import type { ConditionalKeys } from 'type-fest';
 
 function spyOn(method: ConditionalKeys<Console, UnknownFn>) {
-    jest.spyOn(console, method).mockImplementation((...messages) => {
-        expect({ console: method, messages }).toMatchSnapshot();
-    });
+  jest.spyOn(console, method).mockImplementation((...messages) => {
+    expect({ console: method, messages }).toMatchSnapshot();
+  });
 }
 
 export const mockConsoleToMatchSnapshot = () => {
-    spyOn('debug');
-    spyOn('error');
-    spyOn('info');
-    spyOn('log');
-    spyOn('warn');
+  spyOn('debug');
+  spyOn('error');
+  spyOn('info');
+  spyOn('log');
+  spyOn('warn');
 };

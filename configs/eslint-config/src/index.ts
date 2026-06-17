@@ -11,31 +11,31 @@ import typescript from './rules.typescript.js';
 export * from './naming.js';
 
 export const recommended = {
-    basic: defineConfig([
-        globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs'], '@easy-config/eslint-config/ignores'),
-        {
-            name: '@easy-config/eslint-config/basic',
-            extends: [eslint, typescript, $import, jest, pretter],
-        },
-    ]),
-    node: defineConfig([
-        globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs'], '@easy-config/eslint-config/ignores'),
-        {
-            name: '@easy-config/eslint-config/node',
-            extends: [eslint, typescript, $import, jest, pretter],
-            languageOptions: {
-                globals: globals.node,
-            },
-        },
-    ]),
-    react: defineConfig([
-        globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs'], '@easy-config/eslint-config/ignores'),
-        {
-            name: '@easy-config/eslint-config/react',
-            extends: [eslint, typescript, $import, jest, react, reactHooks, pretter],
-            languageOptions: {
-                globals: globals.browser,
-            },
-        },
-    ]),
+  basic: defineConfig([
+    globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs'], '@easy-config/eslint-config/ignores'),
+    {
+      name: '@easy-config/eslint-config/basic',
+      extends: [eslint, typescript, $import, jest, pretter],
+    },
+  ]),
+  node: defineConfig([
+    globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs'], '@easy-config/eslint-config/ignores'),
+    {
+      name: '@easy-config/eslint-config/node',
+      extends: [eslint, typescript, $import, jest, pretter],
+      languageOptions: {
+        globals: globals.node,
+      },
+    },
+  ]),
+  react: defineConfig([
+    globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs'], '@easy-config/eslint-config/ignores'),
+    {
+      name: '@easy-config/eslint-config/react',
+      extends: [eslint, typescript, $import, jest, react, reactHooks, pretter],
+      languageOptions: {
+        globals: globals.browser,
+      },
+    },
+  ]),
 };

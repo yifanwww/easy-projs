@@ -1,11 +1,11 @@
 import type { UnknownFn } from '@easy-lib/types';
 
 export function abstractFn(): never {
-    throw new Error('Not Implemented');
+  throw new Error('Not Implemented');
 }
 
 export function abstractAsyncFn(): Promise<never> {
-    return Promise.reject(new Error('Not Implemented'));
+  return Promise.reject(new Error('Not Implemented'));
 }
 
 /**
@@ -17,9 +17,9 @@ export function abstractAsyncFn(): Promise<never> {
  * **WARNING**: Please ensure it's safe to drop the returned Promise if you want to use this function.
  */
 export function noAsync<T extends (...args: never[]) => unknown>(fn: T): (...args: Parameters<T>) => void {
-    return (...args: Parameters<T>) => void fn(...args);
+  return (...args: Parameters<T>) => void fn(...args);
 }
 
 export function makeFn<T extends UnknownFn>(fn: T): T {
-    return fn;
+  return fn;
 }

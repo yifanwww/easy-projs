@@ -10,42 +10,41 @@ import { renderHook } from '@testing-library/react';
  */
 // eslint-disable-next-line jest/no-export
 export function validateHookValueNotChanged<TValues extends unknown[]>(
-    testDescription: string,
-    useHook: () => TValues,
-    useHookAgain?: () => TValues,
+  testDescription: string,
+  useHook: () => TValues,
+  useHookAgain?: () => TValues,
 ): void {
-    // eslint-disable-next-line jest/valid-title
-    it(testDescription, () => {
-        let callCount = 0;
+  // eslint-disable-next-line jest/valid-title
+  it(testDescription, () => {
+    let callCount = 0;
 
-        function hookWrapper() {
-            callCount++;
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            return callCount === 1 ? useHook() : (useHookAgain ?? useHook)();
-        }
+    function hookWrapper() {
+      callCount++;
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      return callCount === 1 ? useHook() : (useHookAgain ?? useHook)();
+    }
 
-        const { rerender, result } = renderHook(hookWrapper);
-        expect(callCount).toBe(1);
-        const firstValues = result.current;
-        expect(firstValues).toBeDefined();
+    const { rerender, result } = renderHook(hookWrapper);
+    expect(callCount).toBe(1);
+    const firstValues = result.current;
+    expect(firstValues).toBeDefined();
 
-        rerender();
-        expect(callCount).toBe(2);
-        const latestValues = result.current;
-        expect(latestValues).toBeDefined();
-        expect(latestValues).toHaveLength(firstValues.length);
+    rerender();
+    expect(callCount).toBe(2);
+    const latestValues = result.current;
+    expect(latestValues).toBeDefined();
+    expect(latestValues).toHaveLength(firstValues.length);
 
-        for (let i = 0; i < latestValues.length; i++) {
-            try {
-                expect(latestValues[i]).toBe(firstValues[i]);
-            } catch {
-                // Make a more informative error message
-                // eslint-disable-next-line jest/no-conditional-expect
-                expect('').toBe(
-                    `Identity of value at index ${i} has changed. ` +
-                        `This might help identify it:\n${String(latestValues[i])}`,
-                );
-            }
-        }
-    });
+    for (let i = 0; i < latestValues.length; i++) {
+      try {
+        expect(latestValues[i]).toBe(firstValues[i]);
+      } catch {
+        // Make a more informative error message
+        // eslint-disable-next-line jest/no-conditional-expect
+        expect('').toBe(
+          `Identity of value at index ${i} has changed. This might help identify it:\n${String(latestValues[i])}`,
+        );
+      }
+    }
+  });
 }

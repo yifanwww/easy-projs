@@ -1,74 +1,74 @@
 {
-    "name": "@easy-proj/webapp",
-    "version": "0.0.0",
-    "description": "The website application of easy-projs.",
-    "type": "module",
-    "homepage": "https://github.com/yifanwww/easy-projs#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/easy-projs/issues"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "projects/webapp"
-    },
-    "browserslist": [
-        "> 0.5% and last 9 versions"
-    ],
-    "scripts": {
-        "build": "vite build",
-        "clean": "rimraf coverage dist node_modules/.vite",
-        "dev": "cross-env EXPERIMENTAL=true vite dev",
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
-        "lint": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
-        "lint-ci": "stylelint \"**/*.{css,scss}\" && eslint .",
-        "preview": "vite preview",
-        "test": "unit-test webapp-cjs",
-        "typecheck": "pnpm run typecheck:vite && pnpm run typecheck:src",
-        "typecheck:src": "tsc --project tsconfig.json --noEmit --incremental false",
-        "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"
-    },
-    "dependencies": {
-        "@ant-design/icons": "catalog:",
-        "@easy-lib/rc": "workspace:^",
-        "@easy-lib/rc-antd": "workspace:^",
-        "@easy-lib/utils-browser": "workspace:^",
-        "@rustresult/result": "catalog:",
-        "antd": "catalog:",
-        "clsx": "catalog:",
-        "react": "catalog:",
-        "react-dom": "catalog:",
-        "react-router": "catalog:",
-        "web-vitals": "catalog:"
-    },
-    "devDependencies": {
-        "@easy-config/eslint-config": "workspace:^",
-        "@easy-config/global-types": "workspace:^",
-        "@easy-config/jest-config": "workspace:^",
-        "@easy-config/stylelint-config": "workspace:^",
-        "@easy-config/tsconfigs": "workspace:^",
-        "@jest/globals": "catalog:",
-        "@testing-library/dom": "catalog:",
-        "@testing-library/jest-dom": "catalog:",
-        "@testing-library/react": "catalog:",
-        "@types/react": "catalog:",
-        "@types/react-dom": "catalog:",
-        "@vitejs/plugin-react": "catalog:",
-        "browserslist": "catalog:",
-        "browserslist-to-esbuild": "catalog:",
-        "cross-env": "catalog:",
-        "eslint": "catalog:",
-        "prettier": "catalog:",
-        "rimraf": "catalog:",
-        "sass": "catalog:",
-        "stylelint": "catalog:",
-        "typescript": "catalog:",
-        "typescript-plugin-css-modules": "catalog:",
-        "vite": "catalog:",
-        "vite-plugin-checker": "catalog:",
-        "vite-tsconfig-paths": "catalog:"
-    }
+  "name": "@easy-proj/webapp",
+  "version": "0.0.0",
+  "description": "The website application of easy-projs.",
+  "type": "module",
+  "homepage": "https://github.com/yifanwww/easy-projs#readme",
+  "license": "MIT",
+  "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+  "bugs": {
+    "url": "https://github.com/yifanwww/easy-projs/issues"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yifanwww/easy-projs.git",
+    "directory": "projects/webapp"
+  },
+  "browserslist": [
+    "> 0.5% and last 9 versions"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "clean": "rimraf coverage dist node_modules/.vite",
+    "dev": "cross-env EXPERIMENTAL=true vite dev",
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+    "lint": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
+    "lint-ci": "stylelint \"**/*.{css,scss}\" && eslint .",
+    "preview": "vite preview",
+    "test": "unit-test webapp-cjs",
+    "typecheck": "pnpm run typecheck:vite && pnpm run typecheck:src",
+    "typecheck:src": "tsc --project tsconfig.json --noEmit --incremental false",
+    "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"
+  },
+  "dependencies": {
+    "@ant-design/icons": "catalog:",
+    "@easy-lib/rc": "workspace:^",
+    "@easy-lib/rc-antd": "workspace:^",
+    "@easy-lib/utils-browser": "workspace:^",
+    "@rustresult/result": "catalog:",
+    "antd": "catalog:",
+    "clsx": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-router": "catalog:",
+    "web-vitals": "catalog:"
+  },
+  "devDependencies": {
+    "@easy-config/eslint-config": "workspace:^",
+    "@easy-config/global-types": "workspace:^",
+    "@easy-config/jest-config": "workspace:^",
+    "@easy-config/stylelint-config": "workspace:^",
+    "@easy-config/tsconfigs": "workspace:^",
+    "@jest/globals": "catalog:",
+    "@testing-library/dom": "catalog:",
+    "@testing-library/jest-dom": "catalog:",
+    "@testing-library/react": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "browserslist": "catalog:",
+    "browserslist-to-esbuild": "catalog:",
+    "cross-env": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "rimraf": "catalog:",
+    "sass": "catalog:",
+    "stylelint": "catalog:",
+    "typescript": "catalog:",
+    "typescript-plugin-css-modules": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-checker": "catalog:",
+    "vite-tsconfig-paths": "catalog:"
+  }
 }

@@ -9,7 +9,7 @@
  * ```
  */
 export type PickNullableKeys<T> = {
-    [K in keyof T]-?: null extends T[K] ? K : never;
+  [K in keyof T]-?: null extends T[K] ? K : never;
 }[keyof T];
 
 /**
@@ -23,7 +23,7 @@ export type PickNullableKeys<T> = {
  * ```
  */
 export type PickNonNullableKeys<T> = {
-    [K in keyof T]-?: null extends T[K] ? never : K;
+  [K in keyof T]-?: null extends T[K] ? never : K;
 }[keyof T];
 
 /**
@@ -37,7 +37,7 @@ export type PickNonNullableKeys<T> = {
  * ```
  */
 export type PickUndefinableKeys<T> = {
-    [K in keyof T]-?: undefined extends T[K] ? K : never;
+  [K in keyof T]-?: undefined extends T[K] ? K : never;
 }[keyof T];
 
 /**
@@ -51,7 +51,7 @@ export type PickUndefinableKeys<T> = {
  * ```
  */
 export type PickNonUndefinableKeys<T> = {
-    [K in keyof T]-?: undefined extends T[K] ? never : K;
+  [K in keyof T]-?: undefined extends T[K] ? never : K;
 }[keyof T];
 
 /**
@@ -65,7 +65,7 @@ export type PickNonUndefinableKeys<T> = {
  * ```
  */
 export type PickNullishKeys<T> = {
-    [K in keyof T]-?: undefined extends T[K] ? K : null extends T[K] ? K : never;
+  [K in keyof T]-?: undefined extends T[K] ? K : null extends T[K] ? K : never;
 }[keyof T];
 
 /**
@@ -79,5 +79,5 @@ export type PickNullishKeys<T> = {
  * ```
  */
 export type PickNonNullishKeys<T> = {
-    [K in keyof T]-?: undefined extends T[K] ? never : null extends T[K] ? never : K;
+  [K in keyof T]-?: undefined extends T[K] ? never : null extends T[K] ? never : K;
 }[keyof T];

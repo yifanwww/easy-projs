@@ -1,7 +1,7 @@
 {
-    "extends": "./tsconfig.node.base.json",
-    "compilerOptions": {
-        "incremental": false,
-        "noEmit": true
-    }
+  "extends": "./tsconfig.node.base.json",
+  "compilerOptions": {
+    "incremental": false,
+    "noEmit": true
+  }
 }

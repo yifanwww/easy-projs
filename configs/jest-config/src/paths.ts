@@ -6,5 +6,5 @@ import path from 'node:path';
 const repo = path.join(import.meta.dirname, '../../..');
 
 export const paths = {
-    jestCache: path.resolve(repo, 'node_modules', '.cache/jest'),
+  jestCache: path.resolve(repo, 'node_modules', '.cache/jest'),
 };

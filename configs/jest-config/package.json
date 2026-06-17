@@ -1,52 +1,52 @@
 {
-    "name": "@easy-config/jest-config",
-    "version": "0.0.0",
-    "description": "Jest configurations for easy-projs.",
-    "type": "module",
-    "homepage": "https://github.com/yifanwww/easy-projs#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/easy-projs/issues"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "configs/jest-config"
-    },
-    "bin": {
-        "unit-test": "./bin/unit-test.js"
-    },
-    "scripts": {
-        "bin": "node dist/main.js",
-        "build": "tsc --project tsconfigs/tsconfig.build.json",
-        "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build --watch",
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
-        "lint": "eslint . --fix",
-        "lint-ci": "eslint .",
-        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
-    },
-    "dependencies": {
-        "@swc/jest": "catalog:",
-        "camelcase": "catalog:",
-        "chalk": "catalog:",
-        "commander": "catalog:",
-        "identity-obj-proxy": "catalog:",
-        "jest": "catalog:",
-        "jest-environment-jsdom": "catalog:",
-        "jest-watch-typeahead": "catalog:",
-        "whatwg-fetch": "catalog:"
-    },
-    "devDependencies": {
-        "@easy-config/eslint-config": "workspace:^",
-        "@easy-config/tsconfigs": "workspace:^",
-        "@jest/types": "catalog:",
-        "@types/node": "catalog:",
-        "eslint": "catalog:",
-        "prettier": "catalog:",
-        "rimraf": "catalog:",
-        "typescript": "catalog:"
-    }
+  "name": "@easy-config/jest-config",
+  "version": "0.0.0",
+  "description": "Jest configurations for easy-projs.",
+  "type": "module",
+  "homepage": "https://github.com/yifanwww/easy-projs#readme",
+  "license": "MIT",
+  "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+  "bugs": {
+    "url": "https://github.com/yifanwww/easy-projs/issues"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yifanwww/easy-projs.git",
+    "directory": "configs/jest-config"
+  },
+  "bin": {
+    "unit-test": "./bin/unit-test.js"
+  },
+  "scripts": {
+    "bin": "node dist/main.js",
+    "build": "tsc --project tsconfigs/tsconfig.build.json",
+    "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
+    "dev": "pnpm run build --watch",
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+    "lint": "eslint . --fix",
+    "lint-ci": "eslint .",
+    "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
+  },
+  "dependencies": {
+    "@swc/jest": "catalog:",
+    "camelcase": "catalog:",
+    "chalk": "catalog:",
+    "commander": "catalog:",
+    "identity-obj-proxy": "catalog:",
+    "jest": "catalog:",
+    "jest-environment-jsdom": "catalog:",
+    "jest-watch-typeahead": "catalog:",
+    "whatwg-fetch": "catalog:"
+  },
+  "devDependencies": {
+    "@easy-config/eslint-config": "workspace:^",
+    "@easy-config/tsconfigs": "workspace:^",
+    "@jest/types": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:"
+  }
 }

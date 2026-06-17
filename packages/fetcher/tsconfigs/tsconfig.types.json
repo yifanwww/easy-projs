@@ -1,15 +1,15 @@
 {
-    "extends": "@easy-config/tsconfigs/tsconfig.browser.types.json",
-    "compilerOptions": {
-        "outDir": "../lib",
-        "rootDir": "../src"
-    },
-    "include": ["../src/**/*"],
-    "exclude": [
-        "../src/**/__mocks__/**/*",
-        "../src/**/__tests__/**/*",
-        "../src/**/*.spec.ts",
-        "../src/**/*.test.ts",
-        "../src/test.setup.ts"
-    ]
+  "extends": "@easy-config/tsconfigs/tsconfig.browser.types.json",
+  "compilerOptions": {
+    "outDir": "../lib",
+    "rootDir": "../src"
+  },
+  "include": ["../src/**/*"],
+  "exclude": [
+    "../src/**/__mocks__/**/*",
+    "../src/**/__tests__/**/*",
+    "../src/**/*.spec.ts",
+    "../src/**/*.test.ts",
+    "../src/test.setup.ts"
+  ]
 }

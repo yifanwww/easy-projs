@@ -1,48 +1,48 @@
 {
-    "name": "@easy-lib/fetcher",
-    "version": "0.0.0",
-    "description": "A simple fetcher implementation.",
-    "type": "module",
-    "exports": "./lib/index.js",
-    "homepage": "https://github.com/yifanwww/easy-projs#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/easy-projs/issues"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "packages/fetcher"
-    },
-    "scripts": {
-        "build": "concurrently -n lib,types \"pnpm run build:lib\" \"pnpm run build:types\"",
-        "build:lib": "tsc --project tsconfigs/tsconfig.lib.json",
-        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
-        "dev": "pnpm run build:lib --watch",
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
-        "lint": "eslint . --fix",
-        "lint-ci": "eslint .",
-        "test": "unit-test webapp-esm",
-        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
-    },
-    "dependencies": {
-        "@easy-lib/utils-browser": "workspace:^",
-        "@rustresult/result": "catalog:"
-    },
-    "devDependencies": {
-        "@easy-config/eslint-config": "workspace:^",
-        "@easy-config/global-types": "workspace:^",
-        "@easy-config/jest-config": "workspace:^",
-        "@easy-config/tsconfigs": "workspace:^",
-        "@jest/globals": "catalog:",
-        "concurrently": "catalog:",
-        "es-toolkit": "catalog:",
-        "eslint": "catalog:",
-        "prettier": "catalog:",
-        "rimraf": "catalog:",
-        "typescript": "catalog:"
-    }
+  "name": "@easy-lib/fetcher",
+  "version": "0.0.0",
+  "description": "A simple fetcher implementation.",
+  "type": "module",
+  "exports": "./lib/index.js",
+  "homepage": "https://github.com/yifanwww/easy-projs#readme",
+  "license": "MIT",
+  "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+  "bugs": {
+    "url": "https://github.com/yifanwww/easy-projs/issues"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yifanwww/easy-projs.git",
+    "directory": "packages/fetcher"
+  },
+  "scripts": {
+    "build": "concurrently -n lib,types \"pnpm run build:lib\" \"pnpm run build:types\"",
+    "build:lib": "tsc --project tsconfigs/tsconfig.lib.json",
+    "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+    "clean": "rimraf --glob coverage lib tsconfigs/*.tsbuildinfo",
+    "dev": "pnpm run build:lib --watch",
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+    "lint": "eslint . --fix",
+    "lint-ci": "eslint .",
+    "test": "unit-test webapp-esm",
+    "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
+  },
+  "dependencies": {
+    "@easy-lib/utils-browser": "workspace:^",
+    "@rustresult/result": "catalog:"
+  },
+  "devDependencies": {
+    "@easy-config/eslint-config": "workspace:^",
+    "@easy-config/global-types": "workspace:^",
+    "@easy-config/jest-config": "workspace:^",
+    "@easy-config/tsconfigs": "workspace:^",
+    "@jest/globals": "catalog:",
+    "concurrently": "catalog:",
+    "es-toolkit": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:"
+  }
 }

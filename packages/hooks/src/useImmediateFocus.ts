@@ -2,16 +2,16 @@ import { useEffect } from 'react';
 import type { RefObject } from 'react';
 
 interface FocusableElement {
-    focus(): void;
+  focus(): void;
 }
 
 export function useImmediateFocus<T extends FocusableElement>(
-    element: RefObject<T | null | undefined>,
-    focus = true,
+  element: RefObject<T | null | undefined>,
+  focus = true,
 ): void {
-    useEffect(() => {
-        if (focus) {
-            element.current?.focus();
-        }
-    }, [element, focus]);
+  useEffect(() => {
+    if (focus) {
+      element.current?.focus();
+    }
+  }, [element, focus]);
 }

@@ -3,15 +3,15 @@ import { useEffect } from 'react';
 // Refer to https://developer.mozilla.org/en-US/docs/Web/API/BeforeUnloadEvent for more information.
 
 function listener(event: BeforeUnloadEvent) {
-    event.preventDefault();
+  event.preventDefault();
 
-    // In modern browsers, `returnValue` can only enable the `beforeunload` dialog, we cannot customize the message.
-    // References:
-    // - https://developer.apple.com/library/archive/releasenotes/General/WhatsNewInSafari/Articles/Safari_9_1.html#//apple_ref/doc/uid/TP40014305-CH10-SW11
-    // - https://chromestatus.com/feature/5349061406228480
+  // In modern browsers, `returnValue` can only enable the `beforeunload` dialog, we cannot customize the message.
+  // References:
+  // - https://developer.apple.com/library/archive/releasenotes/General/WhatsNewInSafari/Articles/Safari_9_1.html#//apple_ref/doc/uid/TP40014305-CH10-SW11
+  // - https://chromestatus.com/feature/5349061406228480
 
-    // eslint-disable-next-line no-param-reassign
-    event.returnValue = 'warning';
+  // eslint-disable-next-line no-param-reassign
+  event.returnValue = 'warning';
 }
 
 /**
@@ -20,10 +20,10 @@ function listener(event: BeforeUnloadEvent) {
  * @param enabled Enable the confirmation dialog or not.
  */
 export function useDialogBeforeUnload(enabled = true) {
-    useEffect(() => {
-        if (!enabled) return undefined;
+  useEffect(() => {
+    if (!enabled) return undefined;
 
-        window.addEventListener('beforeunload', listener);
-        return () => window.removeEventListener('beforeunload', listener);
-    }, [enabled]);
+    window.addEventListener('beforeunload', listener);
+    return () => window.removeEventListener('beforeunload', listener);
+  }, [enabled]);
 }

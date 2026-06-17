@@ -1,39 +1,39 @@
 {
-    "name": "easy-projs",
-    "version": "0.0.0",
-    "description": "",
-    "type": "module",
-    "homepage": "https://github.com/yifanwww/easy-projs#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/easy-projs/issues"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/easy-projs.git"
-    },
-    "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48",
-    "scripts": {
-        "build": "pnpm run --recursive --stream build",
-        "build-configs": "pnpm run --filter @easy-config/* --stream build",
-        "build-libs": "pnpm run --filter @easy-lib/* --stream build",
-        "clean": "pnpm run --recursive --no-sort clean",
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
-        "lint": "pnpm run --recursive --no-sort --stream lint",
-        "lint-ci": "pnpm run --recursive --no-sort --stream lint-ci",
-        "prepare": "husky",
-        "test": "pnpm run --recursive --no-sort --stream test",
-        "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
-    },
-    "engines": {
-        "node": ">=24"
-    },
-    "devDependencies": {
-        "husky": "catalog:",
-        "lint-staged": "catalog:",
-        "prettier": "catalog:",
-        "typescript": "catalog:"
-    }
+  "name": "easy-projs",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "homepage": "https://github.com/yifanwww/easy-projs#readme",
+  "license": "MIT",
+  "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+  "bugs": {
+    "url": "https://github.com/yifanwww/easy-projs/issues"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yifanwww/easy-projs.git"
+  },
+  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48",
+  "scripts": {
+    "build": "pnpm run --recursive --stream build",
+    "build-configs": "pnpm run --filter @easy-config/* --stream build",
+    "build-libs": "pnpm run --filter @easy-lib/* --stream build",
+    "clean": "pnpm run --recursive --no-sort clean",
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+    "lint": "pnpm run --recursive --no-sort --stream lint",
+    "lint-ci": "pnpm run --recursive --no-sort --stream lint-ci",
+    "prepare": "husky",
+    "test": "pnpm run --recursive --no-sort --stream test",
+    "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "husky": "catalog:",
+    "lint-staged": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
 }

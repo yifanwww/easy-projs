@@ -12,18 +12,18 @@ import { useTimeout } from './useTimeout.js';
  * @returns The trigger.
  */
 export function useDelayFn<T extends UnknownFn>(fn?: T, delay = 1000): VoidReturn<T> {
-    const { clearTimeout, setTimeout } = useTimeout();
+  const { clearTimeout, setTimeout } = useTimeout();
 
-    const _fn = useCallback(
-        (...args: never[]) => {
-            clearTimeout();
+  const _fn = useCallback(
+    (...args: never[]) => {
+      clearTimeout();
 
-            if (fn) {
-                setTimeout(() => fn(...args), delay) as unknown as number;
-            }
-        },
-        [clearTimeout, delay, fn, setTimeout],
-    );
+      if (fn) {
+        setTimeout(() => fn(...args), delay) as unknown as number;
+      }
+    },
+    [clearTimeout, delay, fn, setTimeout],
+  );
 
-    return _fn;
+  return _fn;
 }

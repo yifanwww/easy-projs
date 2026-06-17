@@ -1,31 +1,31 @@
 {
-    "name": "@easy-config/global-types",
-    "version": "0.0.0",
-    "description": "Global type declarations for easy-projs.",
-    "type": "module",
-    "homepage": "https://github.com/yifanwww/easy-projs#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/easy-projs/issues"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "configs/global-types"
-    },
-    "scripts": {
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
-        "lint": "eslint . --fix",
-        "lint-ci": "eslint .",
-        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
-    },
-    "devDependencies": {
-        "@easy-config/eslint-config": "workspace:^",
-        "@easy-config/tsconfigs": "workspace:^",
-        "eslint": "catalog:",
-        "prettier": "catalog:",
-        "typescript": "catalog:"
-    }
+  "name": "@easy-config/global-types",
+  "version": "0.0.0",
+  "description": "Global type declarations for easy-projs.",
+  "type": "module",
+  "homepage": "https://github.com/yifanwww/easy-projs#readme",
+  "license": "MIT",
+  "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+  "bugs": {
+    "url": "https://github.com/yifanwww/easy-projs/issues"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yifanwww/easy-projs.git",
+    "directory": "configs/global-types"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+    "lint": "eslint . --fix",
+    "lint-ci": "eslint .",
+    "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
+  },
+  "devDependencies": {
+    "@easy-config/eslint-config": "workspace:^",
+    "@easy-config/tsconfigs": "workspace:^",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
 }

@@ -6,185 +6,185 @@ import { fetcherFactory } from '../fetcherFactory.js';
 const fetcher = fetcherFactory();
 
 describe(`Test fn \`${fetcher.name}\``, () => {
-    // Request
+  // Request
 
-    it('should fetch correct url', async () => {
-        let url: string | undefined;
+  it('should fetch correct url', async () => {
+    let url: string | undefined;
 
-        jest.spyOn(window, 'fetch').mockImplementation((_url) => {
-            url = _url as string;
-            return Promise.resolve(new Response('{}'));
-        });
-
-        await fetcher<Record<string, never>>('/search');
-        expect(url).toBe('/search');
-
-        await fetcher<Record<string, never>>('search');
-        expect(url).toBe('search');
-
-        await fetcher<Record<string, never>>('/search', { params: { key: 'a-key' } });
-        expect(url).toBe('/search?key=a-key');
-
-        await fetcher<Record<string, never>>('https://www.test.com/search');
-        expect(url).toBe('https://www.test.com/search');
+    jest.spyOn(window, 'fetch').mockImplementation((_url) => {
+      url = _url as string;
+      return Promise.resolve(new Response('{}'));
     });
 
-    it('should pass headers when fetching', async () => {
-        let headers: Record<string, string> | undefined;
+    await fetcher<Record<string, never>>('/search');
+    expect(url).toBe('/search');
 
-        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
-            headers = options?.headers as Record<string, string> | undefined;
-            return Promise.resolve(new Response('{}'));
-        });
+    await fetcher<Record<string, never>>('search');
+    expect(url).toBe('search');
 
-        await fetcher<Record<string, never>>('/search');
-        expect(headers).toStrictEqual({});
+    await fetcher<Record<string, never>>('/search', { params: { key: 'a-key' } });
+    expect(url).toBe('/search?key=a-key');
 
-        await fetcher<Record<string, never>>('/search', { method: 'POST', data: { key: 'a-key' } });
-        expect(headers).toStrictEqual({
-            'content-type': 'application/json; charset=utf-8',
-        });
+    await fetcher<Record<string, never>>('https://www.test.com/search');
+    expect(url).toBe('https://www.test.com/search');
+  });
 
-        await fetcher<Record<string, never>>('/search', { method: 'POST', headers: { authorization: 'auth' } });
-        expect(headers).toStrictEqual({
-            authorization: 'auth',
-        });
+  it('should pass headers when fetching', async () => {
+    let headers: Record<string, string> | undefined;
+
+    jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
+      headers = options?.headers as Record<string, string> | undefined;
+      return Promise.resolve(new Response('{}'));
     });
 
-    // Response
+    await fetcher<Record<string, never>>('/search');
+    expect(headers).toStrictEqual({});
 
-    it(`should return ${OkAsync.name} containing response`, async () => {
-        jest.spyOn(window, 'fetch').mockImplementation(() => Promise.resolve(new Response('{}')));
-
-        const result = await fetcher<Record<string, never>>('/search', { method: 'GET' });
-        expect(result.isOk()).toBe(true);
-        const resp = result.unwrapUnchecked();
-
-        expect(resp.data).toStrictEqual({});
-        expect(resp.status).toBe(200);
+    await fetcher<Record<string, never>>('/search', { method: 'POST', data: { key: 'a-key' } });
+    expect(headers).toStrictEqual({
+      'content-type': 'application/json; charset=utf-8',
     });
 
-    it(`should return ${ErrAsync.name} containing error response`, async () => {
-        jest.spyOn(window, 'fetch').mockImplementation(() => Promise.resolve(new Response('{}', { status: 400 })));
+    await fetcher<Record<string, never>>('/search', { method: 'POST', headers: { authorization: 'auth' } });
+    expect(headers).toStrictEqual({
+      authorization: 'auth',
+    });
+  });
 
-        const result = await fetcher<Record<string, never>, Record<string, never>>('/search', { method: 'GET' });
-        expect(result.isErr()).toBe(true);
-        const resp = result.unwrapErrUnchecked();
+  // Response
 
-        assert(!(resp instanceof TypeError), 'Expected response to be an error response, but got a TypeError');
-        expect(resp.data).toStrictEqual({});
-        expect(resp.status).toBe(400);
+  it(`should return ${OkAsync.name} containing response`, async () => {
+    jest.spyOn(window, 'fetch').mockImplementation(() => Promise.resolve(new Response('{}')));
+
+    const result = await fetcher<Record<string, never>>('/search', { method: 'GET' });
+    expect(result.isOk()).toBe(true);
+    const resp = result.unwrapUnchecked();
+
+    expect(resp.data).toStrictEqual({});
+    expect(resp.status).toBe(200);
+  });
+
+  it(`should return ${ErrAsync.name} containing error response`, async () => {
+    jest.spyOn(window, 'fetch').mockImplementation(() => Promise.resolve(new Response('{}', { status: 400 })));
+
+    const result = await fetcher<Record<string, never>, Record<string, never>>('/search', { method: 'GET' });
+    expect(result.isErr()).toBe(true);
+    const resp = result.unwrapErrUnchecked();
+
+    assert(!(resp instanceof TypeError), 'Expected response to be an error response, but got a TypeError');
+    expect(resp.data).toStrictEqual({});
+    expect(resp.status).toBe(400);
+  });
+
+  it(`should return ${ErrAsync.name} containing TypeError`, async () => {
+    jest.spyOn(window, 'fetch').mockImplementation(() => {
+      throw new TypeError('Failed to fetch');
     });
 
-    it(`should return ${ErrAsync.name} containing TypeError`, async () => {
-        jest.spyOn(window, 'fetch').mockImplementation(() => {
-            throw new TypeError('Failed to fetch');
-        });
+    const result = await fetcher<Record<string, never>, Record<string, never>>('/search', { method: 'GET' });
+    expect(result.isErr()).toBe(true);
+    const resp = result.unwrapErrUnchecked();
 
-        const result = await fetcher<Record<string, never>, Record<string, never>>('/search', { method: 'GET' });
-        expect(result.isErr()).toBe(true);
-        const resp = result.unwrapErrUnchecked();
-
-        expect(resp).toBeInstanceOf(TypeError);
-        assert(resp instanceof TypeError, 'Expected response to be a TypeError');
-        expect(resp.message).toBe('Failed to fetch');
-    });
+    expect(resp).toBeInstanceOf(TypeError);
+    assert(resp instanceof TypeError, 'Expected response to be a TypeError');
+    expect(resp.message).toBe('Failed to fetch');
+  });
 });
 
 describe(`Test fn \`${fetcher.name}.get\``, () => {
-    it('should call fetch (method=GET)', async () => {
-        let method: string | undefined;
+  it('should call fetch (method=GET)', async () => {
+    let method: string | undefined;
 
-        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
-            method = options?.method;
-            return Promise.resolve(new Response('{}'));
-        });
-
-        await fetcher.get('/search');
-        expect(method).toBe('GET');
+    jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
+      method = options?.method;
+      return Promise.resolve(new Response('{}'));
     });
+
+    await fetcher.get('/search');
+    expect(method).toBe('GET');
+  });
 });
 
 describe(`Test fn \`${fetcher.name}.head\``, () => {
-    it('should call fetch (method=HEAD)', async () => {
-        let method: string | undefined;
+  it('should call fetch (method=HEAD)', async () => {
+    let method: string | undefined;
 
-        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
-            method = options?.method;
-            return Promise.resolve(new Response('{}'));
-        });
-
-        await fetcher.head('/search');
-        expect(method).toBe('HEAD');
+    jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
+      method = options?.method;
+      return Promise.resolve(new Response('{}'));
     });
+
+    await fetcher.head('/search');
+    expect(method).toBe('HEAD');
+  });
 });
 
 describe(`Test fn \`${fetcher.name}.options\``, () => {
-    it('should call fetch (method=OPTIONS)', async () => {
-        let method: string | undefined;
+  it('should call fetch (method=OPTIONS)', async () => {
+    let method: string | undefined;
 
-        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
-            method = options?.method;
-            return Promise.resolve(new Response('{}'));
-        });
-
-        await fetcher.options('/search');
-        expect(method).toBe('OPTIONS');
+    jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
+      method = options?.method;
+      return Promise.resolve(new Response('{}'));
     });
+
+    await fetcher.options('/search');
+    expect(method).toBe('OPTIONS');
+  });
 });
 
 describe(`Test fn \`${fetcher.name}.post\``, () => {
-    it('should call fetch (method=POST)', async () => {
-        let method: string | undefined;
+  it('should call fetch (method=POST)', async () => {
+    let method: string | undefined;
 
-        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
-            method = options?.method;
-            return Promise.resolve(new Response('{}'));
-        });
-
-        await fetcher.post('/search');
-        expect(method).toBe('POST');
+    jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
+      method = options?.method;
+      return Promise.resolve(new Response('{}'));
     });
+
+    await fetcher.post('/search');
+    expect(method).toBe('POST');
+  });
 });
 
 describe(`Test fn \`${fetcher.name}.delete\``, () => {
-    it('should call fetch (method=DELETE)', async () => {
-        let method: string | undefined;
+  it('should call fetch (method=DELETE)', async () => {
+    let method: string | undefined;
 
-        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
-            method = options?.method;
-            return Promise.resolve(new Response('{}'));
-        });
-
-        await fetcher.delete('/search');
-        expect(method).toBe('DELETE');
+    jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
+      method = options?.method;
+      return Promise.resolve(new Response('{}'));
     });
+
+    await fetcher.delete('/search');
+    expect(method).toBe('DELETE');
+  });
 });
 
 describe(`Test fn \`${fetcher.name}.put\``, () => {
-    it('should call fetch (method=PUT)', async () => {
-        let method: string | undefined;
+  it('should call fetch (method=PUT)', async () => {
+    let method: string | undefined;
 
-        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
-            method = options?.method;
-            return Promise.resolve(new Response('{}'));
-        });
-
-        await fetcher.put('/search');
-        expect(method).toBe('PUT');
+    jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
+      method = options?.method;
+      return Promise.resolve(new Response('{}'));
     });
+
+    await fetcher.put('/search');
+    expect(method).toBe('PUT');
+  });
 });
 
 describe(`Test fn \`${fetcher.name}.patch\``, () => {
-    it('should call fetch (method=PATCH)', async () => {
-        let method: string | undefined;
+  it('should call fetch (method=PATCH)', async () => {
+    let method: string | undefined;
 
-        jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
-            method = options?.method;
-            return Promise.resolve(new Response('{}'));
-        });
-
-        await fetcher.patch('/search');
-        expect(method).toBe('PATCH');
+    jest.spyOn(window, 'fetch').mockImplementation((_, options) => {
+      method = options?.method;
+      return Promise.resolve(new Response('{}'));
     });
+
+    await fetcher.patch('/search');
+    expect(method).toBe('PATCH');
+  });
 });

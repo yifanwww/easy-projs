@@ -8,27 +8,27 @@ import type { ReduxActions, DispatchingActions, DispatchingThunks, ReduxThunks }
  * simpler code rather than use `useDispatch`.
  */
 export function useDispatchingActions<TActions extends ReduxActions>(actions: TActions): DispatchingActions<TActions> {
-    const actionsRef = useRef<TActions>(undefined);
+  const actionsRef = useRef<TActions>(undefined);
 
-    const memoActions = useMemo(() => {
-        if (actionsRef.current && shallowEqual(actionsRef.current, actions)) {
-            return actionsRef.current;
-        } else {
-            actionsRef.current = actions;
-            return actions;
-        }
-    }, [actions]);
+  const memoActions = useMemo(() => {
+    if (actionsRef.current && shallowEqual(actionsRef.current, actions)) {
+      return actionsRef.current;
+    } else {
+      actionsRef.current = actions;
+      return actions;
+    }
+  }, [actions]);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    return useMemo(() => {
-        const dispatchingActions: Record<string, AnyFn> = {};
+  return useMemo(() => {
+    const dispatchingActions: Record<string, AnyFn> = {};
 
-        for (const actionName in memoActions)
-            dispatchingActions[actionName] = (payload: unknown) => dispatch(memoActions[actionName](payload));
+    for (const actionName in memoActions)
+      dispatchingActions[actionName] = (payload: unknown) => dispatch(memoActions[actionName](payload));
 
-        return dispatchingActions as DispatchingActions<TActions>;
-    }, [memoActions, dispatch]);
+    return dispatchingActions as DispatchingActions<TActions>;
+  }, [memoActions, dispatch]);
 }
 
 /**
@@ -36,27 +36,27 @@ export function useDispatchingActions<TActions extends ReduxActions>(actions: TA
  * simpler code rather than use `useDispatch`.
  */
 export function useDispatchingThunks<TThunks extends ReduxThunks>(thunks: TThunks): DispatchingThunks<TThunks> {
-    const thunksRef = useRef<TThunks>(undefined);
+  const thunksRef = useRef<TThunks>(undefined);
 
-    const memoThunks = useMemo(() => {
-        if (thunksRef.current && shallowEqual(thunksRef.current, thunks)) {
-            return thunksRef.current;
-        } else {
-            thunksRef.current = thunks;
-            return thunks;
-        }
-    }, [thunks]);
+  const memoThunks = useMemo(() => {
+    if (thunksRef.current && shallowEqual(thunksRef.current, thunks)) {
+      return thunksRef.current;
+    } else {
+      thunksRef.current = thunks;
+      return thunks;
+    }
+  }, [thunks]);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    return useMemo(() => {
-        const dispatchingThunks: Record<string, UnknownFn> = {};
+  return useMemo(() => {
+    const dispatchingThunks: Record<string, UnknownFn> = {};
 
-        for (const thunkName in memoThunks) {
-            // The type of thunk doesn't satisfy `AnyAction` but it's valid because we use middleware `redux-thunk`.
-            dispatchingThunks[thunkName] = (...args: never[]) => dispatch(memoThunks[thunkName](...args) as never);
-        }
+    for (const thunkName in memoThunks) {
+      // The type of thunk doesn't satisfy `AnyAction` but it's valid because we use middleware `redux-thunk`.
+      dispatchingThunks[thunkName] = (...args: never[]) => dispatch(memoThunks[thunkName](...args) as never);
+    }
 
-        return dispatchingThunks as DispatchingThunks<TThunks>;
-    }, [memoThunks, dispatch]);
+    return dispatchingThunks as DispatchingThunks<TThunks>;
+  }, [memoThunks, dispatch]);
 }

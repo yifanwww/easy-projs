@@ -1,20 +1,20 @@
 interface InjectedVars {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    __EXPERIMENTAL__: boolean;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  __EXPERIMENTAL__: boolean;
 }
 
 export function createExperimentalVarMocker(global: typeof globalThis) {
-    const typedGlobal = global as typeof globalThis & InjectedVars;
+  const typedGlobal = global as typeof globalThis & InjectedVars;
 
-    const INITIAL_EXPERIMENTAL = typedGlobal.__EXPERIMENTAL__;
+  const INITIAL_EXPERIMENTAL = typedGlobal.__EXPERIMENTAL__;
 
-    function mockExperimentalVar(value: boolean) {
-        typedGlobal.__EXPERIMENTAL__ = value;
-    }
+  function mockExperimentalVar(value: boolean) {
+    typedGlobal.__EXPERIMENTAL__ = value;
+  }
 
-    function resetExperimentalVar() {
-        typedGlobal.__EXPERIMENTAL__ = INITIAL_EXPERIMENTAL;
-    }
+  function resetExperimentalVar() {
+    typedGlobal.__EXPERIMENTAL__ = INITIAL_EXPERIMENTAL;
+  }
 
-    return { mockExperimentalVar, resetExperimentalVar };
+  return { mockExperimentalVar, resetExperimentalVar };
 }

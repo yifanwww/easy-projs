@@ -5,17 +5,17 @@ const EXPERIMENTAL_API = 'EXPERIMENTAL_API';
 
 @Injectable()
 export class ExperimentalApiGuard implements CanActivate {
-    constructor(private readonly reflector: Reflector) {}
+  constructor(private readonly reflector: Reflector) {}
 
-    canActivate(context: ExecutionContext): boolean {
-        const experimentalApi = this.reflector.getAllAndOverride<boolean | undefined>(EXPERIMENTAL_API, [
-            context.getHandler(),
-            context.getClass(),
-        ]);
-        return !experimentalApi || __EXPERIMENTAL__;
-    }
+  canActivate(context: ExecutionContext): boolean {
+    const experimentalApi = this.reflector.getAllAndOverride<boolean | undefined>(EXPERIMENTAL_API, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
+    return !experimentalApi || __EXPERIMENTAL__;
+  }
 }
 
 export function ExperimentalApi() {
-    return SetMetadata(EXPERIMENTAL_API, true);
+  return SetMetadata(EXPERIMENTAL_API, true);
 }

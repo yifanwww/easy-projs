@@ -9,52 +9,52 @@ import { useInterval } from './useInterval.js';
 export type SetCountdown = (countdown: number) => void;
 
 export function useCountdown(): [Integer, SetCountdown] {
-    const targetTimeRef = useRef(0);
-    const remainTimeRef = useRef(0);
+  const targetTimeRef = useRef(0);
+  const remainTimeRef = useRef(0);
 
-    const forceUpdate = useForceUpdate();
-    const { clearInterval, setInterval } = useInterval();
+  const forceUpdate = useForceUpdate();
+  const { clearInterval, setInterval } = useInterval();
 
-    const setCountdown = useCallback(
-        (countdown: number) => {
-            // Stop the countdown
-            clearInterval();
+  const setCountdown = useCallback(
+    (countdown: number) => {
+      // Stop the countdown
+      clearInterval();
 
-            if (countdown <= 0) {
-                // Forcely update if need
-                if (remainTimeRef.current !== 0) {
-                    remainTimeRef.current = 0;
-                    forceUpdate();
-                }
-            } else {
-                targetTimeRef.current = Date.now() / 1000 + countdown;
+      if (countdown <= 0) {
+        // Forcely update if need
+        if (remainTimeRef.current !== 0) {
+          remainTimeRef.current = 0;
+          forceUpdate();
+        }
+      } else {
+        targetTimeRef.current = Date.now() / 1000 + countdown;
 
-                const remainTime = Math.max(0, Math.ceil(countdown));
-                if (remainTime !== remainTimeRef.current) {
-                    remainTimeRef.current = remainTime;
-                    forceUpdate();
-                }
+        const remainTime = Math.max(0, Math.ceil(countdown));
+        if (remainTime !== remainTimeRef.current) {
+          remainTimeRef.current = remainTime;
+          forceUpdate();
+        }
 
-                setInterval(() => {
-                    const newRemainTime = Math.max(0, Math.ceil(targetTimeRef.current - Date.now() / 1000));
-                    if (newRemainTime !== remainTimeRef.current) {
-                        remainTimeRef.current = newRemainTime;
-                        forceUpdate();
-                    }
+        setInterval(() => {
+          const newRemainTime = Math.max(0, Math.ceil(targetTimeRef.current - Date.now() / 1000));
+          if (newRemainTime !== remainTimeRef.current) {
+            remainTimeRef.current = newRemainTime;
+            forceUpdate();
+          }
 
-                    if (remainTimeRef.current === 0) clearInterval();
-                }, 50);
-            }
-        },
-        [clearInterval, forceUpdate, setInterval],
-    );
+          if (remainTimeRef.current === 0) clearInterval();
+        }, 50);
+      }
+    },
+    [clearInterval, forceUpdate, setInterval],
+  );
 
-    // Cleanup function.
-    useEffect(() => {
-        // Here runs only when this component did unmount. Clear the interval timer if it exists.
-        return clearInterval;
-        // useSimpleInterval ensures this will never change, but `react-hooks/exhaustive-deps` doesn't know that.
-    }, [clearInterval]);
+  // Cleanup function.
+  useEffect(() => {
+    // Here runs only when this component did unmount. Clear the interval timer if it exists.
+    return clearInterval;
+    // useSimpleInterval ensures this will never change, but `react-hooks/exhaustive-deps` doesn't know that.
+  }, [clearInterval]);
 
-    return [remainTimeRef.current, setCountdown];
+  return [remainTimeRef.current, setCountdown];
 }

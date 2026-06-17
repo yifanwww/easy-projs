@@ -7,7 +7,7 @@
  * ```
  */
 export enum MysqlCharset {
-    UTF8 = 'utf8mb4',
+  UTF8 = 'utf8mb4',
 }
 
 /**
@@ -24,6 +24,6 @@ export enum MysqlCharset {
  * ```
  */
 export enum MysqlCollation {
-    UTF8_CI = 'utf8mb4_0900_ai_ci',
-    UTF8_CS = 'utf8mb4_0900_as_cs',
+  UTF8_CI = 'utf8mb4_0900_ai_ci',
+  UTF8_CS = 'utf8mb4_0900_as_cs',
 }

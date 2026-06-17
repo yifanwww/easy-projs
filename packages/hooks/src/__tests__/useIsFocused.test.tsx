@@ -4,51 +4,51 @@ import { useRef } from 'react';
 import { useIsFocused } from '../useIsFocused.js';
 
 describe(`Test react hook \`${useIsFocused.name}\``, () => {
-    it('should return whether the component is focused', () => {
-        let isFocused: boolean | null = null;
-        function TestComponent() {
-            const ref = useRef<HTMLDivElement>(null);
-            isFocused = useIsFocused(ref);
-            return <div ref={ref}>Test-Component</div>;
-        }
+  it('should return whether the component is focused', () => {
+    let isFocused: boolean | null = null;
+    function TestComponent() {
+      const ref = useRef<HTMLDivElement>(null);
+      isFocused = useIsFocused(ref);
+      return <div ref={ref}>Test-Component</div>;
+    }
 
-        expect(isFocused).toBeNull();
-        const { getByText } = render(<TestComponent />);
-        expect(isFocused).toBe(false);
+    expect(isFocused).toBeNull();
+    const { getByText } = render(<TestComponent />);
+    expect(isFocused).toBe(false);
 
-        const component = getByText('Test-Component');
+    const component = getByText('Test-Component');
 
-        fireEvent.focus(component);
-        expect(isFocused).toBe(true);
+    fireEvent.focus(component);
+    expect(isFocused).toBe(true);
 
-        fireEvent.focusOut(component);
-        expect(isFocused).toBe(false);
+    fireEvent.focusOut(component);
+    expect(isFocused).toBe(false);
 
-        fireEvent.focusIn(component);
-        expect(isFocused).toBe(true);
-    });
+    fireEvent.focusIn(component);
+    expect(isFocused).toBe(true);
+  });
 
-    it('should not work if disabled', () => {
-        let isFocused: boolean | null = null;
-        function TestComponent() {
-            const ref = useRef<HTMLDivElement>(null);
-            isFocused = useIsFocused(ref, false);
-            return <div ref={ref}>Test-Component</div>;
-        }
+  it('should not work if disabled', () => {
+    let isFocused: boolean | null = null;
+    function TestComponent() {
+      const ref = useRef<HTMLDivElement>(null);
+      isFocused = useIsFocused(ref, false);
+      return <div ref={ref}>Test-Component</div>;
+    }
 
-        expect(isFocused).toBeNull();
-        const { getByText } = render(<TestComponent />);
-        expect(isFocused).toBe(false);
+    expect(isFocused).toBeNull();
+    const { getByText } = render(<TestComponent />);
+    expect(isFocused).toBe(false);
 
-        const component = getByText('Test-Component');
+    const component = getByText('Test-Component');
 
-        fireEvent.focus(component);
-        expect(isFocused).toBe(false);
+    fireEvent.focus(component);
+    expect(isFocused).toBe(false);
 
-        fireEvent.focusOut(component);
-        expect(isFocused).toBe(false);
+    fireEvent.focusOut(component);
+    expect(isFocused).toBe(false);
 
-        fireEvent.focusIn(component);
-        expect(isFocused).toBe(false);
-    });
+    fireEvent.focusIn(component);
+    expect(isFocused).toBe(false);
+  });
 });

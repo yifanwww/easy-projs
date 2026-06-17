@@ -11,22 +11,22 @@ import { useCallback, useRef } from 'react';
  * @returns The trigger.
  */
 export function useDoubleTrigger<T extends UnknownFn>(doubleTrigger?: T, delayLimit = 500): VoidReturn<T> {
-    const timeRef = useRef(0);
+  const timeRef = useRef(0);
 
-    const trigger = useCallback(
-        (...args: never[]) => {
-            if (doubleTrigger) {
-                const currTime = Date.now();
-                if (currTime - timeRef.current < delayLimit) {
-                    timeRef.current = 0;
-                    doubleTrigger(...args);
-                } else {
-                    timeRef.current = currTime;
-                }
-            }
-        },
-        [delayLimit, doubleTrigger],
-    );
+  const trigger = useCallback(
+    (...args: never[]) => {
+      if (doubleTrigger) {
+        const currTime = Date.now();
+        if (currTime - timeRef.current < delayLimit) {
+          timeRef.current = 0;
+          doubleTrigger(...args);
+        } else {
+          timeRef.current = currTime;
+        }
+      }
+    },
+    [delayLimit, doubleTrigger],
+  );
 
-    return trigger;
+  return trigger;
 }

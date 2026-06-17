@@ -6,49 +6,49 @@ import { usePersistFn } from '../usePersistFn.js';
 import { validateHookValueNotChanged } from './helpers.js';
 
 describe(`Test react hook \`${usePersistFn.name}\``, () => {
-    validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(() => {})]);
+  validateHookValueNotChanged('should return the same callbacks', () => [usePersistFn(() => {})]);
 
-    it('should call the latest non-persist function #1', () => {
-        let countRef: number | undefined;
-        let increaseCount = null as (() => void) | null;
-        expect(countRef).toBeUndefined();
-        expect(increaseCount).toBeNull();
+  it('should call the latest non-persist function #1', () => {
+    let countRef: number | undefined;
+    let increaseCount = null as (() => void) | null;
+    expect(countRef).toBeUndefined();
+    expect(increaseCount).toBeNull();
 
-        function TestComponent() {
-            const [count, setCount] = useState(0);
-            countRef = count;
-            increaseCount = usePersistFn(() => setCount(count + 1));
-            return <div />;
-        }
+    function TestComponent() {
+      const [count, setCount] = useState(0);
+      countRef = count;
+      increaseCount = usePersistFn(() => setCount(count + 1));
+      return <div />;
+    }
 
-        render(<TestComponent />);
-        expect(countRef).toBe(0);
-        expect(increaseCount).toBeInstanceOf(Function);
-        assert(typeof increaseCount === 'function', 'Expected increaseCount to be a function');
+    render(<TestComponent />);
+    expect(countRef).toBe(0);
+    expect(increaseCount).toBeInstanceOf(Function);
+    assert(typeof increaseCount === 'function', 'Expected increaseCount to be a function');
 
-        for (let i = 1; i <= 10; i++) {
-            const increaseCountRef = increaseCount;
-            act(() => increaseCountRef());
-            expect(countRef).toBe(i);
-        }
+    for (let i = 1; i <= 10; i++) {
+      const increaseCountRef = increaseCount;
+      act(() => increaseCountRef());
+      expect(countRef).toBe(i);
+    }
+  });
+
+  it('should call the latest non-persist function #2', () => {
+    function useCount() {
+      const [count, setCount] = useState(0);
+
+      return {
+        increaseCount: () => setCount((prev) => prev + 1),
+        getCount: usePersistFn(() => count),
+      };
+    }
+
+    const hook = renderHook(useCount);
+    expect(hook.result.current.getCount()).toBe(0);
+
+    act(() => {
+      hook.result.current.increaseCount();
     });
-
-    it('should call the latest non-persist function #2', () => {
-        function useCount() {
-            const [count, setCount] = useState(0);
-
-            return {
-                increaseCount: () => setCount((prev) => prev + 1),
-                getCount: usePersistFn(() => count),
-            };
-        }
-
-        const hook = renderHook(useCount);
-        expect(hook.result.current.getCount()).toBe(0);
-
-        act(() => {
-            hook.result.current.increaseCount();
-        });
-        expect(hook.result.current.getCount()).toBe(1);
-    });
+    expect(hook.result.current.getCount()).toBe(1);
+  });
 });

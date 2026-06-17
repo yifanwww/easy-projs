@@ -1,10 +1,10 @@
 import type {
-    ActionCreatorWithoutPayload,
-    ActionCreatorWithPayload,
-    AnyAction,
-    PayloadAction,
-    ThunkAction,
-    ThunkDispatch,
+  ActionCreatorWithoutPayload,
+  ActionCreatorWithPayload,
+  AnyAction,
+  PayloadAction,
+  ThunkAction,
+  ThunkDispatch,
 } from '@reduxjs/toolkit';
 import type { Draft } from 'immer';
 
@@ -15,9 +15,9 @@ export type ReduxReducer<State extends object, Payload> = (draft: Draft<State>, 
 export type ReduxThunkAction<ReturnType, State> = ThunkAction<ReturnType, State, unknown, AnyAction>;
 
 export type ThunkFn<ReturnType, State, ThunkArgs extends unknown[]> = (
-    dispatch: ThunkDispatch<State, unknown, AnyAction>,
-    getState: () => State,
-    ...thunkArgs: ThunkArgs
+  dispatch: ThunkDispatch<State, unknown, AnyAction>,
+  getState: () => State,
+  ...thunkArgs: ThunkArgs
 ) => ReturnType;
 
 // ---------------------------------------------------------- DispatchingActions
@@ -30,11 +30,11 @@ type ActionCreator = ActionCreatorWithPayload<any> | ActionCreatorWithoutPayload
 type PayloadInAction<TAction> = TAction extends (payload: infer Payload) => PayloadAction<unknown> ? Payload : unknown;
 
 type DispatchAction<TAction extends ActionCreator> = TAction extends ActionCreatorWithoutPayload
-    ? () => ReturnType<TAction>
-    : (payload: PayloadInAction<TAction>) => ReturnType<TAction>;
+  ? () => ReturnType<TAction>
+  : (payload: PayloadInAction<TAction>) => ReturnType<TAction>;
 
 export type DispatchingActions<TActions extends ReduxActions> = {
-    readonly [ReducerName in keyof TActions]: DispatchAction<TActions[ReducerName]>;
+  readonly [ReducerName in keyof TActions]: DispatchAction<TActions[ReducerName]>;
 };
 
 // ----------------------------------------------------------- DispatchingThunks

@@ -1,38 +1,38 @@
 {
-    "name": "@easy-config/stylelint-config",
-    "version": "0.0.0",
-    "description": "Stylelint configurations for easy-projs.",
-    "type": "module",
-    "exports": "./index.js",
-    "homepage": "https://github.com/yifanwww/easy-projs#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/easy-projs/issues"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "configs/stylelint-config"
-    },
-    "scripts": {
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\""
-    },
-    "dependencies": {
-        "postcss": "catalog:",
-        "stylelint-config-recess-order": "catalog:",
-        "stylelint-config-sass-guidelines": "catalog:",
-        "stylelint-config-standard": "catalog:",
-        "stylelint-config-standard-scss": "catalog:",
-        "stylelint-order": "catalog:"
-    },
-    "devDependencies": {
-        "prettier": "catalog:",
-        "stylelint": "catalog:",
-        "typescript": "catalog:"
-    },
-    "peerDependencies": {
-        "stylelint": "catalog:"
-    }
+  "name": "@easy-config/stylelint-config",
+  "version": "0.0.0",
+  "description": "Stylelint configurations for easy-projs.",
+  "type": "module",
+  "exports": "./index.js",
+  "homepage": "https://github.com/yifanwww/easy-projs#readme",
+  "license": "MIT",
+  "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+  "bugs": {
+    "url": "https://github.com/yifanwww/easy-projs/issues"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yifanwww/easy-projs.git",
+    "directory": "configs/stylelint-config"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\""
+  },
+  "dependencies": {
+    "postcss": "catalog:",
+    "stylelint-config-recess-order": "catalog:",
+    "stylelint-config-sass-guidelines": "catalog:",
+    "stylelint-config-standard": "catalog:",
+    "stylelint-config-standard-scss": "catalog:",
+    "stylelint-order": "catalog:"
+  },
+  "devDependencies": {
+    "prettier": "catalog:",
+    "stylelint": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "stylelint": "catalog:"
+  }
 }

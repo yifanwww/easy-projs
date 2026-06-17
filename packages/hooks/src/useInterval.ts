@@ -1,32 +1,32 @@
 import { useCallback, useEffect, useRef } from 'react';
 
 export interface UseIntervalActions {
-    readonly isWorking: () => boolean;
-    readonly setInterval: (callback: () => void, duration?: number) => void;
-    readonly clearInterval: () => void;
+  readonly isWorking: () => boolean;
+  readonly setInterval: (callback: () => void, duration?: number) => void;
+  readonly clearInterval: () => void;
 }
 
 /**
  *  Returns a wrapper function for `setInterval` which automatically handles disposal.
  */
 export function useInterval(): UseIntervalActions {
-    const intervalIdRef = useRef<number>(undefined);
+  const intervalIdRef = useRef<number>(undefined);
 
-    // Cleanup function.
-    useEffect(() => {
-        // Here runs only when this component did unmount. Clear the interval timer if it exists.
-        return () => window.clearInterval(intervalIdRef.current);
-    }, []);
+  // Cleanup function.
+  useEffect(() => {
+    // Here runs only when this component did unmount. Clear the interval timer if it exists.
+    return () => window.clearInterval(intervalIdRef.current);
+  }, []);
 
-    const isWorking = useCallback(() => intervalIdRef.current !== undefined, []);
+  const isWorking = useCallback(() => intervalIdRef.current !== undefined, []);
 
-    const setInterval = useCallback((callback: () => void, duration?: number): void => {
-        window.clearInterval(intervalIdRef.current);
+  const setInterval = useCallback((callback: () => void, duration?: number): void => {
+    window.clearInterval(intervalIdRef.current);
 
-        intervalIdRef.current = window.setInterval(callback, duration);
-    }, []);
+    intervalIdRef.current = window.setInterval(callback, duration);
+  }, []);
 
-    const clearInterval = useCallback(() => window.clearInterval(intervalIdRef.current), []);
+  const clearInterval = useCallback(() => window.clearInterval(intervalIdRef.current), []);
 
-    return { isWorking, setInterval, clearInterval };
+  return { isWorking, setInterval, clearInterval };
 }

@@ -4,47 +4,47 @@ import { useEffect, useRef } from 'react';
 import { useImmediateFocus } from '../useImmediateFocus.js';
 
 describe(`Test react hook \`${useImmediateFocus.name}\``, () => {
-    it('should immediately focus the component', () => {
-        let isFocused = false;
+  it('should immediately focus the component', () => {
+    let isFocused = false;
 
-        function TestComponent() {
-            const ref = useRef<HTMLDivElement>(null);
+    function TestComponent() {
+      const ref = useRef<HTMLDivElement>(null);
 
-            useEffect(() => {
-                ref.current?.addEventListener('focusin', () => {
-                    isFocused = true;
-                });
-            }, []);
+      useEffect(() => {
+        ref.current?.addEventListener('focusin', () => {
+          isFocused = true;
+        });
+      }, []);
 
-            useImmediateFocus(ref);
+      useImmediateFocus(ref);
 
-            return <div tabIndex={0} ref={ref} />;
-        }
+      return <div tabIndex={0} ref={ref} />;
+    }
 
-        expect(isFocused).toBeFalsy();
-        render(<TestComponent />);
-        expect(isFocused).toBeTruthy();
-    });
+    expect(isFocused).toBeFalsy();
+    render(<TestComponent />);
+    expect(isFocused).toBeTruthy();
+  });
 
-    it('should not focus the component if `focus` is `false`', () => {
-        let isFocused = false;
+  it('should not focus the component if `focus` is `false`', () => {
+    let isFocused = false;
 
-        function TestComponent() {
-            const ref = useRef<HTMLDivElement>(null);
+    function TestComponent() {
+      const ref = useRef<HTMLDivElement>(null);
 
-            useEffect(() => {
-                ref.current?.addEventListener('focusin', () => {
-                    isFocused = true;
-                });
-            }, []);
+      useEffect(() => {
+        ref.current?.addEventListener('focusin', () => {
+          isFocused = true;
+        });
+      }, []);
 
-            useImmediateFocus(ref, false);
+      useImmediateFocus(ref, false);
 
-            return <div tabIndex={0} ref={ref} />;
-        }
+      return <div tabIndex={0} ref={ref} />;
+    }
 
-        expect(isFocused).toBeFalsy();
-        render(<TestComponent />);
-        expect(isFocused).toBeFalsy();
-    });
+    expect(isFocused).toBeFalsy();
+    render(<TestComponent />);
+    expect(isFocused).toBeFalsy();
+  });
 });

@@ -1,8 +1,8 @@
 {
-    "extends": "./tsconfig.react.base.json",
-    "compilerOptions": {
-        "declaration": true,
-        "emitDeclarationOnly": true,
-        "removeComments": false
-    }
+  "extends": "./tsconfig.react.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "removeComments": false
+  }
 }

@@ -1,51 +1,51 @@
 {
-    "name": "@easy-config/eslint-config",
-    "version": "0.0.0",
-    "description": "ESLint configurations for easy-projs.",
-    "type": "module",
-    "exports": "./dist/index.js",
-    "homepage": "https://github.com/yifanwww/easy-projs#readme",
-    "license": "MIT",
-    "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
-    "bugs": {
-        "url": "https://github.com/yifanwww/easy-projs/issues"
-    },
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/yifanwww/easy-projs.git",
-        "directory": "configs/eslint-config"
-    },
-    "scripts": {
-        "build": "concurrently -n dist,types \"pnpm run build:dist\" \"pnpm run build:types\"",
-        "build:dist": "tsc --project tsconfigs/tsconfig.dist.json",
-        "build:types": "tsc --project tsconfigs/tsconfig.types.json",
-        "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
-        "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
-        "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
-    },
-    "dependencies": {
-        "@eslint/js": "catalog:",
-        "confusing-browser-globals": "catalog:",
-        "eslint-plugin-import": "catalog:",
-        "eslint-plugin-jest": "catalog:",
-        "eslint-plugin-prettier": "catalog:",
-        "eslint-plugin-react": "catalog:",
-        "eslint-plugin-react-hooks": "catalog:",
-        "globals": "catalog:",
-        "typescript-eslint": "catalog:"
-    },
-    "devDependencies": {
-        "@easy-config/tsconfigs": "workspace:^",
-        "@types/confusing-browser-globals": "catalog:",
-        "concurrently": "catalog:",
-        "eslint": "catalog:",
-        "prettier": "catalog:",
-        "rimraf": "catalog:",
-        "typescript": "catalog:"
-    },
-    "peerDependencies": {
-        "eslint": "catalog:",
-        "prettier": "catalog:"
-    }
+  "name": "@easy-config/eslint-config",
+  "version": "0.0.0",
+  "description": "ESLint configurations for easy-projs.",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "homepage": "https://github.com/yifanwww/easy-projs#readme",
+  "license": "MIT",
+  "author": "yifanwww <yifanw1101@gmail.com> (https://github.com/yifanwww)",
+  "bugs": {
+    "url": "https://github.com/yifanwww/easy-projs/issues"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yifanwww/easy-projs.git",
+    "directory": "configs/eslint-config"
+  },
+  "scripts": {
+    "build": "concurrently -n dist,types \"pnpm run build:dist\" \"pnpm run build:types\"",
+    "build:dist": "tsc --project tsconfigs/tsconfig.dist.json",
+    "build:types": "tsc --project tsconfigs/tsconfig.types.json",
+    "clean": "rimraf --glob dist tsconfigs/*.tsbuildinfo",
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
+    "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
+  },
+  "dependencies": {
+    "@eslint/js": "catalog:",
+    "confusing-browser-globals": "catalog:",
+    "eslint-plugin-import": "catalog:",
+    "eslint-plugin-jest": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "eslint-plugin-react": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "globals": "catalog:",
+    "typescript-eslint": "catalog:"
+  },
+  "devDependencies": {
+    "@easy-config/tsconfigs": "workspace:^",
+    "@types/confusing-browser-globals": "catalog:",
+    "concurrently": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "rimraf": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "eslint": "catalog:",
+    "prettier": "catalog:"
+  }
 }
