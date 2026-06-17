@@ -50,6 +50,7 @@
     "@easy-config/tsconfigs": "workspace:^",
     "@jest/globals": "catalog:",
     "@types/express": "catalog:",
+    "@types/node": "catalog:",
     "concurrently": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",

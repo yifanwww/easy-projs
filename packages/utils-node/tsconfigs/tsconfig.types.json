@@ -2,7 +2,8 @@
   "extends": "@easy-config/tsconfigs/tsconfig.node.types.json",
   "compilerOptions": {
     "outDir": "../lib",
-    "rootDir": "../src"
+    "rootDir": "../src",
+    "types": ["node"]
   },
   "include": ["../src/**/*"],
   "exclude": [
