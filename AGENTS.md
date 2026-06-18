@@ -1,4 +1,4 @@
-# Copilot Instructions for easy-projs
+# AGENTS.md
 
 ## CSS/SCSS File Extensions
 
@@ -18,3 +18,7 @@
   - Example: `interface User { id: string; name: string; }`
 - **Class contract interface naming**: prefix with `I`
   - Example: `interface ILogger { log(message: string): void; }`
+
+## Git
+
+- **Commit messages follow Conventional Commits**: `<type>(<scope>): <description>` — see `git log --oneline` for examples.
