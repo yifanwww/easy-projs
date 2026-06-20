@@ -30,6 +30,7 @@ interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rule
   columns: FormAppendableTableColumnType[];
   disabled?: boolean;
   disabledAdd?: boolean;
+  disabledRow?: (fieldName: number) => boolean;
   /**
    * Get the new item to be added.
    */
@@ -70,6 +71,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
     columns,
     disabled,
     disabledAdd,
+    disabledRow,
     getAddValue,
     initialValue,
     limit = Number.MAX_SAFE_INTEGER,
@@ -95,7 +97,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
       return (
         <Button
           type="text"
-          disabled={disabled}
+          disabled={!!disabled || disabledRow?.(fieldName)}
           icon={<DeleteOutlined />}
           size="small"
           onClick={() => {
@@ -105,7 +107,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
         />
       );
     },
-    [disabled, onRemoved, outerRenderDeleteButton],
+    [disabled, disabledRow, onRemoved, outerRenderDeleteButton],
   );
 
   const renderAddButton = useCallback(
