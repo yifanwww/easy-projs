@@ -28,8 +28,8 @@ export function SizeDemo() {
                 key: 'key',
                 title: 'Key',
                 width: '50%',
-                render: (_, record) => (
-                  <Form.Item name={[record.name, 'key']}>
+                render: (_, field) => (
+                  <Form.Item name={[field.name, 'key']}>
                     <Input placeholder="Key" />
                   </Form.Item>
                 ),
@@ -38,8 +38,8 @@ export function SizeDemo() {
                 key: 'operator',
                 title: 'Operator',
                 width: 100,
-                render: (_, record) => (
-                  <Form.Item name={[record.name, 'operator']} initialValue="==">
+                render: (_, field) => (
+                  <Form.Item name={[field.name, 'operator']} initialValue="==">
                     <Select
                       options={[
                         { label: '==', value: '==' },
@@ -53,8 +53,8 @@ export function SizeDemo() {
                 key: 'value',
                 title: 'Value',
                 width: '50%',
-                render: (_, record) => (
-                  <Form.Item name={[record.name, 'value']}>
+                render: (_, field) => (
+                  <Form.Item name={[field.name, 'value']}>
                     <Input placeholder="Value" />
                   </Form.Item>
                 ),

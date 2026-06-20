@@ -28,8 +28,8 @@ interface FormAppendableTableProps<T> extends Pick<FormListProps, 'name' | 'rule
   };
   bordered?: boolean;
   columns: FormAppendableTableColumnType[];
-  disableAdd?: boolean;
   disabled?: boolean;
+  disabledAdd?: boolean;
   /**
    * Get the new item to be added.
    */
@@ -68,8 +68,8 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
     addButtonOptions,
     bordered,
     columns,
-    disableAdd,
     disabled,
+    disabledAdd,
     getAddValue,
     initialValue,
     limit = Number.MAX_SAFE_INTEGER,
@@ -82,12 +82,12 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
     rules,
   } = props;
 
+  const { text: outerAddText = 'Add', tooltip: outerAddTooltip } = addButtonOptions ?? {};
+
   const {
     token: { colorBgContainer, controlHeight, controlHeightLG, controlHeightSM },
   } = theme.useToken();
   const { componentSize } = ConfigProvider.useConfig();
-
-  const { text: outerAddText = 'Add', tooltip: outerAddTooltip } = addButtonOptions ?? {};
 
   const renderDeleteButton = useCallback(
     (remove: FormListOperation['remove'], fieldName: number) => {
@@ -124,7 +124,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
           <Button
             type="dashed"
             block
-            disabled={!!disabled || !!disableAdd || reachLimit}
+            disabled={!!disabled || !!disabledAdd || reachLimit}
             icon={<PlusOutlined />}
             onClick={() => {
               if (onAdd) {
@@ -139,7 +139,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
         </Tooltip>
       );
     },
-    [disableAdd, disabled, getAddValue, limit, onAdd, outerAddText, outerAddTooltip, outerRenderAddButton],
+    [disabled, disabledAdd, getAddValue, limit, onAdd, outerAddText, outerAddTooltip, outerRenderAddButton],
   );
 
   const renderEmtpy = useCallback(() => {
@@ -178,7 +178,7 @@ export function FormAppendableTable<T>(props: FormAppendableTableProps<T>) {
           title: 'Action',
           align: 'center',
           width: actionWidth,
-          render: (_, record) => renderDeleteButton(remove, record.name),
+          render: (_, field) => renderDeleteButton(remove, field.name),
         },
       ]);
 

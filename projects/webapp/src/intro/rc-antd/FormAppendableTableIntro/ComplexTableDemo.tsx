@@ -21,19 +21,19 @@ export function ComplexTableDemo() {
               title: 'Step',
               align: 'center',
               width: 64,
-              render: (_, record) => record.name + 1,
+              render: (_, field) => field.name + 1,
             },
             {
               key: 'scope',
               title: 'Scope',
               width: '50%',
-              render: (_, record) =>
+              render: (_, field) =>
                 // eslint-disable-next-line react/no-unstable-nested-components
-                watchIsLast(record.name, (isLast) =>
+                watchIsLast(field.name, (isLast) =>
                   isLast ? (
                     <InputNumber suffix="%" disabled value={100} style={{ width: '100%' }} />
                   ) : (
-                    <Form.Item name={[record.name, 'scope']}>
+                    <Form.Item name={[field.name, 'scope']}>
                       <InputNumber suffix="%" min={1} max={99} style={{ width: '100%' }} />
                     </Form.Item>
                   ),
@@ -43,13 +43,13 @@ export function ComplexTableDemo() {
               key: 'pause',
               title: 'When finished, pause for',
               width: '50%',
-              render: (_, record) =>
+              render: (_, field) =>
                 watchIsLast(
-                  record.name,
+                  field.name,
                   // eslint-disable-next-line react/no-unstable-nested-components
                   (isLast) =>
                     !isLast && (
-                      <Form.Item name={[record.name, 'pause']}>
+                      <Form.Item name={[field.name, 'pause']}>
                         <InputNumber suffix="s" min={0} style={{ width: '100%' }} />
                       </Form.Item>
                     ),

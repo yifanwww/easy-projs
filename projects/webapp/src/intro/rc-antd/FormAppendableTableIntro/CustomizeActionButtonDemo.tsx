@@ -15,8 +15,8 @@ export function CustomizeActionButtonDemo() {
               key: 'key',
               title: 'Key',
               width: '50%',
-              render: (_, record) => (
-                <Form.Item name={[record.name, 'key']} valuePropName="children">
+              render: (_, field) => (
+                <Form.Item name={[field.name, 'key']} valuePropName="children">
                   <div />
                 </Form.Item>
               ),
@@ -25,8 +25,8 @@ export function CustomizeActionButtonDemo() {
               key: 'operator',
               title: 'Operator',
               width: 100,
-              render: (_, record) => (
-                <Form.Item name={[record.name, 'operator']} initialValue="==" valuePropName="children">
+              render: (_, field) => (
+                <Form.Item name={[field.name, 'operator']} initialValue="==" valuePropName="children">
                   <div />
                 </Form.Item>
               ),
@@ -35,8 +35,8 @@ export function CustomizeActionButtonDemo() {
               key: 'value',
               title: 'Value',
               width: '50%',
-              render: (_, record) => (
-                <Form.Item name={[record.name, 'value']} valuePropName="children">
+              render: (_, field) => (
+                <Form.Item name={[field.name, 'value']} valuePropName="children">
                   <div />
                 </Form.Item>
               ),
