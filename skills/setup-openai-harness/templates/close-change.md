@@ -39,7 +39,7 @@ stays focused on execution.
 - **Design doc (no plan)**: Status should be `Accepted` or `Draft`.
 - If the plan has a **Design Doc** field, read that file too.
 
-### 3. Confirm
+### 3. Print What Will Be Done
 
 > "Closing this change will:
 >
@@ -49,9 +49,9 @@ stays focused on execution.
 > - Update `docs/exec-plans/index.md`
 > - Update `docs/design-docs/index.md` _(if applicable)_
 >
-> Proceed?"
+> Proceeding..."
 
-Wait for confirmation.
+Then continue directly with the operations — no confirmation needed.
 
 ### 4. Close the Exec Plan (if applicable)
 
