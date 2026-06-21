@@ -114,7 +114,7 @@ If executing directly from a design doc with no plan, after all work is done and
 ## Notes
 
 - Plans without explicit phases are treated as a single phase
-- If executing from a design doc with no plan, run full validation at the end, set the design
-  doc's **Status** to `Accepted`, report what was done, and recommend the user run `/close-change` when ready
+- If executing from a design doc with no plan, run full validation at the end, set the design doc's
+  **Status** to `Accepted`, report what was done, and recommend the user run `/close-change` when ready
 - Never skip a step without a documented reason in Decisions
 - **Never close a change inline.** Closing is the job of `/close-change` — just tell the user to run it

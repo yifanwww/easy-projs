@@ -31,6 +31,8 @@ stays focused on execution.
 - If none, check `docs/design-docs/active/` for a design doc with status `Accepted` or `Draft`
 - If ambiguity remains, ask the user which change to close
 
+**If nothing is found:** Tell the user no change appears ready to close.
+
 ### 2. Read and Verify
 
 - **Exec plan**:
