@@ -62,7 +62,7 @@ Then continue directly with the operations — no confirmation needed.
 3. Move: `docs/exec-plans/active/<plan>.md` → `docs/exec-plans/completed/<plan>.md`
 4. In `docs/exec-plans/index.md`:
    - Remove from Active Plans table
-   - Add to Completed Plans table: `| YYYY-MM-DD | [<Title>](./completed/<plan>.md) | <summary> |`
+   - Add to Completed Plans table
 
 ### 5. Close the Design Doc (if applicable)
 
@@ -71,7 +71,7 @@ Then continue directly with the operations — no confirmation needed.
 3. Update plan's **Design Doc** field to the new `completed/` path
 4. In `docs/design-docs/index.md`:
    - Remove from Active Design Docs table
-   - Add to Completed Design Docs table: `| YYYY-MM-DD | [<Title>](./completed/<doc>.md) | <summary> |`
+   - Add to Completed Design Docs table
 
 ### 6. Report
 

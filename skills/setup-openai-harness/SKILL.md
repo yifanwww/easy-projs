@@ -16,18 +16,18 @@ Run this once in a new project. It adapts everything to the project's actual tec
 
 ## Procedure
 
-1. Read [harness.md](./harness.md) — understand what harness engineering is and the structure to
+1. Read `./harness.md` — understand what harness engineering is and the structure to
    create
-2. Read [setup.md](./setup.md) — follow the full step-by-step setup procedure
+2. Read `./setup.md` — follow the full step-by-step setup procedure
 
 Templates for the four workflow skills:
 
-- [templates/design-change.md](./templates/design-change.md)
-- [templates/plan-change.md](./templates/plan-change.md)
-- [templates/exec-change.md](./templates/exec-change.md)
-- [templates/close-change.md](./templates/close-change.md)
+- `./templates/design-change.md`
+- `./templates/plan-change.md`
+- `./templates/exec-change.md`
+- `./templates/close-change.md`
 
 Templates to copy into `docs/`:
 
-- [templates/design-doc.md](./templates/design-doc.md) → `docs/design-docs/template.md`
-- [templates/exec-plan.md](./templates/exec-plan.md) → `docs/exec-plans/template.md`
+- `./templates/design-doc.md` → `docs/design-docs/template.md`
+- `./templates/exec-plan.md` → `docs/exec-plans/template.md`

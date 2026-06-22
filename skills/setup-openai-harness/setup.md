@@ -2,7 +2,7 @@
 
 Follow these steps to bootstrap harness engineering for a project.
 
-Read [harness.md](./harness.md) first to understand what you're setting up and why.
+Read `./harness.md` first to understand what you're setting up and why.
 
 ## Step 1. Explore the Project
 
@@ -94,6 +94,22 @@ with meaningful content.
   slash commands, explicitly triggered by the user; AI agents reading AGENTS.md should not be
   proactively aware of them
 
+#### Key Operating Principles (must appear as content in the generated AGENTS.md)
+
+The generated AGENTS.md must include a **Key Operating Principles** section.
+Include these exact bullets:
+
+- **Agents follow the same conventions as humans.** Nothing special-cased.
+- **If something is not in the repo, it does not exist.** Context in chat/docs outside the repo
+  is invisible to agents; encode decisions as markdown or code.
+- **Enforce mechanically where possible.** Prefer lints and tests over documentation-only rules.
+- **File links use backtick-wrapped relative paths, not Markdown link syntax.** Write
+  `docs/design-docs/core-beliefs.md`, not `[core beliefs](docs/design-docs/core-beliefs.md)`.
+  Backtick paths are easier to scan, copy, and grep. Agents parse them reliably.
+- **When uncertain, check `docs/design-docs/core-beliefs.md` first.**
+
+Add any project-specific principles below these core ones.
+
 #### Classifying Commands: Agent-Safe vs Human-Only
 
 When writing the dev commands table, scan every script in `package.json` (or equivalent) and
@@ -134,10 +150,10 @@ Create these files under `.agents/skills/`:
 
 Templates are in `templates/` next to this file:
 
-- [templates/design-change.md](./templates/design-change.md)
-- [templates/plan-change.md](./templates/plan-change.md)
-- [templates/exec-change.md](./templates/exec-change.md)
-- [templates/close-change.md](./templates/close-change.md)
+- `./templates/design-change.md`
+- `./templates/plan-change.md`
+- `./templates/exec-change.md`
+- `./templates/close-change.md`
 
 Read each template and create the corresponding `SKILL.md`, substituting these placeholders in
 `exec-change`:
