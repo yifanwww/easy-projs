@@ -110,7 +110,7 @@ classify each as **agent-safe** or **human-only**:
 
 - Long-running servers / watch modes (e.g. `dev`, `start`, `serve`, `watch`)
 - Interactive commands (e.g. `init`, `create`, interactive installers)
-- Destructive or release commands (e.g. `deploy`, `publish`, `gen-installer`, `reset-db`)
+- Destructive or release commands (e.g. `deploy`, `publish`, `dist:mac`, `dist:win`, `reset-db`)
 - Commands that require human judgment (e.g. `merge`, `approve`)
 
 Mark each human-only command clearly in the AGENTS.md commands table, for example:
