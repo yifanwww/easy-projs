@@ -168,15 +168,6 @@ closing focused on bookkeeping.
 - Updating `docs/exec-plans/index.md` and `docs/design-docs/index.md`
 - Updating the plan's Design Doc field to point to the new completed path
 
-## Formatting Conventions for Agent-Generated Documents
-
-All harness documents (AGENTS.md, design docs, exec plans, product specs) follow these
-conventions to stay legible to both humans and agents:
-
-- **File links use backtick-wrapped relative paths, not Markdown link syntax.** Write
-  `docs/design-docs/core-beliefs.md`, not `[core beliefs](docs/design-docs/core-beliefs.md)`.
-  Backtick paths are easier to scan, copy, and grep. Agents parse them reliably.
-
 ## Enforcing Architecture and Taste
 
 Documentation alone doesn't keep an agent-generated codebase coherent. Invariants must be
