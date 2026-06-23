@@ -15,6 +15,11 @@
       "approveResponse": false
     }
   },
+  "chat.tools.terminal.autoApprove": {
+    "pnpm": true,
+    "git add": true,
+    "git commit": true
+  },
   "chat.viewSessions.orientation": "stacked",
 
   "css.lint.unknownAtRules": "ignore",
@@ -324,18 +329,6 @@
 
   // ------------------------------------------------------ Extension Settings
 
-  "better-todo-tree.general.showActivityBarBadge": true,
-  "better-todo-tree.general.tags": ["BUG", "FIXME", "HACK", "TODO", "UNDONE", "XXX", "[ ]"],
-  "better-todo-tree.highlights.defaultHighlight": {
-    "type": "tag",
-    "icon": "zap",
-    "iconColour": "#cc2222",
-    "foreground": "#000000",
-    "background": "#ffff22"
-  },
-  "better-todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^\\s*\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-  "better-todo-tree.tree.showCountsInTree": true,
-
   "git-graph.repository.commits.initialLoad": 500,
   "git-graph.repository.commits.loadMore": 500,
 
@@ -345,11 +338,6 @@
     "markdown": false,
     "scminput": false
   },
-
-  "markdown-preview-enhanced.liveUpdate": false,
-  "markdown-preview-enhanced.breakOnSingleNewLine": true,
-
-  "markdown.extension.toc.levels": "2..1",
 
   "prettier.arrowParens": "always",
   "prettier.endOfLine": "lf",
