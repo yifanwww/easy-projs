@@ -46,7 +46,7 @@ Example:
 ### 4. Write the Plan File
 
 Create at `docs/exec-plans/active/YYYY-MM-DD-<short-slug>.md`, using the template at
-`docs/exec-plans/template.md`.
+`docs/exec-plans/template.md`. If no design doc exists, omit the **Design Doc** field.
 
 **Writing good steps:**
 

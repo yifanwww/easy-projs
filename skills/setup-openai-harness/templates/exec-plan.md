@@ -3,7 +3,7 @@
 **Status**: Active
 **Created**: YYYY-MM-DD
 **Last Updated**: YYYY-MM-DD
-**Design Doc**: `docs/design-docs/active/<name>.md` _(if applicable)_
+**Design Doc**: `docs/design-docs/active/<name>.md`
 **Owner**: human | agent | both
 
 ## Goal

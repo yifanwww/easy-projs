@@ -49,7 +49,10 @@ Use the creation date as the prefix and a short, descriptive, lowercase-hyphenat
 
 Use the template at `docs/design-docs/template.md`.
 
-Omit sections that don't apply.
+Omit sections that don't apply. The optional sections are: **Current Behavior** (omit for greenfield
+features or when obvious from Motivation), **API / Interface Changes** (omit for pure UI changes or
+when no interfaces are involved), and **Risks / Trade-offs** (omit if no meaningful risks). All
+other sections should be filled.
 
 ### 4. Update the Design Doc Index
 
