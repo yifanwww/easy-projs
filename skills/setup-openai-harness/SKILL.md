@@ -20,8 +20,9 @@ Run this once in a new project. It adapts everything to the project's actual tec
    create
 2. Read [setup.md](./setup.md) — follow the full step-by-step setup procedure
 
-Templates for the four workflow skills:
+Templates for the five workflow skills:
 
+- [templates/draft-spec.md](./templates/draft-spec.md)
 - [templates/design-change.md](./templates/design-change.md)
 - [templates/plan-change.md](./templates/plan-change.md)
 - [templates/exec-change.md](./templates/exec-change.md)
@@ -29,5 +30,6 @@ Templates for the four workflow skills:
 
 Templates to copy into `docs/`:
 
+- [templates/product-spec.md](./templates/product-spec.md) → `docs/product-specs/template.md`
 - [templates/design-doc.md](./templates/design-doc.md) → `docs/design-docs/template.md`
 - [templates/exec-plan.md](./templates/exec-plan.md) → `docs/exec-plans/template.md`

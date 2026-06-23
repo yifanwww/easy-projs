@@ -135,16 +135,44 @@ The references index (`docs/references/index.md`) lists each reference file. Unl
 docs and exec plans, reference files have no statuses and no active/completed lifecycle —
 they are living descriptions of external resources that evolve as those resources change.
 
-## Workflow: Design → Plan → Execute → Close
+## Workflow: Spec → Design → Plan → Execute → Close
 
-Complex changes flow through four stages. Each stage is a separate agent invocation.
+Complex changes flow through up to five stages. Each stage is a separate agent invocation.
+The first stage (`/draft-spec`) is optional — use it for new features; skip it when a spec
+already exists.
 
 ```
+/draft-spec <feature>      →   product spec in docs/product-specs/         (optional — for new features)
 /design-change <feature>   →   design doc in docs/design-docs/active/
 /plan-change               →   execution plan in docs/exec-plans/active/
 /exec-change               →   one phase at a time
 /close-change              →   archive completed change, update indexes
 ```
+
+One product spec can drive many design docs over time. When a spec already exists for a feature,
+start at `/design-change` — no need to re-draft the spec. Only run `/draft-spec` when defining a
+new feature's _what_, or when the _what_ of an existing feature changes meaningfully.
+
+### /draft-spec — Define What to Build (Optional)
+
+Creates or updates a product spec in `docs/product-specs/`. A product spec captures the user-facing
+_what_: user workflows, acceptance criteria, edge cases, and what's explicitly out of scope. It is
+implementation-agnostic — no mention of database tables, IPC channels, or component names.
+
+A product spec is a **living document** — it stays **Active** as the feature evolves, moving to
+**Deprecated** only when the feature is removed. Unlike design docs (which archive to `completed/`
+after implementation), a spec persists and drives many design docs over its lifetime.
+
+When to use `/draft-spec`:
+
+- Defining a brand-new user-facing feature
+- The _what_ of an existing feature changes significantly (new workflows, revised scope)
+- A feature area has only vague descriptions and needs a proper spec
+
+When to skip it:
+
+- A spec already exists and this is a routine iteration
+- The change is purely internal (refactor, performance, tooling) with no user-facing behavior change
 
 ### /design-change — Capture What and Why
 

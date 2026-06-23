@@ -58,7 +58,8 @@ with meaningful content.
 | `docs/exec-plans/active/`              | Directory for active (in-progress) execution plans                                                           |
 | `docs/exec-plans/completed/`           | Directory for completed execution plans (archive)                                                            |
 | `docs/exec-plans/tech-debt-tracker.md` | Structured debt tracking                                                                                     |
-| `docs/product-specs/index.md`          | Product spec index and template                                                                              |
+| `docs/product-specs/index.md`          | Product spec index                                                                                           |
+| `docs/product-specs/template.md`       | Product spec template (copy from `templates/product-spec.md`)                                                |
 | `docs/references/index.md`             | External references index — resources that exist outside the project                                         |
 | `docs/FRONTEND.md`                     | UI/renderer conventions (skip if no frontend)                                                                |
 | `docs/DESIGN.md`                       | Visual/component design conventions (skip if no UI)                                                          |
