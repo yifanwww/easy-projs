@@ -84,6 +84,62 @@ with meaningful content.
 - `docs/exec-plans/index.md` must include a Statuses table listing the valid statuses for exec
   plans: `Active`, `Waiting for Review`, `Completed`, `Blocked`, `Superseded`
 
+### Index File Table Structures
+
+Each index file maintains tables of active and completed entries. The tables follow a consistent
+structure so that agents (and humans) can read and update them mechanically.
+
+#### `docs/design-docs/index.md`
+
+**Active Design Docs** table — lists in-progress design docs. Columns:
+
+| Column       | Description                                                       |
+| ------------ | ----------------------------------------------------------------- |
+| `Created`    | Date the design doc was created, in `YYYY-MM-DD` format           |
+| `Design Doc` | Relative link to the design doc file in `active/`                 |
+| `Summary`    | One sentence describing what the design covers and why it matters |
+
+**Completed Design Docs** table — lists archived design docs. Columns:
+
+| Column       | Description                                                                                              |
+| ------------ | -------------------------------------------------------------------------------------------------------- |
+| `Completed`  | Date the design doc was moved to completed, in `YYYY-MM-DD` format                                       |
+| `Design Doc` | Relative link to the design doc file in `completed/`                                                     |
+| `Summary`    | One sentence describing what the design covers — keep the same summary from the active phase if accurate |
+
+#### `docs/exec-plans/index.md`
+
+**Active Plans** table — lists in-progress execution plans. Columns:
+
+| Column    | Description                                        |
+| --------- | -------------------------------------------------- |
+| `Created` | Date the plan was created, in `YYYY-MM-DD` format  |
+| `Plan`    | Relative link to the plan file in `active/`        |
+| `Summary` | One sentence describing what the plan accomplishes |
+
+**Completed Plans** table — lists archived execution plans. Columns:
+
+| Column      | Description                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------------ |
+| `Completed` | Date the plan was moved to completed, in `YYYY-MM-DD` format                                     |
+| `Plan`      | Relative link to the plan file in `completed/`                                                   |
+| `Summary`   | One sentence describing what the plan accomplishes — keep the same summary from the active phase |
+
+#### `docs/product-specs/index.md`
+
+Product specs use three tables — one per status (not separate active/completed). Each uses the same
+columns:
+
+| Column    | Description                                                           |
+| --------- | --------------------------------------------------------------------- |
+| `File`    | Relative link to the spec file                                        |
+| `Feature` | Short name for the feature the spec describes                         |
+| `Status`  | One of `Draft`, `Active`, or `Deprecated` — matches the table it's in |
+
+**Draft Specs** table, **Active Specs** table, **Deprecated Specs** table — one table per status.
+Rows move between tables as the spec's status changes. The `Status` column is included in each row
+so a row can be moved between tables without reformatting.
+
 ### AGENTS.md Requirements
 
 - Keep it to ~100 lines — it's a table of contents, not an encyclopedia
