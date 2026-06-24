@@ -59,6 +59,7 @@ with meaningful content.
 | `docs/exec-plans/completed/`           | Directory for completed execution plans (archive)                                                            |
 | `docs/exec-plans/tech-debt-tracker.md` | Structured debt tracking                                                                                     |
 | `docs/product-specs/index.md`          | Product spec index and template                                                                              |
+| `docs/references/index.md`             | External references index — resources that exist outside the project                                         |
 | `docs/FRONTEND.md`                     | UI/renderer conventions (skip if no frontend)                                                                |
 | `docs/DESIGN.md`                       | Visual/component design conventions (skip if no UI)                                                          |
 | `docs/PLANS.md`                        | Current focus + backlog                                                                                      |
@@ -139,6 +140,25 @@ columns:
 **Draft Specs** table, **Active Specs** table, **Deprecated Specs** table — one table per status.
 Rows move between tables as the spec's status changes. The `Status` column is included in each row
 so a row can be moved between tables without reformatting.
+
+#### `docs/references/index.md`
+
+References describe external resources — things that exist outside the project. Unlike design
+docs and exec plans, reference files have no statuses and no active/completed lifecycle. They
+are living descriptions of external resources.
+
+A single flat table lists all reference files:
+
+| Column        | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| `File`        | Relative link to the reference file                                 |
+| `Description` | What the reference covers — structure, conventions, observed values |
+
+The index also includes an introductory section explaining:
+
+- That references describe external resources, not internal project decisions
+- The boundary rule: references never link to internal docs; internal docs link to references
+- That reference files have no consumer-specific commentary (no "used/ignored" annotations)
 
 ### AGENTS.md Requirements
 

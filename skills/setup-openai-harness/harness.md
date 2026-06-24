@@ -56,6 +56,7 @@ This means:
 - Active in-progress work → `docs/exec-plans/index.md`
 - Known debt → `docs/exec-plans/tech-debt-tracker.md`
 - Product decisions → `docs/product-specs/index.md`
+- External resource references → `docs/references/index.md`
 
 If a Slack discussion aligned the team on an architectural pattern, and it isn't discoverable to
 the agent, it is effectively unknown — the same as it would be to a new hire joining months later.
@@ -96,12 +97,43 @@ verifiable.
 | `docs/exec-plans/completed/`           | Completed execution plans (archive)                                                |
 | `docs/exec-plans/tech-debt-tracker.md` | Known tech debt, tracked continuously                                              |
 | `docs/product-specs/index.md`          | Feature specs and product decisions                                                |
+| `docs/references/index.md`             | External resource references — describes things outside the project                |
 | `docs/QUALITY_SCORE.md`                | Per-domain quality grades                                                          |
 | `docs/RELIABILITY.md`                  | Reliability and data integrity requirements                                        |
 | `docs/SECURITY.md`                     | Security model and requirements                                                    |
 | `docs/FRONTEND.md`                     | UI/renderer conventions (if applicable)                                            |
 | `docs/PLANS.md`                        | Current focus + backlog                                                            |
 | `docs/PRODUCT_SENSE.md`                | What the product is, user model, core values                                       |
+
+### External References: Describe External Resources, Not Internal Choices
+
+`docs/references/` holds specifications of **external** resources that the project interacts
+with — things that exist outside the project and have their own independent schemas,
+interfaces, and conventions. These documents describe the external resource as-is.
+
+Reference files follow a strict boundary rule: **they describe the external resource and never
+reference internal project documents.** Internal docs (product specs, design docs, exec plans)
+may link to reference files, but not the other way around. This keeps references clean and
+reusable — they stay useful regardless of how the project's internal architecture evolves.
+
+A reference file includes:
+
+- Structural descriptions of the external resource
+- Naming and organizational conventions used by the external resource
+- Observed value domains and patterns
+- Representative examples of the external data
+
+A reference file excludes:
+
+- Which parts the project uses or ignores (that's a consumer decision, not a property of the
+  external resource)
+- How the project maps external values to internal concepts
+- Implementation guidance or workflow descriptions
+- Links to internal project documents
+
+The references index (`docs/references/index.md`) lists each reference file. Unlike design
+docs and exec plans, reference files have no statuses and no active/completed lifecycle —
+they are living descriptions of external resources that evolve as those resources change.
 
 ## Workflow: Design → Plan → Execute → Close
 
