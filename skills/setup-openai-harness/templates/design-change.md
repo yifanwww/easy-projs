@@ -22,6 +22,11 @@ Then read relevant context:
 - `ARCHITECTURE.md` for layer rules and domain structure
 - `docs/design-docs/core-beliefs.md` for applicable principles
 - `docs/product-specs/index.md` for related feature specs
+- `docs/DESIGN.md` for visual design rules and component conventions (if the project has a UI)
+- `docs/FRONTEND.md` for frontend conventions and state management patterns (if the project has a frontend)
+- `docs/PRODUCT_SENSE.md` for product philosophy, user model, and what the product is / is not
+- `docs/RELIABILITY.md` for data integrity and reliability requirements
+- `docs/SECURITY.md` for security model and requirements
 - Any existing code in the area being designed
 
 If a critical ambiguity would change the design meaningfully, ask one focused question. Otherwise
