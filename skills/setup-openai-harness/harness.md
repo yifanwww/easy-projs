@@ -88,6 +88,7 @@ verifiable.
 | -------------------------------------- | ---------------------------------------------------------------------------------- |
 | `AGENTS.md`                            | ~100-line table of contents: project overview, commands, repo layout, doc pointers |
 | `ARCHITECTURE.md`                      | Process model, source tree, dependency rules, build system                         |
+| `docs/DOCUMENTATION_CONVENTIONS.md`    | Documentation formatting rules: when to use Mermaid, diagram type selection        |
 | `docs/design-docs/core-beliefs.md`     | Engineering principles that guide all agent decisions                              |
 | `docs/design-docs/index.md`            | Index of all design docs                                                           |
 | `docs/design-docs/active/`             | Active design docs (in-progress)                                                   |
@@ -142,7 +143,7 @@ The first stage (`/draft-spec`) is optional — use it for new features; skip it
 already exists.
 
 ```
-/draft-spec <feature>      →   product spec in docs/product-specs/         (optional — for new features)
+/draft-spec <feature>      →   product spec in docs/product-specs/          (optional — for new features)
 /design-change <feature>   →   design doc in docs/design-docs/active/
 /plan-change               →   execution plan in docs/exec-plans/active/
 /exec-change               →   one phase at a time

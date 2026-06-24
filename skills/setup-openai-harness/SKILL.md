@@ -33,3 +33,4 @@ Templates to copy into `docs/`:
 - [templates/product-spec.md](./templates/product-spec.md) → `docs/product-specs/template.md`
 - [templates/design-doc.md](./templates/design-doc.md) → `docs/design-docs/template.md`
 - [templates/exec-plan.md](./templates/exec-plan.md) → `docs/exec-plans/template.md`
+- [templates/documentation-conventions.md](./templates/documentation-conventions.md) → `docs/DOCUMENTATION_CONVENTIONS.md`

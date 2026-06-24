@@ -63,6 +63,7 @@ with meaningful content.
 | `docs/references/index.md`             | External references index — resources that exist outside the project                                         |
 | `docs/FRONTEND.md`                     | UI/renderer conventions (skip if no frontend)                                                                |
 | `docs/DESIGN.md`                       | Visual/component design conventions (skip if no UI)                                                          |
+| `docs/DOCUMENTATION_CONVENTIONS.md`    | Documentation formatting rules: when to use Mermaid, diagram type selection                                  |
 | `docs/PLANS.md`                        | Current focus + backlog                                                                                      |
 | `docs/PRODUCT_SENSE.md`                | What the product is, user model, core values                                                                 |
 | `docs/QUALITY_SCORE.md`                | Per-domain quality grades                                                                                    |
