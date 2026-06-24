@@ -52,6 +52,7 @@
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
 
   "files.associations": {
     ".eslintcache": "json",
@@ -66,6 +67,13 @@
   "git.autofetch": true,
   "git.autofetchPeriod": 300,
   "git.enabled": true,
+
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
 
   "js/ts.inlayHints.enumMemberValues.enabled": true,
   "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
@@ -331,13 +339,6 @@
 
   "git-graph.repository.commits.initialLoad": 500,
   "git-graph.repository.commits.loadMore": 500,
-
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
 
   "prettier.arrowParens": "always",
   "prettier.endOfLine": "lf",
