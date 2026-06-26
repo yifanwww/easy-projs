@@ -22,8 +22,8 @@
     "clean": "rimraf --glob covarege lib tsconfigs/*.tsbuildinfo",
     "dev": "pnpm run build:lib --watch",
     "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
-    "lint": "eslint . --fix",
-    "lint-ci": "eslint .",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
     "test": "unit-test node-esm",
     "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
   },

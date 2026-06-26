@@ -22,7 +22,7 @@
     "clean": "pnpm run --recursive --no-sort clean",
     "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,yaml,yml}\"",
     "lint": "pnpm run --recursive --no-sort --stream lint",
-    "lint-ci": "pnpm run --recursive --no-sort --stream lint-ci",
+    "lint-fix": "pnpm run --recursive --no-sort --stream lint-fix",
     "prepare": "husky",
     "test": "pnpm run --recursive --no-sort --stream test",
     "typecheck": "pnpm run --recursive --no-sort --stream typecheck"
