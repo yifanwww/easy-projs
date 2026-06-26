@@ -1,4 +1,7 @@
-function buildNamingConvention(api?: boolean): ['error', ...unknown[]] {
+/**
+ * @type {function(boolean): ['error', ...unknown[]]}
+ */
+function buildNamingConvention(api) {
   return [
     'error',
     { selector: 'accessor', modifiers: ['static'], format: ['UPPER_CASE'], leadingUnderscore: 'forbid' },
@@ -56,5 +59,5 @@ function buildNamingConvention(api?: boolean): ['error', ...unknown[]] {
   ];
 }
 
-export const BASIC_NAMING = buildNamingConvention();
+export const BASIC_NAMING = buildNamingConvention(false);
 export const API_NAMING = buildNamingConvention(true);
