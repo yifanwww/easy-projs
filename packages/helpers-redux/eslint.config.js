@@ -1,4 +1,7 @@
 import { recommended } from '@easy-config/eslint-config';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
-export default defineConfig([globalIgnores(['coverage/', 'lib/']), recommended.react]);
+export default defineConfig([
+  globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs', 'coverage/', 'lib/']),
+  recommended.react,
+]);

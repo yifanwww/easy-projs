@@ -1,11 +1,11 @@
 import { defineConfig } from 'eslint/config';
-import react from 'eslint-plugin-react';
+import pluginReact from 'eslint-plugin-react';
 
 export default defineConfig([
   {
-    name: '@easy-config/eslint-config/rules-react',
+    name: 'easy-config-eslint/rules-react',
     plugins: {
-      react,
+      react: pluginReact,
     },
     languageOptions: {
       parserOptions: {

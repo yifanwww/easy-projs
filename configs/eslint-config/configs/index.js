@@ -1,41 +1,68 @@
-import pretter from 'eslint-plugin-prettier/recommended';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
-import eslint from './rules.eslint.js';
-import $import from './rules.import.js';
-import jest from './rules.jest.js';
-import react from './rules.react.js';
-import reactHooks from './rules.react-hooks.js';
-import typescript from './rules.typescript.js';
+import eslintConfig from './rules.eslint.js';
+import importConfig from './rules.import.js';
+import jestConfig from './rules.jest.js';
+import periodicConfig from './rules.periodic.js';
+import prettierConfig from './rules.prettier.js';
+import reactConfig from './rules.react.js';
+import reactHooksConfig from './rules.react-hooks.js';
+import typescriptConfig from './rules.typescript.js';
 
 export * from './naming.js';
 
 export const recommended = {
-  basic: defineConfig([
-    globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs'], '@easy-config/eslint-config/ignores'),
-    {
-      name: '@easy-config/eslint-config/basic',
-      extends: [eslint, typescript, $import, jest, pretter],
+  basic: defineConfig({
+    name: 'easy-config-eslint/basic',
+    extends: [
+      eslintConfig,
+      typescriptConfig,
+      importConfig,
+      jestConfig,
+      prettierConfig,
+      /*
+       * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
+       * execution). We can enable them periodically to check for violations, like once a month.
+       */
+      // periodicConfig,
+    ],
+  }),
+  node: defineConfig({
+    name: 'easy-config-eslint/node',
+    extends: [
+      eslintConfig,
+      typescriptConfig,
+      importConfig,
+      jestConfig,
+      prettierConfig,
+      /*
+       * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
+       * execution). We can enable them periodically to check for violations, like once a month.
+       */
+      // periodicConfig,
+    ],
+    languageOptions: {
+      globals: globals.node,
     },
-  ]),
-  node: defineConfig([
-    globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs'], '@easy-config/eslint-config/ignores'),
-    {
-      name: '@easy-config/eslint-config/node',
-      extends: [eslint, typescript, $import, jest, pretter],
-      languageOptions: {
-        globals: globals.node,
-      },
+  }),
+  react: defineConfig({
+    name: 'easy-config-eslint/react',
+    extends: [
+      eslintConfig,
+      typescriptConfig,
+      importConfig,
+      jestConfig,
+      reactConfig,
+      reactHooksConfig,
+      prettierConfig,
+      /*
+       * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
+       * execution). We can enable them periodically to check for violations, like once a month.
+       */
+      // periodicConfig,
+    ],
+    languageOptions: {
+      globals: globals.browser,
     },
-  ]),
-  react: defineConfig([
-    globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs'], '@easy-config/eslint-config/ignores'),
-    {
-      name: '@easy-config/eslint-config/react',
-      extends: [eslint, typescript, $import, jest, react, reactHooks, pretter],
-      languageOptions: {
-        globals: globals.browser,
-      },
-    },
-  ]),
+  }),
 };

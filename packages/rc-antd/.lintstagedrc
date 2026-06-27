@@ -1,5 +1,5 @@
 {
-    "*.{ts,tsx}": ["eslint --cache --fix"],
-    "*.{css,sass,scss}": ["stylelint --cache"],
-    "*.md": ["prettier --write"]
+  "*.{ts,tsx}": ["eslint --cache --fix", "prettier --write"],
+  "*.{css,sass,scss}": ["stylelint --cache", "prettier --write"],
+  "*.md": ["prettier --write"]
 }

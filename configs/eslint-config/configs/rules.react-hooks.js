@@ -1,12 +1,12 @@
 import { defineConfig } from 'eslint/config';
-import reactHooks from 'eslint-plugin-react-hooks';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
 
 export default defineConfig([
   {
-    name: '@easy-config/eslint-config/rules-react-hooks',
+    name: 'easy-config-eslint/rules-react-hooks',
     plugins: {
       // @ts-ignore
-      'react-hooks': reactHooks,
+      'react-hooks': pluginReactHooks,
     },
     languageOptions: {
       parserOptions: {

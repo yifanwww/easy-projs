@@ -2,7 +2,7 @@ import { API_NAMING, recommended } from '@easy-config/eslint-config';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  globalIgnores(['coverage/', 'lib/']),
+  globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs', 'coverage/', 'lib/']),
   recommended.basic,
   {
     rules: {

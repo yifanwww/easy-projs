@@ -2,7 +2,7 @@ import { recommended } from '@easy-config/eslint-config';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  globalIgnores(['dist/']),
+  globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs', 'dist/']),
   recommended.node,
   {
     rules: {

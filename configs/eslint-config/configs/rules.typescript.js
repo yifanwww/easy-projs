@@ -4,7 +4,7 @@ import { BASIC_NAMING } from './naming.js';
 
 export default defineConfig([
   {
-    name: '@easy-config/eslint-config/rules-typescript',
+    name: 'easy-config-eslint/rules-typescript',
     extends: [
       tseslint.configs.recommendedTypeChecked,
       // tseslint.configs.strictTypeChecked,
@@ -84,7 +84,7 @@ export default defineConfig([
     },
   },
   {
-    name: '@easy-config/eslint-config/rules-typescript-overrides-d.ts',
+    name: 'easy-config-eslint/rules-typescript-overrides-d.ts',
     files: ['**/*.d.ts'],
     rules: {
       // https://typescript-eslint.io/rules/naming-convention
@@ -92,7 +92,7 @@ export default defineConfig([
     },
   },
   {
-    name: '@easy-config/eslint-config/rules-typescript-overrides-test',
+    name: 'easy-config-eslint/rules-typescript-overrides-test',
     files: ['src/**/__tests__/*.{ts,tsx}', 'src/**/*.{spec,test}.{ts,tsx}', 'test/**/*.{ts,tsx}'],
     rules: {
       // https://typescript-eslint.io/rules/dot-notation

@@ -1,3 +1,4 @@
 import { recommended } from '@easy-config/eslint-config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
-export default recommended.basic;
+export default defineConfig([globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs']), recommended.basic]);

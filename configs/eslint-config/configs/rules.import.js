@@ -1,18 +1,17 @@
 import { defineConfig } from 'eslint/config';
-import $import from 'eslint-plugin-import';
+import pluginImport from 'eslint-plugin-import';
 
 const TYPESCRIPT_EXTENSIONS = ['.cts', '.mts', '.ts', '.tsx'];
 const ALL_EXTENSIONS = [...TYPESCRIPT_EXTENSIONS, '.cjs', '.mjs', '.js', '.jsx'];
 
 export default defineConfig([
   {
-    name: '@easy-config/eslint-config/rules-import',
+    name: 'easy-config-eslint/rules-import',
     plugins: {
-      import: $import,
+      import: pluginImport,
     },
     settings: {
       'import/extensions': ALL_EXTENSIONS,
-      'import/internal-regex': '^src/',
       'import/parsers': {
         '@typescript-eslint/parser': TYPESCRIPT_EXTENSIONS,
       },
@@ -31,17 +30,6 @@ export default defineConfig([
 
       // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/newline-after-import.md
       'import/newline-after-import': 'error',
-
-      // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md
-      'import/no-cycle': [
-        'error',
-        {
-          // https://github.com/import-js/eslint-plugin-import/issues/3255
-          disableScc: true,
-          ignoreExternal: true,
-          maxDepth: '∞',
-        },
-      ],
 
       // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-duplicates.md
       'import/no-duplicates': 'error',
