@@ -10,9 +10,11 @@ disable-model-invocation: true
 Set up OpenAI harness engineering infrastructure in the current project:
 
 1. Create the `docs/` knowledge base (AGENTS.md, ARCHITECTURE.md, and supporting docs)
-2. Create the four workflow skills: `/design-change`, `/plan-change`, `/exec-change`, `/close-change`
+2. Create the five workflow skills: `/draft-spec`, `/design-change`, `/plan-change`,
+   `/exec-change`, `/close-change`
 
-Run this once in a new project. It adapts everything to the project's actual tech stack and structure.
+Run this once in a new project. It adapts everything to the project's actual tech stack and
+structure.
 
 ## Procedure
 

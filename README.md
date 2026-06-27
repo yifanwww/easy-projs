@@ -54,16 +54,14 @@ projects/   — Standalone applications and internal tooling
 | [`@easy-lib/helpers-antd`](packages/helpers-antd)                       | Helper utilities for Ant Design                                                      |
 | [`@easy-lib/helpers-class-validator`](packages/helpers-class-validator) | Helper utilities for [class-validator](https://github.com/typestack/class-validator) |
 | [`@easy-lib/helpers-nestjs`](packages/helpers-nestjs)                   | Helper utilities for [NestJS](https://nestjs.com)                                    |
-| [`@easy-lib/helpers-redux`](packages/helpers-redux)                     | Helper utilities for Redux Toolkit (simpler reducer creation, thunk factories)       |
 | [`@easy-lib/helpers-typeorm`](packages/helpers-typeorm)                 | Helper utilities for [TypeORM](https://typeorm.io)                                   |
 
 ## Projects
 
-| Project                                         | Description                                                 |
-| ----------------------------------------------- | ----------------------------------------------------------- |
-| [`misc-scripts`](projects/misc-scripts)         | Miscellaneous maintenance scripts                           |
-| [`redux-usage-demo`](projects/redux-usage-demo) | Demo app showing how to use `@easy-lib/helpers-redux`       |
-| [`webapp`](projects/webapp)                     | Main web application built with React, Ant Design, and Vite |
+| Project                                 | Description                                                 |
+| --------------------------------------- | ----------------------------------------------------------- |
+| [`misc-scripts`](projects/misc-scripts) | Miscellaneous maintenance scripts                           |
+| [`webapp`](projects/webapp)             | Main web application built with React, Ant Design, and Vite |
 
 ## Agent Skills
 
@@ -72,9 +70,10 @@ by any AI agent tool supporting custom skills.
 
 - [`/setup-openai-harness`](skills/setup-openai-harness/SKILL.md)
   Bootstraps harness engineering in a project:
-  - Scaffolds a `docs/` knowledge base
-    (`AGENTS.md`, `ARCHITECTURE.md`, design docs, exec plans, product specs)
-  - Creates three workflow skills: `/design-change`, `/plan-change`, `/exec-change`
+  - Scaffolds a `docs/` knowledge base (`AGENTS.md`, `ARCHITECTURE.md`, `DOCUMENTATION_CONVENTIONS.md`,
+    design docs, exec plans, product specs)
+  - Creates five workflow skills: `/draft-spec`, `/design-change`, `/plan-change`, `/exec-change`,
+    `/close-change`
   - All adapted to the project's actual tech stack and conventions
 
 ## Development
@@ -100,11 +99,17 @@ pnpm run test
 # Run all linters
 pnpm run lint
 
+# Auto-fix lint issues
+pnpm run lint-fix
+
 # Typecheck all packages
 pnpm run typecheck
 
 # Format all files
 pnpm run format
+
+# Clean build outputs
+pnpm run clean
 ```
 
 ## License
