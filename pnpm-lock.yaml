@@ -27,9 +27,6 @@ catalogs:
     '@nestjs/jwt':
       specifier: ^11.0.2
       version: 11.0.2
-    '@reduxjs/toolkit':
-      specifier: ^2.11.2
-      version: 2.11.2
     '@rustresult/result':
       specifier: ^0.6.0
       version: 0.6.0
@@ -144,9 +141,6 @@ catalogs:
     identity-obj-proxy:
       specifier: ^3.0.0
       version: 3.0.0
-    immer:
-      specifier: ^11.1.3
-      version: 11.1.3
     jest:
       specifier: ^30.2.0
       version: 30.2.0
@@ -174,9 +168,6 @@ catalogs:
     react-is:
       specifier: ^19.2.3
       version: 19.2.3
-    react-redux:
-      specifier: ^9.2.0
-      version: 9.2.0
     react-router:
       specifier: ^7.11.0
       version: 7.11.0
@@ -664,52 +655,6 @@ importers:
         specifier: 'catalog:'
         version: 6.0.3
 
-  packages/helpers-redux:
-    dependencies:
-      '@easy-lib/types':
-        specifier: workspace:^
-        version: link:../types
-      '@reduxjs/toolkit':
-        specifier: 'catalog:'
-        version: 2.11.2(react-redux@9.2.0(@types/react@19.2.8)(react@19.2.3)(redux@5.0.1))(react@19.2.3)
-      immer:
-        specifier: 'catalog:'
-        version: 11.1.3
-      react:
-        specifier: 'catalog:'
-        version: 19.2.3
-      react-redux:
-        specifier: 'catalog:'
-        version: 9.2.0(@types/react@19.2.8)(react@19.2.3)(redux@5.0.1)
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:^
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:^
-        version: link:../../configs/global-types
-      '@easy-config/tsconfigs':
-        specifier: workspace:^
-        version: link:../../configs/tsconfigs
-      '@types/react':
-        specifier: 'catalog:'
-        version: 19.2.8
-      concurrently:
-        specifier: 'catalog:'
-        version: 9.2.1
-      eslint:
-        specifier: 'catalog:'
-        version: 9.39.2
-      prettier:
-        specifier: 'catalog:'
-        version: 3.7.4
-      rimraf:
-        specifier: 'catalog:'
-        version: 6.1.2
-      typescript:
-        specifier: 'catalog:'
-        version: 6.0.3
-
   packages/helpers-typeorm:
     dependencies:
       dayjs:
@@ -1179,55 +1124,6 @@ importers:
       '@types/semver':
         specifier: 'catalog:'
         version: 7.7.1
-      eslint:
-        specifier: 'catalog:'
-        version: 9.39.2
-      prettier:
-        specifier: 'catalog:'
-        version: 3.7.4
-      rimraf:
-        specifier: 'catalog:'
-        version: 6.1.2
-      typescript:
-        specifier: 'catalog:'
-        version: 6.0.3
-
-  projects/redux-usage-demo:
-    dependencies:
-      '@easy-lib/helpers-redux':
-        specifier: workspace:^
-        version: link:../../packages/helpers-redux
-      '@reduxjs/toolkit':
-        specifier: 'catalog:'
-        version: 2.11.2(react-redux@9.2.0(@types/react@19.2.8)(react@19.2.3)(redux@5.0.1))(react@19.2.3)
-      react:
-        specifier: 'catalog:'
-        version: 19.2.3
-      react-redux:
-        specifier: 'catalog:'
-        version: 9.2.0(@types/react@19.2.8)(react@19.2.3)(redux@5.0.1)
-    devDependencies:
-      '@easy-config/eslint-config':
-        specifier: workspace:^
-        version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:^
-        version: link:../../configs/global-types
-      '@easy-config/jest-config':
-        specifier: workspace:^
-        version: link:../../configs/jest-config
-      '@easy-config/tsconfigs':
-        specifier: workspace:^
-        version: link:../../configs/tsconfigs
-      '@jest/globals':
-        specifier: 'catalog:'
-        version: 30.2.0
-      '@testing-library/dom':
-        specifier: 'catalog:'
-        version: 10.4.1
-      concurrently:
-        specifier: 'catalog:'
-        version: 9.2.1
       eslint:
         specifier: 'catalog:'
         version: 9.39.2
@@ -2445,17 +2341,6 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
 
-  '@reduxjs/toolkit@2.11.2':
-    resolution: {integrity: sha512-Kd6kAHTA6/nUpp8mySPqj3en3dm0tdMIgbttnQ1xFMVpufoj+ADi8pXLBsd4xzTRHQa7t/Jv8W5UnCuW4kuWMQ==}
-    peerDependencies:
-      react: ^16.9.0 || ^17.0.0 || ^18 || ^19
-      react-redux: ^7.2.1 || ^8.1.3 || ^9.0.0
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-redux:
-        optional: true
-
   '@rolldown/pluginutils@1.0.0-beta.53':
     resolution: {integrity: sha512-vENRlFU4YbrwVqNDZ7fLvy+JR1CRkyr01jhSiDpE1u6py3OMzQfztQU2jxykW3ALNxO4kSlqIDeYyD0Y9RcQeQ==}
 
@@ -2589,12 +2474,6 @@ packages:
 
   '@sqltools/formatter@1.2.5':
     resolution: {integrity: sha512-Uy0+khmZqUrUGm5dmMqVlnvufZRSK0FbYzVgp0UMstm+F5+W2/jnEEQyc9vo1ZR/E5ZI/B1WjjoTqBqwJL6Krw==}
-
-  '@standard-schema/spec@1.1.0':
-    resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
-
-  '@standard-schema/utils@0.3.0':
-    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
   '@stylistic/stylelint-plugin@3.1.3':
     resolution: {integrity: sha512-85fsmzgsIVmyG3/GFrjuYj6Cz8rAM7IZiPiXCMiSMfoDOC1lOrzrXPDk24WqviAghnPqGpx8b0caK2PuewWGFg==}
@@ -2822,9 +2701,6 @@ packages:
 
   '@types/triple-beam@1.3.5':
     resolution: {integrity: sha512-6WaYesThRMCl19iryMYP7/x2OVgCtbIVflDGFpWnb9irXI3UjYE4AzmYuiUKY1AJstGijoY+MgUszMgRxIYTYw==}
-
-  '@types/use-sync-external-store@0.0.6':
-    resolution: {integrity: sha512-zFDAD+tlpf2r4asuHEj0XH6pY6i0g5NeAHPn+15wk3BV6JA69eERFXC1gyGThDkVa1zCyKr5jox1+2LbV/AMLg==}
 
   '@types/validator@13.15.10':
     resolution: {integrity: sha512-T8L6i7wCuyoK8A/ZeLYt1+q0ty3Zb9+qbSSvrIVitzT3YjZqkTZ40IbRsPanlB4h1QB3JVL1SYCdR6ngtFYcuA==}
@@ -4143,9 +4019,6 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  immer@11.1.3:
-    resolution: {integrity: sha512-6jQTc5z0KJFtr1UgFpIL3N9XSC3saRaI9PwWtzM2pSqkNGtiNkYY2OSwkOGDK2XcTRcLb1pi/aNkKZz0nxVH4Q==}
-
   immutable@5.1.4:
     resolution: {integrity: sha512-p6u1bG3YSnINT5RQmx/yRZBpenIl30kVxkTLDyHLIMk0gict704Q9n+thfDI7lTRm9vXdDYutVzXhzcThxTnXA==}
 
@@ -5174,18 +5047,6 @@ packages:
   react-is@19.2.3:
     resolution: {integrity: sha512-qJNJfu81ByyabuG7hPFEbXqNcWSU3+eVus+KJs+0ncpGfMyYdvSmxiJxbWR65lYi1I+/0HBcliO029gc4F+PnA==}
 
-  react-redux@9.2.0:
-    resolution: {integrity: sha512-ROY9fvHhwOD9ySfrF0wmvu//bKCQ6AeZZq1nJNtbDC+kk5DuSuNX/n6YWYF/SYy7bSba4D4FSz8DJeKY/S/r+g==}
-    peerDependencies:
-      '@types/react': ^18.2.25 || ^19
-      react: ^18.0 || ^19
-      redux: ^5.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      redux:
-        optional: true
-
   react-refresh@0.18.0:
     resolution: {integrity: sha512-QgT5//D3jfjJb6Gsjxv0Slpj23ip+HtOpnNgnb2S5zU3CB26G/IDPGoy4RJB42wzFE46DRsstbW6tKHoKbhAxw==}
     engines: {node: '>=0.10.0'}
@@ -5234,14 +5095,6 @@ packages:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==}
     engines: {node: '>=8'}
 
-  redux-thunk@3.1.0:
-    resolution: {integrity: sha512-NW2r5T6ksUKXCabzhL9z+h206HQw/NJkcLm1GPImRQ8IzfXwRGqjVhKJGauHirT0DAuyy6hjdnMZaRoAcy0Klw==}
-    peerDependencies:
-      redux: ^5.0.0
-
-  redux@5.0.1:
-    resolution: {integrity: sha512-M9/ELqF6fy8FwmkpnF0S3YKOqMyoWJ4+CS5Efg2ct3oY9daQvd/Pc71FpGZsVsbl3Cpb+IIcjBDUnnyBdQbq4w==}
-
   reflect-metadata@0.2.2:
     resolution: {integrity: sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==}
 
@@ -5260,9 +5113,6 @@ packages:
   require-from-string@2.0.2:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
-
-  reselect@5.1.1:
-    resolution: {integrity: sha512-K/BG6eIky/SBpzfHZv/dd+9JBFiS4SWV7FIujVyJRux6e45+73RaUHXLmIR1f7WOMaQ0U1km6qwklRQxpJJY0w==}
 
   reserved-words@0.1.2:
     resolution: {integrity: sha512-0S5SrIUJ9LfpbVl4Yzij6VipUdafHrOTzvmfazSw/jeZrZtQK303OPZW+obtkaw7jQlTQppy0UvZWm9872PbRw==}
@@ -5972,11 +5822,6 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
-
-  use-sync-external-store@1.6.0:
-    resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -7435,18 +7280,6 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@reduxjs/toolkit@2.11.2(react-redux@9.2.0(@types/react@19.2.8)(react@19.2.3)(redux@5.0.1))(react@19.2.3)':
-    dependencies:
-      '@standard-schema/spec': 1.1.0
-      '@standard-schema/utils': 0.3.0
-      immer: 11.1.3
-      redux: 5.0.1
-      redux-thunk: 3.1.0(redux@5.0.1)
-      reselect: 5.1.1
-    optionalDependencies:
-      react: 19.2.3
-      react-redux: 9.2.0(@types/react@19.2.8)(react@19.2.3)(redux@5.0.1)
-
   '@rolldown/pluginutils@1.0.0-beta.53': {}
 
   '@rollup/rollup-android-arm-eabi@4.54.0':
@@ -7535,10 +7368,6 @@ snapshots:
       text-hex: 1.0.0
 
   '@sqltools/formatter@1.2.5': {}
-
-  '@standard-schema/spec@1.1.0': {}
-
-  '@standard-schema/utils@0.3.0': {}
 
   '@stylistic/stylelint-plugin@3.1.3(stylelint@16.26.1(typescript@6.0.3))':
     dependencies:
@@ -7779,8 +7608,6 @@ snapshots:
   '@types/tough-cookie@4.0.5': {}
 
   '@types/triple-beam@1.3.5': {}
-
-  '@types/use-sync-external-store@0.0.6': {}
 
   '@types/validator@13.15.10': {}
 
@@ -9322,8 +9149,6 @@ snapshots:
   image-size@0.5.5:
     optional: true
 
-  immer@11.1.3: {}
-
   immutable@5.1.4: {}
 
   import-fresh@3.3.1:
@@ -10517,15 +10342,6 @@ snapshots:
 
   react-is@19.2.3: {}
 
-  react-redux@9.2.0(@types/react@19.2.8)(react@19.2.3)(redux@5.0.1):
-    dependencies:
-      '@types/use-sync-external-store': 0.0.6
-      react: 19.2.3
-      use-sync-external-store: 1.6.0(react@19.2.3)
-    optionalDependencies:
-      '@types/react': 19.2.8
-      redux: 5.0.1
-
   react-refresh@0.18.0: {}
 
   react-router@7.11.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
@@ -10592,12 +10408,6 @@ snapshots:
       indent-string: 4.0.0
       strip-indent: 3.0.0
 
-  redux-thunk@3.1.0(redux@5.0.1):
-    dependencies:
-      redux: 5.0.1
-
-  redux@5.0.1: {}
-
   reflect-metadata@0.2.2: {}
 
   reflect.getprototypeof@1.0.10:
@@ -10623,8 +10433,6 @@ snapshots:
   require-directory@2.1.1: {}
 
   require-from-string@2.0.2: {}
-
-  reselect@5.1.1: {}
 
   reserved-words@0.1.2: {}
 
@@ -11454,10 +11262,6 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
-
-  use-sync-external-store@1.6.0(react@19.2.3):
-    dependencies:
-      react: 19.2.3
 
   util-deprecate@1.0.2: {}
 
