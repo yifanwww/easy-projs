@@ -20,6 +20,8 @@ is obvious from Motivation.
 
 ## Design
 
+<!-- The sub-sections below are examples — add, remove, or rename to fit the feature. -->
+
 ### Overview
 
 High-level description of the approach.
