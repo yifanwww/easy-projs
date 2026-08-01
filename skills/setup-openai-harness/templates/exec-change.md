@@ -109,7 +109,8 @@ When **all phases complete**, set Status to `Waiting for Review`, then tell the 
 If executing directly from a design doc with no plan, after all work is done and validation passes:
 
 1. Set the design doc's **Status** to `Accepted`
-2. Tell the user what was done, and add: "Implementation complete. Run `/close-change` to archive this change."
+2. Tell the user what was done, and add:
+   "Implementation complete. Run `/close-change` to archive this change."
 
 ## Notes
 
