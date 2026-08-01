@@ -52,6 +52,7 @@
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
 
   "files.associations": {
     ".eslintcache": "json",
@@ -66,6 +67,13 @@
   "git.autofetch": true,
   "git.autofetchPeriod": 300,
   "git.enabled": true,
+
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
 
   "js/ts.inlayHints.enumMemberValues.enabled": true,
   "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
@@ -266,23 +274,21 @@
     }
   },
   "workbench.colorCustomizations": {
-    "[Default Light+]": {
+    "[Light+]": {
       "editor.lineHighlightBackground": "#fcfcfc",
       "editor.lineHighlightBorder": "#ebebeb",
       "editorInlayHint.background": "#f0f0f0",
       "editorInlayHint.foreground": "#505050"
     },
     "[Quiet Light]": {
-      "editor.background": "#ffffff",
       "editor.inactiveSelectionBackground": "#e1d5e980",
-      "editor.lineHighlightBackground": "#fcfcfc",
+      "editor.lineHighlightBackground": "#f0f0f0",
       "editor.lineHighlightBorder": "#ebebeb",
       "editor.selectionBackground": "#e8def0",
       "editor.selectionHighlightBackground": "#e5dfed80",
       "editorInlayHint.background": "#f0f0f0",
       "editorInlayHint.foreground": "#505050",
-      "editorWhitespace.foreground": "#d5d5d5",
-      "panel.background": "#fafafa"
+      "editorWhitespace.foreground": "#d5d5d5"
     }
   },
 
@@ -331,13 +337,6 @@
 
   "git-graph.repository.commits.initialLoad": 500,
   "git-graph.repository.commits.loadMore": 500,
-
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  },
 
   "prettier.arrowParens": "always",
   "prettier.endOfLine": "lf",
