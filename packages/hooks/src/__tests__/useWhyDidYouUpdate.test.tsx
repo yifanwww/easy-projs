@@ -1,7 +1,24 @@
-import { mockConsoleToMatchSnapshot } from '@easy-lib/utils-test';
-import { beforeEach, describe, expect, it } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { useWhyDidYouUpdate } from '../useWhyDidYouUpdate.js';
+
+function mockConsoleToMatchSnapshot() {
+  jest
+    .spyOn(console, 'debug')
+    .mockImplementation((...messages) => expect({ console: 'debug', messages }).toMatchSnapshot());
+  jest
+    .spyOn(console, 'error')
+    .mockImplementation((...messages) => expect({ console: 'error', messages }).toMatchSnapshot());
+  jest
+    .spyOn(console, 'info')
+    .mockImplementation((...messages) => expect({ console: 'info', messages }).toMatchSnapshot());
+  jest
+    .spyOn(console, 'log')
+    .mockImplementation((...messages) => expect({ console: 'log', messages }).toMatchSnapshot());
+  jest
+    .spyOn(console, 'warn')
+    .mockImplementation((...messages) => expect({ console: 'warn', messages }).toMatchSnapshot());
+}
 
 beforeEach(() => {
   mockConsoleToMatchSnapshot();
