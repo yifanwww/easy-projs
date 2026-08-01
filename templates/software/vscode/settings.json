@@ -134,6 +134,7 @@
   "workbench.colorTheme": "Quiet Light",
   "workbench.localHistory.enabled": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.experimental.modernUI": false,
 
   // ---------------------------------------------------------- Theme Settings
 
@@ -281,14 +282,16 @@
       "editorInlayHint.foreground": "#505050"
     },
     "[Quiet Light]": {
+      "editor.background": "#ffffff",
       "editor.inactiveSelectionBackground": "#e1d5e980",
-      "editor.lineHighlightBackground": "#f0f0f0",
+      "editor.lineHighlightBackground": "#fcfcfc",
       "editor.lineHighlightBorder": "#ebebeb",
       "editor.selectionBackground": "#e8def0",
       "editor.selectionHighlightBackground": "#e5dfed80",
       "editorInlayHint.background": "#f0f0f0",
       "editorInlayHint.foreground": "#505050",
-      "editorWhitespace.foreground": "#d5d5d5"
+      "editorWhitespace.foreground": "#d5d5d5",
+      "panel.background": "#fafafa"
     }
   },
 
