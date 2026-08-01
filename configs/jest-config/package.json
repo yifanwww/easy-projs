@@ -36,7 +36,6 @@
     "identity-obj-proxy": "catalog:",
     "jest": "catalog:",
     "jest-environment-jsdom": "catalog:",
-    "jest-watch-typeahead": "catalog:",
     "whatwg-fetch": "catalog:"
   },
   "devDependencies": {

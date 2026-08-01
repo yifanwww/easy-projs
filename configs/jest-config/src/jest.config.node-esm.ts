@@ -65,8 +65,6 @@ function getConfig(): Config {
     // https://github.com/swc-project/pkgs/tree/main/packages/jest#q-jest-uses-commonjs-by-default-but-i-want-to-use-esm
     extensionsToTreatAsEsm: ['.ts'],
 
-    watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
-
     // https://jestjs.io/docs/configuration/#resetmocks-boolean
     resetMocks: true,
     // https://jestjs.io/docs/configuration/#restoremocks-boolean
