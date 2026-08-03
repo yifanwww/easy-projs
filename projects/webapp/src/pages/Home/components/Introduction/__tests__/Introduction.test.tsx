@@ -1,6 +1,6 @@
-import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router';
+import { describe, expect, it } from 'vitest';
 import { Introduction } from '../Introduction';
 
 describe(`Test component \`${Introduction.name}\``, () => {

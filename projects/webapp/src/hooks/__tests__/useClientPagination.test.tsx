@@ -1,6 +1,6 @@
-import { describe, expect, it } from '@jest/globals';
 import { act, renderHook } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router';
+import { describe, expect, it } from 'vitest';
 import { mutateClientPagination, useClientPagination } from '../useClientPagination.js';
 
 describe(`Test fn \`${mutateClientPagination.name}\``, () => {

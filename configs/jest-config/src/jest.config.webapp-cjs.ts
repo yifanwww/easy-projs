@@ -52,7 +52,7 @@ function getConfig(): Config {
         },
       ],
       '^.+\\.css$': resolve('./transform.css.js'),
-      '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': resolve('./transform.file.cjs.js'),
+      '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': resolve('./transform.file.js'),
     },
     transformIgnorePatterns: ['/node_modules/', '\\.pnp\\.[^\\/]+$', '^.+\\.module\\.(css|sass|scss)$'],
 

@@ -32,4 +32,8 @@ export default defineConfig((): UserConfig => ({
       },
     },
   },
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./src/test.setup.ts'],
+  },
 }));

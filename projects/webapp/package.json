@@ -26,7 +26,7 @@
     "lint": "stylelint \"**/*.{css,scss}\" && eslint .",
     "lint-fix": "stylelint \"**/*.{css,scss}\" --fix && eslint . --fix",
     "preview": "vite preview",
-    "test": "unit-test webapp-esm",
+    "test": "vitest run",
     "typecheck": "pnpm run typecheck:vite && pnpm run typecheck:src",
     "typecheck:src": "tsc --project tsconfig.json --noEmit --incremental false",
     "typecheck:vite": "tsc --project tsconfig.vite.json --noEmit --incremental false --composite false"
@@ -47,10 +47,8 @@
   "devDependencies": {
     "@easy-config/eslint-config": "workspace:^",
     "@easy-config/global-types": "workspace:^",
-    "@easy-config/jest-config": "workspace:^",
     "@easy-config/stylelint-config": "workspace:^",
     "@easy-config/tsconfigs": "workspace:^",
-    "@jest/globals": "catalog:",
     "@testing-library/dom": "catalog:",
     "@testing-library/jest-dom": "catalog:",
     "@testing-library/react": "catalog:",
@@ -58,6 +56,7 @@
     "@types/react-dom": "catalog:",
     "@typescript/native": "catalog:",
     "@vitejs/plugin-react": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
     "browserslist": "catalog:",
     "browserslist-to-esbuild": "catalog:",
     "cross-env": "catalog:",
@@ -67,6 +66,7 @@
     "sass": "catalog:",
     "stylelint": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "vitest": "catalog:"
   }
 }

@@ -12,11 +12,6 @@ function getConfig(): Config {
 
     setupFiles: [resolve('./jest.setup.esm.js')],
 
-    transform: {
-      ...config.transform,
-      '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': resolve('./transform.file.esm.js'),
-    },
-
     extensionsToTreatAsEsm: ['.ts', '.tsx'],
   };
 }
