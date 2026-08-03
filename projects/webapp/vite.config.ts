@@ -33,7 +33,25 @@ export default defineConfig((): UserConfig => ({
     },
   },
   test: {
-    environment: 'jsdom',
     setupFiles: ['./src/test.setup.ts'],
+
+    include: ['src/**/*.{spec,test}.{ts,tsx}'],
+    environment: 'jsdom',
+
+    coverage: {
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: [
+        'src/**/__mocks__/**/*.{ts,tsx}',
+        'src/**/__tests__/**/*.{ts,tsx}',
+        'src/**/*.{spec,test}.{ts,tsx}',
+        'src/**/*.d.ts',
+        'src/test.setup.ts',
+      ],
+    },
+
+    // https://vitest.dev/config/mockreset.html
+    mockReset: true,
+    // https://vitest.dev/config/restoremocks.html
+    restoreMocks: true,
   },
 }));
