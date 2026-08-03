@@ -35,6 +35,7 @@
     "@easy-config/tsconfigs": "workspace:^",
     "@types/confusing-browser-globals": "catalog:",
     "@typescript/native": "catalog:",
+    "@vitest/eslint-plugin": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"

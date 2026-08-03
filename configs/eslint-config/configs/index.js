@@ -8,6 +8,7 @@ import prettierConfig from './rules.prettier.js';
 import reactConfig from './rules.react.js';
 import reactHooksConfig from './rules.react-hooks.js';
 import typescriptConfig from './rules.typescript.js';
+import vitestConfig from './rules.vitest.js';
 
 export * from './naming.js';
 
@@ -18,7 +19,6 @@ export const recommended = {
       eslintConfig,
       typescriptConfig,
       importConfig,
-      jestConfig,
       prettierConfig,
       /*
        * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
@@ -33,7 +33,6 @@ export const recommended = {
       eslintConfig,
       typescriptConfig,
       importConfig,
-      jestConfig,
       prettierConfig,
       /*
        * We rarely violate these rules, disabled for better performance during development (especially during AI Agents
@@ -51,7 +50,6 @@ export const recommended = {
       eslintConfig,
       typescriptConfig,
       importConfig,
-      jestConfig,
       reactConfig,
       reactHooksConfig,
       prettierConfig,
@@ -65,4 +63,6 @@ export const recommended = {
       globals: globals.browser,
     },
   }),
+  jest: jestConfig,
+  vitest: vitestConfig,
 };

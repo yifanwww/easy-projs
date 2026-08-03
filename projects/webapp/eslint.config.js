@@ -9,4 +9,5 @@ export default defineConfig([
     },
   },
   recommended.react,
+  recommended.vitest,
 ]);

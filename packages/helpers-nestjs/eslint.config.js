@@ -4,6 +4,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 export default defineConfig([
   globalIgnores(['**/*.cjs', '**/*.js', '**/*.mjs', 'coverage/', 'lib/']),
   recommended.node,
+  recommended.jest,
   {
     files: ['**/*.dto.ts'],
     rules: {
