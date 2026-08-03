@@ -5,10 +5,7 @@ function convertQueryParamValue(pair: [string, QueryParamValue]): [string, strin
 }
 
 export type QueryURLParamsInit =
-  | [string, QueryParamValue | undefined][]
-  | Record<string, QueryParamValue | undefined>
-  | string
-  | URLSearchParams;
+  [string, QueryParamValue | undefined][] | Record<string, QueryParamValue | undefined> | string | URLSearchParams;
 
 export function buildQueryURL<Params extends QueryURLParamsInit>(url: string, params?: Params) {
   if (!params) return url;

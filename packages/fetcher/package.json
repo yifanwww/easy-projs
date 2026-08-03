@@ -38,6 +38,7 @@
     "@easy-config/jest-config": "workspace:^",
     "@easy-config/tsconfigs": "workspace:^",
     "@jest/globals": "catalog:",
+    "@typescript/native": "catalog:",
     "concurrently": "catalog:",
     "es-toolkit": "catalog:",
     "eslint": "catalog:",

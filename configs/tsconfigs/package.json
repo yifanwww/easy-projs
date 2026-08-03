@@ -19,6 +19,7 @@
     "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,md,mjs,mts,scss,ts,tsx,yaml,yml}\""
   },
   "devDependencies": {
+    "@typescript/native": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },

@@ -36,6 +36,7 @@
     "@easy-lib/utils-test": "workspace:^",
     "@jest/globals": "catalog:",
     "@types/node": "catalog:",
+    "@typescript/native": "catalog:",
     "concurrently": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",

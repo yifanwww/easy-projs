@@ -38,13 +38,13 @@
     "@easy-config/stylelint-config": "workspace:^",
     "@easy-config/tsconfigs": "workspace:^",
     "@types/react": "catalog:",
+    "@typescript/native": "catalog:",
     "concurrently": "catalog:",
     "copyfiles": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
     "rimraf": "catalog:",
     "stylelint": "catalog:",
-    "typescript": "catalog:",
-    "typescript-plugin-css-modules": "catalog:"
+    "typescript": "catalog:"
   }
 }

@@ -28,6 +28,7 @@
     "stylelint-order": "catalog:"
   },
   "devDependencies": {
+    "@typescript/native": "catalog:",
     "prettier": "catalog:",
     "stylelint": "catalog:",
     "typescript": "catalog:"

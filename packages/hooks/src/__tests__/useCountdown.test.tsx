@@ -1,6 +1,6 @@
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { act, render } from '@testing-library/react';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useCountdown } from '../useCountdown.js';
 import { validateHookValueNotChanged } from './helpers.js';
 
@@ -37,7 +37,7 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
 
     function TestComponent() {
       const [, setCountdown] = useCountdown();
-      useEffect(() => setCountdown(5), [setCountdown]);
+      useLayoutEffect(() => setCountdown(5), [setCountdown]);
       renderCount++;
       return <div />;
     }
@@ -46,6 +46,8 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
     render(<TestComponent />);
     expect(renderCount).toBe(2);
 
+    // need 50 extra milliseconds to ensure the countdown has started
+    act(() => jest.advanceTimersByTime(50));
     act(() => jest.advanceTimersByTime(1000));
     expect(renderCount).toBe(3);
     act(() => jest.advanceTimersByTime(1000));
@@ -65,7 +67,7 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
 
     function TestComponent() {
       const [, setCountdown] = useCountdown();
-      useEffect(() => {
+      useLayoutEffect(() => {
         setCountdown(5_000);
       }, [setCountdown]);
       renderCount++;
@@ -76,6 +78,8 @@ describe(`Test react hook \`${useCountdown.name}\``, () => {
     const { unmount } = render(<TestComponent />);
     expect(renderCount).toBe(2);
 
+    // need 50 extra milliseconds to ensure the countdown has started
+    act(() => jest.advanceTimersByTime(50));
     act(() => jest.advanceTimersByTime(1000));
     expect(renderCount).toBe(3);
     act(() => jest.advanceTimersByTime(1000));

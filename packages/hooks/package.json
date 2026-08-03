@@ -43,6 +43,7 @@
     "@testing-library/dom": "catalog:",
     "@testing-library/react": "catalog:",
     "@types/react": "catalog:",
+    "@typescript/native": "catalog:",
     "concurrently": "catalog:",
     "es-toolkit": "catalog:",
     "eslint": "catalog:",

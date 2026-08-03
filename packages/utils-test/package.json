@@ -41,6 +41,7 @@
     "@easy-config/global-types": "workspace:^",
     "@easy-config/jest-config": "workspace:^",
     "@easy-config/tsconfigs": "workspace:^",
+    "@typescript/native": "catalog:",
     "concurrently": "catalog:",
     "eslint": "catalog:",
     "prettier": "catalog:",
