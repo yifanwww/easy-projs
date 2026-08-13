@@ -3,6 +3,11 @@ packages:
   - packages/*
   - projects/*
 
+allowBuilds:
+  '@parcel/watcher': false
+  '@swc/core': true
+  unrs-resolver: false
+
 catalog:
   '@ant-design/icons': ^6.3.2
   '@eslint/js': ^9.39.5
@@ -87,16 +92,6 @@ catalog:
 catalogMode: prefer
 
 cleanupUnusedCatalogs: true
-
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - less
-  - unrs-resolver
-
-onlyBuiltDependencies:
-  - '@nestjs/core'
-  - '@swc/core'
-  - esbuild
 
 publicHoistPattern:
   - '*eslint*'
