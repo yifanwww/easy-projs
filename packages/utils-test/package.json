@@ -30,7 +30,6 @@
   "dependencies": {
     "@easy-lib/types": "workspace:^",
     "@jest/globals": "catalog:",
-    "@testing-library/dom": "catalog:",
     "@testing-library/react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",

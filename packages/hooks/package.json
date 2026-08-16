@@ -40,7 +40,6 @@
     "@easy-config/tsconfigs": "workspace:^",
     "@easy-lib/utils-test": "workspace:^",
     "@jest/globals": "catalog:",
-    "@testing-library/dom": "catalog:",
     "@testing-library/react": "catalog:",
     "@types/react": "catalog:",
     "@typescript/native": "catalog:",
