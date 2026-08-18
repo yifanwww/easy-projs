@@ -40,7 +40,7 @@ Layer-by-layer breakdown of what changes where.
 
 ## Key Decisions
 
-_Decision?_
+**_Decision?_**
 
 - Chosen: _chosen approach_.
 - Why: _why this was chosen._
