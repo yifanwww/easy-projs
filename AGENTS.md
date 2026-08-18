@@ -5,20 +5,20 @@
 A personal monorepo of reusable code patterns, shared configurations, and utility libraries.
 Managed with pnpm workspaces. TypeScript throughout.
 
-## Dev Commands
+## Development Commands
 
-| Command              | Purpose                         | Notes                                                  |
-| -------------------- | ------------------------------- | ------------------------------------------------------ |
-| `pnpm build`         | Build all packages recursively  | Agent-safe                                             |
-| `pnpm build-configs` | Build `@easy-config/*` packages | Agent-safe                                             |
-| `pnpm build-libs`    | Build `@easy-lib/*` packages    | Agent-safe                                             |
-| `pnpm clean`         | Clean all build artifacts       | Agent-safe                                             |
-| `pnpm format`        | Format with Prettier            | Agent-safe                                             |
-| `pnpm lint`          | Lint all packages               | Agent-safe                                             |
-| `pnpm lint-fix`      | Lint and auto-fix all packages  | Agent-safe                                             |
-| `pnpm test`          | Run all tests                   | Agent-safe                                             |
-| `pnpm typecheck`     | Type-check all packages         | Agent-safe                                             |
-| `pnpm prepare`       | Install Husky git hooks         | auto-triggered by `pnpm install`, do NOT run via agent |
+```sh
+pnpm install            # Install dependencies
+pnpm run build          # Build all packages recursively
+pnpm run build-configs  # Build `@easy-config/*` packages
+pnpm run build-libs     # Build `@easy-lib/*` packages
+pnpm run clean          # Clean all build artifacts
+pnpm run format         # Format with Prettier
+pnpm run lint           # Lint all packages
+pnpm run lint-fix       # Lint and auto-fix all packages
+pnpm run test           # Run all tests
+pnpm run typecheck      # Type-check all packages
+```
 
 ## Repository Layout
 
@@ -67,7 +67,8 @@ docs/                 Knowledge base (design docs, exec plans, specs)
 ### CSS/SCSS File Extensions
 
 - **Prefer `.css`** for styling by default
-- **Use `.scss`** only when leveraging SCSS features (variables, mixins, nesting, `darken()`/`lighten()`)
+- **Use `.scss`** only when leveraging SCSS features (variables, mixins, nesting,
+  `darken()`/`lighten()`)
 
 ### TypeScript
 
@@ -79,3 +80,8 @@ docs/                 Knowledge base (design docs, exec plans, specs)
 
 - Commit messages follow **Conventional Commits**: `<type>(<scope>): <description>`
 - See `git log --oneline` for examples
+
+### Code Size
+
+- **Avoid large modules.** When a non-test file exceeds roughly 1,000 lines of code, add new
+  functionality in a new file rather than extending it

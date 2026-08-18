@@ -81,35 +81,16 @@ by any AI agent tool supporting custom skills.
 Requires Node.js ≥ 24 and [pnpm](https://pnpm.io).
 
 ```sh
-# Install dependencies
-pnpm install
-
-# Build all packages
-pnpm run build
-
-# Build only config packages
-pnpm run build-configs
-
-# Build only library packages
-pnpm run build-libs
-
-# Run all tests
-pnpm run test
-
-# Run all linters
-pnpm run lint
-
-# Auto-fix lint issues
-pnpm run lint-fix
-
-# Typecheck all packages
-pnpm run typecheck
-
-# Format all files
-pnpm run format
-
-# Clean build outputs
-pnpm run clean
+pnpm install            # Install dependencies
+pnpm run build          # Build all packages
+pnpm run build-configs  # Build only config packages
+pnpm run build-libs     # Build only library packages
+pnpm run test           # Run all tests
+pnpm run lint           # Run all linters
+pnpm run lint-fix       # Auto-fix lint issues
+pnpm run typecheck      # Typecheck all packages
+pnpm run format         # Format all files
+pnpm run clean          # Clean build outputs
 ```
 
 ## License
