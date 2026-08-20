@@ -1,12 +1,11 @@
 import child from 'node:child_process';
 import react from '@vitejs/plugin-react';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
-import type { UserConfig } from 'vite';
 import { defineConfig } from 'vite';
 import packageJson from './package.json' with { type: 'json' };
 
 // https://vitejs.dev/config/
-export default defineConfig((): UserConfig => ({
+export default defineConfig({
   build: {
     target: browserslistToEsbuild(),
   },
@@ -54,4 +53,4 @@ export default defineConfig((): UserConfig => ({
     // https://vitest.dev/config/restoremocks.html
     restoreMocks: true,
   },
-}));
+});
