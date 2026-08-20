@@ -57,17 +57,17 @@ Then continue directly with the operations — no confirmation needed.
 
 ### 4. Close the Exec Plan (if applicable)
 
-1. Set `**Status**: Completed` in the plan file
-2. Update `**Last Updated**` to today's date
-3. Move: `docs/exec-plans/active/<plan>.md` → `docs/exec-plans/completed/<plan>.md`
+1. Move: `docs/exec-plans/active/<plan>.md` → `docs/exec-plans/completed/<plan>.md`
+2. Set `**Status**: Completed` in the moved file (now at `completed/`)
+3. Update `**Last Updated**` to today's date in the moved file
 4. In `docs/exec-plans/index.md`:
    - Remove from Active Plans table
    - Add to Completed Plans table
 
 ### 5. Close the Design Doc (if applicable)
 
-1. Set `**Status**: Implemented` in the design doc file
-2. Move: `docs/design-docs/active/<doc>.md` → `docs/design-docs/completed/<doc>.md`
+1. Move: `docs/design-docs/active/<doc>.md` → `docs/design-docs/completed/<doc>.md`
+2. Set `**Status**: Implemented` in the moved file (now at `completed/`)
 3. Update plan's **Design Doc** field to the new `completed/` path
 4. In `docs/design-docs/index.md`:
    - Remove from Active Design Docs table
