@@ -25,12 +25,20 @@ time via `/exec-change`.
 
 If ambiguity remains, ask one focused question before continuing.
 
-### 2. Explore Relevant Code
+### 2. Accept the Design Doc
+
+If a design doc was identified in step 1 and its **Status** field is `Draft`, change it to
+`Accepted` before proceeding. This signals that the design is finalized and ready for
+implementation planning.
+
+If the status is already `Accepted` or another non-Draft value, skip this step.
+
+### 3. Explore Relevant Code
 
 Read the code areas that will be affected: which files need to change, what patterns to follow,
 what constraints apply, what risks exist.
 
-### 3. Divide into Phases
+### 4. Divide into Phases
 
 Group work into sequential phases where each phase is independently completable and leaves the
 codebase in a valid state.
@@ -43,7 +51,7 @@ Example:
 - **Phase 1** — Function A: types → backend → bridge → UI for A
 - **Phase 2** — Function B: types → backend → bridge → UI for B
 
-### 4. Write the Plan File
+### 5. Write the Plan File
 
 Create at `docs/exec-plans/active/YYYY-MM-DD-<short-slug>.md`, using the template at
 `docs/exec-plans/template.md`. If no design doc exists, omit the **Design Doc** field.
@@ -54,11 +62,11 @@ Create at `docs/exec-plans/active/YYYY-MM-DD-<short-slug>.md`, using the templat
 - Steps within a phase depend only on earlier steps in the same or prior phases
 - If a step is risky or uncertain, note it in Decisions
 
-### 5. Update the Exec Plan Index
+### 6. Update the Exec Plan Index
 
 Open `docs/exec-plans/index.md` and add a row for the new file in the Active Plans table.
 
-### 6. Present the Plan
+### 7. Present the Plan
 
 After creating the file, show the user:
 
