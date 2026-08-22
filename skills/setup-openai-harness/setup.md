@@ -60,7 +60,7 @@ with meaningful content.
 | `docs/exec-plans/tech-debt-tracker.md` | Structured debt tracking                                                                                     |
 | `docs/product-specs/index.md`          | Product spec index                                                                                           |
 | `docs/product-specs/template.md`       | Product spec template (copy from `templates/product-spec.md`)                                                |
-| `docs/references/index.md`             | External references index — resources that exist outside the project                                         |
+| `docs/references/index.md`             | External knowledge references — APIs, formats, procedures, workflows, domain concepts                        |
 | `docs/FRONTEND.md`                     | UI/renderer conventions (skip if no frontend)                                                                |
 | `docs/DESIGN.md`                       | Visual/component design conventions (skip if no UI)                                                          |
 | `docs/DOCUMENTATION_CONVENTIONS.md`    | Documentation formatting rules: when to use Mermaid, diagram type selection                                  |
@@ -145,20 +145,21 @@ so a row can be moved between tables without reformatting.
 
 #### `docs/references/index.md`
 
-References describe external resources — things that exist outside the project. Unlike design
-docs and exec plans, reference files have no statuses and no active/completed lifecycle. They
-are living descriptions of external resources.
+References describe external knowledge — library APIs, data formats, protocols, procedures,
+workflows, design patterns, and domain concepts. Unlike design docs and exec plans, reference files
+have no statuses and no active/completed lifecycle. They are living descriptions that evolve as the
+external things they describe change.
 
 A single flat table lists all reference files:
 
 | Column        | Description                                                         |
 | ------------- | ------------------------------------------------------------------- |
 | `File`        | Relative link to the reference file                                 |
-| `Description` | What the reference covers — structure, conventions, observed values |
+| `Description` | What the reference covers — types, behaviors, conventions, pitfalls |
 
 The index also includes an introductory section explaining:
 
-- That references describe external resources, not internal project decisions
+- That references describe external knowledge, not internal project decisions
 - The boundary rule: references never link to internal docs; internal docs link to references
 - That reference files have no consumer-specific commentary (no "used/ignored" annotations)
 
@@ -168,9 +169,8 @@ The index also includes an introductory section explaining:
 - Include: what the project is, dev commands table, repository layout, key docs table
 - Every important doc in `docs/` should have a row in the key docs table — each row must link to
   an **exact file path**, never a folder path; agents need to know exactly what to read
-- **Do NOT mention `/draft-spec`, `/design-change`, `/plan-change`, `/exec-change`, `/close-change`** —
-  these are human-facing slash commands, explicitly triggered by the user; AI agents reading
-  AGENTS.md should not be proactively aware of them
+- **Do NOT mention any skills** - AGENTS.md is a table of contents for docs and conventions, not a
+  skill registry
 
 #### Classifying Commands: Agent-Safe vs Human-Only
 
@@ -199,9 +199,11 @@ pnpm run dev           # launch in dev mode (HMR) — **human only**, do NOT run
 
 If uncertain about a command, default to **human-only**.
 
-## Step 4. Create Five Workflow Skills
+## Step 4. Create Skills
 
 Create these files under `.agents/skills/`:
+
+**Workflow skills** (sequential pipeline):
 
 ```
 .agents/skills/draft-spec/SKILL.md
@@ -211,6 +213,12 @@ Create these files under `.agents/skills/`:
 .agents/skills/close-change/SKILL.md
 ```
 
+**Standalone skills** (available anytime, independent of the pipeline):
+
+```
+.agents/skills/draft-reference/SKILL.md
+```
+
 Templates are in `templates/` next to this file:
 
 - [templates/draft-spec.md](./templates/draft-spec.md)
@@ -218,6 +226,7 @@ Templates are in `templates/` next to this file:
 - [templates/plan-change.md](./templates/plan-change.md)
 - [templates/exec-change.md](./templates/exec-change.md)
 - [templates/close-change.md](./templates/close-change.md)
+- [templates/draft-reference.md](./templates/draft-reference.md)
 
 Read each template and create the corresponding `SKILL.md`, substituting these placeholders in
 `exec-change`:
@@ -233,12 +242,15 @@ Add any project-specific layer/boundary rules to the "Staying in bounds" section
 After completing setup, show the user:
 
 1. A list of all files created (docs + skills)
-2. The five slash commands now available:
+2. The workflow slash commands now available:
    > `/draft-spec`, `/design-change`, `/plan-change`, `/exec-change`, `/close-change`
-3. The workflow summary:
+3. The standalone slash commands now available:
+   > `/draft-reference` — available anytime to document external knowledge (APIs, data formats,
+   > protocols, procedures, workflows, design patterns, domain concepts)
+4. The workflow summary:
    > `/draft-spec <feature>` (optional) → `/design-change <feature>` → design doc → `/plan-change`
    > (if complex) → `/exec-change` (one phase at a time) → `/close-change` (archive when done)
-4. Any files that were skipped because they already existed
+5. Any files that were skipped because they already existed
 
 ## Notes
 

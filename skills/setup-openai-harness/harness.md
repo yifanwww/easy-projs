@@ -3,9 +3,9 @@
 > Source: [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
 > by Ryan Lopopolo, OpenAI — February 2026
 
-Harness engineering is a software development methodology where **humans steer and agents
-execute**. Engineers do not write code directly. Instead, they define environments, specify intent,
-and build feedback loops that allow AI coding agents to do reliable, high-quality work at scale.
+Harness engineering is a software development methodology where **humans steer and agents execute**.
+Engineers do not write code directly. Instead, they define environments, specify intent, and build
+feedback loops that allow AI coding agents to do reliable, high-quality work at scale.
 
 The term comes from the idea of building a _harness_ — the scaffolding, tooling, constraints, and
 knowledge structures that an agent needs in order to work effectively in a codebase. Just as a
@@ -15,12 +15,12 @@ oriented while it implements, tests, reviews, and ships code.
 ## The Origin
 
 OpenAI's team ran an experiment: build and ship a real internal software product with **zero lines
-of manually written code**. Every line — application logic, tests, CI configuration,
-documentation, observability, and internal tooling — was written by Codex agents.
+of manually written code**. Every line — application logic, tests, CI configuration, documentation,
+observability, and internal tooling — was written by Codex agents.
 
-The result: a million lines of code in roughly five months, with a team of three to seven
-engineers. ~1,500 pull requests merged. Throughput of 3.5 PRs per engineer per day. The product
-had daily internal users and external alpha testers.
+The result: a million lines of code in roughly five months, with a team of three to seven engineers.
+~1,500 pull requests merged. Throughput of 3.5 PRs per engineer per day. The product had daily
+internal users and external alpha testers.
 
 The key insight was that slow progress early on wasn't because the agent was incapable. It was
 because **the environment was underspecified**. The agent lacked the tools, abstractions, and
@@ -84,63 +84,63 @@ only the context they need for the task at hand.
 The `docs/` directory is the knowledge base. Files are structured, cross-linked, and mechanically
 verifiable.
 
-| File                                   | Purpose                                                                            |
-| -------------------------------------- | ---------------------------------------------------------------------------------- |
-| `AGENTS.md`                            | ~100-line table of contents: project overview, commands, repo layout, doc pointers |
-| `ARCHITECTURE.md`                      | Process model, source tree, dependency rules, build system                         |
-| `docs/DOCUMENTATION_CONVENTIONS.md`    | Documentation formatting rules: when to use Mermaid, diagram type selection        |
-| `docs/design-docs/core-beliefs.md`     | Engineering principles that guide all agent decisions                              |
-| `docs/design-docs/index.md`            | Index of all design docs                                                           |
-| `docs/design-docs/active/`             | Active design docs (in-progress)                                                   |
-| `docs/design-docs/completed/`          | Completed design docs (archive)                                                    |
-| `docs/exec-plans/index.md`             | Execution plans index: active and completed plans, format, and completion workflow |
-| `docs/exec-plans/active/`              | Active execution plans (in-progress)                                               |
-| `docs/exec-plans/completed/`           | Completed execution plans (archive)                                                |
-| `docs/exec-plans/tech-debt-tracker.md` | Known tech debt, tracked continuously                                              |
-| `docs/product-specs/index.md`          | Feature specs and product decisions                                                |
-| `docs/references/index.md`             | External resource references — describes things outside the project                |
-| `docs/QUALITY_SCORE.md`                | Per-domain quality grades                                                          |
-| `docs/RELIABILITY.md`                  | Reliability and data integrity requirements                                        |
-| `docs/SECURITY.md`                     | Security model and requirements                                                    |
-| `docs/FRONTEND.md`                     | UI/renderer conventions (if applicable)                                            |
-| `docs/PLANS.md`                        | Current focus + backlog                                                            |
-| `docs/PRODUCT_SENSE.md`                | What the product is, user model, core values                                       |
+| File                                   | Purpose                                                                               |
+| -------------------------------------- | ------------------------------------------------------------------------------------- |
+| `AGENTS.md`                            | ~100-line table of contents: project overview, commands, repo layout, doc pointers    |
+| `ARCHITECTURE.md`                      | Process model, source tree, dependency rules, build system                            |
+| `docs/DOCUMENTATION_CONVENTIONS.md`    | Documentation formatting rules: when to use Mermaid, diagram type selection           |
+| `docs/design-docs/core-beliefs.md`     | Engineering principles that guide all agent decisions                                 |
+| `docs/design-docs/index.md`            | Index of all design docs                                                              |
+| `docs/design-docs/active/`             | Active design docs (in-progress)                                                      |
+| `docs/design-docs/completed/`          | Completed design docs (archive)                                                       |
+| `docs/exec-plans/index.md`             | Execution plans index: active and completed plans, format, and completion workflow    |
+| `docs/exec-plans/active/`              | Active execution plans (in-progress)                                                  |
+| `docs/exec-plans/completed/`           | Completed execution plans (archive)                                                   |
+| `docs/exec-plans/tech-debt-tracker.md` | Known tech debt, tracked continuously                                                 |
+| `docs/product-specs/index.md`          | Feature specs and product decisions                                                   |
+| `docs/references/index.md`             | External knowledge references — APIs, formats, procedures, workflows, domain concepts |
+| `docs/QUALITY_SCORE.md`                | Per-domain quality grades                                                             |
+| `docs/RELIABILITY.md`                  | Reliability and data integrity requirements                                           |
+| `docs/SECURITY.md`                     | Security model and requirements                                                       |
+| `docs/FRONTEND.md`                     | UI/renderer conventions (if applicable)                                               |
+| `docs/PLANS.md`                        | Current focus + backlog                                                               |
+| `docs/PRODUCT_SENSE.md`                | What the product is, user model, core values                                          |
 
-### External References: Describe External Resources, Not Internal Choices
+### External References: Describe External Knowledge, Not Internal Choices
 
-`docs/references/` holds specifications of **external** resources that the project interacts
-with — things that exist outside the project and have their own independent schemas,
-interfaces, and conventions. These documents describe the external resource as-is.
+`docs/references/` holds descriptions of **external** knowledge that the project depends on —
+library APIs, data formats, protocols, procedures, workflows, design patterns, and domain concepts.
+These documents describe the external thing as-is, independent of how the project consumes it.
 
-Reference files follow a strict boundary rule: **they describe the external resource and never
-reference internal project documents.** Internal docs (product specs, design docs, exec plans)
-may link to reference files, but not the other way around. This keeps references clean and
-reusable — they stay useful regardless of how the project's internal architecture evolves.
+Reference files follow a strict boundary rule: **they describe the external thing and never
+reference internal project documents.** Internal docs (product specs, design docs, exec plans) may
+link to reference files, but not the other way around. This keeps references clean and reusable —
+they stay useful regardless of how the project's internal architecture evolves.
 
 A reference file includes:
 
-- Structural descriptions of the external resource
-- Naming and organizational conventions used by the external resource
-- Observed value domains and patterns
-- Representative examples of the external data
+- Complete descriptions of the external thing — types, interfaces, fields, behaviors
+- Naming conventions, counterintuitive behavior, and mental models
+- Practical examples that show how the external thing works
+- Common pitfalls that a new reader would likely get wrong
 
 A reference file excludes:
 
 - Which parts the project uses or ignores (that's a consumer decision, not a property of the
-  external resource)
+  external thing)
 - How the project maps external values to internal concepts
-- Implementation guidance or workflow descriptions
+- Implementation guidance or project-specific workflow descriptions
 - Links to internal project documents
+- Source code dumps or internal file paths
 
 The references index (`docs/references/index.md`) lists each reference file. Unlike design
 docs and exec plans, reference files have no statuses and no active/completed lifecycle —
-they are living descriptions of external resources that evolve as those resources change.
+they are living descriptions that evolve as the external things they describe change.
 
 ## Workflow: Spec → Design → Plan → Execute → Close
 
-Complex changes flow through up to five stages. Each stage is a separate agent invocation.
-The first stage (`/draft-spec`) is optional — use it for new features; skip it when a spec
-already exists.
+Complex changes flow through up to five stages. Each stage is a separate agent invocation. The first
+stage (`/draft-spec`) is optional — use it for new features; skip it when a spec already exists.
 
 ```
 /draft-spec <feature>      →   product spec in docs/product-specs/          (optional — for new features)
@@ -199,8 +199,8 @@ Example:
 - **Phase 1** — Feature A: types → backend → bridge → UI for A
 - **Phase 2** — Feature B: types → backend → bridge → UI for B
 
-Plans are checked into the repository and updated as work progresses. The Progress Log in each
-plan serves as a decision and history record.
+Plans are checked into the repository and updated as work progresses. The Progress Log in each plan
+serves as a decision and history record.
 
 ### /exec-change — Execute One Phase
 
