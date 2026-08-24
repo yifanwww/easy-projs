@@ -17,7 +17,7 @@
     "directory": "configs/eslint-config"
   },
   "scripts": {
-    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,md,mjs,mts,scss,ts,tsx,yaml,yml}\""
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,md,mjs,mts,ts,tsx,yaml,yml}\""
   },
   "dependencies": {
     "@eslint/js": "catalog:",

@@ -21,7 +21,7 @@ projects/   — Standalone applications and internal tooling
 | [`@easy-config/eslint-config`](configs/eslint-config)       | Shared ESLint rule presets for TypeScript, React, and Jest                     |
 | [`@easy-config/global-types`](configs/global-types)         | Global TypeScript type declarations (e.g. asset module types)                  |
 | [`@easy-config/jest-config`](configs/jest-config)           | Jest configuration presets and a `unit-test` CLI for multiple environments     |
-| [`@easy-config/stylelint-config`](configs/stylelint-config) | Shared Stylelint rules for CSS/SCSS based on Sass guidelines                   |
+| [`@easy-config/stylelint-config`](configs/stylelint-config) | Shared Stylelint rules for CSS                                                 |
 | [`@easy-config/tsconfigs`](configs/tsconfigs)               | TypeScript `tsconfig` base files for browser, Node.js, React, and Vite targets |
 
 ## Packages (`@easy-lib/*`)

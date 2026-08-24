@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 import { isElement } from 'react-is';
 import type { PartialDeep } from 'type-fest';
 
-import css from './FormAppendableList.module.scss';
+import css from './FormAppendableList.module.css';
 
 export interface FormAppendableListItemProps extends Omit<FormListFieldData, 'key'> {}
 

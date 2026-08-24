@@ -24,13 +24,6 @@ export default defineConfig({
   preview: {
     port: 3000,
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        loadPaths: ['.'],
-      },
-    },
-  },
   test: {
     setupFiles: ['./src/test.setup.ts'],
 

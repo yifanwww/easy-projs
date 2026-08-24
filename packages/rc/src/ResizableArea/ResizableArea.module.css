@@ -1,0 +1,29 @@
+.resizable-area {
+  position: relative;
+  padding: 20px 10px 10px;
+  overflow: hidden;
+  border: 2px solid #cacaca;
+}
+
+.resizable-area::after {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  padding: 1px 4px;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 1px;
+  content: 'Resizable Area';
+  background-color: #cacaca;
+}
+
+.resizable-area-horizontal {
+  resize: horizontal;
+}
+
+.resizable-area-vertical {
+  resize: vertical;
+}

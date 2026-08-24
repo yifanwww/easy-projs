@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import css from './ResizableArea.module.scss';
+import css from './ResizableArea.module.css';
 
 interface ResizableAreaProps {
   className?: string;

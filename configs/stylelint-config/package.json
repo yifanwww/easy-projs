@@ -17,14 +17,12 @@
     "directory": "configs/stylelint-config"
   },
   "scripts": {
-    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,md,mjs,mts,scss,ts,tsx,yaml,yml}\""
+    "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,md,mjs,mts,ts,tsx,yaml,yml}\""
   },
   "dependencies": {
     "postcss": "catalog:",
     "stylelint-config-recess-order": "catalog:",
-    "stylelint-config-sass-guidelines": "catalog:",
     "stylelint-config-standard": "catalog:",
-    "stylelint-config-standard-scss": "catalog:",
     "stylelint-order": "catalog:"
   },
   "devDependencies": {

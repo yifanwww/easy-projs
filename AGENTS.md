@@ -27,7 +27,7 @@ configs/              Shared tooling configs (@easy-config/*)
   eslint-config/        ESLint rule presets for TS, React, Jest
   global-types/         Global TypeScript type declarations
   jest-config/          Jest presets + unit-test CLI
-  stylelint-config/     Stylelint rules for CSS/SCSS
+  stylelint-config/     Stylelint rules for CSS
   tsconfigs/            tsconfig base files for browser, Node, React, Vite
 packages/             Reusable libraries (@easy-lib/*)
   types/                Shared TypeScript type definitions
@@ -67,8 +67,6 @@ docs/                 Knowledge base (design docs, exec plans, specs)
   functionality in a new file rather than extending it, unless a strong documented reason says
   otherwise.
 - **Enforce mechanically where possible.** Prefer tests over documentation-only rules.
-- **Prefer `.css`** for styling by default. Use `.scss` only when leveraging SCSS features
-  (variables, mixins, nesting, `darken()`/`lighten()`)
 - **Prefer `interface` over `type`** for object shapes and contracts
   - Data structure interfaces: no prefix — `User`, `Config`
   - Class contract interfaces: prefix with `I` — `ILogger`, `IRepository`

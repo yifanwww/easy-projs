@@ -54,14 +54,14 @@ function getConfig(): Config {
       '^.+\\.css$': resolve('./transform.css.js'),
       '^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)': resolve('./transform.file.js'),
     },
-    transformIgnorePatterns: ['/node_modules/', '\\.pnp\\.[^\\/]+$', '^.+\\.module\\.(css|sass|scss)$'],
+    transformIgnorePatterns: ['/node_modules/', '\\.pnp\\.[^\\/]+$', '^.+\\.module\\.css$'],
 
     modulePaths: [],
     moduleNameMapper: {
       '^@rustresult/result$': '@rustresult/result/cjs',
 
       '^react-native$': 'react-native-web',
-      '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+      '^.+\\.module\\.css$': 'identity-obj-proxy',
       '^src/(.*)$': '<rootDir>/src/$1',
       // Pure ESM packages needs this, to make the relative import works with TypeScript source files
       '^(.*)\\.js$': ['$1.js', '$1.ts'],

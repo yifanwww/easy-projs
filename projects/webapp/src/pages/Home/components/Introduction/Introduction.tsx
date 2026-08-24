@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import { LOGO_SVG } from 'src/assets';
 import { RoutePath } from 'src/router/path';
 
-import css from './Introduction.module.scss';
+import css from './Introduction.module.css';
 
 export function Introduction() {
   return (
