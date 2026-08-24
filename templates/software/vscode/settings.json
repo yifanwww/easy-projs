@@ -5,15 +5,14 @@
 
   "chat.agent.maxRequests": 100,
   "chat.disableAIFeatures": true,
+  "chat.notifyWindowOnConfirmation": "always",
+  "chat.notifyWindowOnResponseReceived": "always",
   "chat.tools.urls.autoApprove": {
     "https://code.visualstudio.com": true,
     "https://github.com/microsoft/vscode/wiki/*": true,
     "https://electron-vite.org": true,
     "https://orm.drizzle.team": true,
-    "https://ant.design": {
-      "approveRequest": true,
-      "approveResponse": false
-    }
+    "https://ant.design": true
   },
   "chat.tools.terminal.autoApprove": {
     "pnpm": true,
@@ -30,7 +29,7 @@
   "editor.detectIndentation": false,
   "editor.fontFamily": "Fira code, Source Han Sans SC, MesloLGM NF",
   "editor.fontLigatures": true,
-  "editor.fontSize": 15,
+  "editor.fontSize": 16,
   "editor.fontWeight": "500",
   "editor.insertSpaces": true,
   "editor.lineNumbers": "on",
@@ -300,6 +299,9 @@
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[instructions]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -323,6 +325,9 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[skill]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -331,9 +336,7 @@
   },
   "[yaml]": {
     "editor.autoIndent": "advanced",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // ------------------------------------------------------ Extension Settings
