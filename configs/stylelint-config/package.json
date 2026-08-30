@@ -21,9 +21,7 @@
   },
   "dependencies": {
     "postcss": "catalog:",
-    "stylelint-config-recess-order": "catalog:",
-    "stylelint-config-standard": "catalog:",
-    "stylelint-order": "catalog:"
+    "stylelint-config-standard": "catalog:"
   },
   "devDependencies": {
     "@typescript/native": "catalog:",

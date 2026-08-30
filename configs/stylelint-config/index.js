@@ -1,5 +1,5 @@
 export default {
-  extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
+  extends: ['stylelint-config-standard'],
   rules: {
     // https://stylelint.io/user-guide/rules/max-nesting-depth/
     'max-nesting-depth': null,
@@ -18,8 +18,5 @@ export default {
         ignorePseudoClasses: ['global'],
       },
     ],
-
-    // https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-alphabetical-order/README.md
-    'order/properties-alphabetical-order': null,
   },
 };

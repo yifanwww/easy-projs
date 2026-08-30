@@ -192,15 +192,9 @@ catalogs:
     stylelint:
       specifier: ^17.14.1
       version: 17.14.1
-    stylelint-config-recess-order:
-      specifier: ^7.7.0
-      version: 7.7.0
     stylelint-config-standard:
       specifier: ^40.0.0
       version: 40.0.0
-    stylelint-order:
-      specifier: ^8.1.1
-      version: 8.1.1
     type-fest:
       specifier: ^5.8.0
       version: 5.8.0
@@ -388,15 +382,9 @@ importers:
       postcss:
         specifier: 'catalog:'
         version: 8.5.25
-      stylelint-config-recess-order:
-        specifier: 'catalog:'
-        version: 7.7.0(stylelint-order@8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)))(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
       stylelint-config-standard:
         specifier: 'catalog:'
         version: 40.0.0(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
-      stylelint-order:
-        specifier: 'catalog:'
-        version: 8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
     devDependencies:
       '@typescript/native':
         specifier: 'catalog:'
@@ -5053,11 +5041,6 @@ packages:
     resolution: {integrity: sha512-HeP7D2wyhkR+XaK6v4W8oRF62Dsz4flyuczALJp61GckGm42u1saSSJ/0auvcBqxs3jMRFEcPK34At/0JBKdOg==}
     engines: {node: '>=4'}
 
-  postcss-sorting@10.0.0:
-    resolution: {integrity: sha512-TXbU+h6vVRW+86c/+ewhWq9k7pr7ijASTnepVhCQiC87zAOTkvB1v2dHyWP+ggstSTX/PNvjzS+IOqzejndz9w==}
-    peerDependencies:
-      postcss: ^8.4.20
-
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
@@ -5544,12 +5527,6 @@ packages:
     resolution: {integrity: sha512-ki4hZQfh5rX0QDLLkOCj+h+CVNkqmp/CMf8v8kZpkNVK6jGQooMytqzLZYUVYIZcFZ6yDB70EfD8POcFXiF5oA==}
     engines: {node: '>=18'}
 
-  stylelint-config-recess-order@7.7.0:
-    resolution: {integrity: sha512-TWRkg+BrwHOki4pi9y1emWgx6pFwZXOYZhNsbEObke/mzYUJVJvDEzJJQXhH7ajslQJGcrExy8ZvJqDiUbhFpA==}
-    peerDependencies:
-      stylelint: ^16.18.0 || ^17.0.0
-      stylelint-order: ^7.0.0 || ^8.0.0
-
   stylelint-config-recommended@18.0.0:
     resolution: {integrity: sha512-mxgT2XY6YZ3HWWe3Di8umG6aBmWmHTblTgu/f10rqFXnyWxjKWwNdjSWkgkwCtxIKnqjSJzvFmPT5yabVIRxZg==}
     engines: {node: '>=20.19.0'}
@@ -5561,12 +5538,6 @@ packages:
     engines: {node: '>=20.19.0'}
     peerDependencies:
       stylelint: ^17.0.0
-
-  stylelint-order@8.1.1:
-    resolution: {integrity: sha512-LqsEB6VggJuu5v10RtkrQsBObcdwBE7GuAOlwfc/LR3VL/w8UqKX2BOLIjhyGt0Gne/njo7gRNGiJAKhfmPMNw==}
-    engines: {node: '>=20.19.0'}
-    peerDependencies:
-      stylelint: ^16.18.0 || ^17.0.0
 
   stylelint@17.14.1:
     resolution: {integrity: sha512-xVQwyiuxALUBNB2fBe0tmNemg9KqLtdj3T64mioFDar79B2cU8LIyz+3KL6LdiHs9NkeNfwxpKSaIVOY8f112g==}
@@ -10367,10 +10338,6 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-sorting@10.0.0(postcss@8.5.25):
-    dependencies:
-      postcss: 8.5.25
-
   postcss-value-parser@4.2.0: {}
 
   postcss@8.5.25:
@@ -10953,11 +10920,6 @@ snapshots:
     dependencies:
       '@tokenizer/token': 0.3.0
 
-  stylelint-config-recess-order@7.7.0(stylelint-order@8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)))(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)):
-    dependencies:
-      stylelint: 17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)
-      stylelint-order: 8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
-
   stylelint-config-recommended@18.0.0(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)):
     dependencies:
       stylelint: 17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)
@@ -10966,12 +10928,6 @@ snapshots:
     dependencies:
       stylelint: 17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)
       stylelint-config-recommended: 18.0.0(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2))
-
-  stylelint-order@8.1.1(stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)):
-    dependencies:
-      postcss: 8.5.25
-      postcss-sorting: 10.0.0(postcss@8.5.25)
-      stylelint: 17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2)
 
   stylelint@17.14.1(@typescript/typescript6@6.0.2)(supports-color@10.2.2):
     dependencies:
