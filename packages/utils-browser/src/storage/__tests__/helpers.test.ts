@@ -1,10 +1,11 @@
-import { mockStorage } from '@easy-lib/utils-test';
-import { describe, expect, it } from '@jest/globals';
+import { afterEach, describe, expect, it } from '@jest/globals';
 import { createStorageLoader, createStorageRemover, createStorageSaver } from '../helpers.js';
 import type { StorageKey } from '../types.js';
 
-mockStorage(window.localStorage);
-mockStorage(window.sessionStorage);
+afterEach(() => {
+  window.localStorage.clear();
+  window.sessionStorage.clear();
+});
 
 describe(`Test fn \`${createStorageLoader.name}\``, () => {
   function expectLoad1(storage: Storage) {
