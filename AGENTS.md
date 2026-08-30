@@ -5,6 +5,16 @@
 A personal monorepo of reusable code patterns, shared configurations, and utility libraries.
 Managed with pnpm workspaces. TypeScript throughout.
 
+## Key Operating Principles
+
+- **Avoid large modules.** When a non-test file exceeds roughly 1,000 lines of code, add new
+  functionality in a new file rather than extending it, unless a strong documented reason says
+  otherwise.
+- **Enforce mechanically where possible.** Prefer tests over documentation-only rules.
+- **Prefer `interface` over `type`** for object shapes and contracts
+  - Data structure interfaces: no prefix — `User`, `Config`
+  - Class contract interfaces: prefix with `I` — `ILogger`, `IRepository`
+
 ## Development Commands
 
 ```sh
@@ -60,16 +70,6 @@ docs/                 Knowledge base (design docs, exec plans, specs)
 | --------------------- | ------------------------------------ |
 | `README.md`           | Project overview and package catalog |
 | `pnpm-workspace.yaml` | Workspace package definitions        |
-
-## Key Operating Principles
-
-- **Avoid large modules.** When a non-test file exceeds roughly 1,000 lines of code, add new
-  functionality in a new file rather than extending it, unless a strong documented reason says
-  otherwise.
-- **Enforce mechanically where possible.** Prefer tests over documentation-only rules.
-- **Prefer `interface` over `type`** for object shapes and contracts
-  - Data structure interfaces: no prefix — `User`, `Config`
-  - Class contract interfaces: prefix with `I` — `ILogger`, `IRepository`
 
 ## Practical Notes
 
