@@ -97,6 +97,26 @@ rather than chrome.
 - Pair `type="text"` with `size="small"` inside table cells for a compact look.
 - Add the `danger` prop on destructive actions (delete, remove).
 
+## 3b. Button — Icon-Only Mode
+
+When a button should display only an icon (no text), pass the icon via the `icon` prop and leave
+the children empty. **Do not** put the icon as a child element — that is not icon-only mode.
+
+```tsx
+// ✅ Correct — icon-only mode via `icon` prop
+<Button type="text" size="small" danger icon={<DeleteOutlined />} onClick={handleDelete} />
+
+// ❌ Wrong — icon as child is NOT icon-only mode (has different padding/layout)
+<Button type="text" size="small" danger onClick={handleDelete}>
+  <DeleteOutlined />
+</Button>
+```
+
+**Why:** The `icon` prop triggers antd's built-in icon-only rendering, which automatically applies
+appropriate padding, aspect ratio, and accessibility attributes (`aria-label` support). Placing the
+icon as a child renders it as a text button with an icon glyph, which has different spacing and does
+not get the icon-only treatment.
+
 ## 4. Modal Components — ref Pattern
 
 Prefer **ref-based modals** over state-driven visibility props when the modal is opened
@@ -130,9 +150,7 @@ export const ExampleModal = forwardRef<ExampleModalRef, ExampleModalProps>((prop
         setIsOpen(true);
       },
     }),
-    [
-      /* deps */
-    ],
+    [/* deps */],
   );
 
   return (
@@ -200,6 +218,7 @@ to `"onChange"` on a specific `<Form.Item>` when real-time validation feedback i
 - [ ] Inline CRUD buttons use `type="text"` (table cells, list items)
 - [ ] Page-level standalone buttons use `type="primary"` or default
 - [ ] Destructive text buttons have the `danger` prop
+- [ ] Icon-only buttons use `icon={<Icon />}` prop (not icon as child)
 - [ ] Modal uses `forwardRef` + `useImperativeHandle`
 - [ ] Ref type exported alongside the component
 - [ ] Props type kept unexported (private to the file)
