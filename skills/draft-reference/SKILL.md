@@ -1,9 +1,9 @@
 ---
 name: draft-reference
 description: >-
-  Create or update a reference doc for any external information — library APIs,
-  data formats, protocols, procedures, workflows, design patterns, or domain logic. Use when the
-  user asks to document how something external works, or says things like "document this API",
+  Create or update a reference doc for any external information — library APIs, data formats,
+  protocols, procedures, workflows, design patterns, or domain logic. Use when the user asks to
+  document how something external works, or says things like "document this API",
   "create a reference for", "we need to capture how this works". Reference docs are self-contained
   and describe the external resource as-is — no project-internal concepts, no source code dumps.
 ---
@@ -30,7 +30,7 @@ A reference doc must be:
 - **No source code dumps** — don't paste minified or raw source code. Describe behavior in plain
   English. Use code blocks only for type definitions, API signatures, and short examples.
 - **No project-internal concepts** — never mention internal types, files, components, or
-  implementation decisions. Internal docs (design docs, exec plans) reference the reference, not the
+  implementation decisions. Internal planning and design docs reference the reference, not the
   other way around.
 - **Human-friendly** — write for a developer who has never seen the external thing before. Explain
   counterintuitive behavior, define all terms, include practical examples.
@@ -75,7 +75,7 @@ For data formats (CSV, JSON schemas, protocols):
 
 - Examine real samples of the data.
 - Document every field, type, and convention observed.
-- Note any inconsistencies across samples (e.g., different columns for different markets).
+- Note any inconsistencies across samples
 
 ### 4. Structure the Reference
 
@@ -136,11 +136,11 @@ Use a short, descriptive, lowercase-hyphenated name.
 ### 6. Update the References Index
 
 Open the index file in the references directory (typically `index.md`) and add a row for the new
-file in the Active References table. Update the description if modifying an existing entry.
+file in the references table. Update the description if modifying an existing entry.
 
 ### 7. Link from Related Docs
 
-If the reference replaces inline documentation in an **active** design doc or exec plan, update
+If the reference replaces inline documentation in an active planning or design document, update
 those docs to link to the reference instead of duplicating the content. Use relative links
 from the referencing document to the reference file.
 
@@ -152,4 +152,4 @@ After creating or updating the file:
 
 1. Show the user the file path and a brief summary of what the reference covers
 2. Highlight any counterintuitive behavior or common pitfalls discovered
-3. Note if any existing design docs or exec plans should be updated to link to the new reference
+3. Note if any existing planning or design documents should be updated to link to the new reference
