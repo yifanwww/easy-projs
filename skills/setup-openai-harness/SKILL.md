@@ -12,8 +12,6 @@ Set up OpenAI harness engineering infrastructure in the current project:
 1. Create the `docs/` knowledge base (AGENTS.md, ARCHITECTURE.md, and supporting docs)
 2. Create the five workflow skills: `/draft-spec`, `/design-change`, `/plan-change`, `/exec-change`,
    `/close-change`
-3. Create the `/draft-reference` skill for documenting external knowledge — APIs, data formats,
-   protocols, procedures, workflows, design patterns, domain concepts
 
 Run this once in a new project. It adapts everything to the project's actual tech stack and
 structure.
@@ -31,10 +29,6 @@ Templates for the five workflow skills:
 - [templates/plan-change.md](./templates/plan-change.md)
 - [templates/exec-change.md](./templates/exec-change.md)
 - [templates/close-change.md](./templates/close-change.md)
-
-Template for the reference skill:
-
-- [templates/draft-reference.md](./templates/draft-reference.md)
 
 Templates to copy into `docs/`:
 

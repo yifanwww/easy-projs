@@ -209,12 +209,6 @@ Create these files under `.agents/skills/`:
 .agents/skills/close-change/SKILL.md
 ```
 
-**Standalone skills** (available anytime, independent of the pipeline):
-
-```
-.agents/skills/draft-reference/SKILL.md
-```
-
 Templates are in `templates/` next to this file:
 
 - [templates/draft-spec.md](./templates/draft-spec.md)
@@ -222,7 +216,6 @@ Templates are in `templates/` next to this file:
 - [templates/plan-change.md](./templates/plan-change.md)
 - [templates/exec-change.md](./templates/exec-change.md)
 - [templates/close-change.md](./templates/close-change.md)
-- [templates/draft-reference.md](./templates/draft-reference.md)
 
 Read each template and create the corresponding `SKILL.md`, substituting these placeholders in
 `exec-change`:
@@ -240,13 +233,10 @@ After completing setup, show the user:
 1. A list of all files created (docs + skills)
 2. The workflow slash commands now available:
    > `/draft-spec`, `/design-change`, `/plan-change`, `/exec-change`, `/close-change`
-3. The standalone slash commands now available:
-   > `/draft-reference` — available anytime to document external knowledge (APIs, data formats,
-   > protocols, procedures, workflows, design patterns, domain concepts)
-4. The workflow summary:
+3. The workflow summary:
    > `/draft-spec <feature>` (optional) → `/design-change <feature>` → design doc → `/plan-change`
    > (if complex) → `/exec-change` (one phase at a time) → `/close-change` (archive when done)
-5. Any files that were skipped because they already existed
+4. Any files that were skipped because they already existed
 
 ## Notes
 

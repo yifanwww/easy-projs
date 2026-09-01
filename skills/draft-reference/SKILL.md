@@ -1,7 +1,7 @@
 ---
 name: draft-reference
 description: >-
-  Create or update a reference doc in docs/references/ for any external information — library APIs,
+  Create or update a reference doc for any external information — library APIs,
   data formats, protocols, procedures, workflows, design patterns, or domain logic. Use when the
   user asks to document how something external works, or says things like "document this API",
   "create a reference for", "we need to capture how this works". Reference docs are self-contained
@@ -10,9 +10,10 @@ description: >-
 
 # /draft-reference — Create or Update a Reference Doc
 
-Draft a reference document in `docs/references/`, or update an existing one. A reference describes
-**external** information — a library API, data format, protocol, service, procedure, workflow,
-design pattern, or domain concept — as-is, independent of how the project consumes it.
+Draft a reference document in the project's references directory, or update an existing one. A
+reference describes **external** information — a library API, data format, protocol, service,
+procedure, workflow, design pattern, or domain concept — as-is, independent of how the project
+consumes it.
 
 Reference docs are the single source of truth for "how does this external thing work?" They save
 future readers from digging through source code, minified bundles, or third-party docs that may be
@@ -36,17 +37,30 @@ A reference doc must be:
 
 ## Procedure
 
-### 1. Determine: New or Update?
+### 1. Find the References Directory
 
-Read the user's description and check `docs/references/` for an existing reference that matches.
+Locate where reference docs live in this project. Common locations:
 
-- **New reference** — no existing reference covers this external resource. Proceed to step 2.
+- `docs/references/`
+- `docs/external/`
+- `references/`
+
+Search for a directory that contains reference-style documents (self-contained descriptions of
+external resources) and an index file. If found, use that directory. If not found or ambiguous,
+ask the user: "Where should reference docs be stored?" and use the answer as the references
+directory for the rest of this procedure.
+
+### 2. Determine: New or Update?
+
+Read the user's description and check the references directory for an existing reference that matches.
+
+- **New reference** — no existing reference covers this external resource. Proceed to step 3.
 - **Update existing** — an existing reference covers this resource. Read it in full, identify
-  what's missing or outdated, then proceed to step 3.
+  what's missing or outdated, then proceed to step 4.
 
 If ambiguous, ask: "Did you mean updating the existing `<name>` reference, or creating a new one?"
 
-### 2. Research the External Resource
+### 3. Research the External Resource
 
 Gather information about the external resource. Sources include:
 
@@ -63,7 +77,7 @@ For data formats (CSV, JSON schemas, protocols):
 - Document every field, type, and convention observed.
 - Note any inconsistencies across samples (e.g., different columns for different markets).
 
-### 3. Structure the Reference
+### 4. Structure the Reference
 
 Adapt the structure to the resource type. Common patterns:
 
@@ -93,13 +107,15 @@ Adapt the structure to the resource type. Common patterns:
 
 Don't force sections that don't fit. Omit what doesn't apply.
 
-### 4. Write the Reference
+### 5. Write the Reference
 
 Create the file at:
 
 ```
-docs/references/<resource-name>.md
+<references-dir>/<resource-name>.md
 ```
+
+where `<references-dir>` is the directory found in step 1.
 
 Use a short, descriptive, lowercase-hyphenated name.
 
@@ -117,23 +133,20 @@ Use a short, descriptive, lowercase-hyphenated name.
   that restate what the prose already explains.
 - End with Common Pitfalls — things a new reader would likely get wrong.
 
-### 5. Update the References Index
+### 6. Update the References Index
 
-Open `docs/references/index.md` and add a row for the new file in the Active References table.
-Update the description if modifying an existing entry.
+Open the index file in the references directory (typically `index.md`) and add a row for the new
+file in the Active References table. Update the description if modifying an existing entry.
 
-### 6. Link from Related Docs
+### 7. Link from Related Docs
 
 If the reference replaces inline documentation in an **active** design doc or exec plan, update
-those docs to link to the reference instead of duplicating the content. Use relative links:
-
-```markdown
-See [resource-name.md](../../references/resource-name.md) for the full API reference.
-```
+those docs to link to the reference instead of duplicating the content. Use relative links
+from the referencing document to the reference file.
 
 Do not modify completed/archived documents — they are historical records.
 
-### 7. Present
+### 8. Present
 
 After creating or updating the file:
 
