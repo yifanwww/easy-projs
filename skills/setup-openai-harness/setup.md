@@ -64,7 +64,6 @@ with meaningful content.
 | `docs/FRONTEND.md`                     | UI/renderer conventions (skip if no frontend)                                                                |
 | `docs/DESIGN.md`                       | Visual/component design conventions (skip if no UI)                                                          |
 | `docs/DOCUMENTATION_CONVENTIONS.md`    | Documentation formatting rules: when to use Mermaid, diagram type selection                                  |
-| `docs/PLANS.md`                        | Current focus + backlog                                                                                      |
 | `docs/PRODUCT_SENSE.md`                | What the product is, user model, core values                                                                 |
 | `docs/QUALITY_SCORE.md`                | Per-domain quality grades                                                                                    |
 | `docs/RELIABILITY.md`                  | Data integrity, startup, error handling requirements                                                         |
@@ -79,9 +78,6 @@ with meaningful content.
   boundaries, data ownership, etc.)
 - Omit frontend/UI docs for backend-only or CLI projects
 - Add domain-specific docs as needed (e.g. `docs/DATABASE.md` for data-heavy projects)
-- `docs/PLANS.md` tracks current focus and backlog only — it must NOT list completed plans;
-  `docs/exec-plans/index.md` is the single source of truth for active and completed plans; having
-  both track completions guarantees drift
 - `docs/design-docs/index.md` must include a Statuses table listing the valid statuses for design
   docs: `Draft`, `Accepted`, `Implemented`, `Superseded`
 - `docs/exec-plans/index.md` must include a Statuses table listing the valid statuses for exec

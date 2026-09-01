@@ -103,7 +103,6 @@ verifiable.
 | `docs/RELIABILITY.md`                  | Reliability and data integrity requirements                                           |
 | `docs/SECURITY.md`                     | Security model and requirements                                                       |
 | `docs/FRONTEND.md`                     | UI/renderer conventions (if applicable)                                               |
-| `docs/PLANS.md`                        | Current focus + backlog                                                               |
 | `docs/PRODUCT_SENSE.md`                | What the product is, user model, core values                                          |
 
 ### External References: Describe External Knowledge, Not Internal Choices
