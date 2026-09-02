@@ -29,7 +29,7 @@ Skip diagrams when the content is better served by simpler formats:
 
 | Content                                          | Better as                                   |
 | ------------------------------------------------ | ------------------------------------------- |
-| Simple linear sequence (≤3 steps)                | Numbered list                               |
+| Simple linear sequence (<=3 steps)               | Numbered list                               |
 | Tabular reference data for lookup                | Markdown table                              |
 | Design rationale, trade-off analysis, motivation | Prose — these are arguments, not structures |
 | Code snippets, API signatures, type definitions  | Fenced code blocks                          |

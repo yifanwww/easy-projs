@@ -107,7 +107,7 @@ for (const file of files) {
           console.log(`\n📄 ${rel}`);
           fileHasLong = true;
         }
-        const trimmed = line.length > 200 ? line.slice(0, 200) + '…' : line;
+        const trimmed = line.length > 200 ? line.slice(0, 200) + '...' : line;
         console.log(`   L${i + 1}: ${line.length} chars | ${trimmed}`);
       }
       totalLongLines++;
