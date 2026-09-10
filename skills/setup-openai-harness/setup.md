@@ -162,11 +162,34 @@ The index also includes an introductory section explaining:
 ### AGENTS.md Requirements
 
 - Keep it to ~100 lines — it's a table of contents, not an encyclopedia
-- Include: what the project is, dev commands table, repository layout, key docs table
-- Every important doc in `docs/` should have a row in the key docs table — each row must link to
-  an **exact file path**, never a folder path; agents need to know exactly what to read
+- Include: what the project is, dev commands table, repository layout, key documents table
 - **Do NOT mention any skills** - AGENTS.md is a table of contents for docs and conventions, not a
   skill registry
+
+#### Key Documents Table
+
+The key documents table in AGENTS.md has two columns: **File** and **When to read**. Include a row
+for every file listed below. Adapt the trigger phrasing to the project, but keep entries
+action-oriented — describe the situation that should prompt reading, not the contents.
+
+| File                                   | When to read                                                                 |
+| -------------------------------------- | ---------------------------------------------------------------------------- |
+| `ARCHITECTURE.md`                      | Before changes that touch process boundaries, dependency rules, or the build |
+| `docs/design-docs/core-beliefs.md`     | Before making any architectural or design choice                             |
+| `docs/design-docs/index.md`            | Before starting a design doc — check for existing or related work            |
+| `docs/exec-plans/index.md`             | Before starting or resuming execution work — check active plans              |
+| `docs/exec-plans/tech-debt-tracker.md` | Before starting work — check for related debt; after work — record new debt  |
+| `docs/product-specs/index.md`          | Before building a feature — check for existing specs                         |
+| `docs/references/index.md`             | When working with external APIs, formats, protocols, or domain concepts      |
+| `docs/DOCUMENTATION_CONVENTIONS.md`    | Before writing or editing any doc in `docs/`                                 |
+| `docs/PRODUCT_SENSE.md`                | Before building user-facing features — understand the product and users      |
+| `docs/QUALITY_SCORE.md`                | When evaluating or improving quality in a specific domain                    |
+| `docs/RELIABILITY.md`                  | Before changing error handling, data integrity, or startup logic             |
+| `docs/SECURITY.md`                     | Before changing auth, permissions, or data access                            |
+| `docs/FRONTEND.md`                     | Before making UI/renderer changes (omit if no frontend)                      |
+| `docs/DESIGN.md`                       | Before making visual or component design changes (omit if no UI)             |
+
+Rows for `FRONTEND.md` and `DESIGN.md` should be omitted for backend-only or CLI projects.
 
 #### Classifying Commands: Agent-Safe vs Human-Only
 
