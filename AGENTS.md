@@ -64,13 +64,6 @@ templates/            Project templates (server, software)
 docs/                 Knowledge base (design docs, exec plans, specs)
 ```
 
-## Key Documents
-
-| Document              | Purpose                              |
-| --------------------- | ------------------------------------ |
-| `README.md`           | Project overview and package catalog |
-| `pnpm-workspace.yaml` | Workspace package definitions        |
-
 ## Practical Notes
 
 - Commit messages follow Conventional Commits: `<type>(<scope>): <description>`, See
