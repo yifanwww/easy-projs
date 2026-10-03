@@ -66,5 +66,6 @@ docs/                 Knowledge base (design docs, exec plans, specs)
 
 ## Practical Notes
 
-- Commit messages follow Conventional Commits: `<type>(<scope>): <description>`, See
-  `git log --oneline` for examples
+- Use Conventional Commits: `<type>(<scope>): <description>`, See `git log --oneline` for examples
+  - `docs(skills): ...` when only skill changes
+  - `docs(agents): ...` when only AGENTS.md changes
