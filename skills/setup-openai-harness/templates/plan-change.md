@@ -40,16 +40,24 @@ what constraints apply, what risks exist.
 
 ### 4. Divide into Phases
 
-Group work into sequential phases where each phase is independently completable and leaves the
+Group the work into sequential phases where each phase is independently completable and leaves the
 codebase in a valid state.
 
-Group changes by independent function/feature — each phase contains the full stack (types →
-backend → bridge → frontend) for one function. This keeps each phase end-to-end testable.
+**Order phases by the natural dependency sequence of subtasks**, not by code layer. Each phase
+represents one logical step in the overall plan — the kind of step you'd describe in a sentence:
+"first we set up the data model, then we build the core logic, then we wire up the UI."
 
-Example:
+Each phase should cut across whatever code layers it needs to complete that step. Don't split a
+single step across phases just because it touches multiple layers — keep all the pieces of one
+logical step together.
 
-- **Phase 1** — Function A: types → backend → bridge → UI for A
-- **Phase 2** — Function B: types → backend → bridge → UI for B
+Think about what order a developer would naturally do the work in, where each step builds on the
+previous one. The right phases depend on the project and the task.
+
+**Document updates are free to go in any phase.** Put each doc change (harness, architecture, etc.)
+in the same phase as the change it describes, so the docs stay truthful at every phase boundary.
+Do not force a trailing docs-only phase — add one only if something still needs consolidating
+after the implementation is done.
 
 ### 5. Write the Plan File
 
