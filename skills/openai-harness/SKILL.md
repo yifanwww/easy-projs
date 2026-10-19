@@ -56,8 +56,9 @@ Respect the requested workflow stages and review points. Follow the detailed sta
 - Prefer mechanical checks for important, objectively testable constraints. Use the engineering
   guidance during harness setup or when a demonstrated failure requires improving the harness.
   Infrastructure changes and recurring automation still follow the user's authorized scope.
-- Run validation appropriate to the actual change. Markdown-only changes need formatting and
-  link checks; application changes use the project's applicable tests and build checks.
+- Run validation appropriate to the actual change, using the repository's testing guide or
+  equivalent and current configuration. Markdown-only changes need formatting and link checks;
+  application changes use the project's applicable tests and build checks.
 - Completion of implementation, documentation close-out, review, and merge are separate facts.
   Record each accurately. This skill does not authorize commits, pushes, releases, merges,
   messages, or other external actions.

@@ -18,8 +18,9 @@ when needed. Do not infer that an unrelated Active plan should be resumed just b
 | Close/archive a change                | Verify completion and reconcile documentation/statuses/links; archive eligible records                                        |
 
 Respect requested stage boundaries. Drafting a spec does not authorize implementing it. Creating
-an execution plan for a design records that design as `Accepted`; it does not grant implementation
-authority. Resolve material design decisions before creating the plan.
+an execution plan records a design that meets the [readiness criteria](#design-readiness) as
+`Accepted`; it does not grant implementation authority. Resolve material design decisions and
+feasibility questions before creating the plan.
 Ask a focused question only when an unresolved decision materially changes the requested outcome.
 
 Read [documentation guidance](documentation.md) for the artifacts being written. Use repository
@@ -48,6 +49,20 @@ entry in the active index using the user's preferred reference format or the exi
 (plain or backticked path, or clickable relative link). Reuse an existing matching design when
 updating it. Keep the creation date stable.
 
+### Design readiness
+
+Before acceptance, resolve feasibility questions whose answers could invalidate the chosen approach
+or materially change its behavior, contracts, or ownership. Use evidence appropriate to the
+uncertainty: source inspection, authoritative documentation, or a bounded prototype or experiment.
+Runtime experiments are not mandatory when existing evidence establishes the required behavior.
+Record the resulting constraints, rationale, and meaningful evidence limits in the design.
+
+Keep the design Draft while a blocking feasibility question remains. Tests of the finished
+implementation and native acceptance checks can remain pending; they verify delivery of the agreed
+solution. A request for an execution plan does not establish feasibility or turn an unresolved
+design into an accepted one. Resolve prerequisites within the authorized scope, or report the
+specific design gap without creating an executable plan that depends on a feasibility phase.
+
 ## Plan when requested
 
 Every execution plan must reference an existing design doc in its **Design Doc** field. Use a plain
@@ -58,14 +73,18 @@ If none exists, establish the design before writing the execution plan; do not o
 reference a nonexistent placeholder. Keep that prerequisite within the authorized task scope and
 resolve material design questions before planning. Link any related spec rather than copying it.
 
-When creating the execution plan, mark its associated Draft design `Accepted`, update the design's
-Last Updated date, and set its design-index entry to the same status. Plan creation records the
-design as settled and ready to implement. Keep an already Accepted or Implemented design's status;
-do not downgrade it. Creating only a design doc leaves it Draft.
+Use the accepted design as the implementation baseline. When creating the execution plan, confirm
+the design meets the readiness criteria above, then mark an associated Draft design `Accepted`,
+update its Last Updated date, and set its design-index entry to the same status. Keep an already
+Accepted or Implemented design's status when its baseline remains valid; an existing status alone
+does not resolve a demonstrated feasibility gap. Creating only a design doc leaves it Draft.
 
 Group work into phases that deliver coherent behavior and preserve a valid codebase. For changes
 across process boundaries, prefer an end-to-end capability increment over separate type/backend/UI
-phases. Write concrete steps, meaningful validation, dependencies, and known uncertainties.
+phases. Write concrete development and testing steps, meaningful validation, dependencies, and
+completion conditions. Validation phases establish that the implemented solution follows the
+accepted design and meets acceptance criteria. Resolve questions about whether the chosen approach
+is viable during design rather than scheduling them as execution prerequisites.
 
 Write steps around outcomes, important constraints, and completion conditions. Inspect affected
 source before planning, but include source references only when they resolve execution or review
@@ -108,11 +127,21 @@ changes it; required review boundaries and unresolved blockers still apply.
    command list.
 3. Run appropriate checks at meaningful milestones. Resolve failures within the authorized scope;
    record unrelated failures or missing external evidence without claiming they passed.
-4. Update completed checkboxes, significant decisions, dated progress, and Last Updated. Mark only
-   work supported by the actual result as complete.
+4. Update checkboxes and Last Updated, marking only work supported by the actual result as complete.
+   Record significant decisions and rationale in Decisions. Keep dated Progress Log entries newest
+   first and focused on validation results, deviations, findings, blockers, and partial progress
+   needed to resume. Reference phase or step numbers; omit implementation summaries and next-step
+   reminders already captured by the checklist. Follow the
+   [evidence guidance](documentation.md#evidence-and-maintenance).
 5. Reconcile affected current docs with the implemented behavior within the phase that changes it.
 6. Report completed work and validation results. For a plan, identify the next incomplete phase if
    any. Continue or stop according to the selected execution scope.
+
+If unexpected evidence during implementation invalidates a design decision, stop dependent work
+and record the finding and blocker. Revise the affected design decision and dependent plan steps
+within the authorized scope, or report the specific decision needed. Resume dependent execution
+once the revised design is settled. This exception does not justify planning unresolved design
+feasibility work as an execution phase.
 
 Keep a plan Active while executable phases remain; completing one phase does not complete the
 plan. Use Blocked only for a real obstacle preventing progress, and explain what is needed.
@@ -147,7 +176,8 @@ Once eligible, perform the local bookkeeping directly:
    them into their corresponding `completed/` directories.
 2. Update active/completed indexes with accurate document references and completion dates. Follow
    the user's preference or existing index style for plain paths or clickable relative links. Keep
-   file creation dates in filenames and preserve decision/progress history.
+   file creation dates in filenames and preserve decision/progress history. If the active design-doc
+   or execution-plan table becomes empty, keep its heading, header, and separator row.
 3. Repair the plan's **Design Doc** reference and all affected inbound/outbound links and path
    references, including references between two moved files. Search both Markdown links and plain
    path references.

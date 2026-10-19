@@ -72,6 +72,31 @@ add observability services, launch restricted development commands, or alter pro
 merely because those capabilities might help. If a requested improvement needs unavailable access
 or an external system, explain the specific missing capability and continue independent work.
 
+## Document testing practice
+
+For requested testing documentation or harness setup, use `docs/TESTING.md` or an existing
+equivalent when testing practice needs a dedicated home. Inspect test discovery/configuration,
+representative tests and fixtures, scripts, hooks and CI before describing current guarantees.
+Adapt the guide to the repository; do not copy a particular project's runners or restrictions.
+
+Cover the decisions contributors need to make:
+
+- Where tests belong, which environment runs them and the filename patterns that select them.
+- Full and focused validation commands, their prerequisites and side effects, and which checks
+  apply to application, documentation or other relevant changes.
+- Repository-specific conventions for observable assertions, controlled asynchronous ordering,
+  fixture isolation and cleanup, supported by representative existing tests.
+- What static checks, mocks, component tests, browser/native fixtures and builds actually prove;
+  distinguish configured local checks from checks enforced by hooks or CI.
+- Remaining human checks, with a reproducible procedure and observable outcomes, where automation
+  cannot establish the affected behavior. Preserve the repository's command authorization rules.
+
+Keep current practice distinct from proposed coverage improvements and dated run results. Reuse
+existing checks and test seams; writing a testing guide does not authorize installing tools,
+adding test infrastructure or changing CI. Use the
+[documentation ownership guidance](documentation.md#choose-the-owner) to consolidate overlapping
+testing advice and link the guide from the repository map.
+
 ## Improve the harness after demonstrated failures
 
 When an agent or contributor repeatedly misses a constraint, investigate the cause before adding

@@ -56,12 +56,15 @@ project's needs.
 | `docs/design-docs/core-beliefs.md`  | Project-specific engineering principles                                                       |
 | `docs/DOCUMENTATION_CONVENTIONS.md` | Repository-specific document ownership, writing, links, diagrams, and maintenance conventions |
 | `docs/RELIABILITY.md`               | Reliability guarantees, recovery expectations, and acknowledged limits                        |
+| `docs/TESTING.md`                   | Test placement, conventions, validation commands, prerequisites, and evidence limits          |
 | `docs/SECURITY.md`                  | Trust boundaries, capabilities, threats, controls, and limits                                 |
 | `docs/LOGGING.md`                   | Diagnostic ownership, delivery, and safe context, when a dedicated guide helps                |
 | `docs/QUALITY_SCORE.md`             | Current domain/layer quality grades, rationale, and priority improvements                     |
 | `docs/<subsystem>/`                 | Current subsystem explanations when details would overwhelm the overview                      |
 
 Use the [quality guidance](quality.md) when creating or maintaining `QUALITY_SCORE.md`.
+Use the [testing guidance](engineering.md#document-testing-practice) for `TESTING.md` or its existing
+equivalent; a small project's coherent development guide can own the same content.
 
 Keep AGENTS concise enough to orient a new contributor. Commands and component indexes should
 have a clear owner; link to detailed lists when the map becomes unwieldy.
@@ -86,6 +89,7 @@ restating a document title:
 | Backend guidance                     | Changing service contracts, request/job handling, data access, or migrations |
 | Frontend and visual guidance         | Changing UI state, accessibility, components, or presentation                |
 | Logging                              | Changing diagnostics, failures, or recovery                                  |
+| Testing                              | Adding tests, choosing validation commands, or assessing what checks prove   |
 | Quality scorecard                    | Assessing quality or identifying priority improvements                       |
 | Debt tracker                         | Recording or following up on concrete unresolved work                        |
 
@@ -144,7 +148,8 @@ For a fresh workflow, use these status conventions:
 
 - Product specs: `Draft`, `Active`, `Deprecated`. Active specs remain current as features evolve.
 - Design docs: `Draft`, `Accepted`, `Implemented`, `Superseded`. Acceptance records a settled
-  design; implementation records delivered code, independently of merge status.
+  design with material feasibility questions resolved; implementation records delivered code,
+  independently of merge status.
 - Execution plans: `Active`, `Waiting for Review`, `Completed`, `Blocked`, `Superseded`.
   Record the project's close-out/review criterion in the index.
 
@@ -168,6 +173,12 @@ unless repairing a demonstrated inconsistency. Avoid duplicate entries for the s
 
 Populate the plan index's participation and completion guidance from the
 [entrypoint scope rules](../SKILL.md#select-the-requested-work) and [workflow guide](workflow.md).
+In design/plan indexes and documentation conventions, establish that design acceptance requires
+resolved material feasibility questions and that execution plans develop and test the accepted
+solution. Plan creation accepts a Draft design only once it meets those readiness criteria.
+Keep the detailed procedure in the workflow guide, including how unexpected implementation
+findings return dependent work to design. Preserve the workflow's opt-in scope and distinguish
+close-out, merge, and release.
 
 Create missing `DOCUMENTATION_CONVENTIONS.md` guidance from [documentation defaults](documentation.md)
 and the index/date conventions above. Preserve established project conventions that serve those

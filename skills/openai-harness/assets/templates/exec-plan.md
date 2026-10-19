@@ -25,4 +25,5 @@ _Record significant decisions made during planning or execution, with rationale.
 
 ## Progress Log
 
-_Newest entries first. Add a dated note each time meaningful work is done._
+_Newest entries first. Record dated validation results, deviations, findings, blockers, and partial
+progress needed to resume. Reference phase or step numbers; do not repeat the checklist._
