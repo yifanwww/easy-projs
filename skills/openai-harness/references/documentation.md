@@ -66,12 +66,21 @@ and implications for the design. When a finding changes an assumption, rewrite t
 explanation and decisions instead of appending dated corrections or a discovery narrative.
 Preserve significant alternatives and why they were rejected when they help explain the choice.
 
+Keep execution status, implementation progress, validation commands/results, and future
+implementation tests or delivery acceptance procedures out of design docs. This boundary applies
+to prose as well as checklists, including sections called "Validation Approach" or "Test Strategy."
+Design docs may explain why available evidence supports a decision and what its limits are;
+prescribing future delivery verification belongs in execution plans or validation records.
+Design status metadata records the design's acceptance or disposition, not a progress report;
+do not add execution-status commentary when accepting a design or linking a plan.
+
 State relevant facts directly and connect them to the constraints or tradeoffs they create.
 Include supporting source links, relevant versions, assumptions, and unresolved limitations
 where they help assess a decision. Distinguish blocking feasibility questions from pending tests
 of the finished implementation. Resolve the former before acceptance under the
-[design-readiness criteria](workflow.md#design-readiness); describe proposed implementation and
-acceptance checks as work still to do. Execution plans develop and test that settled solution.
+[design-readiness criteria](design-change.md#design-readiness). Keep the resulting feasibility
+evidence and constraints in the design; track implementation and acceptance checks in the execution
+plan. Execution plans develop and test that settled solution.
 Use the [evidence guidance](#evidence-and-maintenance) to
 retain appropriate support without turning the design into an investigation log.
 
