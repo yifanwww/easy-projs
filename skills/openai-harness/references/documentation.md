@@ -23,9 +23,8 @@ Update the owner of a fact in place. Other docs should summarize only what helps
 link to the owner for details. Existing content in the wrong file is a reason to relocate it within
 an authorized documentation repair, not a reason to perpetuate the mismatch.
 
-Apply the [entrypoint scope rules](../SKILL.md#select-the-requested-work) when creating artifacts.
-A requested documentation repair may create current guides when existing destinations cannot
-hold the content coherently.
+Apply the skill's scope rules when creating artifacts. A requested documentation repair may create
+current guides when existing destinations cannot hold the content coherently.
 
 A testing guide such as `docs/TESTING.md` owns current testing practice. Follow the
 [testing guidance](engineering.md#document-testing-practice) when writing or reviewing it. Keep
@@ -51,6 +50,8 @@ affect the system structure.
 
 ## Product behavior and change history
 
+### Product behavior and specification status
+
 Describe product behavior from the user's perspective: what they do, what the product responds
 with, and how they recognize success or recover from failure. Define ambiguous terms. Include
 observable acceptance criteria; move internal contracts and component choices to technical docs.
@@ -58,6 +59,8 @@ observable acceptance criteria; move internal contracts and component choices to
 Separate proposed changes from implemented behavior. An existing Active spec should make planned
 changes explicit until delivered, rather than silently describing an unavailable feature as
 current. A new spec can remain Draft while behavior is unsettled or undelivered.
+
+### Design content and boundaries
 
 Design docs explain the problem, chosen approach, and significant decisions for a particular
 change. Present the current understanding and rationale coherently, whether research happened
@@ -74,20 +77,24 @@ prescribing future delivery verification belongs in execution plans or validatio
 Design status metadata records the design's acceptance or disposition, not a progress report;
 do not add execution-status commentary when accepting a design or linking a plan.
 
-State relevant facts directly and connect them to the constraints or tradeoffs they create.
-Include supporting source links, relevant versions, assumptions, and unresolved limitations
-where they help assess a decision. Distinguish blocking feasibility questions from pending tests
-of the finished implementation. Resolve the former before acceptance under the
-[design-readiness criteria](design-change.md#design-readiness). Keep the resulting feasibility
-evidence and constraints in the design; track implementation and acceptance checks in the execution
-plan. Execution plans develop and test that settled solution.
-Use the [evidence guidance](#evidence-and-maintenance) to
-retain appropriate support without turning the design into an investigation log.
-
 Implementation detail should be sufficient for assessing the design and important tradeoffs;
 exhaustive code dumps and file-by-file patch narratives age quickly. Omit irrelevant sections in
 an instantiated document; reusable templates follow the
 [template-copying rules](setup.md#template-copying).
+
+### Feasibility evidence and readiness
+
+State relevant facts directly and connect them to the constraints or tradeoffs they create.
+Include supporting source links, relevant versions, assumptions, and unresolved limitations
+where they help assess a decision. Distinguish blocking feasibility questions from pending tests
+of the finished implementation. Resolve the former before acceptance under the
+[design-readiness criteria](../workflows/design-change.md#design-readiness). Keep the resulting feasibility
+evidence and constraints in the design; track implementation and acceptance checks in the execution
+plan. Execution plans develop and test that settled solution.
+Use the [evidence guidance](#design-research-and-feasibility-evidence) to
+retain appropriate support without turning the design into an investigation log.
+
+### Historical records and current documentation
 
 Completed design docs and plans preserve history. Maintain current explanations in living docs
 so readers need not reconstruct today's system by reading successive completed changes. Correct
@@ -123,6 +130,8 @@ maintenance as prose.
 
 ## Evidence and maintenance
 
+### Evidence by document type
+
 Verify current claims against source, configuration, tests, or an identified external source.
 State the relevant behavior directly and distinguish requirements, proposals, implemented
 guarantees, and known gaps. Routine verification does not need a narrated inspection history.
@@ -133,9 +142,11 @@ Keep evidence with the claim or decision it supports, using the form appropriate
 | ---------------------------- | ------------------------------------------------------------------------------------------------------ |
 | Current guides               | Supporting links, relevant versions, and concise limitations or assumptions affecting current claims   |
 | Design docs                  | Research-informed background, supporting sources, design constraints and rationale, unresolved limits  |
-| Execution-plan progress logs | Dated validation results, deviations, findings, blockers, and partial progress needed to resume safely |
+| Execution-plan progress logs | Latest phase validation, meaningful fixes, deviations, findings, blockers, and distinct human evidence |
 | Quality scorecards           | Assessment date, concise grade rationale and relevant limits; supporting links when useful             |
 | Validation records           | Date, applicable version/revision, method or commands, results, and limits of what is proven           |
+
+### Execution-plan progress logs
 
 In execution plans, checkboxes record completed work. Progress logs add evidence and context that
 the checklist does not provide: checks performed and their results, deviations, findings, blockers,
@@ -143,9 +154,35 @@ remaining validation, and partial progress needed to resume safely. Reference ph
 instead of restating their descriptions. Omit implementation summaries and next-step reminders
 already apparent from the checklist. Record significant decisions and rationale in Decisions.
 
+Keep one consolidated entry per phase, newest phase first, and update it in place during
+development. Merge related fixes and remove superseded details instead of appending an entry for
+every change. Preserve only information that adds to the checklist and Decisions section. Plan
+creation alone needs no log entry; its date and baseline belong in the plan's metadata.
+
+Keep the latest result of each applicable check within each phase, with the tested revision/worktree,
+commands, outcomes and evidence limits. A rerun supersedes the earlier result of that check, not
+the results of different checks. When a retained result predates later code changes, identify that
+scope and explain why it still applies, or leave the affected validation pending. Remove resolved
+intermediate failure results; retain a concise finding and fix when it explains a meaningful
+deviation or limitation. Finalize the phase's evidence at its delivery boundary before starting
+the next phase; a later phase's results do not replace earlier phases' delivery evidence.
+
+Keep human reports separate from automated results and preserve their actual scope and limits;
+do not infer coverage from checks the user did not enumerate or supply an unreported build identity.
+
 When a passing full suite covers the focused tests on the same final code state, record only the
 full-suite result; omit separate focused-test commands, counts, and passing results. Retain focused
 results only when full validation is incomplete or they provide distinct findings or blockers.
+
+Before handing off the increment, review the entry against these rules. Remove checklist
+narration, redundant focused passes and next-step/status reminders; retain results and findings
+that explain what the evidence establishes and what remains unverified.
+
+Keep writing conventions in repository documentation guidance and skill references. Individual
+plans contain the change's work and evidence; do not insert progress-log maintenance rules into
+them. Templates may contain placeholders, which should be replaced by change-specific content.
+
+### Design research and feasibility evidence
 
 For design docs, express prototype or feasibility findings as the behavior or constraint learned
 and its implications for the proposed approach. Include tested versions, environment, or method
@@ -161,8 +198,14 @@ prose only when time affects the meaning or reliability of a claim.
 Use the [validation-evidence guidance](engineering.md#make-behavior-inspectable) when assessing
 coverage.
 
+### Documentation maintenance
+
 - Prefer small, focused updates. Reuse the appropriate existing document and remove duplicated
   assertions as content is consolidated.
+- Index summaries describe the linked document's purpose and scope. Update them when that
+  description becomes inaccurate or the scope changes. A status change alone does not require
+  rewriting the summary. Keep execution progress, validation results and blockers in the owning
+  document.
 - Follow established heading/status conventions and the user's preferred reference format. In
   design-doc and execution-plan indexes and a plan's **Design Doc** field, plain or backticked paths
   and clickable relative links are equally valid; preserve the existing style when no preference

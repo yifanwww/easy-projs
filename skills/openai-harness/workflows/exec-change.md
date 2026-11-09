@@ -1,8 +1,8 @@
 # Exec change
 
 Execution delivers an agreed design and leaves evidence of what works, what remains and how to
-continue. Use the [shared workflow](workflow.md#determine-scope) to identify the requested stage
-and [documentation guidance](documentation.md) for document responsibilities.
+continue. Use the [shared workflow](../references/workflow.md#determine-scope) to identify the requested stage
+and [documentation guidance](../references/documentation.md) for document responsibilities.
 
 ## Execution scope
 
@@ -56,17 +56,25 @@ decisions and constraints behind the change.
 
 ## Record progress and evidence
 
+### Execution with a plan
+
 With a plan, update its checkboxes, Last Updated date and progress log to reflect actual results.
 Use the checklist for completed work, Decisions for significant choices, and the progress log for
 evidence, deviations, blockers and partial progress needed to resume. Follow the repository's
-template and documentation guidance for the record's format. When a step becomes unnecessary,
-record why and revise the checklist to distinguish it from completed work.
+template, and read the [progress-log guidance](../references/documentation.md#execution-plan-progress-logs)
+before writing or revising phase entries. Apply its consolidation and evidence checks before
+handoff. When a step becomes unnecessary, record why and revise the checklist to distinguish it
+from completed work.
+
+### Execution without a plan
 
 For a small design executed directly without a plan, run the required checks and report results,
 blockers and remaining limits in the response. No repository verification or validation record is
 required; do not add one to the design or create a separate document to replace the omitted plan.
 For other execution without a plan, follow repository conventions for retaining meaningful results
 and blockers in a validation record linked to the change.
+
+### Plan status and readiness
 
 Align a plan's status with what can happen next:
 
@@ -115,8 +123,9 @@ the ongoing change. Do not require a separate execution request just to record t
 1. Match the report to the handed-off checks and the relevant revision/build and environment,
    using existing context. Distinguish passed, failed, skipped and unclear checks. Ask only when
    ambiguity materially affects the next action; do not infer that unmentioned checks passed.
-2. Update the plan's covered checkboxes, Last Updated date and progress log, or the existing
-   validation record when applicable. Attribute evidence to the human report and retain its
+2. Update the plan's covered checkboxes, Last Updated date and existing phase entry in place using
+   the [progress-log guidance](../references/documentation.md#execution-plan-progress-logs), or update
+   the existing validation record when applicable. Attribute evidence to the human report and retain its
    coverage limits. Keep skipped, unclear and failed checks incomplete; reopen affected items
    when a finding invalidates earlier completion evidence.
 3. For failures, record the observed behavior and available reproduction details, address defects
@@ -124,7 +133,7 @@ the ongoing change. Do not require a separate execution request just to record t
    design decisions as needed. Hand off any required human retest with the updated build, actions
    and expected results. Report decisions or capabilities needed when work cannot proceed.
 4. Reassess the remaining requirements and align the plan and index statuses using the
-   [status rules](#record-progress-and-evidence). Continue work already authorized; preserve
+   [status rules](#plan-status-and-readiness). Continue work already authorized; preserve
    required review points and phase boundaries. A passing report completes only the checks it
    covers, not unrelated review or acceptance requirements.
 5. Report the recorded outcome and any remaining work. If only close-out remains, perform

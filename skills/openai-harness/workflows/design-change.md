@@ -1,8 +1,8 @@
 # Design change
 
 A design helps a reviewer understand a proposed change, assess its decisions and judge whether
-the approach is ready to develop. Use the [shared workflow](workflow.md#determine-scope) to identify
-the requested stage and [documentation guidance](documentation.md) for document responsibilities.
+the approach is ready to develop. Use the [shared workflow](../references/workflow.md#determine-scope) to identify
+the requested stage and [documentation guidance](../references/documentation.md) for document responsibilities.
 
 ## Understand the change
 

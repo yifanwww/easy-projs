@@ -14,22 +14,7 @@ Maintain the repository knowledge and working practices that help agents make re
 The repository holds the product truth, architecture, commands, constraints, and decision history.
 This skill provides the procedures for creating and maintaining that knowledge.
 
-## Select the requested work
-
-For change stages, read the [shared workflow rules](references/workflow.md) and the selected stage
-below. Load other stage files only when their procedures or prerequisites are needed.
-
-| User intent                                                                              | Read                                         | Outcome                                                                              |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Set up the harness, fill missing structure, or repair an existing harness                | [Setup](references/setup.md)                 | Repository-specific docs and working guidance                                        |
-| Write, review, reorganize, or correct project documentation                              | [Documentation](references/documentation.md) | Content in the appropriate current document or historical record                     |
-| Assess repository quality, create a quality scorecard, or reassess existing grades       | [Quality](references/quality.md)             | Current grades by product domain and architectural layer, with priority improvements |
-| Assess or improve architectural enforcement, validation feedback, or harness maintenance | [Engineering](references/engineering.md)     | Focused improvements or evidence-backed gaps within the requested scope              |
-| Design change; draft or update a design doc                                              | [Design change](references/design-change.md) | Design artifact and its index                                                        |
-| Plan change; create or update a repository execution plan                                | [Plan change](references/plan-change.md)     | Plan linked to a ready design, with aligned statuses and indexes                     |
-| Exec change; implement or resume a named design or plan                                  | [Exec change](references/exec-change.md)     | Authorized implementation, validation, current-doc updates, and progress             |
-| Close change; close or archive a change                                                  | [Close change](references/close-change.md)   | Verified completion and eligible document archival                                   |
-| Explicitly request a spec or an end-to-end tracked change workflow                       | [Workflow](references/workflow.md)           | Only the requested stages and artifacts                                              |
+## Scope and activation
 
 **The change workflow is opt-in.** Size, risk, multiple files, process boundaries, and the presence
 of old plans do not activate it. A generic request to "plan an approach" can be answered in the
@@ -45,6 +30,23 @@ External-resource reference authoring is also outside this skill's scope.
 
 Respect the requested workflow stages and review points. Planning is optional: execute and close
 a design directly, or create and execute a plan before close-out.
+
+## Select the requested work
+
+For change stages, read the [shared workflow rules](references/workflow.md) and the selected stage
+below. Load other stage files only when their procedures or prerequisites are needed.
+
+| User intent                                                                              | Read                                         | Outcome                                                                              |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Set up the harness, fill missing structure, or repair an existing harness                | [Setup](references/setup.md)                 | Repository-specific docs and working guidance                                        |
+| Write, review, reorganize, or correct project documentation                              | [Documentation](references/documentation.md) | Content in the appropriate current document or historical record                     |
+| Assess repository quality, create a quality scorecard, or reassess existing grades       | [Quality](references/quality.md)             | Current grades by product domain and architectural layer, with priority improvements |
+| Assess or improve architectural enforcement, validation feedback, or harness maintenance | [Engineering](references/engineering.md)     | Focused improvements or evidence-backed gaps within the requested scope              |
+| Design change; draft or update a design doc                                              | [Design change](workflows/design-change.md)  | Design artifact and its index                                                        |
+| Plan change; create or update a repository execution plan                                | [Plan change](workflows/plan-change.md)      | Plan linked to a ready design, with aligned statuses and indexes                     |
+| Exec change; implement or resume a named design or plan                                  | [Exec change](workflows/exec-change.md)      | Authorized implementation, validation, current-doc updates, and progress             |
+| Close change; close or archive a change                                                  | [Close change](workflows/close-change.md)    | Verified completion and eligible document archival                                   |
+| Explicitly request a spec or an end-to-end tracked change workflow                       | [Workflow](references/workflow.md)           | Only the requested stages and artifacts                                              |
 
 ## Shared operating rules
 
@@ -76,6 +78,6 @@ a design directly, or create and execute a plan before close-out.
 Use existing repository templates first. For missing defaults, follow the
 [template-copying procedure](references/setup.md#template-copying) with these bundled assets:
 
-- [Product spec](assets/templates/product-spec.md)
-- [Design doc](assets/templates/design-doc.md)
-- [Execution plan](assets/templates/exec-plan.md)
+- [Product spec](templates/product-spec.md)
+- [Design doc](templates/design-doc.md)
+- [Execution plan](templates/exec-plan.md)

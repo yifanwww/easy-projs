@@ -1,7 +1,7 @@
 # Enforcement, feedback, and maintenance
 
 Use this guide to assess or improve enforcement, feedback, and maintenance during the requested
-harness work. Apply the [entrypoint scope rules](../SKILL.md#select-the-requested-work).
+harness work. Apply the skill's scope rules.
 
 ## Turn principles into useful checks
 

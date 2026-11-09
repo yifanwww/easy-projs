@@ -128,11 +128,11 @@ requires them.
 Keep existing meaningful repository templates. For missing templates, copy the original asset file
 unchanged to the corresponding destination below, or the repository's established equivalent:
 
-| Source relative to this skill      | Default repository destination   |
-| ---------------------------------- | -------------------------------- |
-| `assets/templates/product-spec.md` | `docs/product-specs/template.md` |
-| `assets/templates/design-doc.md`   | `docs/design-docs/template.md`   |
-| `assets/templates/exec-plan.md`    | `docs/exec-plans/template.md`    |
+| Source relative to this skill | Default repository destination   |
+| ----------------------------- | -------------------------------- |
+| `templates/product-spec.md`   | `docs/product-specs/template.md` |
+| `templates/design-doc.md`     | `docs/design-docs/template.md`   |
+| `templates/exec-plan.md`      | `docs/exec-plans/template.md`    |
 
 Use a file-copy operation such as `cp`; do not regenerate, summarize, tailor, or reformat the
 template content. Preserve all headings, examples, placeholders, comments, and whitespace. Verify
@@ -143,6 +143,8 @@ Adapt project-specific content in the documents instantiated from a template. Fo
 placeholder dates and links or omit irrelevant sections while leaving the reusable `template.md`
 unchanged. Apply [workflow guidance](workflow.md) when creating those artifacts. Link checks should
 recognize reusable template placeholders rather than rewriting them into project-specific values.
+
+### Default lifecycle statuses
 
 For a fresh workflow, use these status conventions:
 
@@ -171,14 +173,13 @@ record eligible close-out. Each document owns its status, which must agree with 
 and any Status column. Keep existing index schemas
 unless repairing a demonstrated inconsistency. Avoid duplicate entries for the same artifact.
 
-Populate the plan index's participation and completion guidance from the
-[entrypoint scope rules](../SKILL.md#select-the-requested-work) and [workflow guide](workflow.md).
-In design/plan indexes and documentation conventions, establish that design acceptance requires
-resolved material feasibility questions and that execution plans develop and test the accepted
-solution. Plan creation accepts a Draft design only once it meets those readiness criteria.
-Keep the detailed procedure in the workflow guide, including how unexpected implementation
-findings return dependent work to design. Preserve the workflow's opt-in scope and distinguish
-close-out, merge, and release.
+Populate the plan index's participation and completion guidance from the skill's scope rules and
+[workflow guide](workflow.md). In design/plan indexes and documentation conventions, establish that
+design acceptance requires resolved material feasibility questions and that execution plans develop
+and test the accepted solution. Plan creation accepts a Draft design only once it meets those
+readiness criteria. Keep the detailed procedure in the workflow guide, including how unexpected
+implementation findings return dependent work to design. Preserve the workflow's opt-in scope and
+distinguish close-out, merge, and release.
 
 Create missing `DOCUMENTATION_CONVENTIONS.md` guidance from [documentation defaults](documentation.md)
 and the index/date conventions above. Preserve established project conventions that serve those

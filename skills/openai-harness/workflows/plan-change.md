@@ -1,8 +1,8 @@
 # Plan change
 
 A plan turns an agreed design into work that can be delivered, checked and resumed. Use the
-[shared workflow](workflow.md#determine-scope) to identify the requested stage and
-[documentation guidance](documentation.md) for document responsibilities.
+[shared workflow](../references/workflow.md#determine-scope) to identify the requested stage and
+[documentation guidance](../references/documentation.md) for document responsibilities.
 
 ## Establish the baseline
 
@@ -56,7 +56,9 @@ in the **Design Doc** field. In the default layout, create
 `docs/exec-plans/active/YYYY-MM-DD-<change>.md` as Active and add its index entry.
 
 For a revision, update the existing plan in place. Preserve its creation date, completed work,
-decisions and useful progress history. Adjust remaining steps, dependencies and validation to the
+decisions and useful phase findings and validation. Consolidate progress using the
+[progress-log guidance](../references/documentation.md#execution-plan-progress-logs), rather than retaining every
+intermediate update. Adjust remaining steps, dependencies and validation to the
 requested change and actual progress, and align the status, Last Updated date and index entry.
 
 ## Present the plan for review

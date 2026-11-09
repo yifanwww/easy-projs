@@ -1,8 +1,8 @@
 # Close change
 
 Close-out establishes what was delivered, leaves current knowledge accurate and archives the
-change's decision and execution records. Use the [shared workflow](workflow.md#determine-scope)
-to identify the requested stage and [documentation guidance](documentation.md) for document
+change's decision and execution records. Use the [shared workflow](../references/workflow.md#determine-scope)
+to identify the requested stage and [documentation guidance](../references/documentation.md) for document
 responsibilities.
 
 ## Establish delivery
