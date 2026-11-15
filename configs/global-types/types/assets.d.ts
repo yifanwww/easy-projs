@@ -37,7 +37,6 @@ declare module '*.webp' {
 }
 
 declare module '*.svg' {
-  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
   export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string }>;
 
   const src: string;
@@ -45,7 +44,6 @@ declare module '*.svg' {
 }
 
 declare module '*.module.css' {
-  // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
   const classes: { readonly [key: string]: string };
   export default classes;
 }
