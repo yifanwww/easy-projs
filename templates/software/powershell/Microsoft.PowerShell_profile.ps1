@@ -5,6 +5,6 @@ Import-Module posh-git
 
 oh-my-posh init pwsh --config ~/AppData/Local/Programs/oh-my-posh/themes/yifanwww.omp.json | Invoke-Expression
 
-fnm env --use-on-cd --version-file-strategy=recursive --corepack-enabled --shell power-shell | Out-String | Invoke-Expression
+fnm env --use-on-cd --version-file-strategy=recursive --shell power-shell | Out-String | Invoke-Expression
 
 [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding
