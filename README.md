@@ -78,7 +78,7 @@ by any AI agent tool supporting custom skills.
 
 ## Development
 
-Requires Node.js ≥ 24 and [pnpm](https://pnpm.io).
+Requires Node.js ≥ 26 and [pnpm](https://pnpm.io).
 
 ```sh
 pnpm install            # Install dependencies
