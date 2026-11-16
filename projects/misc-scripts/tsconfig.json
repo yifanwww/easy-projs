@@ -1,9 +1,8 @@
 {
-  "extends": "@easy-config/tsconfigs/tsconfig.node.json",
+  "extends": "@easy-config/tsconfigs/tsconfig.node-native.json",
   "compilerOptions": {
-    "rootDir": "src",
     "types": ["node"]
   },
-  "include": ["src/**/*"],
+  "include": ["scripts/**/*"],
   "exclude": []
 }

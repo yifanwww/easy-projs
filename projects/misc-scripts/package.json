@@ -16,21 +16,17 @@
     "directory": "projects/misc-scripts"
   },
   "scripts": {
-    "build": "tsc --project tsconfig.node.json",
-    "clean": "rimraf --glob coverage dist *.tsbuildinfo",
-    "dev": "tsc --project tsconfig.node.json --watch",
+    "clean": "rimraf --glob coverage",
     "format": "prettier --write \"**/*.{cjs,cts,css,html,js,json,jsx,md,mjs,mts,ts,tsx,yaml,yml}\"",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "typecheck": "tsc --project tsconfig.json --noEmit --incremental false"
   },
   "dependencies": {
-    "@easy-lib/types": "workspace:^",
     "semver": "catalog:"
   },
   "devDependencies": {
     "@easy-config/eslint-config": "workspace:^",
-    "@easy-config/global-types": "workspace:^",
     "@easy-config/tsconfigs": "workspace:^",
     "@types/node": "catalog:",
     "@types/semver": "catalog:",

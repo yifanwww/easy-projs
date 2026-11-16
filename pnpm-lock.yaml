@@ -1254,9 +1254,6 @@ importers:
 
   projects/misc-scripts:
     dependencies:
-      '@easy-lib/types':
-        specifier: workspace:^
-        version: link:../../packages/types
       semver:
         specifier: 'catalog:'
         version: 7.8.5
@@ -1264,9 +1261,6 @@ importers:
       '@easy-config/eslint-config':
         specifier: workspace:^
         version: link:../../configs/eslint-config
-      '@easy-config/global-types':
-        specifier: workspace:^
-        version: link:../../configs/global-types
       '@easy-config/tsconfigs':
         specifier: workspace:^
         version: link:../../configs/tsconfigs
