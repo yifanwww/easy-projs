@@ -19,8 +19,8 @@ Guidelines for creating and managing well-structured GitHub issues via the `gh` 
 
 ## Choose a template
 
-Use a concise title that describes the request or problem, such as `Attach images to a message`
-or `Clicking a notification in Settings does not open the conversation`.
+Use a concise title that describes the request or problem, such as
+`Add a dark mode toggle to the settings page` or `Saved layout resets after restarting the app`.
 
 Use the template that best fits the request. Include only sections that help explain the work.
 Omit optional sections when they add no useful context, and avoid repeating information across
@@ -118,8 +118,8 @@ maintenance.
 ```
 
 For investigations and maintenance, add `## Out of scope`, `## Dependencies`, `## Follow-on`, or
-`## References` only when they clarify the work. Keep implementation planning in a separate
-execution plan.
+`## References` only when they clarify the work. Keep implementation planning out of the issue body;
+link to a plan elsewhere if the user has one.
 
 ## Labels
 
@@ -186,7 +186,7 @@ gh issue edit 123 --add-label "<label-1>,<label-2>"
 gh issue edit 123 --title "Updated title here"
 
 # Add a comment
-gh issue comment 123 --body "Updated the spec — see design doc at docs/design-docs/..."
+gh issue comment 123 --body "Reproduced on the latest release — updating the steps above"
 ```
 
 ## Batch Issue Creation
@@ -205,10 +205,10 @@ Use a short delay between creations to avoid rate limits if creating many issues
 - **One issue = one concern.** Don't bundle unrelated changes into a single issue.
 - **Use checkboxes** (`- [ ]`) for task lists in maintenance issues (e.g. `## Validation` items) —
   GitHub tracks completion percentage. Keep feature requests and bug reports free of acceptance
-  criteria and test plans; those belong in the execution plan.
+  criteria and test plans; those belong with the implementation.
 - **Reference related issues** with `#N` syntax in the body.
-- **Apply `needs-design`** if the issue requires a design doc or spec before coding.
-  The workflow is: `needs-design` → write design doc → remove `needs-design` → implement.
+- **Flag issues that need a decision before coding** with the closest label in the fetched set
+  (some repositories use `needs-design`), and say so when reporting the issue.
 - **Apply `blocked`** with a comment explaining what's blocking it.
 - **Use imperative mood** in titles: "Add X" not "Adding X" or "Added X".
 - **Keep titles scannable** — front-load the key noun/verb so issues are easy to scan in a list.
